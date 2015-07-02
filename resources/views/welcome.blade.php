@@ -105,14 +105,14 @@
                                 <a id="spreadsheet" class="btn btn-lg btn-success btn-block hidden" href="{{ $spreadsheet }}" target="_blank">Ver planilha com inscri&ccedil;&otilde;es</a>
                             </div>
                         </div>
+                        <br>
+                        <br>
+                        <div class="pull-right">
+                            <img src="img/governo-150px-2.png" alt=""/>
+                        </div>
+                        <br>
+                        <br>
                     </form>
-                    <br>
-                    <br>
-                    <div class="pull-right">
-                        <img src="img/governo-150px-2.png" alt=""/>
-                    </div>
-                    <br>
-                    <br>
                 </div>
             </div>
             <!-- mouse -->
