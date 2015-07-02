@@ -52,6 +52,11 @@
                         <i class="fa fa-envelope"></i>&nbsp;&nbsp;&nbsp;&nbsp;
                     </h1>
 
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <img src="img/governo-150px-2.png" alt=""/>
                 </div>
 
                 <div class="col-md-4 col-md-offset-1">
@@ -62,7 +67,7 @@
                         {!! csrf_field() !!}
 
                         <h2>Inscreva-se</h2>
-                        <p>Alunos da rede Municipal e Estadual de Ensino</p>
+                        <p>Alunos da rede Estadual de Ensino</p>
 
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
@@ -100,11 +105,13 @@
                         <div id="success"></div>
                         <div class="row">
                             <div class="form-group col-xs-12">
-                                <button type="submit" class="btn btn-lg btn-primary btn-block">Enviar inscri&ccedil;&atilde;o</button>
+                                <button id="submit" type="submit" class="btn btn-lg btn-primary btn-block">Enviar inscri&ccedil;&atilde;o</button>
+                            </div>
+                            <div class="form-group col-xs-12">
+                                <a id="spreadsheet" class="btn btn-lg btn-success btn-block hidden" href="{{ $spreadsheet }}" target="_blank">Ver planilha com inscri&ccedil;&otilde;es</a>
                             </div>
                         </div>
                     </form>
-
                 </div>
             </div>
             <!-- mouse -->
@@ -124,8 +131,8 @@
         <div class="row">
             <div class="col-xs-12 text-center wow fadeIn">
                 <i class="fa fa-5x fa-h-square"></i><br>
-                <h2 class="heading">Parlamento Juvenil Landing Page is the perfect theme for your next project!</h2>
-                <p class="lead">Parlamento Juvenil easily and efficiently scales your project with one code base, from phones to tablets to desktops.</p>
+                <h2 class="heading">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, pariatur.</h2>
+                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur beatae delectus, distinctio dolor, eligendi ex facere fugit incidunt laborum molestiae odit omnis quasi soluta tempore tenetur velit voluptas. Non, voluptas!</p>
             </div>
         </div>
     </div>
@@ -139,22 +146,22 @@
                 <div class="col-lg-8">
                     <div class="row">
                         <div class="col-sm-6 wow fadeIn" data-wow-delay=".2s">
-                            <h3><i class="fa fa-desktop fa-lg"></i> Fully Responsive</h3>
-                            <p>Parlamento Juvenil easily and efficiently scales your project with one code base, from phones to tablets to desktops</p>
+                            <h3><i class="fa fa-desktop fa-lg"></i> Lorem ipsum.</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus iure quae quia quod, ut voluptate.</p>
                         </div>
                         <div class="col-sm-6 wow fadeIn" data-wow-delay=".6s">
-                            <h3><i class="fa fa-heart fa-lg"></i> Built with Bootstrap3</h3>
-                            <p> Parlamento Juvenil will look beautiful on any device. Serve high-resolution images to devices with retina displays</p>
+                            <h3><i class="fa fa-heart fa-lg"></i> Lorem ipsum dolor.</h3>
+                            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, in omnis! Dolorum, nobis?</p>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-6 wow fadeIn" data-wow-delay=".6s">
-                            <h3><i class="fa fa-rocket fa-lg"></i> Font-Awesome 300+ Icons</h3>
-                            <p> Clean and lightweight code based on bootstrap make it very easy to setup</p>
+                            <h3><i class="fa fa-rocket fa-lg"></i> Lorem ipsum dolor sit.</h3>
+                            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam atque corporis fugiat illo, iure maxime obcaecati odit ratione rem rerum.</p>
                         </div>
                         <div class="col-sm-6 wow fadeIn" data-wow-delay=".8s">
-                            <h3><i class="fa fa-css3 fa-lg"></i> HTML5 & CSS3 Valid</h3>
-                            <p> Parlamento Juvenil easily and efficiently scales your project with one code base, from phones to tablets to desktops</p>
+                            <h3><i class="fa fa-css3 fa-lg"></i> Lorem ipsum dolor sit amet.</h3>
+                            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam consequuntur illum impedit modi natus porro quas quibusdam quidem ratione voluptatibus.</p>
                         </div>
                     </div>
                 </div>
@@ -181,19 +188,19 @@
                 <div class="carousel-inner" role="listbox">
                     <div class="item active">
                         <div class="carousel-caption">
-                            <h2 class="heading">One code base</h2>
-                            <p>Seo Optimized, very lightweight code based on bootstrap. Easy to use and fast loading. Responsive layout, optimized for high conversion. Clean design focused on good readability.</p>
+                            <h2 class="heading">Lorem ipsum dolor.</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores earum, rerum. Ab asperiores, at atque aut delectus, exercitationem illum impedit natus neque nesciunt pariatur possimus rem reprehenderit ut, veniam. Accusamus aperiam atque cumque eum exercitationem libero mollitia pariatur, rem unde voluptatibus! Aperiam beatae fugiat id nostrum praesentium quasi saepe velit.</p>
                         </div>
                     </div>
                     <div class="item">
                         <div class="carousel-caption">
-                            <h1>Fully Responsive</h1>
-                            <p>Seo Optimized, very lightweight code based on bootstrap. Easy to use and fast loading. Responsive layout, optimized for high conversion. Clean design focused on good readability.</p>
+                            <h1>Lorem ipsum.</h1>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad adipisci dicta distinctio doloremque itaque modi pariatur perferendis quis, voluptas. Aliquam aut corporis delectus enim quae quod veniam voluptas voluptatem! Ipsa ipsam laudantium quisquam vero. Corporis cupiditate dolorum possimus repellat suscipit!</p>
                         </div>
                     </div>
                     <div class="item">
                         <div class="carousel-caption">
-                            <h2 class="heading">Why Choose Parlamento Juvenil?</h2>
+                            <h2 class="heading">Lorem ipsum dolor sit.</h2>
                             <p>Seo Optimized, very lightweight code based on bootstrap. Easy to use and fast loading. Responsive layout, optimized for high conversion. Clean design focused on good readability.</p>
                         </div>
                     </div>
@@ -202,7 +209,7 @@
         </div>
         <div class="col-lg-3 col-lg-offset-2 text-center wow fadeIn">
             <br><i class="fa fa-5x fa-h-square"></i><br>
-            <a href="https://wrapbootstrap.com/theme/hybrid-multipurpose-landing-page-WB0N64HDJ" class="btn border-button">DOWNLOAD HYBRID <i class="fa fa-power-off"></i></a>
+            <a href="https://wrapbootstrap.com/theme/hybrid-multipurpose-landing-page-WB0N64HDJ" class="btn border-button">DOWNLOAD LOREM <i class="fa fa-power-off"></i></a>
         </div>
     </div>
 </div>
@@ -212,8 +219,8 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12 text-center wow fadeIn">
-                <h2 class="heading">Our Services</h2>
-                <p class="lead">Parlamento Juvenil will look beautiful on any device. Serve high-resolution images to devices with retina displays</p>
+                <h2 class="heading">Lorem Ipsum</h2>
+                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab deleniti earum fuga reprehenderit.</p>
             </div>
         </div>
     </div>
@@ -224,30 +231,30 @@
         <div class="col-lg-10 col-lg-offset-1">
             <div class="row wow fadeIn" data-wow-delay=".2s">
                 <div class="col-md-4">
-                    <h3><i class="fa fa-desktop fa-lg"></i> Fully Responsive</h3>
-                    <p>Parlamento Juvenil easily and efficiently scales your project with one code base, from phones to tablets to desktops</p>
+                    <h3><i class="fa fa-desktop fa-lg"></i> Lorem ipsum.</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, saepe, velit. A enim impedit, ipsum necessitatibus officia qui quo unde!</p>
                 </div>
                 <div class="col-md-4">
-                    <h3><i class="fa fa-heart fa-lg"></i> Look Beautiful</h3>
-                    <p> Parlamento Juvenil will look beautiful on any device. Serve high-resolution images to devices with retina displays</p>
+                    <h3><i class="fa fa-heart fa-lg"></i> Lorem ipsum.</h3>
+                    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque molestiae obcaecati odit quas, tempora veniam.</p>
                 </div>
                 <div class="col-md-4">
-                    <h3><i class="fa fa-rocket fa-lg"></i> Efficiently Scales</h3>
-                    <p> Clean and lightweight code based on bootstrap make it very easy to setup</p>
+                    <h3><i class="fa fa-rocket fa-lg"></i> Lorem ipsum dolor.</h3>
+                    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, quae, quis. Ab, adipisci corporis id itaque labore nemo quas sequi sunt? Aspernatur eius eligendi minus?</p>
                 </div>
             </div>
             <div class="row wow fadeIn" data-wow-delay=".6s">
                 <div class="col-md-4">
-                    <h3><i class="fa fa-male fa-lg"></i> Lifetime updates</h3>
-                    <p>Designed for Everyone. Let’s give your website a brand</p>
+                    <h3><i class="fa fa-male fa-lg"></i> Lorem ipsum.</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                 </div>
                 <div class="col-md-4">
-                    <h3><i class="fa fa-anchor fa-lg"></i> Easy to Use</h3>
-                    <p> Clean & fully commented code and a stunning documentation make it very easy to setup</p>
+                    <h3><i class="fa fa-anchor fa-lg"></i> Lorem ipsum dolor.</h3>
+                    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt?</p>
                 </div>
                 <div class="col-md-4">
-                    <h3><i class="fa fa-coffee fa-lg"></i> Lightweight code</h3>
-                    <p> We believe our work speaks for itself. Browse our most recent projects below</p>
+                    <h3><i class="fa fa-coffee fa-lg"></i> Lorem.</h3>
+                    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet deserunt dicta eveniet necessitatibus quibusdam voluptatem.</p>
                 </div>
             </div>
         </div>
@@ -259,9 +266,9 @@
     <div class="container-fluid text-vertical text-center">
         <div class="col-sm-10 col-sm-offset-1 wow fadeInDownBig">
             <i class="fa fa-5x fa-h-square"></i><br>
-            <h2 class="heading">It’s time to grow your business. Get it Now!</h2>
-            <p>Designed for Everyone. Let’s give your website a brand.</p>
-            <div class="row"><a href="https://wrapbootstrap.com/theme/hybrid-multipurpose-landing-page-WB0N64HDJ" class="btn border-button">DOWNLOAD HYBRID <i class="fa fa-power-off"></i></a></div>
+            <h2 class="heading">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus illo illum nobis.</p>
+            <div class="row"><a href="https://wrapbootstrap.com/theme/hybrid-multipurpose-landing-page-WB0N64HDJ" class="btn border-button">DOWNLOAD LOREM <i class="fa fa-power-off"></i></a></div>
         </div>
     </div>
 </section>
@@ -271,8 +278,8 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12 text-center wow fadeIn">
-                <h2 class="heading">Case Study</h2>
-                <p class="lead">Parlamento Juvenil will look beautiful on any device. Serve high-resolution images to devices with retina displays</p>
+                <h2 class="heading">Lorem Ipsum</h2>
+                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores dolores esse nesciunt ullam veritatis? Ad, magni, repudiandae?</p>
             </div>
         </div>
     </div>
@@ -286,31 +293,31 @@
                     <div class="col-lg-6">
                         <div class="row">
                             <div class="col-sm-12 wow fadeIn" data-wow-delay=".2s">
-                                <h3><i class="fa fa-desktop fa-lg"></i> Project Title</h3>
-                                <p>Parlamento Juvenil easily and efficiently scales your project with one code base, from phones to tablets to desktops<br>
-                                    Client: <strong><a href="#">Parlamento Juvenil</a></strong>
-                                    Date: <strong>20 April</strong>
-                                    Service: <strong>Web Development</strong>
+                                <h3><i class="fa fa-desktop fa-lg"></i> Lorem Ipsum</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis magni mollitia quaerat, quia quidem tempore veniam!<br>
+                                    Lorem: <strong><a href="#">Lorem Ipsum</a></strong>
+                                    Ipsum: <strong>20 Lorem</strong>
+                                    Amet: <strong>Lorem Ipsum</strong>
                                 </p>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-sm-12 wow fadeIn" data-wow-delay=".6s">
-                                <h3><i class="fa fa-desktop fa-lg"></i> Project 2 Title</h3>
-                                <p>Parlamento Juvenil will look beautiful on any device. Serve high-resolution images to devices with retina displays<br>
-                                    Client: <strong><a href="#">Parlamento Juvenil</a></strong>
-                                    Date: <strong>20 April</strong>
-                                    Service: <strong>Web Development</strong>
+                            <div class="col-sm-12 wow fadeIn" data-wow-delay=".2s">
+                                <h3><i class="fa fa-desktop fa-lg"></i> Lorem Ipsum</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis magni mollitia quaerat, quia quidem tempore veniam!<br>
+                                    Lorem: <strong><a href="#">Lorem Ipsum</a></strong>
+                                    Ipsum: <strong>20 Lorem</strong>
+                                    Amet: <strong>Lorem Ipsum</strong>
                                 </p>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-sm-12 wow fadeIn" data-wow-delay=".8s">
-                                <h3><i class="fa fa-desktop fa-lg"></i> Project 3 Title</h3>
-                                <p>Clean & fully commented code make it very easy to setup<br>
-                                    Client: <strong><a href="#">Parlamento Juvenil</a></strong>
-                                    Date: <strong>20 April</strong>
-                                    Service: <strong>Web Development</strong>
+                            <div class="col-sm-12 wow fadeIn" data-wow-delay=".2s">
+                                <h3><i class="fa fa-desktop fa-lg"></i> Lorem Ipsum</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis magni mollitia quaerat, quia quidem tempore veniam!<br>
+                                    Lorem: <strong><a href="#">Lorem Ipsum</a></strong>
+                                    Ipsum: <strong>20 Lorem</strong>
+                                    Amet: <strong>Lorem Ipsum</strong>
                                 </p>
                             </div>
                         </div>
@@ -330,8 +337,8 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12 text-center wow fadeIn">
-                <h2 class="heading">Our Work</h2>
-                <h3>We believe our work speaks for itself. Browse our most recent projects below</h3>
+                <h2 class="heading">Lorem Ipsum</h2>
+                <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At consequatur nam vitae. Saepe.</h3>
             </div>
         </div>
     </div>
@@ -596,7 +603,7 @@
     <div class="container text-center">
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
-                <h2 class="heading">Testimonials</h2>
+                <h2 class="heading">Lorems</h2>
 
                 <div id="carousel-testimonials" class="carousel slide" data-ride="carousel">
                     <!-- Indicators -->
@@ -611,21 +618,21 @@
                         <div class="item active">
                             <img src="img/avatar1.jpg" alt="">
                             <div class="carousel-caption">
-                                <p>Thank you very much, the theme is great! Very concise and simple.</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, soluta.</p>
                                 <p class="carousel-name">Richard Miles, SomeCompany.com</p>
                             </div>
                         </div>
                         <div class="item">
                             <img src="img/avatar2.jpg" alt="">
                             <div class="carousel-caption">
-                                <p>Adorable minimalist theme! Should be working well as a canvas for any upcoming project.</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet et nisi omnis similique.</p>
                                 <p class="carousel-name">Jonnie Doe, SomeCompany.com</p>
                             </div>
                         </div>
                         <div class="item">
                             <img src="img/avatar3.jpg" alt="">
                             <div class="carousel-caption">
-                                <p>looks like a great theme, full functionality indeed</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
                                 <p class="carousel-name">Jane Roe, SomeCompany.com</p>
                             </div>
                         </div>
@@ -665,9 +672,9 @@
 <div id="contact">
     <div class="container-fluid overlay text-center">
         <div class="col-md-6 col-md-offset-3 wow fadeIn">
-            <h2 class="heading">Contact Us</h2>
-            <h2><i class="fa fa-phone fa-fw"></i>(123) 456-7890</h2>
-            <p>Feel free to contact us to provide some feedback on our templates, give us suggestions for new templates and themes, or to just say hello!</p>
+            <h2 class="heading">Entre Em Contato</h2>
+            <h2><i class="fa fa-phone fa-fw"></i>(21) 2456-7890</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aperiam commodi delectus doloribus ea esse fugit hic inventore laudantium, maiores nam natus numquam, officia quo ratione reiciendis, reprehenderit sequi tempora.</p>
             <ul class="list-inline">
                 <li>
                     <a href="/"><i class="fa fa-twitter fa-2x fa-fw"></i></a>

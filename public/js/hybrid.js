@@ -110,6 +110,8 @@ $(function() {
                         .append('</div>');
                     //clear all fields
                     $('#contactForm').trigger("reset");
+                    $('#submit').hide("slow");
+                    $('#spreadsheet').removeClass("hidden");
                 },
                 error: function(data) {
                     console.log(data);

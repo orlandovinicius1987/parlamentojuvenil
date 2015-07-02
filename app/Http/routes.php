@@ -2,7 +2,11 @@
 
 Route::get('/', function ()
 {
-	return view('welcome');
+	return
+		view('welcome')
+			->with('spreadsheet',
+			       'https://docs.google.com/a/antoniocarlosribeiro.com/spreadsheets/d/1wrR7y4qk2ofj4kPgkhyPVBjwSohh8k1J6drsZ3bGzic/edit?usp=sharing'
+			);
 });
 
 Route::get('dashboard', function ()
@@ -12,18 +16,19 @@ Route::get('dashboard', function ()
 
 Route::post('googleforms', function ()
 {
-	$googleForm = app()->make('PragmaRX\GoogleForms\Client', ['15dAXRn7hdsLhrlDxalvDG6F4ISHQbT4duG2lwl6OAHY']);
+	$googleForm = app()->make('PragmaRX\GoogleForms\Client', ['1EAISVwTNYtzdYKl1MSYdVF7TggUH-C-ExBuZ-rl2pH0']);
 
 	$data = [
-		'entry.386548658' => Input::get('name'),
-		'entry.361290697' => Input::get('city'),
-		'entry.740093423' => Input::get('school'),
-		'entry.1928496279' => Input::get('email'),
-		'entry.494802185' => Input::get('phone'),
+		'entry.2098780884' => Input::get('name'),
+		'entry.1662563875' => Input::get('city'),
+		'entry.236501095' => Input::get('school'),
+		'entry.824983865' => Input::get('email'),
+		'entry.845873546' => Input::get('phone'),
 	];
 
 	return [
-		'success' => $googleForm->post($data)
+		'success' => $googleForm->post($data),
+		'data' => $data
 	];
 });
 
