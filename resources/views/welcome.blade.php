@@ -51,12 +51,6 @@
                         <i class="fa fa-instagram"></i>&nbsp;&nbsp;&nbsp;&nbsp;
                         <i class="fa fa-envelope"></i>&nbsp;&nbsp;&nbsp;&nbsp;
                     </h1>
-
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <img src="img/governo-150px-2.png" alt=""/>
                 </div>
 
                 <div class="col-md-4 col-md-offset-1">
@@ -112,6 +106,13 @@
                             </div>
                         </div>
                     </form>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <div class="pull-right">
+                        <img src="img/governo-150px-2.png" alt=""/>
+                    </div>
                 </div>
             </div>
             <!-- mouse -->
