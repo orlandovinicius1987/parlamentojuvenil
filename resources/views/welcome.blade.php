@@ -108,11 +108,11 @@
                     </form>
                     <br>
                     <br>
-                    <br>
-                    <br>
                     <div class="pull-right">
                         <img src="img/governo-150px-2.png" alt=""/>
                     </div>
+                    <br>
+                    <br>
                 </div>
             </div>
             <!-- mouse -->
