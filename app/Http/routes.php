@@ -1,11 +1,14 @@
 <?php
 
+use App\Services\Dropbox\Service as Dropbox;
+
 Route::get('/', function ()
 {
 	return
 		view('welcome')
-			->with('spreadsheet',
-			       'https://docs.google.com/a/antoniocarlosribeiro.com/spreadsheets/d/1wrR7y4qk2ofj4kPgkhyPVBjwSohh8k1J6drsZ3bGzic/edit?usp=sharing'
+			->with(
+				'spreadsheet',
+				'https://docs.google.com/a/antoniocarlosribeiro.com/spreadsheets/d/1wrR7y4qk2ofj4kPgkhyPVBjwSohh8k1J6drsZ3bGzic/edit?usp=sharing'
 			);
 });
 
@@ -32,11 +35,20 @@ Route::post('googleforms', function ()
 	];
 });
 
-// Authentication routes...
-Route::get('auth/login', 'Auth\AuthController@getLogin');
-Route::post('auth/login', 'Auth\AuthController@postLogin');
-Route::get('auth/logout', 'Auth\AuthController@getLogout');
+Route::get('dropbox', function (Dropbox $dropbox)
+{
+	$links = $dropbox->photos();
 
-// Registration routes...
-Route::get('auth/register', 'Auth\AuthController@getRegister');
-Route::post('auth/register', 'Auth\AuthController@postRegister');
+	dd($links);
+
+	return view('images')->with('links', $links);
+});
+
+Route::get('dropbox/sync', function (Dropbox $dropbox)
+{
+	$links = $dropbox->sync();
+
+	dd($links);
+
+	return view('images')->with('links', $links);
+});

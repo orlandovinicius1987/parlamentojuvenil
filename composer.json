@@ -9,7 +9,8 @@
         "laravel/framework": "5.1.*",
         "guzzlehttp/guzzle": "^6.0",
         "pragmarx/support": "^0.6.1",
-        "pragmarx/googleforms": "dev-master"
+        "pragmarx/googleforms": "dev-master",
+        "graham-campbell/dropbox": "^3.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
