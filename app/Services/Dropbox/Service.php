@@ -3,10 +3,21 @@
 namespace App\Services\Dropbox;
 
 use GrahamCampbell\Dropbox\Facades\Dropbox;
+use Illuminate\Contracts\Filesystem\Filesystem;
 
 class Service
 {
 	private $dropboxFiles = [];
+
+	/**
+	 * @var Filesystem
+	 */
+	private $fileSystem;
+
+	public function __construct(Filesystem $fileSystem)
+	{
+		$this->fileSystem = $fileSystem;
+	}
 
 	public function photos()
 	{
@@ -48,11 +59,20 @@ class Service
 
 	public function sync()
 	{
-		$local = storage_path(env('LOCAL_BASE_DIR') . DIRECTORY_SEPARATOR . $this->getBaseDir());
+		foreach ($this->getAllFilesFromDropbox(DIRECTORY_SEPARATOR . $this->getBaseDir()) as $path)
+		{
+			foreach ($path['contents'] as $content)
+			{
+				$this->mkLocalDirectory($content);
 
-		$dropbox = $this->getAllFilesFromDropbox(DIRECTORY_SEPARATOR . $this->getBaseDir());
+				if ( ! $content['is_dir'])
+				{
+					$this->syncFile($content);
+				}
+			}
+		}
 
-		dd($dropbox);
+		dd($this->dropboxFiles);
 	}
 
 	public function getBaseDir()
@@ -85,6 +105,36 @@ class Service
 			return null;
 		}
 
-		dd($this->dropboxFiles);
+		return $this->dropboxFiles;
+	}
+
+	private function mkLocalDirectory($content)
+	{
+		if($content['is_dir'])
+		{
+			$this->fileSystem->makeDirectory($this->getLocalPath($content['path']), 755, true);
+		}
+	}
+
+	private function getLocalPath($path)
+	{
+		return DIRECTORY_SEPARATOR . $path;
+	}
+
+	private function syncFile($file)
+	{
+		$link = $this->getDropboxFileLink($file);
+
+		$contents = file_get_contents($link);
+
+		if ( ! $this->fileSystem->exists($file['path']))
+		{
+			$this->fileSystem->put($this->getLocalPath($file['path']), $contents);
+		}
+	}
+
+	private function getDropboxFileLink($content)
+	{
+		return Dropbox::createTemporaryDirectLink($content['path'])[0];
 	}
 }
