@@ -9,9 +9,6 @@ class Service
 {
 	private $dropboxFiles = [];
 
-	/**
-	 * @var Filesystem
-	 */
 	private $fileSystem;
 
 	public function __construct(Filesystem $fileSystem)
@@ -71,8 +68,6 @@ class Service
 				}
 			}
 		}
-
-		dd($this->dropboxFiles);
 	}
 
 	public function getBaseDir()
@@ -123,12 +118,12 @@ class Service
 
 	private function syncFile($file)
 	{
-		$link = $this->getDropboxFileLink($file);
-
-		$contents = file_get_contents($link);
-
 		if ( ! $this->fileSystem->exists($file['path']))
 		{
+			$link = $this->getDropboxFileLink($file);
+
+			$contents = file_get_contents($link);
+
 			$this->fileSystem->put($this->getLocalPath($file['path']), $contents);
 		}
 	}

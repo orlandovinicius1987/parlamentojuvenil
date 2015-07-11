@@ -46,9 +46,7 @@ Route::get('dropbox', function (Dropbox $dropbox)
 
 Route::get('dropbox/sync', function (Dropbox $dropbox)
 {
-	$links = $dropbox->sync();
+	$dropbox->sync();
 
-	dd($links);
-
-	return view('images')->with('links', $links);
+	return ['success' => true];
 });
