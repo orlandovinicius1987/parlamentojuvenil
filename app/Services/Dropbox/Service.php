@@ -3,6 +3,8 @@
 namespace App\Services\Dropbox;
 
 use Artisan;
+use League\Flysystem\Plugin\ListFiles;
+use Rhumsaa\Uuid\Uuid;
 use GrahamCampbell\Dropbox\Facades\Dropbox;
 use Illuminate\Contracts\Filesystem\Filesystem;
 use App\Services\Dropbox\Data\Entities\Dropbox as DropboxModel;
@@ -13,11 +15,13 @@ class Service
 
 	private $fileSystem;
 
+	private $uuid;
+
 	public function __construct(Filesystem $fileSystem)
 	{
 		$this->fileSystem = $fileSystem;
 
-		$this->migrate();
+		$this->initialize();
 	}
 
 	public function photos()
@@ -72,6 +76,8 @@ class Service
 				}
 			}
 		}
+
+		$this->deleteMissingFiles();
 	}
 
 	public function getBaseDir()
@@ -109,7 +115,7 @@ class Service
 
 	private function mkLocalDirectory($content)
 	{
-		if($content['is_dir'])
+		if ($content['is_dir'])
 		{
 			$this->fileSystem->makeDirectory($this->getLocalPath($content['path']), 755, true);
 		}
@@ -129,9 +135,9 @@ class Service
 			$contents = file_get_contents($link);
 
 			$this->fileSystem->put($this->getLocalPath($file['path']), $contents);
-
-			$this->updateRevision($file);
 		}
+
+		$this->updateRevision($file);
 	}
 
 	private function getDropboxFileLink($content)
@@ -139,14 +145,15 @@ class Service
 		return Dropbox::createTemporaryDirectLink($content['path'])[0];
 	}
 
-	private function migrate()
+	private function initialize()
 	{
-		if ( ! file_exists(env('DB_PATH')))
-		{
-			file_put_contents(env('DB_PATH'), '');
-		}
+		$this->configureFlysystem();
 
-		Artisan::call('migrate');
+		$this->makeUuid();
+
+		$this->createDatabase();
+
+		$this->migrate();
 	}
 
 	private function isNewRevision($file)
@@ -167,11 +174,64 @@ class Service
 
 		$model->revision = $file['revision'];
 
+		$model->uuid = $this->uuid;
+
 		$model->save();
 	}
 
 	private function findDropboxModel($file)
 	{
 		return DropboxModel::where('file', $file['path'])->first();
+	}
+
+	private function makeUuid()
+	{
+		$this->uuid = (string) Uuid::uuid4();
+	}
+
+	private function createDatabase()
+	{
+		if (!file_exists(env('DB_PATH')))
+		{
+			file_put_contents(env('DB_PATH'), '');
+		}
+	}
+
+	private function migrate()
+	{
+		Artisan::call('migrate');
+	}
+
+	private function deleteMissingFiles()
+	{
+		$missing = DropboxModel::where('uuid', '!=', $this->uuid)->get();
+
+		foreach($missing as $file)
+		{
+			if ($this->fileSystem->exists($file->file))
+			{
+				$this->fileSystem->delete($file->file);
+			}
+
+			$file->delete();
+		}
+
+		foreach($this->listLocalFiles() as $file)
+		{
+			if ( ! $this->findDropboxModel($file['path']))
+			{
+				$this->fileSystem->delete($file['path']);
+			}
+		}
+	}
+
+	private function listLocalFiles()
+	{
+		return $this->fileSystem->listFiles($this->getBaseDir(), true);
+	}
+
+	private function configureFlysystem()
+	{
+		$this->fileSystem->addPlugin(new ListFiles());
 	}
 }

@@ -10,7 +10,8 @@
         "guzzlehttp/guzzle": "^6.0",
         "pragmarx/support": "^0.6.1",
         "pragmarx/googleforms": "dev-master",
-        "graham-campbell/dropbox": "^3.0"
+        "graham-campbell/dropbox": "^3.0",
+        "ramsey/uuid": "^2.8"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

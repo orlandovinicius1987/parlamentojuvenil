@@ -13,8 +13,10 @@ class CreateDropboxTable extends Migration
     public function up()
     {
         Schema::create('dropbox', function (Blueprint $table) {
-            $table->string('file')->index();
+	        $table->increments('id');
+	        $table->string('file')->index();
             $table->string('revision')->index();
+	        $table->string('uuid')->index();
             $table->timestamps();
         });
     }
