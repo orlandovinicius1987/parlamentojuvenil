@@ -2,8 +2,10 @@
 
 namespace App\Services\Dropbox;
 
+use Artisan;
 use GrahamCampbell\Dropbox\Facades\Dropbox;
 use Illuminate\Contracts\Filesystem\Filesystem;
+use App\Services\Dropbox\Data\Entities\Dropbox as DropboxModel;
 
 class Service
 {
@@ -14,6 +16,8 @@ class Service
 	public function __construct(Filesystem $fileSystem)
 	{
 		$this->fileSystem = $fileSystem;
+
+		$this->migrate();
 	}
 
 	public function photos()
@@ -118,18 +122,56 @@ class Service
 
 	private function syncFile($file)
 	{
-		if ( ! $this->fileSystem->exists($file['path']))
+		if ( ! $this->fileSystem->exists($file['path']) || $this->isNewRevision($file))
 		{
 			$link = $this->getDropboxFileLink($file);
 
 			$contents = file_get_contents($link);
 
 			$this->fileSystem->put($this->getLocalPath($file['path']), $contents);
+
+			$this->updateRevision($file);
 		}
 	}
 
 	private function getDropboxFileLink($content)
 	{
 		return Dropbox::createTemporaryDirectLink($content['path'])[0];
+	}
+
+	private function migrate()
+	{
+		if ( ! file_exists(env('DB_PATH')))
+		{
+			file_put_contents(env('DB_PATH'), '');
+		}
+
+		Artisan::call('migrate');
+	}
+
+	private function isNewRevision($file)
+	{
+		$model = $this->findDropboxModel($file);
+
+		return $model ? (string) $model->revision != (string) $file['revision'] : true;
+	}
+
+	private function updateRevision($file)
+	{
+		if ( ! $model = $this->findDropboxModel($file))
+		{
+			$model = new DropboxModel();
+
+			$model->file = $file['path'];
+		}
+
+		$model->revision = $file['revision'];
+
+		$model->save();
+	}
+
+	private function findDropboxModel($file)
+	{
+		return DropboxModel::where('file', $file['path'])->first();
 	}
 }
