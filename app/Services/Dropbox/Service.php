@@ -3,23 +3,22 @@
 namespace App\Services\Dropbox;
 
 use Artisan;
-use League\Flysystem\Plugin\ListFiles;
 use Rhumsaa\Uuid\Uuid;
 use GrahamCampbell\Dropbox\Facades\Dropbox;
-use Illuminate\Contracts\Filesystem\Filesystem;
+use App\Services\Filesystem\Service as Filesystem;
 use App\Services\Dropbox\Data\Entities\Dropbox as DropboxModel;
 
 class Service
 {
 	private $dropboxFiles = [];
 
-	private $fileSystem;
+	private $filesystem;
 
 	private $uuid;
 
-	public function __construct(Filesystem $fileSystem)
+	public function __construct(Filesystem $filesystem)
 	{
-		$this->fileSystem = $fileSystem;
+		$this->filesystem = $filesystem;
 
 		$this->initialize();
 	}
@@ -64,7 +63,7 @@ class Service
 
 	public function sync()
 	{
-		foreach ($this->getAllFilesFromDropbox(DIRECTORY_SEPARATOR . $this->getBaseDir()) as $path)
+		foreach ($this->getAllFilesFromDropbox(DIRECTORY_SEPARATOR . $this->filesystem->getBaseDir()) as $path)
 		{
 			foreach ($path['contents'] as $content)
 			{
@@ -80,14 +79,9 @@ class Service
 		$this->deleteMissingFiles();
 	}
 
-	public function getBaseDir()
-	{
-		return env('BASE_DIR');
-	}
-
 	public function getPhotosDir()
 	{
-		return $this->getBaseDir() . DIRECTORY_SEPARATOR . env('PHOTOS_DIR');
+		return $this->filesystem->getBaseDir() . DIRECTORY_SEPARATOR . env('PHOTOS_DIR');
 	}
 
 	private function getAllFilesFromDropbox($directory)
@@ -117,7 +111,7 @@ class Service
 	{
 		if ($content['is_dir'])
 		{
-			$this->fileSystem->makeDirectory($this->getLocalPath($content['path']), 755, true);
+			$this->filesystem->makeDirectory($this->getLocalPath($content['path']), 755, true);
 		}
 	}
 
@@ -128,13 +122,13 @@ class Service
 
 	private function syncFile($file)
 	{
-		if ( ! $this->fileSystem->exists($file['path']) || $this->isNewRevision($file))
+		if ( ! $this->filesystem->exists($file['path']) || $this->isNewRevision($file))
 		{
 			$link = $this->getDropboxFileLink($file);
 
 			$contents = file_get_contents($link);
 
-			$this->fileSystem->put($this->getLocalPath($file['path']), $contents);
+			$this->filesystem->put($this->getLocalPath($file['path']), $contents);
 		}
 
 		$this->updateRevision($file);
@@ -147,8 +141,6 @@ class Service
 
 	private function initialize()
 	{
-		$this->configureFlysystem();
-
 		$this->makeUuid();
 
 		$this->createDatabase();
@@ -181,7 +173,11 @@ class Service
 
 	private function findDropboxModel($file)
 	{
-		return DropboxModel::where('file', $file['path'])->first();
+		$file = $file['path'];
+
+		$file = ! starts_with($file, DIRECTORY_SEPARATOR) ? DIRECTORY_SEPARATOR . $file : $file;
+
+		return DropboxModel::where('file', $file)->first();
 	}
 
 	private function makeUuid()
@@ -208,9 +204,9 @@ class Service
 
 		foreach($missing as $file)
 		{
-			if ($this->fileSystem->exists($file->file))
+			if ($this->filesystem->exists($file->file))
 			{
-				$this->fileSystem->delete($file->file);
+				$this->filesystem->delete($file->file);
 			}
 
 			$file->delete();
@@ -218,20 +214,16 @@ class Service
 
 		foreach($this->listLocalFiles() as $file)
 		{
-			if ( ! $this->findDropboxModel($file['path']))
+			if ( ! $this->findDropboxModel($file))
 			{
-				$this->fileSystem->delete($file['path']);
+				$this->filesystem->delete($file['path']);
 			}
 		}
 	}
 
 	private function listLocalFiles()
 	{
-		return $this->fileSystem->listFiles($this->getBaseDir(), true);
+		return $this->filesystem->listFiles($this->filesystem->getBaseDir(), true);
 	}
 
-	private function configureFlysystem()
-	{
-		$this->fileSystem->addPlugin(new ListFiles());
-	}
 }

@@ -40,7 +40,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-5 col-md-offset-1">
-                    <img src="img/logoAlerj.png" alt="ALERJ"/> <br/>
+                    <img src="files/apps/parlamentojuvenil/site/logoalerj.png" alt="ALERJ"/> <br/>
                     <h1>Parlamento Juvenil <label class="label label-danger label-small">2015</label></h1>
                     <h2><i class="fa fa-calendar"></i> 22 a 28 de Novembro</h2>
                     <p>Participe, torne-se um parlamentar!</p>
@@ -61,7 +61,7 @@
                         {!! csrf_field() !!}
 
                         <h2>Inscreva-se</h2>
-                        <p>Alunos da rede Estadual de Ensino</p>
+                        <p>Alunos da Rede Estadual de Ensino</p>
 
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
@@ -108,7 +108,7 @@
                         <br>
                         <br>
                         <div class="pull-right">
-                            <img src="img/governo-150px-2.png" alt=""/>
+                            <img src="files/apps/parlamentojuvenil/site/logogoverno.png" alt=""/>
                         </div>
                         <br>
                         <br>
@@ -170,7 +170,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4 hidden-sm img-about-greed text-center wow slideInRight"  data-wow-duration="2s">
-                    <img src="img/laptop.png" alt="">
+                    <img src="files/apps/parlamentojuvenil/site/app1.png" alt="">
                 </div>
             </div>
         </div>
@@ -327,7 +327,7 @@
                         </div>
                     </div>
                     <div class="col-lg-5 col-lg-offset-1 hidden-sm img-case-study-greed text-center wow fadeInRight">
-                        <img src="img/res2.png" alt="">
+                        <img src="files/apps/parlamentojuvenil/site/app2.png" alt="">
                     </div>
 
                 </div>
@@ -348,94 +348,7 @@
     </div>
 </section>
 
-<div class="portfolio">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-6 col-md-3 portfolio-item no-pad">
-                <a data-target="#portfolioModal1" class="portfolio-link" data-toggle="modal">
-                    <div class="caption">
-                        <div class="caption-content">
-                            <i class="fa fa-youtube-square fa-4x"></i>
-                        </div>
-                    </div>
-                    <img src="img/3.jpg" class="img-responsive" alt="">
-                </a>
-            </div>
-            <div class="col-sm-6 col-md-3 portfolio-item no-pad">
-                <a data-target="#portfolioModal2" class="portfolio-link" data-toggle="modal">
-                    <div class="caption">
-                        <div class="caption-content">
-                            <i class="fa fa-vimeo-square fa-4x"></i>
-                        </div>
-                    </div>
-                    <img src="img/1.jpg" class="img-responsive" alt="">
-                </a>
-            </div>
-            <div class="col-sm-6 col-md-3 portfolio-item no-pad">
-                <a data-target="#portfolioModal3" class="portfolio-link" data-toggle="modal">
-                    <div class="caption">
-                        <div class="caption-content">
-                            <i class="fa fa-picture-o fa-4x"></i>
-                        </div>
-                    </div>
-                    <img src="img/5.jpg" class="img-responsive" alt="">
-                </a>
-            </div>
-            <div class="col-sm-6 col-md-3 portfolio-item no-pad">
-                <a data-target="#portfolioModal4" class="portfolio-link" data-toggle="modal">
-                    <div class="caption">
-                        <div class="caption-content">
-                            <i class="fa fa-picture-o fa-3x"></i>
-                        </div>
-                    </div>
-                    <img src="img/8.jpg" class="img-responsive" alt="">
-                </a>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-6 col-md-3 portfolio-item no-pad">
-                <a data-target="#portfolioModal5" class="portfolio-link" data-toggle="modal">
-                    <div class="caption">
-                        <div class="caption-content">
-                            <i class="fa fa-picture-o fa-3x"></i>
-                        </div>
-                    </div>
-                    <img src="img/7.jpg" class="img-responsive" alt="">
-                </a>
-            </div>
-            <div class="col-sm-6 col-md-3 portfolio-item no-pad">
-                <a data-target="#portfolioModal6" class="portfolio-link" data-toggle="modal">
-                    <div class="caption">
-                        <div class="caption-content">
-                            <i class="fa fa-picture-o fa-3x"></i>
-                        </div>
-                    </div>
-                    <img src="img/6.jpg" class="img-responsive" alt="">
-                </a>
-            </div>
-            <div class="col-sm-6 col-md-3 portfolio-item no-pad">
-                <a data-target="#portfolioModal7" class="portfolio-link" data-toggle="modal">
-                    <div class="caption">
-                        <div class="caption-content">
-                            Caption Text
-                        </div>
-                    </div>
-                    <img src="img/2.jpg" class="img-responsive" alt="">
-                </a>
-            </div>
-            <div class="col-sm-6 col-md-3 portfolio-item no-pad">
-                <a data-target="#portfolioModal8" class="portfolio-link" data-toggle="modal">
-                    <div class="caption">
-                        <div class="caption-content">
-                            <i class="fa fa-picture-o fa-3x"></i>
-                        </div>
-                    </div>
-                    <img src="img/4.jpg" class="img-responsive" alt="">
-                </a>
-            </div>
-        </div>
-    </div>
-</div>
+@include('partials/portfolio')
 
 <!-- Portfolio Modals -->
 <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
@@ -615,31 +528,15 @@
                         <li data-target="#carousel-testimonials" data-slide-to="0" class="active"></li>
                         <li data-target="#carousel-testimonials" data-slide-to="1"></li>
                         <li data-target="#carousel-testimonials" data-slide-to="2"></li>
+                        <li data-target="#carousel-testimonials" data-slide-to="3"></li>
+                        <li data-target="#carousel-testimonials" data-slide-to="4"></li>
+                        <li data-target="#carousel-testimonials" data-slide-to="5"></li>
+                        <li data-target="#carousel-testimonials" data-slide-to="6"></li>
                     </ol>
 
                     <!-- Wrapper for slides -->
                     <div class="carousel-inner" role="listbox">
-                        <div class="item active">
-                            <img src="img/avatar1.jpg" alt="">
-                            <div class="carousel-caption">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, soluta.</p>
-                                <p class="carousel-name">Richard Miles, SomeCompany.com</p>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <img src="img/avatar2.jpg" alt="">
-                            <div class="carousel-caption">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet et nisi omnis similique.</p>
-                                <p class="carousel-name">Jonnie Doe, SomeCompany.com</p>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <img src="img/avatar3.jpg" alt="">
-                            <div class="carousel-caption">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-                                <p class="carousel-name">Jane Roe, SomeCompany.com</p>
-                            </div>
-                        </div>
+                        @include('partials/carousel')
                     </div>
                 </div>
 
@@ -653,19 +550,19 @@
     <div class="container-fluid">
         <div class="row sponsor text-center wow fadeInLeftBig">
             <div class="col-md-2 gray col-md-offset-1">
-                <a href="/"><img src="img/logo1.png" alt=""></a>
+                <a href="/"><img src="files/apps/parlamentojuvenil/site/logo1.png" alt=""></a>
             </div>
             <div class="col-md-2 gray">
-                <a href="/"><img src="img/logo2.png" alt=""></a>
+                <a href="/"><img src="files/apps/parlamentojuvenil/site/logo2.png" alt=""></a>
             </div>
             <div class="col-md-2 gray">
-                <a href="/"><img src="img/logo3.png" alt=""></a>
+                <a href="/"><img src="files/apps/parlamentojuvenil/site/logo3.png" alt=""></a>
             </div>
             <div class="col-md-2 gray">
-                <a href="/"><img src="img/logo4.png" alt=""></a>
+                <a href="/"><img src="files/apps/parlamentojuvenil/site/logo4.png" alt=""></a>
             </div>
             <div class="col-md-2 gray">
-                <a href="/"><img src="img/logo5.png" alt=""></a>
+                <a href="/"><img src="files/apps/parlamentojuvenil/site/logo5.png" alt=""></a>
             </div>
 
         </div>

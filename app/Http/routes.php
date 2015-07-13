@@ -2,15 +2,7 @@
 
 use App\Services\Dropbox\Service as Dropbox;
 
-Route::get('/', function ()
-{
-	return
-		view('welcome')
-			->with(
-				'spreadsheet',
-				'https://docs.google.com/a/antoniocarlosribeiro.com/spreadsheets/d/1wrR7y4qk2ofj4kPgkhyPVBjwSohh8k1J6drsZ3bGzic/edit?usp=sharing'
-			);
-});
+Route::get('/', ['as' => 'home', 'uses' => 'Home@index']);
 
 Route::get('dashboard', function ()
 {
