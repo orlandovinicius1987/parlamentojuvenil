@@ -3,6 +3,7 @@
 namespace App\Services\Dropbox;
 
 use Artisan;
+use Request;
 use Rhumsaa\Uuid\Uuid;
 use GrahamCampbell\Dropbox\Facades\Dropbox;
 use App\Services\Filesystem\Service as Filesystem;
@@ -63,6 +64,11 @@ class Service
 
 	public function sync()
 	{
+		if ($challenge = Request::get('challenge'))
+		{
+			return $challenge;
+		}
+
 		foreach ($this->getAllFilesFromDropbox(DIRECTORY_SEPARATOR . $this->filesystem->getBaseDir()) as $path)
 		{
 			foreach ($path['contents'] as $content)
@@ -77,6 +83,8 @@ class Service
 		}
 
 		$this->deleteMissingFiles();
+
+		return ['success' => true];
 	}
 
 	public function getPhotosDir()

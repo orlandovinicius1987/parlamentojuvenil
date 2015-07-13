@@ -38,7 +38,5 @@ Route::get('dropbox', function (Dropbox $dropbox)
 
 Route::get('dropbox/sync', function (Dropbox $dropbox)
 {
-	$dropbox->sync();
-
-	return ['success' => true];
+	return $dropbox->sync();
 });
