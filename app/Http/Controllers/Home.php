@@ -22,7 +22,7 @@ class Home extends BaseController
 	public function index()
 	{
 		return
-			view('welcome')
+			view('home')
 				->with('spreadsheet', $this->spreadsheet)
 				->with('congressmen', $this->getCongressmenLinks());
 	}

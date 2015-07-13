@@ -4,11 +4,6 @@ use App\Services\Dropbox\Service as Dropbox;
 
 Route::get('/', ['as' => 'home', 'uses' => 'Home@index']);
 
-Route::get('dashboard', function ()
-{
-	return view('dashboard');
-});
-
 Route::post('googleforms', function ()
 {
 	$googleForm = app()->make('PragmaRX\GoogleForms\Client', ['1EAISVwTNYtzdYKl1MSYdVF7TggUH-C-ExBuZ-rl2pH0']);
