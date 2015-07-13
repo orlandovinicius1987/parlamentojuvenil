@@ -72,6 +72,8 @@ class Service
 			return $challenge;
 		}
 
+		Log::info('Dropbox sync...');
+
 		foreach ($this->getAllFilesFromDropbox(DIRECTORY_SEPARATOR . $this->filesystem->getBaseDir()) as $path)
 		{
 			foreach ($path['contents'] as $content)
