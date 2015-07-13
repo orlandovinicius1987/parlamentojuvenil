@@ -89,6 +89,8 @@ class Service
 
 		$this->deleteMissingFiles();
 
+		Log::info('Dropbox sync finished.');
+
 		return ['success' => true];
 	}
 
