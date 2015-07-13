@@ -2,6 +2,7 @@
 
 namespace App\Services\Dropbox;
 
+use Log;
 use Artisan;
 use Request;
 use Rhumsaa\Uuid\Uuid;
@@ -66,6 +67,8 @@ class Service
 	{
 		if ($challenge = Request::get('challenge'))
 		{
+			Log::info('Dropbox challenge: ' . $challenge);
+
 			return $challenge;
 		}
 
