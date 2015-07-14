@@ -1,5 +1,7 @@
 <?php
 
+use App\Data\Entities\City;
+use App\Data\Entities\State;
 use App\Services\Dropbox\Service as Dropbox;
 
 Route::get('/', ['as' => 'home', 'uses' => 'Home@index']);
@@ -34,4 +36,9 @@ Route::get('dropbox', function (Dropbox $dropbox)
 Route::any('dropbox/sync', function (Dropbox $dropbox)
 {
 	return $dropbox->sync();
+});
+
+Route::any('cities', function (Dropbox $dropbox)
+{
+	return State::where('code', 'RJ')->first()->cities()->orderBy('name')->get();
 });

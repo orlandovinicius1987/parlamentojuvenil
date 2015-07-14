@@ -57,65 +57,8 @@
                     <!-- Contact Form - Enter your email address on line 17 of the mail/contact_me.php file to make this form work. -->
                     <!-- WARNING: Some web hosts do not allow emails to be sent through forms to common mail hosts like Gmail or Yahoo. It's recommended that you use a private domain email address! -->
                     <!-- NOTE: To use the contact form, your site must be on a live web host with PHP! The form will not work locally! -->
-                    <form method="POST" action="/post/formResponse">
-                        {!! csrf_field() !!}
 
-                        <h2>Inscreva-se</h2>
-                        <p>Alunos da Rede Estadual de Ensino</p>
-
-                        <div class="row control-group">
-                            <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <label for="name" class="sr-only control-label">Nome</label>
-                                <input type="text" class="form-control input-lg" placeholder="Nome Completo" name="name" id="name" required data-validation-required-message="Por favor digite seu nome.">
-                                <span class="help-block text-danger"></span>
-                            </div>
-                        </div>
-                        <div class="row control-group">
-                            <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <label for="name" class="sr-only control-label">Munic&iacute;pio</label>
-                                <input type="text" class="form-control input-lg" placeholder="Munic&iacute;pio" name="city" id="city" required data-validation-required-message="Por favor digite seu nome.">
-                                <span class="help-block text-danger"></span>
-                            </div>
-                        </div>
-                        <div class="row control-group">
-                            <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <label for="name" class="sr-only control-label">Escola</label>
-                                <input type="text" class="form-control input-lg" placeholder="Escola" name="school" id="school" required data-validation-required-message="Por favor digite seu nome.">
-                                <span class="help-block text-danger"></span>
-                            </div>
-                        </div>
-                        <div class="row control-group">
-                            <div class="form-group col-lg-6 floating-label-form-group controls no-pad-right">
-                                <label for="email" class="sr-only control-label">Email</label>
-                                <input type="email" class="form-control input-lg" placeholder="Email" name="email" id="email" required data-validation-required-message="Por favor digite seu e-mail.">
-                                <span class="help-block text-danger"></span>
-                            </div>
-                            <div class="form-group col-lg-6 floating-label-form-group controls">
-                                <label for="phone" class="sr-only control-label">Seu Telefone</label>
-                                <input type="tel" class="form-control input-lg" placeholder="Telefone" name="phone" id="phone" required data-validation-required-message="Por favor digite seu telefone.">
-                                <span class="help-block text-danger"></span>
-                            </div>
-                        </div>
-                        <div id="success"></div>
-                        <div class="row">
-                            <div class="form-group col-xs-12">
-                                <button id="submit" type="submit" class="btn btn-lg btn-primary btn-block">Enviar inscri&ccedil;&atilde;o</button>
-                            </div>
-                            <div class="form-group col-xs-12">
-                                <a id="spreadsheet" class="btn btn-lg btn-success btn-block hidden" href="{{ $spreadsheet }}" target="_blank">Ver planilha com inscri&ccedil;&otilde;es</a>
-                            </div>
-                        </div>
-                        <br>
-                        <br>
-                        <div class="pull-right">
-                            <img src="files/apps/parlamentojuvenil/site/logogoverno.png" alt=""/>
-                        </div>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-
-                    </form>
+                    @include('partials.subscript')
                 </div>
             </div>
             <!-- mouse -->
@@ -349,7 +292,7 @@
     </div>
 </section>
 
-@include('partials/portfolio')
+@include('partials.portfolio')
 
 <!-- Portfolio Modals -->
 <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
@@ -537,7 +480,7 @@
 
                     <!-- Wrapper for slides -->
                     <div class="carousel-inner" role="listbox">
-                        @include('partials/carousel')
+                        @include('partials.carousel')
                     </div>
                 </div>
 

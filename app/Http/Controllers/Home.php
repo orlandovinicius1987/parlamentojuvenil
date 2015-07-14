@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Data\Entities\State;
 use App\Services\Filesystem\Service as Filesystem;
 use App\Http\Controllers\Controller as BaseController;
 
@@ -24,11 +25,17 @@ class Home extends BaseController
 		return
 			view('home')
 				->with('spreadsheet', $this->spreadsheet)
-				->with('congressmen', $this->getCongressmenLinks());
+				->with('congressmen', $this->getCongressmenLinks())
+				->with('cities', $this->getCities());
 	}
 
 	private function getCongressmenLinks()
 	{
 		return $this->filesystem->allLinks(env('PHOTOS_DIR'));
+	}
+
+	private function getCities()
+	{
+		return State::where('code', 'RJ')->first()->cities()->orderBy('name')->get();
 	}
 }
