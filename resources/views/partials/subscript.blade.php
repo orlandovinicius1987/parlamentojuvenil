@@ -38,8 +38,8 @@
         <div class="form-group col-lg-6 floating-label-form-group controls">
             <label for="gender" class="sr-only control-label">Sexo</label>
             <select class="form-control input-lg" placeholder="Sexo" name="gender" id="phone" required data-validation-required-message="Por favor preencha o sexo.">
-                <option>Feminino</option>
-                <option>Masculino</option>
+                <option value="F">Feminino</option>
+                <option value="M">Masculino</option>
             </select>
             <span class="help-block text-danger"></span>
         </div>
