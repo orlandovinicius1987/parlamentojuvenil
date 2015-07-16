@@ -26,7 +26,8 @@ class Home extends BaseController
 			view('home')
 				->with('spreadsheet', $this->spreadsheet)
 				->with('congressmen', $this->getCongressmenLinks())
-				->with('cities', $this->getCities());
+				->with('cities', $this->getCities())
+				->with('newspapers', $this->getNewspapersLinks());
 	}
 
 	private function getCongressmenLinks()
@@ -37,5 +38,30 @@ class Home extends BaseController
 	private function getCities()
 	{
 		return State::where('code', 'RJ')->first()->cities()->orderBy('name')->get();
+	}
+
+	private function getNewspapersLinks()
+	{
+		$files = $this->filesystem->allLinks(env('NEWSPAPERS_DIR'));
+		$links = [];
+
+		foreach ($files as $key => $file)
+		{
+			$parts = pathinfo($file);
+
+			if ($parts['extension'] == 'pdf')
+			{
+				$name = explode('_', $parts['filename']);
+
+				$links[] = [
+					'year' => $name[0],
+					'name' => $name[1] . ' ' . $name[2],
+					'pdf' => $parts['dirname'] . '/' . $parts['filename'] . '.pdf',
+					'jpg' => $parts['dirname'] . '/' . $parts['filename'] . '.jpg',
+				];
+			}
+		}
+
+		return $links;
 	}
 }

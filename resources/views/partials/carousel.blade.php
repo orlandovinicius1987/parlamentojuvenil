@@ -4,8 +4,8 @@
     <div class="item {{ $active }}">
         <img src="{{ $link }}" alt="">
         <div class="carousel-caption">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet et nisi omnis similique.</p>
-            <p class="carousel-name">Jonnie Doe, SomeCompany.com</p>
+            <p>"O Parlamento Juvenil mudou a minha vida"</p>
+            <p class="carousel-name">João da Silva, Magé, Parlamentar Juvenil na 6a Edição</p>
         </div>
     </div>
     <?php $active = ''; ?>
