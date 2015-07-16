@@ -1,6 +1,7 @@
 {
   "name": "Adolpho Konder",
   "dependencies": {
-    "startbootstrap-sb-admin-2": "~1.0.7"
+    "vue": "~0.12.7",
+    "vue-resource": "~0.1.10"
   }
 }
