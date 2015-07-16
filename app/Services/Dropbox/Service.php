@@ -63,16 +63,26 @@ class Service
 		Dropbox::createFolder($this->videosDir);
 	}
 
-	public function sync()
+	public function sync($command)
 	{
 		if ($challenge = Request::get('challenge'))
 		{
-			Log::info('Dropbox challenge: ' . $challenge);
+			Log::info($message = 'Dropbox challenge: ' . $challenge);
+
+			if ($command)
+			{
+				$command->comment($message);
+			}
 
 			return $challenge;
 		}
 
-		Log::info('Dropbox sync...');
+		Log::info($message = 'Dropbox sync...');
+
+		if ($command)
+		{
+			$command->comment($message);
+		}
 
 		foreach ($this->getAllFilesFromDropbox(DIRECTORY_SEPARATOR . $this->filesystem->getBaseDir()) as $path)
 		{
@@ -89,7 +99,12 @@ class Service
 
 		$this->deleteMissingFiles();
 
-		Log::info('Dropbox sync finished.');
+		Log::info($message = 'Dropbox sync finished.');
+
+		if ($command)
+		{
+			$command->comment($message);
+		}
 
 		return ['success' => true];
 	}
