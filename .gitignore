@@ -3,3 +3,6 @@
 Homestead.yaml
 .env
 public/files/apps/parlamentojuvenil/
+.idea/
+*~
+Thumbs.db
