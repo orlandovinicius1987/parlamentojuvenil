@@ -5,12 +5,13 @@ namespace App\Services\Dropbox;
 use Log;
 use Artisan;
 use Request;
+use App\Base\Sync;
 use Rhumsaa\Uuid\Uuid;
 use GrahamCampbell\Dropbox\Facades\Dropbox;
 use App\Services\Filesystem\Service as Filesystem;
 use App\Services\Dropbox\Data\Entities\Dropbox as DropboxModel;
 
-class Service
+class Service extends Sync
 {
 	private $dropboxFiles = [];
 
@@ -67,22 +68,12 @@ class Service
 	{
 		if ($challenge = Request::get('challenge'))
 		{
-			Log::info($message = 'Dropbox challenge: ' . $challenge);
-
-			if ($command)
-			{
-				$command->comment($message);
-			}
+			$this->log('Dropbox challenge: ' . $challenge, $command);
 
 			return $challenge;
 		}
 
-		Log::info($message = 'Dropbox sync...');
-
-		if ($command)
-		{
-			$command->comment($message);
-		}
+		$this->log('Dropbox sync...', $command);
 
 		foreach ($this->getAllFilesFromDropbox(DIRECTORY_SEPARATOR . $this->filesystem->getBaseDir()) as $path)
 		{
@@ -99,12 +90,7 @@ class Service
 
 		$this->deleteMissingFiles();
 
-		Log::info($message = 'Dropbox sync finished.');
-
-		if ($command)
-		{
-			$command->comment($message);
-		}
+		$this->log('Dropbox sync finished.', $command);
 
 		return ['success' => true];
 	}
@@ -255,5 +241,4 @@ class Service
 	{
 		return $this->filesystem->listFiles($this->filesystem->getBaseDir(), true);
 	}
-
 }

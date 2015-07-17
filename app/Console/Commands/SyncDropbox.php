@@ -5,21 +5,21 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 use App\Services\Dropbox\Service as Dropbox;
 
-class Sync extends Command
+class SyncDropbox extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'dropbox:sync';
+    protected $signature = 'sync:dropbox';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Display an inspiring quote';
+    protected $description = 'Sync Dropbox files';
 
     /**
      * Execute the console command.

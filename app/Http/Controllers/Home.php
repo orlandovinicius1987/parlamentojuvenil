@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Data\Entities\Article;
 use App\Data\Entities\State;
 use App\Services\Filesystem\Service as Filesystem;
 use App\Http\Controllers\Controller as BaseController;
+use Carbon\Carbon;
 
 class Home extends BaseController
 {
@@ -26,13 +28,18 @@ class Home extends BaseController
 			view('home')
 				->with('spreadsheet', $this->spreadsheet)
 				->with('congressmen', $this->getCongressmenLinks())
+				->with('carrousel', $this->getCongressmenLinks()[8])
 				->with('cities', $this->getCities())
-				->with('newspapers', $this->getNewspapersLinks());
+				->with('newspapers', $this->getNewspapersLinks())
+				->with('articles', $this->getArticles());
 	}
 
 	private function getCongressmenLinks()
 	{
-		return $this->filesystem->allLinks(env('PHOTOS_DIR'));
+		return [
+			7 => $this->filesystem->allLinks(env('PHOTOS_DIR').DIRECTORY_SEPARATOR.'7ª edição (2013)'),
+		    8 => $this->filesystem->allLinks(env('PHOTOS_DIR').DIRECTORY_SEPARATOR.'8ª edição (2014)'),
+		];
 	}
 
 	private function getCities()
@@ -63,5 +70,21 @@ class Home extends BaseController
 		}
 
 		return $links;
+	}
+
+	private function getArticles()
+	{
+		$articles = Article::orderBy('published_at', 'descending')->get();
+
+		foreach ($articles as $article)
+		{
+			if ($article->image)
+			{
+				$article->image = env('ARTICLE_IMAGE_URL_BASE').DIRECTORY_SEPARATOR.$article->image;
+				$article->date = Carbon::createFromFormat('Y-m-d', $article->date)->format('d m Y');
+			}
+		}
+
+		return $articles;
 	}
 }

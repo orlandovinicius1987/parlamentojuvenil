@@ -46,5 +46,5 @@ Route::any('cities', function (Dropbox $dropbox)
 
 Route::any('schools/{city}', function ($city)
 {
-	return School::where('city', strtoupper($city))->orderBy('name')->get();
+	return School::where('city', '~*', strtoupper($city))->orderBy('name')->get();
 });

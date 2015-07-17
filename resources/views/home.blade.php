@@ -79,70 +79,50 @@
         </div>
     </header>
 
-    <!-- about -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12 text-center wow fadeIn">
-                    <img src="files/apps/parlamentojuvenil/site/logoparlamento.jpg" alt="">
+    @include('partials.about')
 
-                    <h3 class="heading">Sobre o Parlamento Juvenil</h3>
-                </div>
-            </div>
-        </div>
-    </section>
+    @include('partials.news')
 
-    <!-- The icons use Font Awesome's stacked icon classes. For more information, visit http://fontawesome.io/examples/ -->
-    <section class="about-grid">
-        <div class="container-fluid wow fadeIn">
-            <div class="col-lg-10 col-lg-offset-1">
-                <div class="row">
-                    <p style="text-align: center;">Criado em 1998 e instalado em 2003, o Parlamento Juvenil é um projeto da Assembleia Legislativa do Estado do Rio de Janeiro (ALERJ) em parceria com a Secretaria de Estado de Educação (SEEDUC) e a Secretaria de Estado de Esporte, Lazer e Juventude (SEELJE), e envolve as escolas estaduais dos 92 municípios do Estado do Rio. O objetivo é aproximar o jovem da política, com intenção apartidária e totalmente autônoma. O projeto segue os mesmos moldes de um parlamento convencional, com direito à escolha da Mesa Diretora, Regimento Interno e votação em plenário. Durante uma semana, os estudantes passam a ter as mesmas atribuições de um deputado estadual e discutem e aprimoram projetos de lei de sua própria autoria. Nos últimos quatro anos, 252 parlamentares juvenis foram eleitos em suas cidades para participar do projeto no Palácio Tiradentes. Podem participar todos os estudantes selecionados nas cerca de 1.300 escolas da rede pública, a partir dos 14 anos, quantas vezes quiser, desde que não ultrapassem os 18 anos na data da inscrição. Os deputados juvenis são escolhidos pelo voto direto dos próprios colegas de escola, em dois turnos de votação. A capacitação dos eleitos acontece entre os meses de setembro e outubro, sob a orientação de uma coordenação geral da Alerj. O projeto, de autoria do deputado Jorge Picciani (PMDB), presidente da Alerj, chega a sua 9ª edição em 2015. </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- call-to-action -->
-    <div class="call-to-action">
-        <div class="container-fluid">
-            <div class="col-lg-5 col-lg-offset-1">
-                <div id="carousel-call-to-action" class="carousel slide" data-ride="carousel">
-                    <!-- Indicators -->
-                    <ol class="carousel-indicators">
-                        <li data-target="#carousel-call-to-action" data-slide-to="0" class="active"></li>
-                        <li data-target="#carousel-call-to-action" data-slide-to="1"></li>
-                        <li data-target="#carousel-call-to-action" data-slide-to="2"></li>
-                    </ol>
-                    <!-- Wrapper for slides -->
-                    <div class="carousel-inner" role="listbox">
-                        <div class="item active">
-                            <div class="carousel-caption">
-                                <h2 class="heading">Lorem ipsum dolor.</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores earum, rerum. Ab asperiores, at atque aut delectus, exercitationem illum impedit natus neque nesciunt pariatur possimus rem reprehenderit ut, veniam. Accusamus aperiam atque cumque eum exercitationem libero mollitia pariatur, rem unde voluptatibus! Aperiam beatae fugiat id nostrum praesentium quasi saepe velit.</p>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="carousel-caption">
-                                <h1>Lorem ipsum.</h1>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad adipisci dicta distinctio doloremque itaque modi pariatur perferendis quis, voluptas. Aliquam aut corporis delectus enim quae quod veniam voluptas voluptatem! Ipsa ipsam laudantium quisquam vero. Corporis cupiditate dolorum possimus repellat suscipit!</p>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="carousel-caption">
-                                <h2 class="heading">Lorem ipsum dolor sit.</h2>
-                                <p>Seo Optimized, very lightweight code based on bootstrap. Easy to use and fast loading. Responsive layout, optimized for high conversion. Clean design focused on good readability.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-lg-offset-2 text-center wow fadeIn">
-                <br><i class="fa fa-5x fa-h-square"></i><br>
-                <a href="https://wrapbootstrap.com/theme/hybrid-multipurpose-landing-page-WB0N64HDJ" class="btn border-button">DOWNLOAD LOREM <i class="fa fa-power-off"></i></a>
-            </div>
-        </div>
-    </div>
+    {{--<!-- call-to-action -->--}}
+    {{--<div class="call-to-action">--}}
+        {{--<div class="container-fluid">--}}
+            {{--<div class="col-lg-5 col-lg-offset-1">--}}
+                {{--<div id="carousel-call-to-action" class="carousel slide" data-ride="carousel">--}}
+                    {{--<!-- Indicators -->--}}
+                    {{--<ol class="carousel-indicators">--}}
+                        {{--<li data-target="#carousel-call-to-action" data-slide-to="0" class="active"></li>--}}
+                        {{--<li data-target="#carousel-call-to-action" data-slide-to="1"></li>--}}
+                        {{--<li data-target="#carousel-call-to-action" data-slide-to="2"></li>--}}
+                    {{--</ol>--}}
+                    {{--<!-- Wrapper for slides -->--}}
+                    {{--<div class="carousel-inner" role="listbox">--}}
+                        {{--<div class="item active">--}}
+                            {{--<div class="carousel-caption">--}}
+                                {{--<h2 class="heading">Lorem ipsum dolor.</h2>--}}
+                                {{--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores earum, rerum. Ab asperiores, at atque aut delectus, exercitationem illum impedit natus neque nesciunt pariatur possimus rem reprehenderit ut, veniam. Accusamus aperiam atque cumque eum exercitationem libero mollitia pariatur, rem unde voluptatibus! Aperiam beatae fugiat id nostrum praesentium quasi saepe velit.</p>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                        {{--<div class="item">--}}
+                            {{--<div class="carousel-caption">--}}
+                                {{--<h1>Lorem ipsum.</h1>--}}
+                                {{--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad adipisci dicta distinctio doloremque itaque modi pariatur perferendis quis, voluptas. Aliquam aut corporis delectus enim quae quod veniam voluptas voluptatem! Ipsa ipsam laudantium quisquam vero. Corporis cupiditate dolorum possimus repellat suscipit!</p>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                        {{--<div class="item">--}}
+                            {{--<div class="carousel-caption">--}}
+                                {{--<h2 class="heading">Lorem ipsum dolor sit.</h2>--}}
+                                {{--<p>Seo Optimized, very lightweight code based on bootstrap. Easy to use and fast loading. Responsive layout, optimized for high conversion. Clean design focused on good readability.</p>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+            {{--</div>--}}
+            {{--<div class="col-lg-3 col-lg-offset-2 text-center wow fadeIn">--}}
+                {{--<br><i class="fa fa-5x fa-h-square"></i><br>--}}
+                {{--<a href="https://wrapbootstrap.com/theme/hybrid-multipurpose-landing-page-WB0N64HDJ" class="btn border-button">DOWNLOAD LOREM <i class="fa fa-power-off"></i></a>--}}
+            {{--</div>--}}
+        {{--</div>--}}
+    {{--</div>--}}
 
     @include('partials.newspapers')
 
@@ -217,42 +197,9 @@
         </div>
     </section>
 
-    <!-- Portfolio Grid Section -->
-    <section id="portfolio" class="head">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12 text-center wow fadeIn">
-                    <h2 class="heading">Lorem Ipsum</h2>
-                    <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At consequatur nam vitae. Saepe.</h3>
-                </div>
-            </div>
-        </div>
-    </section>
+    @include('partials.portfolio', ['edition' => 7])
 
-    @include('partials.portfolio')
-
-    <!-- Portfolio Modals -->
-    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <i class="fa fa-times fa-3x fa-fw"></i>
-            </div>
-            <div class="modal-body">
-                <h2>Project Title</h2>
-                <hr>
-                <div class="embed-responsive embed-responsive-16by9">
-                    <iframe src="https://player.vimeo.com/video/59642733" allowfullscreen></iframe>
-                </div>
-                <p>Parlamento Juvenil is a multipurpose, responsive, one page html (bootstrap) theme, will look beautiful on any device. Parlamento Juvenil easily and efficiently scales your project with one code base, from phones to tablets to desktops.</p>
-                <ul class="list-inline item-details">
-                    <li>Client: <strong><a href="#">Parlamento Juvenil</a></strong></li>
-                    <li>Date: <strong><a href="#">April 2015</a></strong></li>
-                    <li>Service: <strong><a href="#">Web Development</a></strong></li>
-                </ul>
-                <button type="button" class="border-button-black" data-dismiss="modal">CLOSE</button>
-            </div>
-        </div>
-    </div>
+    @include('partials.portfolio', ['edition' => 8])
 
     <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-content">
@@ -396,33 +343,7 @@
         </div>
     </div>
 
-    <!-- testimonials -->
-    <section id="testimonials">
-        <div class="container text-center">
-            <div class="row">
-                <div class="col-md-10 col-md-offset-1">
-                    <div id="carousel-testimonials" class="carousel slide" data-ride="carousel">
-                        <!-- Indicators -->
-                        <ol class="carousel-indicators">
-                            <li data-target="#carousel-testimonials" data-slide-to="0" class="active"></li>
-                            <li data-target="#carousel-testimonials" data-slide-to="1"></li>
-                            <li data-target="#carousel-testimonials" data-slide-to="2"></li>
-                            <li data-target="#carousel-testimonials" data-slide-to="3"></li>
-                            <li data-target="#carousel-testimonials" data-slide-to="4"></li>
-                            <li data-target="#carousel-testimonials" data-slide-to="5"></li>
-                            <li data-target="#carousel-testimonials" data-slide-to="6"></li>
-                        </ol>
-
-                        <!-- Wrapper for slides -->
-                        <div class="carousel-inner" role="listbox">
-                            @include('partials.carousel')
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </section>
+    @include('partials.carousel')
 
     <!-- sponsors -->
     <div id="sponsor">

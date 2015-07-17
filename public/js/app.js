@@ -23,7 +23,7 @@ var subscribe = new Vue({
 
                 this.$http.get('/schools/' + this.city, function(schools) {
                     schools.forEach(newSchool);
-                })
+                });
             }
         }
     }
@@ -34,7 +34,6 @@ Vue.transition('stagger', {
         return Math.min(300, index * 50)
     }
 });
-
 
 function newSchool(element, index, array)
 {

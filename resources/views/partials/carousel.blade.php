@@ -1,15 +1,41 @@
-<?php $active = 'active'; ?>
+<!-- testimonials -->
+<section id="testimonials">
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <div id="carousel-testimonials" class="carousel slide" data-ride="carousel">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#carousel-testimonials" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel-testimonials" data-slide-to="1"></li>
+                        <li data-target="#carousel-testimonials" data-slide-to="2"></li>
+                        <li data-target="#carousel-testimonials" data-slide-to="3"></li>
+                        <li data-target="#carousel-testimonials" data-slide-to="4"></li>
+                        <li data-target="#carousel-testimonials" data-slide-to="5"></li>
+                        <li data-target="#carousel-testimonials" data-slide-to="6"></li>
+                    </ol>
 
-@foreach ($congressmen as $link)
-    <div class="item {{ $active }}">
-        <img src="{{ $link }}" alt="">
-        <div class="carousel-caption">
-            <p>"O Parlamento Juvenil mudou a minha vida"</p>
-            <p class="carousel-name">João da Silva, Magé, Parlamentar Juvenil na 6a Edição</p>
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner" role="listbox">
+                        <?php $active = 'active'; ?>
+
+                        @foreach ($carrousel as $link)
+                            <div class="item {{ $active }}">
+                                <img src="{{ $link }}" alt="">
+                                <div class="carousel-caption">
+                                    <p>"O Parlamento Juvenil mudou a minha vida"</p>
+                                    <p class="carousel-name">João da Silva, Magé, Parlamentar Juvenil na 6a Edição</p>
+                                </div>
+                            </div>
+                            <?php $active = ''; ?>
+                        @endforeach
+                    </div>
+                </div>
+
+            </div>
         </div>
     </div>
-    <?php $active = ''; ?>
-@endforeach
+</section>
 
 
 {{--<div class="item active">--}}

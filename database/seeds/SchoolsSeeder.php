@@ -35,21 +35,21 @@ class SchoolsSeeder extends Seeder
 			$parts = explode("\t", $school);
 
 			School::create([
-				'censo' => $parts[0],
-				'ua' => $parts[1],
-				'name' => $parts[2],
-				'address' => $parts[3],
-				'phone' => $parts[4],
-				'city' => $parts[5],
-				'city_id' => $this->findCityByName($parts[5])->id,
-				'regional' => $parts[6],
+				'regional' => $parts[1],
+				'city' => $parts[2],
+				'city_id' => $this->findCityByName($parts[2])->id,
+				'censo' => $parts[3],
+				'name' => $parts[4],
+				'address' => '', // $parts[3],
+				'phone' => '', //$parts[4],
+				'ua' => '', //$parts[1],
 			]);
 		}
 	}
 
 	private function loadSchools()
 	{
-		$schools = file(__DIR__.DIRECTORY_SEPARATOR.'schools.txt');
+		$schools = file(__DIR__.DIRECTORY_SEPARATOR.'schools.tsv');
 
 		unset($schools[0]);
 
@@ -58,6 +58,11 @@ class SchoolsSeeder extends Seeder
 
 	private function findCityByName($city)
 	{
-		return City::where('name', '~*', $city)->first();
+		if ( ! $found = City::where('name', '~*', $city)->first())
+		{
+			dd($city);
+		}
+
+		return $found;
 	}
 }
