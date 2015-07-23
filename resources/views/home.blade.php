@@ -376,7 +376,7 @@
         <div class="container-fluid overlay text-center">
             <div class="col-md-6 col-md-offset-3 wow fadeIn">
                 <h2 class="heading">Entre Em Contato</h2>
-                <h2><i class="fa fa-phone fa-fw"></i>(21) 2456-7890</h2>
+                <h2><i class="fa fa-phone fa-fw"></i>(21) 2588-1480 / 2588-1536 / 2588-1202</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aperiam commodi delectus doloribus ea esse fugit hic inventore laudantium, maiores nam natus numquam, officia quo ratione reiciendis, reprehenderit sequi tempora.</p>
                 <ul class="list-inline">
                     <li>
