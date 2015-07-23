@@ -40,7 +40,9 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-5 col-md-offset-1">
-                        <img src="files/apps/parlamentojuvenil/site/logoalerj.png" alt="ALERJ"/> <br/>
+                        <img src="files/apps/parlamentojuvenil/site/logoalerj.png" alt="ALERJ" />
+                        <br/><br/>
+
                         <h1>Parlamento Juvenil <label class="label label-danger label-small">2015</label></h1>
                         <h2><i class="fa fa-calendar"></i> 22 a 28 de Novembro</h2>
                         <p>Participe, torne-se um parlamentar!</p>
@@ -61,9 +63,9 @@
 
                         <br>
                         <br>
-                        <div class="pull-right">
-                            <img src="files/apps/parlamentojuvenil/site/logogoverno.png" alt=""/>
-                        </div>
+                        {{--<div class="pull-right">--}}
+                            {{--<img src="files/apps/parlamentojuvenil/site/logogoverno.png" alt=""/>--}}
+                        {{--</div>--}}
                         <br>
                         <br>
                         <br>
