@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Data\Entities\Article;
+use Carbon\Carbon;
 use App\Data\Entities\State;
+use App\Data\Entities\Article;
 use App\Services\Filesystem\Service as Filesystem;
 use App\Http\Controllers\Controller as BaseController;
-use Carbon\Carbon;
 
 class Home extends BaseController
 {
