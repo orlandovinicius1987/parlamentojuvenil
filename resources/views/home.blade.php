@@ -48,10 +48,7 @@
                         <p>Participe, torne-se um parlamentar!</p>
 
                         <h1>
-                            <i class="fa fa-facebook"></i>&nbsp;&nbsp;&nbsp;&nbsp;
-                            <i class="fa fa-twitter"></i>&nbsp;&nbsp;&nbsp;&nbsp;
-                            <i class="fa fa-instagram"></i>&nbsp;&nbsp;&nbsp;&nbsp;
-                            <i class="fa fa-envelope"></i>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="https://www.facebook.com/parlamentojuvenilrio"><i class="fa fa-facebook"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
                         </h1>
                     </div>
 
@@ -380,16 +377,7 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aperiam commodi delectus doloribus ea esse fugit hic inventore laudantium, maiores nam natus numquam, officia quo ratione reiciendis, reprehenderit sequi tempora.</p>
                 <ul class="list-inline">
                     <li>
-                        <a href="/"><i class="fa fa-twitter fa-2x fa-fw"></i></a>
-                    </li>
-                    <li>
-                        <a href="/"><i class="fa fa-facebook fa-2x  fa-fw"></i></a>
-                    </li>
-                    <li>
-                        <a href="/"><i class="fa fa-youtube fa-2x  fa-fw"></i></a>
-                    </li>
-                    <li>
-                        <a href="/"><i class="fa fa-envelope-o fa-2x  fa-fw"></i></a>
+                        <a href="https://www.facebook.com/parlamentojuvenilrio"><i class="fa fa-facebook fa-2x  fa-fw"></i></a>
                     </li>
                 </ul>
             </div>
