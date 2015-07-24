@@ -3,9 +3,7 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12 text-center wow fadeIn">
-                <img src="files/apps/parlamentojuvenil/site/logoparlamento.jpg" alt="">
-
-                <h3 class="heading">Sobre o Parlamento Juvenil</h3>
+                <img src="files/apps/parlamentojuvenil/site/logoparlamento.svg" height="150px" alt="">
             </div>
         </div>
     </div>

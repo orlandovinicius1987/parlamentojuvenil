@@ -40,16 +40,16 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-5 col-md-offset-1">
-                        <img src="files/apps/parlamentojuvenil/site/logoalerj.png" alt="ALERJ" />
-                        <br/><br/>
+                        <img src="files/apps/parlamentojuvenil/site/logoalerj.svg" height="80px" alt="ALERJ" />
+                        <br/><br/><br/>
 
-                        <h1>Parlamento Juvenil <label class="label label-danger label-small">2015</label></h1>
+
+                        <img src="files/apps/parlamentojuvenil/site/parlamentojuvenil9.png" alt="">
+
                         <h2><i class="fa fa-calendar"></i> 22 a 28 de Novembro</h2>
                         <p>Participe, torne-se um parlamentar!</p>
 
-                        <h1>
-                            <a href="https://www.facebook.com/parlamentojuvenilrio"><i class="fa fa-facebook"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
-                        </h1>
+                        <a href="https://www.facebook.com/parlamentojuvenilrio"><img src="files/apps/parlamentojuvenil/site/facebooklike.svg" height="35px" alt=""></a>&nbsp;&nbsp;&nbsp;&nbsp;
                     </div>
 
                     <div class="col-md-4 col-md-offset-1">
@@ -58,15 +58,10 @@
 
                         @include('partials.subscribe')
 
-                        <br>
-                        <br>
-                        {{--<div class="pull-right">--}}
-                            {{--<img src="files/apps/parlamentojuvenil/site/logogoverno.png" alt=""/>--}}
-                        {{--</div>--}}
-                        <br>
-                        <br>
-                        <br>
-                        <br>
+                        <p class="pull-right">
+                            <br>
+                            <img src="files/apps/parlamentojuvenil/site/logogoverno.svg" height="50px" alt=""/>
+                        </p>
                     </div>
                 </div>
                 <!-- mouse -->

@@ -3,8 +3,7 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12 text-center wow fadeIn">
-                <h2 class="heading">Reportagens</h2>
-                <p class="lead">Veja o que mídia falou sobre Parlamento Juvenil nas edições anteriores.</p>
+                <h6 class="heading-2">Veja o que mídia falou sobre Parlamento Juvenil nas edições anteriores.</h6>
             </div>
         </div>
     </div>
