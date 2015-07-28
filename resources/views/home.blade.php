@@ -382,9 +382,26 @@
 
 @section('javascript')
     <script>
+        var options7 = {
+            loop: true,
+            autoplay: true,
+            autoplayTimeout: 1500,
+            autoplayHoverPause: true
+        };
+
+        options8 = JSON.parse(JSON.stringify(options7));
+
+        options7.items = 5;
+        options8.items = 8;
+
+        console.log(options7);
+        console.log(options8);
+
         jQuery(document).ready(function()
         {
-            jQuery("#carousel-7a").owlCarousel();
+            jQuery("#parlamentares-7a").owlCarousel(options7);
+
+            jQuery("#parlamentares-8a").owlCarousel(options8);
         });
     </script>
 @stop
