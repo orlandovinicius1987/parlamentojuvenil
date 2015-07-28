@@ -3,6 +3,6 @@
   "dependencies": {
     "vue": "~0.12.7",
     "vue-resource": "~0.1.10",
-    "jssor": "*"
+    "owl.carousel": "~2.0.0-beta.3"
   }
 }

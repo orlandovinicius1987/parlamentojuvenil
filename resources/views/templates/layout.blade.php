@@ -42,6 +42,9 @@
         <!-- jQuery -->
         <script src="js/jquery.min.js"></script>
 
+        <!-- jssor -->
+        <script type="text/javascript" src="vendor/jssor/js/jssor.slider.mini.js"></script>
+
         <!-- Custom Theme JavaScripts -->
         <script src="vendor/vue/dist/vue.min.js"></script>
         <script src="vendor/vue-resource/dist/vue-resource.min.js"></script>
@@ -57,5 +60,7 @@
         <script src="js/hybrid.js"></script>
 
         <script src="js/app.js"></script>
+
+        @yield('javascript')
     </body>
 </html>
