@@ -394,15 +394,34 @@
         options7.items = 5;
         options8.items = 8;
 
-        console.log(options7);
-        console.log(options8);
-
         jQuery(document).ready(function()
         {
-            jQuery("#parlamentares-7a").owlCarousel(options7);
+            var owl7 = jQuery("#parlamentares-7a");
+            var owl8 = jQuery("#parlamentares-8a");
 
-            jQuery("#parlamentares-8a").owlCarousel(options8);
+            owl7.owlCarousel(options7);
+            owl8.owlCarousel(options8);
+
+            turnOnWheelControls(owl7);
+            turnOnWheelControls(owl8);
         });
+
+        function turnOnWheelControls(owl)
+        {
+            owl.on('mousewheel', '.owl-stage', function (e)
+            {
+                if (e.deltaY>0)
+                {
+                    owl.trigger('next.owl');
+                }
+                else
+                {
+                    owl.trigger('prev.owl');
+                }
+
+                e.preventDefault();
+            });
+        }
     </script>
 @stop
 

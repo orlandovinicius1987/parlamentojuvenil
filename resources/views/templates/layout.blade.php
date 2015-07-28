@@ -46,8 +46,10 @@
         <!-- jQuery -->
         <script src="js/jquery.min.js"></script>
 
-        <!-- jssor -->
+        <!-- owl -->
         <script type="text/javascript" src="vendor/owl.carousel/dist/owl.carousel.min.js"></script>
+        <script type="text/javascript" src="vendor/jquery-mousewheel/jquery.mousewheel.min.js"></script>
+
 
         <!-- Custom Theme JavaScripts -->
         <script src="vendor/vue/dist/vue.min.js"></script>
