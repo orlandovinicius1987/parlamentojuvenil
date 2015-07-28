@@ -1,6 +1,5 @@
 <?php
 
-use App\Data\Entities\City;
 use App\Data\Entities\State;
 use App\Data\Entities\School;
 use App\Services\Dropbox\Service as Dropbox;
