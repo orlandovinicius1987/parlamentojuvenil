@@ -21,6 +21,10 @@
         <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
+        <!-- Owl Carousel -->
+        <link rel="stylesheet" href="vendor/owl.carousel/dist/assets/owl.carousel.min.css">
+        <link rel="stylesheet" href="vendor/owl.carousel/dist/assets/owl.theme.default.min.css">
+
         <!-- IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -43,7 +47,7 @@
         <script src="js/jquery.min.js"></script>
 
         <!-- jssor -->
-        <script type="text/javascript" src="vendor/jssor/js/jssor.slider.mini.js"></script>
+        <script type="text/javascript" src="vendor/owl.carousel/dist/owl.carousel.min.js"></script>
 
         <!-- Custom Theme JavaScripts -->
         <script src="vendor/vue/dist/vue.min.js"></script>
