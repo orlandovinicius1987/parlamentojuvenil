@@ -9,32 +9,19 @@
     </div>
 </section>
 
-<section class="services">
-    <div class="container-fluid">
-        <div class="col-lg-10 col-lg-offset-1">
-            <div class="row wow fadeIn" data-wow-delay=".2s">
-                <?php $count = 1;?>
-                @foreach ($newspapers as $link)
-                    <div class="col-md-3" style="text-align: center;">
-                        <a href="{{ $link['pdf'] }}" target="_blank"><img src="{{ $link['jpg'] }}" alt=""/></a>
-                        <div>
-                            {{ $link['name'] }}
-                            <br/>
-                            {{ $link['year'] }}
-                        </div>
-                    </div>
+<br><br><br>
 
-                    @if ($count % 4 == 0)
-                        </div>
-
-                        <br/>
-
-                        <div class="row wow fadeIn" data-wow-delay=".2s">
-                    @endif
-
-                    <?php $count++;?>
-                @endforeach
+<div class="owl-carousel" id="newspapers">
+    @foreach ($newspapers as $link)
+        <div style="text-align: center;">
+            <a href="{{ $link['pdf'] }}" target="_blank"><img src="{{ $link['jpg'] }}" alt=""/></a>
+            <div>
+                {{ $link['name'] }}
+                <br/>
+                {{ $link['year'] }}
             </div>
         </div>
-    </div>
-</section>
+    @endforeach
+</div>
+
+<br><br><br>

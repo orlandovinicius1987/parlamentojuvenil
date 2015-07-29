@@ -1,38 +1,7 @@
 @extends('templates.layout')
 
 @section('contents')
-    <!-- Navigation -->
-    <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-1x fa-bars"></i></a>
-    <nav id="sidebar-wrapper">
-        <!--  Optional: close button
-        <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-2x fa-times"></i></a> -->
-        <ul class="sidebar-nav">
-            <li class="sidebar-brand">
-                <a href="#top">Parlamento Juvenil</i></a>
-            </li>
-            <li>
-                <a href="#top">Início</a>
-            </li>
-            <li>
-                <a href="#about">Sobre</a>
-            </li>
-            {{--<li>--}}
-                {{--<a href="#services">Services</a>--}}
-            {{--</li>--}}
-            {{--<li>--}}
-                {{--<a href="#case-study">Case Study</a>--}}
-            {{--</li>--}}
-            {{--<li>--}}
-                {{--<a href="#portfolio">Portfolio</a>--}}
-            {{--</li>--}}
-            {{--<li>--}}
-                {{--<a href="#testimonials">Testimonials</a>--}}
-            {{--</li>--}}
-            {{--<li>--}}
-                {{--<a href="#contact">Contact</a>--}}
-            {{--</li>--}}
-        </ul>
-    </nav>
+    @include('partials.navigation')
 
     <!-- Header -->
     <header id="top" class="header">
@@ -382,17 +351,24 @@
 
 @section('javascript')
     <script>
-        var options7 = {
+        var baseOptions = {
             loop: true,
             autoplay: true,
             autoplayTimeout: 1500,
             autoplayHoverPause: true
         };
 
-        options8 = JSON.parse(JSON.stringify(options7));
+        optionNewspapers = JSON.parse(JSON.stringify(baseOptions));
+        optionNewspapers.items = 8;
+        optionNewspapers.autoplayTimeout = 6000;
+        optionNewspapers.margin = 40;
+        optionNewspapers.stagePadding = 40;
+        optionNewspapers.dots = true;
 
+        options7 = JSON.parse(JSON.stringify(baseOptions));
         options7.items = 5;
 
+        options8 = JSON.parse(JSON.stringify(baseOptions));
         options8.items = 8;
         options8.rtl = true;
         options8.autoplayTimeout = 2500;
@@ -401,12 +377,15 @@
         {
             var owl7 = jQuery("#parlamentares-7a");
             var owl8 = jQuery("#parlamentares-8a");
+            var newspapers = jQuery("#newspapers");
 
             owl7.owlCarousel(options7);
             owl8.owlCarousel(options8);
+            newspapers.owlCarousel(optionNewspapers);
 
             turnOnWheelControls(owl7);
             turnOnWheelControls(owl8);
+            turnOnWheelControls(newspapers);
         });
 
         function turnOnWheelControls(owl)

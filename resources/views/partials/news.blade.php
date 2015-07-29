@@ -2,7 +2,7 @@
 <div class="call-to-action">
     <div class="container-fluid">
         <div class="col-lg-10 col-lg-offset-1">
-            <div class="row">
+            <div class="row" id="#news">
                 <h1 class="text-center">Notícias</h1><br><br><br>
                 <?php $count = 1; ?>
                 @foreach ($articles as $article)
@@ -33,7 +33,6 @@
         </div>
     </div>
 </div>
-
 
 @foreach ($articles as $article)
     @include('partials.article', ['article' => $article])
