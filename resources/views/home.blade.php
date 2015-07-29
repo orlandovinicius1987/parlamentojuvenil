@@ -392,7 +392,10 @@
         options8 = JSON.parse(JSON.stringify(options7));
 
         options7.items = 5;
+
         options8.items = 8;
+        options8.rtl = true;
+        options8.autoplayTimeout = 2500;
 
         jQuery(document).ready(function()
         {
@@ -424,4 +427,3 @@
         }
     </script>
 @stop
-

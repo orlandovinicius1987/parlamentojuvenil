@@ -10,12 +10,13 @@
 </section>
 
 <div class="owl-carousel" id="parlamentares-{{ $edition }}a">
-    @foreach ($congressmen[$edition] as $link)
+    @foreach ($congressmen[$edition] as $congressman)
         <div>
-            <a data-target="#portfolioModal2" data-toggle="modal">
-                <img src="{{ $link }}" class="img-responsive" alt="">
-            </a>
+            <div class="congressman-info">
+                <img src="{{ $congressman['url'] }}" class="img-responsive" alt="">
+                <div class="blackbg"></div>
+                <div class="label">{{ $congressman['name'] }}<br><span class="city-name">{{ $congressman['city'] }}</span></div>
+            </div>
         </div>
     @endforeach
 </div>
-

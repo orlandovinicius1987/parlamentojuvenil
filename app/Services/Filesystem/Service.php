@@ -55,4 +55,36 @@ class Service
 
 		return $files;
 	}
+
+	public function congressmenLinks($path)
+	{
+		$congressmen = $this->allLinks($path);
+
+		return $this->extractCongressmenInfo($congressmen);
+	}
+
+	public function extractCongressmenInfo($congressmen)
+	{
+		foreach ($congressmen as $key => $person)
+		{
+			list($name, $city) = $this->parseNameAndCity($person);
+
+			$congressmen[$key] = [
+				'url' => $person,
+				'name' => $name,
+				'city' => $city,
+			];
+		}
+
+		return $congressmen;
+	}
+
+	private function parseNameAndCity($file)
+	{
+		$file = pathinfo($file);
+
+		$file = explode('-', $file['filename']);
+
+		return [trim($file[0]), trim($file[1])];
+	}
 }

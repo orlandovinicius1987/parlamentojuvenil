@@ -19,12 +19,12 @@
                     <div class="carousel-inner" role="listbox">
                         <?php $active = 'active'; ?>
 
-                        @foreach ($carrousel as $link)
+                        @foreach ($carrousel as $congressman)
                             <div class="item {{ $active }}">
-                                <img src="{{ $link }}" alt="">
+                                <img src="{{ $congressman['url'] }}" alt="">
                                 <div class="carousel-caption">
                                     <p>"O Parlamento Juvenil mudou a minha vida"</p>
-                                    <p class="carousel-name">João da Silva, Magé, Parlamentar Juvenil na 6a Edição</p>
+                                    <p class="carousel-name">{{ $congressman['name'] }}, {{ $congressman['city'] }}, Parlamentar Juvenil na 6a Edição</p>
                                 </div>
                             </div>
                             <?php $active = ''; ?>

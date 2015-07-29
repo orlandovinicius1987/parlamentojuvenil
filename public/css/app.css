@@ -13,3 +13,37 @@
     margin-bottom: 35px;
     letter-spacing: -2px;
 }
+
+div.congressman-info { position: relative; }
+
+div.congressman-info img { z-index: 1; }
+
+div.congressman-info div {
+    position: absolute;
+    left: 5%;
+    right: 5%;
+    bottom: 0;
+    padding: 4px;
+    height: 42px;
+    line-height: 16px;
+    text-align: center;
+    overflow: hidden;
+}
+
+div.congressman-info div.blackbg {
+    z-index: 2;
+    background-color: #000;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+    filter: alpha(opacity=50);
+    opacity: 0.5;
+}
+
+div.congressman-info div.label {
+    z-index: 3;
+    color: white;
+}
+
+.city-name {
+    font-size: 12px;
+    font-weight: 100;
+}
