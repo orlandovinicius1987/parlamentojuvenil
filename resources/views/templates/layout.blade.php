@@ -25,6 +25,9 @@
         <link rel="stylesheet" href="packages/owl.carousel/assets/owl.carousel.min.css">
         <link rel="stylesheet" href="packages/owl.carousel/assets/owl.theme.default.min.css">
 
+        <!-- Font -->
+        <link href="//fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
+
         <!-- IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -35,13 +38,7 @@
     <body>
         @yield('contents')
 
-        <!-- footer -->
-        <footer>
-            <div class="container text-muted text-center wow fadeIn">
-                <h2 class="heading"><a href="#top">LOREM<i class="fa fa-power-off fa-fw"></i></a></h2>
-                <p>&copy;2015 Lorem Ipsum Dolor</p>
-            </div>
-        </footer>
+        @yield('footer')
 
         <!-- jQuery -->
         <script src="js/jquery.min.js"></script>

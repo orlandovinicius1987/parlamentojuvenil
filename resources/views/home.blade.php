@@ -349,6 +349,16 @@
     </div>
 @stop
 
+@section('footer')
+    <!-- footer -->
+    <footer>
+        <div class="container text-muted text-center wow fadeIn">
+            <h2 class="heading"><a href="#top">LOREM<i class="fa fa-power-off fa-fw"></i></a></h2>
+            <p>&copy;2015 Lorem Ipsum Dolor</p>
+        </div>
+    </footer>
+@stop
+
 @section('javascript')
     <script>
         var baseOptions = {
