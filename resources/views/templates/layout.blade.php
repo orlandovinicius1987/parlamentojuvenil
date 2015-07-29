@@ -22,8 +22,8 @@
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
         <!-- Owl Carousel -->
-        <link rel="stylesheet" href="vendor/owl.carousel/dist/assets/owl.carousel.min.css">
-        <link rel="stylesheet" href="vendor/owl.carousel/dist/assets/owl.theme.default.min.css">
+        <link rel="stylesheet" href="packages/owl.carousel/assets/owl.carousel.min.css">
+        <link rel="stylesheet" href="packages/owl.carousel/assets/owl.theme.default.min.css">
 
         <!-- IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
@@ -47,7 +47,7 @@
         <script src="js/jquery.min.js"></script>
 
         <!-- owl -->
-        <script type="text/javascript" src="vendor/owl.carousel/dist/owl.carousel.min.js"></script>
+        <script type="text/javascript" src="packages/owl.carousel/owl.carousel.min.js"></script>
         <script type="text/javascript" src="vendor/jquery-mousewheel/jquery.mousewheel.min.js"></script>
 
 
