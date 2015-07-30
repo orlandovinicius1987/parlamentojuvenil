@@ -341,7 +341,10 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aperiam commodi delectus doloribus ea esse fugit hic inventore laudantium, maiores nam natus numquam, officia quo ratione reiciendis, reprehenderit sequi tempora.</p>
                 <ul class="list-inline">
                     <li>
-                        <a href="https://www.facebook.com/parlamentojuvenilrio"><i class="fa fa-facebook fa-2x  fa-fw"></i></a>
+                        <a href="https://www.facebook.com/parlamentojuvenilrio"><i class="fa fa-facebook fa-2x fa-fw"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://www.youtube.com/parlamentojuvenilrj"><i class="fa fa-youtube-play fa-2x fa-fw"></i></a>
                     </li>
                 </ul>
             </div>
