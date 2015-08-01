@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\SyncNews;
+use App\Services\News\Service as SyncNewsService;
 use Carbon\Carbon;
 use App\Data\Entities\State;
 use App\Data\Entities\Article;
@@ -17,13 +19,21 @@ class Home extends BaseController
 	 */
 	private $filesystem;
 
-	public function __construct(Filesystem $filesystem)
+	/**
+	 * @var SyncNewsService
+	 */
+	private $syncNewsService;
+
+	public function __construct(Filesystem $filesystem, SyncNewsService $syncNewsService)
 	{
 		$this->filesystem = $filesystem;
+		$this->syncNewsService = $syncNewsService;
 	}
 
 	public function index()
 	{
+		$this->dispatch(new SyncNews());
+
 		return
 			view('home')
 				->with('spreadsheet', $this->spreadsheet)
