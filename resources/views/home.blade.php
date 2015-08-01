@@ -42,6 +42,8 @@
         </div>
     </header>
 
+    @include('partials.video')
+
     @include('partials.about')
 
     @include('partials.news')
@@ -97,18 +99,6 @@
                 <h2 class="heading">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus illo illum nobis.</p>
                 <div class="row"><a href="https://wrapbootstrap.com/theme/hybrid-multipurpose-landing-page-WB0N64HDJ" class="btn border-button">DOWNLOAD LOREM <i class="fa fa-power-off"></i></a></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- case-study -->
-    <section id="case-study" class="head">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12 text-center wow fadeIn">
-                    <h2 class="heading">Lorem Ipsum</h2>
-                    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores dolores esse nesciunt ullam veritatis? Ad, magni, repudiandae?</p>
-                </div>
             </div>
         </div>
     </section>
