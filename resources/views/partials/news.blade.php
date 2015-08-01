@@ -3,7 +3,7 @@
     <div class="container-fluid">
         <div class="col-lg-10 col-lg-offset-1">
             <div class="row" id="#news">
-                <h1 class="text-center">Notícias</h1><i class="fa fa-refresh"></i><br><br><br>
+                <h1 class="text-center">Notícias</h1><br><br><br>
                 <?php $count = 1; ?>
                 @foreach ($articles as $article)
                     <div class="col-md-6">
