@@ -12,7 +12,8 @@
         "pragmarx/googleforms": "dev-master",
         "graham-campbell/dropbox": "^3.0",
         "ramsey/uuid": "^2.8",
-        "facebook/php-sdk-v4": "^5.0"
+        "facebook/php-sdk-v4": "^5.0",
+        "pda/pheanstalk": "^3.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

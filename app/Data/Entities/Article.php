@@ -18,4 +18,6 @@ class Article extends Model
 		'featured',
 		'youtube_url',
 	];
+
+	protected static $unguarded = true;
 }

@@ -6,6 +6,7 @@ use DB;
 use Carbon\Carbon;
 use App\Base\Sync;
 use App\Data\Entities\Article;
+use Illuminate\Database\Eloquent\Collection;
 
 class Service extends Sync
 {
@@ -24,21 +25,7 @@ class Service extends Sync
 		{
 			Article::truncate();
 
-			foreach ($articles as $article)
-			{
-				Article::create([
-					'code' => $article['idConteudo'],
-					'heading' => $article['titulo'],
-					'subheading' => $article['chamada'],
-					'body' => $article['texto'],
-					'edition' => $article['edicao'],
-					'image' => $article['img_destaque'],
-					'date' => $this->convertToCarbon($article['data'])->toDateString(),
-					'published_at' => $this->convertToCarbon($article['data_pub'])->toDateTimeString(),
-					'featured' => $article['destaque'] == 'S',
-					'youtube_url' => $article['url_youtube'],
-				]);
-			}
+			$this->createArticles($articles);
 		});
 	}
 
@@ -73,5 +60,41 @@ class Service extends Sync
 		$format = strlen($date) > 10 ? 'd/m/Y H:i:s' : 'd/m/Y';
 
 		return Carbon::createFromFormat($format, $date);
+	}
+
+	private function generateArticle($article)
+	{
+		return [
+			'code' => $article['idConteudo'],
+			'heading' => $article['titulo'],
+			'subheading' => $article['chamada'],
+			'body' => $article['texto'],
+			'edition' => $article['edicao'],
+			'image' => $article['img_destaque'],
+			'date' => $this->convertToCarbon($article['data'])->toDateString(),
+			'published_at' => $this->convertToCarbon($article['data_pub'])->toDateTimeString(),
+			'featured' => $article['destaque'] == 'S',
+			'youtube_url' => $article['url_youtube'],
+		];
+	}
+
+	private function createArticles($articles)
+	{
+		foreach ($articles as $article)
+		{
+			Article::create($this->generateArticle($article));
+		}
+	}
+
+	public function getAll()
+	{
+		$collection = new Collection();
+
+		foreach ($this->readNews() as $article)
+		{
+			$collection->add(new Article($article));
+		}
+
+		return $collection;
 	}
 }
