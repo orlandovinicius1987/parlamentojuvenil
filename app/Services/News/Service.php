@@ -21,6 +21,11 @@ class Service extends Sync
 
 	private function storeNews($articles)
 	{
+		if ($this->isCached($articles))
+		{
+			return false;
+		}
+
 		DB::transaction(function () use ($articles)
 		{
 			Article::truncate();
@@ -96,5 +101,31 @@ class Service extends Sync
 		}
 
 		return $collection;
+	}
+
+	private function isCached($articles)
+	{
+		$articles = serialize($articles);
+
+		$contents = '';
+
+		if (file_exists($file = $this->getCachedPath()))
+		{
+			$contents = file_get_contents($file);
+		}
+
+		if ($contents !== $articles)
+		{
+			file_put_contents($file, $articles);
+
+			return false;
+		}
+
+		return true;
+	}
+
+	public function getCachedPath()
+	{
+		return storage_path('app/cache').'news.json';
 	}
 }
