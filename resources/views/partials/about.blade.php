@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12 text-center wow fadeIn">
-                <img src="files/apps/parlamentojuvenil/site/logoparlamento.svg" height="150px" alt="">
+                <img src="files/apps/parlamentojuvenil/site/logoparlamento.svg" height="150px" style="width: 100%; height: auto;">
             </div>
         </div>
     </div>
@@ -22,14 +22,15 @@
                     Nos últimos quatro anos, 252 jovens foram escolhidos. Para participar da seleção, é preciso ter entre 14 e 17 anos e ser aluno da rede pública estadual de ensino.
                 </p>
             </div>
-            <div class="row">
+
+            <div class="row about-section">
                 <h1 style="text-align: center;">Quem pode participar?</h1>
                 <p style="text-align: center;">
                     Alunos do Ensino Fundamental II e Médio da rede pública estadual do Rio de Janeiro, com idade entre 14 e 17 anos.
                 </p>
             </div>
 
-            <div class="row">
+            <div class="row about-section">
                 <h1 style="text-align: center;">E como funciona?</h1>
 
                 <div class="col-md-4">
@@ -54,26 +55,33 @@
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row about-section no-border">
                 <h1 style="text-align: center;">Calendário</h1>
 
-                <div class="row">
-                    <div class="col-md-6 text-right">
-                        <p>10 a 31 de agosto</p>
-                        <p>24 de agosto</p>
-                        <p>3 de setembro</p>
-                        <p>15 de setembro</p>
-                        <p>16 a 26 de outubro</p>
-                        <p>22 a 28 de novembro</p>
-                    </div>
-                    <div class="col-md-6">
-                        <p><strong>Inscrições</strong></p>
-                        <p><strong>"Dia D" de sensibilização</strong></p>
-                        <p><strong>Eleições (1º turno)</strong></p>
-                        <p><strong>Eleições (2º turno)</strong></p>
-                        <p><strong>Capacitação dos eleitos</strong></p>
-                        <p><strong>Parlamento Juvenil na Alerj</strong></p>
-                    </div>
+                <div class="row text-center">
+                    <h3 class="calendar-title">Inscrições</h3>
+                    <p>10 a 31 de agosto</p>
+
+
+                    <h3 class="calendar-title">"Dia D" de sensibilização</h3>
+                    <p>24 de agosto</p>
+
+
+                    <h3 class="calendar-title">Eleições (1º turno)</h3>
+                    <p>3 de setembro</p>
+
+
+                    <h3 class="calendar-title">Eleições (2º turno)</h3>
+                    <p>15 de setembro</p>
+
+
+                    <h3 class="calendar-title">Capacitação dos eleitos</h3>
+                    <p>16 a 26 de outubro</p>
+
+
+                    <h3 class="calendar-title">Parlamento Juvenil na Alerj</h3>
+                    <p>22 a 28 de novembro</p>
+
                 </div>
             </div>
         </div>

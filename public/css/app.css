@@ -74,3 +74,19 @@ div.congressman-info div.label {
     background: url(../files/apps/parlamentojuvenil/site/videobackground.jpg);
 }
 
+.calendar-title {
+    margin-top: 40px;
+    margin-bottom: 10px;
+    line-height: 1px;
+}
+
+.about-section {
+    border-bottom: solid;
+    border-color: #a2a2a2;
+    border-width: 1px;
+    padding: 40px;
+}
+
+.no-border {
+    border: none !important;
+}
