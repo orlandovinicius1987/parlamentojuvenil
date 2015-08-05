@@ -66,32 +66,32 @@ class Service extends Sync
 
 	public function sync($command)
 	{
-		if ($challenge = Request::get('challenge'))
-		{
-			$this->log('Dropbox challenge: ' . $challenge, $command);
-
-			return $challenge;
-		}
-
-		$this->log('Dropbox sync...', $command);
-
-		foreach ($this->getAllFilesFromDropbox(DIRECTORY_SEPARATOR . $this->filesystem->getBaseDir()) as $path)
-		{
-			foreach ($path['contents'] as $content)
-			{
-				$this->mkLocalDirectory($content);
-
-				if ( ! $content['is_dir'])
-				{
-					$this->syncFile($content);
-				}
-			}
-		}
-
-		$this->deleteMissingFiles();
-
-		$this->log('Dropbox sync finished.', $command);
-
+//		if ($challenge = Request::get('challenge'))
+//		{
+//			$this->log('Dropbox challenge: ' . $challenge, $command);
+//
+//			return $challenge;
+//		}
+//
+//		$this->log('Dropbox sync...', $command);
+//
+//		foreach ($this->getAllFilesFromDropbox(DIRECTORY_SEPARATOR . $this->filesystem->getBaseDir()) as $path)
+//		{
+//			foreach ($path['contents'] as $content)
+//			{
+//				$this->mkLocalDirectory($content);
+//
+//				if ( ! $content['is_dir'])
+//				{
+//					$this->syncFile($content);
+//				}
+//			}
+//		}
+//
+//		$this->deleteMissingFiles();
+//
+//		$this->log('Dropbox sync finished.', $command);
+//
 		return ['success' => true];
 	}
 

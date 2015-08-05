@@ -31,40 +31,21 @@
                 <h1 style="text-align: center;">Calendário</h1>
 
                 <div class="row">
-                    <div class="col-md-6">
-
+                    <div class="col-md-6 text-right">
+                        <p>10 a 31 de agosto</p>
+                        <p>24 de agosto</p>
+                        <p>3 de setembro</p>
+                        <p>15 de setembro</p>
+                        <p>16 a 26 de outubro</p>
+                        <p>22 a 28 de novembro</p>
                     </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-3 col-md-offset-1">
-                        <table class="">
-                            <tr>
-                                <td class="text-right">10 a 31 de agosto</td>
-                                <td><strong>inscrições</strong></td>
-                            </tr>
-                            <tr>
-                                <td class="text-right">24 de agosto</td>
-                                <td><strong>"Dia D" de sensibilização</strong></td>
-                            </tr>
-                            <tr>
-                                <td class="text-right">3 de setembro</td>
-                                <td><strong>eleições (1º turno)</strong></td>
-                            </tr>
-                            <tr>
-                                <td class="text-right">15 de setembro</td>
-                                <td><strong>eleições (2º turno)</strong></td>
-                            </tr>
-                            <tr>
-                                <td class="text-right">16 a 26 de outubro</td>
-                                <td><strong>catdacitação dos eleitos</strong></td>
-                            </tr>
-                            <tr>
-                                <td class="text-right">22 a 28 de novembro</td>
-                                <td><strong>Parlamento Juvenil na Alerj</strong></td>
-                            </tr>
-
-                        </table>
+                    <div class="col-md-6">
+                        <p><strong>Inscrições</strong></p>
+                        <p><strong>"Dia D" de sensibilização</strong></p>
+                        <p><strong>Eleições (1º turno)</strong></p>
+                        <p><strong>Eleições (2º turno)</strong></p>
+                        <p><strong>Capacitação dos eleitos</strong></p>
+                        <p><strong>Parlamento Juvenil na Alerj</strong></p>
                     </div>
                 </div>
 
