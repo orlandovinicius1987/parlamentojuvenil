@@ -10,22 +10,27 @@
         <li>
             <a href="#top">Início</a>
         </li>
-        {{--<li>--}}
-            {{--<a href="#about">Sobre</a>--}}
-        {{--</li>--}}
-        {{--<li>--}}
-            {{--<a href="#news">Notícias</a>--}}
-        {{--</li>--}}
+        <li>
+            <a href="#video">Vídeo</a>
+        </li>
+        <li>
+            <a href="#about">Sobre o PJ 2015</a>
+        </li>
+        <li>
+            <a href="#news">Notícias</a>
+        </li>
         {{--<li>--}}
         {{--<a href="#services">Services</a>--}}
         {{--</li>--}}
         {{--<li>--}}
         {{--<a href="#case-study">Case Study</a>--}}
         {{--</li>--}}
-        {{--<li>--}}
-        {{--<a href="#portfolio">Portfolio</a>--}}
-        {{--</li>--}}
-        {{--<li>--}}
+        <li>
+            <a href="#portfolio-7">Parlamentares da 7ª</a>
+        </li>
+        <li>
+            <a href="#portfolio-8">Parlamentares da 8ª</a>
+        </li>        {{--<li>--}}
         {{--<a href="#testimonials">Testimonials</a>--}}
         {{--</li>--}}
         {{--<li>--}}

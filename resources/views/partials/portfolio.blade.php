@@ -1,5 +1,5 @@
 <!-- Portfolio Grid Section -->
-<section id="portfolio" class="head">
+<section id="portfolio-{{ $edition }}" class="head">
     <div class="container">
         <div class="row">
             <div class="col-xs-12 text-center wow fadeIn">

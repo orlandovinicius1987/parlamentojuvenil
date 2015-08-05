@@ -22,6 +22,54 @@
                     Nos últimos quatro anos, 252 jovens foram escolhidos. Para participar da seleção, é preciso ter entre 14 e 17 anos e ser aluno da rede pública estadual de ensino.
                 </p>
             </div>
+            <div class="row">
+                <h1 style="text-align: center;">Quem pode participar?</h1>
+                <p style="text-align: center;">
+                    Alunos do Ensino Fundamental II e Médio da rede pública estadual do Rio de Janeiro, com idade entre 14 e 17 anos.
+                </p>
+
+                <h1 style="text-align: center;">Calendário</h1>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 col-md-offset-2">
+                        <table cellpadding="30" cellspacing="30">
+                            <tr>
+                                <td class="text-right">10 a 31 de agosto</td>
+                                <td><strong>inscrições</strong></td>
+                            </tr>
+                            <tr>
+                                <td class="text-right">24 de agosto</td>
+                                <td><strong>"Dia D" de sensibilização</strong></td>
+                            </tr>
+                            <tr>
+                                <td class="text-right">3 de setembro</td>
+                                <td><strong>eleições (1º turno)</strong></td>
+                            </tr>
+                            <tr>
+                                <td class="text-right">15 de setembro</td>
+                                <td><strong>eleições (2º turno)</strong></td>
+                            </tr>
+                            <tr>
+                                <td class="text-right">16 a 26 de outubro</td>
+                                <td><strong>catdacitação dos eleitos</strong></td>
+                            </tr>
+                            <tr>
+                                <td class="text-right">22 a 28 de novembro</td>
+                                <td><strong>Parlamento Juvenil na Alerj</strong></td>
+                            </tr>
+
+                        </table>
+                    </div>
+                </div>
+
+
+            </div>
         </div>
     </div>
 </section>

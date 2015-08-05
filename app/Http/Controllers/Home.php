@@ -34,11 +34,13 @@ class Home extends BaseController
 	{
 		$this->dispatch(new SyncNews());
 
+		header('X-Frame-Options: GOFORIT');
+
 		return
 			view('home')
 				->with('spreadsheet', $this->spreadsheet)
 				->with('congressmen', $this->getCongressmenLinks())
-				->with('carrousel', $this->getCongressmenLinks()[8])
+				->with('carrousel', $this->getTestimonials())
 				->with('cities', $this->getCities())
 				->with('newspapers', $this->getNewspapersLinks())
 				->with('articles', $this->getArticles());
@@ -103,5 +105,36 @@ class Home extends BaseController
 		}
 
 		return $articles;
+	}
+
+	private function getTestimonials()
+	{
+		$file = file(public_path('files/apps/parlamentojuvenil/parlamentares/testemunhos-parlamentares-juvenis.txt'));
+
+		$result = [];
+
+		foreach ($file as $person)
+		{
+			$person = explode(';', $person);
+
+			$city = pathinfo($person[1]);
+
+			$city = explode('-', $city['filename']);
+
+			$result[] = [
+				'name' => $person[0],
+				'photo' => url(
+					env('LOCAL_BASE_DIR') . DIRECTORY_SEPARATOR .
+					env('BASE_DIR') . DIRECTORY_SEPARATOR .
+					env('PHOTOS_DIR') . DIRECTORY_SEPARATOR .
+					$person[1]
+				),
+				'editions' => $person[2],
+				'city' => trim($city[1]),
+				'testimonial' => $person[3],
+			];
+		}
+
+		return $result;
 	}
 }
