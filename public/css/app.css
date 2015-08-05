@@ -55,6 +55,9 @@ div.congressman-info div.label {
     padding-bottom: 56.25%;
     padding-top: 130px;
     overflow: hidden;
+    border-style: solid;
+    border-width: 5px;
+    border-color: #000000;
 }
 
 .video-container iframe,
@@ -68,9 +71,6 @@ div.congressman-info div.label {
 }
 
 .video {
-    background-color: green;
+    background: url(../files/apps/parlamentojuvenil/site/videobackground.jpg);
 }
 
-table {
-    cellpa
-}

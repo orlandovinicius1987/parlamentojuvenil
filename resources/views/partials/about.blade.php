@@ -32,13 +32,13 @@
 
                 <div class="row">
                     <div class="col-md-6">
-                        
+
                     </div>
                 </div>
 
                 <div class="row">
-                    <div class="col-md-12 col-md-offset-2">
-                        <table cellpadding="30" cellspacing="30">
+                    <div class="col-md-3 col-md-offset-1">
+                        <table class="">
                             <tr>
                                 <td class="text-right">10 a 31 de agosto</td>
                                 <td><strong>inscrições</strong></td>
