@@ -27,7 +27,34 @@
                 <p style="text-align: center;">
                     Alunos do Ensino Fundamental II e Médio da rede pública estadual do Rio de Janeiro, com idade entre 14 e 17 anos.
                 </p>
+            </div>
 
+            <div class="row">
+                <h1 style="text-align: center;">E como funciona?</h1>
+
+                <div class="col-md-4">
+                    <p style="text-align: center;">
+                        <h3>1</h3>
+                        Cada município do Rio de Janeiro pode ser representado por um parlamentar juvenil. As eleições acontecem nas escolas, em dois turnos de votação.
+                    </p>
+                </div>
+
+                <div class="col-md-4">
+                    <p style="text-align: center;">
+                        <h3>2</h3>
+                        Os Deputados eleitos aprendem mais sobre sua função em oficinas de capacitação preparadas pela Alerj.
+                    </p>
+                </div>
+
+                <div class="col-md-4">
+                    <p style="text-align: center;">
+                        <h3>3</h3>
+                        Durante uma semana, os parlamentares apresentam, debatem e votam os projetos de sua autoria no plenário da Alerj. No fim, as escolhas são encaminhadas á apreciação do Governador, podendo ou não.
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
                 <h1 style="text-align: center;">Calendário</h1>
 
                 <div class="row">
@@ -48,8 +75,6 @@
                         <p><strong>Parlamento Juvenil na Alerj</strong></p>
                     </div>
                 </div>
-
-
             </div>
         </div>
     </div>
