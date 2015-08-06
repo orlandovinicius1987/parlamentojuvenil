@@ -90,3 +90,21 @@ div.congressman-info div.label {
 .no-border {
     border: none !important;
 }
+
+.more-videos {
+    color: white;
+    text-decoration: none;
+    border-color: black;
+    border-width: 3px 3px 3px 3px;
+    margin-top: -5px;
+    border-radius: 0px 0px 8px 8px;
+}
+
+.youtube-home {
+    margin-top: 50px;
+}
+
+#old-news, .old-news {
+    background: #282c30 !important;
+    color: #d1d1d1;
+}
