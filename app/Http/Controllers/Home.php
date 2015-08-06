@@ -55,8 +55,8 @@ class Home extends BaseController
 		$from8 = $this->filesystem->congressmenLinks(env('PHOTOS_DIR').DIRECTORY_SEPARATOR.'8a edicao (2014)');
 
 		/// will be sorted
-//		shuffle($from7);
-//		shuffle($from8);
+		//		shuffle($from7);
+		//		shuffle($from8);
 
 		return [
 			7 => $from7,
