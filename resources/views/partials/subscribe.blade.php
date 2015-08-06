@@ -65,9 +65,12 @@
         <div class="form-group col-xs-12">
             <button id="submit" type="submit" class="btn btn-lg btn-primary btn-block">Enviar inscri&ccedil;&atilde;o</button>
         </div>
-        <div class="form-group col-xs-12">
-            <a id="spreadsheet" class="btn btn-lg btn-success btn-block hidden" href="{{ $spreadsheet }}" target="_blank">Ver planilha com inscri&ccedil;&otilde;es</a>
-        </div>
+
+        @if(app()->environment() !== 'production')
+            <div class="form-group col-xs-12">
+                <a id="spreadsheet" class="btn btn-lg btn-success btn-block hidden" href="{{ $spreadsheet }}" target="_blank">Ver planilha com inscri&ccedil;&otilde;es <br> ESTE BOTÃO NÃO VAI APARECER NA VERSAO FINAL DO HOTSITE</a>
+            </div>
+        @endif
     </div>
 
     {{--<pre>@{{ $data | json }}</pre>--}}
