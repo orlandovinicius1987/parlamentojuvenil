@@ -39,3 +39,35 @@ function newSchool(element, index, array)
 {
     subscribe.$data.schools.push({value: element.name, text: element.name});
 }
+
+var moreNews = new Vue({
+    el: '#vue-more-news',
+
+    data: {
+
+    },
+
+    methods: {
+        __click: function() {
+            jQuery('#vue-more-news').fadeOut(function() {
+                jQuery('#more-news').fadeIn();
+            });
+        }
+    }
+});
+
+var moreNews = new Vue({
+    el: '#vue-more-old-news',
+
+    data: {
+
+    },
+
+    methods: {
+        __click: function() {
+            jQuery('#vue-more-old-news').fadeOut(function() {
+                jQuery('#more-old-news').fadeIn();
+            });
+        }
+    }
+});
