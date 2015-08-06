@@ -48,3 +48,13 @@ Route::any('schools/{city}', function ($city)
 {
 	return School::where('city', '~*', strtoupper($city))->orderBy('name')->get();
 });
+
+Route::get('download/{file}', ['as' => 'download', 'uses' => function ($file)
+{
+	$path = env('LOCAL_BASE_DIR') . DIRECTORY_SEPARATOR .
+			env('BASE_DIR') . DIRECTORY_SEPARATOR .
+			env('SITE_DIR') . DIRECTORY_SEPARATOR;
+
+	return response()->download(public_path($path).$file);
+}]);
+
