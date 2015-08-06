@@ -60,6 +60,8 @@ class Service
 	{
 		$congressmen = $this->allLinks($path);
 
+		asort($congressmen);
+
 		return $this->extractCongressmenInfo($congressmen);
 	}
 

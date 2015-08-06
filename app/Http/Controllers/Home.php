@@ -54,8 +54,9 @@ class Home extends BaseController
 
 		$from8 = $this->filesystem->congressmenLinks(env('PHOTOS_DIR').DIRECTORY_SEPARATOR.'8ª edição (2014)');
 
-		shuffle($from7);
-		shuffle($from8);
+		/// will be sorted
+//		shuffle($from7);
+//		shuffle($from8);
 
 		return [
 			7 => $from7,
@@ -116,6 +117,8 @@ class Home extends BaseController
 	private function getTestimonials()
 	{
 		$file = file(public_path('files/apps/parlamentojuvenil/parlamentares/testemunhos-parlamentares-juvenis.txt'));
+
+		shuffle($file);
 
 		$result = [];
 
