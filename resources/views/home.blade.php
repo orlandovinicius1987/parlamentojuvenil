@@ -49,10 +49,11 @@
 
     @include('partials.about')
 
+    @include('partials.download')
+
     @include('partials.news', ['articles' => $newArticles])
 
     @include('partials.oldNews', ['articles' => $oldArticles])
-
 
     {{--<!-- call-to-action -->--}}
     {{--<div class="call-to-action">--}}
@@ -96,18 +97,6 @@
     {{--</div>--}}
 
     @include('partials.newspapers')
-
-    <!-- callout -->
-    <section class="callout">
-        <div class="container-fluid text-vertical text-center">
-            <div class="col-sm-10 col-sm-offset-1 wow fadeInDownBig">
-                <i class="fa fa-5x fa-h-square"></i><br>
-                <h2 class="heading">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus illo illum nobis.</p>
-                <div class="row"><a href="https://wrapbootstrap.com/theme/hybrid-multipurpose-landing-page-WB0N64HDJ" class="btn border-button">DOWNLOAD LOREM <i class="fa fa-power-off"></i></a></div>
-            </div>
-        </div>
-    </section>
 
     <section class="case-study">
         <div class="container-fluid">
@@ -335,15 +324,11 @@
                 <h2 class="heading">Entre</h2>
                 <h2><i class="fa fa-phone fa-fw"></i>(21) 2588-1202</h2>
                 <ul class="list-inline">
-
-                    <a href="https://www.facebook.com/parlamentojuvenilrio"><img src="files/apps/parlamentojuvenil/site/facebook-icon.svg" height="35px" alt=""></a>
-                    <a href="https://www.youtube.com/parlamentojuvenilrj"><img src="files/apps/parlamentojuvenil/site/youtube-icon.svg" height="35px" alt=""></a>
-
                     <li>
-                        <a href="https://www.facebook.com/parlamentojuvenilrio"><i class="fa fa-facebook fa-2x fa-fw"></i></a>
+                        <a href="https://www.facebook.com/parlamentojuvenilrio"><img src="files/apps/parlamentojuvenil/site/facebook-icon.svg" height="35px" alt=""></a>
                     </li>
                     <li>
-                        <a href="https://www.youtube.com/parlamentojuvenilrj"><i class="fa fa-youtube-play fa-2x fa-fw"></i></a>
+                        <a href="https://www.youtube.com/parlamentojuvenilrj"><img src="files/apps/parlamentojuvenil/site/youtube-icon.svg" height="35px" alt=""></a>
                     </li>
                 </ul>
             </div>
