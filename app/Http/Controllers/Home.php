@@ -50,9 +50,9 @@ class Home extends BaseController
 
 	private function getCongressmenLinks()
 	{
-		$from7 = $this->filesystem->congressmenLinks(env('PHOTOS_DIR').DIRECTORY_SEPARATOR.'7ª edição (2013)');
+		$from7 = $this->filesystem->congressmenLinks(env('PHOTOS_DIR').DIRECTORY_SEPARATOR.'7a edicao (2013)');
 
-		$from8 = $this->filesystem->congressmenLinks(env('PHOTOS_DIR').DIRECTORY_SEPARATOR.'8ª edição (2014)');
+		$from8 = $this->filesystem->congressmenLinks(env('PHOTOS_DIR').DIRECTORY_SEPARATOR.'8a edicao (2014)');
 
 		/// will be sorted
 //		shuffle($from7);
