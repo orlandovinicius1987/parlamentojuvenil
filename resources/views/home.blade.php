@@ -12,13 +12,16 @@
                         <img src="files/apps/parlamentojuvenil/site/logoalerj.svg" height="80px" alt="ALERJ" />
                         <br/><br/><br/>
 
-
                         <img src="files/apps/parlamentojuvenil/site/parlamentojuvenil9.png" alt="">
 
                         <h2><i class="fa fa-calendar"></i> 22 a 28 de Novembro</h2>
                         <p>Participe, torne-se um parlamentar!</p>
 
-                        <a href="https://www.facebook.com/parlamentojuvenilrio"><img src="files/apps/parlamentojuvenil/site/facebooklike.svg" height="35px" alt=""></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <div>
+                            <a href="https://www.facebook.com/parlamentojuvenilrio"><img src="files/apps/parlamentojuvenil/site/facebooklike.svg" height="35px" alt=""></a>
+                            &nbsp;&nbsp;&nbsp;
+                            <a href="https://www.youtube.com/parlamentojuvenilrj"><img src="files/apps/parlamentojuvenil/site/youtube-play.svg" height="35px" alt=""></a>
+                        </div>
                     </div>
 
                     <div class="col-md-4 col-md-offset-1">
@@ -46,7 +49,10 @@
 
     @include('partials.about')
 
-    @include('partials.news')
+    @include('partials.news', ['articles' => $newArticles])
+
+    @include('partials.oldNews', ['articles' => $oldArticles])
+
 
     {{--<!-- call-to-action -->--}}
     {{--<div class="call-to-action">--}}
@@ -340,16 +346,6 @@
             </div>
         </div>
     </div>
-@stop
-
-@section('footer')
-    <!-- footer -->
-    <footer>
-        <div class="container text-muted text-center wow fadeIn">
-            <h2 class="heading"><a href="#top">LOREM<i class="fa fa-power-off fa-fw"></i></a></h2>
-            <p>&copy;2015 Lorem Ipsum Dolor</p>
-        </div>
-    </footer>
 @stop
 
 @section('javascript')

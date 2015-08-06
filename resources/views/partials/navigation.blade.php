@@ -5,7 +5,7 @@
     <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-2x fa-times"></i></a> -->
     <ul class="sidebar-nav">
         <li class="sidebar-brand">
-            <a href="#top">Parlamento Juvenil</i></a>
+            <a href="#top">PJ IX Edição</i></a>
         </li>
         <li>
             <a href="#top">Início</a>
@@ -14,7 +14,7 @@
             <a href="#video">Vídeo</a>
         </li>
         <li>
-            <a href="#about">Sobre o PJ 2015</a>
+            <a href="#about">Sobre</a>
         </li>
         <li>
             <a href="#news">Notícias</a>
@@ -26,10 +26,10 @@
         {{--<a href="#case-study">Case Study</a>--}}
         {{--</li>--}}
         <li>
-            <a href="#portfolio-7">Parlamentares da 7ª</a>
+            <a href="#portfolio-7">Parlamentares da VII</a>
         </li>
         <li>
-            <a href="#portfolio-8">Parlamentares da 8ª</a>
+            <a href="#portfolio-8">Parlamentares da VIII</a>
         </li>        {{--<li>--}}
         {{--<a href="#testimonials">Testimonials</a>--}}
         {{--</li>--}}

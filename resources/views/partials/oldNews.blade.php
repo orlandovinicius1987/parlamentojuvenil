@@ -1,9 +1,9 @@
 <!-- call-to-action -->
-<div class="call-to-action">
+<section id="old-news" class="head old-news">
     <div class="container-fluid">
         <div class="col-lg-10 col-lg-offset-1">
             <div class="row" id="#news">
-                <h1 class="text-center about-section">Últimas Notícias</h1><br><br><br>
+                <h1 class="text-center about-section">Notícias das Edições Anteriores</h1><br><br><br>
                 <?php $count = 1; ?>
                 @foreach ($articles as $article)
                     <div class="col-md-6">
@@ -32,7 +32,7 @@
             </div>
         </div>
     </div>
-</div>
+</section>
 
 @foreach ($articles as $article)
     @include('partials.article-modal', ['article' => $article])
