@@ -38,7 +38,7 @@
             <a href="#testimonials">Depoimentos</a>
         </li>
         <li>
-            <a href="#contact">Entre</a>
+            <a href="#contact">Entre em contato</a>
         </li>
     </ul>
 </nav>

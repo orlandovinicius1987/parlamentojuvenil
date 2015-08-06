@@ -321,7 +321,7 @@
     <div id="contact">
         <div class="container-fluid overlay text-center">
             <div class="col-md-6 col-md-offset-3 wow fadeIn">
-                <h2 class="heading">Entre</h2>
+                <h2 class="heading">Entre em contato</h2>
                 <h2><i class="fa fa-phone fa-fw"></i>(21) 2588-1202</h2>
                 <ul class="list-inline">
                     <li>
