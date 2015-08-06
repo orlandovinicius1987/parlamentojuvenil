@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use \DB;
 use App\Jobs\SyncNews;
 use App\Services\News\Service as SyncNewsService;
 use Carbon\Carbon;
@@ -43,7 +44,8 @@ class Home extends BaseController
 				->with('carrousel', $this->getTestimonials())
 				->with('cities', $this->getCities())
 				->with('newspapers', $this->getNewspapersLinks())
-				->with('articles', $this->getArticles());
+				->with('oldArticles', $this->getArticles('<=', 2014))
+				->with('newArticles', $this->getArticles('>=', 2015));
 	}
 
 	private function getCongressmenLinks()
@@ -91,9 +93,13 @@ class Home extends BaseController
 		return $links;
 	}
 
-	private function getArticles()
+	private function getArticles($operand, $year)
 	{
-		$articles = Article::orderBy('published_at', 'descending')->get();
+		DB::listen(function($sql, $bindings) { \Log::info($sql); \Log::info($bindings); });
+
+		$articles = Article::orderBy('published_at', 'descending')
+					->where(DB::raw('extract(year from published_at)'), $operand, $year)
+					->get();
 
 		foreach ($articles as $article)
 		{
