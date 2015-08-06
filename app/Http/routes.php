@@ -5,7 +5,7 @@ use App\Data\Entities\School;
 use App\Services\Dropbox\Service as Dropbox;
 
 Route::get('/', ['as' => 'home', 'uses' => 'ComingSoon@index']);
-Route::get('beta', ['as' => 'home', 'uses' => 'Home@index']);
+//Route::get('beta', ['as' => 'home', 'uses' => 'Home@index']);
 
 Route::post('googleforms', function ()
 {
