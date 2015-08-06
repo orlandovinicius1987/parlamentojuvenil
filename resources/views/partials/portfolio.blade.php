@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12 text-center wow fadeIn">
-                <h1 class="heading">Parlamentares da {{ $edition }}a Edição</h1>
+                <h1 class="heading">Parlamentares da {{ $caption }} Edição</h1>
             </div>
         </div>
     </div>

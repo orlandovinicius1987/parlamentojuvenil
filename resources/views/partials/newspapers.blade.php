@@ -3,7 +3,7 @@
     <div class="container" id="newspapers-anchor">
         <div class="row">
             <div class="col-xs-12 text-center wow fadeIn">
-                <h6 class="heading-2">Veja o que mídia falou sobre Parlamento Juvenil nas edições anteriores.</h6>
+                <h6 class="heading-2">O Parlamento Juvenil Na Mídia</h6>
             </div>
         </div>
     </div>
