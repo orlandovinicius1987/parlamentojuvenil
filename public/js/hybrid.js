@@ -11,14 +11,27 @@ $(function() {
 
 // Closes the sidebar menu
 $("#menu-close").click(function(e) {
+    console.log('clise');
     e.preventDefault();
-    $("#sidebar-wrapper").toggleClass("active");
+    $("#sidebar-wrapper").removeClass("active");
 });
 
 // Opens the sidebar menu
 $("#menu-toggle").click(function(e) {
     e.preventDefault();
     $("#sidebar-wrapper").toggleClass("active");
+});
+
+$('html').click(function() {
+    $("#sidebar-wrapper").removeClass("active");
+});
+
+$('#sidebar-wrapper').click(function(event){
+    event.stopPropagation();
+});
+
+$('#menu-toggle').click(function(event){
+    event.stopPropagation();
 });
 
 // Scrolls to the selected menu item on the page

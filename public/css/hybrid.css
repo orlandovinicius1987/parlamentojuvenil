@@ -146,6 +146,10 @@ h3 {
     right: 10px;
 }
 
+#menu-close {
+    z-index: 9999;
+}
+
 #sidebar-wrapper.active {
     right: 250px;
     width: 250px;
