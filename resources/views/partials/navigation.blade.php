@@ -17,7 +17,13 @@
             <a href="#about">Sobre</a>
         </li>
         <li>
+            <a href="#calendar">Calendário</a>
+        </li>
+        <li>
             <a href="#news">Notícias</a>
+        </li>
+        <li>
+            <a href="#newspapers-anchor">PJ na Mídia</a>
         </li>
         {{--<li>--}}
         {{--<a href="#services">Services</a>--}}

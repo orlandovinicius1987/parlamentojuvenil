@@ -57,7 +57,7 @@
             </div>
 
             <div class="row about-section no-border">
-                <h1 style="text-align: center;">Calendário</h1>
+                <h1 id="calendar" style="text-align: center;">Calendário</h1>
 
                 <div class="row text-center">
                     <h3 class="calendar-title">Inscrições</h3>

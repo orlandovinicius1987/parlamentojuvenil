@@ -352,7 +352,7 @@
     <script>
         var baseOptions = {
             loop: true,
-            autoplay: false,
+            autoplay: true,
             autoplayTimeout: 1500,
             autoplayHoverPause: true
         };
