@@ -156,9 +156,9 @@
         </div>
     </section>
 
-    @include('partials.portfolio', ['edition' => 7])
+    @include('partials.portfolio', ['edition' => 7, 'caption' => 'VII'])
 
-    @include('partials.portfolio', ['edition' => 8])
+    @include('partials.portfolio', ['edition' => 8, 'caption' => 'VIII'])
 
     <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-content">
