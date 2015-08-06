@@ -50,14 +50,17 @@ class Service extends Sync
 			return false;
 		}
 
-		$articles = $articles['noticias'];
-
-		foreach ($articles as $key => $article)
+		if ($articles = $articles['noticias'])
 		{
-			$articles[$key]['texto'] = base64_decode($articles[$key]['texto']);
+			foreach ($articles as $key => $article)
+			{
+				$articles[$key]['texto'] = base64_decode($articles[$key]['texto']);
+			}
+
+			return $articles;
 		}
 
-		return $articles;
+		return [];
 	}
 
 	private function convertToCarbon($date)
