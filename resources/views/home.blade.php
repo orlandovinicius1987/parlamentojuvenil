@@ -14,25 +14,25 @@
 
                         <img src="files/apps/parlamentojuvenil/site/parlamentojuvenil9.png" alt="">
 
-                        <h2><i class="fa fa-calendar"></i> 22 a 28 de Novembro</h2>
-                        <p>Participe, torne-se um parlamentar!</p>
+                        <h2><i class="fa fa-calendar"></i> 22 a 28 de novembro</h2>
+                        <p>Tem um lugar na história para você</p>
 
                         <div>
-                            <a href="https://www.facebook.com/parlamentojuvenilrio"><img src="files/apps/parlamentojuvenil/site/facebooklike.svg" height="35px" alt=""></a>
+                            <a href="https://www.facebook.com/parlamentojuvenilrio"><img src="files/apps/parlamentojuvenil/site/facebook-icon.svg" height="35px" alt=""></a>
                             &nbsp;&nbsp;&nbsp;
-                            <a href="https://www.youtube.com/parlamentojuvenilrj"><img src="files/apps/parlamentojuvenil/site/youtube-play.svg" height="35px" alt=""></a>
+                            <a href="https://www.youtube.com/parlamentojuvenilrj"><img src="files/apps/parlamentojuvenil/site/youtube-icon.svg" height="35px" alt=""></a>
                         </div>
                     </div>
 
                     <div class="col-md-4 col-md-offset-1">
                         <h2>Inscreva-se</h2>
-                        <p>Alunos da Rede Estadual de Ensino</p>
+                        <p>Alunos da rede estadual de ensino</p>
 
                         @include('partials.subscribe')
 
                         <p class="pull-right">
                             <br>
-                            <img src="files/apps/parlamentojuvenil/site/logogoverno.svg" height="50px" alt=""/>
+                            <img src="files/apps/parlamentojuvenil/site/logogoverno.svg" height="70px" alt=""/>
                         </p>
                     </div>
                 </div>
@@ -332,10 +332,13 @@
     <div id="contact">
         <div class="container-fluid overlay text-center">
             <div class="col-md-6 col-md-offset-3 wow fadeIn">
-                <h2 class="heading">Entre Em Contato</h2>
-                <h2><i class="fa fa-phone fa-fw"></i>(21) 2588-1480 / 2588-1536 / 2588-1202</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aperiam commodi delectus doloribus ea esse fugit hic inventore laudantium, maiores nam natus numquam, officia quo ratione reiciendis, reprehenderit sequi tempora.</p>
+                <h2 class="heading">Entre</h2>
+                <h2><i class="fa fa-phone fa-fw"></i>(21) 2588-1202</h2>
                 <ul class="list-inline">
+
+                    <a href="https://www.facebook.com/parlamentojuvenilrio"><img src="files/apps/parlamentojuvenil/site/facebook-icon.svg" height="35px" alt=""></a>
+                    <a href="https://www.youtube.com/parlamentojuvenilrj"><img src="files/apps/parlamentojuvenil/site/youtube-icon.svg" height="35px" alt=""></a>
+
                     <li>
                         <a href="https://www.facebook.com/parlamentojuvenilrio"><i class="fa fa-facebook fa-2x fa-fw"></i></a>
                     </li>
