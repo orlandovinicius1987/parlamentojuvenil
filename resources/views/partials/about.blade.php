@@ -13,7 +13,8 @@
 <section class="about-grid">
     <div class="container-fluid wow fadeIn">
         <div class="col-lg-10 col-lg-offset-1">
-            <div class="row">
+            <div class="row about-section">
+                <h1 style="text-align: center;">O que é o Parlamento Juvenil?</h1>
                 <p style="text-align: center;">
                     O Parlamento Juvenil é um projeto da Assembleia Legislativa do Rio de Janeiro (Alerj), apartidário e autônomo, cujo objetivo é aproximar o jovem da política. Instalado em 2003, envolve as 1.200 escolas estaduais dos 92 municípios do Estado e chega à nona edição em 2015.
 
