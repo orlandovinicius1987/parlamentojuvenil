@@ -172,7 +172,7 @@
     <div class="row control-group"  v-transition="expand" v-if="address_city">
         <div class="form-group col-lg-12 floating-label-form-group controls">
             <label for="facebook" class="sr-only control-label">Link ou usuário do Facebook</label>
-            <input v-model="facebook" type="tel" class="form-control input-lg" placeholder="Link ou usuário do Facebook" name="facebook" id="facebook" required data-validation-required-message="Por favor digite seu facebook.">
+            <input v-model="facebook" type="tel" class="form-control input-lg" placeholder="Link ou usuário do Facebook" name="facebook" id="facebook" data-validation-required-message="Por favor digite seu facebook.">
             <span class="help-block text-danger"></span>
         </div>
     </div>
