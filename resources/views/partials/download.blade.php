@@ -12,6 +12,14 @@
                 </a>
             </div>
 
+            <div class="row">
+                <a
+                    href="{{ route('download', ['anexo-ii-calendario-de-atividades-9a-edicao.pdf']) }}"
+                    class="btn border-button">
+                    ANEXO II – CALENDÁRIO DE ATIVIDADES <i class="fa fa-cloud-download"></i>
+                </a>
+            </div>
+
             {{--<div class="row">--}}
                 {{--<a--}}
                     {{--href="{{ route('download', ['manual-do-parlamentar.pdf']) }}"--}}
