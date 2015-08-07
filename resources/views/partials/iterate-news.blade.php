@@ -6,12 +6,21 @@
             <div class="row">
                 <a data-target="#article_{{ $article['id'] }}" class="portfolio-link" data-toggle="modal">
                     <div class="col-md-4">
-                        <img src="{{ $article['image'] }}" width="99%" alt=""/>
-                    </div>
-                    <div class="col-md-6">
-                        <h5>{{ $article['date'] }}</h5>
-                        <h4>{{ $article['heading'] }}</h4>
-                        <h6>{{ $article['subheading'] }}</h6>
+                        <div class="row">
+                            <span class="article-date">{{ $article['date'] }}</span>
+                        </div>
+
+                        <div class="row article-image">
+                            <img src="{{ $article['image'] }}" width="99%" alt=""/>
+                        </div>
+
+                        <div class="row">
+                            <span class="article-heading">{{ $article['heading'] }}</span>
+                        </div>
+
+                        <div class="row">
+                            <span class="article-subheading">{{ $article['subheading'] }}</span>
+                        </div>
                     </div>
                 </a>
             </div>

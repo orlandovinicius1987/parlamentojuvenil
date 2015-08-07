@@ -86,28 +86,59 @@ $(function() {
             event.preventDefault(); // prevent default submit behaviour
             // get values from FORM
             var token = $("input[name='_token']").val();
-            var name = $("input#name").val();
-            var city = $("input#city").val();
-            var school = $("input#school").val();
-            var email = $("input#email").val();
-            var phone = $("input#phone").val();
-            var message = $("textarea#message").val();
+
+            var name = $("#name").val();
+            var social_name = $("#social_name").val();
+            var city = $("#city").val();
+            var school = $("#school").val();
+            var registration = $("#registration").val();
+            var gender = $("#gender").val();
+            var gender2 = $("#gender2").val();
+            var birthdate = $("#birthdate").val();
+            var cpf = $("#cpf").val();
+            var id_number = $("#id_number").val();
+            var id_issuer = $("#id_issuer").val();
+            var email = $("#email").val();
+            var phone_home = $("#phone_home").val();
+            var phone_cellular = $("#phone_cellular").val();
+            var zip_code = $("#zip_code").val();
+            var address = $("#address").val();
+            var address_complement = $("#address_complement").val();
+            var address_neighborhood = $("#address_neighborhood").val();
+            var address_city = $("#address_city").val();
+            var facebook = $("#facebook").val();
+
             var firstName = name; // For Success/Failure Message
             // Check for white space in name for Success/Fail message
             if (firstName.indexOf(' ') >= 0) {
                 firstName = name.split(' ').slice(0, -1).join(' ');
             }
+
             $.ajax({
                 url: "/googleforms",
                 type: "POST",
                 data: {
                     _token: token,
                     name: name,
+                    social_name: social_name,
                     city: city,
                     school: school,
-                    phone: phone,
+                    registration: registration,
+                    gender: gender,
+                    gender2: gender2,
+                    birthdate: birthdate,
+                    cpf: cpf,
+                    id_number: id_number,
+                    id_issuer: id_issuer,
                     email: email,
-                    message: message
+                    phone_home: phone_home,
+                    phone_cellular: phone_cellular,
+                    zip_code: zip_code,
+                    address: address,
+                    address_complement: address_complement,
+                    address_neighborhood: address_neighborhood,
+                    address_city: address_city,
+                    facebook: facebook
                 },
                 cache: false,
                 success: function(data) {

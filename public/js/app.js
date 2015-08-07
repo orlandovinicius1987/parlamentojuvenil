@@ -43,10 +43,6 @@ function newSchool(element, index, array)
 var moreNews = new Vue({
     el: '#vue-more-news',
 
-    data: {
-
-    },
-
     methods: {
         __click: function() {
             jQuery('#vue-more-news').fadeOut(function() {
@@ -58,10 +54,6 @@ var moreNews = new Vue({
 
 var moreNews = new Vue({
     el: '#vue-more-old-news',
-
-    data: {
-
-    },
 
     methods: {
         __click: function() {

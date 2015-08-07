@@ -13,8 +13,8 @@
     {{-- Nome Social --}}
     <div class="row control-group" v-if="name">
         <div class="form-group col-xs-12 floating-label-form-group controls">
-            <label for="social_name" class="sr-only control-label">Nome Social</label>
-            <input v-model="social_name" type="text" class="form-control input-lg" placeholder="Nome Social" name="social_name" id="social_name" required data-validation-required-message="Por favor digite seu nome social.">
+            <label for="social_name" class="sr-only control-label">Apelido</label>
+            <input v-model="social_name" type="text" class="form-control input-lg" placeholder="Apelido" name="social_name" id="social_name" required data-validation-required-message="Por favor digite seu nome social.">
             <span class="help-block text-danger"></span>
         </div>
     </div>
@@ -35,8 +35,8 @@
     {{-- Unidade Escolar --}}
     <div class="row control-group"  v-transition="expand" v-if="city">
         <div class="form-group col-xs-12 floating-label-form-group controls">
-            <label for="name" class="sr-only control-label">Escola</label>
-            <select v-model="school" options="schools" class="form-control input-lg" placeholder="Escola" name="school" id="city" required data-validation-required-message="Por favor escolha a escola."></select>
+            <label for="school" class="sr-only control-label">Escola</label>
+            <select v-model="school" options="schools" class="form-control input-lg" placeholder="Escola" name="school" id="school" required data-validation-required-message="Por favor escolha a escola."></select>
             <span class="help-block text-danger"></span>
         </div>
     </div>
@@ -54,7 +54,7 @@
     <div class="row control-group"  v-transition="expand" v-if="registration">
         <div class="form-group col-lg-4 floating-label-form-group controls">
             <label for="gender" class="sr-only control-label">Sexo</label>
-            <select v-model="gender" class="form-control input-lg" placeholder="Sexo" name="gender" id="genero" required data-validation-required-message="Por favor preencha o sexo.">
+            <select v-model="gender" class="form-control input-lg" placeholder="Sexo" name="gender" id="gender" required data-validation-required-message="Por favor preencha o sexo.">
                 <option value="">SEXO</option>
                 <option value="F">Feminino</option>
                 <option value="M">Masculino</option>
@@ -81,7 +81,7 @@
         </div>
         <div class="form-group col-xs-6 floating-label-form-group controls">
             <label for="cpf" class="sr-only control-label">CPF</label>
-            <input v-model="cpf" type="text" class="form-control input-lg" placeholder="CPF" name="cpf" id="cpf" required data-validation-required-message="Por favor digite sua data de nascimento.">
+            <input v-model="cpf" type="text" class="form-control input-lg" title="Seu CPF ou do responsável" placeholder="CPF" name="cpf" id="cpf" required data-validation-required-message="Por favor digite sua data de nascimento.">
             <span class="help-block text-danger"></span>
         </div>
     </div>

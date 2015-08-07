@@ -53,7 +53,7 @@
 
     @include('partials.news', ['articles' => $newArticles])
 
-    @include('partials.oldNews', ['articles' => $oldArticles])
+    {{--@include('partials.oldNews', ['articles' => $oldArticles])--}}
 
     {{--<!-- call-to-action -->--}}
     {{--<div class="call-to-action">--}}
@@ -98,52 +98,7 @@
 
     @include('partials.newspapers')
 
-    <section class="case-study">
-        <div class="container-fluid">
-            <div class="col-lg-10 col-lg-offset-1">
-                <div class="row">
-                    <div class="container-fluid">
-                        <div class="col-lg-6">
-                            <div class="row">
-                                <div class="col-sm-12 wow fadeIn" data-wow-delay=".2s">
-                                    <h3><i class="fa fa-desktop fa-lg"></i> Lorem Ipsum</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis magni mollitia quaerat, quia quidem tempore veniam!<br>
-                                        Lorem: <strong><a href="#">Lorem Ipsum</a></strong>
-                                        Ipsum: <strong>20 Lorem</strong>
-                                        Amet: <strong>Lorem Ipsum</strong>
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-12 wow fadeIn" data-wow-delay=".2s">
-                                    <h3><i class="fa fa-desktop fa-lg"></i> Lorem Ipsum</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis magni mollitia quaerat, quia quidem tempore veniam!<br>
-                                        Lorem: <strong><a href="#">Lorem Ipsum</a></strong>
-                                        Ipsum: <strong>20 Lorem</strong>
-                                        Amet: <strong>Lorem Ipsum</strong>
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-12 wow fadeIn" data-wow-delay=".2s">
-                                    <h3><i class="fa fa-desktop fa-lg"></i> Lorem Ipsum</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis magni mollitia quaerat, quia quidem tempore veniam!<br>
-                                        Lorem: <strong><a href="#">Lorem Ipsum</a></strong>
-                                        Ipsum: <strong>20 Lorem</strong>
-                                        Amet: <strong>Lorem Ipsum</strong>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-5 col-lg-offset-1 hidden-sm img-case-study-greed text-center wow fadeInRight">
-                            <img src="files/apps/parlamentojuvenil/site/app2.png" alt="">
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    @include('partials.carousel')
 
     @include('partials.portfolio', ['edition' => 7, 'caption' => 'VII'])
 
@@ -291,28 +246,25 @@
         </div>
     </div>
 
-    @include('partials.carousel')
-
     <!-- sponsors -->
     <div id="sponsor">
         <div class="container-fluid">
             <div class="row sponsor text-center wow fadeInLeftBig">
                 <div class="col-md-2 gray col-md-offset-1">
-                    <a href="/"><img src="files/apps/parlamentojuvenil/site/logo1.png" alt=""></a>
+                    <a href="/"><img src="files/apps/parlamentojuvenil/site/logoalerj-positivo.svg" height="35px" alt=""></a>
                 </div>
                 <div class="col-md-2 gray">
-                    <a href="/"><img src="files/apps/parlamentojuvenil/site/logo2.png" alt=""></a>
-                </div>
-                <div class="col-md-2 gray">
-                    <a href="/"><img src="files/apps/parlamentojuvenil/site/logo3.png" alt=""></a>
-                </div>
-                <div class="col-md-2 gray">
-                    <a href="/"><img src="files/apps/parlamentojuvenil/site/logo4.png" alt=""></a>
-                </div>
-                <div class="col-md-2 gray">
-                    <a href="/"><img src="files/apps/parlamentojuvenil/site/logo5.png" alt=""></a>
-                </div>
 
+                </div>
+                <div class="col-md-2 gray">
+                    <a href="/"><img src="files/apps/parlamentojuvenil/site/logoparlamento.svg" height="35px" alt=""></a>
+                </div>
+                <div class="col-md-2 gray">
+
+                </div>
+                <div class="col-md-2 gray">
+                    <a href="/"><img src="files/apps/parlamentojuvenil/site/logogoverno-positivo.svg" height="35px" alt=""></a>
+                </div>
             </div>
         </div>
     </div>
@@ -323,6 +275,7 @@
             <div class="col-md-6 col-md-offset-3 wow fadeIn">
                 <h2 class="heading">Entre em contato</h2>
                 <h2><i class="fa fa-phone fa-fw"></i>(21) 2588-1202</h2>
+                <h2><a href="mailto:pjalerj@gmail.com">pjalerj@gmail.com</a></h2>
                 <ul class="list-inline">
                     <li>
                         <a href="https://www.facebook.com/parlamentojuvenilrio"><img src="files/apps/parlamentojuvenil/site/facebook-icon.svg" height="35px" alt=""></a>

@@ -51,7 +51,7 @@
                 <div class="col-md-4">
                     <p style="text-align: center;">
                         <h3>3</h3>
-                        Durante uma semana, os parlamentares apresentam, debatem e votam os projetos de sua autoria no plenário da Alerj. No fim, as escolhas são encaminhadas á apreciação do Governador, podendo ou não.
+                        Durante uma semana, os parlamentares apresentam, debatem e votam os projetos de sua autoria no plenário da Alerj. No fim, as escolhas são encaminhadas á apreciação do Governador, podendo ou não virar lei.
                     </p>
                 </div>
             </div>

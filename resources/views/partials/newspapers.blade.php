@@ -1,27 +1,23 @@
-<!-- services -->
-<section id="services" class="head">
-    <div class="container" id="newspapers-anchor">
-        <div class="row">
-            <div class="col-xs-12 text-center wow fadeIn">
-                <h6 class="heading-2">O Parlamento Juvenil Na Mídia</h6>
+<!-- old news -->
+<section id="old-news" class="head old-news">
+    <div class="container-fluid">
+        <div class="col-lg-10 col-lg-offset-1">
+            <div class="row" id="#news">
+                <h1 class="text-center about-section">Notícias das outras edições</h1><br><br><br>
+
+                <div class="owl-carousel" id="newspapers">
+                    @foreach ($newspapers as $link)
+                        <div style="text-align: center;">
+                            <a href="{{ $link['pdf'] }}" target="_blank"><img src="{{ $link['jpg'] }}" alt=""/></a>
+                            <div>
+                                {{ $link['name'] }}
+                                <br/>
+                                {{ $link['year'] }}
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
             </div>
         </div>
     </div>
 </section>
-
-<br><br><br>
-
-<div class="owl-carousel" id="newspapers">
-    @foreach ($newspapers as $link)
-        <div style="text-align: center;">
-            <a href="{{ $link['pdf'] }}" target="_blank"><img src="{{ $link['jpg'] }}" alt=""/></a>
-            <div>
-                {{ $link['name'] }}
-                <br/>
-                {{ $link['year'] }}
-            </div>
-        </div>
-    @endforeach
-</div>
-
-<br><br><br>

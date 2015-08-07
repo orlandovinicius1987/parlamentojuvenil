@@ -12,12 +12,12 @@
                 </a>
             </div>
 
-            <div class="row">
-                <a
-                    href="{{ route('download', ['manual-do-parlamentar.pdf']) }}"
-                    class="btn border-button">MANUAL DO PARLAMENTAR <i class="fa fa-cloud-download"></i>
-                </a>
-            </div>
+            {{--<div class="row">--}}
+                {{--<a--}}
+                    {{--href="{{ route('download', ['manual-do-parlamentar.pdf']) }}"--}}
+                    {{--class="btn border-button">MANUAL DO PARLAMENTAR <i class="fa fa-cloud-download"></i>--}}
+                {{--</a>--}}
+            {{--</div>--}}
         </div>
     </div>
 </section>
