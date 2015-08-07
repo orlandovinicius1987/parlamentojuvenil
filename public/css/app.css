@@ -130,3 +130,8 @@ div.congressman-info div.label {
     font-size: 13px;
     line-height: 0;
 }
+
+.form-control-feedback {
+    top: 0;
+    right: 10px;
+}
