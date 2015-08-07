@@ -12,10 +12,18 @@
         <!-- Bootstrap Core CSS -->
         <link rel="stylesheet" href="css/bootstrap.min.css">
 
+        <!-- jQuery -->
+        <script src="js/jquery.min.js"></script>
+
         <!-- Custom CSS -->
         <link href="css/hybrid.css" rel="stylesheet">
         <link href="css/animate.css" rel="stylesheet" type="text/css">
         <link href="css/app.css" rel="stylesheet">
+
+        <!-- Datepicker -->
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.1/css/datepicker3.css">
+        <script type='text/javascript' src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.0/js/bootstrap-datepicker.js"></script>
+        <script type='text/javascript' src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.0/locales/bootstrap-datepicker.pt-BR.min.js"></script>
 
         <!-- Custom Fonts -->
         <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
@@ -40,9 +48,6 @@
 
         @yield('footer')
 
-        <!-- jQuery -->
-        <script src="js/jquery.min.js"></script>
-
         <!-- owl -->
         <script type="text/javascript" src="packages/owl.carousel/owl.carousel.min.js"></script>
         <script type="text/javascript" src="vendor/jquery-mousewheel/jquery.mousewheel.min.js"></script>
@@ -58,6 +63,12 @@
         <!-- jQuery Plugins -->
         <script src="js/wow.min.js"></script>
         <script src="js/jquery.placeholder.min.js"></script>
+
+        <!-- Masked Input -->
+        <script src="vendor/jquery.maskedinput/dist/jquery.maskedinput.min.js"></script>
+
+        <!-- CPF -->
+        <script src="http://www.receita.fazenda.gov.br/aplicacoes/atcta/cpf/funcoes.js"></script>
 
         <!-- Custom Theme JavaScripts -->
         <script src="js/hybrid.js"></script>

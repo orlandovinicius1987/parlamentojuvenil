@@ -36,7 +36,7 @@
     <div class="row control-group"  v-transition="expand" v-if="city">
         <div class="form-group col-xs-12 floating-label-form-group controls">
             <label for="school" class="sr-only control-label">Escola</label>
-            <select v-model="school" options="schools" class="form-control input-lg" placeholder="Escola" name="school" id="school" required data-validation-required-message="Por favor escolha a escola."></select>
+            <select v-model="school" value="" options="schools" v-on="change: checkSchool" class="form-control input-lg" placeholder="Escola" name="school" id="school" required data-validation-required-message="Por favor escolha a escola."></select>
             <span class="help-block text-danger"></span>
         </div>
     </div>
@@ -76,18 +76,20 @@
     <div class="row control-group"  v-transition="expand" v-if="gender2">
         <div class="form-group col-xs-6 floating-label-form-group controls">
             <label for="birthdate" class="sr-only control-label">Data de nascimento</label>
-            <input v-model="birthdate" type="text" class="form-control input-lg" placeholder="Data de nascimento" name="birthdate" id="birthdate" required data-validation-required-message="Por favor digite sua data de nascimento.">
+            <input v-model="birthdate" type="text" class="form-control input-lg" onkeydown="return false;" placeholder="Data de nascimento" name="birthdate" id="birthdate" required data-validation-required-message="Por favor digite sua data de nascimento.">
+            <span class="fa fa-calendar form-control-feedback" aria-hidden="true" style="color: #000000;"></span>
             <span class="help-block text-danger"></span>
         </div>
+
         <div class="form-group col-xs-6 floating-label-form-group controls">
             <label for="cpf" class="sr-only control-label">CPF</label>
-            <input v-model="cpf" type="text" class="form-control input-lg" title="Seu CPF ou do responsável" placeholder="CPF" name="cpf" id="cpf" required data-validation-required-message="Por favor digite sua data de nascimento.">
+            <input v-model="cpf" v-on="keyup: checkCpf" type="text" class="form-control input-lg" title="Seu CPF ou do responsável" placeholder="CPF" name="cpf" id="cpf" required data-validation-required-message="Por favor digite sua data de nascimento.">
             <span class="help-block text-danger"></span>
         </div>
     </div>
 
     {{-- Identidade --}}
-    <div class="row control-group"  v-transition="expand" v-if="cpf">
+    <div class="row control-group"  v-transition="expand" v-if="cpfValid">
         <div class="form-group col-xs-6 floating-label-form-group controls">
             <label for="id_number" class="sr-only control-label">Identidade</label>
             <input v-model="id_number" type="text" class="form-control input-lg" placeholder="Identidade" name="id_number" id="id_number" required data-validation-required-message="Por favor digite sua data de nascimento.">
@@ -128,13 +130,13 @@
     <div class="row control-group"  v-transition="expand" v-if="phone_cellular || phone_home">
         <div class="form-group col-lg-12 floating-label-form-group controls">
             <label for="zip_code" class="sr-only control-label">CEP da residência</label>
-            <input v-model="zip_code" type="tel" class="form-control input-lg" placeholder="CEP da residência" name="zip_code" id="zip_code" required data-validation-required-message="Por favor digite seu telefone.">
+            <input v-model="zip_code" v-on="keyup: checkZip" type="tel" class="form-control input-lg" placeholder="CEP da residência" name="zip_code" id="zip_code" required data-validation-required-message="Por favor digite seu telefone.">
             <span class="help-block text-danger"></span>
         </div>
     </div>
 
     {{-- Endereço --}}
-    <div class="row control-group"  v-transition="expand" v-if="zip_code">
+    <div class="row control-group"  v-transition="expand" v-if="zipValid">
         <div class="form-group col-lg-12 floating-label-form-group controls">
             <label for="address" class="sr-only control-label">Endereço</label>
             <input v-model="address" type="tel" class="form-control input-lg" placeholder="Endereço" name="address" id="address" required data-validation-required-message="Por favor digite seu telefone.">

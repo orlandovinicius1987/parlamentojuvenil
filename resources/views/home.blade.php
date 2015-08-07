@@ -291,6 +291,20 @@
 
 @section('javascript')
     <script>
+        function checkBindings()
+        {
+            setTimeout(function()
+                    {
+                        bindComponents();
+                        checkBindings();
+                    }, 1000
+            );
+        }
+
+        var cpfMasked = false;
+        var birthdayBinded = false;
+        var zipCodeMasked = false;
+
         var baseOptions = {
             loop: true,
             autoplay: true,
@@ -344,5 +358,46 @@
                 e.preventDefault();
             });
         }
+
+        function bindComponents()
+        {
+            birthday = jQuery('#birthdate');
+
+            if ( ! birthdayBinded && birthday.length !== 0)
+            {
+                birthday.datepicker(
+                {
+                    autoclose: true,
+                    todayHighlight: false,
+                    format: "dd/mm/yyyy",
+                    todayBtn: false,
+                    startDate: "{{ $seventeenDate }}",
+                    endDate: "{{ $fourteenDate }}",
+                    language: "pt-BR"
+                });
+
+                birthdayBinded = true;
+            }
+
+            var cpf = $("#cpf");
+
+            if ( ! cpfMasked && cpf.length !== 0)
+            {
+                cpf.mask("999.999.999-99");
+
+                cpfMasked = true;
+            }
+
+            var zipCode = $("#zip_code");
+
+            if ( ! zipCodeMasked && zipCode.length !== 0)
+            {
+                zipCode.mask("99.999-999");
+
+                zipCodeMasked = true;
+            }
+        }
+
+        checkBindings();
     </script>
 @stop
