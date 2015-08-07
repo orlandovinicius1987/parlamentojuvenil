@@ -37,6 +37,9 @@ class Home extends BaseController
 
 		header('X-Frame-Options: GOFORIT');
 
+		$fourteenDate = (new Carbon())->subYears(14);
+		$seventeenDate = (new Carbon())->subYears(17);
+
 		return
 			view('home')
 				->with('spreadsheet', $this->spreadsheet)
@@ -45,7 +48,10 @@ class Home extends BaseController
 				->with('cities', $this->getCities())
 				->with('newspapers', $this->getNewspapersLinks())
 				->with('oldArticles', $this->getArticles('<=', 2014))
-				->with('newArticles', $this->getArticles('>=', 2015));
+				->with('newArticles', $this->getArticles('>=', 2015))
+				->with('fourteenDate', $fourteenDate->format('d/m/Y'))
+				->with('seventeenDate', $seventeenDate->format('d/m/Y'))
+			;
 	}
 
 	private function getCongressmenLinks()
