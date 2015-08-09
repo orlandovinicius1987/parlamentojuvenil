@@ -6,6 +6,8 @@ use App\Base\Model;
 
 class Subscription extends Model
 {
+	protected $dates = ['created_at', 'updated_at', 'disabled_at'];
+
 	protected $fillable = [
 		'name',
 		'social_name',
@@ -28,4 +30,6 @@ class Subscription extends Model
 		'address_city',
 		'facebook',
 	];
+
+
 }

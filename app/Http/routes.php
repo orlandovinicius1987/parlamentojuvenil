@@ -91,10 +91,13 @@ Route::any('dados', function ($city)
 	}
 });
 
-Route::get('admin', ['as' => 'admin.home', 'uses' => function ()
+Route::group(['prefix' => 'admin'], function ()
 {
-	return view('admin.index');
-}]);
+	Route::get('/', ['as' => 'admin.home', 'uses' => 'Admin@index']);
+
+	Route::get('{city}', ['as' => 'admin.city', 'uses' => 'Admin@city']);
+});
+
 
 Route::get('auth.logout', ['as' => 'auth.logout', 'uses' => function ()
 {
@@ -104,3 +107,5 @@ Route::get('auth.logout', ['as' => 'auth.logout', 'uses' => function ()
 Route::get('subscriptions', ['as' => 'subscriptions', 'uses' => 'Subscriptions@byState']);
 
 Route::get('subscriptions/download', ['as' => 'subscriptions.download', 'uses' => 'Subscriptions@download']);
+
+

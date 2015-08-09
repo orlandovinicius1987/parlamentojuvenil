@@ -43,7 +43,7 @@
                                     </td>
 
                                     <td class="@{{ subscriptioncount ? 'success' : 'danger' }}">
-                                        @{{ city }}
+                                        <a href="/admin/@{{ city }}">@{{ city }}</a>
                                     </td>
                                 </tr>
                             </template>
