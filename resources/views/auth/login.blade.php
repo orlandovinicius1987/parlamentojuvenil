@@ -1,4 +1,4 @@
-@extends('templates.layout')
+@extends('layouts.layout')
 
 @section('content')
     <form method="POST" action="/auth/login">

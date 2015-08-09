@@ -101,3 +101,20 @@ var moreNews = new Vue({
         }
     }
 });
+
+var adminIndex = new Vue({
+    el: '#vue-admin-index',
+
+    data: {
+        total: 0
+    },
+
+    methods: {
+        __click: function() {
+            jQuery('#vue-more-old-news').fadeOut(function() {
+                jQuery('#more-old-news').fadeIn();
+            });
+        }
+    }
+});
+

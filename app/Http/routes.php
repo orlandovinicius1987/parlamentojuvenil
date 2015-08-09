@@ -89,3 +89,15 @@ Route::any('dados', function ($city)
 
 	}
 });
+
+Route::get('admin', ['as' => 'admin.home', 'uses' => function ()
+{
+	return view('admin.index');
+}]);
+
+Route::get('auth.logout', ['as' => 'auth.logout', 'uses' => function ()
+{
+	return view('admin.index');
+}]);
+
+
