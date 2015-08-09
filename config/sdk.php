@@ -62,7 +62,7 @@ return [
 //
 //		'Services/Kinds',
 //
-//		'Services/Language',
+		'Services/Language',
 //		'Services/Login',
 //
 //		'Services/Mailer',
@@ -138,14 +138,14 @@ return [
 //			]
 //		],
 //
-//		[
-//			'name' => 'pragmarx/language',
-//			'enabled' => true,
-//			'serviceProviders' => ['PragmaRX\Sdk\Services\Language\Service\Provider'],
-//			'facades' => [
-//				'Language' => 'PragmaRX\Sdk\Services\Language\Service\Facade',
-//			]
-//		],
+		[
+			'name' => 'pragmarx/language',
+			'enabled' => true,
+			'serviceProviders' => ['PragmaRX\Sdk\Services\Language\Service\Provider'],
+			'facades' => [
+				'Language' => 'PragmaRX\Sdk\Services\Language\Service\Facade',
+			]
+		],
 //
 //		[
 //			'name' => 'pragmarx/view',
@@ -153,15 +153,15 @@ return [
 //			'serviceProviders' => ['PragmaRX\Sdk\Services\View\Service\Provider'],
 //		],
 //
-//		[
-//			'name' => 'pragmarx/translator',
-//			'enabled' => true,
-//			'serviceProviders' => ['PragmaRX\Sdk\Services\Translator\Service\Provider'],
-//			'facades' => [
-//				// 'Lang' => 'PragmaRX\Sdk\Services\Translator\Service\Facade',
-//			]
-//		],
-//
+		[
+			'name' => 'pragmarx/translator',
+			'enabled' => true,
+			'serviceProviders' => ['PragmaRX\Sdk\Services\Translator\Service\Provider'],
+			'facades' => [
+				// 'Lang' => 'PragmaRX\Sdk\Services\Translator\Service\Facade',
+			]
+		],
+
 		[
 			'name' => 'pragmarx/zipcode',
 			'enabled' => true,
