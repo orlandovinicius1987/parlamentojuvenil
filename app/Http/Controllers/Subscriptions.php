@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Data\Entities\Subscription;
+use Carbon\Carbon;
 use \DB;
 use App\Data\Entities\City;
 use App\Http\Controllers\Controller as BaseController;
@@ -29,16 +30,48 @@ class Subscriptions extends BaseController
 
 	private function exportSubscriptionsToExcel()
 	{
+		$subscriptions = $this->allSubscriptions();
+
 		return
 
-			Excel::create('InscricoesParlamentoJuvenilIX-2015', function($excel)
+			Excel::create('InscricoesParlamentoJuvenilIX-2015', function($excel) use ($subscriptions)
 			{
-				$excel->sheet('Inscricoes', function($sheet)
+				$excel->sheet('Inscricoes', function($sheet) use ($subscriptions)
 				{
-					$products = Subscription::all();
-
-					$sheet->fromArray($products);
+					$sheet->fromArray($subscriptions);
 				});
 			})->download('xls');
 	}
+
+	private function allSubscriptions()
+	{
+		$subscriptions = array_map(function($subscription) {
+			return array(
+				'nome_completo' => $subscription['name'],
+				'apelido' => $subscription['social_name'],
+				'municipio' => $subscription['city'],
+				'escola' => $subscription['school'],
+				'matricula' => $subscription['registration'],
+				'genero' => $subscription['gender'],
+				'identidade_genero' => $subscription['gender2'],
+				'data_nascimento' => $subscription['birthdate'],
+				'cpf' => $subscription['cpf'],
+				'identidade' => $subscription['id_number'],
+				'orgao_emissor' => $subscription['id_issuer'],
+				'email' => $subscription['email'],
+				'telefone_residencial' => $subscription['phone_home'],
+				'telefone_celular' => $subscription['phone_cellular'],
+				'cep' => $subscription['zip_code'],
+				'endereco' => $subscription['address'],
+				'complemento' => $subscription['address_complement'],
+				'bairro' => $subscription['address_neighborhood'],
+				'cidade' => $subscription['address_city'],
+				'facebook' => $subscription['facebook'],
+				'registrado_em' => $subscription['created_at'],
+			);
+		}, Subscription::get()->toArray());
+
+		return $subscriptions;
+	}
+
 }
