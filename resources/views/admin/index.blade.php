@@ -21,15 +21,24 @@
                         <tbody>
                             <template v-repeat="subscriptions">
                                 <tr>
-                                    <td>
+                                    <td class="@{{ subscriptioncount ? 'success' : 'danger' }}">
                                         @{{ city }}
                                     </td>
 
-                                    <td class="text-right">
+                                    <td class="text-right @{{ subscriptioncount ? 'success' : 'danger' }}">
                                         @{{ subscriptioncount || '' }}
                                     </td>
                                 </tr>
                             </template>
+                            <tr>
+                                <td>
+                                    <strong>TOTAL</strong>
+                                </td>
+
+                                <td class="text-right">
+                                    @{{ total }}
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>

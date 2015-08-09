@@ -88,11 +88,18 @@ var vueAdminIndex = new Vue({
 
     methods: {
         __fetchSubscriptions: function() {
-            console.log('fetching 2...');
-
             this.$http.get('/subscriptions' , function(subscriptions) {
                 this.subscriptions = subscriptions;
+                this.__countSubscriptions();
             });
+        },
+
+        __countSubscriptions: function () {
+            this.total = 0;
+
+            this.subscriptions.forEach(function(item) {
+                vueAdminIndex.$data.total += item.subscriptioncount;
+            })
         }
     }
 });
