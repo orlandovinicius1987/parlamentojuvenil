@@ -19,18 +19,17 @@
                         </tr>
                         </thead>
                         <tbody>
-                            <tr v-repeat="
-                                entry: data
-                                | filterBy filterKey
-                                | orderBy sortKey reversed[sortKey]">
-                                <td>
-                                    @{{entry['city']}}
-                                </td>
+                            <template v-repeat="subscriptions">
+                                <tr>
+                                    <td>
+                                        @{{ city }}
+                                    </td>
 
-                                <td>
-                                    @{{entry['subscriptionCount']}}
-                                </td>
-                            </tr>
+                                    <td class="text-right">
+                                        @{{ subscriptioncount || '' }}
+                                    </td>
+                                </tr>
+                            </template>
                         </tbody>
                     </table>
                 </div>

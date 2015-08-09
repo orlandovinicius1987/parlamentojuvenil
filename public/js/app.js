@@ -78,43 +78,33 @@ function newSchool(element, index, array)
     subscribe.$data.schools.push({value: element.name, text: element.name});
 }
 
-var moreNews = new Vue({
-    el: '#vue-more-news',
-
-    methods: {
-        __click: function() {
-            jQuery('#vue-more-news').fadeOut(function() {
-                jQuery('#more-news').fadeIn();
-            });
-        }
-    }
-});
-
-var moreNews = new Vue({
-    el: '#vue-more-old-news',
-
-    methods: {
-        __click: function() {
-            jQuery('#vue-more-old-news').fadeOut(function() {
-                jQuery('#more-old-news').fadeIn();
-            });
-        }
-    }
-});
-
-var adminIndex = new Vue({
+var vueAdminIndex = new Vue({
     el: '#vue-admin-index',
 
     data: {
-        total: 0
+        total: 0,
+        subscriptions: []
     },
 
     methods: {
-        __click: function() {
-            jQuery('#vue-more-old-news').fadeOut(function() {
-                jQuery('#more-old-news').fadeIn();
+        __fetchSubscriptions: function() {
+            console.log('fetching 2...');
+
+            this.$http.get('/subscriptions' , function(subscriptions) {
+                this.subscriptions = subscriptions;
             });
         }
     }
 });
 
+function startFetchSubscriptionsClock()
+{
+    vueAdminIndex.__fetchSubscriptions();
+
+    setTimeout(function ()
+    {
+        startFetchSubscriptionsClock();
+    }, 5000);
+}
+
+startFetchSubscriptionsClock();
