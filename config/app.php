@@ -88,6 +88,7 @@ return [
         PragmaRX\Sdk\EagerServiceProvider::class,
         App\Providers\ComposerServiceProvider::class,
 
+        Maatwebsite\Excel\ExcelServiceProvider::class,
     ],
 
     /*
@@ -136,7 +137,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
         'Dropbox'   => GrahamCampbell\Dropbox\Facades\Dropbox::class,
-
+        'Excel'     => Maatwebsite\Excel\Facades\Excel::class,
     ],
 
 ];

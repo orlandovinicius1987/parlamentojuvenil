@@ -101,15 +101,6 @@ Route::get('auth.logout', ['as' => 'auth.logout', 'uses' => function ()
 	return view('admin.index');
 }]);
 
-Route::any('subscriptions', function ()
-{
-	return City::leftJoin('subscriptions', 'cities.name', '=', 'subscriptions.city')
-			->join('states', 'states.id', '=', 'cities.state_id')
-			->where('states.code', 'RJ')
-			->distinct()
-			->select('cities.name as city', DB::raw('(select count(*) from subscriptions where subscriptions.city = cities.name) as subscriptionCount'))
-			->orderBy('cities.name')
-			->get()
-	;
-});
+Route::get('subscriptions', ['as' => 'subscriptions', 'uses' => 'Subscriptions@byState']);
 
+Route::get('subscriptions/download', ['as' => 'subscriptions.download', 'uses' => 'Subscriptions@download']);
