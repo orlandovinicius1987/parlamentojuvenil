@@ -32,6 +32,8 @@ class Service extends Sync
 
 			$this->createArticles($articles);
 		});
+
+		return $articles;
 	}
 
 	private function readNews($console = null)
@@ -50,11 +52,13 @@ class Service extends Sync
 			return false;
 		}
 
-		if ($articles = $articles['noticias'])
+		if ($articles = $articles['conteudo'])
 		{
 			foreach ($articles as $key => $article)
 			{
 				$articles[$key]['texto'] = base64_decode($articles[$key]['texto']);
+				$articles[$key]['titulo'] = htmlentities($articles[$key]['titulo']);
+				$articles[$key]['chamada'] = htmlentities($articles[$key]['chamada']);
 			}
 
 			return $articles;
@@ -74,9 +78,9 @@ class Service extends Sync
 	{
 		return [
 			'code' => $article['idConteudo'],
-			'heading' => $article['titulo'],
-			'subheading' => $article['chamada'],
-			'body' => $article['texto'],
+			'heading' => utf8_encode($article['titulo']),
+			'subheading' => utf8_encode($article['chamada']),
+			'body' => utf8_encode($article['texto']),
 			'edition' => $article['edicao'],
 			'image' => $article['img_destaque'],
 			'date' => $this->convertToCarbon($article['data'])->toDateString(),
