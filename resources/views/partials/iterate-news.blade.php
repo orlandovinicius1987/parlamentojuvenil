@@ -2,10 +2,10 @@
 <?php $articleCount = 1; ?>
 @foreach ($articles as $article)
     @if ($articleCount >= $first && $articleCount <= $last)
-        <div class="col-md-6">
+        <div class="col-md-4">
             <div class="row">
                 <a data-target="#article_{{ $article['id'] }}" class="portfolio-link" data-toggle="modal">
-                    <div class="col-md-4">
+                    <div class="col-md-8">
                         <div class="row">
                             <span class="article-date">{{ $article['date'] }}</span>
                         </div>
