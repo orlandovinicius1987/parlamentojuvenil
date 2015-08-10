@@ -37,7 +37,9 @@
                                         </td>
 
                                         <td>
-                                            {{ $person->facebook }}
+                                            @if ($person->facebook)
+                                                <a href="{{ $person->facebook }}">{{ $person->facebook }}</a>
+                                            @endif    
                                         </td>
                                     </tr>
                                 @endforeach
