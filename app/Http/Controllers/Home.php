@@ -38,7 +38,7 @@ class Home extends BaseController
 		header('X-Frame-Options: GOFORIT');
 
 		$fourteenDate = (new Carbon())->subYears(14);
-		$seventeenDate = (new Carbon())->subYears(17);
+		$seventeenDate = (new Carbon())->subYears(18)->addDays(1);
 
 		return
 			view('home')
