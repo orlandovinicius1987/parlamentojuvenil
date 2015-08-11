@@ -6,10 +6,20 @@
         </div>
         <div class="modal-body">
             <h2>{!! $article['heading'] !!}</h2>
+
             <hr>
+
             <h6>{{ $article['date'] }}</h6>
+
             <img src="{{ $article['image'] }}" alt="">
+
             <p>{!! $article['body'] !!}</p>
+
+            @if ($you = $article['youtube_url'])
+                <div>
+                    <p><iframe width="300" height="200" src="{{ youtube_embed($you) }}" frameborder="0" allowfullscreen></iframe></p>
+                </div>
+            @endif
             <button type="button" class="border-button-black" data-dismiss="modal">FECHAR</button>
         </div>
     </div>
