@@ -22,6 +22,7 @@
                                 <tr>
                                     <th>Nome</th>
                                     <th>Idade</th>
+                                    <th>Escola</th>
                                     <th>Facebook</th>
                                 </tr>
                                 </thead>
@@ -34,6 +35,10 @@
 
                                         <td>
                                             {{ calculate_age($person->birthdate) }}
+                                        </td>
+
+                                        <td>
+                                            {{ $person->school }}
                                         </td>
 
                                         <td>
