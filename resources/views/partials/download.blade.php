@@ -20,6 +20,16 @@
                 </a>
             </div>
 
+            <div class="row">
+                <a
+                        href="{{ route('download', ['documentos-necessarios-para-participar-parlamento-juvenil.zip']) }}"
+                        class="btn border-button">
+                    DOCUMENTOS NECESSÁRIOS PARA PARTICIPAR <i class="fa fa-cloud-download"></i>
+                </a>
+            </div>
+
+
+
             {{--<div class="row">--}}
                 {{--<a--}}
                     {{--href="{{ route('download', ['manual-do-parlamentar.pdf']) }}"--}}
