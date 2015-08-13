@@ -67,9 +67,10 @@ class Subscriptions extends BaseController
 				'bairro' => $subscription['address_neighborhood'],
 				'cidade' => $subscription['address_city'],
 				'facebook' => $subscription['facebook'],
+				'ignorado' => $subscription['ignored'] ? 'Sim' : 'Não',
 				'registrado_em' => $subscription['created_at'],
 			);
-		}, Subscription::get()->toArray());
+		}, Subscription::orderBy('id')->get()->toArray());
 
 		return $subscriptions;
 	}
