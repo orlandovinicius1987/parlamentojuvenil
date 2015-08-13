@@ -20,15 +20,21 @@
                             <table class="table table-striped table-bordered table-hover">
                                 <thead>
                                 <tr>
+                                    <th>Id</th>
                                     <th>Nome</th>
                                     <th>Idade</th>
                                     <th>Escola</th>
                                     <th>Facebook</th>
+                                    <th>Ignorar</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($subscriptions as $person)
-                                    <tr>
+                                    <tr class="{{ $person->ignored ? 'danger' : '' }}">
+                                        <td>
+                                            {{ $person->id }}
+                                        </td>
+
                                         <td>
                                             {{ $person->name }}
                                         </td>
@@ -45,6 +51,10 @@
                                             @if ($person->facebook)
                                                 <a href="{{ $person->facebook }}">{{ $person->facebook }}</a>
                                             @endif
+                                        </td>
+
+                                        <td>
+                                            <a href="/subscriptions/ignore/{{ $person->id }}" class="btn btn-{{ $person->ignored ? 'success' : 'danger' }} btn-xs">{{ $person->ignored ? 'Reativar' : 'Ignorar' }}</a>
                                         </td>
                                     </tr>
                                 @endforeach

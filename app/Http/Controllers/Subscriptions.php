@@ -17,7 +17,7 @@ class Subscriptions extends BaseController
 			->join('states', 'states.id', '=', 'cities.state_id')
 			->where('states.code', 'RJ')
 			->distinct()
-			->select('cities.name as city', DB::raw('(select count(*) from subscriptions where subscriptions.city = cities.name) as subscriptionCount'))
+			->select('cities.name as city', DB::raw('(select count(*) from subscriptions where subscriptions.ignored = false and subscriptions.city = cities.name) as subscriptionCount'))
 			->orderBy('cities.name')
 			->get()
 		;
@@ -74,4 +74,17 @@ class Subscriptions extends BaseController
 		return $subscriptions;
 	}
 
+
+	public function ignore($id)
+	{
+		if ( ! $subscription = Subscription::find($id))
+		{
+			return view('admin.message')->with('message', 'Inscrição não encontrada.');
+		}
+
+		$subscription->ignored = ! $subscription->ignored;
+		$subscription->save();
+
+		return redirect()->back();
+	}
 }

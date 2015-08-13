@@ -114,4 +114,4 @@ Route::get('subscriptions', ['as' => 'subscriptions', 'uses' => 'Subscriptions@b
 
 Route::get('subscriptions/download', ['as' => 'subscriptions.download', 'uses' => 'Subscriptions@download']);
 
-
+Route::get('subscriptions/ignore/{id}', ['as' => 'subscriptions.ignore', 'uses' => 'Subscriptions@ignore']);
