@@ -8,7 +8,7 @@
                 <a
                     href="{{ route('download', ['regimento-interno.pdf']) }}"
                     class="btn border-button">
-                        REGIMENTO INTERNO <i class="fa fa-cloud-download"></i>
+                    REGIMENTO INTERNO <i class="fa fa-cloud-download"></i>
                 </a>
             </div>
 
@@ -22,13 +22,11 @@
 
             <div class="row">
                 <a
-                        href="{{ route('download', ['documentos-necessarios-para-participar-parlamento-juvenil.zip']) }}"
-                        class="btn border-button">
+                    href="{{ route('download', ['documentos-necessarios-para-participar-parlamento-juvenil.zip']) }}"
+                    class="btn border-button">
                     DOCUMENTOS NECESSÁRIOS PARA PARTICIPAR <i class="fa fa-cloud-download"></i>
                 </a>
             </div>
-
-
 
             {{--<div class="row">--}}
                 {{--<a--}}
@@ -39,4 +37,3 @@
         </div>
     </div>
 </section>
-
