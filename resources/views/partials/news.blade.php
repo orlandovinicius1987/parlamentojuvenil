@@ -7,7 +7,7 @@
                 @include('partials.iterate-news', ['first' => 1, 'last' => 6])
             </div>
 
-            @if(count($articles) > 6)
+            @if (count($articles) > 6)
                 <div class="row" id="vue-more-news">
                     <div class="row text-center">
                         <button type="button" class="btn btn-danger" v-on="click: __click">Mais notícias</button>

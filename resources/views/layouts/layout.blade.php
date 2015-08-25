@@ -33,8 +33,12 @@
         <link rel="stylesheet" href="packages/owl.carousel/assets/owl.carousel.min.css">
         <link rel="stylesheet" href="packages/owl.carousel/assets/owl.theme.default.min.css">
 
-        <!-- Font -->
+        <!-- Fonts -->
         <link href="//fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+        <!-- Blueimp Lightbox -->
+        <link rel="stylesheet" href="//blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
 
         <!-- IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
@@ -47,6 +51,41 @@
         @yield('contents')
 
         @yield('footer')
+
+        <!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
+        <div id="blueimp-gallery" class="blueimp-gallery">
+            <!-- The container for the modal slides -->
+            <div class="slides"></div>
+            <!-- Controls for the borderless lightbox -->
+            <h3 class="title"></h3>
+            <a class="prev">‹</a>
+            <a class="next">›</a>
+            <a class="close">×</a>
+            <a class="play-pause"></a>
+            <ol class="indicator"></ol>
+            <!-- The modal dialog, which will be used to wrap the lightbox content -->
+            <div class="modal fade">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title"></h4>
+                        </div>
+                        <div class="modal-body next"></div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default pull-left prev">
+                                <i class="glyphicon glyphicon-chevron-left"></i>
+                                Anterior
+                            </button>
+                            <button type="button" class="btn btn-primary next">
+                                Next
+                                <i class="glyphicon glyphicon-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- owl -->
         <script type="text/javascript" src="packages/owl.carousel/owl.carousel.min.js"></script>
@@ -68,6 +107,12 @@
 
         <!-- CPF -->
         <script src="http://www.receita.fazenda.gov.br/aplicacoes/atcta/cpf/funcoes.js"></script>
+
+        <!-- Blueimp Lightbox -->
+        <script src="//blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
+
+        <!-- jQuery Lazyload -->
+        <script type="text/javascript" src="vendor/lazyload/dist/lazyload.min.js"></script>
 
         <!-- Custom Theme JavaScripts -->
         <script src="js/hybrid.js"></script>

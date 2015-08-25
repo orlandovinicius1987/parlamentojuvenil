@@ -2,7 +2,7 @@
 
 @section('contents')
     @foreach($links as $name => $link)
-        <img src="{{ $link }}" alt="{{ $name }}"/>
+        <img data-original="{{ $link }}" alt="{{ $name }}" class="lazy" />
     @endforeach
 @stop
 

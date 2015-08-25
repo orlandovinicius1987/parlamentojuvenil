@@ -13,7 +13,7 @@
     @foreach ($congressmen[$edition] as $congressman)
         <div>
             <div class="congressman-info">
-                <img src="{{ $congressman['url'] }}" class="img-responsive" alt="">
+                <img data-src="{{ $congressman['url'] }}" class="img-responsive owl-lazy" alt="">
                 <div class="blackbg"></div>
                 <div class="label">{{ $congressman['name'] }}<br><span class="city-name">{{ $congressman['city'] }}</span></div>
             </div>

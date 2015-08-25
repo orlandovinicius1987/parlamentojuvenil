@@ -8,7 +8,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Bus\SelfHandling;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class SyncNews extends Job implements SelfHandling, ShouldQueue
+class SyncGallery extends Job implements SelfHandling, ShouldQueue
 {
     use InteractsWithQueue;
 
@@ -19,6 +19,6 @@ class SyncNews extends Job implements SelfHandling, ShouldQueue
 	 */
     public function handle(Service $newsService)
     {
-        $newsService->sync(env('NEWS_SERVICE_URL'), Service::NEWS);
+        $newsService->sync(env('PHOTO_SERVICE_URL'), Service::GALLERY);
     }
 }

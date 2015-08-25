@@ -11,7 +11,7 @@
                         </div>
 
                         <div class="row article-image">
-                            <img src="{{ $article['image'] }}" width="99%" alt=""/>
+                            <img data-original="{{ $article['image'] }}" width="99%" alt="" class="lazy"/>
                         </div>
 
                         <div class="row">

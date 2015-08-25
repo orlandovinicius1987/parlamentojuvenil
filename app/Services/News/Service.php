@@ -10,25 +10,35 @@ use Illuminate\Database\Eloquent\Collection;
 
 class Service extends Sync
 {
-	public function sync($console = null)
+	const GALLERY = 'Fotos';
+	const NEWS = 'Notícias';
+
+	private $serviceUrl;
+
+	public function sync($serviceUrl, $type, $console = null)
 	{
-		$this->log('News syncing...', $console);
+		$this->log('Data syncing...', $console);
 
-		$this->storeNews($this->readNews($console));
+		$this->serviceUrl = $serviceUrl;
+		$this->type = $type;
 
-		$this->log('News synced.', $console);
+		$this->storeData($this->readData($console), $type);
+
+		$this->log('Data synced.', $console);
 	}
 
-	private function storeNews($articles)
+	private function storeData($articles, $type)
 	{
 		if ($this->isCached($articles))
 		{
 			return false;
 		}
 
-		DB::transaction(function () use ($articles)
+		DB::transaction(function () use ($articles, $type)
 		{
-			Article::truncate();
+			DB::listen(function($sql, $bindings) { \Log::info($sql); \Log::info($bindings); });
+
+			$this->deleteArticles(Article::where('type', $type)->get());
 
 			$this->createArticles($articles);
 		});
@@ -36,18 +46,13 @@ class Service extends Sync
 		return $articles;
 	}
 
-	private function readNews($console = null)
+	private function readData($console = null)
 	{
-		$articles = json_decode(
-			file_get_contents(
-				env('NEWS_SERVICE_URL')
-			),
-			true
-		);
+		$articles = json_decode($this->retrieveServiceData(), true);
 
 		if ($articles['erro'])
 		{
-			$this->log('News syncing aborted: error '.$articles['erro'].' - '.$articles['status'], $console);
+			$this->log('Data syncing aborted: error '.$articles['erro'].' - '.$articles['status'], $console);
 
 			return false;
 		}
@@ -71,6 +76,11 @@ class Service extends Sync
 	{
 		$format = strlen($date) > 10 ? 'd/m/Y H:i:s' : 'd/m/Y';
 
+		if ( ! $date)
+		{
+			return Carbon::now();
+		}
+
 		return Carbon::createFromFormat($format, $date);
 	}
 
@@ -78,6 +88,7 @@ class Service extends Sync
 	{
 		return [
 			'code' => $article['idConteudo'],
+			'type' => $article['tipo'],
 			'heading' => utf8_encode($article['titulo']),
 			'subheading' => utf8_encode($article['chamada']),
 			'body' => utf8_encode($article['texto']),
@@ -102,7 +113,7 @@ class Service extends Sync
 	{
 		$collection = new Collection();
 
-		foreach ($this->readNews() as $article)
+		foreach ($this->readData() as $article)
 		{
 			$collection->add(new Article($article));
 		}
@@ -134,5 +145,18 @@ class Service extends Sync
 	public function getCachedPath()
 	{
 		return storage_path('app/cache').'news.json';
+	}
+
+	private function retrieveServiceData()
+	{
+		return file_get_contents($this->serviceUrl);
+	}
+
+	private function deleteArticles($articles)
+	{
+		foreach ($articles as $article)
+		{
+			$article->delete();
+		}
 	}
 }

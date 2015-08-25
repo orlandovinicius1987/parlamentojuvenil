@@ -8,12 +8,14 @@
                 <div class="owl-carousel" id="newspapers">
                     @foreach ($newspapers as $link)
                         <div style="text-align: center;">
-                            <a href="{{ $link['pdf'] }}" target="_blank"><img src="{{ $link['jpg'] }}" alt=""/></a>
-                            <div>
-                                {{ $link['name'] }}
-                                <br/>
-                                {{ $link['year'] }}
-                            </div>
+                            <a href="{{ $link['pdf'] }}" target="_blank">
+                                <img data-src="{{ $link['jpg'] }}" alt="" class="owl-lazy" />
+                            </a>
+                            {{--<div>--}}
+                                {{--{{ $link['name'] }}--}}
+                                {{--<br/>--}}
+                                {{--{{ $link['year'] }}--}}
+                            {{--</div>--}}
                         </div>
                     @endforeach
                 </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use \DB;
 use App\Jobs\SyncNews;
+use App\Jobs\SyncGallery;
 use App\Services\News\Service as SyncNewsService;
 use Carbon\Carbon;
 use App\Data\Entities\State;
@@ -34,6 +35,7 @@ class Home extends BaseController
 	public function index()
 	{
 		$this->dispatch(new SyncNews());
+		$this->dispatch(new SyncGallery());
 
 		header('X-Frame-Options: GOFORIT');
 
@@ -47,6 +49,7 @@ class Home extends BaseController
 				->with('carrousel', $this->getTestimonials())
 				->with('cities', $this->getCities())
 				->with('newspapers', $this->getNewspapersLinks())
+				->with('gallery', $this->getGalleryLinks())
 				->with('oldArticles', $this->getArticles('<=', 2014))
 				->with('newArticles', $this->getArticles('>=', 2015))
 				->with('fourteenDate', $fourteenDate->format('d/m/Y'))
@@ -102,22 +105,12 @@ class Home extends BaseController
 
 	private function getArticles($operand, $year)
 	{
-		DB::listen(function($sql, $bindings) { \Log::info($sql); \Log::info($bindings); });
+		return $this->getArticlesForType($operand, $year, 'Notícias');
+	}
 
-		$articles = Article::orderBy('published_at', 'descending')
-					->where(DB::raw('extract(year from published_at)'), $operand, $year)
-					->get();
-
-		foreach ($articles as $article)
-		{
-			if ($article->image)
-			{
-				$article->image = env('ARTICLE_IMAGE_URL_BASE').DIRECTORY_SEPARATOR.$article->image;
-				$article->date = Carbon::createFromFormat('Y-m-d', $article->date)->format('d m Y');
-			}
-		}
-
-		return $articles;
+	private function getGalleryLinks($operand = null, $year = null)
+	{
+		return $this->getArticlesForType($operand, $year, 'Fotos');
 	}
 
 	private function getTestimonials()
@@ -151,5 +144,33 @@ class Home extends BaseController
 		}
 
 		return $result;
+	}
+
+	/**
+	 * @param $operand
+	 * @param $year
+	 * @return mixed
+	 */
+	private function getArticlesForType($operand, $year, $type)
+	{
+		DB::listen(function($sql, $bindings) { \Log::info($sql); \Log::info($bindings); });
+
+		$articles = Article::orderBy('published_at', 'descending')->where('type', $type);
+
+		if ($year)
+		{
+			$articles->where(DB::raw('extract(year from published_at)'), $operand, $year);
+		}
+
+		foreach ($articles = $articles->get() as $article)
+		{
+			if ($article->image)
+			{
+				$article->image = env('ARTICLE_IMAGE_URL_BASE') . DIRECTORY_SEPARATOR . $article->image;
+				$article->date = Carbon::createFromFormat('Y-m-d', $article->date)->format('d m Y');
+			}
+		}
+
+		return $articles;
 	}
 }
