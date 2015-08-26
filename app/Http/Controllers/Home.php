@@ -81,26 +81,25 @@ class Home extends BaseController
 	private function getNewspapersLinks()
 	{
 		$files = $this->filesystem->allLinks(env('NEWSPAPERS_DIR'));
-		$links = [];
+		$links = $files['links'];
+		$files = $files['files'];
+		$result = [];
 
-		foreach ($files as $key => $file)
+		foreach ($links as $key => $file)
 		{
 			$parts = pathinfo($file);
 
-			if ($parts['extension'] == 'pdf')
+			if ($parts['extension'] == 'pdf' || $parts['extension'] == 'json')
 			{
 				$name = explode('_', $parts['filename']);
 
-				$links[] = [
-					'year' => $name[0],
-					'name' => $name[1] . ' ' . $name[2],
-					'pdf' => $parts['dirname'] . '/' . $parts['filename'] . '.pdf',
-					'jpg' => $parts['dirname'] . '/' . $parts['filename'] . '.jpg',
-				];
+				$link = $this->makeLinkAttributes($files[$key], $name, $parts);
+
+				$result[$key] = $link;
 			}
 		}
 
-		return $links;
+		return $result;
 	}
 
 	private function getArticles($operand, $year)
@@ -172,5 +171,34 @@ class Home extends BaseController
 		}
 
 		return $articles;
+	}
+
+	private function makeLinkAttributes($file, $name, $parts)
+	{
+		$url = null;
+		$pdf = null;
+
+		if ($parts['extension'] == 'json')
+		{
+			$json = file_get_contents($file);
+
+			$json = json_decode($json);
+
+			$url = $json->url;
+		}
+		else
+		{
+			$pdf = $parts['dirname'] . '/' . $parts['filename'] . '.pdf';
+		}
+
+		$name = isset($name[2]) ? $name[1] . ' ' . $name[2] : $name[0];
+
+		return [
+			'year' => $name[0],
+			'name' => $name,
+			'pdf' => $pdf,
+			'jpg' => $parts['dirname'] . '/' . $parts['filename'] . '.jpg',
+		    'url' => $url
+		];
 	}
 }

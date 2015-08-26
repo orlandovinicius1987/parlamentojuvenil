@@ -8,7 +8,7 @@
                 <div class="owl-carousel" id="newspapers">
                     @foreach ($newspapers as $link)
                         <div style="text-align: center;">
-                            <a href="{{ $link['pdf'] }}" target="_blank">
+                            <a href="{{ $link['pdf'] ?: $link['url'] }}" target="_blank">
                                 <img data-src="{{ $link['jpg'] }}" alt="" class="owl-lazy" />
                             </a>
                             {{--<div>--}}

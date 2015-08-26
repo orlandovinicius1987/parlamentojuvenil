@@ -45,20 +45,24 @@ class Service
 	{
 		$files = $this->filesystem->allFiles($this->getBaseDir() . DIRECTORY_SEPARATOR . $from);
 
+		$links = [];
+
 		foreach ($files as $key => $file)
 		{
-			$files[$key] = url(
+			$links[$key] = url(
 				env('LOCAL_BASE_DIR') . DIRECTORY_SEPARATOR .
 				$file
 			);
+
+			$files[$key] = $this->filesystem->getDriver()->getAdapter()->getPathPrefix() . $files[$key];
 		}
 
-		return $files;
+		return ['files' => $files, 'links' => $links];
 	}
 
 	public function congressmenLinks($path)
 	{
-		$congressmen = $this->allLinks($path);
+		$congressmen = $this->allLinks($path)['links'];
 
 		asort($congressmen);
 
