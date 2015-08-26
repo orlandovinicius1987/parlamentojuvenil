@@ -2,7 +2,23 @@
 
 function calculate_age($date)
 {
-	return Carbon\Carbon::createFromFormat('d/m/Y', $date)->diffInYears();
+	try
+	{
+		$result = Carbon\Carbon::createFromFormat('d/m/Y', $date)->diffInYears();
+	}
+	catch(\Exception $exception)
+	{
+		try
+		{
+			$result = Carbon\Carbon::createFromFormat('dmY', $date)->diffInYears();
+		}
+		catch(\Exception $exception)
+		{
+			$result = 'nascimento: '.$date;
+		}
+	}
+
+	return $result;
 }
 
 function youtube_embed($you)
