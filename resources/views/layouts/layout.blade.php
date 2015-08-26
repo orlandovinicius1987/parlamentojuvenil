@@ -117,6 +117,7 @@
         <!-- Custom Theme JavaScripts -->
         <script src="js/hybrid.js"></script>
 
+        <!-- App.JS -->
         <script src="js/app.js"></script>
 
         @yield('javascript')
