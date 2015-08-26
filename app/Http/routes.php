@@ -41,7 +41,7 @@ Route::post('googleforms', function ()
 
 	$input = Input::only($subscription->getFillable());
 
-	Subscription::create($input);
+	Subscription::firstOrCreate($input);
 
 	return [
 		'success' => $googleForm->post($data),
