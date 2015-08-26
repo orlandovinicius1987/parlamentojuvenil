@@ -1,7 +1,7 @@
 <table class="table table-striped table-bordered table-hover">
     <thead>
         <tr>
-            <th class="text-center">Inscrições</th>
+            <th class="text-center">Inscrições válidas</th>
             <th class="text-center">Municípios inscritos</th>
             <th class="text-center">Municípios não-inscritos</th>
             <th class="text-center">Canceladas/Duplicadas</th>
