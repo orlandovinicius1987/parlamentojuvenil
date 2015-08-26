@@ -26,7 +26,7 @@
             </div>
         </div>
 
-        @if ($count % 2 == 0)
+        @if ($count % 3 == 0)
             </div>
             <br>
             <div class="row">
