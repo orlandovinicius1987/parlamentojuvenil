@@ -83,12 +83,16 @@ var vueAdminIndex = new Vue({
 
     data: {
         total: 0,
-        subscriptions: []
+        subscriptions: [],
+        cancelled: 0,
+        citiesIn: 0,
+        citiesOut: 0
     },
 
     methods: {
         __fetchSubscriptions: function() {
             this.$http.get('/subscriptions' , function(subscriptions) {
+                console.log(subscriptions);
                 this.subscriptions = subscriptions;
                 this.__countSubscriptions();
             });
@@ -96,9 +100,13 @@ var vueAdminIndex = new Vue({
 
         __countSubscriptions: function () {
             this.total = 0;
+            this.cancelled = 0;
 
             this.subscriptions.forEach(function(item) {
                 vueAdminIndex.$data.total += item.subscriptioncount;
+                vueAdminIndex.$data.cancelled += item.cancelledcount;
+                vueAdminIndex.$data.citiesIn = item.citiesin;
+                vueAdminIndex.$data.citiesOut = item.citiesout;
             })
         }
     }

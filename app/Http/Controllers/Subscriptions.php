@@ -17,7 +17,13 @@ class Subscriptions extends BaseController
 			->join('states', 'states.id', '=', 'cities.state_id')
 			->where('states.code', 'RJ')
 			->distinct()
-			->select('cities.name as city', DB::raw('(select count(*) from subscriptions where subscriptions.ignored = false and subscriptions.city = cities.name) as subscriptionCount'))
+			->select(
+				'cities.name as city',
+				DB::raw('(select count(*) from subscriptions where subscriptions.ignored = false and subscriptions.city = cities.name) as subscriptionCount'),
+				DB::raw('(select count(*) from subscriptions where subscriptions.ignored != false and subscriptions.city = cities.name) as cancelledCount'),
+				DB::raw('(select count(*) from cities where cities.state_id = 19 and cities.name in (select city from subscriptions where subscriptions.ignored = false)) as citiesIn'),
+				DB::raw('(select count(*) from cities where cities.state_id = 19 and cities.name not in (select city from subscriptions where subscriptions.ignored = false)) as citiesOut')
+			)
 			->orderBy('cities.name')
 			->get()
 		;
