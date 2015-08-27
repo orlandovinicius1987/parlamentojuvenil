@@ -1,6 +1,5 @@
 <?php
 
-use Event;
 use App\Data\Entities\State;
 use App\Data\Entities\School;
 use App\Data\Entities\Subscription;
@@ -44,7 +43,7 @@ Route::post('googleforms', function ()
 
 	$subscription = Subscription::firstOrCreate($input);
 
-	Event::fire(new SubscriptionUpdated($subscription));
+	app('events')->fire(new SubscriptionUpdated($subscription));
 
 	return [
 		'success' => $googleForm->post($data),
