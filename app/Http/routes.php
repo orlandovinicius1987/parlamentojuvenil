@@ -1,9 +1,10 @@
 <?php
 
-use App\Data\Entities\City;
+use Event;
 use App\Data\Entities\State;
 use App\Data\Entities\School;
 use App\Data\Entities\Subscription;
+use App\Events\SubscriptionUpdated;
 use App\Services\Dropbox\Service as DropboxSync;
 use App\Services\News\Service as NewsSync;
 
@@ -41,7 +42,9 @@ Route::post('googleforms', function ()
 
 	$input = Input::only($subscription->getFillable());
 
-	Subscription::firstOrCreate($input);
+	$subscription = Subscription::firstOrCreate($input);
+
+	Event::fire(new SubscriptionUpdated($subscription));
 
 	return [
 		'success' => $googleForm->post($data),

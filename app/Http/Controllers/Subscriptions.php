@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Data\Entities\Subscription;
-use Carbon\Carbon;
+use App\Events\SubscriptionUpdated;
 use \DB;
+use Event;
+use Carbon\Carbon;
+use App\Data\Entities\Subscription;
 use App\Data\Entities\City;
 use App\Http\Controllers\Controller as BaseController;
 use Maatwebsite\Excel\Facades\Excel;
@@ -91,6 +93,8 @@ class Subscriptions extends BaseController
 
 		$subscription->ignored = ! $subscription->ignored;
 		$subscription->save();
+
+		Event::fire(new SubscriptionUpdated($subscription));
 
 		return redirect()->back();
 	}

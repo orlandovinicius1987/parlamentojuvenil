@@ -116,10 +116,24 @@ function startFetchSubscriptionsClock()
 {
     vueAdminIndex.__fetchSubscriptions();
 
-    setTimeout(function ()
-    {
-        startFetchSubscriptionsClock();
-    }, 5000);
+    //setTimeout(function ()
+    //{
+    //    startFetchSubscriptionsClock();
+    //}, 5000);
+}
+
+function loadPusher()
+{
+    this.pusher = new Pusher('2c6e7075be562704023d');
+
+    this.pusherChannel = this.pusher.subscribe('subscription.updated');
+
+    this.pusherChannel.bind('App\\Events\\SubscriptionUpdated', function(message) {
+        vueAdminIndex.__fetchSubscriptions();
+    });
+
+    console.log('Pusher loaded');
 }
 
 startFetchSubscriptionsClock();
+loadPusher();
