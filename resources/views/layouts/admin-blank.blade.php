@@ -86,6 +86,9 @@
     <!-- Custom Theme JavaScript -->
     <script src="{{url('/')}}/vendor/startbootstrap-sb-admin-2/dist/js/sb-admin-2.js"></script>
 
+    <!-- Pusher -->
+    <script src="http://js.pusher.com/2.2/pusher.min.js"></script>
+
     <!-- Our Vue App -->
     <script src="js/app.js"></script>
 
