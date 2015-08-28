@@ -30,3 +30,10 @@ function youtube_embed($you)
 			$you
 		);
 }
+
+function make_image_url($url, $width = 350)
+{
+//	return "http://api.antoniocarlosribeiro.com/api/v1/image?url={$url}&width={$width}";
+
+	return $url;
+}

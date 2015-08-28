@@ -146,3 +146,18 @@ div.congressman-info div.label {
 img:not([src]) {
     visibility: hidden;
 }
+
+.img-thumbnail {
+    padding: 17px;
+    background-color: white;
+}
+.post-box {
+    margin: 10px;
+}
+.postgallery {
+    padding: 0; !important;
+}
+section.gallery {
+    padding: 100px 0 100px 0;
+    background-color: #005580;
+}

@@ -9,7 +9,7 @@
                     @foreach ($newspapers as $link)
                         <div style="text-align: center;">
                             <a href="{{ $link['pdf'] ?: $link['url'] }}" target="_blank">
-                                <img data-src="{{ $link['jpg'] }}" alt="" class="owl-lazy" />
+                                <img data-src="{!! make_image_url($link['jpg'], 150) !!}" alt="" class="owl-lazy" />
                             </a>
                             {{--<div>--}}
                                 {{--{{ $link['name'] }}--}}

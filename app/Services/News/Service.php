@@ -15,30 +15,37 @@ class Service extends Sync
 
 	private $serviceUrl;
 
-	public function sync($serviceUrl, $type, $console = null)
+	public function sync($serviceUrl, $type, $edition = null, $console = null)
 	{
 		$this->log('Data syncing...', $console);
 
 		$this->serviceUrl = $serviceUrl;
 		$this->type = $type;
 
-		$this->storeData($this->readData($console), $type);
+		$this->storeData($this->readData($console), $type, $edition);
 
 		$this->log('Data synced.', $console);
 	}
 
-	private function storeData($articles, $type)
+	private function storeData($articles, $type, $edition = null)
 	{
 		if ($this->isCached($articles))
 		{
 			return false;
 		}
 
-		DB::transaction(function () use ($articles, $type)
+		DB::transaction(function () use ($articles, $type, $edition)
 		{
 			DB::listen(function($sql, $bindings) { \Log::info($sql); \Log::info($bindings); });
 
-			$this->deleteArticles(Article::where('type', $type)->get());
+			$deletable = Article::where('type', $type);
+
+			if ($edition)
+			{
+				$deletable->where('edition', $edition);
+			}
+
+			$this->deleteArticles($deletable->get());
 
 			$this->createArticles($articles);
 		});

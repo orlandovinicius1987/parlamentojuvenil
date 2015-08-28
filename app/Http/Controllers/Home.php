@@ -49,7 +49,8 @@ class Home extends BaseController
 				->with('carrousel', $this->getTestimonials())
 				->with('cities', $this->getCities())
 				->with('newspapers', $this->getNewspapersLinks())
-				->with('gallery', $this->getGalleryLinks())
+				->with('gallery', $this->getGalleryLinks(9))
+				->with('oldGallery', $this->getGalleryLinks(8))
 				->with('oldArticles', $this->getArticles('<=', 2014))
 				->with('newArticles', $this->getArticles('>=', 2015))
 				->with('fourteenDate', $fourteenDate->format('d/m/Y'))
@@ -107,9 +108,9 @@ class Home extends BaseController
 		return $this->getArticlesForType($operand, $year, 'Notícias');
 	}
 
-	private function getGalleryLinks($operand = null, $year = null)
+	private function getGalleryLinks($edition)
 	{
-		return $this->getArticlesForType($operand, $year, 'Fotos');
+		return $this->getArticlesForType(null, null, 'Fotos', $edition);
 	}
 
 	private function getTestimonials()
@@ -150,7 +151,7 @@ class Home extends BaseController
 	 * @param $year
 	 * @return mixed
 	 */
-	private function getArticlesForType($operand, $year, $type)
+	private function getArticlesForType($operand, $year, $type, $edition = null)
 	{
 		DB::listen(function($sql, $bindings) { \Log::info($sql); \Log::info($bindings); });
 
@@ -159,6 +160,11 @@ class Home extends BaseController
 		if ($year)
 		{
 			$articles->where(DB::raw('extract(year from published_at)'), $operand, $year);
+		}
+
+		if ($edition)
+		{
+			$articles->where('edition', $edition);
 		}
 
 		foreach ($articles = $articles->get() as $article)

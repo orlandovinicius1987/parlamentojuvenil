@@ -19,6 +19,7 @@ class SyncGallery extends Job implements SelfHandling, ShouldQueue
 	 */
     public function handle(Service $newsService)
     {
-        $newsService->sync(env('PHOTO_SERVICE_URL'), Service::GALLERY);
+        $newsService->sync(env('PHOTO_SERVICE_URL'), Service::GALLERY, 9);
+	    $newsService->sync(env('PHOTO_SERVICE_URL_OLD'), Service::GALLERY, 8);
     }
 }

@@ -9,7 +9,7 @@
 
                         @foreach ($carrousel as $congressman)
                             <div class="item {{ $active }}">
-                                <img src="{{ $congressman['photo'] }}" alt="">
+                                <img src="{!! make_image_url($congressman['photo']) !!}" alt="">
                                 <div class="carousel-caption">
                                     <p>"{{ $congressman['testimonial'] }}"</p>
                                     <p class="carousel-name">{{ $congressman['name'] }}, {{ $congressman['city'] }}, Parlamentar Juvenil, {{ $congressman['editions'] }}</p>

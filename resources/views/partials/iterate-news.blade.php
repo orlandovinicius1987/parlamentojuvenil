@@ -11,7 +11,7 @@
                         </div>
 
                         <div class="row article-image">
-                            <img data-original="{{ $article['image'] }}" width="99%" alt="" class="lazy"/>
+                            <img data-original="{!! make_image_url($article['image']) !!}" width="99%" alt="" class="lazy"/>
                         </div>
 
                         <div class="row">

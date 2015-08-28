@@ -98,7 +98,11 @@
 
     @include('partials.newspapers')
 
-    @include('partials.gallery')
+    <div id="vue-gallery">
+        @include('partials.gallery')
+
+        @include('partials.gallery-old')
+    </div>
 
     @include('partials.carousel')
 
@@ -419,7 +423,7 @@
                 birthdayBinded = true;
             }
 
-            var cpf = $("#cpf");
+            var cpf = jQuery("#cpf");
 
             if ( ! cpfMasked && cpf.length !== 0)
             {
@@ -428,7 +432,7 @@
                 cpfMasked = true;
             }
 
-            var zipCode = $("#zip_code");
+            var zipCode = jQuery("#zip_code");
 
             if ( ! zipCodeMasked && zipCode.length !== 0)
             {
@@ -439,6 +443,31 @@
         }
 
         var myLazyLoadGeneric = new LazyLoad({});
+
+//        jQuery(document).ready(function () {
+//            var $container = jQuery('.gallery');
+//
+//            $container.imagesLoaded(function () {
+//                $container.masonry({
+//                    itemSelector: '.gallery-item',
+//                    columnWidth: '.gallery-item',
+//                    transitionDuration: 0
+//                });
+//            });
+//        });
+
+        $(document).ready(function () {
+            var $container = $('.postgallery');
+
+            $container.imagesLoaded(function () {
+                $container.masonry({
+                    itemSelector: '.post-box',
+                    transitionDuration: '0.8s',
+                    columnWidth: '25%',
+                    isFitWidth: true,
+                });
+            });
+        });
 
         checkBindings();
     </script>

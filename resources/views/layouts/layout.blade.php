@@ -120,6 +120,10 @@
         <!-- App.JS -->
         <script src="js/app.js"></script>
 
+        <!-- Masonry -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.2/masonry.pkgd.min.js"></script>
+        <script src="http://imagesloaded.desandro.com/imagesloaded.pkgd.min.js"></script>
+
         @yield('javascript')
 
         @include('partials.analytics')

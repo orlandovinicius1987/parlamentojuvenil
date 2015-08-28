@@ -112,14 +112,29 @@ var vueAdminIndex = new Vue({
     }
 });
 
+var vueGallery = new Vue({
+    el: '#vue-gallery',
+
+    data: {
+
+    },
+
+    methods: {
+        __show: function (which) {
+            jQuery('#more-gallery-'+which).show();
+
+            jQuery('#more-gallery-'+which+'-button').hide('slow');
+
+            jQuery('html, body').animate({
+                scrollTop: jQuery(window).scrollTop() + 100
+            });
+        }
+    }
+});
+
 function startFetchSubscriptionsClock()
 {
     vueAdminIndex.__fetchSubscriptions();
-
-    //setTimeout(function ()
-    //{
-    //    startFetchSubscriptionsClock();
-    //}, 5000);
 }
 
 function loadPusher()

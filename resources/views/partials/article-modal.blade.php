@@ -11,7 +11,7 @@
 
             <h6>{{ $article['date'] }}</h6>
 
-            <img data-original="{{ $article['image'] }}" alt="" class="lazy" />
+            <img data-original="{!! make_image_url($article['image'], 640) !!}" alt="" class="lazy" />
 
             <p>{!! $article['body'] !!}</p>
 
