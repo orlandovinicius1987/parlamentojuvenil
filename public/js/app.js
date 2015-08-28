@@ -136,4 +136,3 @@ function loadPusher()
 }
 
 startFetchSubscriptionsClock();
-loadPusher();

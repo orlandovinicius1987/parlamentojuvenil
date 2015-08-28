@@ -93,4 +93,9 @@
     <script src="js/app.js"></script>
 
     @yield('javascript')
+
+    <script>
+        /// We are using pusher only on the admin site
+        loadPusher();
+    </script>
 @stop
