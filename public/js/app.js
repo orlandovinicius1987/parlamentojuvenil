@@ -87,7 +87,9 @@ var vueAdminIndex = new Vue({
         cancelled: 0,
         citiesIn: 0,
         citiesOut: 0,
-        filterSchools : false
+        filterSchools : false,
+        orderby: 'city',
+        ordertype: '',
     },
 
     methods: {
@@ -113,6 +115,18 @@ var vueAdminIndex = new Vue({
 
         __clickFilterSchools: function() {
             this.filterSchools = !this.filterSchools;
+        },
+
+        __changeOrder: function(field) {
+
+            if (this.orderby == field)
+            {
+                this.ordertype = this.ordertype == '' ? 'reverse' : '';
+
+                return;
+            }
+
+            this.orderby = field;
         }
     }
 });

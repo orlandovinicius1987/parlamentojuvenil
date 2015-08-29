@@ -36,13 +36,31 @@
                     <table class="table table-striped table-bordered table-hover">
                         <thead>
                             <tr>
-                                <th class="text-right">Inscrições</th>
-                                <th>Município</th>
-                                <th>Escolas</th>
+                                <th v-on="click: __changeOrder('subscriptioncount')" class="text-right">
+                                    Inscrições
+                                    <div v-show="orderby == 'subscriptioncount'" class="btn btn-danger btn-xs">
+                                        <i class="fa fa-arrow-@{{ ordertype == '' ? 'down' : 'up' }}"></i>
+                                    </div>
+                                </th>
+
+                                <th v-on="click: __changeOrder('city')">
+                                    Município
+                                    <div v-show="orderby == 'city'" class="btn btn-danger btn-xs">
+                                        <i class="fa fa-arrow-@{{ ordertype == '' ? 'down' : 'up' }}">
+                                        </i>
+                                    </div>
+                                </th>
+
+                                <th v-on="click: __changeOrder('schoolcount')">
+                                    Escolas
+                                    <div v-show="orderby == 'schoolcount'" class="btn btn-danger btn-xs">
+                                        <i class="fa fa-arrow-@{{ ordertype == '' ? 'down' : 'up' }}"></i>
+                                    </div>
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
-                            <template v-repeat="subscription : subscriptions | moreThanOneSchool ">
+                            <template v-repeat="subscription : subscriptions | orderBy orderby ordertype | moreThanOneSchool ">
                                 <tr>
                                     <td class="text-right @{{ subscription.subscriptioncount ? 'success' : 'danger' }}">
                                         @{{ subscription.subscriptioncount || '' }}
