@@ -92,6 +92,10 @@
     <!-- Our Vue App -->
     <script src="js/app.js"></script>
 
+    <!-- Moment.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/locale/pt-br.js"></script>
+
     @yield('javascript')
 
     <script>

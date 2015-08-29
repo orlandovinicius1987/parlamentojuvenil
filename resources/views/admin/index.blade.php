@@ -57,6 +57,13 @@
                                         <i class="fa fa-arrow-@{{ ordertype == '' ? 'down' : 'up' }}"></i>
                                     </div>
                                 </th>
+
+                                <th v-on="click: __changeOrder('lastsubscription')">
+                                    Data/hora última inscrição
+                                    <div v-show="orderby == 'lastsubscription'" class="btn btn-danger btn-xs">
+                                        <i class="fa fa-arrow-@{{ ordertype == '' ? 'down' : 'up' }}"></i>
+                                    </div>
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -73,6 +80,10 @@
                                     <td class="@{{ subscription.subscriptioncount ? 'success' : 'danger' }}">
                                         @{{ subscription.schoolcount }}
                                     </td>
+
+                                    <td class="@{{ subscription.subscriptioncount ? 'success' : 'danger' }}">
+                                        @{{ __formatDate(subscription.lastsubscription) }}
+                                    </td>
                                 </tr>
                             </template>
                             <tr>
@@ -80,9 +91,9 @@
                                     <strong>TOTAL</strong>
                                 </td>
 
-                                <td>
+                                <td></td>
 
-                                </td>
+                                <td></td>
 
                                 <td class="text-right">
                                     @{{ total }}

@@ -127,6 +127,58 @@ var vueAdminIndex = new Vue({
             }
 
             this.orderby = field;
+        },
+
+        __formatDate: function(date) {
+            if ( ! date)
+            {
+                return '';
+            }
+
+            var date = moment(date);
+
+            var rDate = date.format("DD/MM/YYYY");
+            var rTime = date.format("HH:mm");
+
+            var present = moment();
+            var rDays = present.diff(date, 'days');
+
+            var present = present.subtract(rDays, 'days');
+            var rHours = present.diff(date, 'hours');
+
+            var present = present.subtract(rHours, 'hours');
+            rMinutes = present.diff(date, 'minutes');
+
+            rDays = 0;
+
+            if (rDays)
+            {
+                rDays = rDays + " dias";
+            }
+            else
+            {
+                rDays = '';
+            }
+
+            if (rHours)
+            {
+                rHours = (rDays ? ", " : "") + rHours + " horas";
+            }
+            else
+            {
+                rHours = '';
+            }
+
+            if (rMinutes)
+            {
+                rMinutes = (rDays || rHours ? ", " : "") + rMinutes + " minutos";
+            }
+            else
+            {
+                rMinutes = '';
+            }
+
+            return rDays + rHours + rMinutes + " atrás (" + rDate + " às " + rTime + ")";
         }
     }
 });
