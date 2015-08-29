@@ -149,8 +149,6 @@ var vueAdminIndex = new Vue({
             var present = present.subtract(rHours, 'hours');
             rMinutes = present.diff(date, 'minutes');
 
-            rDays = 0;
-
             if (rDays)
             {
                 rDays = rDays + " dias";
