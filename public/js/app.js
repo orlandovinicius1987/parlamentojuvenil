@@ -137,48 +137,28 @@ var vueAdminIndex = new Vue({
 
             var rWhen = ' atrás';
 
-            var date = moment(date).subtract(3, 'hours');
             var present = moment();
+
+            date = moment(date).subtract(3, 'hours');
 
             var rDate = date.format("DD/MM/YYYY");
             var rTime = date.format("HH:mm");
 
             var rDays = present.diff(date, 'days');
 
-            var present = present.subtract(rDays, 'days');
+            present = present.subtract(rDays, 'days');
             var rHours = present.diff(date, 'hours');
 
-            var present = present.subtract(rHours, 'hours');
+            present = present.subtract(rHours, 'hours');
             rMinutes = present.diff(date, 'minutes');
 
-            if (rDays)
-            {
-                rDays = rDays + " dias";
-            }
-            else
-            {
-                rDays = '';
-            }
+            rDays = rDays ? rDays + " dias" : '';
 
-            if (rHours)
-            {
-                rHours = (rDays ? ", " : "") + rHours + " horas";
-            }
-            else
-            {
-                rHours = '';
-            }
+            rHours = rHours ? (rDays ? ", " : "") + rHours + " horas" : '';
 
-            if (rMinutes)
-            {
-                rMinutes = (rDays || rHours ? ", " : "") + rMinutes + " minutos";
-            }
-            else
-            {
-                rMinutes = '';
-            }
+            rMinutes = rMinutes ? (rDays || rHours ? ", " : "") + rMinutes + " minutos" : '';
 
-            if ( ! rDays + rHours + rMinutes)
+            if ((rDays + rHours + rMinutes) == '')
             {
                 rWhen = ' Agora pouco';
             }
