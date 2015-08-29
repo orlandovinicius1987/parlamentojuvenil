@@ -135,6 +135,8 @@ var vueAdminIndex = new Vue({
                 return '';
             }
 
+            var rWhen = ' atrás';
+
             var date = moment(date).subtract(3, 'hours');
             var present = moment();
 
@@ -176,7 +178,12 @@ var vueAdminIndex = new Vue({
                 rMinutes = '';
             }
 
-            return rDays + rHours + rMinutes + " atrás (" + rDate + " às " + rTime + ")";
+            if ( ! rDays + rHours + rMinutes)
+            {
+                rWhen = ' Agora pouco';
+            }
+
+            return rDays + rHours + rMinutes + rWhen + " (" + rDate + " às " + rTime + ")";
         }
     }
 });
@@ -208,6 +215,26 @@ Vue.filter('moreThanOneSchool', function (value) {
     }
 
     return value;
+});
+
+Vue.filter('sort', function (value)
+{
+    console.log('sort');
+
+    var sorter = function(a, b)
+    {
+        var va = (a === null) ? "" : "" + a,
+            vb = (b === null) ? "" : "" + b;
+
+        return va > vb ? 1 : ( va === vb ? 0 : -1 );
+    };
+
+    if (vueAdminIndex.$data.orderType == 'reverse')
+    {
+        return value.reverse(sorter);
+    }
+
+    return value.sort(sorter);
 });
 
 function schoolGreaterThanOne(school)
