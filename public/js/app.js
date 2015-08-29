@@ -86,7 +86,8 @@ var vueAdminIndex = new Vue({
         subscriptions: [],
         cancelled: 0,
         citiesIn: 0,
-        citiesOut: 0
+        citiesOut: 0,
+        filterSchools : false
     },
 
     methods: {
@@ -108,6 +109,10 @@ var vueAdminIndex = new Vue({
                 vueAdminIndex.$data.citiesIn = item.citiesin;
                 vueAdminIndex.$data.citiesOut = item.citiesout;
             })
+        },
+
+        __clickFilterSchools: function() {
+            this.filterSchools = !this.filterSchools;
         }
     }
 });
@@ -131,6 +136,20 @@ var vueGallery = new Vue({
         }
     }
 });
+
+Vue.filter('moreThanOneSchool', function (value) {
+    if (vueAdminIndex.$data.filterSchools)
+    {
+        return value.filter(schoolGreaterThanOne);
+    }
+
+    return value;
+});
+
+function schoolGreaterThanOne(school)
+{
+    return school.schoolcount > 1;
+}
 
 function startFetchSubscriptionsClock()
 {
