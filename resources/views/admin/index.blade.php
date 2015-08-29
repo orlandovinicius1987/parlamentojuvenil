@@ -35,6 +35,7 @@
                             <tr>
                                 <th class="text-right">Inscrições</th>
                                 <th>Município</th>
+                                <th>Escolas</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -46,6 +47,10 @@
 
                                     <td class="@{{ subscriptioncount ? 'success' : 'danger' }}">
                                         <a href="/admin/@{{ city }}">@{{ city }}</a>
+                                    </td>
+
+                                    <td class="@{{ subscriptioncount ? 'success' : 'danger' }}">
+                                        @{{ schoolcount }}
                                     </td>
                                 </tr>
                             </template>
