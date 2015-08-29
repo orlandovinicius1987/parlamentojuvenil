@@ -135,12 +135,12 @@ var vueAdminIndex = new Vue({
                 return '';
             }
 
-            var date = moment(date);
+            var date = moment(date).add(3, 'hours');
+            var present = moment().add(3, 'hours');
 
             var rDate = date.format("DD/MM/YYYY");
             var rTime = date.format("HH:mm");
 
-            var present = moment().add(3, 'hours');
             var rDays = present.diff(date, 'days');
 
             var present = present.subtract(rDays, 'days');
