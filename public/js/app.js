@@ -84,6 +84,7 @@ var vueAdminIndex = new Vue({
     data: {
         total: 0,
         subscriptions: [],
+        hash: '',
         cancelled: 0,
         citiesIn: 0,
         citiesOut: 0,
@@ -93,10 +94,28 @@ var vueAdminIndex = new Vue({
     },
 
     methods: {
+        __formatDates: function () {
+            var items = clone(this.subscriptions);
+
+            items.forEach(function(object) {
+                object.formatteddate = this.__formatDate(object.lastsubscription);
+                object.index = Date.now();
+            }.bind(this));
+
+            this.subscriptions = clone(items);
+
+            this._digest();
+
+            setTimeout(function ()
+            {
+                vueAdminIndex.__formatDates();
+            }, 1000);
+        },
+
         __fetchSubscriptions: function() {
             this.$http.get('/subscriptions' , function(subscriptions) {
-                console.log(subscriptions);
                 this.subscriptions = subscriptions;
+                this.__formatDates();
                 this.__countSubscriptions();
             });
         },
@@ -150,17 +169,22 @@ var vueAdminIndex = new Vue({
             var rHours = present.diff(date, 'hours');
 
             present = present.subtract(rHours, 'hours');
-            rMinutes = present.diff(date, 'minutes');
+            var rMinutes = present.diff(date, 'minutes');
 
-            rDays = rDays ? rDays + " dias" : '';
+            present = present.subtract(rMinutes, 'minutes');
+            var rSeconds = present.diff(date, 'seconds');
 
-            rHours = rHours ? (rDays ? ", " : "") + rHours + " horas" : '';
+            rDays = rDays ? rDays + " dia"+(rDays > 1 ? 's' : '') : '';
 
-            rMinutes = rMinutes ? (rDays || rHours ? ", " : "") + rMinutes + " minutos" : '';
+            rHours = rHours ? (rDays ? ", " : "") + rHours + " hora"+(rHours > 1 ? 's' : '') : '';
+
+            rMinutes = rMinutes ? (rDays || rHours ? ", " : "") + rMinutes + " minuto"+(rMinutes > 1 ? 's' : '') : '';
+
+            rSeconds = rSeconds ? (rDays || rHours || rMinutes ? ", " : "") + rSeconds + " segundo"+(rSeconds > 1 ? 's' : '') : '';
 
             if ((rDays + rHours + rMinutes) == '')
             {
-                rWhen = ' Agora pouco';
+                rWhen = rSeconds + " atrás";
             }
 
             return rDays + rHours + rMinutes + rWhen + " (" + rDate + " às " + rTime + ")";
@@ -240,4 +264,15 @@ function loadPusher()
     console.log('Pusher loaded');
 }
 
+function clone(obj)
+{
+    if (null == obj || "object" != typeof obj) return obj;
+    var copy = obj.constructor();
+    for (var attr in obj) {
+        if (obj.hasOwnProperty(attr)) copy[attr] = obj[attr];
+    }
+    return copy;
+}
+
 startFetchSubscriptionsClock();
+

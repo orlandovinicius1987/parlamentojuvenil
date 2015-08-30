@@ -67,22 +67,22 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <template v-repeat="subscription : subscriptions | orderBy orderby ordertype | moreThanOneSchool ">
+                            <template v-repeat="subscriptions | orderBy orderby ordertype | moreThanOneSchool" track-by="city">
                                 <tr>
-                                    <td class="text-right @{{ subscription.subscriptioncount ? 'success' : 'danger' }}">
-                                        @{{ subscription.subscriptioncount || '' }}
+                                    <td class="text-right @{{ subscriptioncount ? 'success' : 'danger' }}">
+                                        @{{ subscriptioncount || '' }}
                                     </td>
 
-                                    <td class="@{{ subscription.subscriptioncount ? 'success' : 'danger' }}">
-                                        <a href="/admin/@{{ subscription.city }}">@{{ subscription.city }}</a>
+                                    <td class="@{{ subscriptioncount ? 'success' : 'danger' }}">
+                                        <a href="/admin/@{{ city }}">@{{ city }}</a>
                                     </td>
 
-                                    <td class="@{{ subscription.subscriptioncount ? 'success' : 'danger' }}">
-                                        @{{ subscription.schoolcount }}
+                                    <td class="@{{ subscriptioncount ? 'success' : 'danger' }}">
+                                        @{{ schoolcount }}
                                     </td>
 
-                                    <td class="@{{ subscription.subscriptioncount ? 'success' : 'danger' }}">
-                                        @{{ __formatDate(subscription.lastsubscription) }}
+                                    <td class="@{{ subscriptioncount ? 'success' : 'danger' }}">
+                                        @{{ formatteddate }}
                                     </td>
                                 </tr>
                             </template>

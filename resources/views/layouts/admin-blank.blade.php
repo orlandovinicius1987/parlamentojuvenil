@@ -6,8 +6,8 @@
     <script type='text/javascript' src='//ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.js'></script>
 
     <!-- VueJS -->
-    <script src="vendor/vue/dist/vue.min.js"></script>
-    <script src="vendor/vue-resource/dist/vue-resource.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/0.12.12/vue.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/0.1.14/vue-resource.min.js"></script>
 
     <!-- Datepicker -->
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.1/css/datepicker3.css">
