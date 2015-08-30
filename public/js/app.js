@@ -98,6 +98,10 @@ var vueAdminIndex = new Vue({
             var items = clone(this.subscriptions);
 
             items.forEach(function(object) {
+                if ( ! object.lastsubscription)
+                {
+                    object.lastsubscription = '1970-10-31 09:35:13';
+                }
                 object.formatteddate = this.__formatDate(object.lastsubscription);
                 object.index = Date.now();
             }.bind(this));
@@ -174,6 +178,8 @@ var vueAdminIndex = new Vue({
             present = present.subtract(rMinutes, 'minutes');
             var rSeconds = present.diff(date, 'seconds');
 
+            isTooOld = rDays > 15000;
+
             rDays = rDays ? rDays + " dia"+(rDays > 1 ? 's' : '') : '';
 
             rHours = rHours ? (rDays ? ", " : "") + rHours + " hora"+(rHours > 1 ? 's' : '') : '';
@@ -185,6 +191,11 @@ var vueAdminIndex = new Vue({
             if ((rDays + rHours + rMinutes) == '')
             {
                 rWhen = rSeconds + " atrás";
+            }
+
+            if (isTooOld)
+            {
+                return '';
             }
 
             return rDays + rHours + rMinutes + rWhen + " (" + rDate + " às " + rTime + ")";
@@ -223,8 +234,6 @@ Vue.filter('moreThanOneSchool', function (value) {
 
 Vue.filter('sort', function (value)
 {
-    console.log('sort');
-
     var sorter = function(a, b)
     {
         var va = (a === null) ? "" : "" + a,
