@@ -22,7 +22,7 @@
                             <a href="/subscriptions/download" class="btn btn-primary">Baixe a planilha completa</a>
 
                             <div v-show="!filterSchools" v-on="click: __clickFilterSchools" class="btn btn-danger">Mostrar municípios com mais de uma escola</div>
-                            <div v-show="filterSchools"  v-on="click: __clickFilterSchools" class="btn btn-success">Mostrar todas</div>
+                            <div v-show="filterSchools"  v-on="click: __clickFilterSchools" class="btn btn-success">Mostrar todos os municípios</div>
                         </div>
                     </div>
                     <!-- /.panel-body -->
