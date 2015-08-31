@@ -55,6 +55,7 @@ class Home extends BaseController
 				->with('newArticles', $this->getArticles('>=', 2015))
 				->with('fourteenDate', $fourteenDate->format('d/m/Y'))
 				->with('seventeenDate', $seventeenDate->format('d/m/Y'))
+				->with('now', (string) \Carbon\Carbon::now()->subHours(3))
 			;
 	}
 

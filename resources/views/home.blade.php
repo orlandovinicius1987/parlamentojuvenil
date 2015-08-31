@@ -25,10 +25,11 @@
                     </div>
 
                     <div class="col-md-4 col-md-offset-1">
-                        <h2>Inscreva-se</h2>
-                        <p>Alunos da rede estadual de ensino</p>
-
-                        @include('partials.subscribe')
+                        @if ($now > '2015-08-31 23:59:59')
+                            @include('partials.subscriptions-ended')
+                        @else
+                            @include('partials.subscribe')
+                        @endif
 
                         <p class="pull-right">
                             <br>

@@ -161,3 +161,7 @@ section.gallery {
     padding: 100px 0 100px 0;
     background-color: #005580;
 }
+
+.well {
+    background: rgb(252, 1, 2);
+}

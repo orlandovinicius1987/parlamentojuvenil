@@ -1,3 +1,6 @@
+<h2>Inscreva-se</h2>
+<p>Alunos da rede estadual de ensino</p>
+
 <form id="subscribe" method="POST" action="/post/formResponse">
     {!! csrf_field() !!}
 
