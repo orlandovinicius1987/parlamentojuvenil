@@ -54,6 +54,9 @@
                 <li active="active">
                     <a href="{{ route('admin.home') }}"><i class="fa fa-dashboard fa-fw"></i> Inscrições</a>
                 </li>
+                <li active="active">
+                    <a href="{{ route('admin.schools') }}"><i class="fa fa-dashboard fa-fw"></i> Escolas</a>
+                </li>
             </ul>
         </div>
         <!-- /.sidebar-collapse -->

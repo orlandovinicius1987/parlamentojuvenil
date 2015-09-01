@@ -103,6 +103,8 @@ Route::group(['prefix' => 'admin'], function ()
 {
 	Route::get('/', ['as' => 'admin.home', 'uses' => 'Admin@index']);
 
+	Route::get('schools', ['as' => 'admin.schools', 'uses' => 'Admin@schools']);
+
 	Route::get('{city}', ['as' => 'admin.city', 'uses' => 'Admin@city']);
 });
 

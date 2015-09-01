@@ -22,4 +22,19 @@ class Admin extends BaseController
 				->with('schools', School::where('city', 'like', DB::raw("UPPER('".$city."')"))->get())
 		;
 	}
+
+	function schools()
+	{
+		$schools = School::join('subscriptions', 'subscriptions.school', '=', 'schools.name')
+				->select(['schools.name', 'schools.city', DB::raw('count(*) as schoolcount')])
+				->groupBy(['schools.name', 'schools.city'])
+				->orderBy('schoolcount', 'desc')
+				->orderBy('schools.city')
+				->orderBy('schools.name')
+				->get();
+
+		return view('admin.schools')
+			->with('schools', $schools)
+		;
+	}
 }

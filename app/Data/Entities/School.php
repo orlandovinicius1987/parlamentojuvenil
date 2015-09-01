@@ -10,4 +10,9 @@ class School extends Model
 	{
 		return $this->belongsTo(City::class);
 	}
+
+	public function subscriptions()
+	{
+		return $this->hasMany(Subscription::class, 'school', 'name');
+	}
 }
