@@ -32,7 +32,12 @@ class Home extends BaseController
 		$this->syncNewsService = $syncNewsService;
 	}
 
-	public function index()
+	public function force()
+	{
+		return $this->index(true);
+	}
+
+	public function index($force = false)
 	{
 		$this->dispatch(new SyncNews());
 		$this->dispatch(new SyncGallery());
@@ -56,6 +61,7 @@ class Home extends BaseController
 				->with('fourteenDate', $fourteenDate->format('d/m/Y'))
 				->with('seventeenDate', $seventeenDate->format('d/m/Y'))
 				->with('now', (string) \Carbon\Carbon::now()->subHours(3))
+				->with('force', $force)
 			;
 	}
 

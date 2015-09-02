@@ -9,6 +9,7 @@ use App\Services\News\Service as NewsSync;
 
 //Route::get('/', ['as' => 'home', 'uses' => 'ComingSoon@index']);
 Route::get('/', ['as' => 'home', 'uses' => 'Home@index']);
+Route::get('register', ['as' => 'home', 'uses' => 'Home@force']);
 
 Route::post('googleforms', function ()
 {

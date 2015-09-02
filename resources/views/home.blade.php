@@ -25,7 +25,7 @@
                     </div>
 
                     <div class="col-md-4 col-md-offset-1">
-                        @if ($now > '2015-08-31 23:59:59')
+                        @if ($now > '2015-08-31 23:59:59' && !$force)
                             @include('partials.subscriptions-ended')
                         @else
                             @include('partials.subscribe')
