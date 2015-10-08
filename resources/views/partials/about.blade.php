@@ -77,7 +77,7 @@
 
 
                     <h3 class="calendar-title">Capacitação dos eleitos</h3>
-                    <p>16 a 26 de outubro</p>
+                    <p>16 a 29 de outubro</p>
 
 
                     <h3 class="calendar-title">Parlamento Juvenil na Alerj</h3>
