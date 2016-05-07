@@ -5,7 +5,7 @@ namespace App\Providers;
 use View;
 use Auth;
 use Config;
-use Language;
+//use Language;
 use Illuminate\Support\ServiceProvider;
 use PragmaRX\Support\Inflectors\Inflector;
 
@@ -20,7 +20,7 @@ class ComposerServiceProvider extends ServiceProvider {
 	{
 		View::composer('*', function($view)
 		{
-			$view->with('html_lang', Language::getLocale());
+			$view->with('html_lang', 'pt-br' /*Language::getLocale()*/);
 
 			$view->with('html_attributes', '');
 
@@ -61,13 +61,13 @@ class ComposerServiceProvider extends ServiceProvider {
 
 			$view->with('assets_layout', asset('assets/layouts/smartadmin/'));
 
-			$view->with('language_locale', Language::getLocale());
+			$view->with('language_locale', 'pt_BR' /*Language::getLocale()*/);
 
-			$view->with('language_country_code', Language::getCountryCode());
+			$view->with('language_country_code', 'BR' /*Language::getCountryCode()*/);
 
-			$view->with('language_country_name', Language::getCountryName());
+			$view->with('language_country_name', 'Brazil' /*Language::getCountryName()*/);
 
-			$view->with('language_name', Language::getLanguageName());
+			$view->with('language_name', 'Portuguese' /*Language::getLanguageName()*/);
 		});
 
 		/**
@@ -94,7 +94,7 @@ class ComposerServiceProvider extends ServiceProvider {
 			$view->with('caption_clients', strtolower(Auth::check() ? Inflector::plural(Auth::user()->present()->clientFieldName) : 'client'));
 			$view->with('caption_Clients', Auth::check() ? Inflector::plural(Auth::user()->present()->clientFieldName) : 'client');
 
-			$view->with('date_format', Language::getDateFormat());
+//			$view->with('date_format', Language::getDateFormat());
 		});
 
 

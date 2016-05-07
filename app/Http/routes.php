@@ -4,7 +4,6 @@ use App\Data\Entities\State;
 use App\Data\Entities\School;
 use App\Data\Entities\Subscription;
 use App\Events\SubscriptionUpdated;
-use App\Services\Dropbox\Service as DropboxSync;
 use App\Services\News\Service as NewsSync;
 
 //Route::get('/', ['as' => 'home', 'uses' => 'ComingSoon@index']);
@@ -52,26 +51,12 @@ Route::post('googleforms', function ()
 	];
 });
 
-Route::get('dropbox', function (DropboxSync $dropbox)
-{
-	$links = $dropbox->photos();
-
-	dd($links);
-
-	return view('images')->with('links', $links);
-});
-
-Route::any('dropbox/sync', function (Dropbox $dropbox)
-{
-	return $dropbox->sync();
-});
-
 Route::any('news/sync', function (NewsSync $news)
 {
 	return $news->sync();
 });
 
-Route::any('cities', function (Dropbox $dropbox)
+Route::any('cities', function ()
 {
 	return State::where('code', 'RJ')->first()->cities()->orderBy('name')->get();
 });

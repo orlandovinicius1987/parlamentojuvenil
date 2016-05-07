@@ -10,160 +10,160 @@ use Illuminate\Database\Eloquent\Collection;
 
 class Service extends Sync
 {
-	const GALLERY = 'Fotos';
-	const NEWS = 'Notícias';
+    const GALLERY = 'Fotos';
+    const NEWS = 'Notícias';
 
-	private $serviceUrl;
+    private $serviceUrl;
 
-	public function sync($serviceUrl, $type, $edition = null, $console = null)
-	{
-		$this->log('Data syncing...', $console);
+    public function sync($serviceUrl, $type, $edition = null, $console = null)
+    {
+        $this->log('Data syncing...', $console);
 
-		$this->serviceUrl = $serviceUrl;
-		$this->type = $type;
+        $this->serviceUrl = $serviceUrl;
+        $this->type = $type;
 
-		$this->storeData($this->readData($console), $type, $edition);
+        $this->storeData($this->readData($console), $type, $edition);
 
-		$this->log('Data synced.', $console);
-	}
+        $this->log('Data synced.', $console);
+    }
 
-	private function storeData($articles, $type, $edition = null)
-	{
-		if ($this->isCached($articles))
-		{
-			return false;
-		}
+    private function storeData($articles, $type, $edition = null)
+    {
+        if ($this->isCached($articles))
+        {
+            return false;
+        }
 
-		DB::transaction(function () use ($articles, $type, $edition)
-		{
-			DB::listen(function($sql, $bindings) { \Log::info($sql); \Log::info($bindings); });
+        DB::transaction(function () use ($articles, $type, $edition)
+        {
+            DB::listen(function($sql, $bindings) { \Log::info($sql); \Log::info($bindings); });
 
-			$deletable = Article::where('type', $type);
+            $deletable = Article::where('type', $type);
 
-			if ($edition)
-			{
-				$deletable->where('edition', $edition);
-			}
+            if ($edition)
+            {
+                $deletable->where('edition', $edition);
+            }
 
-			$this->deleteArticles($deletable->get());
+            $this->deleteArticles($deletable->get());
 
-			$this->createArticles($articles);
-		});
+            $this->createArticles($articles);
+        });
 
-		return $articles;
-	}
+        return $articles;
+    }
 
-	private function readData($console = null)
-	{
-		$articles = json_decode($this->retrieveServiceData(), true);
+    private function readData($console = null)
+    {
+        $articles = json_decode($this->retrieveServiceData(), true);
 
-		if ($articles['erro'])
-		{
-			$this->log('Data syncing aborted: error '.$articles['erro'].' - '.$articles['status'], $console);
+        if ($articles['erro'])
+        {
+            $this->log('Data syncing aborted: error '.$articles['erro'].' - '.$articles['status'], $console);
 
-			return false;
-		}
+            return false;
+        }
 
-		if ($articles = $articles['conteudo'])
-		{
-			foreach ($articles as $key => $article)
-			{
-				$articles[$key]['texto'] = base64_decode($articles[$key]['texto']);
-				$articles[$key]['titulo'] = htmlentities($articles[$key]['titulo']);
-				$articles[$key]['chamada'] = htmlentities($articles[$key]['chamada']);
-			}
+        if ($articles = $articles['conteudo'])
+        {
+            foreach ($articles as $key => $article)
+            {
+                $articles[$key]['texto'] = base64_decode($articles[$key]['texto']);
+                $articles[$key]['titulo'] = htmlentities($articles[$key]['titulo']);
+                $articles[$key]['chamada'] = htmlentities($articles[$key]['chamada']);
+            }
 
-			return $articles;
-		}
+            return $articles;
+        }
 
-		return [];
-	}
+        return [];
+    }
 
-	private function convertToCarbon($date)
-	{
-		$format = strlen($date) > 10 ? 'd/m/Y H:i:s' : 'd/m/Y';
+    private function convertToCarbon($date)
+    {
+        $format = strlen($date) > 10 ? 'd/m/Y H:i:s' : 'd/m/Y';
 
-		if ( ! $date)
-		{
-			return Carbon::now();
-		}
+        if ( ! $date)
+        {
+            return Carbon::now();
+        }
 
-		return Carbon::createFromFormat($format, $date);
-	}
+        return Carbon::createFromFormat($format, $date);
+    }
 
-	private function generateArticle($article)
-	{
-		return [
-			'code' => $article['idConteudo'],
-			'type' => $article['tipo'],
-			'heading' => utf8_encode($article['titulo']),
-			'subheading' => utf8_encode($article['chamada']),
-			'body' => utf8_encode($article['texto']),
-			'edition' => $article['edicao'],
-			'image' => $article['img_destaque'],
-			'date' => $this->convertToCarbon($article['data'])->toDateString(),
-			'published_at' => $this->convertToCarbon($article['data_pub'])->toDateTimeString(),
-			'featured' => $article['destaque'] == 'S',
-			'youtube_url' => $article['url_youtube'],
-		];
-	}
+    private function generateArticle($article)
+    {
+        return [
+            'code' => $article['idConteudo'],
+            'type' => $article['tipo'],
+            'heading' => utf8_encode($article['titulo']),
+            'subheading' => utf8_encode($article['chamada']),
+            'body' => utf8_encode($article['texto']),
+            'edition' => $article['edicao'],
+            'image' => $article['img_destaque'],
+            'date' => $this->convertToCarbon($article['data'])->toDateString(),
+            'published_at' => $this->convertToCarbon($article['data_pub'])->toDateTimeString(),
+            'featured' => $article['destaque'] == 'S',
+            'youtube_url' => $article['url_youtube'],
+        ];
+    }
 
-	private function createArticles($articles)
-	{
-		foreach ($articles as $article)
-		{
-			Article::create($this->generateArticle($article));
-		}
-	}
+    private function createArticles($articles)
+    {
+        foreach ($articles as $article)
+        {
+            Article::create($this->generateArticle($article));
+        }
+    }
 
-	public function getAll()
-	{
-		$collection = new Collection();
+    public function getAll()
+    {
+        $collection = new Collection();
 
-		foreach ($this->readData() as $article)
-		{
-			$collection->add(new Article($article));
-		}
+        foreach ($this->readData() as $article)
+        {
+            $collection->add(new Article($article));
+        }
 
-		return $collection;
-	}
+        return $collection;
+    }
 
-	private function isCached($articles)
-	{
-		$articles = serialize($articles);
+    private function isCached($articles)
+    {
+        $articles = serialize($articles);
 
-		$contents = '';
+        $contents = '';
 
-		if (file_exists($file = $this->getCachedPath()))
-		{
-			$contents = file_get_contents($file);
-		}
+        if (file_exists($file = $this->getCachedPath()))
+        {
+            $contents = file_get_contents($file);
+        }
 
-		if ($contents !== $articles)
-		{
-			file_put_contents($file, $articles);
+        if ($contents !== $articles)
+        {
+            file_put_contents($file, $articles);
 
-			return false;
-		}
+            return false;
+        }
 
-		return true;
-	}
+        return true;
+    }
 
-	public function getCachedPath()
-	{
-		return storage_path('app/cache').'news.json';
-	}
+    public function getCachedPath()
+    {
+        return storage_path('app/cache').'news.json';
+    }
 
-	private function retrieveServiceData()
-	{
-		return file_get_contents($this->serviceUrl);
-	}
+    private function retrieveServiceData()
+    {
+        return file_get_contents($this->serviceUrl);
+    }
 
-	private function deleteArticles($articles)
-	{
-		foreach ($articles as $article)
-		{
-			$article->delete();
-		}
-	}
+    private function deleteArticles($articles)
+    {
+        foreach ($articles as $article)
+        {
+            $article->delete();
+        }
+    }
 }

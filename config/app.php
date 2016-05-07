@@ -79,13 +79,10 @@ return [
         App\Providers\AppServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        GrahamCampbell\Dropbox\DropboxServiceProvider::class,
 
         /*
          * My Providers
          */
-        PragmaRX\Sdk\LazyServiceProvider::class,
-        PragmaRX\Sdk\EagerServiceProvider::class,
         App\Providers\ComposerServiceProvider::class,
 
         Maatwebsite\Excel\ExcelServiceProvider::class,
@@ -136,7 +133,6 @@ return [
         'URL'       => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
-        'Dropbox'   => GrahamCampbell\Dropbox\Facades\Dropbox::class,
         'Excel'     => Maatwebsite\Excel\Facades\Excel::class,
     ],
 
