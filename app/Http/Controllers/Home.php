@@ -160,8 +160,6 @@ class Home extends BaseController
 	 */
 	private function getArticlesForType($operand, $year, $type, $edition = null)
 	{
-		DB::listen(function($sql, $bindings) { \Log::info($sql); \Log::info($bindings); });
-
 		$articles = Article::orderBy('published_at', 'descending')->where('type', $type);
 
 		if ($year)

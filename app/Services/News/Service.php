@@ -36,8 +36,6 @@ class Service extends Sync
 
 		DB::transaction(function () use ($articles, $type, $edition)
 		{
-			DB::listen(function($sql, $bindings) { \Log::info($sql); \Log::info($bindings); });
-
 			$deletable = Article::where('type', $type);
 
 			if ($edition)
