@@ -42,6 +42,11 @@ class Home extends BaseController
 		return $this->showView('home', $force);
 	}
 
+    public function page($page)
+    {
+        return $this->showView('pages.'.$page);
+    }
+
 	private function getCongressmenLinks()
 	{
 		$from7 = $this->filesystem->congressmenLinks(env('PHOTOS_DIR').DIRECTORY_SEPARATOR.'7a edicao (2013)');
