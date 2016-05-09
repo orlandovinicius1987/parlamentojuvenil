@@ -39,7 +39,7 @@ class Home extends BaseController
 
 	public function index($force = false)
 	{
-		return $this->showView('index', $force);
+		return $this->showView('home', $force);
 	}
 
 	private function getCongressmenLinks()
