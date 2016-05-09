@@ -25,7 +25,9 @@
                     </div>
 
                     <div class="col-md-4 col-md-offset-1">
-                        @if ($now > '2015-11-19 23:59:59' && !$force)
+                        @if (config('app.debug'))
+                            @include('partials.subscribe')
+                        @elseif ($now > '2015-11-19 23:59:59' && !$force)
                             @include('partials.legislative-process-ended')
                         @elseif ($now > '2015-10-12 23:59:59' && !$force)
                             @include('partials.deputy-entrance')
@@ -336,144 +338,5 @@
 @stop
 
 @section('javascript')
-    <script>
-        function checkBindings()
-        {
-            setTimeout(function()
-                    {
-                        bindComponents();
-                        checkBindings();
-                    }, 1000
-            );
-        }
-
-        var cpfMasked = false;
-        var birthdayBinded = false;
-        var zipCodeMasked = false;
-
-        var baseOptions = {
-            loop: true,
-            autoplay: true,
-            autoplayTimeout: 1500,
-            autoplayHoverPause: true,
-            lazyLoad : true,
-        };
-
-        optionNewspapers = JSON.parse(JSON.stringify(baseOptions));
-        optionNewspapers.items = 8;
-        optionNewspapers.autoplayTimeout = 6000;
-        optionNewspapers.margin = 40;
-        optionNewspapers.stagePadding = 40;
-        optionNewspapers.dots = true;
-
-        options7 = JSON.parse(JSON.stringify(baseOptions));
-        options7.items = 5;
-
-        options8 = JSON.parse(JSON.stringify(baseOptions));
-        options8.items = 8;
-        options8.rtl = true;
-        options8.autoplayTimeout = 2500;
-
-        jQuery(document).ready(function()
-        {
-            var owl7 = jQuery("#parlamentares-7a");
-            var owl8 = jQuery("#parlamentares-8a");
-            var newspapers = jQuery("#newspapers");
-
-            owl7.owlCarousel(options7);
-            owl8.owlCarousel(options8);
-            newspapers.owlCarousel(optionNewspapers);
-            
-            console.log(options7);
-
-            turnOnWheelControls(owl7);
-            turnOnWheelControls(owl8);
-            turnOnWheelControls(newspapers);
-        });
-
-        function turnOnWheelControls(owl)
-        {
-            owl.on('mousewheel', '.owl-stage', function (e)
-            {
-                if (e.deltaY>0)
-                {
-                    owl.trigger('next.owl');
-                }
-                else
-                {
-                    owl.trigger('prev.owl');
-                }
-
-                e.preventDefault();
-            });
-        }
-
-        function bindComponents()
-        {
-            birthday = jQuery('#birthdate');
-
-            if ( ! birthdayBinded && birthday.length !== 0)
-            {
-                birthday.datepicker(
-                {
-                    autoclose: true,
-                    todayHighlight: false,
-                    format: "dd/mm/yyyy",
-                    todayBtn: false,
-                    startDate: "{{ $seventeenDate }}",
-                    endDate: "{{ $fourteenDate }}",
-                    language: "pt-BR"
-                });
-
-                birthdayBinded = true;
-            }
-
-            var cpf = jQuery("#cpf");
-
-            if ( ! cpfMasked && cpf.length !== 0)
-            {
-                cpf.mask("999.999.999-99");
-
-                cpfMasked = true;
-            }
-
-            var zipCode = jQuery("#zip_code");
-
-            if ( ! zipCodeMasked && zipCode.length !== 0)
-            {
-                zipCode.mask("99.999-999");
-
-                zipCodeMasked = true;
-            }
-        }
-
-        var myLazyLoadGeneric = new LazyLoad({});
-
-//        jQuery(document).ready(function () {
-//            var $container = jQuery('.gallery');
-//
-//            $container.imagesLoaded(function () {
-//                $container.masonry({
-//                    itemSelector: '.gallery-item',
-//                    columnWidth: '.gallery-item',
-//                    transitionDuration: 0
-//                });
-//            });
-//        });
-
-        $(document).ready(function () {
-            var $container = $('.postgallery');
-
-            $container.imagesLoaded(function () {
-                $container.masonry({
-                    itemSelector: '.post-box',
-                    transitionDuration: '0.8s',
-                    columnWidth: '25%',
-                    isFitWidth: true,
-                });
-            });
-        });
-
-        checkBindings();
-    </script>
+    @include('scripts.all')
 @stop
