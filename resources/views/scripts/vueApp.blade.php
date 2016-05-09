@@ -154,52 +154,54 @@
             },
 
             __formatDate: function(date) {
-                if ( ! date)
-                {
-                    return '';
-                }
+//                if ( ! date)
+//                {
+//                    return '';
+//                }
+//
+//                var rWhen = ' atrás';
+//
+//                var present = moment();
+//
+//                date = moment(date).subtract(3, 'hours');
+//
+//                var rDate = date.format("DD/MM/YYYY");
+//                var rTime = date.format("HH:mm");
+//
+//                var rDays = present.diff(date, 'days');
+//
+//                present = present.subtract(rDays, 'days');
+//                var rHours = present.diff(date, 'hours');
+//
+//                present = present.subtract(rHours, 'hours');
+//                var rMinutes = present.diff(date, 'minutes');
+//
+//                present = present.subtract(rMinutes, 'minutes');
+//                var rSeconds = present.diff(date, 'seconds');
+//
+//                isTooOld = rDays > 15000;
+//
+//                rDays = rDays ? rDays + " dia"+(rDays > 1 ? 's' : '') : '';
+//
+//                rHours = rHours ? (rDays ? ", " : "") + rHours + " hora"+(rHours > 1 ? 's' : '') : '';
+//
+//                rMinutes = rMinutes ? (rDays || rHours ? ", " : "") + rMinutes + " minuto"+(rMinutes > 1 ? 's' : '') : '';
+//
+//                rSeconds = rSeconds ? (rDays || rHours || rMinutes ? ", " : "") + rSeconds + " segundo"+(rSeconds > 1 ? 's' : '') : '';
+//
+//                if ((rDays + rHours + rMinutes) == '')
+//                {
+//                    rWhen = rSeconds + " atrás";
+//                }
+//
+//                if (isTooOld)
+//                {
+//                    return '';
+//                }
+//
+//                return rDays + rHours + rMinutes + rWhen + " (" + rDate + " às " + rTime + ")";
 
-                var rWhen = ' atrás';
-
-                var present = moment();
-
-                date = moment(date).subtract(3, 'hours');
-
-                var rDate = date.format("DD/MM/YYYY");
-                var rTime = date.format("HH:mm");
-
-                var rDays = present.diff(date, 'days');
-
-                present = present.subtract(rDays, 'days');
-                var rHours = present.diff(date, 'hours');
-
-                present = present.subtract(rHours, 'hours');
-                var rMinutes = present.diff(date, 'minutes');
-
-                present = present.subtract(rMinutes, 'minutes');
-                var rSeconds = present.diff(date, 'seconds');
-
-                isTooOld = rDays > 15000;
-
-                rDays = rDays ? rDays + " dia"+(rDays > 1 ? 's' : '') : '';
-
-                rHours = rHours ? (rDays ? ", " : "") + rHours + " hora"+(rHours > 1 ? 's' : '') : '';
-
-                rMinutes = rMinutes ? (rDays || rHours ? ", " : "") + rMinutes + " minuto"+(rMinutes > 1 ? 's' : '') : '';
-
-                rSeconds = rSeconds ? (rDays || rHours || rMinutes ? ", " : "") + rSeconds + " segundo"+(rSeconds > 1 ? 's' : '') : '';
-
-                if ((rDays + rHours + rMinutes) == '')
-                {
-                    rWhen = rSeconds + " atrás";
-                }
-
-                if (isTooOld)
-                {
-                    return '';
-                }
-
-                return rDays + rHours + rMinutes + rWhen + " (" + rDate + " às " + rTime + ")";
+                return '';
             }
         }
     });

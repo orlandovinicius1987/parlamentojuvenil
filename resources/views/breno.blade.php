@@ -7,9 +7,8 @@
     <meta name="author" content="">
     <title>Parlamento Juvenil - ALERJ</title>
 
-
-    <!-- jQuery -->
-    <script src="js/jquery.min.js"></script>
+    <!-- javascript -->
+    <script src="http://www.owlcarousel.owlgraphic.com/assets/vendors/jquery.min.js"></script>
 
     <!-- Custom CSS -->
     <link href="css/animate.css" rel="stylesheet" type="text/css">
@@ -17,8 +16,6 @@
 
     <!-- Datepicker -->
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.1/css/datepicker3.css">
-    <script type='text/javascript' src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.0/js/bootstrap-datepicker.js"></script>
-    <script type='text/javascript' src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.0/locales/bootstrap-datepicker.pt-BR.min.js"></script>
 
 
     <!-- Fonts -->
@@ -28,23 +25,12 @@
     <!-- Blueimp Lightbox -->
     <link rel="stylesheet" href="//blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
 
-    <!-- IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
 
     <link href="pj2016/css/bootstrap.min.css" rel="stylesheet">
     <link href="pj2016/css/font-awesome.min.css" rel="stylesheet">
     <link href="pj2016/css/main.css" rel="stylesheet">
     <link href="pj2016/css/animate.css" rel="stylesheet">
     <link href="pj2016/css/responsive.css" rel="stylesheet">
-
-    <!--[if lt IE 9]>
-    <script src="pj2016/js/html5shiv.js"></script>
-    <script src="pj2016/js/respond.min.js"></script>
-    <![endif]-->
 
     <!-- Stylesheets -->
     <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,400italic,300italic' rel='stylesheet' type='text/css'>
@@ -55,10 +41,6 @@
     <link rel="stylesheet" href="http://www.owlcarousel.owlgraphic.com/assets/owlcarousel/assets/owl.carousel.min.css">
     <link rel="stylesheet" href="http://www.owlcarousel.owlgraphic.com/assets/owlcarousel/assets/owl.theme.default.min.css">
 
-
-    <!-- javascript -->
-    <script src="http://www.owlcarousel.owlgraphic.com/assets/vendors/jquery.min.js"></script>
-    <script src="http://www.owlcarousel.owlgraphic.com/assets/owlcarousel/owl.carousel.js"></script>
 
 
 
@@ -183,7 +165,7 @@
 
                 @include('partials.subscribe')
 
-                <!--<h3>E como funciona?</h3>
+                        <!--<h3>E como funciona?</h3>
 
 
                 <div class="col-md-4">
@@ -2226,19 +2208,25 @@
 </footer>
 <!--/#footer-->
 
-
-<!-- Owl Carousel-->
-<script src="http://www.owlcarousel.owlgraphic.com/assets/vendors/highlight.js"></script>
-<script src="http://www.owlcarousel.owlgraphic.com/assets/js/app.js"></script>
-
 <!-- VueJS -->
 <script src="vendor/vue/dist/vue.min.js"></script>
 <script src="vendor/vue-resource/dist/vue-resource.min.js"></script>
 
+<!-- OWL -->
+<script src="http://www.owlcarousel.owlgraphic.com/assets/owlcarousel/owl.carousel.js"></script>
 
+<!-- IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<!-- Datepicker -->
+<script type='text/javascript' src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.0/js/bootstrap-datepicker.js"></script>
+<script type='text/javascript' src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.0/locales/bootstrap-datepicker.pt-BR.min.js"></script>
 
 <!-- jQuery Plugins -->
-{{--<script src="js/wow.min.js"></script>--}}
+<script src="js/wow.min.js"></script>
 <script src="js/jquery.placeholder.min.js"></script>
 
 <!-- Masked Input -->
@@ -2248,30 +2236,17 @@
 <script src="http://www.receita.fazenda.gov.br/aplicacoes/atcta/cpf/funcoes.js"></script>
 
 <!-- Blueimp Lightbox -->
-{{--<script src="//blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>--}}
+<script src="//blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
 
 <!-- jQuery Lazyload -->
-{{--<script type="text/javascript" src="vendor/lazyload/dist/lazyload.min.js"></script>--}}
-
-
-
-
+<script type="text/javascript" src="vendor/lazyload/dist/lazyload.min.js"></script>
 
 <!-- Masonry -->
-{{--
 <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.2/masonry.pkgd.min.js"></script>
 <script src="http://imagesloaded.desandro.com/imagesloaded.pkgd.min.js"></script>
---}}
 
-
-
-
-
-<script type="text/javascript" src="pj2016/js/jquery.js"></script>
 <!-- Bootstrap Core JavaScript -->
 <script type="text/javascript" src="pj2016/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
-<script type="text/javascript" src="pj2016/js/gmaps.js"></script>
 <script type="text/javascript" src="pj2016/js/smoothscroll.js"></script>
 <script type="text/javascript" src="pj2016/js/jquery.parallax.js"></script>
 <script type="text/javascript" src="pj2016/js/coundown-timer.js"></script>
@@ -2279,17 +2254,6 @@
 <script type="text/javascript" src="pj2016/js/jquery.nav.js"></script>
 <script type="text/javascript" src="pj2016/js/main.js"></script>
 
-
-
-
-@section('javascript')
-    @include('scripts.all')
-@stop
-
-
-
-
-
-
+@include('scripts.all')
 </body>
 </html>
