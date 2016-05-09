@@ -39,30 +39,7 @@ class Home extends BaseController
 
 	public function index($force = false)
 	{
-		$this->dispatch(new SyncNews());
-		$this->dispatch(new SyncGallery());
-
-		header('X-Frame-Options: GOFORIT');
-
-		$fourteenDate = (new Carbon())->subYears(14);
-		$seventeenDate = (new Carbon())->subYears(18)->addDays(1);
-
-		return
-			view('home')
-				->with('spreadsheet', $this->spreadsheet)
-				->with('congressmen', $this->getCongressmenLinks())
-				->with('carrousel', $this->getTestimonials())
-				->with('cities', $this->getCities())
-				->with('newspapers', $this->getNewspapersLinks())
-				->with('gallery', $this->getGalleryLinks(9))
-				->with('oldGallery', $this->getGalleryLinks(8))
-				->with('oldArticles', $this->getArticles('<=', 2014))
-				->with('newArticles', $this->getArticles('>=', 2015))
-				->with('fourteenDate', $fourteenDate->format('d/m/Y'))
-				->with('seventeenDate', $seventeenDate->format('d/m/Y'))
-				->with('now', (string) \Carbon\Carbon::now()->subHours(3))
-				->with('force', $force)
-			;
+		return $this->showView('index', $force);
 	}
 
 	private function getCongressmenLinks()
@@ -211,5 +188,41 @@ class Home extends BaseController
 			'jpg' => $parts['dirname'] . '/' . $parts['filename'] . '.jpg',
 		    'url' => $url
 		];
+	}
+
+	public function breno()
+	{
+		return $this->showView('breno');
+	}
+
+	/**
+	 * @param $force
+	 * @return mixed
+	 */
+	public function showView($view, $force = false)
+	{
+		$this->dispatch(new SyncNews());
+		$this->dispatch(new SyncGallery());
+
+		header('X-Frame-Options: GOFORIT');
+
+		$fourteenDate = (new Carbon())->subYears(14);
+		$seventeenDate = (new Carbon())->subYears(18)->addDays(1);
+
+		return
+			view($view)
+				->with('spreadsheet', $this->spreadsheet)
+				->with('congressmen', $this->getCongressmenLinks())
+				->with('carrousel', $this->getTestimonials())
+				->with('cities', $this->getCities())
+				->with('newspapers', $this->getNewspapersLinks())
+				->with('gallery', $this->getGalleryLinks(9))
+				->with('oldGallery', $this->getGalleryLinks(8))
+				->with('oldArticles', $this->getArticles('<=', 2014))
+				->with('newArticles', $this->getArticles('>=', 2015))
+				->with('fourteenDate', $fourteenDate->format('d/m/Y'))
+				->with('seventeenDate', $seventeenDate->format('d/m/Y'))
+				->with('now', (string)\Carbon\Carbon::now()->subHours(3))
+				->with('force', $force);
 	}
 }
