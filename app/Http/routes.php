@@ -6,11 +6,11 @@ use App\Data\Entities\Subscription;
 use App\Events\SubscriptionUpdated;
 use App\Services\News\Service as NewsSync;
 
-Route::get('/2015', ['as' => 'home', 'uses' => 'Home@index']);
+Route::get('/old', ['as' => 'home', 'uses' => 'Home@index']);
 Route::get('/', ['as' => 'home', 'uses' => 'Home@breno']);
 Route::get('register', ['as' => 'home', 'uses' => 'Home@force']);
 
-Route::get('2015', ['as' => 'home', 'uses' => 'Pages@edition']);
+Route::get('{year}', ['as' => 'home', 'uses' => 'Pages@edition'])->where('name', '[0-9][0-9][0-9][0-9]');;
 Route::get('{year}/gallery', ['as' => 'page.gallery', 'uses' => 'Pages@gallery']);
 Route::get('{year}/news', ['as' => 'page.news', 'uses' => 'Pages@news']);
 Route::get('{year}/members', ['as' => 'page.members', 'uses' => 'Pages@members']);

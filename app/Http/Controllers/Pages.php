@@ -231,6 +231,11 @@ class Pages extends BaseController
 				->with('force', $force);
 	}
 
+    public function edition($year)
+    {
+        return $this->showView('2016.edition', $year);
+    }
+
     public function gallery($year)
     {
         return $this->showView('2016.gallery', $year);
