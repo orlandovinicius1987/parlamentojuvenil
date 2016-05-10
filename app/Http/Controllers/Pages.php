@@ -12,7 +12,7 @@ use App\Data\Entities\Article;
 use App\Services\Filesystem\Service as Filesystem;
 use App\Http\Controllers\Controller as BaseController;
 
-class Home extends BaseController
+class Pages extends BaseController
 {
 	private $spreadsheet = 'https://docs.google.com/a/antoniocarlosribeiro.com/spreadsheets/d/1wrR7y4qk2ofj4kPgkhyPVBjwSohh8k1J6drsZ3bGzic/edit?usp=sharing';
 
@@ -39,12 +39,12 @@ class Home extends BaseController
 
 	public function index($force = false)
 	{
-		return $this->showView('home', $force);
+		return $this->showView('home', 2016, $force);
 	}
 
     public function page($page)
     {
-        return $this->showView('2016.pages.'.$page);
+        return $this->showView('2016.pages.'.$page, 2016);
     }
 
 	private function getCongressmenLinks()
@@ -197,14 +197,14 @@ class Home extends BaseController
 
 	public function breno()
 	{
-		return $this->showView('breno');
+		return $this->showView('breno', 2016);
 	}
 
 	/**
 	 * @param $force
 	 * @return mixed
 	 */
-	public function showView($view, $force = false)
+	public function showView($view, $year, $force = false)
 	{
 		$this->dispatch(new SyncNews());
 		$this->dispatch(new SyncGallery());
@@ -230,4 +230,24 @@ class Home extends BaseController
 				->with('now', (string)\Carbon\Carbon::now()->subHours(3))
 				->with('force', $force);
 	}
+
+    public function gallery($year)
+    {
+        return $this->showView('2016.gallery', $year);
+    }
+
+    public function news($year)
+    {
+        return $this->showView('2016.news', $year);
+    }
+
+    public function clipping($year)
+    {
+        return $this->showView('2016.clipping', $year);
+    }
+
+    public function members($year)
+    {
+        return $this->showView('2016.members', $year);
+    }
 }
