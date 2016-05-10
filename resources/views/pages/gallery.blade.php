@@ -37,7 +37,7 @@
 
 
 
-    <section id="parlamentares-anteriores">
+    <section id="parlamentares-anteriores" class="fundo-azul1" >
         <div class="container-fluid">
             <div class="row">
                 <h2 class="text-center">Parlamentares da VIX Edição</h2>
@@ -1557,10 +1557,10 @@
 
 
 
-    <section id="mesadiretora-anteriores">
+    <section id="mesadiretora-anteriores" class="fundo-azul2">
         <div class="container-fluid">
-            <div class="row">
-                <div class="row about-section no-border">
+            <div class="row about-section no-border">
+
                     <h1 id="calendar" style="text-align: center;">MESA DIRETORA</h1>
 
                     <div class="row text-center">
@@ -1583,12 +1583,173 @@
                         <p>João Pedro Valente (São Pedro da Aldeia)</p>
                         <p>Maria Luíza (Belford Roxo)</p>
                     </div>
-                </div>
+
             </div>
         </div>
     </section>
 
 
+    <section id="video-anteriores" class="fundo-azul3">
+        <div class="container">
+            <div class="row">
+
+                <h1 style="text-align: center;">Vídeo Institucional IX Edição</h1>
+
+                <style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='https://www.youtube.com/embed/EWKw3Zt105E' frameborder='0' allowfullscreen></iframe></div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <section id="noticias-anteriores" class="fundo-azul4 noticias">
+
+        <div class="container">
+            <div class="row">
+                <h1 style="text-align: center;">Notícias IX Edição</h1>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <a href="#" class="thumbnail">
+                        <img src="http://placehold.it/260x180" alt="">
+                    </a>
+                </div>
+                <div class="col-md-9">
+                    <h4><a href="#">Title of the post</a></h4>
+                    <p>
+                        Lorem ipsum dolor sit amet, id nec conceptam conclusionemque. Et eam tation option. Utinam salutatus ex eum. Ne mea dicit tibique facilisi, ea mei omittam explicari conclusionemque, ad nobis propriae quaerendum sea.
+                    </p>
+                    <p><a class="btn btn-info btn-sm" href="#">Read more</a></p>
+                    <br/>
+                    <ul class="list-inline">
+                      {{--  <li><i class="glyphicon glyphicon-user"></i> by <a href="#">John</a> | </li>--}}
+                        <li><i class="glyphicon glyphicon-calendar"></i> Sept 16th, 2012 | </li>
+                        {{--<li><i class="glyphicon glyphicon-comment"></i> <a href="#">3 Comments</a> | </li>
+                        <li><i class="glyphicon glyphicon-share"></i> <a href="#">39 Shares</a></li>--}}
+                        <li><i class="icon-tags"></i> {{--Tags :--}} <a href="#"><span class="label label-info">Snipp</span></a>
+                            <a href="#"><span class="label label-info">Bootstrap</span></a>
+                            <a href="#"><span class="label label-info">UI</span></a>
+                            <a href="#"><span class="label label-info">growth</span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-3">
+                    <a href="#" class="thumbnail">
+                        <img src="http://placehold.it/260x180" alt="">
+                    </a>
+                </div>
+                <div class="col-md-9">
+                    <h4><a href="#">Title of the post</a></h4>
+                    <p>
+                        Lorem ipsum dolor sit amet, id nec conceptam conclusionemque. Et eam tation option. Utinam salutatus ex eum. Ne mea dicit tibique facilisi, ea mei omittam explicari conclusionemque, ad nobis propriae quaerendum sea.
+                    </p>
+                    <p><a class="btn btn-info btn-sm" href="#">Read more</a></p>
+                    <br/>
+                    <ul class="list-inline">
+                      {{--  <li><i class="glyphicon glyphicon-user"></i> by <a href="#">John</a> | </li>--}}
+                        <li><i class="glyphicon glyphicon-calendar"></i> Sept 16th, 2012 | </li>
+                        {{--<li><i class="glyphicon glyphicon-comment"></i> <a href="#">3 Comments</a> | </li>
+                        <li><i class="glyphicon glyphicon-share"></i> <a href="#">39 Shares</a></li>--}}
+                        <li><i class="icon-tags"></i> {{--Tags :--}} <a href="#"><span class="label label-info">Snipp</span></a>
+                            <a href="#"><span class="label label-info">Bootstrap</span></a>
+                            <a href="#"><span class="label label-info">UI</span></a>
+                            <a href="#"><span class="label label-info">growth</span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-3">
+                    <a href="#" class="thumbnail">
+                        <img src="http://placehold.it/260x180" alt="">
+                    </a>
+                </div>
+                <div class="col-md-9">
+                    <h4><a href="#">Title of the post</a></h4>
+                    <p>
+                        Lorem ipsum dolor sit amet, id nec conceptam conclusionemque. Et eam tation option. Utinam salutatus ex eum. Ne mea dicit tibique facilisi, ea mei omittam explicari conclusionemque, ad nobis propriae quaerendum sea.
+                    </p>
+                    <p><a class="btn btn-info btn-sm" href="#">Read more</a></p>
+                    <br/>
+                    <ul class="list-inline">
+                      {{--  <li><i class="glyphicon glyphicon-user"></i> by <a href="#">John</a> | </li>--}}
+                        <li><i class="glyphicon glyphicon-calendar"></i> Sept 16th, 2012 | </li>
+                        {{--<li><i class="glyphicon glyphicon-comment"></i> <a href="#">3 Comments</a> | </li>
+                        <li><i class="glyphicon glyphicon-share"></i> <a href="#">39 Shares</a></li>--}}
+                        <li><i class="icon-tags"></i> {{--Tags :--}} <a href="#"><span class="label label-info">Snipp</span></a>
+                            <a href="#"><span class="label label-info">Bootstrap</span></a>
+                            <a href="#"><span class="label label-info">UI</span></a>
+                            <a href="#"><span class="label label-info">growth</span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+        </div>
+
+        <div class="row text-center">
+            <button type="button" class="btn btn-default">Ver mais notícias</button>
+        </div>
+
+    </section>
+
+
+    <section id="noticias-anteriores" class="fundo-azul5 numeros">
+
+        <div class="container">
+            <div class="row">
+                <h1 style="text-align: center;">Estatísticas IX Edição</h1>
+            </div>
+
+            <div class="row tile_count">
+                <div class="animated flipInY col-md-4 col-sm-4 col-xs-4 tile_stats_count text-center">
+                    <div class="left"></div>
+                    <div class="right">
+                        <span class="count_top"><i class="fa fa-user"></i>Pessoas Inscritas</span>
+                        <div class="count">2500</div>
+                        {{--<span class="count_bottom"><i class="green">4% </i> From last Week</span>--}}
+                    </div>
+                </div>
+
+                <div class="animated flipInY col-md-4 col-sm-4 col-xs-4 tile_stats_count text-center">
+                    <div class="left"></div>
+                    <div class="right">
+                        <span class="count_top"><i class="fa fa-user"></i>Projetos Inscritos</span>
+                        <div class="count green">2,500</div>
+                        {{--<span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>--}}
+                    </div>
+                </div>
+                <div class="animated flipInY col-md-4 col-sm-4 col-xs-4 tile_stats_count text-center">
+                    <div class="left"></div>
+                    <div class="right">
+                        <span class="count_top"><i class="fa fa-user"></i>Projetos Aprovados</span>
+                        <div class="count">4,567</div>
+                        {{--<span class="count_bottom"><i class="red"><i class="fa fa-sort-desc"></i>12% </i> From last Week</span>--}}
+                    </div>
+                </div>
+{{--
+                <div class="animated flipInY col-md-2 col-sm-4 col-xs-4 tile_stats_count">
+                    <div class="left"></div>
+                    <div class="right">
+                        <span class="count_top"><i class="fa fa-user"></i> Total Collections</span>
+                        <div class="count">2,315</div>
+                        <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>
+                    </div>
+                </div>
+                <div class="animated flipInY col-md-2 col-sm-4 col-xs-4 tile_stats_count">
+                    <div class="left"></div>
+                    <div class="right">
+                        <span class="count_top"><i class="fa fa-user"></i> Total Connections</span>
+                        <div class="count">7,325</div>
+                        <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>
+                    </div>
+                </div>
+--}}
+            </div>
+        </div>
+
+    </section>
 
 
 
