@@ -27,7 +27,18 @@
                         <li class="scroll"><a href="#sobre">Sobre</a></li>
                         <li class="scroll"><a href="#explore">Galerias</a></li>
                         <li class="scroll"><a href="#event1">Notícias</a></li>
-                        <li class="scroll"><a href="#about3">Anteriores</a></li>
+                        <li class="dropdown">
+                            <!-- Link or button to toggle dropdown -->
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Anteriores <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                                <li><a tabindex="-1" href="#">Action</a></li>
+                                <li><a tabindex="-1" href="#">Another action</a></li>
+                                <li><a tabindex="-1" href="#">Something else here</a></li>
+                                <li class="divider"></li>
+                                <li><a tabindex="-1" href="#">Separated link</a></li>
+                            </ul>
+                        </li>
+                        {{--<li class="scroll"><a href="#about3">Anteriores</a></li>--}}
                         <!--<li class="scroll"><a href="#about">Contatos</a></li>-->
                         <li class="scroll"><a href="#depoimentos">Depoimentos</a></li>
                         <li class="scroll"><a href="#about4">Downloads</a></li>
