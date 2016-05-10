@@ -57,8 +57,12 @@ h2 {
   outline: none;
 }
 
-
-
+section {
+  padding: 60px 0 60px 0;
+}
+section#home {
+  padding: 0;
+}
 
 .fundo-azul1 {
   background: #1E3C71;
