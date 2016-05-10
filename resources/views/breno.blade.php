@@ -12,7 +12,7 @@
             </ol>
             <div class="carousel-inner">
                 <div class="item active">
-                    <img class="img-responsive" src="pj2016/images/slider/bg1.jpg" alt="slider">
+                    <img class="img-responsive" src="/pj2016/images/slider/bg1.jpg" alt="slider">
                     <div class="carousel-caption">
                         <h2>Inscreva-se para a edição 2016 </h2>
                         <h4>participe do Parlamento Juvenil</h4>
@@ -20,7 +20,7 @@
                     </div>
                 </div>
                 <div class="item">
-                    <img class="img-responsive" src="pj2016/images/slider/bg2.jpg" alt="slider">
+                    <img class="img-responsive" src="/pj2016/images/slider/bg2.jpg" alt="slider">
                     <div class="carousel-caption">
                         <h2>Edição 2015 </h2>
                         <h4>saiba o que aconteceu na 10ª edição</h4>
@@ -28,7 +28,7 @@
                     </div>
                 </div>
                 <div class="item">
-                    <img class="img-responsive" src="pj2016/images/slider/bg3.jpg" alt="slider">
+                    <img class="img-responsive" src="/pj2016/images/slider/bg3.jpg" alt="slider">
                     <div class="carousel-caption">
                         <h2>register for our next event </h2>
                         <h4>full event package only @$199</h4>
@@ -124,7 +124,7 @@
         <div class="container">
             <div class="row">
                 <div class="watch">
-                    <img class="img-responsive" src="pj2016/images/watch.png" alt="">
+                    <img class="img-responsive" src="/pj2016/images/watch.png" alt="">
                 </div>
                 <div class="col-md-10 col-sm-5">
                     <h2>Cronograma</h2>
@@ -321,21 +321,21 @@
                                 <div class="row">
                                     <div class="col-sm-4">
                                         <div class="single-event">
-                                            <img class="img-responsive" src="pj2016/images/edicoes/viii/event1.jpg" alt="event-image">
+                                            <img class="img-responsive" src="/pj2016/images/edicoes/viii/event1.jpg" alt="event-image">
                                             <h4>Chester Bennington</h4>
                                             <h5>Vocal</h5>
                                         </div>
                                     </div>
                                     <div class="col-sm-4">
                                         <div class="single-event">
-                                            <img class="img-responsive" src="pj2016/images/edicoes/viii/event2.jpg" alt="event-image">
+                                            <img class="img-responsive" src="/pj2016/images/edicoes/viii/event2.jpg" alt="event-image">
                                             <h4>Mike Shinoda</h4>
                                             <h5>vocals, rhythm guitar</h5>
                                         </div>
                                     </div>
                                     <div class="col-sm-4">
                                         <div class="single-event">
-                                            <img class="img-responsive" src="pj2016/images/edicoes/viii/event3.jpg" alt="event-image">
+                                            <img class="img-responsive" src="/pj2016/images/edicoes/viii/event3.jpg" alt="event-image">
                                             <h4>Rob Bourdon</h4>
                                             <h5>drums</h5>
                                         </div>
@@ -346,21 +346,21 @@
                                 <div class="row">
                                     <div class="col-sm-4">
                                         <div class="single-event">
-                                            <img class="img-responsive" src="pj2016/images/edicoes/viii/event4.jpg" alt="event-image">
+                                            <img class="img-responsive" src="/pj2016/images/edicoes/viii/event4.jpg" alt="event-image">
                                             <h4>Chester Bennington</h4>
                                             <h5>Vocal</h5>
                                         </div>
                                     </div>
                                     <div class="col-sm-4">
                                         <div class="single-event">
-                                            <img class="img-responsive" src="pj2016/images/edicoes/viii/event5.jpg" alt="event-image">
+                                            <img class="img-responsive" src="/pj2016/images/edicoes/viii/event5.jpg" alt="event-image">
                                             <h4>Mike Shinoda</h4>
                                             <h5>vocals, rhythm guitar</h5>
                                         </div>
                                     </div>
                                     <div class="col-sm-4">
                                         <div class="single-event">
-                                            <img class="img-responsive" src="pj2016/images/edicoes/viii/event6.jpg" alt="event-image">
+                                            <img class="img-responsive" src="/pj2016/images/edicoes/viii/event6.jpg" alt="event-image">
                                             <h4>Rob Bourdon</h4>
                                             <h5>drums</h5>
                                         </div>
@@ -372,21 +372,21 @@
                                 <div class="row">
                                     <div class="col-sm-4">
                                         <div class="single-event">
-                                            <img class="img-responsive" src="pj2016/images/edicoes/viii/event7.jpg" alt="event-image">
+                                            <img class="img-responsive" src="/pj2016/images/edicoes/viii/event7.jpg" alt="event-image">
                                             <h4>Chester Bennington</h4>
                                             <h5>Vocal</h5>
                                         </div>
                                     </div>
                                     <div class="col-sm-4">
                                         <div class="single-event">
-                                            <img class="img-responsive" src="pj2016/images/edicoes/viii/event8.jpg" alt="event-image">
+                                            <img class="img-responsive" src="/pj2016/images/edicoes/viii/event8.jpg" alt="event-image">
                                             <h4>Mike Shinoda</h4>
                                             <h5>vocals, rhythm guitar</h5>
                                         </div>
                                     </div>
                                     <div class="col-sm-4">
                                         <div class="single-event">
-                                            <img class="img-responsive" src="pj2016/images/edicoes/viii/event9.jpg" alt="event-image">
+                                            <img class="img-responsive" src="/pj2016/images/edicoes/viii/event9.jpg" alt="event-image">
                                             <h4>Rob Bourdon</h4>
                                             <h5>drums</h5>
                                         </div>
@@ -397,7 +397,7 @@
                     </div>
                 </div>
                 <div class="guitar">
-                    <img class="img-responsive" src="pj2016/images/guitar.png" alt="guitar">
+                    <img class="img-responsive" src="/pj2016/images/guitar.png" alt="guitar">
                 </div>
             </div>
         </div>
@@ -416,22 +416,22 @@
                         <div class="carousel-inner">
                             <div class="item active">
                                 <ul>
-                                    <li><a href="#"><img class="img-responsive" src="pj2016/images/svg/logoalerj-positivo.svg" alt=""></a></li>
-                                    <li><a href="#"><img class="img-responsive" src="pj2016/images/svg/logoparlamento.svg" alt=""></a></li>
-                                    <li><a href="#"><img class="img-responsive" src="pj2016/images/svg/logogoverno-positivo.svg" alt=""></a></li>
-                                    <li><a href="#"><img class="img-responsive" src="pj2016/images/sponsor/sponsor4.png" alt=""></a></li>
-                                    <li><a href="#"><img class="img-responsive" src="pj2016/images/sponsor/sponsor5.png" alt=""></a></li>
-                                    <li><a href="#"><img class="img-responsive" src="pj2016/images/sponsor/sponsor6.png" alt=""></a></li>
+                                    <li><a href="#"><img class="img-responsive" src="/pj2016/images/svg/logoalerj-positivo.svg" alt=""></a></li>
+                                    <li><a href="#"><img class="img-responsive" src="/pj2016/images/svg/logoparlamento.svg" alt=""></a></li>
+                                    <li><a href="#"><img class="img-responsive" src="/pj2016/images/svg/logogoverno-positivo.svg" alt=""></a></li>
+                                    <li><a href="#"><img class="img-responsive" src="/pj2016/images/sponsor/sponsor4.png" alt=""></a></li>
+                                    <li><a href="#"><img class="img-responsive" src="/pj2016/images/sponsor/sponsor5.png" alt=""></a></li>
+                                    <li><a href="#"><img class="img-responsive" src="/pj2016/images/sponsor/sponsor6.png" alt=""></a></li>
                                 </ul>
                             </div>
                             <div class="item">
                                 <ul>
-                                    <li><a href="#"><img class="img-responsive" src="pj2016/images/sponsor/sponsor6.png" alt=""></a></li>
-                                    <li><a href="#"><img class="img-responsive" src="pj2016/images/sponsor/sponsor5.png" alt=""></a></li>
-                                    <li><a href="#"><img class="img-responsive" src="pj2016/images/sponsor/sponsor4.png" alt=""></a></li>
-                                    <li><a href="#"><img class="img-responsive" src="pj2016/images/sponsor/sponsor3.png" alt=""></a></li>
-                                    <li><a href="#"><img class="img-responsive" src="pj2016/images/sponsor/sponsor2.png" alt=""></a></li>
-                                    <li><a href="#"><img class="img-responsive" src="pj2016/images/sponsor/sponsor1.png" alt=""></a></li>
+                                    <li><a href="#"><img class="img-responsive" src="/pj2016/images/sponsor/sponsor6.png" alt=""></a></li>
+                                    <li><a href="#"><img class="img-responsive" src="/pj2016/images/sponsor/sponsor5.png" alt=""></a></li>
+                                    <li><a href="#"><img class="img-responsive" src="/pj2016/images/sponsor/sponsor4.png" alt=""></a></li>
+                                    <li><a href="#"><img class="img-responsive" src="/pj2016/images/sponsor/sponsor3.png" alt=""></a></li>
+                                    <li><a href="#"><img class="img-responsive" src="/pj2016/images/sponsor/sponsor2.png" alt=""></a></li>
+                                    <li><a href="#"><img class="img-responsive" src="/pj2016/images/sponsor/sponsor1.png" alt=""></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -439,7 +439,7 @@
                 </div>
             </div>
             <div class="light">
-                <img class="img-responsive" src="pj2016/images/light.png" alt="">
+                <img class="img-responsive" src="/pj2016/images/light.png" alt="">
             </div>
         </div>
     </section><!--/#sponsor-->
@@ -1994,7 +1994,7 @@
                     </div>
                 </div>
                 <div class="guitar">
-                    <img class="img-responsive" src="pj2016/images/guitar.png" alt="guitar">
+                    <img class="img-responsive" src="/pj2016/images/guitar.png" alt="guitar">
                 </div>
             </div>
         </div>
@@ -2006,23 +2006,23 @@
     <section id="depoimentos">
         <div id="depoimentos-feed" class="carousel slide" data-interval="false">
             <div class="depo">
-                <img class="img-responsive" src="pj2016/images/twit.png" alt="twit">
+                <img class="img-responsive" src="/pj2016/images/twit.png" alt="twit">
             </div>
             <div class="row">
                 <div class="col-sm-6 col-sm-offset-3">
                     <div class="text-center carousel-inner center-block">
                         <div class="item active">
-                            <img src="pj2016/images/depoimentos/depoimento1.png" alt="">
+                            <img src="/pj2016/images/depoimentos/depoimento1.png" alt="">
                             <p>In hac habitasse platea dictumst. Nam pulvinar, odio sed rhoncus suscipit </p>
                             <a href="#">http://t.co/yY7s1IfrAb 2 days ago</a>
                         </div>
                         <div class="item">
-                            <img src="pj2016/images/depoimentos/depoimento2.png" alt="">
+                            <img src="/pj2016/images/depoimentos/depoimento2.png" alt="">
                             <p>In hac habitasse platea dictumst. Nam pulvinar, odio sed rhoncus suscipit </p>
                             <a href="#">http://t.co/yY7s1IfrAb 2 days ago</a>
                         </div>
                         <div class="item">
-                            <img src="pj2016/images/depoimentos/depoimento3.png" alt="">
+                            <img src="/pj2016/images/depoimentos/depoimento3.png" alt="">
                             <p>In hac habitasse platea dictumst. Nam pulvinar, odio sed rhoncus suscipit </p>
                             <a href="#">http://t.co/yY7s1IfrAb 2 days ago</a>
                         </div>
@@ -2040,7 +2040,7 @@
 
         <div class="contact-section">
             <div class="ear-piece">
-                <img class="img-responsive" src="pj2016/images/ear-piece.png" alt="">
+                <img class="img-responsive" src="/pj2016/images/ear-piece.png" alt="">
             </div>
             <div class="container">
                 <div class="row">
@@ -2057,10 +2057,10 @@
                             <h2><a href="mailto:pjalerj@gmail.com">pjalerj@gmail.com</a></h2>
                             <ul class="list-inline">
                                 <li>
-                                    <a href="https://www.facebook.com/parlamentojuvenilrio"><img src="pj2016/images/svg/facebook-icon.svg" height="35px" alt="" class="loading"></a>
+                                    <a href="https://www.facebook.com/parlamentojuvenilrio"><img src="/pj2016/images/svg/facebook-icon.svg" height="35px" alt="" class="loading"></a>
                                 </li>
                                 <li>
-                                    <a href="https://www.youtube.com/parlamentojuvenilrj"><img src="pj2016/images/svg/youtube-icon.svg" height="35px" alt="" class="loading"></a>
+                                    <a href="https://www.youtube.com/parlamentojuvenilrj"><img src="/pj2016/images/svg/youtube-icon.svg" height="35px" alt="" class="loading"></a>
                                 </li>
                             </ul>
 
