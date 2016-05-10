@@ -58,6 +58,41 @@ h2 {
 }
 
 
+
+
+.fundo-azul1 {
+  background: #1E3C71;
+}
+
+.fundo-azul2 {
+  background: #274E91;
+}
+
+.fundo-azul3 {
+  background: #2F5FB1;
+}
+
+.fundo-azul4 {
+  background: #3E72CC;
+}
+
+.fundo-azul5 {
+  background: #5E89D4;
+}
+
+.fundo-azul6 {
+  background: #7EA1DD;
+}
+
+.fundo-azul7 {
+  background: #9EB8E5;
+}
+
+.fundo-azul8 {
+  background: #BFD0EE;
+}
+
+
 /*************************
 *******Header CSS******
 **************************/
@@ -394,10 +429,10 @@ h2 {
 *******Event CSS******
 **************************/
 #event {
-  background-color: #095397;
+  /*background-color: #095397;
   background-image: url("../images/performar-bg.jpg");
   background-position: 50% 0;
-  background-size: contain;
+  background-size: contain;*/
   position: relative;
   background-repeat: no-repeat;
 }
@@ -602,7 +637,7 @@ h2 {
 *******Anteriores CSS******
 **************************/
 #anteriores {
-  background-color: #33888F;
+ /* background-color: #33888F;*/
 }
 
 #anteriores h2 {
