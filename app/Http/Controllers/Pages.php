@@ -25,12 +25,17 @@ class Pages extends BaseController
 	 * @var SyncNewsService
 	 */
 	private $syncNewsService;
+    /**
+     * @var Data
+     */
+    private $dataRepository;
 
-	public function __construct(Filesystem $filesystem, SyncNewsService $syncNewsService)
+    public function __construct(Filesystem $filesystem, SyncNewsService $syncNewsService, Data $dataRepository)
 	{
 		$this->filesystem = $filesystem;
 		$this->syncNewsService = $syncNewsService;
-	}
+        $this->dataRepository = $dataRepository;
+    }
 
 	public function force()
 	{
@@ -214,6 +219,7 @@ class Pages extends BaseController
 		$fourteenDate = (new Carbon())->subYears(14);
 		$seventeenDate = (new Carbon())->subYears(18)->addDays(1);
 
+        $schedule = $this->dataRepository->
 		return
 			view($view)
 				->with('spreadsheet', $this->spreadsheet)

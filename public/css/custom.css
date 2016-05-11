@@ -1,0 +1,35 @@
+.clearfix:before, .clearfix:after {
+    content: " "; display: table;
+}
+.clearfix:after {
+    clear: both
+}
+.clearfix {
+    *zoom: 1
+}
+
+.masonry-container {
+    width: 100%; max-width: 1400px; margin: 0 auto; padding: 0;
+}
+
+#masonry-container.fluid .item {
+    width: 16%;
+    margin: 3px 0.3% 3px 0.3%;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+#masonry-container.fluid .item img
+{
+    display: block;
+    width: 100%;
+    height: auto !important;
+    opacity:1;
+}
+
+.masonry-container {
+    margin-top: 14px;
+    padding-left:0; padding-right:0
+}
+.ms-item {
+    margin-bottom: 20px;
+}

@@ -14,7 +14,7 @@
         <link href="/css/animate.css" rel="stylesheet" type="text/css">
         {{--<link href="/css/app.css" rel="stylesheet">--}}
 
-                <!-- Datepicker -->
+        <!-- Datepicker -->
         <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.1/css/datepicker3.css">
 
 
@@ -44,7 +44,8 @@
         <link rel="stylesheet" href="//www.owlcarousel.owlgraphic.com/assets/owlcarousel/assets/owl.carousel.min.css">
         <link rel="stylesheet" href="//www.owlcarousel.owlgraphic.com/assets/owlcarousel/assets/owl.theme.default.min.css">
 
-
+        <!-- Masonry Style -->
+        <link rel="stylesheet" href="/css/custom.css">
 
 
         <link rel="shortcut icon" href="/pj2016/images/ico/favicon.ico">
