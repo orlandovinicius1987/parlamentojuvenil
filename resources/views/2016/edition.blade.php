@@ -1552,6 +1552,10 @@
                 </div>
 
             </div>
+            <div class="row text-center">
+                <button type="button" class="btn btn-default">Ver todos os parlamentares da edição 2015</button>
+            </div>
+
         </div>
     </section><!--/#anteriores-->
 
@@ -1751,6 +1755,115 @@
 
     </section>
 
+
+    <section id="downloads-anteriores" class="fundo-azul6">
+
+        <div id="whatis" class="content-section-b" style="border-top-width: 0px;">
+            <div class="container">
+                <div class="col-md-6 col-md-offset-3 text-center wrap_title">
+                    <h2>Downloads IX Edição</h2>
+                    <p class="lead" style="margin-top:0">Lorem ipsum dolor sit amet, consectetur adipiscing elit.  </p>
+
+                </div>
+                <div class="row">
+                    <div class="col-sm-4 wow fadeInDown text-center animated animated" style="visibility: visible;">
+                        <img class="rotate" src="img/icon/tweet.svg" alt="Generic placeholder image">
+                        <h3>Regimento Interno</h3>
+                        <p class="lead">Faça o download do regimento interno do Parlamento Juvenil 2015 </p>
+                        <a class="btn btn-default btn-lg" href="#modal-download" data-toggle="modal">
+                            <i class="fa fa-download fa-lg" aria-hidden="true"></i>&nbsp;
+                            Download
+                        </a>
+
+                    </div>
+                    <div class="col-sm-4 wow fadeInDown text-center animated animated" style="visibility: visible;">
+                        <img class="rotate" src="img/icon/picture.svg" alt="Generic placeholder image">
+                        <h3>Projetos Aprovados</h3>
+                        <p class="lead">Faça o download dos projetos aprovados no Parlamento Juvenil 2015 </p>
+                        <a class="btn btn-default btn-lg" href="#modal-download" data-toggle="modal">
+                            <i class="fa fa-download fa-lg" aria-hidden="true"></i>&nbsp;
+                            Download
+                        </a>
+
+                    </div>
+                    <div class="col-sm-4 wow fadeInDown text-center animated animated" style="visibility: visible;">
+                        <img class="rotate" src="img/icon/retina.svg" alt="Generic placeholder image">
+                        <h3>Cronograma</h3>
+                        <p class="lead">Epsum factorial non deposit quid pro quo hic escorol. Olypian quarrels et gorilla congolium sic ad nauseum. </p>
+                        <a class="btn btn-default btn-lg" href="#modal-download" data-toggle="modal">
+                            <i class="fa fa-download fa-lg" aria-hidden="true"></i>&nbsp;
+                            Download
+                        </a>
+
+                    </div>
+                </div>
+              </div>
+        </div>
+    </section>
+
+
+    <section id="clippings-anteriores" class="pinboards fundo-azul5">
+        <div class="container ">
+            <div class="row">
+                <h1 class="text-center">Clipping Edição 2015</h1>
+
+                <section id="pinBoot">
+                    <article class="white-panel"><img src="http://i.imgur.com/sDLIAZD.png" alt="">
+                        <h4><a href="#">Title 1</a></h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                            irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    </article>
+
+                    <article class="white-panel"> <img src="http://i.imgur.com/8lhFhc1.gif" alt="">
+                        <h4><a href="#">Title 2</a></h4>
+                        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    </article>
+
+                    <article class="white-panel"> <img src="http://i.imgur.com/xOIMvAe.jpg" alt="">
+                        <h4><a href="#">Title 3</a></h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                            irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    </article>
+
+
+                    <article class="white-panel"> <img src="http://i.imgur.com/3gXW3L3.jpg" alt="">
+                        <h4><a href="#">Title 4</a></h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                            irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    </article>
+
+                    <article class="white-panel"> <img src="http://i.imgur.com/o2RVMqm.jpg" alt="">
+                        <h4><a href="#">Title 5</a></h4>
+                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    </article>
+
+                    <article class="white-panel"> <img src="http://i.imgur.com/kFFpuKA.jpg" alt="">
+                        <h4><a href="#">Title 6</a></h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                            irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    </article>
+
+
+
+                    <article class="white-panel"><img src="http://i.imgur.com/E9RmLPA.jpg" alt="">
+                        <h4><a href="#">Title 7</a></h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                            irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    </article>
+
+                    <article class="white-panel"> <img src="http://i.imgur.com/8lhFhc1.gif" alt="">
+                        <h4><a href="#">Title 8</a></h4>
+                        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    </article>
+                </section>
+            </div>
+
+            <div class="row text-center">
+                <button type="button" class="btn btn-default">Ver mais clippings</button>
+            </div>
+
+        </div>
+    </section>
 
 
 @stop

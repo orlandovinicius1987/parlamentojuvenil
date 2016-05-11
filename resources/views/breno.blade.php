@@ -308,7 +308,7 @@
         </div>
     </section><!--/#explore-->
 
-    <section id="event">
+    <section id="event"  class="fundo-azul3">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-md-9">
@@ -404,7 +404,7 @@
     </section><!--/#event-->
 
 
-
+{{--
     <section id="sponsor">
         <div id="sponsor-carousel" class="carousel slide" data-interval="false">
             <div class="container">
@@ -442,13 +442,14 @@
                 <img class="img-responsive" src="/pj2016/images/light.png" alt="">
             </div>
         </div>
-    </section><!--/#sponsor-->
+    </section>--}}
+    <!--/#sponsor-->
 
 
-    <section id="anteriores">
+    <section id="anteriores" class="fundo-azul2">
         <div class="container-fluid">
             <div class="row">
-                <h2>Edições Anteriores</h2>
+                <h2 class="text-center">Edições Anteriores</h2>
 
                 <div class="owl-carousel">
 
@@ -1965,10 +1966,10 @@
 
 
 
-    <section id="downloads">
-        <div class="container">
+    <section id="downloads" >
+
             <div class="row">
-                <div class="col-sm-12 col-md-9">
+                <div class="col-sm-12 col-md-12 text-center">
                     <div id="event-carousel" class="carousel slide" data-interval="false">
                         <h2 class="heading">Downloads</h2>
                         <p>Você pode precisar desses documentos</p>
@@ -1993,11 +1994,9 @@
 
                     </div>
                 </div>
-                <div class="guitar">
-                    <img class="img-responsive" src="/pj2016/images/guitar.png" alt="guitar">
-                </div>
+
             </div>
-        </div>
+
     </section><!--/#event-->
 
 
@@ -2036,7 +2035,7 @@
 
 
 
-    <section id="contact">
+    <section id="contact" class="fundo-azul1">
 
         <div class="contact-section">
             <div class="ear-piece">
