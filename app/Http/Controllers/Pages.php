@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Data\Repositories\Data;
 use \DB;
 use App\Jobs\SyncNews;
 use App\Jobs\SyncGallery;
-use App\Services\News\Service as SyncNewsService;
 use Carbon\Carbon;
 use App\Data\Entities\State;
 use App\Data\Entities\Article;
+use App\Services\News\Service as SyncNewsService;
 use App\Services\Filesystem\Service as Filesystem;
 use App\Http\Controllers\Controller as BaseController;
 
@@ -219,7 +220,8 @@ class Pages extends BaseController
 		$fourteenDate = (new Carbon())->subYears(14);
 		$seventeenDate = (new Carbon())->subYears(18)->addDays(1);
 
-        $schedule = $this->dataRepository->
+        $schedule = $this->dataRepository->getSchedule($year);
+
 		return
 			view($view)
 				->with('spreadsheet', $this->spreadsheet)
