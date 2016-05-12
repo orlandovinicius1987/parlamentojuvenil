@@ -160,7 +160,7 @@ class Data
 
         $usedBanners = Session::get('used_banners') ?: [];
 
-        if ($banners->count() == count($usedBanners))
+        if (count($usedBanners) >= $banners->count())
         {
             $usedBanners = [];
         }
