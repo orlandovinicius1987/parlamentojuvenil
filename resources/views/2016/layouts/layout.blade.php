@@ -48,7 +48,7 @@
         <link rel="stylesheet" href="/css/custom.css">
 
         <!-- Google Fonts -->
-        <link href='https://fonts.googleapis.com/css?family=Permanent+Marker' rel='stylesheet' type='text/css'>
+        {{--<link href='https://fonts.googleapis.com/css?family=Permanent+Marker' rel='stylesheet' type='text/css'>--}}
 
 
         <link rel="shortcut icon" href="/pj2016/images/ico/favicon.ico">
