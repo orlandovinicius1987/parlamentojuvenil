@@ -47,7 +47,7 @@
     <section id="sobre">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-8">
+                <div class="col-xs-12 col-md-8">
                     <h2>O que é o Parlamento Juvenil?</h2>
                     <p>O Parlamento Juvenil é um projeto da Assembleia Legislativa do Rio de Janeiro (Alerj), apartidário e autônomo, cujo objetivo é aproximar o jovem da política. Instalado em 2003, envolve as 1.200 escolas estaduais dos 92 municípios do Estado e chega à nona edição em 2015.
 
@@ -66,7 +66,6 @@
 
 
                     {{--<h3>Inscreva-se</h3>--}}
-
                     @include('partials.subscribe')
 
                             <!--<h3>E como funciona?</h3>
@@ -91,7 +90,7 @@
                     </div>-->
 
                 </div>
-                <div class="col-lg-4">
+                <div class="col-xs-12 col-md-4">
                     <h3>E como funciona?</h3>
 
                     <div >
@@ -126,7 +125,7 @@
                 <div class="watch">
                     <img class="img-responsive" src="/pj2016/images/watch.png" alt="">
                 </div>
-                <div class="col-md-10 col-sm-5">
+                <div class="col-md-12 col-sm-5">
                     <h2>Cronograma</h2>
 
 
@@ -308,6 +307,99 @@
         </div>
     </section><!--/#explore-->
 
+    <section id="noticias" class="fundo-azul4 noticias">
+
+        <div class="container">
+            <div class="row">
+                <h1 style="text-align: center;">Notícias</h1>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <a href="#" class="thumbnail">
+                        <img src="http://placehold.it/260x180" alt="">
+                    </a>
+                </div>
+                <div class="col-md-9">
+                    <h4><a href="#">Title of the post</a></h4>
+                    <p>
+                        Lorem ipsum dolor sit amet, id nec conceptam conclusionemque. Et eam tation option. Utinam salutatus ex eum. Ne mea dicit tibique facilisi, ea mei omittam explicari conclusionemque, ad nobis propriae quaerendum sea.
+                    </p>
+                    <p><a class="btn btn-info btn-sm" href="#">Read more</a></p>
+                    <br/>
+                    <ul class="list-inline">
+                        {{--  <li><i class="glyphicon glyphicon-user"></i> by <a href="#">John</a> | </li>--}}
+                        <li><i class="glyphicon glyphicon-calendar"></i> Sept 16th, 2012 | </li>
+                        {{--<li><i class="glyphicon glyphicon-comment"></i> <a href="#">3 Comments</a> | </li>
+                        <li><i class="glyphicon glyphicon-share"></i> <a href="#">39 Shares</a></li>--}}
+                        <li><i class="icon-tags"></i> {{--Tags :--}} <a href="#"><span class="label label-info">Snipp</span></a>
+                            <a href="#"><span class="label label-info">Bootstrap</span></a>
+                            <a href="#"><span class="label label-info">UI</span></a>
+                            <a href="#"><span class="label label-info">growth</span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-3">
+                    <a href="#" class="thumbnail">
+                        <img src="http://placehold.it/260x180" alt="">
+                    </a>
+                </div>
+                <div class="col-md-9">
+                    <h4><a href="#">Title of the post</a></h4>
+                    <p>
+                        Lorem ipsum dolor sit amet, id nec conceptam conclusionemque. Et eam tation option. Utinam salutatus ex eum. Ne mea dicit tibique facilisi, ea mei omittam explicari conclusionemque, ad nobis propriae quaerendum sea.
+                    </p>
+                    <p><a class="btn btn-info btn-sm" href="#">Read more</a></p>
+                    <br/>
+                    <ul class="list-inline">
+                        {{--  <li><i class="glyphicon glyphicon-user"></i> by <a href="#">John</a> | </li>--}}
+                        <li><i class="glyphicon glyphicon-calendar"></i> Sept 16th, 2012 | </li>
+                        {{--<li><i class="glyphicon glyphicon-comment"></i> <a href="#">3 Comments</a> | </li>
+                        <li><i class="glyphicon glyphicon-share"></i> <a href="#">39 Shares</a></li>--}}
+                        <li><i class="icon-tags"></i> {{--Tags :--}} <a href="#"><span class="label label-info">Snipp</span></a>
+                            <a href="#"><span class="label label-info">Bootstrap</span></a>
+                            <a href="#"><span class="label label-info">UI</span></a>
+                            <a href="#"><span class="label label-info">growth</span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-3">
+                    <a href="#" class="thumbnail">
+                        <img src="http://placehold.it/260x180" alt="">
+                    </a>
+                </div>
+                <div class="col-md-9">
+                    <h4><a href="#">Title of the post</a></h4>
+                    <p>
+                        Lorem ipsum dolor sit amet, id nec conceptam conclusionemque. Et eam tation option. Utinam salutatus ex eum. Ne mea dicit tibique facilisi, ea mei omittam explicari conclusionemque, ad nobis propriae quaerendum sea.
+                    </p>
+                    <p><a class="btn btn-info btn-sm" href="#">Read more</a></p>
+                    <br/>
+                    <ul class="list-inline">
+                        {{--  <li><i class="glyphicon glyphicon-user"></i> by <a href="#">John</a> | </li>--}}
+                        <li><i class="glyphicon glyphicon-calendar"></i> Sept 16th, 2012 | </li>
+                        {{--<li><i class="glyphicon glyphicon-comment"></i> <a href="#">3 Comments</a> | </li>
+                        <li><i class="glyphicon glyphicon-share"></i> <a href="#">39 Shares</a></li>--}}
+                        <li><i class="icon-tags"></i> {{--Tags :--}} <a href="#"><span class="label label-info">Snipp</span></a>
+                            <a href="#"><span class="label label-info">Bootstrap</span></a>
+                            <a href="#"><span class="label label-info">UI</span></a>
+                            <a href="#"><span class="label label-info">growth</span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+        </div>
+
+        <div class="row text-center">
+            <button type="button" class="btn btn-default">Ver mais notícias</button>
+        </div>
+
+    </section>
+
+
     <section id="event"  class="fundo-azul3">
         <div class="container">
             <div class="row">
@@ -403,7 +495,7 @@
         </div>
     </section><!--/#event-->
 
-    <section id="masonry">
+    <section id="galeria">
         <div id="masonry-container" class="fluid masonry-container">
             <div class="col-sm-6 col-md-4 item">
                 <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="img-responsive" data-original="http://lorempixel.com/400/200/sports">
@@ -2214,10 +2306,7 @@
         </div>
     </section><!--/#anteriores-->
 
-
-
     <section id="downloads" >
-
             <div class="row">
                 <div class="col-sm-12 col-md-12 text-center">
                     <div id="event-carousel" class="carousel slide" data-interval="false">
@@ -2240,17 +2329,10 @@
                                 DOCUMENTOS NECESSÁRIOS PARA PARTICIPAR <i class="fa fa-cloud-download"></i>
                             </a>
                         </div>
-
-
                     </div>
                 </div>
-
             </div>
-
     </section><!--/#event-->
-
-
-
 
     <section id="depoimentos">
         <div id="depoimentos-feed" class="carousel slide" data-interval="false">
@@ -2285,8 +2367,7 @@
 
 
 
-    <section id="contact" class="fundo-azul1">
-
+    <section id="contato" class="fundo-azul1">
         <div class="contact-section">
             <div class="ear-piece">
                 <img class="img-responsive" src="/pj2016/images/ear-piece.png" alt="">
