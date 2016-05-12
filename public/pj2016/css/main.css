@@ -222,6 +222,7 @@ section#home {
   font-size: 22px;
   color: #fff;
   text-transform: uppercase;
+  /*font-family: 'Permanent Marker', cursive;*/
   font-family: 'Yanone Kaffeesatz', 'sans-serif';
   font-weight: 300;
 }
@@ -360,7 +361,7 @@ section#home {
   background-repeat:no-repeat;
   position: relative;
   overflow: hidden;
-  padding: 130px 0 100px;
+  /*padding: 130px 0 100px;*/
 }
 
 .watch {
