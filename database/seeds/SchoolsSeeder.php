@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class SchoolsSeeder extends Seeder
 {
-
 	private $country;
 
 	/**
@@ -19,7 +18,8 @@ class SchoolsSeeder extends Seeder
     {
         Model::unguard();
 
-        $this->seedSchools();
+//        $this->seedSchools();
+        $this->seedSchoolAddress();
 
         Model::reguard();
     }
@@ -32,14 +32,17 @@ class SchoolsSeeder extends Seeder
 
 		foreach ($schools as $school)
 		{
+            $school = str_replace("\n", "", $school);
+
 			$parts = explode("\t", $school);
 
 			School::create([
 				'regional' => $parts[1],
 				'city' => $parts[2],
 				'city_id' => $this->findCityByName($parts[2])->id,
-				'censo' => $parts[3],
-				'name' => $parts[4],
+				'censo' => $parts[0],
+				'name' => $parts[3],
+                'email' => $parts[4],
 				'address' => '', // $parts[3],
 				'phone' => '', //$parts[4],
 				'ua' => '', //$parts[1],
@@ -47,9 +50,35 @@ class SchoolsSeeder extends Seeder
 		}
 	}
 
-	private function loadSchools()
+    private function seedSchoolAddress()
+    {
+        $schools = $this->loadSchools('address');
+
+        foreach ($schools as $school)
+        {
+            $parts = explode("\t", $school);
+
+            $model = School::where('censo', $parts[0])->first();
+
+            if (! $model)
+            {
+                continue;
+            }
+
+            $model->designation = $parts[3];
+            $model->address = $parts[5];
+            $model->number = $parts[6];
+            $model->complement = $parts[7];
+            $model->neighborhood = $parts[8];
+            $model->zip_code = $parts[9];
+
+            $model->save();
+        }
+    }
+
+	private function loadSchools($kind = 'emails')
 	{
-		$schools = file(__DIR__.DIRECTORY_SEPARATOR.'schools.tsv');
+		$schools = file(__DIR__.DIRECTORY_SEPARATOR.'/databases/UEs2016-'.$kind.'.txt');
 
 		unset($schools[0]);
 
@@ -58,9 +87,9 @@ class SchoolsSeeder extends Seeder
 
 	private function findCityByName($city)
 	{
-		if ( ! $found = City::where('name', '~*', $city)->first())
+		if ( ! $found = City::where(DB::raw('unaccent(name)'), '~*', $city)->first())
 		{
-			dd($city);
+			dd('City not found: ' . $city);
 		}
 
 		return $found;

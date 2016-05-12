@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Data\Repositories\Data;
 use \DB;
 use App\Jobs\SyncNews;
 use App\Jobs\SyncGallery;
@@ -25,19 +26,24 @@ class Home extends BaseController
 	 * @var SyncNewsService
 	 */
 	private $syncNewsService;
+    /**
+     * @var Data
+     */
+    private $dataRepository;
 
-	public function __construct(Filesystem $filesystem, SyncNewsService $syncNewsService)
+    public function __construct(Filesystem $filesystem, SyncNewsService $syncNewsService, Data $dataRepository)
 	{
 		$this->filesystem = $filesystem;
 		$this->syncNewsService = $syncNewsService;
-	}
+        $this->dataRepository = $dataRepository;
+    }
 
 	public function force()
 	{
 		return $this->index(true);
 	}
 
-	public function index($force = false)
+    public function index($force = false)
 	{
 		return $this->showView('home', $force);
 	}
@@ -216,6 +222,7 @@ class Home extends BaseController
 
 		return
 			view($view)
+                ->with('banner_file', $this->dataRepository->selectBanner())
 				->with('spreadsheet', $this->spreadsheet)
 				->with('congressmen', $this->getCongressmenLinks())
 				->with('carrousel', $this->getTestimonials())
