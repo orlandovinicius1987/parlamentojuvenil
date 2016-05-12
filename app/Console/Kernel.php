@@ -15,6 +15,8 @@ class Kernel extends ConsoleKernel
     protected $commands = [
         \App\Console\Commands\Inspire::class,
         \App\Console\Commands\SyncNews::class,
+        \App\Console\Commands\PjSchools::class,
+        \App\Console\Commands\PjGeolocate::class,
     ];
 
     /**

@@ -6,7 +6,13 @@ use App\Data\Entities\Subscription;
 use App\Events\SubscriptionUpdated;
 use App\Services\News\Service as NewsSync;
 
-Route::get('/old', ['as' => 'home', 'uses' => 'Home@index']);
+Route::get('seed', ['as' => 'seed', 'uses' => function()
+{
+//    Artisan::call('pj:school');
+    Artisan::call('pj:geolocate');
+}]);
+
+Route::get('old', ['as' => 'home', 'uses' => 'Home@index']);
 Route::get('/', ['as' => 'home', 'uses' => 'Home@breno']);
 Route::get('register', ['as' => 'home', 'uses' => 'Home@force']);
 

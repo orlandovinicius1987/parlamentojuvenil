@@ -2,7 +2,8 @@
 
 namespace App\Data\Repositories;
 
-use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Collection as IlluminateCollection;
+use Illuminate\Support\Facades\Session;
 
 class Data
 {
@@ -140,5 +141,46 @@ class Data
     public function getSchedule($year)
     {
         return new Collection($this->schedule[$year]);
+    }
+
+    public function selectBanner()
+    {
+        $banners = new IlluminateCollection([
+            'banners/parlamentares/bg_fotos01.jpg',
+            'banners/parlamentares/bg_fotos02.jpg',
+            'banners/parlamentares/bg_fotos03.jpg',
+            'banners/parlamentares/bg_fotos04.jpg',
+            'banners/parlamentares/bg_fotos05.jpg',
+            'banners/parlamentares/bg_fotos06.jpg',
+            'banners/parlamentares/bg_fotos07.jpg',
+            'banners/parlamentares/bg_fotos08.jpg',
+            'banners/parlamentares/bg_fotos09.jpg',
+            'banners/parlamentares/bg_fotos10.jpg',
+        ]);
+
+        $usedBanners = Session::get('used_banners') ?: [];
+
+        if ($banners->count() == count($usedBanners))
+        {
+            $usedBanners = [];
+        }
+
+        $usedBanners = new IlluminateCollection($usedBanners);
+
+        while (true)
+        {
+            $banner = $banners->random();
+
+            if (! $usedBanners->contains($banner))
+            {
+                break;
+            }
+        }
+
+        $usedBanners->put(null, $banner);
+
+        Session::put('used_banners', $usedBanners->toArray());
+
+        return $banner;
     }
 }
