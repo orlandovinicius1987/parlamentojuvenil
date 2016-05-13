@@ -12,7 +12,7 @@
             </ol>
             <div class="carousel-inner">
                 <div class="item active">
-                    <img class="img-responsive" src="/pj2016/images/bg_home-3-min.jpg" alt="slider">
+                    <img class="img-responsive" src="/pj2016/images/slider/bg_home-3-min.jpg" alt="slider">
                     <div class="carousel-caption">
                         <h2>Inscreva-se já para a edição 2016 </h2>
                         <h4>participe do Parlamento Juvenil</h4>
@@ -28,7 +28,7 @@
                     </div>
                 </div>
                 <div class="item">
-                    <img class="img-responsive" src="/pj2016/images/bg_home-4-min.jpg" alt="slider">
+                    <img class="img-responsive" src="/pj2016/images/slider/bg_home-4-min.jpg" alt="slider">
                     <div class="carousel-caption">
                         <h2>register for our next event </h2>
                         <h4>full event package only @$199</h4>
