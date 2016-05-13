@@ -200,7 +200,7 @@ section#home {
 .navbar-brand {
   /*background-color: #162C53;*/
   background-color: #FFC908;
-  height: 90px;
+  height: 98px;
   margin-bottom: 20px;
   position: relative;
   /*width: 340px;*/
@@ -250,7 +250,8 @@ section#home {
 }
 
 .fixed-menu {
-  background-color: #162C53;
+  /*background-color: #162C53;*/
+  background-color: #000;
   position: fixed;
   top: 0;
 }
@@ -261,23 +262,26 @@ section#home {
 
 
 .fixed-menu .navbar-right li a {
-  font-size: 18px;
+  font-size: 22px;
   padding: 20px 25px;
   text-shadow:inherit;
 }
 
 .fixed-menu .navbar-brand {
-  height: 60px;
+  height: 67px;
   margin-top: 0;
   padding: 0;
   margin-bottom: 0;
-  width: 125px;
+  width: 210px;
 }
 
 .fixed-menu .navbar-brand img {
-  padding-top: 0;
-  height:60px;
-  top: 0;
+  /*padding-top: 0;*/
+  /*height:60px;*/
+  /*top: 0;*/
+  /*width: 85%;*/
+  margin-top: 1px;
+
 }
 
 .fixed-menu .header-top {
