@@ -47,6 +47,9 @@
         <!-- Masonry Style -->
         <link rel="stylesheet" href="/css/custom.css">
 
+        <!-- Google Fonts -->
+        {{--<link href='https://fonts.googleapis.com/css?family=Permanent+Marker' rel='stylesheet' type='text/css'>--}}
+
 
         <link rel="shortcut icon" href="/pj2016/images/ico/favicon.ico">
         <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/pj2016/images/ico/apple-touch-icon-144-precomposed.png">
