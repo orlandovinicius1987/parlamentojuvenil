@@ -198,42 +198,56 @@ section#home {
 }
 
 .navbar-brand {
-  background-color: #162C53;
+  /*background-color: #162C53;*/
+  background-color: #FFC908;
   height: 90px;
   margin-bottom: 20px;
   position: relative;
-  width: 340px;
+  /*width: 340px;*/
+  width: 286px;
+  border-top: 4px black solid;
+  border-bottom: 4px black solid;
+  border-right: 4px black solid;
 }
 
 .navbar-brand img {
-  padding-top: 10px;
-  position: absolute;
-  top: -35px;
+  width: 81%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -6px;
 }
 
 .navbar-right {
-  background-color: #162C53;
+  /*background-color: #162C53;*/
+  background-color: #FFC908;
   padding:0 95px 0 0;
-  opacity: .9
+  opacity: 0.9;
+  border-top: 4px black solid;
+  border-bottom: 4px black solid;
+  border-left: 4px black solid;
 }
 
 .navbar-right li a {
   padding: 35px 21px;
-  font-size: 22px;
-  color: #fff;
+  font-size: 24px;
+  color: #000;
   text-transform: uppercase;
   /*font-family: 'Permanent Marker', cursive;*/
-  font-family: 'Yanone Kaffeesatz', 'sans-serif';
-  font-weight: 300;
+  /*font-family: 'Yanone Kaffeesatz', 'sans-serif';*/
+  font-family: 'Amatic SC', cursive;
+  font-weight: 700;
+  /*font-weight: 300;*/
 }
 
 .navbar-right li a:hover, 
 .navbar-right li a:focus,  
 .navbar-right .active a {
   background-color: #fff;
-  color: #16728f
+  /*color: #16728f*/
+  color: #b21416;
+  border-bottom: 1px black;
 }
-
 
 .fixed-menu {
   background-color: #162C53;
