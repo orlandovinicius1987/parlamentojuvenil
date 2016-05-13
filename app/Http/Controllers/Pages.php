@@ -20,22 +20,25 @@ class Pages extends BaseController
 	/**
 	 * @var \App\Services\Filesystem\Service
 	 */
-	private $filesystem;
+	protected $filesystem;
 
 	/**
 	 * @var SyncNewsService
 	 */
-	private $syncNewsService;
+	protected $syncNewsService;
+
     /**
      * @var Data
      */
-    private $dataRepository;
+    protected $dataRepository;
 
     public function __construct(Filesystem $filesystem, SyncNewsService $syncNewsService, Data $dataRepository)
 	{
 		$this->filesystem = $filesystem;
 		$this->syncNewsService = $syncNewsService;
         $this->dataRepository = $dataRepository;
+
+        parent::__construct($dataRepository);
     }
 
 	public function force()
@@ -45,12 +48,12 @@ class Pages extends BaseController
 
 	public function index($force = false)
 	{
-		return $this->showView('home', 2016, $force);
+		return $this->buildView('home', 2016, $force);
 	}
 
     public function page($page)
     {
-        return $this->showView('2016.pages.'.$page, 2016);
+        return $this->buildView('2016.pages.'.$page, 2016);
     }
 
 	private function getCongressmenLinks()
@@ -203,64 +206,31 @@ class Pages extends BaseController
 
 	public function breno()
 	{
-		return $this->showView('breno', 2016);
-	}
-
-	/**
-	 * @param $force
-	 * @return mixed
-	 */
-	public function showView($view, $year, $force = false)
-	{
-		$this->dispatch(new SyncNews());
-		$this->dispatch(new SyncGallery());
-
-		header('X-Frame-Options: GOFORIT');
-
-		$fourteenDate = (new Carbon())->subYears(14);
-		$seventeenDate = (new Carbon())->subYears(18)->addDays(1);
-
-        $schedule = $this->dataRepository->getSchedule($year);
-
-		return
-			view($view)
-				->with('spreadsheet', $this->spreadsheet)
-				->with('congressmen', $this->getCongressmenLinks())
-				->with('carrousel', $this->getTestimonials())
-				->with('cities', $this->getCities())
-				->with('newspapers', $this->getNewspapersLinks())
-				->with('gallery', $this->getGalleryLinks(9))
-				->with('oldGallery', $this->getGalleryLinks(8))
-				->with('oldArticles', $this->getArticles('<=', 2014))
-				->with('newArticles', $this->getArticles('>=', 2015))
-				->with('fourteenDate', $fourteenDate->format('d/m/Y'))
-				->with('seventeenDate', $seventeenDate->format('d/m/Y'))
-				->with('now', (string)\Carbon\Carbon::now()->subHours(3))
-				->with('force', $force);
+		return $this->buildView('breno', 2016);
 	}
 
     public function edition($year)
     {
-        return $this->showView('2016.edition', $year);
+        return $this->buildView('2016.edition', $year);
     }
 
     public function gallery($year)
     {
-        return $this->showView('2016.gallery', $year);
+        return $this->buildView('2016.gallery', $year);
     }
 
     public function news($year)
     {
-        return $this->showView('2016.news', $year);
+        return $this->buildView('2016.news', $year);
     }
 
     public function clipping($year)
     {
-        return $this->showView('2016.clipping', $year);
+        return $this->buildView('2016.clipping', $year);
     }
 
     public function members($year)
     {
-        return $this->showView('2016.members', $year);
+        return $this->buildView('2016.members', $year);
     }
 }

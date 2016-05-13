@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Events\SubscriptionUpdated;
 use \DB;
 use Event;
-use Carbon\Carbon;
-use App\Data\Entities\Subscription;
 use App\Data\Entities\City;
-use App\Http\Controllers\Controller as BaseController;
+use App\Data\Entities\Subscription;
+use App\Events\SubscriptionUpdated;
 use Maatwebsite\Excel\Facades\Excel;
+use App\Http\Controllers\Controller as BaseController;
 
 class Subscriptions extends BaseController
 {
@@ -85,7 +84,6 @@ class Subscriptions extends BaseController
 		return $subscriptions;
 	}
 
-
 	public function ignore($id)
 	{
 		if ( ! $subscription = Subscription::find($id))
@@ -100,4 +98,9 @@ class Subscriptions extends BaseController
 
 		return redirect()->back();
 	}
+
+    public function index()
+    {
+        return $this->buildView('subscriptions.index');
+    }
 }

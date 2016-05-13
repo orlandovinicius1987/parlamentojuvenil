@@ -15,7 +15,7 @@
                         todayHighlight: false,
                         format: "dd/mm/yyyy",
                         todayBtn: false,
-                        startDate: "{{ $seventeenDate }}",
+                        startDate: "{{ $seventeenDate  }}",
                         endDate: "{{ $fourteenDate }}",
                         language: "pt-BR"
                     });

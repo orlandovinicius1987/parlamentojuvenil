@@ -18,15 +18,7 @@ Route::get('seed', ['as' => 'seed', 'uses' => function()
 Route::get('old', ['as' => 'home', 'uses' => 'Home@index']);
 Route::get('/', ['as' => 'home', 'uses' => 'Home@breno']);
 Route::get('register', ['as' => 'home', 'uses' => 'Home@force']);
-
-Route::get('{year}', ['as' => 'home', 'uses' => 'Pages@edition'])->where('name', '[0-9][0-9][0-9][0-9]');;
-Route::get('{year}/gallery', ['as' => 'page.gallery', 'uses' => 'Pages@gallery']);
-Route::get('{year}/news', ['as' => 'page.news', 'uses' => 'Pages@news']);
-Route::get('{year}/members', ['as' => 'page.members', 'uses' => 'Pages@members']);
-Route::get('{year}/clipping', ['as' => 'page.clipping', 'uses' => 'Pages@clipping']);
-
-// Must be last
-Route::get('{page}', ['as' => 'home', 'uses' => 'Home@page']);
+Route::get('inscricao', ['as' => 'home', 'uses' => 'Register@index']);
 
 Route::post('googleforms', function ()
 {
@@ -123,3 +115,16 @@ Route::get('subscriptions', ['as' => 'subscriptions', 'uses' => 'Subscriptions@b
 Route::get('subscriptions/download', ['as' => 'subscriptions.download', 'uses' => 'Subscriptions@download']);
 
 Route::get('subscriptions/ignore/{id}', ['as' => 'subscriptions.ignore', 'uses' => 'Subscriptions@ignore']);
+
+Route::get('inscricao', ['as' => 'subscriptions.index', 'uses' => 'Subscriptions@index']);
+
+// Year pages
+
+Route::get('{year}', ['as' => 'home', 'uses' => 'Pages@edition'])->where('name', '[0-9][0-9][0-9][0-9]');;
+Route::get('{year}/gallery', ['as' => 'page.gallery', 'uses' => 'Pages@gallery']);
+Route::get('{year}/news', ['as' => 'page.news', 'uses' => 'Pages@news']);
+Route::get('{year}/members', ['as' => 'page.members', 'uses' => 'Pages@members']);
+Route::get('{year}/clipping', ['as' => 'page.clipping', 'uses' => 'Pages@clipping']);
+
+// Must be last
+Route::get('{page}', ['as' => 'home', 'uses' => 'Home@page']);
