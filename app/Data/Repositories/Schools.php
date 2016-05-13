@@ -5,7 +5,6 @@ namespace App\Data\Repositories;
 use App\Data\Entities\School;
 use Geocoder\Exception\NoResult;
 use Geocoder\Provider\GoogleMaps;
-use Geocoder\Provider\GoogleMapsBusiness;
 use Ivory\HttpAdapter\CurlHttpAdapter;
 
 class Schools
@@ -15,25 +14,69 @@ class Schools
     public function __construct()
     {
         $curl = new CurlHttpAdapter();
-        $this->geocoder = new GoogleMapsBusiness($curl, 'pt-BR', 'BR', true, 'AIzaSyC8eXlKYV6uoohHzw0zbz0pll3rgrUMll8');
+        $this->geocoder = new GoogleMaps($curl, 'pt-BR', 'BR', true, 'AIzaSyC8eXlKYV6uoohHzw0zbz0pll3rgrUMll8');
+    }
+
+    private function compare($a, $b)
+    {
+        $a = strtolower($this->translit($a));
+        $b = strtolower($this->translit($b));
+
+        $a = str_replace('morais', 'moraes', $a);
+        $b = str_replace('morais', 'moraes', $b);
+
+        $a = str_replace('paraty', 'parati', $a);
+        $b = str_replace('paraty', 'parati', $b);
+
+        return $a == $b;
     }
 
     private function geolocate($school)
     {
+        $school = $this->geolocateByAddress($school);
+
+        if (! $school->latitude)
+        {
+            $school = $this->geolocateByZipCode($school);
+
+            if (! $school->latitude)
+            {
+                $this->geolocateByCity($school);
+            }
+        }
+    }
+
+    public function geolocateByAddress($school)
+    {
+        return $this->findGeolocation($school, $school->address);
+    }
+
+    private function geolocateByCity($school)
+    {
+        return $this->findGeolocation($school, $school->city);
+    }
+
+    public function geolocateByZipCode($school)
+    {
+        return $this->findGeolocation($school, $school->zip_code);
+    }
+
+    public function findGeolocation($school, $data)
+    {
         try
         {
-            $addresses = $this->geocoder->geocode($school->address);
+            $addresses = $this->geocoder->geocode($data);
         }
         catch (NoResult $exception)
         {
-            return null;
+            return $school;
         }
 
         $school->geolocation = json_encode($this->geolocationToArray($addresses));
 
         foreach ($addresses as $address)
         {
-            if ($this->translit($address->getLocality()) == $this->translit($school->city))
+            if ($this->isSameAddress($address, $school))
             {
                 $school->latitude = $address->getCoordinates()->getLatitude();
                 $school->longitude = $address->getCoordinates()->getLongitude();
@@ -47,6 +90,8 @@ class Schools
         echo "$school->name<br>";
 
         $this->obFlush();
+
+        return $school;
     }
 
     public function geolocateAll()
@@ -119,6 +164,24 @@ class Schools
         return $result;
     }
 
+    private function isSameAddress($address, $school)
+    {
+        if ($this->compare($address->getLocality(), $school->city))
+        {
+            return true;
+        }
+
+        foreach ($address->getAdminLevels() as $adminLevel)
+        {
+            if ($this->compare($adminLevel->getName(), $school->city))
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     private function obFlush()
     {
         ob_flush();
@@ -127,10 +190,11 @@ class Schools
 
     private function translit($string)
     {
+        $string = str_replace('\n', '', $string);
+
         return strtolower(iconv('utf8', 'ASCII//TRANSLIT', $string));
     }
 }
-
 
 function getJsonData(){
     $var = get_object_vars($this);

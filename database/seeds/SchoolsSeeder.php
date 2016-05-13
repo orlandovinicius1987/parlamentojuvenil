@@ -9,7 +9,18 @@ class SchoolsSeeder extends Seeder
 {
 	private $country;
 
-	/**
+    /**
+     * @param $school
+     * @return mixed
+     */
+    private function clearLine($school)
+    {
+        $school = str_replace("\n", "", $school);
+
+        return $school;
+    }
+
+    /**
      * Run the database seeds.
      *
      * @return void
@@ -19,12 +30,17 @@ class SchoolsSeeder extends Seeder
         Model::unguard();
 
 //        $this->seedSchools();
-        $this->seedSchoolAddress();
+//        $this->seedSchoolAddress();
 
         Model::reguard();
     }
 
-	private function seedSchools()
+    public function runMissing()
+    {
+        $this->seedMissingSchools();
+    }
+
+    private function seedSchools()
 	{
 		School::truncate();
 
@@ -32,9 +48,9 @@ class SchoolsSeeder extends Seeder
 
 		foreach ($schools as $school)
 		{
-            $school = str_replace("\n", "", $school);
+            $school = $this->clearLine($school);
 
-			$parts = explode("\t", $school);
+            $parts = explode("\t", $school);
 
 			School::create([
 				'regional' => $parts[1],
@@ -56,6 +72,8 @@ class SchoolsSeeder extends Seeder
 
         foreach ($schools as $school)
         {
+            $school = $this->clearLine($school);
+
             $parts = explode("\t", $school);
 
             $model = School::where('censo', $parts[0])->first();
@@ -71,6 +89,35 @@ class SchoolsSeeder extends Seeder
             $model->complement = $parts[7];
             $model->neighborhood = $parts[8];
             $model->zip_code = $parts[9];
+
+            $model->save();
+        }
+    }
+
+    private function seedMissingSchools()
+    {
+        $schools = $this->loadSchools('missing');
+
+        foreach ($schools as $school)
+        {
+            $school = $this->clearLine($school);
+
+            $parts = explode("\t", $school);
+
+            $model = School::where('censo', $parts[0])->first();
+
+            if (! $model)
+            {
+                continue;
+            }
+
+            $model->designation = $parts[1];
+            $model->address = $parts[3];
+            $model->number = $parts[4];
+            $model->neighborhood = $parts[5];
+            $model->zip_code = $parts[8];
+            $model->city = $parts[6];
+            $model->city_id = $this->findCityByName($parts[6])->id;
 
             $model->save();
         }

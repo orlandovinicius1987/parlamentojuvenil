@@ -9,6 +9,7 @@ use App\Services\News\Service as NewsSync;
 Route::get('seed', ['as' => 'seed', 'uses' => function()
 {
 //    Artisan::call('pj:school');
+//    Artisan::call('pj:school:missing');
     Artisan::call('pj:geolocate');
 }]);
 

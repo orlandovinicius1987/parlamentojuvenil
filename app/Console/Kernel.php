@@ -11,12 +11,13 @@ class Kernel extends ConsoleKernel
      * The Artisan commands provided by your application.
      *
      * @var array
-     */
+     */ 
     protected $commands = [
         \App\Console\Commands\Inspire::class,
         \App\Console\Commands\SyncNews::class,
         \App\Console\Commands\PjSchools::class,
         \App\Console\Commands\PjGeolocate::class,
+        \App\Console\Commands\PjSchoolsMissing::class,
     ];
 
     /**
