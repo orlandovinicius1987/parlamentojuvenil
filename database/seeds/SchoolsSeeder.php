@@ -20,6 +20,24 @@ class SchoolsSeeder extends Seeder
         return $school;
     }
 
+    public function export()
+    {
+        $result = [];
+
+        $lines = School::exclude('geolocation')->get()->toArray();
+
+        $result[] = implode(';', array_keys($lines[0])) . "\n";
+
+        foreach ($lines as $line)
+        {
+            $line['zip_code'] = str_replace("\n", '', $line['zip_code']);
+
+            $result[] = implode(';', $line) . "\n";
+        }
+
+        Storage::disk('databases')->put('UEs2016-full.txt', $result);
+    }
+
     /**
      * Run the database seeds.
      *
@@ -29,8 +47,20 @@ class SchoolsSeeder extends Seeder
     {
         Model::unguard();
 
-//        $this->seedSchools();
-//        $this->seedSchoolAddress();
+        // Try to seed a full database first
+        School::truncate();
+
+        // Try to seed a full database first
+        $this->seedSchoolsFull();
+
+        // Try to get all e-mails from the database
+        $this->seedSchoolsEmails();
+
+        // Try to fill up all addresses
+        $this->seedSchoolAddress();
+
+        // Fix all missing things
+        $this->seedMissingSchools();
 
         Model::reguard();
     }
@@ -40,11 +70,33 @@ class SchoolsSeeder extends Seeder
         $this->seedMissingSchools();
     }
 
-    private function seedSchools()
-	{
-		School::truncate();
+    private function seedSchoolsFull()
+    {
+        $schools = $this->loadSchools('full', true);
 
-		$schools = $this->loadSchools();
+        $columns = School::getColumns();
+
+        $heading = explode(";", $schools[0]);
+
+        unset($schools[0]);
+
+        foreach ($schools as $school)
+        {
+            $school = $this->clearLine($school);
+
+            $parts = explode(";", $school);
+
+            $parts = array_combine($heading, array_values($parts));
+
+            $parts = array_only($parts, $columns);
+
+            School::create($parts);
+        }
+    }
+
+    private function seedSchoolsEmails()
+	{
+		$schools = $this->loadSchools('emails');
 
 		foreach ($schools as $school)
 		{
@@ -123,11 +175,19 @@ class SchoolsSeeder extends Seeder
         }
     }
 
-	private function loadSchools($kind = 'emails')
-	{
-		$schools = file(__DIR__.DIRECTORY_SEPARATOR.'/databases/UEs2016-'.$kind.'.txt');
+	private function loadSchools($kind = 'emails', $keepHeader = false)
+    {
+        $schools = file(__DIR__ . DIRECTORY_SEPARATOR . '/databases/UEs2016-' . $kind . '.txt');
 
-		unset($schools[0]);
+        if (! $keepHeader)
+        {
+            unset($schools[0]);
+        }
+
+        foreach ($schools as $key => $school)
+        {
+            $schools[$key] = str_replace("\n", "", $school);
+        }
 
 		return $schools;
 	}

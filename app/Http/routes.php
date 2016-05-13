@@ -10,7 +10,9 @@ Route::get('seed', ['as' => 'seed', 'uses' => function()
 {
 //    Artisan::call('pj:school');
 //    Artisan::call('pj:school:missing');
-    Artisan::call('pj:geolocate');
+//    Artisan::call('pj:school:export');
+//    Artisan::call('pj:geolocate');
+    Artisan::call('db:seed');
 }]);
 
 Route::get('old', ['as' => 'home', 'uses' => 'Home@index']);

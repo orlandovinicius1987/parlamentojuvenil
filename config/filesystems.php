@@ -43,6 +43,11 @@ return [
 
     'disks' => [
 
+        'databases' => [
+            'driver' => 'local',
+            'root'   => base_path('database/seeds/databases'),
+        ],
+
         'local' => [
             'driver' => 'local',
             'root'   => storage_path('app'),

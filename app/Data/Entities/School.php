@@ -6,6 +6,8 @@ use App\Base\Model;
 
 class School extends Model
 {
+    protected $table = 'schools';
+    
 	public function state()
 	{
 		return $this->belongsTo(City::class);

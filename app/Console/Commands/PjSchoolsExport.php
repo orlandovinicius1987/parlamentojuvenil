@@ -5,14 +5,14 @@ namespace App\Console\Commands;
 use SchoolsSeeder;
 use Illuminate\Console\Command;
 
-class PjSchoolsMissing extends Command
+class PjSchoolsExport extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'pj:schools:missing';
+    protected $signature = 'pj:schools:export';
     
     /**
      * The console command description.
@@ -30,6 +30,6 @@ class PjSchoolsMissing extends Command
     {
         $seeder = new SchoolsSeeder();
 
-        $seeder->runMissing();
+        $seeder->export();
     }
 }
