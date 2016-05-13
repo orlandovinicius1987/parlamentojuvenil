@@ -18,7 +18,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="index.html">
-                        <img class="img-responsive" src="/pj2016/images/logo.png" alt="logo">
+                        <img class="img-responsive" src="/pj2016/images/logo-pj.png" alt="Parlamento Juvenil">
                     </a>
                 </div>
                 <div class="collapse navbar-collapse">
