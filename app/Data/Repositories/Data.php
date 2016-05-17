@@ -215,8 +215,8 @@ class Data
 
     public function buildViewData($view, $force = false)
     {
-//        $this->dispatch(new SyncNews());
-//        $this->dispatch(new SyncGallery());
+        $this->dispatch(new SyncNews());
+        $this->dispatch(new SyncGallery());
 
         header('X-Frame-Options: GOFORIT');
 

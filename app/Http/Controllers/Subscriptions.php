@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use \DB;
 use Event;
 use App\Data\Entities\City;
@@ -41,9 +42,11 @@ class Subscriptions extends BaseController
 	{
 		$subscriptions = $this->allSubscriptions();
 
+        $date = Carbon::now()->format('Y-m-d-h-m-s');
+
 		return
 
-			Excel::create('InscricoesParlamentoJuvenilIX-2015', function($excel) use ($subscriptions)
+			Excel::create('InscricoesParlamentoJuvenil-'.$date, function($excel) use ($subscriptions)
 			{
 				$excel->sheet('Inscricoes', function($sheet) use ($subscriptions)
 				{
@@ -101,6 +104,6 @@ class Subscriptions extends BaseController
 
     public function index()
     {
-        return $this->buildView('subscriptions.index');
+        return $this->buildView('2016.subscriptions.index');
     }
 }

@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Data\Repositories\Data;
 use \DB;
 use App\Jobs\SyncNews;
 use App\Jobs\SyncGallery;
 use Carbon\Carbon;
 use App\Data\Entities\State;
 use App\Data\Entities\Article;
+use App\Data\Repositories\Data;
 use App\Services\News\Service as SyncNewsService;
 use App\Services\Filesystem\Service as Filesystem;
 use App\Http\Controllers\Controller as BaseController;

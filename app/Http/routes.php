@@ -18,7 +18,6 @@ Route::get('seed', ['as' => 'seed', 'uses' => function()
 Route::get('old', ['as' => 'home', 'uses' => 'Home@index']);
 Route::get('/', ['as' => 'home', 'uses' => 'Home@breno']);
 Route::get('register', ['as' => 'home', 'uses' => 'Home@force']);
-Route::get('inscricao', ['as' => 'home', 'uses' => 'Register@index']);
 
 Route::post('googleforms', function ()
 {
