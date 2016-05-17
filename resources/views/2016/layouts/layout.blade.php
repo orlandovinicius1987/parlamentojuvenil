@@ -10,13 +10,8 @@
         <!-- javascript -->
         <script src="//www.owlcarousel.owlgraphic.com/assets/vendors/jquery.min.js"></script>
 
-        <!-- Custom CSS -->
-        <link href="/css/animate.css" rel="stylesheet" type="text/css">
-        {{--<link href="/css/app.css" rel="stylesheet">--}}
-
         <!-- Datepicker -->
         <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.1/css/datepicker3.css">
-
 
         <!-- Fonts -->
         <link href="//fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
