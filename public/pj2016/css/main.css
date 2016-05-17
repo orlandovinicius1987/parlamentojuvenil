@@ -64,11 +64,11 @@ h2 {
 
 section {
   padding: 60px 0 60px 0;
+  margin: 10px;
+  border: 4px black solid;
 }
 section#home {
   padding: 0;
-  margin: 10px;
-  border: 4px black solid;
 }
 
 /* Paleta de Cores Azul */
@@ -387,8 +387,10 @@ section#home {
 
 #main-slider 
 .carousel-indicators li {
-  background-color:#162C53;
-  border: 1px solid #162C53;
+  background-color: #FFC908;
+  border: 1px solid #FFC908;
+  /*background-color:#162C53;*/
+  /*border: 1px solid #162C53;*/
 }
 
 #main-slider 
@@ -420,7 +422,7 @@ section#home {
 }
 
 #explore {
-  width: 100%;
+  /*width: 100%;*/
   height: auto;
   /*margin: 15% 0;*/
   text-align: center;
@@ -684,7 +686,7 @@ section#home {
   /*background-color: #396867;*/
   background-color:#4e6aac;
   position: relative;
-  width: 100%;
+  /*width: 100%;*/
   display: flex;
 }
 
@@ -1161,7 +1163,10 @@ section#home {
   /*background-size: cover;*/
   /*color: #FFFFFF;*/
   /*font-size: 20px;*/
-  padding: 35px 0;
+  /*padding: 35px 0;*/
+  padding: 0;
+  margin: 10px;
+  border: 4px black solid;
 }
 
 #footer a {
