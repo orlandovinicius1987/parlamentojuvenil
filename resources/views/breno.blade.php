@@ -33,7 +33,7 @@
                         <h2>register for our next event </h2>
                         <h4>full event package only @$199</h4>
 
-                        <a href="#contact" >GRAB YOUR TICKETS <i class="fa fa-angle-right"></i></a>
+                        <a href="#contact">GRAB YOUR TICKETS <i class="fa fa-angle-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -44,7 +44,7 @@
     <section id="sobre">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-xs-12 col-md-8">
+                <div class="col-xs-12 col-md-6">
                     <h2>O que é o Parlamento Juvenil?</h2>
                     <p>O Parlamento Juvenil é um projeto da Assembleia Legislativa do Rio de Janeiro (Alerj), apartidário e autônomo, cujo objetivo é aproximar o jovem da política. Instalado em 2003, envolve as 1.200 escolas estaduais dos 92 municípios do Estado e chega à nona edição em 2015.
 
@@ -87,29 +87,36 @@
                     </div>-->
 
                 </div>
-                <div class="col-xs-12 col-md-4">
-                    <h3>E como funciona?</h3>
+                <div class="side">
+                    <div class="col-xs-12 col-md-4 col-md-offset-1 bg">
+                        <div class="row">
+                            <div class="col-xs-12 col-md-12">
+                                <h3>E como funciona?</h3>
 
-                    <div >
-                        <h4>1</h4>
-                        Cada município do Rio de Janeiro pode ser representado por um parlamentar juvenil. As eleições acontecem nas escolas, em dois turnos de votação.
-                        <p></p>
+                                <div class="content">
+                                    <div>
+                                        <h4>1</h4>
+                                        <p>Cada município do Rio de Janeiro pode ser representado por um parlamentar juvenil. As eleições acontecem nas escolas, em dois turnos de votação.
+                                        </p>
+                                    </div>
+
+                                    <div>
+                                        <h4>2</h4>
+                                        <p>Os Deputados eleitos aprendem mais sobre sua função em oficinas de capacitação preparadas pela Alerj.
+                                        </p>
+                                    </div>
+
+                                    <div>
+                                        <h4>3</h4>
+                                        <p>Durante uma semana, os parlamentares apresentam, debatem e votam os projetos de sua autoria no plenário da Alerj. No fim, as escolhas são encaminhadas á apreciação do Governador, podendo ou não virar lei.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {{--<img class="img-responsive" src="/pj2016/images/guitar2.png" alt="guitar">--}}
+
                     </div>
-
-                    <div >
-                        <h4>2</h4>
-                        Os Deputados eleitos aprendem mais sobre sua função em oficinas de capacitação preparadas pela Alerj.
-                        <p></p>
-                    </div>
-
-                    <div >
-                        <h4>3</h4>
-                        Durante uma semana, os parlamentares apresentam, debatem e votam os projetos de sua autoria no plenário da Alerj. No fim, as escolhas são encaminhadas á apreciação do Governador, podendo ou não virar lei.
-                        <p></p>
-                    </div>
-
-                    <img class="img-responsive" src="/pj2016/images/guitar2.png" alt="guitar">
-
                 </div>
             </div>
         </div>
@@ -128,7 +135,7 @@
 
                     <ul class="timeline">
                         <li>
-                            <div class="timeline-badge info"><i class="glyphicon  glyphicon-time"></i></div>
+                            <div class="timeline-badge info"><i class=""></i></div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
                                     <h4 class="timeline-title">Divulgação do PJ/Inscrições abertas </h4>
@@ -156,7 +163,7 @@
                             </div>
                         </li>
                         <li class="timeline-inverted">
-                            <div class="timeline-badge warning"><i class="glyphicon glyphicon-time"></i></div>
+                            <div class="timeline-badge warning"><i class=""></i></div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
                                     <h4 class="timeline-title">Dia D de divulgação do Parlamento Juvenil</h4>
@@ -167,7 +174,7 @@
                             </div>
                         </li>
                         <li>
-                            <div class="timeline-badge info"><i class="glyphicon  glyphicon-time"></i></div>
+                            <div class="timeline-badge info"><i class=""></i></div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
                                     <h4 class="timeline-title">Encerramento das inscrições</h4>
@@ -178,7 +185,7 @@
                             </div>
                         </li>
                         <li class="timeline-inverted">
-                            <div class="timeline-badge warning"><i class="glyphicon  glyphicon-time"></i></div>
+                            <div class="timeline-badge warning"><i class=""></i></div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
                                     <h4 class="timeline-title">1° Turno do Parlamento Juvenil</h4>
@@ -189,7 +196,7 @@
                             </div>
                         </li>
                         <li>
-                            <div class="timeline-badge info"><i class="glyphicon  glyphicon-time"></i></div>
+                            <div class="timeline-badge info"><i class=""></i></div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
                                     <h4 class="timeline-title">2° turno do Parlamento Juvenil</h4>
@@ -201,7 +208,7 @@
                             </div>
                         </li>
                         <li class="timeline-inverted">
-                            <div class="timeline-badge warning"><i class="glyphicon  glyphicon-time"></i></div>
+                            <div class="timeline-badge warning"><i class=""></i></div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
                                     <h4 class="timeline-title">Eleições suplementares (caso haja necessidade)</h4>
@@ -213,7 +220,7 @@
                         </li>
 
                         <li>
-                            <div class="timeline-badge info"><i class="glyphicon glyphicon-time"></i></div>
+                            <div class="timeline-badge info"><i class=""></i></div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
                                     <h4 class="timeline-title">2° turno do Parlamento Juvenil</h4>
@@ -225,7 +232,7 @@
                             </div>
                         </li>
                         <li class="timeline-inverted">
-                            <div class="timeline-badge warning"><i class="glyphicon glyphicon-time"></i></div>
+                            <div class="timeline-badge warning"><i class=""></i></div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
                                     <h4 class="timeline-title">Eleições suplementares (caso haja necessidade)</h4>
@@ -240,7 +247,7 @@
 
 
                         <li>
-                            <div class="timeline-badge info"><i class="glyphicon glyphicon-time"></i></div>
+                            <div class="timeline-badge info"><i class=""></i></div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
                                     <h4 class="timeline-title">Capacitação (on-line) do Parlamento Juvenil</h4>
@@ -252,7 +259,7 @@
                             </div>
                         </li>
                         <li class="timeline-inverted">
-                            <div class="timeline-badge warning"><i class="glyphicon glyphicon-time"></i></div>
+                            <div class="timeline-badge warning"><i class=""></i></div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
                                     <h4 class="timeline-title">Capacitação (presencial) do Parlamento Juvenil</h4>
@@ -266,7 +273,7 @@
 
 
                         <li>
-                            <div class="timeline-badge info"><i class="glyphicon glyphicon-time"></i></div>
+                            <div class="timeline-badge info"><i class=""></i></div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
                                     <h4 class="timeline-title">Envio dos projetos de lei</h4>
@@ -278,7 +285,7 @@
                             </div>
                         </li>
                         <li class="timeline-inverted">
-                            <div class="timeline-badge warning"><i class="glyphicon glyphicon-time"></i></div>
+                            <div class="timeline-badge warning"><i class=""></i></div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
                                     <h4 class="timeline-title">Semana do Parlamento Juvenil</h4>
@@ -304,94 +311,106 @@
         </div>
     </section><!--/#explore-->
 
-    <section id="noticias" class="fundo-azul4 noticias">
+    <section id="noticias" class="fundo-azul4">
 
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
-                <h1 style="text-align: center;">Notícias</h1>
-            </div>
-            <div class="row">
-                <div class="col-md-3">
-                    <a href="#" class="thumbnail">
-                        <img src="http://placehold.it/260x180" alt="">
-                    </a>
-                </div>
-                <div class="col-md-9">
-                    <h4><a href="#">Title of the post</a></h4>
-                    <p>
-                        Lorem ipsum dolor sit amet, id nec conceptam conclusionemque. Et eam tation option. Utinam salutatus ex eum. Ne mea dicit tibique facilisi, ea mei omittam explicari conclusionemque, ad nobis propriae quaerendum sea.
-                    </p>
-                    <p><a class="btn btn-info btn-sm" href="#">Read more</a></p>
-                    <br/>
-                    <ul class="list-inline">
-                        {{--  <li><i class="glyphicon glyphicon-user"></i> by <a href="#">John</a> | </li>--}}
-                        <li><i class="glyphicon glyphicon-calendar"></i> Sept 16th, 2012 | </li>
-                        {{--<li><i class="glyphicon glyphicon-comment"></i> <a href="#">3 Comments</a> | </li>
-                        <li><i class="glyphicon glyphicon-share"></i> <a href="#">39 Shares</a></li>--}}
-                        <li><i class="icon-tags"></i> {{--Tags :--}} <a href="#"><span class="label label-info">Snipp</span></a>
-                            <a href="#"><span class="label label-info">Bootstrap</span></a>
-                            <a href="#"><span class="label label-info">UI</span></a>
-                            <a href="#"><span class="label label-info">growth</span></a></li>
-                    </ul>
-                </div>
-            </div>
-            <hr>
-            <div class="row">
-                <div class="col-md-3">
-                    <a href="#" class="thumbnail">
-                        <img src="http://placehold.it/260x180" alt="">
-                    </a>
-                </div>
-                <div class="col-md-9">
-                    <h4><a href="#">Title of the post</a></h4>
-                    <p>
-                        Lorem ipsum dolor sit amet, id nec conceptam conclusionemque. Et eam tation option. Utinam salutatus ex eum. Ne mea dicit tibique facilisi, ea mei omittam explicari conclusionemque, ad nobis propriae quaerendum sea.
-                    </p>
-                    <p><a class="btn btn-info btn-sm" href="#">Read more</a></p>
-                    <br/>
-                    <ul class="list-inline">
-                        {{--  <li><i class="glyphicon glyphicon-user"></i> by <a href="#">John</a> | </li>--}}
-                        <li><i class="glyphicon glyphicon-calendar"></i> Sept 16th, 2012 | </li>
-                        {{--<li><i class="glyphicon glyphicon-comment"></i> <a href="#">3 Comments</a> | </li>
-                        <li><i class="glyphicon glyphicon-share"></i> <a href="#">39 Shares</a></li>--}}
-                        <li><i class="icon-tags"></i> {{--Tags :--}} <a href="#"><span class="label label-info">Snipp</span></a>
-                            <a href="#"><span class="label label-info">Bootstrap</span></a>
-                            <a href="#"><span class="label label-info">UI</span></a>
-                            <a href="#"><span class="label label-info">growth</span></a></li>
-                    </ul>
-                </div>
-            </div>
-            <hr>
-            <div class="row">
-                <div class="col-md-3">
-                    <a href="#" class="thumbnail">
-                        <img src="http://placehold.it/260x180" alt="">
-                    </a>
-                </div>
-                <div class="col-md-9">
-                    <h4><a href="#">Title of the post</a></h4>
-                    <p>
-                        Lorem ipsum dolor sit amet, id nec conceptam conclusionemque. Et eam tation option. Utinam salutatus ex eum. Ne mea dicit tibique facilisi, ea mei omittam explicari conclusionemque, ad nobis propriae quaerendum sea.
-                    </p>
-                    <p><a class="btn btn-info btn-sm" href="#">Read more</a></p>
-                    <br/>
-                    <ul class="list-inline">
-                        {{--  <li><i class="glyphicon glyphicon-user"></i> by <a href="#">John</a> | </li>--}}
-                        <li><i class="glyphicon glyphicon-calendar"></i> Sept 16th, 2012 | </li>
-                        {{--<li><i class="glyphicon glyphicon-comment"></i> <a href="#">3 Comments</a> | </li>
-                        <li><i class="glyphicon glyphicon-share"></i> <a href="#">39 Shares</a></li>--}}
-                        <li><i class="icon-tags"></i> {{--Tags :--}} <a href="#"><span class="label label-info">Snipp</span></a>
-                            <a href="#"><span class="label label-info">Bootstrap</span></a>
-                            <a href="#"><span class="label label-info">UI</span></a>
-                            <a href="#"><span class="label label-info">growth</span></a></li>
-                    </ul>
-                </div>
-            </div>
-            <hr>
-        </div>
+                <div class="col-xs-12">
 
-        <div class="row text-center">
-            <button type="button" class="btn btn-default">Ver mais notícias</button>
+                    <div class="row">
+                        <div class="col-xs-12 text-center">
+                            <h2>Notícias</h2>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <a href="#" class="thumbnail">
+                                <img src="http://placehold.it/260x180" alt="">
+                            </a>
+                        </div>
+                        <div class="col-md-9">
+                            <h4><a href="#">Title of the post</a></h4>
+                            <p>
+                                Lorem ipsum dolor sit amet, id nec conceptam conclusionemque. Et eam tation option. Utinam salutatus ex eum. Ne mea dicit tibique facilisi, ea mei omittam explicari conclusionemque, ad nobis propriae quaerendum sea.
+                            </p>
+                            <p><a class="btn btn-info btn-sm" href="#">Read more</a></p>
+                            <br/>
+                            <ul class="list-inline">
+                                {{--  <li><i class="glyphicon glyphicon-user"></i> by <a href="#">John</a> | </li>--}}
+                                <li><i class="glyphicon glyphicon-calendar"></i> Sept 16th, 2012 | </li>
+                                {{--<li><i class="glyphicon glyphicon-comment"></i> <a href="#">3 Comments</a> | </li>
+                                <li><i class="glyphicon glyphicon-share"></i> <a href="#">39 Shares</a></li>--}}
+                                <li><i class="icon-tags"></i> {{--Tags :--}} <a href="#"><span class="label label-info">Snipp</span></a>
+                                    <a href="#"><span class="label label-info">Bootstrap</span></a>
+                                    <a href="#"><span class="label label-info">UI</span></a>
+                                    <a href="#"><span class="label label-info">growth</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <a href="#" class="thumbnail">
+                                <img src="http://placehold.it/260x180" alt="">
+                            </a>
+                        </div>
+                        <div class="col-md-9">
+                            <h4><a href="#">Title of the post</a></h4>
+                            <p>
+                                Lorem ipsum dolor sit amet, id nec conceptam conclusionemque. Et eam tation option. Utinam salutatus ex eum. Ne mea dicit tibique facilisi, ea mei omittam explicari conclusionemque, ad nobis propriae quaerendum sea.
+                            </p>
+                            <p><a class="btn btn-info btn-sm" href="#">Read more</a></p>
+                            <br/>
+                            <ul class="list-inline">
+                                {{--  <li><i class="glyphicon glyphicon-user"></i> by <a href="#">John</a> | </li>--}}
+                                <li><i class="glyphicon glyphicon-calendar"></i> Sept 16th, 2012 | </li>
+                                {{--<li><i class="glyphicon glyphicon-comment"></i> <a href="#">3 Comments</a> | </li>
+                                <li><i class="glyphicon glyphicon-share"></i> <a href="#">39 Shares</a></li>--}}
+                                <li><i class="icon-tags"></i> {{--Tags :--}} <a href="#"><span class="label label-info">Snipp</span></a>
+                                    <a href="#"><span class="label label-info">Bootstrap</span></a>
+                                    <a href="#"><span class="label label-info">UI</span></a>
+                                    <a href="#"><span class="label label-info">growth</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <a href="#" class="thumbnail">
+                                <img src="http://placehold.it/260x180" alt="">
+                            </a>
+                        </div>
+                        <div class="col-md-9">
+                            <h4><a href="#">Title of the post</a></h4>
+                            <p>
+                                Lorem ipsum dolor sit amet, id nec conceptam conclusionemque. Et eam tation option. Utinam salutatus ex eum. Ne mea dicit tibique facilisi, ea mei omittam explicari conclusionemque, ad nobis propriae quaerendum sea.
+                            </p>
+                            <p><a class="btn btn-info btn-sm" href="#">Read more</a></p>
+                            <br/>
+                            <ul class="list-inline">
+                                {{--  <li><i class="glyphicon glyphicon-user"></i> by <a href="#">John</a> | </li>--}}
+                                <li><i class="glyphicon glyphicon-calendar"></i> Sept 16th, 2012 | </li>
+                                {{--<li><i class="glyphicon glyphicon-comment"></i> <a href="#">3 Comments</a> | </li>
+                                <li><i class="glyphicon glyphicon-share"></i> <a href="#">39 Shares</a></li>--}}
+                                <li><i class="icon-tags"></i> {{--Tags :--}} <a href="#"><span class="label label-info">Snipp</span></a>
+                                    <a href="#"><span class="label label-info">Bootstrap</span></a>
+                                    <a href="#"><span class="label label-info">UI</span></a>
+                                    <a href="#"><span class="label label-info">growth</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <hr>
+
+                <div class="row text-center">
+                        <button type="button" class="btn btn-default">Ver mais notícias</button>
+                    </div>
+                </div>
+            </div>
         </div>
 
     </section>
@@ -744,44 +763,44 @@
         </div>
     </section>
 
-    <section id="sponsor">
-        <div id="sponsor-carousel" class="carousel slide" data-interval="false">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-10">
-                        <h2>Sponsors</h2>
-                        <a class="sponsor-control-left" href="#sponsor-carousel" data-slide="prev"><i class="fa fa-angle-left"></i></a>
-                        <a class="sponsor-control-right" href="#sponsor-carousel" data-slide="next"><i class="fa fa-angle-right"></i></a>
-                        <div class="carousel-inner">
-                            <div class="item active">
-                                <ul>
-                                    <li><a href="#"><img class="img-responsive" src="/pj2016/images/svg/logoalerj-positivo.svg" alt=""></a></li>
-                                    <li><a href="#"><img class="img-responsive" src="/pj2016/images/svg/logoparlamento.svg" alt=""></a></li>
-                                    <li><a href="#"><img class="img-responsive" src="/pj2016/images/svg/logogoverno-positivo.svg" alt=""></a></li>
-                                    <li><a href="#"><img class="img-responsive" src="/pj2016/images/sponsor/sponsor4.png" alt=""></a></li>
-                                    <li><a href="#"><img class="img-responsive" src="/pj2016/images/sponsor/sponsor5.png" alt=""></a></li>
-                                    <li><a href="#"><img class="img-responsive" src="/pj2016/images/sponsor/sponsor6.png" alt=""></a></li>
-                                </ul>
-                            </div>
-                            <div class="item">
-                                <ul>
-                                    <li><a href="#"><img class="img-responsive" src="/pj2016/images/sponsor/sponsor6.png" alt=""></a></li>
-                                    <li><a href="#"><img class="img-responsive" src="/pj2016/images/sponsor/sponsor5.png" alt=""></a></li>
-                                    <li><a href="#"><img class="img-responsive" src="/pj2016/images/sponsor/sponsor4.png" alt=""></a></li>
-                                    <li><a href="#"><img class="img-responsive" src="/pj2016/images/sponsor/sponsor3.png" alt=""></a></li>
-                                    <li><a href="#"><img class="img-responsive" src="/pj2016/images/sponsor/sponsor2.png" alt=""></a></li>
-                                    <li><a href="#"><img class="img-responsive" src="/pj2016/images/sponsor/sponsor1.png" alt=""></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="light">
-                <img class="img-responsive" src="/pj2016/images/light.png" alt="">
-            </div>
-        </div>
-    </section>--}}
+    {{--<section id="sponsor">--}}
+        {{--<div id="sponsor-carousel" class="carousel slide" data-interval="false">--}}
+            {{--<div class="container">--}}
+                {{--<div class="row">--}}
+                    {{--<div class="col-sm-10">--}}
+                        {{--<h2>Sponsors</h2>--}}
+                        {{--<a class="sponsor-control-left" href="#sponsor-carousel" data-slide="prev"><i class="fa fa-angle-left"></i></a>--}}
+                        {{--<a class="sponsor-control-right" href="#sponsor-carousel" data-slide="next"><i class="fa fa-angle-right"></i></a>--}}
+                        {{--<div class="carousel-inner">--}}
+                            {{--<div class="item active">--}}
+                                {{--<ul>--}}
+                                    {{--<li><a href="#"><img class="img-responsive" src="/pj2016/images/svg/logoalerj-positivo.svg" alt=""></a></li>--}}
+                                    {{--<li><a href="#"><img class="img-responsive" src="/pj2016/images/svg/logoparlamento.svg" alt=""></a></li>--}}
+                                    {{--<li><a href="#"><img class="img-responsive" src="/pj2016/images/svg/logogoverno-positivo.svg" alt=""></a></li>--}}
+                                    {{--<li><a href="#"><img class="img-responsive" src="/pj2016/images/sponsor/sponsor4.png" alt=""></a></li>--}}
+                                    {{--<li><a href="#"><img class="img-responsive" src="/pj2016/images/sponsor/sponsor5.png" alt=""></a></li>--}}
+                                    {{--<li><a href="#"><img class="img-responsive" src="/pj2016/images/sponsor/sponsor6.png" alt=""></a></li>--}}
+                                {{--</ul>--}}
+                            {{--</div>--}}
+                            {{--<div class="item">--}}
+                                {{--<ul>--}}
+                                    {{--<li><a href="#"><img class="img-responsive" src="/pj2016/images/sponsor/sponsor6.png" alt=""></a></li>--}}
+                                    {{--<li><a href="#"><img class="img-responsive" src="/pj2016/images/sponsor/sponsor5.png" alt=""></a></li>--}}
+                                    {{--<li><a href="#"><img class="img-responsive" src="/pj2016/images/sponsor/sponsor4.png" alt=""></a></li>--}}
+                                    {{--<li><a href="#"><img class="img-responsive" src="/pj2016/images/sponsor/sponsor3.png" alt=""></a></li>--}}
+                                    {{--<li><a href="#"><img class="img-responsive" src="/pj2016/images/sponsor/sponsor2.png" alt=""></a></li>--}}
+                                    {{--<li><a href="#"><img class="img-responsive" src="/pj2016/images/sponsor/sponsor1.png" alt=""></a></li>--}}
+                                {{--</ul>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+            {{--</div>--}}
+            {{--<div class="light">--}}
+                {{--<img class="img-responsive" src="/pj2016/images/light.png" alt="">--}}
+            {{--</div>--}}
+        {{--</div>--}}
+    {{--</section>--}}
     <!--/#sponsor-->
 
 
@@ -2303,32 +2322,32 @@
         </div>
     </section><!--/#anteriores-->
 
-    <section id="downloads" >
+    <section id="downloads">
+        <div class="container-fluid">
             <div class="row">
-                <div class="col-sm-12 col-md-12 text-center">
-                    <div id="event-carousel" class="carousel slide" data-interval="false">
-                        <h2 class="heading">Downloads</h2>
-                        <p>Você pode precisar desses documentos</p>
-                        <div class="row">
-                            <a href="http://www.parlamento-juvenil.rj.gov.br/download/regimento-interno.pdf" class="btn border-button">
-                                REGIMENTO INTERNO <i class="fa fa-cloud-download"></i>
-                            </a>
-                        </div>
+                <div class="col-xs-12 col-md-12 text-center">
+                    <h2 class="heading">Downloads</h2>
+                    <p>Você pode precisar desses documentos</p>
+                    <div class="row">
+                        <a href="http://www.parlamento-juvenil.rj.gov.br/download/regimento-interno.pdf" class="btn border-button">
+                            REGIMENTO INTERNO <i class="fa fa-cloud-download"></i>
+                        </a>
+                    </div>
 
-                        <div class="row">
-                            <a href="http://www.parlamento-juvenil.rj.gov.br/download/anexo-ii-calendario-de-atividades-9a-edicao.pdf" class="btn border-button">
-                                ANEXO II – CALENDÁRIO DE ATIVIDADES <i class="fa fa-cloud-download"></i>
-                            </a>
-                        </div>
+                    <div class="row">
+                        <a href="http://www.parlamento-juvenil.rj.gov.br/download/anexo-ii-calendario-de-atividades-9a-edicao.pdf" class="btn border-button">
+                            ANEXO II – CALENDÁRIO DE ATIVIDADES <i class="fa fa-cloud-download"></i>
+                        </a>
+                    </div>
 
-                        <div class="row">
-                            <a href="http://www.parlamento-juvenil.rj.gov.br/download/documentos-necessarios-para-participar-parlamento-juvenil.zip" class="btn border-button">
-                                DOCUMENTOS NECESSÁRIOS PARA PARTICIPAR <i class="fa fa-cloud-download"></i>
-                            </a>
-                        </div>
+                    <div class="row">
+                        <a href="http://www.parlamento-juvenil.rj.gov.br/download/documentos-necessarios-para-participar-parlamento-juvenil.zip" class="btn border-button">
+                            DOCUMENTOS NECESSÁRIOS PARA PARTICIPAR <i class="fa fa-cloud-download"></i>
+                        </a>
                     </div>
                 </div>
             </div>
+        </div>
     </section><!--/#event-->
 
     <section id="depoimentos">
