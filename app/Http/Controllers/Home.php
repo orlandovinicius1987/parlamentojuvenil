@@ -25,4 +25,5 @@ class Home extends BaseController
 	{
 		return $this->buildView('breno');
 	}
+
 }
