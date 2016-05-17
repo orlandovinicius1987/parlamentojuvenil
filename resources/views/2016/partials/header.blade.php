@@ -17,13 +17,13 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="/">
                         <img class="img-responsive" src="/pj2016/images/logo-pj.png" alt="Parlamento Juvenil">
                     </a>
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="scroll active"><a href="#home">Home</a></li>
+                        <li class="scroll active"><a href="#home">Início</a></li>
                         <li class="scroll"><a href="#sobre">Sobre</a></li>
                         <li class="scroll"><a href="#cadastro">Cadastro</a></li>
                         <li class="scroll"><a href="#noticias">Notícias</a></li>

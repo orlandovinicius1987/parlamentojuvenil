@@ -63,9 +63,18 @@
 
         <footer id="footer">
             <div class="container">
-                <div class="text-center">
-                    <p> Copyright  &copy;2014<a target="_blank" href="//shapebootstrap.net/"> Evento </a>Theme. All Rights Reserved. <br> Designed by <a target="_blank" href="//shapebootstrap.net/">ShapeBootstrap</a></p>
+            <div class="row">
+                <div class="col-xs-12 col-md-4">
+                    {{--<p> Copyright  &copy;2014<a target="_blank" href="//shapebootstrap.net/"> Evento </a>Theme. All Rights Reserved. <br> Designed by <a target="_blank" href="//shapebootstrap.net/">ShapeBootstrap</a></p>--}}
+                    <img src="/pj2016/images/footer-alerj.png" alt="Alerj" class="img-responsive">
                 </div>
+                <div class="col-xs-12 col-md-4">
+                    <img src="/pj2016/images/footer-pje10.png" alt="Parlamento Juvenil" class="img-responsive">
+                </div>
+                <div class="col-xs-12 col-md-4">
+                    <img src="/pj2016/images/footer-gov-rj.png" alt="Governo do Estado do Rio de Janeiro" class="img-responsive">
+                </div>
+            </div>
             </div>
         </footer>
         <!--/#footer-->
