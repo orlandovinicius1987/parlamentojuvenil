@@ -123,7 +123,10 @@
         <script type="text/javascript" src="/pj2016/js/coundown-timer.js"></script>
         <script type="text/javascript" src="/pj2016/js/jquery.scrollTo.js"></script>
         <script type="text/javascript" src="/pj2016/js/jquery.nav.js"></script>
-        <script type="text/javascript" src="/pj2016/js/main.js"></script>
+
+        @if (isset($isHome) && $isHome)
+            <script type="text/javascript" src="/pj2016/js/main.js"></script>
+        @endif
 
         @include('scripts.all')
     </body>

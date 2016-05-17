@@ -213,7 +213,7 @@ class Data
         return $banner;
     }
 
-    public function buildViewData($view, $force = false)
+    public function buildViewData($view, $force = false, $isHome = false)
     {
         $this->dispatch(new SyncNews());
         $this->dispatch(new SyncGallery());
@@ -236,6 +236,7 @@ class Data
                     ->with('fourteenDate', $fourteenDate->format('d/m/Y'))
                     ->with('seventeenDate', $seventeenDate->format('d/m/Y'))
                     ->with('now', (string) Carbon::now()->subHours(3))
+                    ->with('isHome', $isHome)
                     ->with('force', $force);
     }
 
