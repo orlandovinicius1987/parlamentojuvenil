@@ -1,4 +1,6 @@
-<form id="{{ isset($formId) ? $formId : 'subscribe' }}" method="POST" action="/post/formResponse">
+@include('partials.errors')
+
+<form id="{{ isset($formId) ? $formId : 'subscribe' }}" method="POST" action="/subscriptions">
     {!! csrf_field() !!}
 
     {{-- Nome --}}
@@ -23,7 +25,7 @@
     <div class="row control-group"  v-transition="expand" v-if="social_name">
         <div class="form-group col-xs-12 floating-label-form-group controls">
             <label for="city" class="sr-only control-label">Município</label>
-            <select v-model="city" v-on="change: fetchSchools" class="form-control input-lg" placeholder="Município" name="city" id="city" required data-validation-required-message="Por favor preencha o município.">
+            <select id="city-edit" v-model="city" v-on="change: fetchSchools" class="form-control input-lg" placeholder="Município" name="city" id="city" required data-validation-required-message="Por favor preencha o município.">
                 <option value="">CIDADE AONDE VOCÊ ESTUDA</option>
                 @foreach ($cities as $city)
                     <option value="{{ $city->name }}">{{ $city->name }}</option>
@@ -36,7 +38,7 @@
     <div class="row control-group"  v-transition="expand" v-if="city">
         <div class="form-group col-xs-12 floating-label-form-group controls">
             <label for="school" class="sr-only control-label">Escola</label>
-            <select v-model="school" value="" options="schools" v-on="change: checkSchool" class="form-control input-lg" placeholder="Escola" name="school" id="school" required data-validation-required-message="Por favor escolha a escola."></select>
+            <select id="school-edit" v-model="school" value="" options="schools" v-on="change: checkSchool" class="form-control input-lg" placeholder="Escola" name="school" id="school" required data-validation-required-message="Por favor escolha a escola."></select>
             <span class="help-block text-danger"></span>
         </div>
     </div>
