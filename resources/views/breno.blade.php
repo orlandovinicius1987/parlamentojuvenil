@@ -16,7 +16,7 @@
                     <div class="carousel-caption">
                         <h2>Inscreva-se já para a edição 2016 </h2>
                         <h4>participe do Parlamento Juvenil</h4>
-                        <a href="#contact">Faça a sua inscrição <i class="fa fa-angle-right"></i></a>
+                        <a href="/inscricao">Faça a sua inscrição <i class="fa fa-angle-right"></i></a>
                     </div>
                 </div>
                 <div class="item">
@@ -295,6 +295,9 @@
                                 </div>
                             </div>
                         </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-end"><i class=""></i></div>
+                        </li>
 
 
                     </ul>
@@ -512,255 +515,164 @@
     </section><!--/#event-->
 
     <section id="galeria">
-        <div id="masonry-container" class="fluid masonry-container">
-            <div class="col-sm-6 col-md-4 item">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="img-responsive" data-original="http://lorempixel.com/400/200/sports">
-            </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 text-center">
+                    <h2>Galeria</h2>
 
-            <div class="col-sm-6 col-md-4 item">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="img-responsive" data-original="http://lorempixel.com/400/150/sports">
-            </div>
+                    <div id="masonry-container" class="fluid masonry-container">
+                        <div class="col-sm-6 col-md-4 item">
+                            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="img-responsive" data-original="http://lorempixel.com/400/200/sports">
+                        </div>
 
-            <div class="col-sm-6 col-md-4 item">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="img-responsive" data-original="http://lorempixel.com/450/450/sports">
-            </div>
+                        <div class="col-sm-6 col-md-4 item">
+                            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="img-responsive" data-original="http://lorempixel.com/400/150/sports">
+                        </div>
 
-            <div class="col-sm-6 col-md-4 item">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="img-responsive" data-original="http://lorempixel.com/350/150/sports">
-            </div>
+                        <div class="col-sm-6 col-md-4 item">
+                            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/200/300/sports">
+                        </div>
 
-            <div class="col-sm-6 col-md-4 item">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="img-responsive" data-original="http://lorempixel.com/150/300/sports">
-            </div>
+                        <div class="col-sm-6 col-md-4 item">
+                            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/400/350/sports">
+                        </div>
 
-            <div class="col-sm-6 col-md-4 item">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="img-responsive" data-original="http://lorempixel.com/700/360/sports">
-            </div>
+                        <div class="col-sm-6 col-md-4 item">
+                            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/300/390/sports">
+                        </div>
 
-            <div class="col-sm-6 col-md-4 item">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="img-responsive" data-original="http://lorempixel.com/200/240/sports">
-            </div>
+                        <div class="col-sm-6 col-md-4 item">
+                            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/400/300/sports">
+                        </div>
 
-            <div class="col-sm-6 col-md-4 item">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/200/200/sports">
-            </div>
+                        <div class="col-sm-6 col-md-4 item">
+                            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/400/350/sports">
+                        </div>
 
-            <div class="col-sm-6 col-md-4 item">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/500/300/sports">
-            </div>
+                        <div class="col-sm-6 col-md-4 item">
+                            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/400/390/sports">
+                        </div>
 
-            <div class="col-sm-6 col-md-4 item">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/300/350/sports">
-            </div>
+                        <div class="col-sm-6 col-md-4 item">
+                            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/400/300/sports">
+                        </div>
 
-            <div class="col-sm-6 col-md-4 item">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/200/390/sports">
-            </div>
+                        <div class="col-sm-6 col-md-4 item">
+                            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/400/430/sports">
+                        </div>
 
-            <div class="col-sm-6 col-md-4 item">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/200/300/sports">
-            </div>
+                        <div class="col-sm-6 col-md-4 item">
+                            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/400/300/sports">
+                        </div>
 
-            <div class="col-sm-6 col-md-4 item">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/400/350/sports">
-            </div>
+                        <div class="col-sm-6 col-md-4 item">
+                            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/400/350/sports">
+                        </div>
 
-            <div class="col-sm-6 col-md-4 item">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/300/390/sports">
-            </div>
+                        <div class="col-sm-6 col-md-4 item">
+                            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/300/390/sports">
+                        </div>
 
-            <div class="col-sm-6 col-md-4 item">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/400/300/sports">
-            </div>
+                        <div class="col-sm-6 col-md-4 item">
+                            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="img-responsive" data-original="http://lorempixel.com/400/400/sports">
+                        </div>
 
-            <div class="col-sm-6 col-md-4 item">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/400/350/sports">
-            </div>
+                        <div class="col-sm-6 col-md-4 item">
+                            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="img-responsive" data-original="http://lorempixel.com/400/150/sports">
+                        </div>
 
-            <div class="col-sm-6 col-md-4 item">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/400/390/sports">
-            </div>
+                        <div class="col-sm-6 col-md-4 item">
+                            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="img-responsive" data-original="http://lorempixel.com/400/450/sports">
+                        </div>
 
-            <div class="col-sm-6 col-md-4 item">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/400/300/sports">
-            </div>
+                        <div class="col-sm-6 col-md-4 item">
+                            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/400/100/sports">
+                        </div>
 
-            <div class="col-sm-6 col-md-4 item">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/400/430/sports">
-            </div>
+                        <div class="col-sm-6 col-md-4 item">
+                            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/400/250/sports">
+                        </div>
 
-            <div class="col-sm-6 col-md-4 item">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/400/300/sports">
-            </div>
+                        <div class="col-sm-6 col-md-4 item">
+                            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/400/390/sports">
+                        </div>
 
-            <div class="col-sm-6 col-md-4 item">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/400/350/sports">
-            </div>
+                        <div class="col-sm-6 col-md-4 item">
+                            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/400/390/sports">
+                        </div>
 
-            <div class="col-sm-6 col-md-4 item">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/300/390/sports">
-            </div>
+                        <div class="col-sm-6 col-md-4 item">
+                            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/400/430/sports">
+                        </div>
 
-            <div class="col-sm-6 col-md-4 item">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="img-responsive" data-original="http://lorempixel.com/400/400/sports">
-            </div>
+                        <div class="col-sm-6 col-md-4 item">
+                            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/400/390/sports">
+                        </div>
 
-            <div class="col-sm-6 col-md-4 item">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="img-responsive" data-original="http://lorempixel.com/400/150/sports">
-            </div>
+                        <div class="col-sm-6 col-md-4 item">
+                            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/200/300/sports">
+                        </div>
 
-            <div class="col-sm-6 col-md-4 item">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="img-responsive" data-original="http://lorempixel.com/400/450/sports">
-            </div>
+                        <div class="col-sm-6 col-md-4 item">
+                            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="img-responsive" data-original="http://lorempixel.com/400/150/sports">
+                        </div>
 
-            <div class="col-sm-6 col-md-4 item">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/400/100/sports">
-            </div>
+                        <div class="col-sm-6 col-md-4 item">
+                            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="img-responsive" data-original="http://lorempixel.com/400/450/sports">
+                        </div>
 
-            <div class="col-sm-6 col-md-4 item">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/400/250/sports">
-            </div>
+                        <div class="col-sm-6 col-md-4 item">
+                            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/400/350/sports">
+                        </div>
 
-            <div class="col-sm-6 col-md-4 item">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/400/390/sports">
-            </div>
+                        <div class="col-sm-6 col-md-4 item">
+                            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/400/380/sports">
+                        </div>
 
-            <div class="col-sm-6 col-md-4 item">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/400/430/sports">
-            </div>
+                        <div class="col-sm-6 col-md-4 item">
+                            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/400/300/sports">
+                        </div>
 
-            <div class="col-sm-6 col-md-4 item">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/400/200/sports">
-            </div>
+                        <div class="col-sm-6 col-md-4 item">
+                            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/400/350/sports">
+                        </div>
 
-            <div class="col-sm-6 col-md-4 item">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/400/300/sports">
-            </div>
+                        <div class="col-sm-6 col-md-4 item">
+                            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/400/390/sports">
+                        </div>
 
-            <div class="col-sm-6 col-md-4 item">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/400/350/sports">
-            </div>
+                        <div class="col-sm-6 col-md-4 item">
+                            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/400/300/sports">
+                        </div>
 
-            <div class="col-sm-6 col-md-4 item">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/100/380/sports">
-            </div>
+                        <div class="col-sm-6 col-md-4 item">
+                            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/400/300/sports">
+                        </div>
 
-            <div class="col-sm-6 col-md-4 item">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/400/300/sports">
-            </div>
+                        <div class="col-sm-6 col-md-4 item">
+                            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/400/350/sports">
+                        </div>
 
-            <div class="col-sm-6 col-md-4 item">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/400/150/sports">
-            </div>
+                        <div class="col-sm-6 col-md-4 item">
+                            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/200/390/sports">
+                        </div>
 
-            <div class="col-sm-6 col-md-4 item">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/400/300/sports">
-            </div>
+                        <div class="col-sm-6 col-md-4 item">
+                            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/400/300/sports">
+                        </div>
 
-            <div class="col-sm-6 col-md-4 item">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="img-responsive" data-original="http://lorempixel.com/400/400/sports">
-            </div>
+                        <div class="col-sm-6 col-md-4 item">
+                            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/400/350/sports">
+                        </div>
 
-            <div class="col-sm-6 col-md-4 item">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="img-responsive" data-original="http://lorempixel.com/400/150/sports">
-            </div>
+                        <div class="col-sm-6 col-md-4 item">
+                            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/400/390/sports">
+                        </div>
 
-            <div class="col-sm-6 col-md-4 item">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="img-responsive" data-original="http://lorempixel.com/400/450/sports">
-            </div>
-
-            <div class="col-sm-6 col-md-4 item">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/200/350/sports">
-            </div>
-
-            <div class="col-sm-6 col-md-4 item">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/400/390/sports">
-            </div>
-
-            <div class="col-sm-6 col-md-4 item">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/300/300/sports">
-            </div>
-
-            <div class="col-sm-6 col-md-4 item">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/400/350/sports">
-            </div>
-
-            <div class="col-sm-6 col-md-4 item">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/400/390/sports">
-            </div>
-
-            <div class="col-sm-6 col-md-4 item">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/400/430/sports">
-            </div>
-
-            <div class="col-sm-6 col-md-4 item">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/400/390/sports">
-            </div>
-
-            <div class="col-sm-6 col-md-4 item">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/200/300/sports">
-            </div>
-
-            <div class="col-sm-6 col-md-4 item">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="img-responsive" data-original="http://lorempixel.com/400/150/sports">
-            </div>
-
-            <div class="col-sm-6 col-md-4 item">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="img-responsive" data-original="http://lorempixel.com/400/450/sports">
-            </div>
-
-            <div class="col-sm-6 col-md-4 item">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/400/350/sports">
-            </div>
-
-            <div class="col-sm-6 col-md-4 item">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/400/380/sports">
-            </div>
-
-            <div class="col-sm-6 col-md-4 item">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/400/300/sports">
-            </div>
-
-            <div class="col-sm-6 col-md-4 item">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/400/350/sports">
-            </div>
-
-            <div class="col-sm-6 col-md-4 item">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/400/390/sports">
-            </div>
-
-            <div class="col-sm-6 col-md-4 item">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/400/300/sports">
-            </div>
-
-            <div class="col-sm-6 col-md-4 item">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/400/300/sports">
-            </div>
-
-            <div class="col-sm-6 col-md-4 item">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/400/350/sports">
-            </div>
-
-            <div class="col-sm-6 col-md-4 item">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/200/390/sports">
-            </div>
-
-            <div class="col-sm-6 col-md-4 item">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/400/300/sports">
-            </div>
-
-            <div class="col-sm-6 col-md-4 item">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/400/350/sports">
-            </div>
-
-            <div class="col-sm-6 col-md-4 item">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/400/390/sports">
-            </div>
-
-            <div class="col-sm-6 col-md-4 item">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/400/430/sports">
-            </div>
-        </div>
+                        <div class="col-sm-6 col-md-4 item">
+                            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="http://lorempixel.com/400/430/sports">
+                        </div>
+                    </div>
     </section>
 
     {{--<section id="sponsor">--}}
@@ -806,8 +718,8 @@
 
     <section id="anteriores" class="fundo-azul2">
         <div class="container-fluid">
-            <div class="row">
-                <h2 class="text-center">Edições Anteriores</h2>
+            <div class="row text-center">
+                <h2>Edições Anteriores</h2>
 
                 <div class="owl-carousel">
 
@@ -2329,20 +2241,23 @@
                     <h2 class="heading">Downloads</h2>
                     <p>Você pode precisar desses documentos</p>
                     <div class="row">
+                        REGIMENTO INTERNO
                         <a href="http://www.parlamento-juvenil.rj.gov.br/download/regimento-interno.pdf" class="btn border-button">
-                            REGIMENTO INTERNO <i class="fa fa-cloud-download"></i>
+                           <i class="fa fa-cloud-download"></i>
                         </a>
                     </div>
 
                     <div class="row">
+                        ANEXO II – CALENDÁRIO DE ATIVIDADES
                         <a href="http://www.parlamento-juvenil.rj.gov.br/download/anexo-ii-calendario-de-atividades-9a-edicao.pdf" class="btn border-button">
-                            ANEXO II – CALENDÁRIO DE ATIVIDADES <i class="fa fa-cloud-download"></i>
+                             <i class="fa fa-cloud-download"></i>
                         </a>
                     </div>
 
                     <div class="row">
+                        DOCUMENTOS NECESSÁRIOS PARA PARTICIPAR
                         <a href="http://www.parlamento-juvenil.rj.gov.br/download/documentos-necessarios-para-participar-parlamento-juvenil.zip" class="btn border-button">
-                            DOCUMENTOS NECESSÁRIOS PARA PARTICIPAR <i class="fa fa-cloud-download"></i>
+                             <i class="fa fa-cloud-download"></i>
                         </a>
                     </div>
                 </div>
@@ -2425,20 +2340,20 @@
                     </div>
                     <div class="col-sm-5">
                         <div id="contact-section">
-                            <h3>Send a message</h3>
+                            <h3>Envie-nos uma Mensagem</h3>
                             <div class="status alert alert-success" style="display: none"></div>
                             <form id="main-contact-form" class="contact-form" name="contact-form" method="post" action="sendemail.php">
                                 <div class="form-group">
-                                    <input type="text" name="name" class="form-control" required="required" placeholder="Name">
+                                    <input type="text" name="name" class="form-control" required="required" placeholder="Nome">
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" name="email" class="form-control" required="required" placeholder="Email ID">
+                                    <input type="email" name="email" class="form-control" required="required" placeholder="E-mail">
                                 </div>
                                 <div class="form-group">
-                                    <textarea name="message" id="message" required="required" class="form-control" rows="4" placeholder="Enter your message"></textarea>
+                                    <textarea name="message" id="message" required="required" class="form-control" rows="4" placeholder="Escreva sua mensagem ..."></textarea>
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-primary pull-right">Send</button>
+                                    <button type="submit" class="btn btn-primary pull-right">Enviar</button>
                                 </div>
                             </form>
                         </div>
