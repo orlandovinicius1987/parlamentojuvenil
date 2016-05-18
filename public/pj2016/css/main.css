@@ -873,23 +873,34 @@ section#home {
 
 
 #downloads h2 {
-  /*color: #FFFFFF;*/
-  /*font-size: 36px;*/
-  /*font-weight: 300;*/
-  /*margin-bottom: 40px;*/
-  /*margin-top: 70px;*/
-  /*text-transform: uppercase;*/
+   /*color: #FFFFFF;*/
+   /*font-size: 36px;*/
+   /*font-weight: 300;*/
+   /*margin-bottom: 40px;*/
+   /*margin-top: 70px;*/
+   /*text-transform: uppercase;*/
 
-  border: 4px black solid;
-  background-color: #FFC908;
-  padding: 10px;
-  color: black;
-  display: inline-block;
+   border: 4px black solid;
+   background-color: #FFC908;
+   padding: 10px;
+   color: black;
+   display: block;
+   margin: -19px;
+   margin-top: -64px;
+ }
+
+#downloads p {
+  font-weight: bold;
+  font-size: 18px;
 }
 
 #downloads .fa {
   border: 4px white solid;
   padding: 5px;
+}
+
+#downloads img {
+ height: 110px;
 }
 
 
@@ -913,6 +924,8 @@ section#home {
   padding: 10px;
   color: black;
   display: inline-block;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 
@@ -1194,7 +1207,7 @@ section#home {
 
 #contact-section .form-control:focus {
   /*border-color: #ae750d;*/
-  border-color: dimgray;
+  border-color: #FFC908;
 }
 
 #contact-section input {  
@@ -1510,4 +1523,31 @@ section#home {
 
 .input-lg {
   border-radius: 0px;
+  border: 4px black solid;
 }
+
+.input-lg:focus {
+  border: 4px #FFC908 solid;
+}
+
+.caixa-vermelha {
+  border: 4px black solid;
+  display: inline-block;
+  background-color: #b21416;
+  color: white;
+  padding: 10px;
+}
+
+.caixa-amarela {
+  border: 4px black solid;
+  background-color: #FFC908;
+  color: black;
+  padding: 10px;
+}
+
+.classWithPad {
+  margin:20px;
+  padding:10px;
+}
+
+
