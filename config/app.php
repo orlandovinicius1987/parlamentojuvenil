@@ -86,6 +86,8 @@ return [
         App\Providers\ComposerServiceProvider::class,
 
         Maatwebsite\Excel\ExcelServiceProvider::class,
+
+        ValidadorCpf\CpfServiceProvider::class,
     ],
 
     /*

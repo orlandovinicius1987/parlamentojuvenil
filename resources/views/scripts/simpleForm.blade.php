@@ -2,30 +2,35 @@
 
     jQuery(document).ready(function()
     {
-        $(document).on("change", '#city-edit', function(e)
+        jQuery(document).on("change", '#city-edit', function(element)
         {
-            console.log('changed');
-
-            var school = $(this).val();
-
-            $.ajax({
-                type: 'GET',
-                url: '/schools/' + school,
-                dataType: 'json',
-                success: function(json)
-                {
-                    console.log(json);
-                    var $el = $("#school-edit");
-                    $el.empty(); // remove old options
-                    $el.append($("<option></option>")
-                            .attr("value", '').text('SELECIONE A ESCOLA'));
-                    $.each(json, function(key, value) {
-                        $el.append($("<option></option>")
-                                .attr("value", value.name).text(value.name));
-                    });
-                }
-            });
+            updateChecklist(element.target);
         });
+
+        updateChecklist(jQuery('#city-edit'));
     });
 
+    function updateChecklist(element)
+    {
+        console.log('changed');
+
+        var school = jQuery(element).val();
+
+        jQuery.ajax({
+            type: 'GET',
+            url: '/schools/' + school,
+            dataType: 'json',
+            success: function(json)
+            {
+                var $el = jQuery("#school-edit");
+                $el.empty(); // remove old options
+                $el.append(jQuery("<option></option>")
+                        .attr("value", '').text('SELECIONE A ESCOLA'));
+                jQuery.each(json, function(key, value) {
+                    $el.append(jQuery("<option></option>")
+                            .attr("value", value.name).text(value.name));
+                });
+            }
+        });
+    }
 </script>

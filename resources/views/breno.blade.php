@@ -2256,7 +2256,7 @@
 
                     <div class="row">
                         DOCUMENTOS NECESSÁRIOS PARA PARTICIPAR
-                        <a href="http://www.parlamento-juvenil.rj.gov.br/download/documentos-necessarios-para-participar-parlamento-juvenil.zip" class="btn border-button">
+                        <a href="http://www.parlamento-juvenil.rj.gov.br/download/documentos-necessarios-para-participar-parlamento-juvenil-2016.zip" class="btn border-button">
                              <i class="fa fa-cloud-download"></i>
                         </a>
                     </div>

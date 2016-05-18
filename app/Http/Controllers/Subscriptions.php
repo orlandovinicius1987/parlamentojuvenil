@@ -110,6 +110,8 @@ class Subscriptions extends BaseController
 
     public function store(Subscribe $request)
     {
-        dd($request->all());
+        $this->dataRepository->createSubscription($request);
+
+        return $this->buildView('2016.subscriptions.success');
     }
 }

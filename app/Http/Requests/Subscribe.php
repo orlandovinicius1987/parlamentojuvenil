@@ -2,8 +2,6 @@
 
 namespace App\Http\Requests;
 
-use App\Http\Requests\Request;
-
 class Subscribe extends Request
 {
     /**
@@ -32,7 +30,7 @@ class Subscribe extends Request
             'gender' => 'required',
             'gender2' => 'required',
             'birthdate' => 'required|date|date_format:d/m/Y',
-            'cpf' => 'required',
+            'cpf' => 'required|cpf',
             'id_number' => 'required',
             'id_issuer' => 'required',
             'email' => 'required',
