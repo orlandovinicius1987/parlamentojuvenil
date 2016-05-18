@@ -16,7 +16,7 @@
                     <div class="carousel-caption">
                         <h2>Inscreva-se já para a edição 2016 </h2>
                         <h4>participe do Parlamento Juvenil</h4>
-                        <a href="/inscricoes">Faça a sua inscrição <i class="fa fa-angle-right"></i></a>
+                        <a href="/inscricao">Faça a sua inscrição <i class="fa fa-angle-right"></i></a>
                     </div>
                 </div>
                 <div class="item">
@@ -294,6 +294,9 @@
                                     <p>20 a 26 de novembro</p>
                                 </div>
                             </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-end"><i class=""></i></div>
                         </li>
 
 
