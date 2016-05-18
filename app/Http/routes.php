@@ -21,43 +21,7 @@ Route::get('register', ['as' => 'home', 'uses' => 'Home@force']);
 
 Route::post('googleforms', function ()
 {
-	$googleForm = app()->make('PragmaRX\GoogleForms\Client', [env('GOOGLE_FORM_ID')]);
-
-	$data = [
-		'entry.1067191032' => Input::get('name'),
-		'entry.241756608' => Input::get('social_name'),
-		'entry.1515803741' => Input::get('city'),
-		'entry.1729603304' => Input::get('school'),
-		'entry.1245049158' => Input::get('registration'),
-		'entry.961396682' => Input::get('gender'),
-		'entry.577472491' => Input::get('gender2'),
-		'entry.399325260' => Input::get('birthdate'),
-		'entry.684294614' => Input::get('cpf'),
-		'entry.1502137399' => Input::get('id_number'),
-		'entry.1488078719' => Input::get('id_issuer'),
-		'entry.2091843943' => Input::get('email'),
-		'entry.568742235' => Input::get('phone_home'),
-		'entry.1791282094' => Input::get('phone_cellular'),
-		'entry.872267792' => Input::get('zip_code'),
-		'entry.561604981' => Input::get('address'),
-		'entry.1580835599' => Input::get('address_complement'),
-		'entry.96167830' => Input::get('address_neighborhood'),
-		'entry.104131737' => Input::get('address_city'),
-		'entry.1153024190' => Input::get('facebook'),
-	];
-
-	$subscription = new Subscription();
-
-	$input = Input::only($subscription->getFillable());
-
-	$subscription = Subscription::firstOrCreate($input);
-
-	app('events')->fire(new SubscriptionUpdated($subscription));
-
-	return [
-		'success' => $googleForm->post($data),
-		'data' => $data
-	];
+	
 });
 
 Route::any('news/sync', function (NewsSync $news)
@@ -110,6 +74,8 @@ Route::get('auth.logout', ['as' => 'auth.logout', 'uses' => function ()
 }]);
 
 Route::get('subscriptions', ['as' => 'subscriptions', 'uses' => 'Subscriptions@byState']);
+
+Route::post('subscriptions', ['as' => 'subscriptions.store', 'uses' => 'Subscriptions@store']);
 
 Route::get('subscriptions/download', ['as' => 'subscriptions.download', 'uses' => 'Subscriptions@download']);
 

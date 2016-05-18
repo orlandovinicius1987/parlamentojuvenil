@@ -8,7 +8,7 @@
             <div class="row">
                 <div class="col-xs12">
                     <h1>&nbsp;</h1>
-                    <h1>Inscreva-se</h1>
+                    <h1>Iscrição realizada</h1>
                 </div>
             </div>
         </div>
@@ -18,7 +18,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs12">
-                    @include('partials.subscribe-form', ['formId' => 'subscribe-simple'])
+                    Sua inscrição for realizada. Por favor aguarde o contato da equipe do Parlamento Juvenil.
                 </div>
             </div>
         </div>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Subscribe;
 use Carbon\Carbon;
 use \DB;
 use Event;
@@ -105,5 +106,12 @@ class Subscriptions extends BaseController
     public function index()
     {
         return $this->buildView('2016.subscriptions.index');
+    }
+
+    public function store(Subscribe $request)
+    {
+        $this->dataRepository->createSubscription($request);
+
+        return $this->buildView('2016.subscriptions.success');
     }
 }

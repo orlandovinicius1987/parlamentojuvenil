@@ -8,6 +8,8 @@ use App\Jobs\SyncNews;
 use App\Jobs\SyncGallery;
 use App\Data\Entities\State;
 use App\Data\Entities\Article;
+use App\Events\SubscriptionUpdated;
+use App\Data\Entities\Subscription;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use App\Services\News\Service as SyncNewsService;
@@ -386,5 +388,16 @@ class Data
             'jpg' => $parts['dirname'] . '/' . $parts['filename'] . '.jpg',
             'url' => $url
         ];
+    }
+
+    public function createSubscription($input)
+    {
+        $input = $input->only((new Subscription())->getFillable());
+
+        $subscription = Subscription::firstOrCreate($input);
+
+        app('events')->fire(new SubscriptionUpdated($subscription));
+
+        return $subscription;
     }
 }

@@ -10,7 +10,7 @@ return [
 
     'timezone' => 'UTC',
 
-    'locale' => 'en',
+    'locale' => 'pt_BR',
 
     'fallback_locale' => 'en',
 
@@ -86,6 +86,8 @@ return [
         App\Providers\ComposerServiceProvider::class,
 
         Maatwebsite\Excel\ExcelServiceProvider::class,
+
+        ValidadorCpf\CpfServiceProvider::class,
     ],
 
     /*
