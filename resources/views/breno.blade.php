@@ -30,10 +30,10 @@
                 <div class="item">
                     <img class="img-responsive" src="/pj2016/images/slider/bg_home-4-min.jpg" alt="slider">
                     <div class="carousel-caption">
-                        <h2>register for our next event </h2>
-                        <h4>full event package only @$199</h4>
+                        <h2>Faça história com a gente<br> e mostre que você é 10!</h2>
+                        {{--<h4></h4>--}}
 
-                        <a href="#contact">GRAB YOUR TICKETS <i class="fa fa-angle-right"></i></a>
+                        {{--<a href="#contact">GRAB YOUR TICKETS <i class="fa fa-angle-right"></i></a>--}}
                     </div>
                 </div>
             </div>
@@ -127,7 +127,8 @@
         <div class="container">
             <div class="row">
                 <div class="watch">
-                    <img class="img-responsive" src="/pj2016/images/watch.png" alt="">
+                    {{--<img class="img-responsive" src="/pj2016/images/watch.png" alt="">--}}
+
                 </div>
                 <div class="col-md-12 col-sm-5">
                     <h2>Cronograma</h2>
@@ -314,7 +315,7 @@
         </div>
     </section><!--/#explore-->
 
-    <section id="noticias" class="fundo-azul4">
+    <section id="noticias" class="fundo-azul">
 
         <div class="container-fluid">
             <div class="row">
@@ -327,87 +328,70 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-3">
-                            <a href="#" class="thumbnail">
-                                <img src="http://placehold.it/260x180" alt="">
-                            </a>
+                        <div class="col-xs-12 col-md-4 amarelo texto-preto">
+                            <div class="titulo borda-preta text-center">Loren Post Title</div>
+                            <div class="thumbnail">
+                                <a href="#">
+                                    <img src="http://placehold.it/260x180" alt="">
+                                </a>
+                            </div>
+                            <div class="col-xs-12 quadro-branco borda-preta-lateral texto-preto">
+                                jkfsdl fjdks jfls jfs djfs jflds fk dkls fjklwslf sjk fjklsd jfk dsjfk jsd fjkdsl jfk
+                            </div>
+                            <div class="col-xs-12 quadro-branco borda-preta-lateral borda-preta-final">
+                                <div class="pull-left">
+                                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                                    <i class="fa fa-google-plus" aria-hidden="true"></i>
+                                </div>
+                                <div class="pull-right">
+                                    <i class="fa fa-plus" aria-hidden="true"></i>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-md-9">
-                            <h4><a href="#">Title of the post</a></h4>
-                            <p>
-                                Lorem ipsum dolor sit amet, id nec conceptam conclusionemque. Et eam tation option. Utinam salutatus ex eum. Ne mea dicit tibique facilisi, ea mei omittam explicari conclusionemque, ad nobis propriae quaerendum sea.
-                            </p>
-                            <p><a class="btn btn-info btn-sm" href="#">Read more</a></p>
-                            <br/>
-                            <ul class="list-inline">
-                                {{--  <li><i class="glyphicon glyphicon-user"></i> by <a href="#">John</a> | </li>--}}
-                                <li><i class="glyphicon glyphicon-calendar"></i> Sept 16th, 2012 | </li>
-                                {{--<li><i class="glyphicon glyphicon-comment"></i> <a href="#">3 Comments</a> | </li>
-                                <li><i class="glyphicon glyphicon-share"></i> <a href="#">39 Shares</a></li>--}}
-                                <li><i class="icon-tags"></i> {{--Tags :--}} <a href="#"><span class="label label-info">Snipp</span></a>
-                                    <a href="#"><span class="label label-info">Bootstrap</span></a>
-                                    <a href="#"><span class="label label-info">UI</span></a>
-                                    <a href="#"><span class="label label-info">growth</span></a></li>
-                            </ul>
+                        <div class="col-xs-12 col-md-4 amarelo texto-preto">
+                            <div class="titulo borda-preta text-center">Loren Post Title</div>
+                            <div class="thumbnail">
+                                <a href="#">
+                                    <img src="http://placehold.it/260x180" alt="">
+                                </a>
+                            </div>
+                            <div class="col-xs-12 quadro-branco borda-preta-lateral texto-preto">
+                                jkfsdl fjdks jfls jfs djfs jflds fk dkls fjklwslf sjk fjklsd jfk dsjfk jsd fjkdsl jfk
+                            </div>
+                            <div class="col-xs-12 quadro-branco borda-preta-lateral borda-preta-final">
+                                <div class="pull-left">
+                                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                                    <i class="fa fa-google-plus" aria-hidden="true"></i>
+                                </div>
+                                <div class="pull-right">
+                                    <i class="fa fa-plus" aria-hidden="true"></i>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-
-                    <hr>
-
-                    <div class="row">
-                        <div class="col-md-3">
-                            <a href="#" class="thumbnail">
-                                <img src="http://placehold.it/260x180" alt="">
-                            </a>
-                        </div>
-                        <div class="col-md-9">
-                            <h4><a href="#">Title of the post</a></h4>
-                            <p>
-                                Lorem ipsum dolor sit amet, id nec conceptam conclusionemque. Et eam tation option. Utinam salutatus ex eum. Ne mea dicit tibique facilisi, ea mei omittam explicari conclusionemque, ad nobis propriae quaerendum sea.
-                            </p>
-                            <p><a class="btn btn-info btn-sm" href="#">Read more</a></p>
-                            <br/>
-                            <ul class="list-inline">
-                                {{--  <li><i class="glyphicon glyphicon-user"></i> by <a href="#">John</a> | </li>--}}
-                                <li><i class="glyphicon glyphicon-calendar"></i> Sept 16th, 2012 | </li>
-                                {{--<li><i class="glyphicon glyphicon-comment"></i> <a href="#">3 Comments</a> | </li>
-                                <li><i class="glyphicon glyphicon-share"></i> <a href="#">39 Shares</a></li>--}}
-                                <li><i class="icon-tags"></i> {{--Tags :--}} <a href="#"><span class="label label-info">Snipp</span></a>
-                                    <a href="#"><span class="label label-info">Bootstrap</span></a>
-                                    <a href="#"><span class="label label-info">UI</span></a>
-                                    <a href="#"><span class="label label-info">growth</span></a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <hr>
-
-                    <div class="row">
-                        <div class="col-md-3">
-                            <a href="#" class="thumbnail">
-                                <img src="http://placehold.it/260x180" alt="">
-                            </a>
-                        </div>
-                        <div class="col-md-9">
-                            <h4><a href="#">Title of the post</a></h4>
-                            <p>
-                                Lorem ipsum dolor sit amet, id nec conceptam conclusionemque. Et eam tation option. Utinam salutatus ex eum. Ne mea dicit tibique facilisi, ea mei omittam explicari conclusionemque, ad nobis propriae quaerendum sea.
-                            </p>
-                            <p><a class="btn btn-info btn-sm" href="#">Read more</a></p>
-                            <br/>
-                            <ul class="list-inline">
-                                {{--  <li><i class="glyphicon glyphicon-user"></i> by <a href="#">John</a> | </li>--}}
-                                <li><i class="glyphicon glyphicon-calendar"></i> Sept 16th, 2012 | </li>
-                                {{--<li><i class="glyphicon glyphicon-comment"></i> <a href="#">3 Comments</a> | </li>
-                                <li><i class="glyphicon glyphicon-share"></i> <a href="#">39 Shares</a></li>--}}
-                                <li><i class="icon-tags"></i> {{--Tags :--}} <a href="#"><span class="label label-info">Snipp</span></a>
-                                    <a href="#"><span class="label label-info">Bootstrap</span></a>
-                                    <a href="#"><span class="label label-info">UI</span></a>
-                                    <a href="#"><span class="label label-info">growth</span></a></li>
-                            </ul>
+                        <div class="col-xs-12 col-md-4 amarelo texto-preto">
+                            <div class="titulo borda-preta text-center">Loren Post Title</div>
+                            <div class="thumbnail">
+                                <a href="#">
+                                    <img src="http://placehold.it/260x180" alt="">
+                                </a>
+                            </div>
+                            <div class="col-xs-12 quadro-branco borda-preta-lateral texto-preto">
+                                jkfsdl fjdks jfls jfs djfs jflds fk dkls fjklwslf sjk fjklsd jfk dsjfk jsd fjkdsl jfk
+                            </div>
+                            <div class="col-xs-12 quadro-branco borda-preta-lateral borda-preta-final">
+                                <div class="pull-left">
+                                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                                    <i class="fa fa-google-plus" aria-hidden="true"></i>
+                                </div>
+                                <div class="pull-right">
+                                    <i class="fa fa-plus" aria-hidden="true"></i>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <hr>
 
                 <div class="row text-center">
                         <button type="button" class="btn btn-default">Ver mais notícias</button>
@@ -419,7 +403,7 @@
     </section>
 
 
-    <section id="event"  class="fundo-azul3">
+    <section id="event"  class="fundo-azul">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-md-9">
@@ -514,7 +498,7 @@
         </div>
     </section><!--/#event-->
 
-    <section id="galeria">
+    <section id="galeria" class="fundo-azul">
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 text-center">
@@ -716,7 +700,7 @@
     <!--/#sponsor-->
 
 
-    <section id="anteriores" class="fundo-azul2">
+    <section id="anteriores" class="fundo-azul">
         <div class="container-fluid">
             <div class="row text-center">
                 <h2>Edições Anteriores</h2>
@@ -2273,11 +2257,11 @@
         </div>
     </section><!--/#event-->
 
-    <section id="depoimentos">
+    <section id="depoimentos" class="fundo-azul">
         <div id="depoimentos-feed" class="carousel slide" data-interval="false">
-            <div class="depo">
-                <img class="img-responsive" src="/pj2016/images/twit.png" alt="twit">
-            </div>
+            {{--<div class="depo">--}}
+                {{--<img class="img-responsive" src="/pj2016/images/twit.png" alt="twit">--}}
+            {{--</div>--}}
             <div class="row">
                 <div class="col-sm-6 col-sm-offset-3">
                     <div class="text-center carousel-inner center-block">
@@ -2306,10 +2290,11 @@
 
 
 
-    <section id="contato" class="fundo-azul1">
+    <section id="contato" class="fundo-azul">
         <div class="contact-section">
             <div class="ear-piece">
-                <img class="img-responsive" src="/pj2016/images/ear-piece.png" alt="">
+                {{--<img class="img-responsive" src="/pj2016/images/ear-piece.png" alt="">--}}
+                {{--<i class="fa fa-envelope fa-10x" aria-hidden="true" style="opacity: 0.2"></i>--}}
             </div>
             <div class="container">
                 <div class="row">
@@ -2324,6 +2309,7 @@
                             <h2 class="heading">Entre em contato</h2>
                             <h2><i class="fa fa-phone fa-fw"></i>(21) 2588-1202</h2>
                             <h2><a href="mailto:pjalerj@gmail.com">pjalerj@gmail.com</a></h2>
+
                             <ul class="list-inline">
                                 <li>
                                     <a href="https://www.facebook.com/parlamentojuvenilrio"><img src="/pj2016/images/svg/facebook-icon.svg" height="35px" alt="" class="loading"></a>

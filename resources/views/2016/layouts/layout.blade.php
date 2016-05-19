@@ -14,7 +14,7 @@
         <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.1/css/datepicker3.css">
 
         <!-- Font Awesome -->
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
 
         <!-- Google Fonts -->
         <link href="//fonts.googleapis.com/css?family=Amatic+SC:400,700%7CShadows+Into+Light%7CDosis:400,200,600" rel="stylesheet" type="text/css" >
@@ -110,7 +110,8 @@
         <script src="//imagesloaded.desandro.com/imagesloaded.pkgd.min.js"></script>
 
         <!-- Bootstrap Core JavaScript -->
-        <script type="text/javascript" src="/pj2016/js/bootstrap.min.js"></script>
+        {{--<script type="text/javascript" src="/pj2016/js/bootstrap.min.js"></script>--}}
+        <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="/pj2016/js/smoothscroll.js"></script>
         <script type="text/javascript" src="/pj2016/js/jquery.parallax.js"></script>
         <script type="text/javascript" src="/pj2016/js/coundown-timer.js"></script>
