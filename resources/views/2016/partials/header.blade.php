@@ -1,4 +1,4 @@
-<header id="header" role="banner">
+<nav id="header">
     <div class="main-nav">
         <div class="container">
             <div class="header-top">
@@ -30,9 +30,9 @@
                         <li class="scroll"><a href="#galeria">Galeria</a></li>
                         <li class="dropdown">
                             <!-- Link or button to toggle dropdown -->
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Anteriores <span class="caret"></span></a>
+                            <a id="dLabel" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Anteriores <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                                <li><a tabindex="-1" href="/2015">2015</a></li>
+                                <li><a href="/2015">2015</a></li>
                                 <li><a tabindex="-1" href="#">2014</a></li>
                                 <li><a tabindex="-1" href="#">2013</a></li>
                                 <li class="divider"></li>
@@ -53,5 +53,5 @@
             </div>
         </div>
     </div>
-</header>
+</nav>
 <!--/#header-->
