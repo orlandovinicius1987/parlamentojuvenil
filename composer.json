@@ -12,7 +12,8 @@
         "ramsey/uuid": "^2.8",
         "maatwebsite/excel": "~2.0.0",
         "pusher/pusher-php-server": "~2.0",
-        "predis/predis": "~1.0"
+        "predis/predis": "~1.0",
+        "jailtonsc/validador-cpf-laravel": "^2.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
