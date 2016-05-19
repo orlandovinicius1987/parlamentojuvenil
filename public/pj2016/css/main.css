@@ -1546,8 +1546,10 @@ section#home {
 }
 
 .classWithPad {
-  margin:20px;
-  padding:10px;
+  width: 75%;
+  margin: 0 auto;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 
