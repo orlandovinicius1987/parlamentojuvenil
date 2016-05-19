@@ -2261,11 +2261,12 @@
                             </div>
                         </div>
 
-                    <div class="row">
-                        DOCUMENTOS NECESSÁRIOS PARA PARTICIPAR
+                        <div class="col-xs-12 col-lg-4">
+                            <div class="classWithPad caixa-amarela">
                         <a href="http://www.parlamento-juvenil.rj.gov.br/download/documentos-necessarios-para-participar-parlamento-juvenil.zip" class="btn border-button">
-                             <i class="fa fa-cloud-download"></i>
+                            <img src="/pj2016/images/documentos.png" class="img-responsive">
                         </a>
+                        <p>Documentos Necessários para Participar</p>
                     </div>
                 </div>
             </div>
