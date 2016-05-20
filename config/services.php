@@ -35,4 +35,8 @@ return [
         'secret' => '',
     ],
 
+    'googleMaps' => [
+        'key'    => env('GOOGLE_MAPS_API_KEY'),
+    ],
+    
 ];

@@ -14,7 +14,7 @@ class Schools
     public function __construct()
     {
         $curl = new CurlHttpAdapter();
-        $this->geocoder = new GoogleMaps($curl, 'pt-BR', 'BR', true, 'AIzaSyC8eXlKYV6uoohHzw0zbz0pll3rgrUMll8');
+        $this->geocoder = new GoogleMaps($curl, 'pt-BR', 'BR', true, config('services.gooleMaps.key'));
     }
 
     private function compare($a, $b)

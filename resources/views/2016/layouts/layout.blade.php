@@ -123,5 +123,7 @@
         @endif
 
         @include('scripts.all')
+
+        @yield('javascript')
     </body>
 </html>
