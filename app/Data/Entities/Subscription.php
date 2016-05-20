@@ -31,5 +31,8 @@ class Subscription extends Model
 		'facebook',
 	];
 
-
+    public function schoolRecord()
+    {
+        return $this->belongsTo(School::class, 'school', 'name');
+    }
 }

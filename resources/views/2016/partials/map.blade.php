@@ -16,6 +16,9 @@
 
 @section('javascript')
     <script>
+        var googleMaps = null;
+        var map = null;
+
         function loadScript(src,callback)
         {
             var script = document.createElement("script");
@@ -187,15 +190,30 @@
                     ],
             };
 
-            map = new google.maps.Map(document.getElementById('map_canvas'),
+            console.log('initialize');
+
+            var map = new google.maps.Map(document.getElementById('map_canvas'),
                     mapOptions);
 
-            var myLatLng = {lat: -22.9372644, lng: -43.2067568};
 
-            var marker = new google.maps.Marker({
-                position: myLatLng,
+        }
+
+        function createMarker(map, latLng, title, icon)
+        {
+            console.log('createMarker');
+
+            console.log(typeof google);
+
+            if (typeof google == 'undefined')
+            {
+                return false;
+            }
+
+            return new google.maps.Marker(
+            {
+                position: latLng,
                 map: map,
-                title: 'Escola Celia Maria - 15 inscritos',
+                title: title,
                 icon: '/pj2016/images/google-marker.png'
             });
         }

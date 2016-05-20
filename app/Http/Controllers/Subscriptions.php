@@ -36,6 +36,13 @@ class Subscriptions extends BaseController
 		;
 	}
 
+    public function byStudent()
+    {
+        return Subscription::where('subscriptions.ignored', false)
+                ->with('schoolRecord')
+                ->get();
+    }
+
 	public function download()
 	{
 		return $this->exportSubscriptionsToExcel();
