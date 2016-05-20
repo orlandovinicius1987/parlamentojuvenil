@@ -137,9 +137,9 @@
 
                 </div>-->
             </div>
-            <div class="cart">
-                <a href="#"><i class="fa fa-sign-in"></i> <span>Faça sua inscrição</span></a>
-            </div>
+            {{--<div class="cart">--}}
+                {{--<a href="#"><i class="fa fa-sign-in"></i> <span>Faça sua inscrição</span></a>--}}
+            {{--</div>--}}
         </div>
     </section><!--/#explore-->
 
