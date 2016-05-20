@@ -1,3 +1,27 @@
+<div class="conteudo">
+    <div class="row">
+        <div class="col-xs-12 col-md-7">
+            <div class="fundo-azul borda-preta">
+                <h2>O que é o Parlamento Juvenil?</h2>
+                <p>O Parlamento Juvenil é um projeto da Assembleia Legislativa do Rio de Janeiro (Alerj), apartidário e autônomo, cujo objetivo é aproximar o jovem da política. Instalado em 2003, envolve as 1.200 escolas estaduais dos 92 municípios do Estado e chega à nona edição em 2015.
+
+                <p>A iniciativa, de autoria do deputado Jorge Picciani (PMDB), presidente da Alerj, segue os moldes de um parlamento convencional. Eleitos pelos próprios colegas de escola, por voto direto, os parlamentares juvenis têm as mesmas atribuições dos deputados estaduais. Durante uma semana, eles apresentam, discutem e aprimoram projetos de lei.
+
+                <p>Nos últimos quatro anos, 252 jovens foram escolhidos. Para participar da seleção, é preciso ter entre 14 e 17 anos e ser aluno da rede pública estadual de ensino.</p>
+
+                <h3>Quem pode participar?</h3>
+                <p>
+                    Alunos do Ensino Fundamental II e Médio da rede pública estadual do Rio de Janeiro, com idade entre 14 e 17 anos.
+                </p>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-md-5">
+            <div class="fundo-azul borda-preta">&nbsp;</div>
+        </div>
+    </div>
+</div>
+
 <section id="sobre">
     <div class="container-fluid">
         <div class="row">
