@@ -65,21 +65,21 @@ class Data
         2016 => [
             [
                 'start' => '2016-05-23 00:00:00',
-                'end' => '2016-05-23 00:00:00',
+                'end' => '2016-05-23 23:59:59',
                 'title' => 'Abertura das inscrições',
                 'description' => '23 de maio até 24 de junho',
-            ],
-
-            [
-                'start' => '2016-06-24 23:59:59',
-                'end' => '2016-06-24 23:59:59',
-                'title' => 'Encerramento das inscrições',
             ],
 
             [
                 'start' => '2016-06-20 00:00:00',
                 'end' => '2016-06-20 23:59:59',
                 'title' => '"Dia D" de divulgação',
+            ],
+
+            [
+                'start' => '2016-06-24 23:59:59',
+                'end' => '2016-06-24 23:59:59',
+                'title' => 'Encerramento das inscrições',
             ],
 
             [
@@ -189,8 +189,14 @@ class Data
 
         foreach ($timeline as $key => $item)
         {
+            $now = Carbon::now();
+
             $start = Carbon::createFromFormat('Y-m-d H:i:s', $item['start']);
             $end = Carbon::createFromFormat('Y-m-d H:i:s', $item['end']);
+
+            $timeline[$key]['startW3c'] = $start->toW3cString();
+            $timeline[$key]['endW3c'] = $end->toW3cString();
+
             $end->addSeconds(2);
 
             $diff = $start->diffInDays($end);
@@ -214,8 +220,9 @@ class Data
             }
 
             $timeline[$key]['period'] = $period;
+            $timeline[$key]['past'] = $start->diffInSeconds($now) > 0;
         }
 
-        return $timeline;
+        return ['lines' => $timeline, 'now' => $now->toW3cString()];
     }
 }

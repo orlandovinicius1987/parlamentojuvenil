@@ -114,7 +114,7 @@
         <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="/pj2016/js/smoothscroll.js"></script>
         <script type="text/javascript" src="/pj2016/js/jquery.parallax.js"></script>
-        <script type="text/javascript" src="/pj2016/js/coundown-timer.js"></script>
+        {{--<script type="text/javascript" src="/pj2016/js/coundown-timer.js"></script>--}}
         <script type="text/javascript" src="/pj2016/js/jquery.scrollTo.js"></script>
         <script type="text/javascript" src="/pj2016/js/jquery.nav.js"></script>
 

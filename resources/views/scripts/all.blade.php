@@ -28,6 +28,18 @@
     });
 </script>
 
+{{--<script>--}}
+    {{--//Countdown js--}}
+    {{--$("#countdown").countdown({--}}
+        {{--date: "21 may 2016 12:43:19",--}}
+        {{--format: "on"--}}
+    {{--},--}}
+
+    {{--function() {--}}
+        {{--// callback function--}}
+    {{--});--}}
+{{--</script>--}}
+
 @include('scripts.owl')
 @include('scripts.mask')
 @include('scripts.vueApp')
