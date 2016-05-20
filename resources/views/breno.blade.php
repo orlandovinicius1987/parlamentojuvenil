@@ -163,6 +163,7 @@
                                     <img src="http://placehold.it/260x180" alt="">
                                 </a>
                             </div>
+
                             <div class="col-xs-12 quadro-branco borda-preta-lateral texto-preto">
                                 jkfsdl fjdks jfls jfs djfs jflds fk dkls fjklwslf sjk fjklsd jfk dsjfk jsd fjkdsl jfk
                             </div>
@@ -177,6 +178,9 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="col-xs-12 hidden-lg hidden-md respiro"></div>
+
                         <div class="col-xs-12 col-md-4 quadro-amarelo texto-preto">
                             <div class="titulo borda-preta text-center">Loren Post Title</div>
                             <div class="thumbnail">
@@ -198,6 +202,9 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="col-xs-12 hidden-lg hidden-md respiro"></div>
+
                         <div class="col-xs-12 col-md-4 quadro-amarelo texto-preto">
                             <div class="titulo borda-preta text-center">Loren Post Title</div>
                             <div class="thumbnail">
@@ -326,9 +333,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="guitar">
-                    <img class="img-responsive" src="/pj2016/images/guitar.png" alt="guitar">
-                </div>
+                {{--<div class="guitar">--}}
+                    {{--<img class="img-responsive" src="/pj2016/images/guitar.png" alt="guitar">--}}
+                {{--</div>--}}
             </div>
         </div>
     </section><!--/#event-->

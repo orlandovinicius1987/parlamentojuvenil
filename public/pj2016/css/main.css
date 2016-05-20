@@ -181,6 +181,10 @@ section#home {
   font-size: 22px;
 }
 
+#noticias .respiro {
+  margin-top: 15px;
+}
+
 .quadro-vermelho {
   background-color: #b21416;
   color: white;
@@ -1014,7 +1018,7 @@ section#home {
   width: 300px;
   height: 300px;
   /*border-radius: 50%;*/
-  border: 4px black solid;
+  border-right: 4px black solid;
   /*padding: 5px;*/
   /*margin-bottom: 30px;*/
 }
@@ -1051,8 +1055,8 @@ section#home {
   right: -50px;
 }
 
-.carousel-inner {
-  background-color: #FFC908;
+#depoimentos .carousel-inner {
+  /*background-color: #FFC908;*/
 }
 
 
@@ -1636,6 +1640,10 @@ section#home {
 
 .texto-preto {
   color: black;
+}
+
+.navbar-toggle {
+  border-radius: 0px;
 }
 
 
