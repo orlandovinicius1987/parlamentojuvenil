@@ -1,5 +1,5 @@
 <section id="noticias" class="fundo-azul">
-    <div class="container-fluid">
+    <div class="container">
         <div class="row">
             <div class="col-xs-12">
                 <div class="row">
@@ -17,7 +17,7 @@
                 @if (count($articles) > 6)
                     <div class="row text-center">
                         <div class="col-md-5 quadro-amarelo hidden-xs hidden-sm"><div class="borda-preta">&nbsp;</div></div>
-                        <div class="col-md-2 col-xs-12"><div class="quadro-vermelho borda-preta">Mais notícias</div></div>
+                        <div class="col-md-2 col-xs-12"><div class="quadro-vermelho borda-preta">Mais Notícias</div></div>
                         <div class="col-md-5 quadro-amarelo hidden-xs hidden-sm"><div class="borda-preta">&nbsp;</div></div>
                     </div>
                 @endif
