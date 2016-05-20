@@ -79,6 +79,11 @@ section#home {
   }
 }
 
+.conteudo {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
 /* Paleta de Cores Azul */
 /* http://paletton.com/#uid=13L0u0kjywt9AQ4f1G5nvsTrFoo */
 
@@ -155,6 +160,10 @@ section#home {
 
 .borda-preta {
   border: 4px black solid;
+}
+
+.borda-preta-esquerda {
+  border-right: 4px black solid;
 }
 
 #noticias .borda-preta-lateral {
@@ -1206,6 +1215,14 @@ section#home {
 ******Contact CSS****
 **************************/
 
+#contato h2 {
+  padding: 10px;
+  color: black;
+  display: inline-block;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
 .contact-section {
   /*background-color: #256069;*/
   /*background-image: url("../images/contact-bg.jpg");*/
@@ -1250,9 +1267,18 @@ section#home {
   display: block;
 }
 
+.contact-text h3 {
+  font-size: 26px;
+}
+
 .contact-text .fa-facebook, .contact-text .fa-youtube {
   font-size: 36px;
   margin-left: 15px;
+  color: black;
+  border: 3px black solid;
+  padding: 4px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .contact-text a {
@@ -1656,30 +1682,6 @@ section#home {
   text-shadow: none;
 }
 
-
-/*.btn-awe {*/
-  /*padding-left: 32px;*/
-  /*position: relative;*/
-/*}*/
-/*.btn-awe:before {*/
-  /*position: absolute;*/
-  /*font-family: 'FontAwesome';*/
-  /*top: 0;*/
-  /*left: 10px;*/
-  /*content: "\f005";*/
-/*}*/
-
-/*.clock {*/
-  /*padding-left: 32px;*/
-  /*position: relative;*/
-/*}*/
-/*.clock:before {*/
-  /*position: absolute;*/
-  /*font-family: 'FontAwesome';*/
-  /*top: 0;*/
-  /*left: 10px;*/
-  /*content: "\f017";*/
-  /*text-align: right;*/
-/*}*/
-
-
+.justo {
+  display: inline-block;
+}
