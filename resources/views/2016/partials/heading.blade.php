@@ -10,7 +10,7 @@
                 <img class="img-responsive" src="/pj2016/images/slider/bg_home-3-min.jpg" alt="slider">
                 <div class="carousel-caption">
                     <h2>Inscreva-se já para a edição 2016 </h2>
-                    <h4>participe do Parlamento Juvenil</h4>
+                    <h4>Participe do Parlamento Juvenil</h4>
                     <a href="#inscricao">Faça a sua inscrição <i class="fa fa-angle-right"></i></a>
                 </div>
             </div>
@@ -18,7 +18,7 @@
                 <img class="img-responsive" src="/pj2016/images/{{ $banner_file }}" alt="slider">
                 <div class="carousel-caption">
                     <h2>Edição 2015 </h2>
-                    <h4>saiba o que aconteceu na 9ª edição</h4>
+                    <h4>Saiba o que aconteceu na 9ª edição</h4>
                     <a href="/2015">Saiba Mais <i class="fa fa-angle-right"></i></a>
                 </div>
             </div>
