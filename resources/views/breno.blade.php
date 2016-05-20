@@ -16,7 +16,7 @@
                     <div class="carousel-caption">
                         <h2>Inscreva-se já para a edição 2016 </h2>
                         <h4>participe do Parlamento Juvenil</h4>
-                        <a href="/inscricao">Faça a sua inscrição <i class="fa fa-angle-right"></i></a>
+                        <a href="#inscricao">Faça a sua inscrição <i class="fa fa-angle-right"></i></a>
                     </div>
                 </div>
                 <div class="item">
@@ -50,11 +50,8 @@
 
                     <p>A iniciativa, de autoria do deputado Jorge Picciani (PMDB), presidente da Alerj, segue os moldes de um parlamento convencional. Eleitos pelos próprios colegas de escola, por voto direto, os parlamentares juvenis têm as mesmas atribuições dos deputados estaduais. Durante uma semana, eles apresentam, discutem e aprimoram projetos de lei.
 
-                    <p>Nos últimos quatro anos, 252 jovens foram escolhidos. Para participar da seleção, é preciso ter entre 14 e 17 anos e ser aluno da rede pública estadual de ensino.
-
-
-                    </p>
-                    <a href="#" class="btn btn-primary">View Date & Place <i class="fa fa-angle-right"></i></a>
+                    <p>Nos últimos quatro anos, 252 jovens foram escolhidos. Para participar da seleção, é preciso ter entre 14 e 17 anos e ser aluno da rede pública estadual de ensino.</p>
+                    {{--<a href="#" class="btn btn-primary">View Date & Place <i class="fa fa-angle-right"></i></a>--}}
 
                     <h3>Quem pode participar?</h3>
                     <p>
