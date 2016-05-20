@@ -27,12 +27,12 @@
         </div>
 
         @if ($count % 3 == 0)
-            </div>
-            <br>
-            <div class="row">
-        @endif
+        </div>
+        <br>
+        <div class="row">
+    @endif
 
-        <?php $count++;?>
+    <?php $count++;?>
     @endif
 
     <?php $articleCount++;?>
