@@ -17,6 +17,10 @@
                 @if ($article['subheading'])
                     - {{ $article['subheading'] }}
                 @endif
+
+                <div>
+                    {!! $article['body'] !!}}
+                </div>
             </div>
 
             <div class="col-xs-12 quadro-branco borda-preta-lateral borda-preta-final">
