@@ -5,6 +5,10 @@
                 <h2>Mapa das inscrições</h2>
 
                 <div id="map_canvas" style="width: 100%; height: 300px;"></div>
+
+                <div id="vue-google-map">
+                    @{{ $data | json  }}
+                </div>
             </div>
         </div>
     </div>
@@ -185,6 +189,15 @@
 
             map = new google.maps.Map(document.getElementById('map_canvas'),
                     mapOptions);
+
+            var myLatLng = {lat: -22.9372644, lng: -43.2067568};
+
+            var marker = new google.maps.Marker({
+                position: myLatLng,
+                map: map,
+                title: 'Escola Celia Maria - 15 inscritos',
+                icon: '/pj2016/images/google-marker.png'
+            });
         }
     </script>
 @stop

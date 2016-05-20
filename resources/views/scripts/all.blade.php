@@ -43,5 +43,6 @@
 @include('scripts.owl')
 @include('scripts.mask')
 @include('scripts.vueApp')
+@include('scripts.vueMap')
 @include('scripts.vueTimeline')
 @include('scripts.pinboard')
