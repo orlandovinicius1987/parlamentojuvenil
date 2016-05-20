@@ -2152,15 +2152,20 @@
                             <div class="quadro-amarelo borda-preta"><h2>Contato</h2></div>
                             <h2><i class="fa fa-phone fa-fw"></i>(21) 2588-1202</h2>
                             <h2><a href="mailto:pjalerj@gmail.com">pjalerj@gmail.com</a></h2>
+                            <br>
+                            <i class="fa fa-facebook" aria-hidden="true"></i>
+                            <i class="fa fa-youtube" aria-hidden="true"></i>
 
-                            <ul class="list-inline">
-                                <li>
-                                    <a href="https://www.facebook.com/parlamentojuvenilrio"><img src="/pj2016/images/svg/facebook-icon.svg" height="35px" alt="" class="loading"></a>
-                                </li>
-                                <li>
-                                    <a href="https://www.youtube.com/parlamentojuvenilrj"><img src="/pj2016/images/svg/youtube-icon.svg" height="35px" alt="" class="loading"></a>
-                                </li>
-                            </ul>
+                            {{--<ul class="list-inline">--}}
+
+                              {{----}}
+                                {{--<li>--}}
+                                    {{--<a href="https://www.facebook.com/parlamentojuvenilrio"><img src="/pj2016/images/svg/facebook-icon.svg" height="35px" alt="" class="loading"></a>--}}
+                                {{--</li>--}}
+                                {{--<li>--}}
+                                    {{--<a href="https://www.youtube.com/parlamentojuvenilrj"><img src="/pj2016/images/svg/youtube-icon.svg" height="35px" alt="" class="loading"></a>--}}
+                                {{--</li>--}}
+                            {{--</ul>--}}
 
 
 
@@ -2190,7 +2195,7 @@
                                     <textarea name="message" id="message" required="required" class="form-control" rows="4" placeholder="Escreva sua mensagem ..."></textarea>
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-primary pull-right">Enviar</button>
+                                    <button type="submit" class="btn btn-primary">Enviar</button>
                                 </div>
                             </form>
                         </div>

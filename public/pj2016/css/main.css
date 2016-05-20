@@ -1256,6 +1256,11 @@ section#home {
   display: block;
 }
 
+.contact-text .fa-facebook, .contact-text .fa-youtube {
+  font-size: 36px;
+  margin-left: 15px;
+}
+
 .contact-text a {
   color: white;
 }
@@ -1292,7 +1297,6 @@ section#home {
   color: black;
   font-size: 24px;
   padding: 6px 42px;
-  margin: 0 auto;
   margin-bottom: 110px;
   margin-top: 10px;
   border: 4px black solid;
