@@ -7,6 +7,8 @@
 
     @include('2016.partials.about')
 
+    @include('2016.partials.map')
+
     @include('2016.partials.timeline')
 
     @include('2016.partials.news', ['articles' => $newArticles])
