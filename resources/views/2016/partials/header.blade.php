@@ -30,13 +30,13 @@
                         <li class="scroll"><a href="#galeria">Galeria</a></li>
                         <li class="dropdown">
                             <!-- Link or button to toggle dropdown -->
-                            <a id="dLabel" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Anteriores <span class="caret"></span></a>
+                            <a id="dLabel" href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Anteriores <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
                                 <li><a href="/2015">2015</a></li>
-                                <li><a tabindex="-1" href="#">2014</a></li>
-                                <li><a tabindex="-1" href="#">2013</a></li>
+                                <li><a tabindex="-1" href="">2014</a></li>
+                                <li><a tabindex="-1" href="">2013</a></li>
                                 <li class="divider"></li>
-                                <li><a tabindex="-1" href="#">Outras Edições</a></li>
+                                <li><a tabindex="-1" href="">Outras Edições</a></li>
                             </ul>
                         </li>
                         {{--<li class="scroll"><a href="#about3">Anteriores</a></li>--}}
