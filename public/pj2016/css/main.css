@@ -198,13 +198,25 @@ section#home {
 }
 
 #noticias .fa {
-  border: 4px black solid;
+  border: 2px black solid;
   height: 20px;
   margin-top: 15px;
   margin-bottom: 15px;
-  padding: 10px;
-  padding-bottom: 27px;
-  font-size: 22px;
+  padding: 5px;
+  padding-bottom: 25px;
+  font-size: 20px;
+}
+
+#noticias .fa-facebook {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#noticias .fa-plus {
+  padding-left: 7px;
+  padding-right: 7px;
+  border: 4px black solid;
+  margin-top: 11px;
 }
 
 #noticias .respiro {
