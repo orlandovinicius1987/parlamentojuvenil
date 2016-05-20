@@ -141,7 +141,7 @@ section#home {
   display: inline-block;
 }
 
-#noticias .quadro-amarelo {
+.quadro-amarelo {
   background-color: #FFC908;
   background-clip: content-box;
 }
@@ -432,12 +432,12 @@ section#home {
 #main-slider 
 .carousel-caption a {
   font-size: 22px;
-  color: #2da1c5
+  color: #B21416;
 }
 
 #main-slider 
 .carousel-caption a:hover {
-  color: #2588a6
+  color: #B21416;
 }
 
 #main-slider 
@@ -1031,11 +1031,12 @@ section#home {
 }
 
 #depoimentos-feed .item p {
-  color: #3D3D3D;
+  color: black;
+  padding: 30px;
 }
 
 #depoimentos-feed .item a {
-  color:#00c3ff;
+  color:#b21416;
 }
 
 .depoimentos-control-left,
@@ -1056,7 +1057,7 @@ section#home {
 }
 
 #depoimentos .carousel-inner {
-  /*background-color: #FFC908;*/
+  background-color: #FFC908;
 }
 
 
@@ -1255,6 +1256,15 @@ section#home {
   display: block;
 }
 
+.contact-text .fa-facebook, .contact-text .fa-youtube {
+  font-size: 36px;
+  margin-left: 15px;
+}
+
+.contact-text a {
+  color: white;
+}
+
 
 #contact-section .form-control {
   border: 4px black solid;
@@ -1263,6 +1273,8 @@ section#home {
   border-radius: 0;
   color: #797979;
   font-size: 18px;
+  width: 50%;
+  margin: 0 auto;
 }
 
 #contact-section .form-control:focus {
@@ -1644,6 +1656,10 @@ section#home {
 
 .navbar-toggle {
   border-radius: 0px;
+}
+
+.carousel-caption {
+  text-shadow: none;
 }
 
 

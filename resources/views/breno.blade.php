@@ -24,7 +24,7 @@
                     <div class="carousel-caption">
                         <h2>Edição 2015 </h2>
                         <h4>saiba o que aconteceu na 9ª edição</h4>
-                        <a href="#contact">Saiba Mais <i class="fa fa-angle-right"></i></a>
+                        <a href="/2015">Saiba Mais <i class="fa fa-angle-right"></i></a>
                     </div>
                 </div>
                 <div class="item">
@@ -2135,13 +2135,13 @@
 
     <section id="contato" class="fundo-azul">
         <div class="contact-section">
-            <div class="ear-piece">
+            {{--<div class="ear-piece">--}}
                 {{--<img class="img-responsive" src="/pj2016/images/ear-piece.png" alt="">--}}
                 {{--<i class="fa fa-envelope fa-10x" aria-hidden="true" style="opacity: 0.2"></i>--}}
-            </div>
+            {{--</div>--}}
             <div class="container">
-                <div class="row">
-                    <div class="col-sm-4 col-sm-offset-3">
+                <div class="row text-center">
+                    <div class="col-xs-12">
                         <div class="contact-text">
                             <!--<h3>Contact</h3>
                                 <address>
@@ -2149,18 +2149,23 @@
                                     Phone: +1 (123) 456 7890<br>
                                     Fax: +1 (123) 456 7891
                                 </address>-->
-                            <h2 class="heading">Entre em contato</h2>
+                            <div class="quadro-amarelo borda-preta"><h2>Contato</h2></div>
                             <h2><i class="fa fa-phone fa-fw"></i>(21) 2588-1202</h2>
                             <h2><a href="mailto:pjalerj@gmail.com">pjalerj@gmail.com</a></h2>
+                            <br>
+                            <i class="fa fa-facebook" aria-hidden="true"></i>
+                            <i class="fa fa-youtube" aria-hidden="true"></i>
 
-                            <ul class="list-inline">
-                                <li>
-                                    <a href="https://www.facebook.com/parlamentojuvenilrio"><img src="/pj2016/images/svg/facebook-icon.svg" height="35px" alt="" class="loading"></a>
-                                </li>
-                                <li>
-                                    <a href="https://www.youtube.com/parlamentojuvenilrj"><img src="/pj2016/images/svg/youtube-icon.svg" height="35px" alt="" class="loading"></a>
-                                </li>
-                            </ul>
+                            {{--<ul class="list-inline">--}}
+
+                              {{----}}
+                                {{--<li>--}}
+                                    {{--<a href="https://www.facebook.com/parlamentojuvenilrio"><img src="/pj2016/images/svg/facebook-icon.svg" height="35px" alt="" class="loading"></a>--}}
+                                {{--</li>--}}
+                                {{--<li>--}}
+                                    {{--<a href="https://www.youtube.com/parlamentojuvenilrj"><img src="/pj2016/images/svg/youtube-icon.svg" height="35px" alt="" class="loading"></a>--}}
+                                {{--</li>--}}
+                            {{--</ul>--}}
 
 
 
@@ -2175,7 +2180,7 @@
                             </address>
                         </div>-->
                     </div>
-                    <div class="col-sm-5">
+                    <div class="col-xs-12">
                         <div id="contact-section">
                             <h3>Envie-nos uma Mensagem</h3>
                             <div class="status alert alert-success" style="display: none"></div>
@@ -2190,7 +2195,7 @@
                                     <textarea name="message" id="message" required="required" class="form-control" rows="4" placeholder="Escreva sua mensagem ..."></textarea>
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-primary pull-right">Enviar</button>
+                                    <button type="submit" class="btn btn-primary">Enviar</button>
                                 </div>
                             </form>
                         </div>
