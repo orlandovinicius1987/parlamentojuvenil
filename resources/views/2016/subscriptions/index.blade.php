@@ -18,7 +18,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs12">
-                    @include('partials.subscribe-form', ['formId' => 'subscribe-simple'])
+                    @include('partials.subscribe-form')
                 </div>
             </div>
         </div>

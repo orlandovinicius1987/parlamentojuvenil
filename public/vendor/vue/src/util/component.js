@@ -1,4 +1,29 @@
-var _ = require('./index')
+import { warn } from './debug'
+import { resolveAsset } from './options'
+import { getBindAttr } from './dom'
+
+export const commonTagRE = /^(div|p|span|img|a|b|i|br|ul|ol|li|h1|h2|h3|h4|h5|h6|code|pre|table|th|td|tr|form|label|input|select|option|nav|article|section|header|footer)$/i
+export const reservedTagRE = /^(slot|partial|component)$/i
+
+let isUnknownElement
+if (process.env.NODE_ENV !== 'production') {
+  isUnknownElement = function (el, tag) {
+    if (tag.indexOf('-') > -1) {
+      // http://stackoverflow.com/a/28210364/1070244
+      return (
+        el.constructor === window.HTMLUnknownElement ||
+        el.constructor === window.HTMLElement
+      )
+    } else {
+      return (
+        /HTMLUnknownElement/.test(el.toString()) &&
+        // Chrome returns unknown for several HTML5 elements.
+        // https://code.google.com/p/chromium/issues/detail?id=540526
+        !/^(data|time|rtc|rb)$/.test(tag)
+      )
+    }
+  }
+}
 
 /**
  * Check if an element is a component, if yes return its
@@ -6,114 +31,63 @@ var _ = require('./index')
  *
  * @param {Element} el
  * @param {Object} options
- * @return {String|undefined}
+ * @return {Object|undefined}
  */
 
-exports.commonTagRE = /^(div|p|span|img|a|br|ul|ol|li|h1|h2|h3|h4|h5|code|pre)$/
-exports.checkComponent = function (el, options) {
+export function checkComponentAttr (el, options) {
   var tag = el.tagName.toLowerCase()
-  if (tag === 'component') {
-    // dynamic syntax
-    var exp = el.getAttribute('is')
-    el.removeAttribute('is')
-    return exp
-  } else if (
-    !exports.commonTagRE.test(tag) &&
-    _.resolveAsset(options, 'components', tag)
-  ) {
-    return tag
-  /* eslint-disable no-cond-assign */
-  } else if (tag = _.attr(el, 'component')) {
-  /* eslint-enable no-cond-assign */
-    return tag
+  var hasAttrs = el.hasAttributes()
+  if (!commonTagRE.test(tag) && !reservedTagRE.test(tag)) {
+    if (resolveAsset(options, 'components', tag)) {
+      return { id: tag }
+    } else {
+      var is = hasAttrs && getIsBinding(el, options)
+      if (is) {
+        return is
+      } else if (process.env.NODE_ENV !== 'production') {
+        var expectedTag =
+          options._componentNameMap &&
+          options._componentNameMap[tag]
+        if (expectedTag) {
+          warn(
+            'Unknown custom element: <' + tag + '> - ' +
+            'did you mean <' + expectedTag + '>? ' +
+            'HTML is case-insensitive, remember to use kebab-case in templates.'
+          )
+        } else if (isUnknownElement(el, tag)) {
+          warn(
+            'Unknown custom element: <' + tag + '> - did you ' +
+            'register the component correctly? For recursive components, ' +
+            'make sure to provide the "name" option.'
+          )
+        }
+      }
+    }
+  } else if (hasAttrs) {
+    return getIsBinding(el, options)
   }
 }
 
 /**
- * Set a prop's initial value on a vm and its data object.
- * The vm may have inherit:true so we need to make sure
- * we don't accidentally overwrite parent value.
+ * Get "is" binding from an element.
  *
- * @param {Vue} vm
- * @param {Object} prop
- * @param {*} value
+ * @param {Element} el
+ * @param {Object} options
+ * @return {Object|undefined}
  */
 
-exports.initProp = function (vm, prop, value) {
-  if (exports.assertProp(prop, value)) {
-    var key = prop.path
-    if (key in vm) {
-      _.define(vm, key, value, true)
-    } else {
-      vm[key] = value
+function getIsBinding (el, options) {
+  // dynamic syntax
+  var exp = el.getAttribute('is')
+  if (exp != null) {
+    if (resolveAsset(options, 'components', exp)) {
+      el.removeAttribute('is')
+      return { id: exp }
     }
-    vm._data[key] = value
-  }
-}
-
-/**
- * Assert whether a prop is valid.
- *
- * @param {Object} prop
- * @param {*} value
- */
-
-exports.assertProp = function (prop, value) {
-  var options = prop.options
-  var type = options.type
-  var valid = true
-  var expectedType
-  if (type) {
-    if (type === String) {
-      expectedType = 'string'
-      valid = typeof value === expectedType
-    } else if (type === Number) {
-      expectedType = 'number'
-      valid = typeof value === 'number'
-    } else if (type === Boolean) {
-      expectedType = 'boolean'
-      valid = typeof value === 'boolean'
-    } else if (type === Function) {
-      expectedType = 'function'
-      valid = typeof value === 'function'
-    } else if (type === Object) {
-      expectedType = 'object'
-      valid = _.isPlainObject(value)
-    } else if (type === Array) {
-      expectedType = 'array'
-      valid = _.isArray(value)
-    } else {
-      valid = value instanceof type
+  } else {
+    exp = getBindAttr(el, 'is')
+    if (exp != null) {
+      return { id: exp, dynamic: true }
     }
   }
-  if (!valid) {
-    _.warn(
-      'Invalid prop: type check failed for ' +
-      prop.path + '="' + prop.raw + '".' +
-      ' Expected ' + formatType(expectedType) +
-      ', got ' + formatValue(value) + '.'
-    )
-    return false
-  }
-  var validator = options.validator
-  if (validator) {
-    if (!validator.call(null, value)) {
-      _.warn(
-        'Invalid prop: custom validator check failed for ' +
-        prop.path + '="' + prop.raw + '"'
-      )
-      return false
-    }
-  }
-  return true
-}
-
-function formatType (val) {
-  return val
-    ? val.charAt(0).toUpperCase() + val.slice(1)
-    : 'custom type'
-}
-
-function formatValue (val) {
-  return Object.prototype.toString.call(val).slice(8, -1)
 }

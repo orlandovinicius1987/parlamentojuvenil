@@ -1,8 +1,19 @@
-var _ = require('./util')
-var config = require('./config')
-var Watcher = require('./watcher')
-var textParser = require('./parsers/text')
-var expParser = require('./parsers/expression')
+import {
+  extend,
+  bind,
+  on,
+  off,
+  getAttr,
+  getBindAttr,
+  camelize,
+  hyphenate,
+  nextTick,
+  warn
+} from './util/index'
+import Watcher from './watcher'
+import { parseExpression, isSimplePath } from './parsers/expression'
+
+function noop () {}
 
 /**
  * A directive links a DOM element with a piece of data,
@@ -10,116 +21,195 @@ var expParser = require('./parsers/expression')
  * It registers a watcher with the expression and calls
  * the DOM update function when a change is triggered.
  *
- * @param {String} name
- * @param {Node} el
- * @param {Vue} vm
  * @param {Object} descriptor
+ *                 - {String} name
+ *                 - {Object} def
  *                 - {String} expression
- *                 - {String} [arg]
  *                 - {Array<Object>} [filters]
- * @param {Object} def - directive definition object
- * @param {Vue|undefined} host - transclusion host target
+ *                 - {Object} [modifiers]
+ *                 - {Boolean} literal
+ *                 - {String} attr
+ *                 - {String} arg
+ *                 - {String} raw
+ *                 - {String} [ref]
+ *                 - {Array<Object>} [interp]
+ *                 - {Boolean} [hasOneTime]
+ * @param {Vue} vm
+ * @param {Node} el
+ * @param {Vue} [host] - transclusion host component
+ * @param {Object} [scope] - v-for scope
+ * @param {Fragment} [frag] - owner fragment
  * @constructor
  */
 
-function Directive (name, el, vm, descriptor, def, host) {
-  // public
-  this.name = name
-  this.el = el
+export default function Directive (descriptor, vm, el, host, scope, frag) {
   this.vm = vm
-  // copy descriptor props
-  this.raw = descriptor.raw
+  this.el = el
+  // copy descriptor properties
+  this.descriptor = descriptor
+  this.name = descriptor.name
   this.expression = descriptor.expression
   this.arg = descriptor.arg
+  this.modifiers = descriptor.modifiers
   this.filters = descriptor.filters
+  this.literal = this.modifiers && this.modifiers.literal
   // private
-  this._descriptor = descriptor
-  this._host = host
   this._locked = false
   this._bound = false
-  // init
-  this._bind(def)
+  this._listeners = null
+  // link context
+  this._host = host
+  this._scope = scope
+  this._frag = frag
+  // store directives on node in dev mode
+  if (process.env.NODE_ENV !== 'production' && this.el) {
+    this.el._vue_directives = this.el._vue_directives || []
+    this.el._vue_directives.push(this)
+  }
 }
-
-var p = Directive.prototype
 
 /**
  * Initialize the directive, mixin definition properties,
  * setup the watcher, call definition bind() and update()
  * if present.
- *
- * @param {Object} def
  */
 
-p._bind = function (def) {
-  if (this.name !== 'cloak' && this.el && this.el.removeAttribute) {
-    this.el.removeAttribute(config.prefix + this.name)
+Directive.prototype._bind = function () {
+  var name = this.name
+  var descriptor = this.descriptor
+
+  // remove attribute
+  if (
+    (name !== 'cloak' || this.vm._isCompiled) &&
+    this.el && this.el.removeAttribute
+  ) {
+    var attr = descriptor.attr || ('v-' + name)
+    this.el.removeAttribute(attr)
   }
+
+  // copy def properties
+  var def = descriptor.def
   if (typeof def === 'function') {
     this.update = def
   } else {
-    _.extend(this, def)
+    extend(this, def)
   }
-  this._watcherExp = this.expression
-  this._checkDynamicLiteral()
+
+  // setup directive params
+  this._setupParams()
+
+  // initial bind
   if (this.bind) {
     this.bind()
   }
-  if (this._watcherExp &&
-      (this.update || this.twoWay) &&
-      (!this.isLiteral || this._isDynamicLiteral) &&
-      !this._checkStatement()) {
+  this._bound = true
+
+  if (this.literal) {
+    this.update && this.update(descriptor.raw)
+  } else if (
+    (this.expression || this.modifiers) &&
+    (this.update || this.twoWay) &&
+    !this._checkStatement()
+  ) {
     // wrapped updater for context
     var dir = this
-    var update = this._update = this.update
-      ? function (val, oldVal) {
-          if (!dir._locked) {
-            dir.update(val, oldVal)
-          }
+    if (this.update) {
+      this._update = function (val, oldVal) {
+        if (!dir._locked) {
+          dir.update(val, oldVal)
         }
-      : function () {} // noop if no update is provided
-    // pre-process hook called before the value is piped
-    // through the filters. used in v-repeat.
+      }
+    } else {
+      this._update = noop
+    }
     var preProcess = this._preProcess
-      ? _.bind(this._preProcess, this)
+      ? bind(this._preProcess, this)
+      : null
+    var postProcess = this._postProcess
+      ? bind(this._postProcess, this)
       : null
     var watcher = this._watcher = new Watcher(
       this.vm,
-      this._watcherExp,
-      update, // callback
+      this.expression,
+      this._update, // callback
       {
         filters: this.filters,
         twoWay: this.twoWay,
         deep: this.deep,
-        preProcess: preProcess
+        preProcess: preProcess,
+        postProcess: postProcess,
+        scope: this._scope
       }
     )
-    if (this._initValue != null) {
-      watcher.set(this._initValue)
+    // v-model with inital inline value need to sync back to
+    // model instead of update to DOM on init. They would
+    // set the afterBind hook to indicate that.
+    if (this.afterBind) {
+      this.afterBind()
     } else if (this.update) {
       this.update(watcher.value)
     }
   }
-  this._bound = true
 }
 
 /**
- * check if this is a dynamic literal binding.
- *
- * e.g. v-component="{{currentView}}"
+ * Setup all param attributes, e.g. track-by,
+ * transition-mode, etc...
  */
 
-p._checkDynamicLiteral = function () {
-  var expression = this.expression
-  if (expression && this.isLiteral) {
-    var tokens = textParser.parse(expression)
-    if (tokens) {
-      var exp = textParser.tokensToExp(tokens)
-      this.expression = this.vm.$get(exp)
-      this._watcherExp = exp
-      this._isDynamicLiteral = true
+Directive.prototype._setupParams = function () {
+  if (!this.params) {
+    return
+  }
+  var params = this.params
+  // swap the params array with a fresh object.
+  this.params = Object.create(null)
+  var i = params.length
+  var key, val, mappedKey
+  while (i--) {
+    key = hyphenate(params[i])
+    mappedKey = camelize(key)
+    val = getBindAttr(this.el, key)
+    if (val != null) {
+      // dynamic
+      this._setupParamWatcher(mappedKey, val)
+    } else {
+      // static
+      val = getAttr(this.el, key)
+      if (val != null) {
+        this.params[mappedKey] = val === '' ? true : val
+      }
     }
   }
+}
+
+/**
+ * Setup a watcher for a dynamic param.
+ *
+ * @param {String} key
+ * @param {String} expression
+ */
+
+Directive.prototype._setupParamWatcher = function (key, expression) {
+  var self = this
+  var called = false
+  var unwatch = (this._scope || this.vm).$watch(expression, function (val, oldVal) {
+    self.params[key] = val
+    // since we are in immediate mode,
+    // only call the param change callbacks if this is not the first update.
+    if (called) {
+      var cb = self.paramWatchers && self.paramWatchers[key]
+      if (cb) {
+        cb.call(self, val, oldVal)
+      }
+    } else {
+      called = true
+    }
+  }, {
+    immediate: true,
+    user: false
+  })
+  ;(this._paramUnwatchFns || (this._paramUnwatchFns = [])).push(unwatch)
 }
 
 /**
@@ -128,59 +218,29 @@ p._checkDynamicLiteral = function () {
  * we wrap up the expression and use it as the event
  * handler.
  *
- * e.g. v-on="click: a++"
+ * e.g. on-click="a++"
  *
  * @return {Boolean}
  */
 
-p._checkStatement = function () {
+Directive.prototype._checkStatement = function () {
   var expression = this.expression
   if (
     expression && this.acceptStatement &&
-    !expParser.isSimplePath(expression)
+    !isSimplePath(expression)
   ) {
-    var fn = expParser.parse(expression).get
-    var vm = this.vm
-    var handler = function () {
-      fn.call(vm, vm)
+    var fn = parseExpression(expression).get
+    var scope = this._scope || this.vm
+    var handler = function (e) {
+      scope.$event = e
+      fn.call(scope, scope)
+      scope.$event = null
     }
     if (this.filters) {
-      handler = vm._applyFilters(handler, null, this.filters)
+      handler = scope._applyFilters(handler, null, this.filters)
     }
     this.update(handler)
     return true
-  }
-}
-
-/**
- * Check for an attribute directive param, e.g. lazy
- *
- * @param {String} name
- * @return {String}
- */
-
-p._checkParam = function (name) {
-  var param = this.el.getAttribute(name)
-  if (param !== null) {
-    this.el.removeAttribute(name)
-  }
-  return param
-}
-
-/**
- * Teardown the watcher and call unbind.
- */
-
-p._teardown = function () {
-  if (this._bound) {
-    this._bound = false
-    if (this.unbind) {
-      this.unbind()
-    }
-    if (this._watcher) {
-      this._watcher.teardown()
-    }
-    this.vm = this.el = this._watcher = null
   }
 }
 
@@ -193,11 +253,17 @@ p._teardown = function () {
  * @public
  */
 
-p.set = function (value) {
+Directive.prototype.set = function (value) {
+  /* istanbul ignore else */
   if (this.twoWay) {
     this._withLock(function () {
       this._watcher.set(value)
     })
+  } else if (process.env.NODE_ENV !== 'production') {
+    warn(
+      'Directive.set() can only be used inside twoWay' +
+      'directives.'
+    )
   }
 }
 
@@ -208,13 +274,62 @@ p.set = function (value) {
  * @param {Function} fn
  */
 
-p._withLock = function (fn) {
+Directive.prototype._withLock = function (fn) {
   var self = this
   self._locked = true
   fn.call(self)
-  _.nextTick(function () {
+  nextTick(function () {
     self._locked = false
   })
 }
 
-module.exports = Directive
+/**
+ * Convenience method that attaches a DOM event listener
+ * to the directive element and autometically tears it down
+ * during unbind.
+ *
+ * @param {String} event
+ * @param {Function} handler
+ * @param {Boolean} [useCapture]
+ */
+
+Directive.prototype.on = function (event, handler, useCapture) {
+  on(this.el, event, handler, useCapture)
+  ;(this._listeners || (this._listeners = []))
+    .push([event, handler])
+}
+
+/**
+ * Teardown the watcher and call unbind.
+ */
+
+Directive.prototype._teardown = function () {
+  if (this._bound) {
+    this._bound = false
+    if (this.unbind) {
+      this.unbind()
+    }
+    if (this._watcher) {
+      this._watcher.teardown()
+    }
+    var listeners = this._listeners
+    var i
+    if (listeners) {
+      i = listeners.length
+      while (i--) {
+        off(this.el, listeners[i][0], listeners[i][1])
+      }
+    }
+    var unwatchFns = this._paramUnwatchFns
+    if (unwatchFns) {
+      i = unwatchFns.length
+      while (i--) {
+        unwatchFns[i]()
+      }
+    }
+    if (process.env.NODE_ENV !== 'production' && this.el) {
+      this.el._vue_directives.$remove(this)
+    }
+    this.vm = this.el = this._watcher = this._listeners = null
+  }
+}

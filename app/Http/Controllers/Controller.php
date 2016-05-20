@@ -24,6 +24,6 @@ abstract class Controller extends BaseController
      */
     public function buildView($view, $force = false, $isHome = false)
     {
-        return $this->dataRepository->buildViewData(view($view), $force, $isHome);
+        return $this->dataRepository->viewBuilder->buildViewData(view($view), $force, $isHome);
     }
 }

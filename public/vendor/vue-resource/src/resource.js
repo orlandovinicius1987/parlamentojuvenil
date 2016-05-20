@@ -2,11 +2,9 @@
  * Service for interacting with RESTful services.
  */
 
-var _ = require('./lib/util');
+module.exports = function (_) {
 
-module.exports = function (Vue) {
-
-    function Resource(url, params, actions) {
+    function Resource(url, params, actions, options) {
 
         var self = this, resource = {};
 
@@ -17,10 +15,10 @@ module.exports = function (Vue) {
 
         _.each(actions, function (action, name) {
 
-            action = _.extend(true, {url: url, params: params || {}}, action);
+            action = _.extend(true, {url: url, params: params || {}}, options, action);
 
             resource[name] = function () {
-                return (self.$http || Vue.http)(opts(action, arguments));
+                return (self.$http || _.http)(opts(action, arguments));
             };
         });
 
@@ -41,9 +39,9 @@ module.exports = function (Vue) {
             case 3:
             case 2:
 
-                if (_.isFunction (args[1])) {
+                if (_.isFunction(args[1])) {
 
-                    if (_.isFunction (args[0])) {
+                    if (_.isFunction(args[0])) {
 
                         success = args[0];
                         error = args[1];
@@ -65,9 +63,9 @@ module.exports = function (Vue) {
 
             case 1:
 
-                if (_.isFunction (args[0])) {
+                if (_.isFunction(args[0])) {
                     success = args[0];
-                } else if (/^(post|put|patch)$/i.test(options.method)) {
+                } else if (/^(POST|PUT|PATCH)$/i.test(options.method)) {
                     data = args[0];
                 } else {
                     params = args[0];
@@ -84,9 +82,8 @@ module.exports = function (Vue) {
                 throw 'Expected up to 4 arguments [params, data, success, error], got ' + args.length + ' arguments';
         }
 
-        options.url = action.url;
         options.data = data;
-        options.params = _.extend({}, action.params, params);
+        options.params = _.extend({}, options.params, params);
 
         if (success) {
             options.success = success;
@@ -101,21 +98,14 @@ module.exports = function (Vue) {
 
     Resource.actions = {
 
-        get: {method: 'get'},
-        save: {method: 'post'},
-        query: {method: 'get'},
-        remove: {method: 'delete'},
-        delete: {method: 'delete'}
+        get: {method: 'GET'},
+        save: {method: 'POST'},
+        query: {method: 'GET'},
+        update: {method: 'PUT'},
+        remove: {method: 'DELETE'},
+        delete: {method: 'DELETE'}
 
     };
 
-    Object.defineProperty(Vue.prototype, '$resource', {
-
-        get: function () {
-            return Resource.bind(this);
-        }
-
-    });
-
-    return Resource;
+    return _.resource = Resource;
 };

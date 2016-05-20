@@ -2,55 +2,53 @@
  * Service for sending network requests.
  */
 
-var _ = require('./lib/util');
 var xhr = require('./lib/xhr');
 var jsonp = require('./lib/jsonp');
-var jsonType = {'Content-Type': 'application/json;charset=utf-8'};
+var Promise = require('./lib/promise');
 
-module.exports = function (Vue) {
+module.exports = function (_) {
 
-    var Url = Vue.url;
-    var originUrl = Url.parse(location.href);
+    var originUrl = _.url.parse(location.href);
+    var jsonType = {'Content-Type': 'application/json;charset=utf-8'};
 
     function Http(url, options) {
 
-        var self = this, promise;
-
-        options = options || {};
+        var promise;
 
         if (_.isPlainObject(url)) {
             options = url;
             url = '';
         }
 
-        options = _.extend(true, {url: url},
-            Http.options, _.options('http', self, options)
+        options = _.extend({url: url}, options);
+        options = _.extend(true, {},
+            Http.options, this.options, options
         );
 
         if (options.crossOrigin === null) {
             options.crossOrigin = crossOrigin(options.url);
         }
 
-        options.headers = _.extend({},
-            Http.headers.common,
+        options.method = options.method.toUpperCase();
+        options.headers = _.extend({}, Http.headers.common,
             !options.crossOrigin ? Http.headers.custom : {},
             Http.headers[options.method.toLowerCase()],
             options.headers
         );
 
-        if (_.isPlainObject(options.data) && /^(get|jsonp)$/i.test(options.method)) {
+        if (_.isPlainObject(options.data) && /^(GET|JSONP)$/i.test(options.method)) {
             _.extend(options.params, options.data);
             delete options.data;
         }
 
-        if (options.emulateHTTP && !options.crossOrigin && /^(put|patch|delete)$/i.test(options.method)) {
+        if (options.emulateHTTP && !options.crossOrigin && /^(PUT|PATCH|DELETE)$/i.test(options.method)) {
             options.headers['X-HTTP-Method-Override'] = options.method;
-            options.method = 'post';
+            options.method = 'POST';
         }
 
         if (options.emulateJSON && _.isPlainObject(options.data)) {
             options.headers['Content-Type'] = 'application/x-www-form-urlencoded';
-            options.data = Url.params(options.data);
+            options.data = _.url.params(options.data);
         }
 
         if (_.isObject(options.data) && /FormData/i.test(options.data.toString())) {
@@ -61,46 +59,46 @@ module.exports = function (Vue) {
             options.data = JSON.stringify(options.data);
         }
 
-        promise = (options.method.toLowerCase() == 'jsonp' ? jsonp : xhr).call(self, self.$url || Url, options);
+        promise = (options.method == 'JSONP' ? jsonp : xhr).call(this.vm, _, options);
+        promise = extendPromise(promise.then(transformResponse, transformResponse), this.vm);
 
-        promise.then(transformResponse, transformResponse);
+        if (options.success) {
+            promise = promise.success(options.success);
+        }
+
+        if (options.error) {
+            promise = promise.error(options.error);
+        }
+
+        return promise;
+    }
+
+    function extendPromise(promise, vm) {
 
         promise.success = function (fn) {
 
-            promise.then(function (response) {
-                fn.call(self, response.data, response.status, response);
-            }, function () {});
+            return extendPromise(promise.then(function (response) {
+                return fn.call(vm, response.data, response.status, response) || response;
+            }), vm);
 
-            return promise;
         };
 
         promise.error = function (fn) {
 
-            promise.catch(function (response) {
-                fn.call(self, response.data, response.status, response);
-            });
+            return extendPromise(promise.then(undefined, function (response) {
+                return fn.call(vm, response.data, response.status, response) || response;
+            }), vm);
 
-            return promise;
         };
 
         promise.always = function (fn) {
 
             var cb = function (response) {
-                fn.call(self, response.data, response.status, response);
+                return fn.call(vm, response.data, response.status, response) || response;
             };
 
-            promise.then(cb, cb);
-
-            return promise;
+            return extendPromise(promise.then(cb, cb), vm);
         };
-
-        if (options.success) {
-            promise.success(options.success);
-        }
-
-        if (options.error) {
-            promise.error(options.error);
-        }
 
         return promise;
     }
@@ -113,11 +111,12 @@ module.exports = function (Vue) {
             response.data = response.responseText;
         }
 
+        return response.ok ? response : Promise.reject(response);
     }
 
     function crossOrigin(url) {
 
-        var requestUrl = Url.parse(url);
+        var requestUrl = _.url.parse(url);
 
         return (requestUrl.protocol !== originUrl.protocol || requestUrl.host !== originUrl.host);
     }
@@ -126,6 +125,7 @@ module.exports = function (Vue) {
         method: 'get',
         params: {},
         data: '',
+        xhr: null,
         jsonp: 'callback',
         beforeSend: null,
         crossOrigin: null,
@@ -156,13 +156,5 @@ module.exports = function (Vue) {
         };
     });
 
-    Object.defineProperty(Vue.prototype, '$http', {
-
-        get: function () {
-            return _.extend(Http.bind(this), Http);
-        }
-
-    });
-
-    return Http;
+    return _.http = Http;
 };

@@ -3,7 +3,6 @@
 use App\Data\Entities\State;
 use App\Data\Entities\School;
 use App\Data\Entities\Subscription;
-use App\Events\SubscriptionUpdated;
 use App\Services\News\Service as NewsSync;
 
 Route::get('seed', ['as' => 'seed', 'uses' => function()
@@ -77,11 +76,19 @@ Route::get('subscriptions', ['as' => 'subscriptions', 'uses' => 'Subscriptions@b
 
 Route::post('subscriptions', ['as' => 'subscriptions.store', 'uses' => 'Subscriptions@store']);
 
+Route::post('subscriptions/start', ['as' => 'subscriptions.start', 'uses' => 'Subscriptions@start']);
+
 Route::get('subscriptions/download', ['as' => 'subscriptions.download', 'uses' => 'Subscriptions@download']);
 
 Route::get('subscriptions/ignore/{id}', ['as' => 'subscriptions.ignore', 'uses' => 'Subscriptions@ignore']);
 
 Route::get('inscricao', ['as' => 'subscriptions.index', 'uses' => 'Subscriptions@index']);
+
+Route::group(['prefix' => 'api/v1'], function ()
+{
+    Route::get('timeline/{year}', ['as' => 'api.timeline', 'uses' => 'Api@getTimeline']);
+});
+
 
 // Year pages
 

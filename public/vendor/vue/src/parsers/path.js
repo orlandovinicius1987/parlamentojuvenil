@@ -1,83 +1,84 @@
-var _ = require('../util')
-var Cache = require('../cache')
+import { parseExpression } from './expression'
+import {
+  isLiteral,
+  stripQuotes,
+  isObject,
+  isArray,
+  warn,
+  set
+} from '../util/index'
+import Cache from '../cache'
+
 var pathCache = new Cache(1000)
-var identRE = exports.identRE = /^[$_a-zA-Z]+[\w$]*$/
 
-/**
- * Path-parsing algorithm scooped from Polymer/observe-js
- */
+// actions
+var APPEND = 0
+var PUSH = 1
+var INC_SUB_PATH_DEPTH = 2
+var PUSH_SUB_PATH = 3
 
-var pathStateMachine = {
-  'beforePath': {
-    'ws': ['beforePath'],
-    'ident': ['inIdent', 'append'],
-    '[': ['beforeElement'],
-    'eof': ['afterPath']
-  },
+// states
+var BEFORE_PATH = 0
+var IN_PATH = 1
+var BEFORE_IDENT = 2
+var IN_IDENT = 3
+var IN_SUB_PATH = 4
+var IN_SINGLE_QUOTE = 5
+var IN_DOUBLE_QUOTE = 6
+var AFTER_PATH = 7
+var ERROR = 8
 
-  'inPath': {
-    'ws': ['inPath'],
-    '.': ['beforeIdent'],
-    '[': ['beforeElement'],
-    'eof': ['afterPath']
-  },
+var pathStateMachine = []
 
-  'beforeIdent': {
-    'ws': ['beforeIdent'],
-    'ident': ['inIdent', 'append']
-  },
-
-  'inIdent': {
-    'ident': ['inIdent', 'append'],
-    '0': ['inIdent', 'append'],
-    'number': ['inIdent', 'append'],
-    'ws': ['inPath', 'push'],
-    '.': ['beforeIdent', 'push'],
-    '[': ['beforeElement', 'push'],
-    'eof': ['afterPath', 'push'],
-    ']': ['inPath', 'push']
-  },
-
-  'beforeElement': {
-    'ws': ['beforeElement'],
-    '0': ['afterZero', 'append'],
-    'number': ['inIndex', 'append'],
-    "'": ['inSingleQuote', 'append', ''],
-    '"': ['inDoubleQuote', 'append', ''],
-    'ident': ['inIdent', 'append', '*']
-  },
-
-  'afterZero': {
-    'ws': ['afterElement', 'push'],
-    ']': ['inPath', 'push']
-  },
-
-  'inIndex': {
-    '0': ['inIndex', 'append'],
-    'number': ['inIndex', 'append'],
-    'ws': ['afterElement'],
-    ']': ['inPath', 'push']
-  },
-
-  'inSingleQuote': {
-    "'": ['afterElement'],
-    'eof': 'error',
-    'else': ['inSingleQuote', 'append']
-  },
-
-  'inDoubleQuote': {
-    '"': ['afterElement'],
-    'eof': 'error',
-    'else': ['inDoubleQuote', 'append']
-  },
-
-  'afterElement': {
-    'ws': ['afterElement'],
-    ']': ['inPath', 'push']
-  }
+pathStateMachine[BEFORE_PATH] = {
+  'ws': [BEFORE_PATH],
+  'ident': [IN_IDENT, APPEND],
+  '[': [IN_SUB_PATH],
+  'eof': [AFTER_PATH]
 }
 
-function noop () {}
+pathStateMachine[IN_PATH] = {
+  'ws': [IN_PATH],
+  '.': [BEFORE_IDENT],
+  '[': [IN_SUB_PATH],
+  'eof': [AFTER_PATH]
+}
+
+pathStateMachine[BEFORE_IDENT] = {
+  'ws': [BEFORE_IDENT],
+  'ident': [IN_IDENT, APPEND]
+}
+
+pathStateMachine[IN_IDENT] = {
+  'ident': [IN_IDENT, APPEND],
+  '0': [IN_IDENT, APPEND],
+  'number': [IN_IDENT, APPEND],
+  'ws': [IN_PATH, PUSH],
+  '.': [BEFORE_IDENT, PUSH],
+  '[': [IN_SUB_PATH, PUSH],
+  'eof': [AFTER_PATH, PUSH]
+}
+
+pathStateMachine[IN_SUB_PATH] = {
+  "'": [IN_SINGLE_QUOTE, APPEND],
+  '"': [IN_DOUBLE_QUOTE, APPEND],
+  '[': [IN_SUB_PATH, INC_SUB_PATH_DEPTH],
+  ']': [IN_PATH, PUSH_SUB_PATH],
+  'eof': ERROR,
+  'else': [IN_SUB_PATH, APPEND]
+}
+
+pathStateMachine[IN_SINGLE_QUOTE] = {
+  "'": [IN_SUB_PATH, APPEND],
+  'eof': ERROR,
+  'else': [IN_SINGLE_QUOTE, APPEND]
+}
+
+pathStateMachine[IN_DOUBLE_QUOTE] = {
+  '"': [IN_SUB_PATH, APPEND],
+  'eof': ERROR,
+  'else': [IN_DOUBLE_QUOTE, APPEND]
+}
 
 /**
  * Determine the type of a character in a keypath.
@@ -134,48 +135,89 @@ function getPathCharType (ch) {
 }
 
 /**
+ * Format a subPath, return its plain form if it is
+ * a literal string or number. Otherwise prepend the
+ * dynamic indicator (*).
+ *
+ * @param {String} path
+ * @return {String}
+ */
+
+function formatSubPath (path) {
+  var trimmed = path.trim()
+  // invalid leading 0
+  if (path.charAt(0) === '0' && isNaN(path)) {
+    return false
+  }
+  return isLiteral(trimmed)
+    ? stripQuotes(trimmed)
+    : '*' + trimmed
+}
+
+/**
  * Parse a string path into an array of segments
- * Todo implement cache
  *
  * @param {String} path
  * @return {Array|undefined}
  */
 
-function parsePath (path) {
+function parse (path) {
   var keys = []
   var index = -1
-  var mode = 'beforePath'
+  var mode = BEFORE_PATH
+  var subPathDepth = 0
   var c, newChar, key, type, transition, action, typeMap
 
-  var actions = {
-    push: function () {
-      if (key === undefined) {
-        return
-      }
+  var actions = []
+
+  actions[PUSH] = function () {
+    if (key !== undefined) {
       keys.push(key)
       key = undefined
-    },
-    append: function () {
-      if (key === undefined) {
-        key = newChar
+    }
+  }
+
+  actions[APPEND] = function () {
+    if (key === undefined) {
+      key = newChar
+    } else {
+      key += newChar
+    }
+  }
+
+  actions[INC_SUB_PATH_DEPTH] = function () {
+    actions[APPEND]()
+    subPathDepth++
+  }
+
+  actions[PUSH_SUB_PATH] = function () {
+    if (subPathDepth > 0) {
+      subPathDepth--
+      mode = IN_SUB_PATH
+      actions[APPEND]()
+    } else {
+      subPathDepth = 0
+      key = formatSubPath(key)
+      if (key === false) {
+        return false
       } else {
-        key += newChar
+        actions[PUSH]()
       }
     }
   }
 
   function maybeUnescapeQuote () {
     var nextChar = path[index + 1]
-    if ((mode === 'inSingleQuote' && nextChar === "'") ||
-        (mode === 'inDoubleQuote' && nextChar === '"')) {
+    if ((mode === IN_SINGLE_QUOTE && nextChar === "'") ||
+        (mode === IN_DOUBLE_QUOTE && nextChar === '"')) {
       index++
-      newChar = nextChar
-      actions.append()
+      newChar = '\\' + nextChar
+      actions[APPEND]()
       return true
     }
   }
 
-  while (mode) {
+  while (mode != null) {
     index++
     c = path[index]
 
@@ -185,59 +227,29 @@ function parsePath (path) {
 
     type = getPathCharType(c)
     typeMap = pathStateMachine[mode]
-    transition = typeMap[type] || typeMap['else'] || 'error'
+    transition = typeMap[type] || typeMap['else'] || ERROR
 
-    if (transition === 'error') {
+    if (transition === ERROR) {
       return // parse error
     }
 
     mode = transition[0]
-    action = actions[transition[1]] || noop
-    newChar = transition[2]
-    newChar = newChar === undefined
-      ? c
-      : newChar === '*'
-        ? newChar + c
+    action = actions[transition[1]]
+    if (action) {
+      newChar = transition[2]
+      newChar = newChar === undefined
+        ? c
         : newChar
-    action()
+      if (action() === false) {
+        return
+      }
+    }
 
-    if (mode === 'afterPath') {
+    if (mode === AFTER_PATH) {
       keys.raw = path
       return keys
     }
   }
-}
-
-/**
- * Format a accessor segment based on its type.
- *
- * @param {String} key
- * @return {Boolean}
- */
-
-function formatAccessor (key) {
-  if (identRE.test(key)) { // identifier
-    return '.' + key
-  } else if (+key === key >>> 0) { // bracket index
-    return '[' + key + ']'
-  } else if (key.charAt(0) === '*') {
-    return '[o' + formatAccessor(key.slice(1)) + ']'
-  } else { // bracket string
-    return '["' + key.replace(/"/g, '\\"') + '"]'
-  }
-}
-
-/**
- * Compiles a getter function with a fixed path.
- * The fixed path getter supresses errors.
- *
- * @param {Array} path
- * @return {Function}
- */
-
-exports.compileGetter = function (path) {
-  var body = 'return o' + path.map(formatAccessor).join('')
-  return new Function('o', body)
 }
 
 /**
@@ -247,12 +259,11 @@ exports.compileGetter = function (path) {
  * @return {Array|undefined}
  */
 
-exports.parse = function (path) {
+export function parsePath (path) {
   var hit = pathCache.get(path)
   if (!hit) {
-    hit = parsePath(path)
+    hit = parse(path)
     if (hit) {
-      hit.get = exports.compileGetter(hit)
       pathCache.put(path, hit)
     }
   }
@@ -266,10 +277,24 @@ exports.parse = function (path) {
  * @param {String} path
  */
 
-exports.get = function (obj, path) {
-  path = exports.parse(path)
-  if (path) {
-    return path.get(obj)
+export function getPath (obj, path) {
+  return parseExpression(path).get(obj)
+}
+
+/**
+ * Warn against setting non-existent root path on a vm.
+ */
+
+var warnNonExistent
+if (process.env.NODE_ENV !== 'production') {
+  warnNonExistent = function (path, vm) {
+    warn(
+      'You are setting a non-existent path "' + path.raw + '" ' +
+      'on a vm instance. Consider pre-initializing the property ' +
+      'with the "data" option for more reliable reactivity ' +
+      'and better performance.',
+      vm
+    )
   }
 }
 
@@ -281,12 +306,12 @@ exports.get = function (obj, path) {
  * @param {*} val
  */
 
-exports.set = function (obj, path, val) {
+export function setPath (obj, path, val) {
   var original = obj
   if (typeof path === 'string') {
-    path = exports.parse(path)
+    path = parse(path)
   }
-  if (!path || !_.isObject(obj)) {
+  if (!path || !isObject(obj)) {
     return false
   }
   var last, key
@@ -294,34 +319,29 @@ exports.set = function (obj, path, val) {
     last = obj
     key = path[i]
     if (key.charAt(0) === '*') {
-      key = original[key.slice(1)]
+      key = parseExpression(key.slice(1)).get.call(original, original)
     }
     if (i < l - 1) {
       obj = obj[key]
-      if (!_.isObject(obj)) {
+      if (!isObject(obj)) {
         obj = {}
-        last.$add(key, obj)
-        warnNonExistent(path)
+        if (process.env.NODE_ENV !== 'production' && last._isVue) {
+          warnNonExistent(path, last)
+        }
+        set(last, key, obj)
       }
     } else {
-      if (_.isArray(obj)) {
+      if (isArray(obj)) {
         obj.$set(key, val)
       } else if (key in obj) {
         obj[key] = val
       } else {
-        obj.$add(key, val)
-        warnNonExistent(path)
+        if (process.env.NODE_ENV !== 'production' && obj._isVue) {
+          warnNonExistent(path, obj)
+        }
+        set(obj, key, val)
       }
     }
   }
   return true
-}
-
-function warnNonExistent (path) {
-  _.warn(
-    'You are setting a non-existent path "' + path.raw + '" ' +
-    'on a vm instance. Consider pre-initializing the property ' +
-    'with the "data" option for more reliable reactivity ' +
-    'and better performance.'
-  )
 }

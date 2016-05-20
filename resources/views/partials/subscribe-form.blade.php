@@ -13,7 +13,7 @@
     </div>
 
     {{-- Nome Social --}}
-    <div class="row control-group" v-if="name">
+    <div class="row control-group">
         <div class="form-group col-xs-12 floating-label-form-group controls">
             <label for="social_name" class="sr-only control-label">Apelido</label>
             <input v-model="social_name" type="text" class="form-control input-lg" value="{{ Input::old('social_name') }}" placeholder="Apelido" name="social_name" id="social_name" required data-validation-required-message="Por favor digite seu nome social.">
@@ -22,7 +22,7 @@
     </div>
 
     {{-- Cidade --}}
-    <div class="row control-group"  v-transition="expand" v-if="social_name">
+    <div class="row control-group"  v-transition="expand">
         <div class="form-group col-xs-12 floating-label-form-group controls">
             <label for="city" class="sr-only control-label">Município</label>
             <select id="city-edit" v-model="city" v-on="change: fetchSchools" class="form-control input-lg" placeholder="Município" name="city" id="city" required data-validation-required-message="Por favor preencha o município.">
@@ -35,7 +35,7 @@
     </div>
 
     {{-- Unidade Escolar --}}
-    <div class="row control-group"  v-transition="expand" v-if="city">
+    <div class="row control-group"  v-transition="expand">
         <div class="form-group col-xs-12 floating-label-form-group controls">
             <label for="school" class="sr-only control-label">Escola</label>
             <select id="school-edit" v-model="school" value="" options="schools" v-on="change: checkSchool" class="form-control input-lg" placeholder="Escola" name="school" id="school" required data-validation-required-message="Por favor escolha a escola."></select>
@@ -44,7 +44,7 @@
     </div>
 
     {{-- Matricula --}}
-    <div class="row control-group"  v-transition="expand" v-if="city && school">
+    <div class="row control-group"  v-transition="expand">
         <div class="form-group col-xs-12 floating-label-form-group controls">
             <label for="registration" class="sr-only control-label">Matrícula</label>
             <input v-model="registration" type="text" class="form-control input-lg" value="{{ Input::old('registration') }}" placeholder="Matrícula" name="registration" id="registration" required data-validation-required-message="Por favor digite sua data de nascimento.">
@@ -53,7 +53,7 @@
     </div>
 
     {{-- Sexo --}}
-    <div class="row control-group"  v-transition="expand" v-if="registration">
+    <div class="row control-group"  v-transition="expand">
         <div class="form-group col-lg-4 floating-label-form-group controls">
             <label for="gender" class="sr-only control-label">Sexo</label>
             <select v-model="gender" class="form-control input-lg" placeholder="Sexo" name="gender" id="gender" required data-validation-required-message="Por favor preencha o sexo.">
@@ -75,7 +75,7 @@
     </div>
 
     {{-- Nascimento --}}
-    <div class="row control-group"  v-transition="expand" v-if="gender2">
+    <div class="row control-group"  v-transition="expand">
         <div class="form-group col-xs-6 floating-label-form-group controls">
             <label for="birthdate" class="sr-only control-label">Data de nascimento</label>
             <input v-model="birthdate" type="text" class="form-control input-lg" value="{{ Input::old('birthdate') }}" onkeydown="return false;" placeholder="Data de nascimento" name="birthdate" id="birthdate" required data-validation-required-message="Por favor digite sua data de nascimento.">
@@ -91,7 +91,7 @@
     </div>
 
     {{-- Identidade --}}
-    <div class="row control-group"  v-transition="expand" v-if="cpfValid">
+    <div class="row control-group"  v-transition="expand">
         <div class="form-group col-xs-6 floating-label-form-group controls">
             <label for="id_number" class="sr-only control-label">Identidade</label>
             <input v-model="id_number" type="text" class="form-control input-lg" value="{{ Input::old('id_number') }}" placeholder="Identidade" name="id_number" id="id_number" required data-validation-required-message="Por favor digite sua data de nascimento.">
@@ -105,7 +105,7 @@
     </div>
 
     {{-- Email --}}
-    <div class="row control-group"  v-transition="expand" v-if="id_issuer">
+    <div class="row control-group"  v-transition="expand">
         <div class="form-group col-xs-12 floating-label-form-group controls">
             <label for="email" class="sr-only control-label">E-mail</label>
             <input v-model="email" type="text" class="form-control input-lg" value="{{ Input::old('email') }}" placeholder="E-mail" name="email" id="email" required data-validation-required-message="Por favor digite sua data de nascimento.">
@@ -114,7 +114,7 @@
     </div>
 
     {{-- Telefone --}}
-    <div class="row control-group"  v-transition="expand" v-if="email">
+    <div class="row control-group"  v-transition="expand">
         <div class="form-group col-lg-6 floating-label-form-group controls">
             <label for="phone_home" class="sr-only control-label">Telefone Residencial</label>
             <input v-model="phone_home" type="tel" class="form-control input-lg" value="{{ Input::old('phone_home') }}" placeholder="Telefone Residencial" name="phone_home" id="phone_home" required data-validation-required-message="Por favor digite seu telefone.">
@@ -129,7 +129,7 @@
     </div>
 
     {{-- CEP --}}
-    <div class="row control-group"  v-transition="expand" v-if="phone_cellular || phone_home">
+    <div class="row control-group"  v-transition="expand">
         <div class="form-group col-lg-12 floating-label-form-group controls">
             <label for="zip_code" class="sr-only control-label">CEP da residência</label>
             <input v-model="zip_code" v-on="keyup: checkZip" type="tel" value="{{ Input::old('zip_code') }}" class="form-control input-lg" placeholder="CEP da residência" name="zip_code" id="zip_code" required data-validation-required-message="Por favor digite seu telefone.">
@@ -138,7 +138,7 @@
     </div>
 
     {{-- Endereço --}}
-    <div class="row control-group"  v-transition="expand" v-if="zipValid">
+    <div class="row control-group"  v-transition="expand">
         <div class="form-group col-lg-12 floating-label-form-group controls">
             <label for="address" class="sr-only control-label">Endereço</label>
             <input v-model="address" type="tel" class="form-control input-lg" value="{{ Input::old('address') }}" placeholder="Endereço" name="address" id="address" required data-validation-required-message="Por favor digite seu telefone.">
@@ -147,10 +147,10 @@
     </div>
 
     {{-- Complemento & Bairro --}}
-    <div class="row control-group"  v-transition="expand" v-if="address">
+    <div class="row control-group"  v-transition="expand">
         <div class="form-group col-lg-6 floating-label-form-group controls">
             <label for="address_complement" class="sr-only control-label">Complemento</label>
-            <input v-model="address_complement" type="tel" class="form-control input-lg" value="{{ Input::old('address_complement') }}" placeholder="Complemento" name="address_complement" id="address_complement" required data-validation-required-message="Por favor digite o complemento.">
+            <input v-model="address_complement" type="tel" class="form-control input-lg" value="{{ Input::old('address_complement') }}" placeholder="Complemento" name="address_complement" id="address_complement" data-validation-required-message="Por favor digite o complemento.">
             <span class="help-block text-danger"></span>
         </div>
 
@@ -162,7 +162,7 @@
     </div>
 
     {{-- Município --}}
-    <div class="row control-group"  v-transition="expand" v-if="address_neighborhood">
+    <div class="row control-group"  v-transition="expand">
         <div class="form-group col-lg-12 floating-label-form-group controls">
             <label for="address_city" class="sr-only control-label">Município</label>
             <input v-model="address_city" type="tel" class="form-control input-lg" value="{{ Input::old('address_city') }}" placeholder="Município" name="address_city" id="address_city" required data-validation-required-message="Por favor digite sua cidade.">
@@ -171,7 +171,7 @@
     </div>
 
     {{-- Facebook --}}
-    <div class="row control-group"  v-transition="expand" v-if="address_city">
+    <div class="row control-group"  v-transition="expand">
         <div class="form-group col-lg-12 floating-label-form-group controls">
             <label for="facebook" class="sr-only control-label">Link ou usuário do Facebook</label>
             <input v-model="facebook" type="tel" class="form-control input-lg" value="{{ Input::old('facebook') }}" placeholder="Link ou usuário do Facebook" name="facebook" id="facebook" data-validation-required-message="Por favor digite seu facebook.">
@@ -181,7 +181,7 @@
 
     <div id="success"></div>
 
-    <div class="row"  v-transition="expand" v-if="address_city">
+    <div class="row"  v-transition="expand">
         <div class="form-group col-xs-12">
             <button id="submit" type="submit" class="btn btn-lg btn-primary btn-block">Enviar inscri&ccedil;&atilde;o</button>
         </div>

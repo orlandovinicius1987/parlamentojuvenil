@@ -1,20 +1,33 @@
-var _ = require('../util')
-var config = require('../config')
-var templateParser = require('../parsers/template')
+import { parseText } from '../parsers/text'
+import { parseTemplate } from '../parsers/template'
+import {
+  warn,
+  isTemplate,
+  isFragment,
+  prepend,
+  extractContent,
+  createAnchor,
+  resolveAsset,
+  toArray,
+  addClass,
+  hasBindAttr
+} from '../util/index'
+
+const specialCharRE = /[^\w\-:\.]/
 
 /**
  * Process an element or a DocumentFragment based on a
  * instance option object. This allows us to transclude
  * a template node/fragment before the instance is created,
  * so the processed fragment can then be cloned and reused
- * in v-repeat.
+ * in v-for.
  *
  * @param {Element} el
  * @param {Object} options
  * @return {Element|DocumentFragment}
  */
 
-exports.transclude = function (el, options) {
+export function transclude (el, options) {
   // extract container attributes to pass them down
   // to compiler, because they need to be compiled in
   // parent scope. we are mutating the options object here
@@ -24,25 +37,25 @@ exports.transclude = function (el, options) {
     options._containerAttrs = extractAttrs(el)
   }
   // for template tags, what we want is its content as
-  // a documentFragment (for block instances)
-  if (_.isTemplate(el)) {
-    el = templateParser.parse(el)
+  // a documentFragment (for fragment instances)
+  if (isTemplate(el)) {
+    el = parseTemplate(el)
   }
   if (options) {
     if (options._asComponent && !options.template) {
-      options.template = '<content></content>'
+      options.template = '<slot></slot>'
     }
     if (options.template) {
-      options._content = _.extractContent(el)
+      options._content = extractContent(el)
       el = transcludeTemplate(el, options)
     }
   }
-  if (el instanceof DocumentFragment) {
-    // anchors for block instance
+  if (isFragment(el)) {
+    // anchors for fragment instance
     // passing in `persist: true` to avoid them being
     // discarded by IE during template cloning
-    _.prepend(_.createAnchor('v-start', true), el)
-    el.appendChild(_.createAnchor('v-end', true))
+    prepend(createAnchor('v-start', true), el)
+    el.appendChild(createAnchor('v-end', true))
   }
   return el
 }
@@ -58,33 +71,37 @@ exports.transclude = function (el, options) {
 
 function transcludeTemplate (el, options) {
   var template = options.template
-  var frag = templateParser.parse(template, true)
-  if (!frag) {
-    _.warn('Invalid template option: ' + template)
-  } else {
+  var frag = parseTemplate(template, true)
+  if (frag) {
     var replacer = frag.firstChild
     var tag = replacer.tagName && replacer.tagName.toLowerCase()
     if (options.replace) {
       /* istanbul ignore if */
       if (el === document.body) {
-        _.warn(
+        process.env.NODE_ENV !== 'production' && warn(
           'You are mounting an instance with a template to ' +
           '<body>. This will replace <body> entirely. You ' +
           'should probably use `replace: false` here.'
         )
       }
+      // there are many cases where the instance must
+      // become a fragment instance: basically anything that
+      // can create more than 1 root nodes.
       if (
         // multi-children template
         frag.childNodes.length > 1 ||
         // non-element template
         replacer.nodeType !== 1 ||
-        // when root node is <component>, is an element
-        // directive, or has v-repeat, the instance could
-        // end up having multiple top-level nodes, thus
-        // becoming a block instance.
+        // single nested component
         tag === 'component' ||
-        _.resolveAsset(options, 'elementDirectives', tag) ||
-        replacer.hasAttribute(config.prefix + 'repeat')
+        resolveAsset(options, 'components', tag) ||
+        hasBindAttr(replacer, 'is') ||
+        // element directive
+        resolveAsset(options, 'elementDirectives', tag) ||
+        // for block
+        replacer.hasAttribute('v-for') ||
+        // if block
+        replacer.hasAttribute('v-if')
       ) {
         return frag
       } else {
@@ -96,26 +113,24 @@ function transcludeTemplate (el, options) {
       el.appendChild(frag)
       return el
     }
+  } else {
+    process.env.NODE_ENV !== 'production' && warn(
+      'Invalid template option: ' + template
+    )
   }
 }
 
 /**
- * Helper to extract a component container's attribute names
- * into a map.
+ * Helper to extract a component container's attributes
+ * into a plain object array.
  *
  * @param {Element} el
- * @return {Object}
+ * @return {Array}
  */
 
 function extractAttrs (el) {
   if (el.nodeType === 1 && el.hasAttributes()) {
-    var attrs = el.attributes
-    var res = {}
-    var i = attrs.length
-    while (i--) {
-      res[attrs[i].name] = attrs[i].value
-    }
-    return res
+    return toArray(el.attributes)
   }
 }
 
@@ -134,10 +149,12 @@ function mergeAttrs (from, to) {
   while (i--) {
     name = attrs[i].name
     value = attrs[i].value
-    if (!to.hasAttribute(name)) {
+    if (!to.hasAttribute(name) && !specialCharRE.test(name)) {
       to.setAttribute(name, value)
-    } else if (name === 'class') {
-      to.className = to.className + ' ' + value
+    } else if (name === 'class' && !parseText(value) && (value = value.trim())) {
+      value.split(/\s+/).forEach(function (cls) {
+        addClass(to, cls)
+      })
     }
   }
 }

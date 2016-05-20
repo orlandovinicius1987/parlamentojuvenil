@@ -2,37 +2,22 @@
 
 namespace App\Data\Repositories;
 
-use \DB;
-use Carbon\Carbon;
-use App\Jobs\SyncNews;
-use App\Jobs\SyncGallery;
-use App\Data\Entities\State;
-use App\Data\Entities\Article;
+use App\Services\Views\Builder;
+use Jenssegers\Date\Date as Carbon;
 use App\Events\SubscriptionUpdated;
 use App\Data\Entities\Subscription;
-use Illuminate\Support\Facades\Session;
-use Illuminate\Foundation\Bus\DispatchesJobs;
+use App\Exceptions\AlreadySubscribed;
 use App\Services\News\Service as SyncNewsService;
-use App\Services\Filesystem\Service as Filesystem;
 use Illuminate\Support\Collection as IlluminateCollection;
 
 class Data
 {
-    use DispatchesJobs;
-
-    /**
-     * @var \App\Services\Filesystem\Service
-     */
-    private $filesystem;
-
     /**
      * @var SyncNewsService
      */
     private $syncNewsService;
 
-    private $spreadsheet = 'https://docs.google.com/a/antoniocarlosribeiro.com/spreadsheets/d/1wrR7y4qk2ofj4kPgkhyPVBjwSohh8k1J6drsZ3bGzic/edit?usp=sharing';
-
-    public $schedule = [
+    public $timeline = [
         2015 => [
             [
                 'start' => '2015-08-10 00:00:00',
@@ -80,13 +65,13 @@ class Data
         2016 => [
             [
                 'start' => '2016-05-23 00:00:00',
-                'end' => '2016-05-23 23:59:59',
+                'end' => '2016-05-23 00:00:00',
                 'title' => 'Abertura das inscrições',
                 'description' => '23 de maio até 24 de junho',
             ],
 
             [
-                'start' => '2016-05-23 00:00:00',
+                'start' => '2016-06-24 23:59:59',
                 'end' => '2016-06-24 23:59:59',
                 'title' => 'Encerramento das inscrições',
             ],
@@ -162,242 +147,75 @@ class Data
         ]
 
     ];
-
-    public function __construct(Filesystem $filesystem, SyncNewsService $syncNewsService)
-    {
-        $this->filesystem = $filesystem;
-        $this->syncNewsService = $syncNewsService;
-    }
-
-    public function getSchedule($year)
-    {
-        return new IlluminateCollection($this->schedule[$year]);
-    }
-
-    public function selectBanner()
-    {
-        $banners = new IlluminateCollection([
-            'banners/parlamentares/bg_fotos01.jpg',
-            'banners/parlamentares/bg_fotos02.jpg',
-            'banners/parlamentares/bg_fotos03.jpg',
-            'banners/parlamentares/bg_fotos04.jpg',
-            'banners/parlamentares/bg_fotos05.jpg',
-            'banners/parlamentares/bg_fotos06.jpg',
-            'banners/parlamentares/bg_fotos07.jpg',
-            'banners/parlamentares/bg_fotos08.jpg',
-            'banners/parlamentares/bg_fotos09.jpg',
-            'banners/parlamentares/bg_fotos10.jpg',
-        ]);
-
-        $usedBanners = Session::get('used_banners') ?: [];
-
-        if (count($usedBanners) >= $banners->count())
-        {
-            $usedBanners = [];
-        }
-
-        $usedBanners = new IlluminateCollection($usedBanners);
-
-        while (true)
-        {
-            $banner = $banners->random();
-
-            if (! $usedBanners->contains($banner))
-            {
-                break;
-            }
-        }
-
-        $usedBanners->put(null, $banner);
-
-        Session::put('used_banners', $usedBanners->toArray());
-
-        return $banner;
-    }
-
-    public function buildViewData($view, $force = false, $isHome = false)
-    {
-        $this->dispatch(new SyncNews());
-        $this->dispatch(new SyncGallery());
-
-        header('X-Frame-Options: GOFORIT');
-
-        $fourteenDate = (new Carbon())->subYears(14);
-        $seventeenDate = (new Carbon())->subYears(18)->addDays(1);
-
-        return  $view->with('banner_file', $this->selectBanner())
-                    ->with('spreadsheet', $this->spreadsheet)
-                    ->with('congressmen', $this->getCongressmenLinks())
-                    ->with('carrousel', $this->getTestimonials())
-                    ->with('cities', $this->getCities())
-                    ->with('newspapers', $this->getNewspapersLinks())
-                    ->with('gallery', $this->getGalleryLinks(9))
-                    ->with('oldGallery', $this->getGalleryLinks(8))
-                    ->with('oldArticles', $this->getArticles('<=', 2014))
-                    ->with('newArticles', $this->getArticles('>=', 2015))
-                    ->with('fourteenDate', $fourteenDate->format('d/m/Y'))
-                    ->with('seventeenDate', $seventeenDate->format('d/m/Y'))
-                    ->with('now', (string) Carbon::now()->subHours(3))
-                    ->with('isHome', $isHome)
-                    ->with('force', $force);
-    }
-
-    private function getCongressmenLinks()
-    {
-        $from7 = $this->filesystem->congressmenLinks(env('PHOTOS_DIR').DIRECTORY_SEPARATOR.'7a edicao (2013)');
-
-        $from8 = $this->filesystem->congressmenLinks(env('PHOTOS_DIR').DIRECTORY_SEPARATOR.'8a edicao (2014)');
-
-        /// will be sorted
-        //		shuffle($from7);
-        //		shuffle($from8);
-
-        return [
-            7 => $from7,
-            8 => $from8,
-        ];
-    }
-
-    private function getCities()
-    {
-        return State::where('code', 'RJ')->first()->cities()->orderBy('name')->get();
-    }
-
-    private function getNewspapersLinks()
-    {
-        $files = $this->filesystem->allLinks(env('NEWSPAPERS_DIR'));
-        $links = $files['links'];
-        $files = $files['files'];
-        $result = [];
-
-        foreach ($links as $key => $file)
-        {
-            $parts = pathinfo($file);
-
-            if ($parts['extension'] == 'pdf' || $parts['extension'] == 'json')
-            {
-                $name = explode('_', $parts['filename']);
-
-                $link = $this->makeLinkAttributes($files[$key], $name, $parts);
-
-                $result[$key] = $link;
-            }
-        }
-
-        return $result;
-    }
-
-    private function getArticles($operand, $year)
-    {
-        return $this->getArticlesForType($operand, $year, 'Notícias');
-    }
-
-    private function getGalleryLinks($edition)
-    {
-        return $this->getArticlesForType(null, null, 'Fotos', $edition);
-    }
-
-    private function getTestimonials()
-    {
-        $file = file(public_path('files/apps/parlamentojuvenil/parlamentares/testemunhos-parlamentares-juvenis.txt'));
-
-        shuffle($file);
-
-        $result = [];
-
-        foreach ($file as $person)
-        {
-            $person = explode(';', $person);
-
-            $city = pathinfo($person[1]);
-
-            $city = explode('-', $city['filename']);
-
-            $result[] = [
-                'name' => $person[0],
-                'photo' => url(
-                    env('LOCAL_BASE_DIR') . DIRECTORY_SEPARATOR .
-                    env('BASE_DIR') . DIRECTORY_SEPARATOR .
-                    env('PHOTOS_DIR') . DIRECTORY_SEPARATOR .
-                    $person[1]
-                ),
-                'editions' => $person[2],
-                'city' => trim($city[1]),
-                'testimonial' => $person[3],
-            ];
-        }
-
-        return $result;
-    }
-
     /**
-     * @param $operand
-     * @param $year
-     * @return mixed
+     * @var Builder
      */
-    private function getArticlesForType($operand, $year, $type, $edition = null)
+    public $viewBuilder;
+
+    public function __construct(SyncNewsService $syncNewsService, Builder $viewBuilder)
     {
-        $articles = Article::orderBy('published_at', 'descending')->where('type', $type);
-
-        if ($year)
-        {
-            $articles->where(DB::raw('extract(year from published_at)'), $operand, $year);
-        }
-
-        if ($edition)
-        {
-            $articles->where('edition', $edition);
-        }
-
-        foreach ($articles = $articles->get() as $article)
-        {
-            if ($article->image)
-            {
-                $article->image = env('ARTICLE_IMAGE_URL_BASE') . DIRECTORY_SEPARATOR . $article->image;
-                $article->date = Carbon::createFromFormat('Y-m-d', $article->date)->format('d m Y');
-            }
-        }
-
-        return $articles;
+        $this->syncNewsService = $syncNewsService;
+        $this->viewBuilder = $viewBuilder;
     }
 
-    private function makeLinkAttributes($file, $name, $parts)
+    public function getTimeline($year)
     {
-        $url = null;
-        $pdf = null;
+        $timeline = $this->makeTimelineData($this->timeline[$year]);
 
-        if ($parts['extension'] == 'json')
-        {
-            $json = file_get_contents($file);
-
-            $json = json_decode($json);
-
-            $url = $json->url;
-        }
-        else
-        {
-            $pdf = $parts['dirname'] . '/' . $parts['filename'] . '.pdf';
-        }
-
-        $name = isset($name[2]) ? $name[1] . ' ' . $name[2] : $name[0];
-
-        return [
-            'year' => $name[0],
-            'name' => $name,
-            'pdf' => $pdf,
-            'jpg' => $parts['dirname'] . '/' . $parts['filename'] . '.jpg',
-            'url' => $url
-        ];
+        return new IlluminateCollection($timeline);
     }
 
     public function createSubscription($input)
     {
-        $input = $input->only((new Subscription())->getFillable());
+        $model = new Subscription();
+
+        $input = $input->only($model->getFillable());
+
+        if($subscription = $model->where($input)->first())
+        {
+            throw new AlreadySubscribed();
+        }
 
         $subscription = Subscription::firstOrCreate($input);
 
         app('events')->fire(new SubscriptionUpdated($subscription));
 
         return $subscription;
+    }
+
+    private function makeTimelineData($timeline)
+    {
+        Carbon::setLocale('pt_BR');
+
+        foreach ($timeline as $key => $item)
+        {
+            $start = Carbon::createFromFormat('Y-m-d H:i:s', $item['start']);
+            $end = Carbon::createFromFormat('Y-m-d H:i:s', $item['end']);
+            $end->addSeconds(2);
+
+            $diff = $start->diffInDays($end);
+
+            if ($diff <= 1)
+            {
+                $period = $start->format('d \\d\\e F');
+            }
+            else
+            {
+                if ($start->month == $end->month)
+                {
+                    $period = $start->format('d') . ' a ' . $end->format('d \\d\\e F');
+                }
+                else
+                {
+                    $period =
+                        $start->format('d \\d\\e F') . ' a ' .
+                        $end->format('d \\d\\e F');
+                }
+            }
+
+            $timeline[$key]['period'] = $period;
+        }
+
+        return $timeline;
     }
 }

@@ -2,10 +2,10 @@
  * Service for URL templating.
  */
 
-var _ = require('./lib/util');
+var ie = document.documentMode;
 var el = document.createElement('a');
 
-module.exports = function (Vue) {
+module.exports = function (_) {
 
     function Url(url, params) {
 
@@ -15,24 +15,23 @@ module.exports = function (Vue) {
             options = {url: url, params: params};
         }
 
-        options = _.extend({}, Url.options, _.options('url', this, options));
+        options = _.extend(true, {},
+            Url.options, this.options, options
+        );
 
-        url = options.url.replace(/:([a-z]\w*)/gi, function (match, name) {
+        url = options.url.replace(/(\/?):([a-z]\w*)/gi, function (match, slash, name) {
 
             if (options.params[name]) {
                 urlParams[name] = true;
-                return encodeUriSegment(options.params[name]);
+                return slash + encodeUriSegment(options.params[name]);
             }
 
             return '';
         });
 
-        if (typeof options.root === 'string' && !url.match(/^(https?:)?\//)) {
+        if (_.isString(options.root) && !url.match(/^(https?:)?\//)) {
             url = options.root + '/' + url;
         }
-
-        url = url.replace(/([^:])[\/]{2,}/g, '$1/');
-        url = url.replace(/(\w+)\/+$/, '$1');
 
         _.each(options.params, function (value, key) {
             if (!urlParams[key]) {
@@ -55,6 +54,7 @@ module.exports = function (Vue) {
 
     Url.options = {
         url: '',
+        root: null,
         params: {}
     };
 
@@ -93,6 +93,11 @@ module.exports = function (Vue) {
      */
 
     Url.parse = function (url) {
+
+        if (ie) {
+            el.href = url;
+            url = el.href;
+        }
 
         el.href = url;
 
@@ -148,13 +153,5 @@ module.exports = function (Vue) {
             replace(/%20/g, (spaces ? '%20' : '+'));
     }
 
-    Object.defineProperty(Vue.prototype, '$url', {
-
-        get: function () {
-            return _.extend(Url.bind(this), Url);
-        }
-
-    });
-
-    return Url;
+    return _.url = Url;
 };

@@ -2,12 +2,20 @@
  * XMLHttp request.
  */
 
-var _ = require('./util');
 var Promise = require('./promise');
+var XDomain = window.XDomainRequest;
 
-module.exports = function (url, options) {
+module.exports = function (_, options) {
 
     var request = new XMLHttpRequest(), promise;
+
+    if (XDomain && options.crossOrigin) {
+        request = new XDomainRequest(); options.headers = {};
+    }
+
+    if (_.isPlainObject(options.xhr)) {
+        _.extend(request, options.xhr);
+    }
 
     if (_.isFunction(options.beforeSend)) {
         options.beforeSend.call(this, request, options);
@@ -15,33 +23,28 @@ module.exports = function (url, options) {
 
     promise = new Promise(function (resolve, reject) {
 
-        request.open(options.method, url(options), true);
+        request.open(options.method, _.url(options), true);
 
         _.each(options.headers, function (value, header) {
             request.setRequestHeader(header, value);
         });
 
-        request.onreadystatechange = function () {
+        var handler = function (event) {
 
-            if (this.readyState === 4) {
+            request.ok = event.type === 'load';
 
-                if (this.status >= 200 && this.status < 300) {
-                    resolve(this);
-                } else {
-                    reject(this);
-                }
+            if (request.ok && request.status) {
+                request.ok = request.status >= 200 && request.status < 300;
             }
+
+            (request.ok ? resolve : reject)(request);
         };
 
+        request.onload = handler;
+        request.onabort = handler;
+        request.onerror = handler;
+
         request.send(options.data);
-    });
-
-    _.extend(promise, {
-
-        abort: function () {
-            request.abort();
-        }
-
     });
 
     return promise;

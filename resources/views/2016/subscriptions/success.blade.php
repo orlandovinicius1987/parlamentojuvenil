@@ -7,8 +7,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs12">
-                    <h1>&nbsp;</h1>
-                    <h1>Iscrição realizada</h1>
+                    <h1>Inscrição realizada</h1>
                 </div>
             </div>
         </div>
@@ -18,7 +17,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs12">
-                    Sua inscrição for realizada. Por favor aguarde o contato da equipe do Parlamento Juvenil.
+                    <h2>Sua inscrição foi realizada. Por favor aguarde o contato da equipe do Parlamento Juvenil.</h2>
                 </div>
             </div>
         </div>

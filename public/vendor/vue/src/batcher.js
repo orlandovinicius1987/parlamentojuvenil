@@ -1,5 +1,9 @@
-var _ = require('./util')
-var config = require('./config')
+import config from './config'
+import {
+  warn,
+  nextTick,
+  devtools
+} from './util/index'
 
 // we have two separate queues: one for directive updates
 // and one for user watcher registered via $watch().
@@ -7,89 +11,99 @@ var config = require('./config')
 // before user watchers so that when user watchers are
 // triggered, the DOM would have already been in updated
 // state.
+
 var queue = []
 var userQueue = []
 var has = {}
+var circular = {}
 var waiting = false
-var flushing = false
-var internalQueueDepleted = false
 
 /**
  * Reset the batcher's state.
  */
 
-function reset () {
-  queue = []
-  userQueue = []
+function resetBatcherState () {
+  queue.length = 0
+  userQueue.length = 0
   has = {}
-  waiting = flushing = internalQueueDepleted = false
+  circular = {}
+  waiting = false
 }
 
 /**
- * Flush both queues and run the jobs.
+ * Flush both queues and run the watchers.
  */
 
-function flush () {
-  flushing = true
-  run(queue)
-  internalQueueDepleted = true
-  run(userQueue)
-  reset()
+function flushBatcherQueue () {
+  runBatcherQueue(queue)
+  runBatcherQueue(userQueue)
+  // user watchers triggered more watchers,
+  // keep flushing until it depletes
+  if (queue.length) {
+    return flushBatcherQueue()
+  }
+  // dev tool hook
+  /* istanbul ignore if */
+  if (devtools && config.devtools) {
+    devtools.emit('flush')
+  }
+  resetBatcherState()
 }
 
 /**
- * Run the jobs in a single queue.
+ * Run the watchers in a single queue.
  *
  * @param {Array} queue
  */
 
-function run (queue) {
-  // do not cache length because more jobs might be pushed
-  // as we run existing jobs
-  for (var i = 0; i < queue.length; i++) {
-    queue[i].run()
+function runBatcherQueue (queue) {
+  // do not cache length because more watchers might be pushed
+  // as we run existing watchers
+  for (let i = 0; i < queue.length; i++) {
+    var watcher = queue[i]
+    var id = watcher.id
+    has[id] = null
+    watcher.run()
+    // in dev build, check and stop circular updates.
+    if (process.env.NODE_ENV !== 'production' && has[id] != null) {
+      circular[id] = (circular[id] || 0) + 1
+      if (circular[id] > config._maxUpdateCount) {
+        warn(
+          'You may have an infinite update loop for watcher ' +
+          'with expression "' + watcher.expression + '"',
+          watcher.vm
+        )
+        break
+      }
+    }
   }
+  queue.length = 0
 }
 
 /**
- * Push a job into the job queue.
+ * Push a watcher into the watcher queue.
  * Jobs with duplicate IDs will be skipped unless it's
  * pushed when the queue is being flushed.
  *
- * @param {Object} job
+ * @param {Watcher} watcher
  *   properties:
- *   - {String|Number} id
- *   - {Function}      run
+ *   - {Number} id
+ *   - {Function} run
  */
 
-exports.push = function (job) {
-  var id = job.id
-  if (!id || !has[id] || flushing) {
-    if (!has[id]) {
-      has[id] = 1
-    } else {
-      has[id]++
-      // detect possible infinite update loops
-      if (has[id] > config._maxUpdateCount) {
-        _.warn(
-          'You may have an infinite update loop for the ' +
-          'watcher with expression: "' + job.expression + '".'
-        )
-        return
-      }
-    }
-    // A user watcher callback could trigger another
-    // directive update during the flushing; at that time
-    // the directive queue would already have been run, so
-    // we call that update immediately as it is pushed.
-    if (flushing && !job.user && internalQueueDepleted) {
-      job.run()
-      return
-    }
-    ;(job.user ? userQueue : queue).push(job)
+export function pushWatcher (watcher) {
+  const id = watcher.id
+  if (has[id] == null) {
+    // push watcher into appropriate queue
+    const q = watcher.user
+      ? userQueue
+      : queue
+    has[id] = q.length
+    q.push(watcher)
+    // queue the flush
     if (!waiting) {
       waiting = true
-      _.nextTick(flush)
+      nextTick(flushBatcherQueue)
     }
   }
 }

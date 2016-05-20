@@ -3,6 +3,9 @@
 namespace App\Exceptions;
 
 use Exception;
+use Psr\Log\LoggerInterface;
+use App\Services\Views\Builder;
+use Illuminate\Support\Facades\Response;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
@@ -16,6 +19,27 @@ class Handler extends ExceptionHandler
     protected $dontReport = [
         HttpException::class,
     ];
+    /**
+     * @var Builder
+     */
+    private $viewBuilder;
+
+    public function __construct(Builder $viewBuilder, LoggerInterface $log)
+    {
+        $this->viewBuilder = $viewBuilder;
+
+        parent::__construct($log);
+    }
+
+    private function handleException($e)
+    {
+        if ($e instanceof AlreadySubscribed)
+        {
+            $view = $this->viewBuilder->buildViewData(view('2016.messages.show')->with('message', 'Inscrição já realizada. Por favor aguarde nosso contato.'));
+
+            return Response::make($view);
+        }
+    }
 
     /**
      * Report or log an exception.
@@ -39,6 +63,11 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $e)
     {
+        if ($response = $this->handleException($e))
+        {
+            return $response;
+        }
+
         return parent::render($request, $e);
     }
 }

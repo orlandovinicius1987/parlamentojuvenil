@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\Subscribe;
-use Carbon\Carbon;
 use \DB;
 use Event;
+use Input;
+use Carbon\Carbon;
 use App\Data\Entities\City;
+use Illuminate\Http\Request;
+use App\Http\Requests\Subscribe;
 use App\Data\Entities\Subscription;
 use App\Events\SubscriptionUpdated;
 use Maatwebsite\Excel\Facades\Excel;
@@ -113,5 +115,12 @@ class Subscriptions extends BaseController
         $this->dataRepository->createSubscription($request);
 
         return $this->buildView('2016.subscriptions.success');
+    }
+
+    public function start(Request $request)
+    {
+        Input::flash();
+
+        return redirect()->route('subscriptions.index');
     }
 }
