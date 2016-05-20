@@ -17,11 +17,10 @@
                 @if (count($articles) > 6)
                     <div class="row text-center">
                         <div class="col-md-5 quadro-amarelo hidden-xs hidden-sm"><div class="borda-preta">&nbsp;</div></div>
-                        <div class="col-md-2 col-xs-12"><div class="quadro-vermelho borda-preta">Ler mais Notícias</div></div>
+                        <div class="col-md-2 col-xs-12"><div class="quadro-vermelho borda-preta">Mais notícias</div></div>
                         <div class="col-md-5 quadro-amarelo hidden-xs hidden-sm"><div class="borda-preta">&nbsp;</div></div>
                     </div>
                 @endif
-
 
                 {{--<div class="row text-center">--}}
                 {{--<button type="button" class="btn btn-default">Ver mais notícias</button>--}}
