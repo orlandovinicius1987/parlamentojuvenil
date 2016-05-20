@@ -25,7 +25,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li class="scroll active"><a href="#home">Início</a></li>
                         <li class="scroll"><a href="#sobre">Sobre</a></li>
-                        <li class="scroll"><a href="#cadastro">Cadastro</a></li>
+                        <li class="scroll"><a href="#inscricao">Inscrição</a></li>
                         <li class="scroll"><a href="#noticias">Notícias</a></li>
                         <li class="scroll"><a href="#galeria">Galeria</a></li>
                         <li class="dropdown">
