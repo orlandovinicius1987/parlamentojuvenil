@@ -31,9 +31,6 @@
                     <img class="img-responsive" src="/pj2016/images/slider/bg_home-4-min.jpg" alt="slider">
                     <div class="carousel-caption">
                         <h2>Faça história com a gente<br> e mostre que você é 10!</h2>
-                        {{--<h4></h4>--}}
-
-                        {{--<a href="#contact">GRAB YOUR TICKETS <i class="fa fa-angle-right"></i></a>--}}
                     </div>
                 </div>
             </div>
@@ -41,47 +38,36 @@
     </section>
     <!--/#home-->
 
-    <section id="sobre">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-xs-12 col-md-6">
+    <div class="conteudo">
+        <div class="row">
+            <div class="col-xs-12 col-md-7">
+                <div class="fundo-azul borda-preta">
                     <h2>O que é o Parlamento Juvenil?</h2>
                     <p>O Parlamento Juvenil é um projeto da Assembleia Legislativa do Rio de Janeiro (Alerj), apartidário e autônomo, cujo objetivo é aproximar o jovem da política. Instalado em 2003, envolve as 1.200 escolas estaduais dos 92 municípios do Estado e chega à nona edição em 2015.
 
                     <p>A iniciativa, de autoria do deputado Jorge Picciani (PMDB), presidente da Alerj, segue os moldes de um parlamento convencional. Eleitos pelos próprios colegas de escola, por voto direto, os parlamentares juvenis têm as mesmas atribuições dos deputados estaduais. Durante uma semana, eles apresentam, discutem e aprimoram projetos de lei.
 
                     <p>Nos últimos quatro anos, 252 jovens foram escolhidos. Para participar da seleção, é preciso ter entre 14 e 17 anos e ser aluno da rede pública estadual de ensino.</p>
-                    {{--<a href="#" class="btn btn-primary">View Date & Place <i class="fa fa-angle-right"></i></a>--}}
 
                     <h3>Quem pode participar?</h3>
                     <p>
                         Alunos do Ensino Fundamental II e Médio da rede pública estadual do Rio de Janeiro, com idade entre 14 e 17 anos.
                     </p>
+                </div>
+            </div>
 
+            <div class="col-xs-12 col-md-5">
+                <div class="fundo-azul borda-preta">&nbsp;</div>
+            </div>
+        </div>
+    </div>
 
-                    {{--<h3>Inscreva-se</h3>--}}
+    <section id="sobre">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12 col-md-6">
+                    {{--  Inscreva-se --}}
                     @include('partials.subscribe')
-
-                            <!--<h3>E como funciona?</h3>
-
-
-                    <div class="col-md-4">
-                        <h4>1</h4>
-                        Cada município do Rio de Janeiro pode ser representado por um parlamentar juvenil. As eleições acontecem nas escolas, em dois turnos de votação.
-                        <p></p>
-                    </div>
-
-                    <div class="col-md-4">
-                        <h4>2</h4>
-                        Os Deputados eleitos aprendem mais sobre sua função em oficinas de capacitação preparadas pela Alerj.
-                        <p></p>
-                    </div>
-
-                    <div class="col-md-4">
-                        <h4>3</h4>
-                        Durante uma semana, os parlamentares apresentam, debatem e votam os projetos de sua autoria no plenário da Alerj. No fim, as escolhas são encaminhadas á apreciação do Governador, podendo ou não virar lei.
-                        <p></p>
-                    </div>-->
 
                 </div>
                 <div class="side">
@@ -111,8 +97,6 @@
                                 </div>
                             </div>
                         </div>
-                        {{--<img class="img-responsive" src="/pj2016/images/guitar2.png" alt="guitar">--}}
-
                     </div>
                 </div>
             </div>
@@ -1882,42 +1866,15 @@
                 <div class="row text-center">
                     <div class="col-xs-12">
                         <div class="contact-text">
-                            <!--<h3>Contact</h3>
-                                <address>
-                                    E-mail: promo@party.com<br>
-                                    Phone: +1 (123) 456 7890<br>
-                                    Fax: +1 (123) 456 7891
-                                </address>-->
-                            <div class="quadro-amarelo borda-preta"><h2>Contato</h2></div>
-                            <h2><i class="fa fa-phone fa-fw"></i>(21) 2588-1202</h2>
-                            <h2><a href="mailto:pjalerj@gmail.com">pjalerj@gmail.com</a></h2>
+                            <div class="quadro-amarelo borda-preta justo"><h2>Contato</h2></div>
                             <br>
-                            <i class="fa fa-facebook" aria-hidden="true"></i>
-                            <i class="fa fa-youtube" aria-hidden="true"></i>
-
-                            {{--<ul class="list-inline">--}}
-
-                              {{----}}
-                                {{--<li>--}}
-                                    {{--<a href="https://www.facebook.com/parlamentojuvenilrio"><img src="/pj2016/images/svg/facebook-icon.svg" height="35px" alt="" class="loading"></a>--}}
-                                {{--</li>--}}
-                                {{--<li>--}}
-                                    {{--<a href="https://www.youtube.com/parlamentojuvenilrj"><img src="/pj2016/images/svg/youtube-icon.svg" height="35px" alt="" class="loading"></a>--}}
-                                {{--</li>--}}
-                            {{--</ul>--}}
-
-
+                                <h3><i class="fa fa-phone fa-fw"></i>(21) 2588-1202</h3>
+                                <h3><a href="mailto:pjalerj@gmail.com">pjalerj@gmail.com</a></h3>
+                                <br>
+                                <i class="fa fa-facebook" aria-hidden="true"></i>
+                                <i class="fa fa-youtube" aria-hidden="true"></i>
 
                         </div>
-                        <!--<div class="contact-address">
-                            <h3>Contact</h3>
-                            <address>
-                                Unit C2, St.Vincent's Trading Est.,<br>
-                                Feeder Road,<br>
-                                Bristol, BS2 0UY<br>
-                                United Kingdom
-                            </address>
-                        </div>-->
                     </div>
                     <div class="col-xs-12">
                         <div id="contact-section">
