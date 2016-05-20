@@ -7,6 +7,7 @@
             <div class="timeline-heading">
                 <h4 class="timeline-title">@{{ item.title }}</h4>
                 <p>@{{ item.period }}</p>
+
                 @include('2016.partials.timeline-countdown')
             </div>
         </div>

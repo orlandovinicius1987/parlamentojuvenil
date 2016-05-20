@@ -34,7 +34,7 @@
                 var now = this.__nowW3c();
                 var selected = false;
 
-                this.timeline.forEach(function(object)
+                this.timeline.forEach(function(object, index)
                 {
                     var startDate = Date.parse(new Date(object.startW3c).toUTCString());
                     object.selected = false;
@@ -42,6 +42,7 @@
                     if (startDate >= now && ! selected)
                     {
                         object.selected = true;
+                        this.timeline.$set(index, object);
                         selected = true;
                     }
                 }.bind(this));
@@ -50,35 +51,24 @@
             __findSelectedEvent: function ()
             {
                 var selected = null;
+                var elements = this.timeline;
 
-                this.timeline.forEach(function(object)
+                elements.forEach(function(object)
                 {
-                    console.log(object.selected);
                     if (object.selected)
                     {
                         selected = object;
                     }
                 }.bind(this));
 
+                this.$set('timeline', elements);
+
                 return selected;
             },
 
-            __updateTimer: function ()
+            __displayTimer: function ()
             {
-                setTimeout(function ()
-                {
-                    this.__updateTimer();
-                }.bind(this), 1000)
-
-                if (! this.timeline)
-                {
-                    return false;
-                }
-
                 var event = this.__findSelectedEvent();
-
-                console.log(this.timeline);
-                console.log(event);
 
                 var eventStart = Date.parse(new Date(event.startW3c).toUTCString());
                 var now = this.__nowW3c();
@@ -95,6 +85,26 @@
                 this.seconds -= this.minutes * 60; //update the seconds variable with no. of minutes removed
             },
 
+            __updateTimer: function ()
+            {
+                setTimeout(function ()
+                {
+                    this.__updateTimer();
+                }.bind(this), 1000)
+
+                if (! this.timeline)
+                {
+                    return false;
+                }
+
+                this.__findNextEvent();
+
+                this.$nextTick(function ()
+                {
+                    this.__displayTimer();
+                }.bind(this))
+            },
+
             __fetchTimeline: function()
             {
                 if (this.year)
@@ -106,15 +116,15 @@
                         this.now = timeline.now;
 
                         this.__calculateTimeOffset(timeline.now);
-
-                        this.__findNextEvent();
                     }.bind(this));
                 }
             },
 
             __isCurrentCountdownEvent: function(item)
             {
-                return item.selected;
+                var event = this.__findSelectedEvent();
+
+                return item.start == event.start && item.end == event.end;
             },
         },
 
