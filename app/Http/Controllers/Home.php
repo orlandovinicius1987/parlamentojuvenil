@@ -23,7 +23,6 @@ class Home extends BaseController
 
 	public function breno()
 	{
-		return $this->buildView('breno', null, true);
+		return $this->buildView('2016.home', null, true);
 	}
-
 }
