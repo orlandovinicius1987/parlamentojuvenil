@@ -807,13 +807,13 @@ section#home {
 *******Sobre CSS**********
 **************************/
 
-#sobre {
-  /*background-color: #396867;*/
-  background-color:#4e6aac;
-  position: relative;
-  /*width: 100%;*/
-  display: flex;
-}
+/*#sobre {*/
+  /*!*background-color: #396867;*!*/
+  /*background-color:#4e6aac;*/
+  /*position: relative;*/
+  /*!*width: 100%;*!*/
+  /*display: flex;*/
+/*}*/
 
 .guitar2 {
   top: 0;
@@ -1824,3 +1824,7 @@ section#home {
   padding-right: 40px;
 }
 
+div.info-window * {
+    color: black;
+    text-align: left;
+}
