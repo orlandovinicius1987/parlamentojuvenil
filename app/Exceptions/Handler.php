@@ -8,6 +8,7 @@ use App\Services\Views\Builder;
 use Illuminate\Support\Facades\Response;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class Handler extends ExceptionHandler
 {
@@ -35,9 +36,16 @@ class Handler extends ExceptionHandler
     {
         if ($e instanceof AlreadySubscribed)
         {
-            $view = $this->viewBuilder->buildViewData(view('2016.messages.show')->with('message', 'Inscrição já realizada. Por favor aguarde nosso contato.'));
+            $view = $this
+                        ->viewBuilder
+                        ->buildViewData(view('2016.messages.already-subscribed'));
 
             return Response::make($view);
+        }
+
+        if ($e instanceof NotFoundHttpException)
+        {
+            return Response::make(view('errors.404'));
         }
     }
 

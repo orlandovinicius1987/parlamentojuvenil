@@ -1835,5 +1835,14 @@ div.info-window * {
 }
 
 .btn-submit-subscription {
-    font-size: 32px;
+    font-size: 40px;
+}
+
+.already-subscribed-email {
+    color: white;
+}
+
+a:link, a:visited, a:hover, a:focus {
+    color: white;
+    text-decoration: none;
 }

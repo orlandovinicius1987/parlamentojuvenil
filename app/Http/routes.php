@@ -96,11 +96,11 @@ Route::group(['prefix' => 'api/v1'], function ()
 
 // Year pages
 
-Route::get('{year}', ['as' => 'home', 'uses' => 'Pages@edition'])->where('name', '[0-9][0-9][0-9][0-9]');;
+Route::get('{year}', ['as' => 'home', 'uses' => 'Pages@edition'])->where('year', '[0-9][0-9][0-9][0-9]');;
 Route::get('{year}/gallery', ['as' => 'page.gallery', 'uses' => 'Pages@gallery']);
 Route::get('{year}/news', ['as' => 'page.news', 'uses' => 'Pages@news']);
 Route::get('{year}/members', ['as' => 'page.members', 'uses' => 'Pages@members']);
 Route::get('{year}/clipping', ['as' => 'page.clipping', 'uses' => 'Pages@clipping']);
 
-// Must be last
-Route::get('{page}', ['as' => 'home', 'uses' => 'Home@page']);
+//// Must be last
+//Route::get('{page}', ['as' => 'home', 'uses' => 'Home@page']);

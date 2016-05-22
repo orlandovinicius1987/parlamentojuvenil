@@ -3,6 +3,8 @@
     <head>
         <title>Be right back.</title>
 
+        <link href="/pj2016/css/bootstrap.min.css" rel="stylesheet">
+
         <link href="//fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
 
         <style>
@@ -40,7 +42,8 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Estamos em manutenção, em breve a página retornará.</div>
+                <div class="title">Ocorreu um erro, por favor tente novamente.</div>
+                <a href="/" class="btn btn-primary btn-lg">Página inicial</a>
             </div>
         </div>
     </body>

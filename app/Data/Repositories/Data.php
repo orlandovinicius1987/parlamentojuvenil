@@ -213,7 +213,7 @@ class Data
 
         $input = $input->only($model->getFillable());
 
-        if($subscription = $model->where($input)->first())
+        if ($subscription = $model->where('cpf', $input['cpf'])->where('registration', $input['registration'])->first())
         {
             throw new AlreadySubscribed();
         }
