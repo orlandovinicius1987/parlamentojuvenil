@@ -15,9 +15,9 @@ jQuery(function($) {
 				}
 			});
 		}else{
-			
+
 			$('.main-nav').addClass('fixed-menu animated slideInDown');
-				
+
 		}
 	}
 
