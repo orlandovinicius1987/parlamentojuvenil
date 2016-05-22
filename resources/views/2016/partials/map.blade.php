@@ -1,13 +1,11 @@
 <section id="galeria" class="fundo-azul">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12 text-center">
-                <h2>Mapa das inscrições</h2>
+    <div id="vue-google-map" class="container">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 text-center">
+                    <h2>Mapa das inscrições</h2>
 
-                <div id="map_canvas" style="width: 100%; height: 300px;"></div>
-
-                <div id="vue-google-map">
-                    @{{ $data | json  }}
+                    <div id="map_canvas" style="width: 100%; height: 500px;"></div>
                 </div>
             </div>
         </div>
@@ -16,8 +14,7 @@
 
 @section('javascript')
     <script>
-        var googleMaps = null;
-        var map = null;
+        var googleMap = null;
 
         function loadScript(src,callback)
         {
@@ -190,33 +187,37 @@
                     ],
             };
 
-            console.log('initialize');
-
-            var map = new google.maps.Map(document.getElementById('map_canvas'),
-                    mapOptions);
-
-
+            googleMap = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
         }
 
-        function createMarker(map, latLng, title, icon)
+        function createGoogleMapsMarker(latLng, title, info)
         {
-            console.log('createMarker');
-
-            console.log(typeof google);
-
             if (typeof google == 'undefined')
             {
                 return false;
             }
 
-            return new google.maps.Marker(
+            var marker = new google.maps.Marker(
             {
                 position: latLng,
-                map: map,
+                map: googleMap,
                 title: title,
                 icon: '/pj2016/images/google-marker.png'
             });
+
+            console.log(info);
+
+            var infowindow = new google.maps.InfoWindow(
+            {
+                content: info
+            });
+
+            marker.addListener('click', function()
+            {
+                infowindow.open(googleMap, marker);
+            });
+
+            return marker;
         }
     </script>
 @stop
-

@@ -74,7 +74,9 @@ Route::get('auth.logout', ['as' => 'auth.logout', 'uses' => function ()
 
 Route::get('subscriptions', ['as' => 'subscriptions', 'uses' => 'Subscriptions@byState']);
 
-Route::get('subscriptions/all', ['as' => 'subscriptions.all', 'uses' => 'Subscriptions@byStudent']);
+Route::get('subscriptions/schools', ['as' => 'subscriptions.schools', 'uses' => 'Subscriptions@bySchool']);
+
+Route::get('subscriptions/students', ['as' => 'subscriptions.students', 'uses' => 'Subscriptions@byStudent']);
 
 Route::post('subscriptions', ['as' => 'subscriptions.store', 'uses' => 'Subscriptions@store']);
 

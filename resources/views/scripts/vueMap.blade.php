@@ -9,45 +9,49 @@
         el: '#vue-google-map',
 
         data: {
-            subscriptions: null,
+            schools: null,
             markers: [],
+            timeout: 5000,
         },
 
         methods: {
             __createMarkers: function ()
             {
-                this.subscriptions.forEach(function(subscription)
+                this.schools.forEach(function(school)
                 {
-                    console.log(subscription.id);
-                    console.log(subscription.school_record);
-
-                    var found = this.__findMarkerByName('CE ANTONIO DIAS LIMA');
+                    var found = this.__findMarkerByName(school.name);
+                    var marker = null;
 
                     if (isEmpty(found))
                     {
                         var LatLng = {
-                            lat: subscription.school_record.latitude,
-                            lng: subscription.school_record.longitude
+                            lat: parseFloat(school.latitude),
+                            lng: parseFloat(school.longitude),
                         };
 
-                        marker = createMarker(map, LatLng, subscription.school);
+                        var schoolInfo =
+                                '<div id="info-window" class="info-window">' +
+                                '      <div id="siteNotice"></div>' +
+                                '      <h1 id="firstHeading" class="firstHeading">'+school.name+'</h1>' +
+                                '      <div id="bodyContent">' +
+                                '            <p>Inscrições: '+school.subscriptioncount+'</p>' +
+                                '            <p>Cidade: '+school.city+'</p>' +
+                                '            <p>Bairro: '+school.neighborhood+'</p>' +
+                                '      </div>' +
+                                '</div>';
 
-//                        var marker = new googleMaps.maps.Marker(
-//                        {
-//                            position: ,
-//                            map: map,
-//                            title: ,
-//                            icon: '/pj2016/images/google-marker.png'
-//                        });
+                        marker = createGoogleMapsMarker(LatLng, school.name, schoolInfo);
 
-                        var object =
+                        if (marker)
                         {
-                            id: subscription.school_record.id,
-                            school: subscription.school,
-                            marker: marker,
-                        }
+                            var marker =
+                            {
+                                id: school.id,
+                                school: school.name,
+                            }
 
-                        this.markers.push(marker);
+                            this.markers.push(marker);
+                        }
                     }
                 }.bind(this));
             },
@@ -63,17 +67,27 @@
                 });
             },
 
+            __scheduleFetch: function()
+            {
+                setTimeout(function ()
+                {
+                    this.__fetchSubscriptions();
+                }.bind(this), this.timeout);
+            },
+
             __fetchSubscriptions: function()
             {
-                this.$http.get('/subscriptions/all', function(subscriptions)
+                this.$http.get('/subscriptions/schools', function(schools)
                 {
-                    this.subscriptions = subscriptions;
+                    this.schools = schools;
 
                     this.$nextTick(function ()
                     {
                         this.__createMarkers();
                     }.bind(this))
                 }.bind(this));
+
+                this.__scheduleFetch();
             },
         },
 

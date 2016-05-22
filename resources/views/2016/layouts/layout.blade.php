@@ -119,7 +119,7 @@
         <script type="text/javascript" src="/pj2016/js/jquery.nav.js"></script>
 
         @if (isset($isHome) && $isHome)
-            <script type="text/javascript" src="/pj2016/js/main.js"></script>
+            {{--<script type="text/javascript" src="/pj2016/js/main.js"></script>--}}
         @endif
 
         @include('scripts.all')

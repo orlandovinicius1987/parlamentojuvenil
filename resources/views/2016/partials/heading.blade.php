@@ -5,13 +5,14 @@
             <li data-target="#main-slider" data-slide-to="1"></li>
             <li data-target="#main-slider" data-slide-to="2"></li>
         </ol>
+
         <div class="carousel-inner">
             <div class="item active">
                 <img class="img-responsive" src="/pj2016/images/slider/bg_home-3-min.jpg" alt="slider">
                 <div class="carousel-caption">
                     <h2>Inscreva-se já para a edição 2016 </h2>
                     <h4>Participe do Parlamento Juvenil</h4>
-                    <a href="#inscricao">Faça a sua inscrição <i class="fa fa-angle-right"></i></a>
+                    <a href="/inscricao">Faça a sua inscrição <i class="fa fa-angle-right"></i></a>
                 </div>
             </div>
             <div class="item">

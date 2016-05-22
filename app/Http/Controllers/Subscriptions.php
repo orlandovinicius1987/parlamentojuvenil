@@ -8,6 +8,7 @@ use Input;
 use Carbon\Carbon;
 use App\Data\Entities\City;
 use Illuminate\Http\Request;
+use App\Data\Entities\School;
 use App\Http\Requests\Subscribe;
 use App\Data\Entities\Subscription;
 use App\Events\SubscriptionUpdated;
@@ -39,8 +40,19 @@ class Subscriptions extends BaseController
     public function byStudent()
     {
         return Subscription::where('subscriptions.ignored', false)
-                ->with('schoolRecord')
-                ->get();
+                ->with('city')
+                ->with('school');
+    }
+
+    public function bySchool()
+    {
+        return School::join('subscriptions', 'schools.name', '=', 'subscriptions.school')
+                     ->where('subscriptions.ignored', false)
+                     ->select(
+                         'schools.*',
+                         DB::raw('(select count(*) from subscriptions where subscriptions.ignored = false and schools.name = subscriptions.school) as subscriptionCount')
+                     )
+                     ->get();
     }
 
 	public function download()

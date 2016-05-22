@@ -1,4 +1,4 @@
-<div class="conteudo">
+<div id="sobre" class="conteudo">
     <div class="row row-eq-height">
         <div class="col-xs-12 col-md-7">
             <div class="col-xs-12 fundo-azul borda-preta o-que-e">
