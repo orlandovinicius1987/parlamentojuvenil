@@ -11,7 +11,7 @@
                     <h2>Você já está inscrito!</h2>
 
                     <div class="contact-text">
-                        <p> Caso queira alterar algum dado, por favor entre em contato com o pessoal com a gente:</p>
+                        <p>Caso queira alterar algum dado, por favor, entre em contato com a gente:</p>
                         <p><i class="fa fa-phone fa-fw"></i>(21) 2588-1202 - <a href="mailto:pjalerj@gmail.com" class="already-subscribed-email">pjalerj@gmail.com</a></p>
                     </div>
                 </div>

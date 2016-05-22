@@ -12,32 +12,34 @@
                         <br>
                         <h3><i class="fa fa-phone fa-fw"></i>(21) 2588-1202</h3>
                         <h3><a href="mailto:pjalerj@gmail.com">pjalerj@gmail.com</a></h3>
-                        <br>
-                        <i class="fa fa-facebook" aria-hidden="true"></i>
-                        <i class="fa fa-youtube" aria-hidden="true"></i>
 
+                        <br>
+
+                        <a href="https://www.facebook.com/parlamentojuvenilrio/"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                        <a href="https://www.youtube.com/user/parlamentojuvenilrj"><i class="fa fa-youtube" aria-hidden="true"></i></a>
                     </div>
                 </div>
-                <div class="col-xs-12">
-                    <div id="contact-section">
-                        <h3>Envie-nos uma Mensagem</h3>
-                        <div class="status alert alert-success" style="display: none"></div>
-                        <form id="main-contact-form" class="contact-form" name="contact-form" method="post" action="sendemail.php">
-                            <div class="form-group">
-                                <input type="text" name="name" class="form-control" required="required" placeholder="Nome">
-                            </div>
-                            <div class="form-group">
-                                <input type="email" name="email" class="form-control" required="required" placeholder="E-mail">
-                            </div>
-                            <div class="form-group">
-                                <textarea name="message" id="message" required="required" class="form-control" rows="4" placeholder="Escreva sua mensagem ..."></textarea>
-                            </div>
-                            <div class="form-group">
-                                <button type="submit" class="btn btn-primary">Enviar</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+
+                {{--<div class="col-xs-12">--}}
+                    {{--<div id="contact-section">--}}
+                        {{--<h3>Envie-nos uma Mensagem</h3>--}}
+                        {{--<div class="status alert alert-success" style="display: none"></div>--}}
+                        {{--<form id="main-contact-form" class="contact-form" name="contact-form" method="post" action="sendemail.php">--}}
+                            {{--<div class="form-group">--}}
+                                {{--<input type="text" name="name" class="form-control" required="required" placeholder="Nome">--}}
+                            {{--</div>--}}
+                            {{--<div class="form-group">--}}
+                                {{--<input type="email" name="email" class="form-control" required="required" placeholder="E-mail">--}}
+                            {{--</div>--}}
+                            {{--<div class="form-group">--}}
+                                {{--<textarea name="message" id="message" required="required" class="form-control" rows="4" placeholder="Escreva sua mensagem ..."></textarea>--}}
+                            {{--</div>--}}
+                            {{--<div class="form-group">--}}
+                                {{--<button type="submit" class="btn btn-primary">Enviar</button>--}}
+                            {{--</div>--}}
+                        {{--</form>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
             </div>
         </div>
     </div>
