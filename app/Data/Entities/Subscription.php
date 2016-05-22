@@ -14,6 +14,7 @@ class Subscription extends Model
 		'city',
 		'school',
 		'registration',
+        'grade',
 		'gender',
 		'gender2',
 		'birthdate',

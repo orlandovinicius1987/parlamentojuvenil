@@ -6,16 +6,16 @@ use App\Data\Entities\Subscription;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
-class SubscriptionUpdated extends Event implements ShouldBroadcast
+class SubscriptionWasUpdated extends Event implements ShouldBroadcast
 {
     use SerializesModels;
 
 	public $subscription;
 
-	/**
+    /**
      * Create a new event instance.
      *
-     * @return void
+     * @param Subscription $subscription
      */
     public function __construct(Subscription $subscription)
     {
@@ -29,6 +29,6 @@ class SubscriptionUpdated extends Event implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return ['subscription.updated'];
+        return ['subscriptions'];
     }
 }

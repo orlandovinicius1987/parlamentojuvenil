@@ -4,14 +4,14 @@
         return Object.keys(obj).length == 0;
     }
 
-    var subscribe = new Vue(
+    var vueMap = new Vue(
     {
         el: '#vue-google-map',
 
         data: {
             schools: null,
             markers: [],
-            timeout: 5000,
+            timeout: 1000,
         },
 
         methods: {
@@ -87,7 +87,14 @@
                     }.bind(this))
                 }.bind(this));
 
-                this.__scheduleFetch();
+                if (this.timeout < 10000)
+                {
+                    this.__scheduleFetch();
+
+                    this.timeout = this.timeout * 2;
+
+                    console.log(this.timeout);
+                }
             },
         },
 

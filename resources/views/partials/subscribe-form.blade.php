@@ -26,8 +26,8 @@
         <div class="form-group col-xs-12 floating-label-form-group controls">
             <label for="city" class="sr-only control-label">Município</label>
             <select id="city-edit" v-model="city" v-on="change: fetchSchools" class="form-control input-lg" placeholder="Município" name="city" id="city" required data-validation-required-message="Por favor preencha o município.">
-                <option value="">CIDADE AONDE VOCÊ ESTUDA</option>
-                @foreach ($cities as $city)
+                <option value="" selected>CIDADE AONDE VOCÊ ESTUDA</option>
+                @foreach ($cities as $key => $city)
                     <option value="{{ $city->name }}" {{ Input::old('city') == $city->name ? 'selected' : '' }}>{{ $city->name }}</option>
                 @endforeach
             </select>
@@ -45,9 +45,18 @@
 
     {{-- Matricula --}}
     <div class="row control-group"  v-transition="expand">
-        <div class="form-group col-xs-12 floating-label-form-group controls">
+        <div class="form-group col-xs-6 floating-label-form-group controls">
             <label for="registration" class="sr-only control-label">Matrícula</label>
-            <input v-model="registration" type="text" class="form-control input-lg" value="{{ Input::old('registration') }}" placeholder="Matrícula" name="registration" id="registration" required data-validation-required-message="Por favor digite sua data de nascimento.">
+            <input v-model="registration" type="text" class="form-control input-lg" value="{{ Input::old('registration') }}" placeholder="Matrícula" name="registration" id="registration" required data-validation-required-message="Por favor digite sua matrícula.">
+            <span class="help-block text-danger"></span>
+        </div>
+        <div class="form-group col-xs-6 floating-label-form-group controls">
+            <label for="registration" class="sr-only control-label">Série</label>
+            <select v-model="grade" class="form-control input-lg" placeholder="Sexo" name="grade" id="grade" required data-validation-required-message="Por favor preencha a série.">
+                <option value="" selected>ESCOLHA A SÉRIE</option>
+                <option value="1o ano do ensino médio" {{ Input::old('grade') == '1o ano do ensino médio' ? 'selected' : '' }}>1o ano do ensino médio</option>
+                <option value="2o ano do ensino médio" {{ Input::old('grade') == '2o ano do ensino médio' ? 'selected' : '' }}>2o ano do ensino médio</option>
+            </select>
             <span class="help-block text-danger"></span>
         </div>
     </div>
@@ -57,7 +66,7 @@
         <div class="form-group col-lg-4 floating-label-form-group controls">
             <label for="gender" class="sr-only control-label">Sexo</label>
             <select v-model="gender" class="form-control input-lg" placeholder="Sexo" name="gender" id="gender" required data-validation-required-message="Por favor preencha o sexo.">
-                <option value="">SEXO</option>
+                <option value="" selected>SEXO</option>
                 <option value="F" {{ Input::old('gender') == 'F' ? 'selected' : '' }}>Feminino</option>
                 <option value="M" {{ Input::old('gender') == 'M' ? 'selected' : '' }}>Masculino</option>
             </select>
@@ -66,7 +75,7 @@
         <div class="form-group col-lg-8 floating-label-form-group controls">
             <label for="gender2" class="sr-only control-label">Identidade de Gênero</label>
             <select v-model="gender2" class="form-control input-lg" placeholder="Identidade de Gênero" name="gender2" id="gender2" required data-validation-required-message="Por favor preencha a identidade de gênero.">
-                <option value="">IDENTIDADE DE GÊNERO</option>
+                <option value="" selected>IDENTIDADE DE GÊNERO</option>
                 <option value="F" {{ Input::old('gender2') == 'F' ? 'selected' : '' }}>Feminino</option>
                 <option value="M" {{ Input::old('gender2') == 'M' ? 'selected' : '' }}>Masculino</option>
             </select>
@@ -79,13 +88,11 @@
         <div class="form-group col-xs-6 floating-label-form-group controls">
             <label for="birthdate" class="sr-only control-label">Data de nascimento</label>
             <input v-model="birthdate" type="text" class="form-control input-lg" value="{{ Input::old('birthdate') }}" onkeydown="return false;" placeholder="Data de nascimento" name="birthdate" id="birthdate" required data-validation-required-message="Por favor digite sua data de nascimento.">
-            <span class="fa fa-calendar form-control-feedback" aria-hidden="true" style="color: #000000;"></span>
-            <span class="help-block text-danger"></span>
         </div>
 
         <div class="form-group col-xs-6 floating-label-form-group controls">
             <label for="cpf" class="sr-only control-label">CPF</label>
-            <input v-model="cpf" v-on="keyup: checkCpf" type="text" class="form-control input-lg" value="{{ Input::old('cpf') }}" title="Seu CPF ou do responsável" placeholder="CPF" name="cpf" id="cpf" required data-validation-required-message="Por favor digite sua data de nascimento.">
+            <input v-model="cpf" v-on="keyup: checkCpf" type="text" class="form-control input-lg" value="{{ Input::old('cpf') }}" title="Seu CPF ou do responsável" placeholder="CPF" name="cpf" id="cpf" required data-validation-required-message="Por favor digite seu CPF.">
             <span class="help-block text-danger"></span>
         </div>
     </div>
@@ -94,12 +101,12 @@
     <div class="row control-group"  v-transition="expand">
         <div class="form-group col-xs-6 floating-label-form-group controls">
             <label for="id_number" class="sr-only control-label">Identidade</label>
-            <input v-model="id_number" type="text" class="form-control input-lg" value="{{ Input::old('id_number') }}" placeholder="Identidade" name="id_number" id="id_number" required data-validation-required-message="Por favor digite sua data de nascimento.">
+            <input v-model="id_number" type="text" class="form-control input-lg" value="{{ Input::old('id_number') }}" placeholder="Identidade" name="id_number" id="id_number" required data-validation-required-message="Por favor digite sua identidade.">
             <span class="help-block text-danger"></span>
         </div>
         <div class="form-group col-xs-6 floating-label-form-group controls">
             <label for="id_issuer" class="sr-only control-label">Órgão emissor</label>
-            <input v-model="id_issuer" type="text" class="form-control input-lg" value="{{ Input::old('id_issuer') }}" placeholder="Órgão emissor" name="id_issuer" id="id_issuer" required data-validation-required-message="Por favor digite sua data de nascimento.">
+            <input v-model="id_issuer" type="text" class="form-control input-lg" value="{{ Input::old('id_issuer') }}" placeholder="Órgão emissor" name="id_issuer" id="id_issuer" required data-validation-required-message="Por favor digite o órgao emissor.">
             <span class="help-block text-danger"></span>
         </div>
     </div>
@@ -108,7 +115,7 @@
     <div class="row control-group"  v-transition="expand">
         <div class="form-group col-xs-12 floating-label-form-group controls">
             <label for="email" class="sr-only control-label">E-mail</label>
-            <input v-model="email" type="text" class="form-control input-lg" value="{{ Input::old('email') }}" placeholder="E-mail" name="email" id="email" required data-validation-required-message="Por favor digite sua data de nascimento.">
+            <input v-model="email" type="text" class="form-control input-lg" value="{{ Input::old('email') }}" placeholder="E-mail" name="email" id="email" required data-validation-required-message="Por favor digite o seu email.">
             <span class="help-block text-danger"></span>
         </div>
     </div>
@@ -123,7 +130,7 @@
 
         <div class="form-group col-lg-6 floating-label-form-group controls">
             <label for="phone_cellular" class="sr-only control-label">Telefone Celular</label>
-            <input v-model="phone_cellular" type="tel" class="form-control input-lg" value="{{ Input::old('phone_cellular') }}" placeholder="Telefone Celular" name="phone_cellular" id="phone_cellular" required data-validation-required-message="Por favor digite seu telefone.">
+            <input v-model="phone_cellular" type="tel" class="form-control input-lg" value="{{ Input::old('phone_cellular') }}" placeholder="Telefone Celular" name="phone_cellular" id="phone_cellular" required data-validation-required-message="Por favor digite seu telefone celular.">
             <span class="help-block text-danger"></span>
         </div>
     </div>
@@ -132,7 +139,7 @@
     <div class="row control-group"  v-transition="expand">
         <div class="form-group col-lg-12 floating-label-form-group controls">
             <label for="zip_code" class="sr-only control-label">CEP da residência</label>
-            <input v-model="zip_code" v-on="keyup: checkZip" type="tel" value="{{ Input::old('zip_code') }}" class="form-control input-lg" placeholder="CEP da residência" name="zip_code" id="zip_code" required data-validation-required-message="Por favor digite seu telefone.">
+            <input v-model="zip_code" v-on="keyup: checkZip" type="tel" value="{{ Input::old('zip_code') }}" class="form-control input-lg" placeholder="CEP da residência" name="zip_code" id="zip_code" required data-validation-required-message="Por favor digite seu CEP.">
             <span class="help-block text-danger"></span>
         </div>
     </div>
@@ -141,7 +148,7 @@
     <div class="row control-group"  v-transition="expand">
         <div class="form-group col-lg-12 floating-label-form-group controls">
             <label for="address" class="sr-only control-label">Endereço</label>
-            <input v-model="address" type="tel" class="form-control input-lg" value="{{ Input::old('address') }}" placeholder="Endereço" name="address" id="address" required data-validation-required-message="Por favor digite seu telefone.">
+            <input v-model="address" type="tel" class="form-control input-lg" value="{{ Input::old('address') }}" placeholder="Endereço" name="address" id="address" required data-validation-required-message="Por favor digite seu endereço.">
             <span class="help-block text-danger"></span>
         </div>
     </div>
@@ -183,7 +190,7 @@
 
     <div class="row"  v-transition="expand">
         <div class="form-group col-xs-12">
-            <button id="submit" type="submit" class="btn btn-lg btn-primary btn-block">Enviar inscri&ccedil;&atilde;o</button>
+            <button id="submit" type="submit" class="btn btn-lg btn-primary btn-block btn-submit-subscription">Enviar inscri&ccedil;&atilde;o</button>
         </div>
 
         @if(app()->environment() !== 'production')

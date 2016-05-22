@@ -202,10 +202,8 @@
                 position: latLng,
                 map: googleMap,
                 title: title,
-                icon: '/pj2016/images/google-marker.png'
+                icon: '/pj2016/images/markers/10.png'
             });
-
-            console.log(info);
 
             var infowindow = new google.maps.InfoWindow(
             {

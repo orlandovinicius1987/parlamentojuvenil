@@ -1833,3 +1833,7 @@ div.info-window * {
     height: 60px;
     line-height: 60px;
 }
+
+.btn-submit-subscription {
+    font-size: 32px;
+}

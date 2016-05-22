@@ -2,11 +2,13 @@
 
 namespace App\Data\Repositories;
 
+use App\Data\Entities\School;
 use App\Services\Views\Builder;
 use Jenssegers\Date\Date as Carbon;
-use App\Events\SubscriptionUpdated;
 use App\Data\Entities\Subscription;
+use Illuminate\Support\Facades\Mail;
 use App\Exceptions\AlreadySubscribed;
+use App\Events\SubscriptionWasCreated;
 use App\Services\News\Service as SyncNewsService;
 use Illuminate\Support\Collection as IlluminateCollection;
 
@@ -158,6 +160,46 @@ class Data
         $this->viewBuilder = $viewBuilder;
     }
 
+    public function sendSubscriptionCreatedMail($subscription)
+    {
+        $school = School::where('name', $subscription->school)->first();
+
+        $data = [
+            'school_name' => $school->name,
+            'school_email' => $school->email,
+            'name' => $subscription->name,
+            'registration' => $subscription->registration,
+            'grade' => $subscription->grade,
+            'birthdate' => $subscription->birthdate,
+            'cpf' => $subscription->cpf,
+            'phone_home' => $subscription->phone_home,
+            'phone_cellular' => $subscription->phone_cellular,
+            'email' => $subscription->email,
+            'address' => $subscription->address,
+            'address_complement' => $subscription->address_complement,
+            'address_neighborhood' => $subscription->address_neighborhood,
+            'city' => $subscription->city,
+        ];
+
+        if (! $school)
+        {
+            return false;
+        }
+
+        Mail::send('emails.new-subscription', ['data' => $data], function ($m) use ($data)
+        {
+            $subject = 'Inscrição no Parlamento Juvenil: ' . $data['name'];
+
+//            $m->to($data['school_email'], $data['school_name'])->subject($subject);
+//
+//            $m->to('PJALERJ@GMAIL.COM', 'Parlamento Juvenil')->subject($subject);
+
+            $m->to('acr@antoniocarlosribeiro.com', 'Antonio Carlos Ribeiro')->subject($subject);
+
+            $m->to('afaria@alerj.rj.gov.br', 'Antonio Carlos Ribeiro (Alerj)')->subject($subject);
+        });
+    }
+
     public function getTimeline($year)
     {
         $timeline = $this->makeTimelineData($this->timeline[$year]);
@@ -178,7 +220,7 @@ class Data
 
         $subscription = Subscription::firstOrCreate($input);
 
-        app('events')->fire(new SubscriptionUpdated($subscription));
+        event(new SubscriptionWasCreated($subscription));
 
         return $subscription;
     }
@@ -191,8 +233,8 @@ class Data
         {
             $now = Carbon::now();
 
-            $start = Carbon::createFromFormat('Y-m-d H:i:s', $item['start']);
-            $end = Carbon::createFromFormat('Y-m-d H:i:s', $item['end']);
+            $start = Carbon::createFromFormat('Y-m-d H:i:s', $item['start'])->addSeconds(env('TIME_OFFSET_ADD'));
+            $end = Carbon::createFromFormat('Y-m-d H:i:s', $item['end'])->addSeconds(env('TIME_OFFSET_ADD'));
 
             $timeline[$key]['startW3c'] = $start->toW3cString();
             $timeline[$key]['endW3c'] = $end->toW3cString();

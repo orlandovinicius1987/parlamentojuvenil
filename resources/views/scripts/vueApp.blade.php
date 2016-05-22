@@ -268,10 +268,19 @@
     {
         this.pusher = new Pusher('2c6e7075be562704023d');
 
-        this.pusherChannel = this.pusher.subscribe('subscription.updated');
+        this.pusherChannel = this.pusher.subscribe('subscriptions');
 
-        this.pusherChannel.bind('App\\Events\\SubscriptionUpdated', function(message) {
+        this.pusherChannel.bind('App\\Events\\SubscriptionWasUpdated', function(message)
+        {
+            console.log('App\\Events\\SubscriptionUpdated');
             vueAdminIndex.__fetchSubscriptions();
+        });
+
+        this.pusherChannel.bind('App\\Events\\SubscriptionWasCreated', function(message)
+        {
+            console.log('App\\Events\\SubscriptionWasCreated');
+            vueAdminIndex.__fetchSubscriptions();
+            vueMap.__scheduleFetch();
         });
 
         console.log('Pusher loaded');

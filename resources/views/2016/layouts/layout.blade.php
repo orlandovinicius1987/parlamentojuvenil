@@ -118,6 +118,9 @@
         <script type="text/javascript" src="/pj2016/js/jquery.scrollTo.js"></script>
         <script type="text/javascript" src="/pj2016/js/jquery.nav.js"></script>
 
+        <!-- Pusher -->
+        <script src="http://js.pusher.com/3.1/pusher.min.js"></script>
+
         @if (isset($isHome) && $isHome)
             {{--<script type="text/javascript" src="/pj2016/js/main.js"></script>--}}
         @endif
@@ -125,5 +128,9 @@
         @include('scripts.all')
 
         @yield('javascript')
+
+        <script>
+            loadPusher();
+        </script>
     </body>
 </html>

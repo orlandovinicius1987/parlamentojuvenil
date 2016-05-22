@@ -11,8 +11,8 @@ use Illuminate\Http\Request;
 use App\Data\Entities\School;
 use App\Http\Requests\Subscribe;
 use App\Data\Entities\Subscription;
-use App\Events\SubscriptionUpdated;
 use Maatwebsite\Excel\Facades\Excel;
+use App\Events\SubscriptionWasUpdated;
 use App\Http\Controllers\Controller as BaseController;
 
 class Subscriptions extends BaseController
@@ -119,7 +119,7 @@ class Subscriptions extends BaseController
 		$subscription->ignored = ! $subscription->ignored;
 		$subscription->save();
 
-		Event::fire(new SubscriptionUpdated($subscription));
+		event(new SubscriptionWasUpdated($subscription));
 
 		return redirect()->back();
 	}

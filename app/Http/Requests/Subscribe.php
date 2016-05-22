@@ -29,7 +29,7 @@ class Subscribe extends Request
             'registration' => 'required',
             'gender' => 'required',
             'gender2' => 'required',
-            'birthdate' => 'required|date|date_format:d/m/Y',
+            'birthdate' => 'required|date_format:d/m/Y',
             'cpf' => 'required|cpf',
             'id_number' => 'required',
             'id_issuer' => 'required',
@@ -41,7 +41,6 @@ class Subscribe extends Request
             'address_complement' => 'required',
             'address_neighborhood' => 'required',
             'address_city' => 'required',
-            'facebook' => 'required',
         ];
     }
 }
