@@ -1828,3 +1828,8 @@ div.info-window * {
     color: black;
     text-align: left;
 }
+
+.input-lg {
+    height: 60px;
+    line-height: 60px;
+}
