@@ -10,7 +10,7 @@
                     <div class="contact-text">
                         <div><h2>Contato</h2></div>
                         <br>
-                        <h3><i class="fa fa-phone fa-fw"></i>(21) 2588-1202</h3>
+                        <h3><i class="fa fa-phone fa-fw"></i>(21) 2588-1202 / 2588-1536</h3>
                         <h3><a href="mailto:pjalerj@gmail.com">pjalerj@gmail.com</a></h3>
 
                         <br>

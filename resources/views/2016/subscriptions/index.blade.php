@@ -18,7 +18,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs12">
-                    @include('partials.subscribe-form')
+                    @if ($canSubscribe)
+                        @include('partials.subscribe-form')
+                    @else
+                        <h2>Você já está inscrito!</h2>
+                    @endif
                 </div>
             </div>
         </div>
