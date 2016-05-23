@@ -391,7 +391,7 @@ section#home {
 
 .fixed-menu .navbar-right li a {
   font-size: 16px;
-  padding: 23px 15px;
+  padding: 23px 13px;
   text-shadow: inherit;
   height: 67px;
 }
@@ -1440,6 +1440,7 @@ section#home {
   list-style: none;
   padding: 20px 0 20px;
   position: relative;
+  margin-bottom: 30px;
 }
 
 .timeline:before {
