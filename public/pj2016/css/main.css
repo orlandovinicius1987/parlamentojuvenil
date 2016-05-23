@@ -536,6 +536,7 @@ section#home {
 
 #titulo {
   margin-top: 90px;
+  padding: 60px 0 60px 0;
 }
 
 #explore {
@@ -1078,6 +1079,7 @@ section#home {
   border-right: 4px black solid;
   /*padding: 5px;*/
   /*margin-bottom: 30px;*/
+  margin-right: 10px;
 }
 
 #depoimentos-feed .item a,
@@ -1874,4 +1876,17 @@ select.input-lg {
   flex:1 0 auto;
 }
 
+.fundo-inscricao {
+  background-image: url("../images/imagem-top-inscreva-se.png");
+}
+
+#titulo h1 {
+  opacity: 0.8;
+  margin-bottom: -59px;
+}
+
+#video {
+  margin: 10px;
+  border: 4px black solid;
+}
 
