@@ -3,10 +3,10 @@
         <div class="container">
             <div class="header-top">
                 <div class="pull-right social-icons">
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-google-plus"></i></a>
-                    <a href="#"><i class="fa fa-youtube"></i></a>
+                    {{--<a href="https://twitter.com/alerj" target="_blank"><i class="fa fa-twitter"></i></a>--}}
+                    <a href="https://www.facebook.com/parlamentojuvenilrio/" target="_blank"><i class="fa fa-facebook"></i></a>
+                    {{--<a href="#" target="_blank"><i class="fa fa-google-plus"></i></a>--}}
+                    <a href="https://www.youtube.com/user/parlamentojuvenilrj" target="_blank"><i class="fa fa-youtube"></i></a>
                 </div>
             </div>
             <div class="row">

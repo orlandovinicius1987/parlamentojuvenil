@@ -1,4 +1,4 @@
-@extends('pragmarx/sdk::html')
+@extends('layouts.html')
 
 @section('html.head')
     <!-- jQuery -->
