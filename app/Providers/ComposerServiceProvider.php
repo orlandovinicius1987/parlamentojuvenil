@@ -26,23 +26,19 @@ class ComposerServiceProvider extends ServiceProvider {
 
 			$view->with('html_title', Config::get('app.name'));
 
-			$view->with('html_keywords', 'politico,clipping,politics');
+			$view->with('html_keywords', 'parlamento juvenil,leis,parlamento,jovens,legislacao');
 
 			$view->with('html_meta_tags', ['<!--<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">-->']);
 
 			$view->with('html_description', '');
 
-			$view->with('html_author', 'Antonio Carlos Ribeiro [https://antoniocarlosribeiro.com]');
+			$view->with('html_author', 'ALERJ [https://www.alerj.rj.gov.br]');
 
 			$view->with('html_viewport', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
 
 			$view->with('html_body_attributes', []);
 
 			$view->with('html_body_show_main_header', true);
-
-//			$view->with('html_navigation', app('ConsultorioDigital\Services\Navigation\Page')->get());
-
-//			$view->with('html_breadcrumbs', app('ConsultorioDigital\Services\Navigation\Breadcrumbs')->get());
 		});
 
 		View::composer('*', function($view)

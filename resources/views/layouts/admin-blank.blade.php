@@ -68,7 +68,7 @@
     {{--<script src="{{url('/')}}/vendor/bootstrap/dist/js/bootstrap.min.js"></script>--}}
 
     <!-- Morris Charts JavaScript -->
-    <script src="{{url('/')}}/vendor/raphael/raphael-min.js"></script>
+    <script src="{{url('/')}}/vendor/raphael/raphael.min.js"></script>
     <script src="{{url('/')}}/vendor/morrisjs/morris.min.js"></script>
 
     {{--<script src="../js/morris-data.js"></script>--}}
@@ -89,17 +89,17 @@
     <!-- Pusher -->
     <script src="http://js.pusher.com/2.2/pusher.min.js"></script>
 
-    <!-- Our Vue App -->
-    <script src="js/app.js"></script>
-
     <!-- Moment.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/locale/pt-br.js"></script>
 
     @yield('javascript')
 
+    @include('scripts.vueApp')
+
     <script>
         /// We are using pusher only on the admin site
+
         loadPusher();
     </script>
 @stop

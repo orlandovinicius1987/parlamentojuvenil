@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="{!! $html_lang or 'en' !!}"> <!--<![endif]-->
+<html lang="pt_br"> <!--<![endif]-->
 	<head>
-		<meta charset="{!! $html_charset or 'utf-8' !!}" />
+		<meta charset="utf-8" />
 
         @if (isset($html_title))
             <title>{{ $html_title }}</title>
@@ -26,10 +26,8 @@
 	</head>
 
 	<body>
-
 		@yield('html.body')
 
 		@yield('html.footer')
-
 	</body>
 </html>

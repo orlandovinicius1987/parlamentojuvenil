@@ -74,7 +74,7 @@
                                     </td>
 
                                     <td class="@{{ subscriptioncount ? 'success' : 'danger' }}">
-                                        <a href="/admin/@{{ city }}">@{{ city }}</a>
+                                        <a href="{{ route('admin.home') }}/@{{ city }}">@{{ city }}</a>
                                     </td>
 
                                     <td class="@{{ subscriptioncount ? 'success' : 'danger' }}">
