@@ -5,6 +5,8 @@
 
     @include('2016.partials.heading')
 
+    @include('2016.partials.subscribe')
+
     @include('2016.partials.about')
 
     @include('2016.partials.map')
