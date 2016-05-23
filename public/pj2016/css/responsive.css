@@ -500,5 +500,13 @@
   #sobre .row, #sobre .row > div[class*='col-'] {
     display: block;
   }
+
+  #countdown li:last-child {
+    margin-right: 15px;
+  }
+  
+  ul.timeline > li > .timeline-panel:before {
+    left: -19px;
+  }
 }
 
