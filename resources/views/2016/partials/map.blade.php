@@ -1,4 +1,4 @@
-<section id="galeria" class="fundo-azul">
+<section id="mapa" class="fundo-azul">
     <div id="vue-google-map" class="container">
         <div class="container">
             <div class="row">

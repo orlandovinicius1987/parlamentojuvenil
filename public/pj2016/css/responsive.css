@@ -504,9 +504,15 @@
   #countdown li:last-child {
     margin-right: 15px;
   }
-  
+
   ul.timeline > li > .timeline-panel:before {
     left: -19px;
+  }
+
+  .timeline > li > .timeline-end {
+    left: 28px;
+    margin-left: 0;
+    top: 30px;
   }
 }
 

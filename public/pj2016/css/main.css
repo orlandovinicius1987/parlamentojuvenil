@@ -1629,9 +1629,9 @@ section#home {
   }
 
   ul.timeline > li > .timeline-badge {
-    left: 15px;
+    left: 28px;
     margin-left: 0;
-    top: 16px;
+    top: 30px;
   }
 
   ul.timeline > li > .timeline-panel {
@@ -1641,7 +1641,7 @@ section#home {
   ul.timeline > li > .timeline-panel:before {
     border-left-width: 0;
     border-right-width: 15px;
-    left: -15px;
+    left: -19px;
     right: auto;
   }
 
