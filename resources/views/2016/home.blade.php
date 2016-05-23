@@ -9,6 +9,8 @@
 
     @include('2016.partials.about')
 
+    @include('2016.partials.video')
+
     @include('2016.partials.map')
 
     @include('2016.partials.timeline')
