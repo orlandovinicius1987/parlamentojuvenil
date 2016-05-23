@@ -171,9 +171,9 @@
   }
 
   #explore h2 {
-    float: inherit;
-    font-size: 30px;
-    margin-bottom: 30px;
+    /*float: inherit;*/
+    /*font-size: 30px;*/
+    /*margin-bottom: 30px;*/
   }  
 
   #countdown li {
@@ -336,9 +336,9 @@
   }
 
   #explore h2 {
-    float: inherit;
-    font-size: 30px;
-    margin-bottom: 30px;
+    /*float: inherit;*/
+    /*font-size: 30px;*/
+    /*margin-bottom: 30px;*/
   }  
 
   #countdown li {
@@ -447,5 +447,58 @@
     background-size: cover;
   }
 
+}
+
+/* Mobile */
+@media (max-width: 479px) {
+
+  .container {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  section {
+    padding: 0;
+  }
+
+  .margem {
+    margin: -10px;
+    margin-bottom: 30px;
+    margin-top: 15px;
+  }
+
+  .o-que-e {
+    padding: 15px;
+  }
+
+  #noticias .container .row .col-xs-12 {
+    padding-left: 7px;
+    padding-right: 7px;
+  }
+
+  #downloads .caixa-vermelha {
+    width: auto;
+    margin-top: -3px;
+  }
+
+  #downloads h2 {
+    margin-top: 0px;
+  }
+
+  #downloads .caixa-preta {
+    width: auto;
+  }
+
+  .conteudo h3 {
+    top: -35px;
+  }
+
+  .timeline-title {
+    font-size: 13px;
+  }
+
+  #sobre .row, #sobre .row > div[class*='col-'] {
+    display: block;
+  }
 }
 
