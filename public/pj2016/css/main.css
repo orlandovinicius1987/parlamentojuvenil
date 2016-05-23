@@ -1885,3 +1885,8 @@ select.input-lg {
   margin-bottom: -59px;
 }
 
+#video {
+  margin: 10px;
+  border: 4px black solid;
+}
+
