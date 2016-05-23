@@ -31,7 +31,7 @@
 
                 <div class="col-xs-12 col-lg-4">
                     <div class="classWithPad caixa-amarela">
-                        <a href="http://www.parlamento-juvenil.rj.gov.br/download/documentos-necessarios-para-participar-parlamento-juvenil.zip" class="btn border-button">
+                        <a href="http://www.parlamento-juvenil.rj.gov.br/download/documentos-necessarios-para-participar-parlamento-juvenil-2016.zip" class="btn border-button">
                             <img src="/pj2016/images/documentos.png" class="img-responsive">
                         </a>
                         <p>Documentos para Participar</p>
