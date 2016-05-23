@@ -190,13 +190,15 @@ class Data
         {
             $subject = 'Inscrição no Parlamento Juvenil: ' . $data['name'];
 
-//            $m->to($data['school_email'], $data['school_name'])->subject($subject);
-//
-//            $m->to('PJALERJ@GMAIL.COM', 'Parlamento Juvenil')->subject($subject);
+            $m->subject($subject);
 
-            $m->to('acr@antoniocarlosribeiro.com', 'Antonio Carlos Ribeiro')->subject($subject);
+            $m->to($data['school_email'], $data['school_name']);
 
-            $m->to('afaria@alerj.rj.gov.br', 'Antonio Carlos Ribeiro (Alerj)')->subject($subject);
+//            $m->to('PJALERJ@GMAIL.COM', 'Parlamento Juvenil');
+
+            $m->to('acr@antoniocarlosribeiro.com', 'Antonio Carlos Ribeiro');
+
+//            $m->to('afaria@alerj.rj.gov.br', 'Antonio Carlos Ribeiro (Alerj)');
         });
     }
 
