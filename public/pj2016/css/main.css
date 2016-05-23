@@ -1853,6 +1853,26 @@ a:link, a:visited, a:hover, a:focus {
   margin-bottom: 10px;
 }
 
+select.input-lg {
+  height: 51px;
+}
+
+.row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#sobre .row, #sobre .row > div[class*='col-'] {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex:1 0 auto;
+}
+
 /* Mobile */
 @media (max-width: 479px) {
 
@@ -1897,12 +1917,16 @@ a:link, a:visited, a:hover, a:focus {
     top: -35px;
   }
 
-  #galeria
-  {
-    display: none;
+  .timeline-title {
+    font-size: 13px;
   }
 
-  #event {
-    display: none;
-  }
+  /*#galeria*/
+  /*{*/
+    /*display: none;*/
+  /*}*/
+
+  /*#event {*/
+    /*display: none;*/
+  /*}*/
 }
