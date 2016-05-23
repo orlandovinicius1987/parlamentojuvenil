@@ -213,7 +213,7 @@ class Data
 
         $input = $input->only($model->getFillable());
 
-        if ($subscription = $model->where('cpf', $input['cpf'])->where('registration', $input['registration'])->first())
+        if($subscription = $model->where('cpf', $input['cpf'])->where('registration', $input['registration'])->first())
         {
             throw new AlreadySubscribed();
         }
@@ -233,11 +233,14 @@ class Data
         {
             $now = Carbon::now();
 
-            $start = Carbon::createFromFormat('Y-m-d H:i:s', $item['start'])->addSeconds(env('TIME_OFFSET_ADD'));
-            $end = Carbon::createFromFormat('Y-m-d H:i:s', $item['end'])->addSeconds(env('TIME_OFFSET_ADD'));
+            $start = Carbon::createFromFormat('Y-m-d H:i:s', $item['start']);
+            $end = Carbon::createFromFormat('Y-m-d H:i:s', $item['end']);
 
-            $timeline[$key]['startW3c'] = $start->toW3cString();
-            $timeline[$key]['endW3c'] = $end->toW3cString();
+            $startW3c = Carbon::createFromFormat('Y-m-d H:i:s', $item['start'])->addSeconds(env('TIME_OFFSET_ADD'));
+            $endW3c = Carbon::createFromFormat('Y-m-d H:i:s', $item['end'])->addSeconds(env('TIME_OFFSET_ADD'));
+
+            $timeline[$key]['startW3c'] = $startW3c->toW3cString();
+            $timeline[$key]['endW3c'] = $endW3c->toW3cString();
 
             $end->addSeconds(2);
 
