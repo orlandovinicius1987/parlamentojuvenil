@@ -108,17 +108,18 @@ class SchoolsSeeder extends Seeder
 
             $parts = explode("\t", $school);
 
-			School::create([
-				'regional' => $parts[1],
-				'city' => $parts[2],
-				'city_id' => $this->findCityByName($parts[2])->id,
-				'censo' => $parts[0],
-				'name' => $parts[3],
-                'email' => $parts[4],
-				'address' => '', // $parts[3],
-				'phone' => '', //$parts[4],
-				'ua' => '', //$parts[1],
-			]);
+            $school = School::firstOrNew(array('name' => $parts[3]));
+
+            $school->fill([
+                              'regional' => $parts[1],
+                              'city' => $parts[2],
+                              'city_id' => $this->findCityByName($parts[2])->id,
+                              'censo' => $parts[0],
+                              'name' => $parts[3],
+                              'email' => $parts[4],
+                          ]);
+
+            $school->save();
 		}
 	}
 

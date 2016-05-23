@@ -15,8 +15,8 @@
 
                         <br>
 
-                        <a href="https://www.facebook.com/parlamentojuvenilrio/"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                        <a href="https://www.youtube.com/user/parlamentojuvenilrj"><i class="fa fa-youtube" aria-hidden="true"></i></a>
+                        <a href="https://www.facebook.com/parlamentojuvenilrio/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                        <a href="https://www.youtube.com/user/parlamentojuvenilrj" target="_blank"><i class="fa fa-youtube" aria-hidden="true"></i></a>
                     </div>
                 </div>
 
