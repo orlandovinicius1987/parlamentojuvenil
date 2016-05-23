@@ -57,7 +57,7 @@ Route::any('dados', function ($city)
 	}
 });
 
-Route::group(['prefix' => 'admin'], function ()
+Route::group(['prefix' => 'admin/2016'], function ()
 {
 	Route::get('/', ['as' => 'admin.home', 'uses' => 'Admin@index']);
 

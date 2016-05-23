@@ -20,7 +20,7 @@
                 <div class="carousel-caption">
                     <h2>Edição 2015 </h2>
                     <h4>Saiba o que aconteceu na 9ª edição</h4>
-                    <a href="/2015">Saiba Mais <i class="fa fa-angle-right"></i></a>
+                    <a href="/">Saiba Mais <i class="fa fa-angle-right"></i></a>
                 </div>
             </div>
             <div class="item">
