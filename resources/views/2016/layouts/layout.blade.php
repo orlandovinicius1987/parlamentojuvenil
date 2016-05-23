@@ -132,5 +132,7 @@
         <script>
             loadPusher();
         </script>
+
+        @include('partials.analytics')
     </body>
 </html>

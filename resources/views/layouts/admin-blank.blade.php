@@ -102,4 +102,6 @@
 
         loadPusher();
     </script>
+
+    @include('partials.analytics')
 @stop
