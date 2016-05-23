@@ -1846,3 +1846,63 @@ a:link, a:visited, a:hover, a:focus {
     color: white;
     text-decoration: none;
 }
+
+
+#map_canvas {
+  border: 3px black solid;
+  margin-bottom: 10px;
+}
+
+/* Mobile */
+@media (max-width: 479px) {
+
+  .container {
+     padding-left: 0px;
+     padding-right: 0px;
+  }
+
+  section {
+    padding: 0;
+  }
+
+  .margem {
+    margin: -10px;
+    margin-bottom: 30px;
+    margin-top: 15px;
+  }
+
+  .o-que-e {
+    padding: 15px;
+  }
+
+  #noticias .container .row .col-xs-12 {
+    padding-left: 7px;
+    padding-right: 7px;
+  }
+
+  #downloads .caixa-vermelha {
+    width: auto;
+    margin-top: -3px;
+  }
+
+  #downloads h2 {
+    margin-top: 0px;
+  }
+
+  #downloads .caixa-preta {
+    width: auto;
+  }
+
+  .conteudo h3 {
+    top: -35px;
+  }
+
+  #galeria
+  {
+    display: none;
+  }
+
+  #event {
+    display: none;
+  }
+}
