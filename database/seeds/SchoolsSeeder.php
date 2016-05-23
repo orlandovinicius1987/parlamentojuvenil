@@ -51,15 +51,19 @@ class SchoolsSeeder extends Seeder
         School::truncate();
 
         // Try to seed a full database first
+        echo "seedSchoolsFull\n";
         $this->seedSchoolsFull();
 
         // Try to get all e-mails from the database
+        echo "seedSchoolsEmails\n";
         $this->seedSchoolsEmails();
 
         // Try to fill up all addresses
+        echo "seedSchoolAddress\n";
         $this->seedSchoolAddress();
 
         // Fix all missing things
+        echo "seedMissingSchools\n";
         $this->seedMissingSchools();
 
         Model::reguard();
