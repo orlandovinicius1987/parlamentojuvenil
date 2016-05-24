@@ -180,6 +180,10 @@ section#home {
   border: 4px black solid;
 }
 
+.borda-preta-topo {
+  border-top: 4px black solid;
+}
+
 .borda-preta-esquerda {
   border-right: 4px black solid;
 }
@@ -1069,7 +1073,7 @@ section#home {
 /*}*/
 
 #depoimentos-feed .item {
-  text-align: center;
+  text-align: left;
 }
 
 #depoimentos-feed .item img {
@@ -1108,7 +1112,8 @@ section#home {
   /*color: #00c3ff;*/
   color: black;
   top: 24%;
-  font-size: 120px
+  font-size: 120px;
+  color: black !important;
 }
 
 .depoimentos-control-left {
@@ -1953,7 +1958,7 @@ select.input-lg {
 
 #depoimentos-feed .item .childbox p {
   color: white;
-  margin-top: 10px;
+  text-align: center;
 }
 
 #depoimentos-feed .item .childbox p span {
@@ -1968,4 +1973,12 @@ select.input-lg {
 
 .row .borda-preta-acima {
   border-top: 4px black solid;
+}
+
+.row .fundo-preto {
+  background-color: black;
+}
+
+.childbox-inverse p {
+  text-align: center; !important
 }

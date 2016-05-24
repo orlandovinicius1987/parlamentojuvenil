@@ -5,46 +5,49 @@
         {{--</div>--}}
         <div class="row">
             <div class="col-xs-12 col-md-8 col-md-offset-2">
-                <div class="text-center carousel-inner">
+                <div class="text-center carousel-inner borda-preta">
                     <div class="item active">
-                        <div class="row borda-preta">
+                        <div class="row">
                             <div class="col-xs-12 col-md-4 pull-left">
                                 <img src="/pj2016/images/depoimentos/depoimento1.png" alt="" class="img-responsive">
                             </div>
                             <div class="col-xs-12 col-md-8">
-                                <div class="text-center"><p>In hac habitasse platea dictumst. Nam pulvinar, odio sed rhoncus suscipit </p>
-                                    <a href="#">http://t.co/yY7s1IfrAb 2 days ago</a></div>
+                                <div><p>In hac habitasse platea dictumst. Nam pulvinar, odio sed rhoncus suscipit, habitasse platea dictumst. Nam pulvinar, odio sed rhoncus.</p></div>
                             </div>
                         </div>
-                        <div class="row borda-preta-lateral borda-preta-final">
-                            <div class="col-xs-12 col-md-10 text-center childbox"><p>Carolina Pestana C. Leite</p></div>
-                            <div class="col-xs-12 col-md-2 text-center childbox-inverse"><p>Tanguá</p></div>
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <div class="row">
-                            <div class="col-xs-12 col-md-4 pull-left">
-                                <img src="/pj2016/images/depoimentos/depoimento2.png" alt="">
-                            </div>
-                            <div class="col-xs-12 col-md-8">
-                                <div class="text-center"><p>In hac habitasse pla, odio sed rhoncus suscipit!</p>
-                                    <a href="#">http://t.co/yY7s1IfrAb 2 days ago</a></div>
-                            </div>
-                            <div class="text-center"><p>Pestana<span class="pull-right">Flamengo</span></div>
+                        <div class="row borda-preta-topo">
+                            <div class="col-xs-12 col-md-8 childbox"><p>Carolina Pestana C. Leite</p></div>
+                            <div class="col-xs-12 col-md-4 text-center childbox-inverse"><p>Tanguá</p></div>
                         </div>
                     </div>
 
                     <div class="item">
                         <div class="row">
                             <div class="col-xs-12 col-md-4 pull-left">
-                                <img src="/pj2016/images/depoimentos/depoimento3.png" alt="">
+                                <img src="/pj2016/images/depoimentos/depoimento2.png" alt="" class="img-responsive">
                             </div>
                             <div class="col-xs-12 col-md-8">
-                                <div class="text-center"><p>In hac habitasse platea dictumst. Nam pulvinar, odio sed rhoncus suscipit </p>
-                                    <a href="#">http://t.co/yY7s1IfrAb 2 days ago</a></div>
+                                <div><p>In hac habitasse platea dictumst. Nam pulvinar, odio sed rhoncus suscipit</p></div>
                             </div>
-                            <div class="text-center"><p>Karla Cilas Debruços <span class="pull-right">Botafogo</span></div>
+                        </div>
+                        <div class="row borda-preta-topo">
+                            <div class="col-xs-12 col-md-8 childbox"><p>Carolina Pestana C. Leite</p></div>
+                            <div class="col-xs-12 col-md-4 text-center childbox-inverse"><p>Varre-e-Sai</p></div>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="row">
+                            <div class="col-xs-12 col-md-4 pull-left">
+                                <img src="/pj2016/images/depoimentos/depoimento3.png" alt="" class="img-responsive">
+                            </div>
+                            <div class="col-xs-12 col-md-8">
+                                <div><p>In hac habitasse platea dictumst. Nam pulvinar, odio sed rhoncus suscipit</p></div>
+                            </div>
+                        </div>
+                        <div class="row borda-preta-topo">
+                            <div class="col-xs-12 col-md-8 childbox"><p>Carolina Pestana C. Leite</p></div>
+                            <div class="col-xs-12 col-md-4 text-center childbox-inverse"><p>Jardim Catarina</p></div>
                         </div>
                     </div>
                 </div>
