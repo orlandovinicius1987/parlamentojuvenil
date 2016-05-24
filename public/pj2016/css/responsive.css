@@ -518,5 +518,13 @@
   .contact-section .form-group {
     margin-top: 15px;
   }
+
+  .embed-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+  }
 }
 
