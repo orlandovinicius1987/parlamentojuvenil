@@ -78,8 +78,15 @@
                 __formatDate: function(date)
                 {
                     return '';
-                }
+                },
+            },
+
+            ready: function ()
+            {
+                this.__fetchSubscriptions();
             }
         });
     }
 </script>
+
+

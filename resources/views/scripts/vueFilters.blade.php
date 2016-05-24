@@ -5,7 +5,8 @@
         }
     });
 
-    Vue.filter('moreThanOneSchool', function (value) {
+    Vue.filter('moreThanOneSchool', function (value)
+    {
         if (vueAdminIndex.$data.filterSchools)
         {
             return value.filter(schoolGreaterThanOne);

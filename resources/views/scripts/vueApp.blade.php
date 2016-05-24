@@ -51,7 +51,5 @@
                 }
             }
         });
-
-        startFetchSubscriptionsClock();
     }
 </script>

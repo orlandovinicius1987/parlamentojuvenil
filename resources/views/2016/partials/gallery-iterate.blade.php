@@ -24,7 +24,7 @@
 </div>
 
 @if (count($images) > $max)
-    {{--<button type="button" class="btn btn-danger" v-on="click: __show('{{ $kind }}')">Mais fotos</button>--}}
+    {{--<button type="button" class="btn btn-danger" v-on:click="__show('{{ $kind }}')">Mais fotos</button>--}}
     <div class="row text-center" id="more-gallery-{{ $kind }}-button">
         <div class="col-md-5 quadro-amarelo hidden-xs hidden-sm"><div class="borda-preta">&nbsp;</div></div>
         <div class="col-md-2 col-xs-12"><div class="quadro-vermelho borda-preta">Mais fotos</div></div>

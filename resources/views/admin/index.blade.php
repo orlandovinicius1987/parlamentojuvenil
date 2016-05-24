@@ -21,8 +21,8 @@
 
                             <a href="/subscriptions/download" class="btn btn-primary">Baixe a planilha completa</a>
 
-                            <div v-show="!filterSchools" v-on="click: __clickFilterSchools" class="btn btn-danger">Mostrar municípios com mais de uma escola</div>
-                            <div v-show="filterSchools"  v-on="click: __clickFilterSchools" class="btn btn-success">Mostrar todos os municípios</div>
+                            <div v-show="!filterSchools" v-on:click="__clickFilterSchools" class="btn btn-danger">Mostrar municípios com mais de uma escola</div>
+                            <div v-show="filterSchools"  v-on:click="__clickFilterSchools" class="btn btn-success">Mostrar todos os municípios</div>
                         </div>
                     </div>
                     <!-- /.panel-body -->
@@ -36,14 +36,14 @@
                     <table class="table table-striped table-bordered table-hover">
                         <thead>
                             <tr>
-                                <th v-on="click: __changeOrder('subscriptioncount')" class="text-right">
+                                <th v-on:click="__changeOrder('subscriptioncount')" class="text-right">
                                     Inscrições
                                     <div v-show="orderby == 'subscriptioncount'" class="btn btn-danger btn-xs">
                                         <i class="fa fa-arrow-@{{ ordertype == '' ? 'down' : 'up' }}"></i>
                                     </div>
                                 </th>
 
-                                <th v-on="click: __changeOrder('city')">
+                                <th v-on:click="__changeOrder('city')">
                                     Município
                                     <div v-show="orderby == 'city'" class="btn btn-danger btn-xs">
                                         <i class="fa fa-arrow-@{{ ordertype == '' ? 'down' : 'up' }}">
@@ -51,14 +51,14 @@
                                     </div>
                                 </th>
 
-                                <th v-on="click: __changeOrder('schoolcount')">
+                                <th v-on:click="__changeOrder('schoolcount')">
                                     Escolas
                                     <div v-show="orderby == 'schoolcount'" class="btn btn-danger btn-xs">
                                         <i class="fa fa-arrow-@{{ ordertype == '' ? 'down' : 'up' }}"></i>
                                     </div>
                                 </th>
 
-                                <th v-on="click: __changeOrder('lastsubscription')">
+                                <th v-on:click="__changeOrder('lastsubscription')">
                                     Data/hora última inscrição
                                     <div v-show="orderby == 'lastsubscription'" class="btn btn-danger btn-xs">
                                         <i class="fa fa-arrow-@{{ ordertype == '' ? 'down' : 'up' }}"></i>
@@ -67,22 +67,22 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <template v-repeat="subscriptions | orderBy orderby ordertype | moreThanOneSchool" track-by="city">
+                            <template v-for="subscription in subscriptions | orderBy orderby ordertype | filterBy moreThanOneSchool" track-by="city">
                                 <tr>
-                                    <td class="text-right @{{ subscriptioncount ? 'success' : 'danger' }}">
-                                        @{{ subscriptioncount || '' }}
+                                    <td class="text-right @{{ subscription.subscriptioncount ? 'success' : 'danger' }}">
+                                        @{{ subscription.subscriptioncount || '' }}
                                     </td>
 
-                                    <td class="@{{ subscriptioncount ? 'success' : 'danger' }}">
-                                        <a href="{{ route('admin.home') }}/@{{ city }}">@{{ city }}</a>
+                                    <td class="@{{ subscription.subscriptioncount ? 'success' : 'danger' }}">
+                                        <a href="{{ route('admin.home') }}/@{{ subscription.city }}">@{{ subscription.city }}</a>
                                     </td>
 
-                                    <td class="@{{ subscriptioncount ? 'success' : 'danger' }}">
-                                        @{{ schoolcount }}
+                                    <td class="@{{ subscription.subscriptioncount ? 'success' : 'danger' }}">
+                                        @{{ subscription.schoolcount }}
                                     </td>
 
-                                    <td class="@{{ subscriptioncount ? 'success' : 'danger' }}">
-                                        @{{ formatteddate }}
+                                    <td class="@{{ subscription.subscriptioncount ? 'success' : 'danger' }}">
+                                        @{{ subscription.formatteddate }}
                                     </td>
                                 </tr>
                             </template>

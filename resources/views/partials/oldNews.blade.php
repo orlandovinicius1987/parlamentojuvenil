@@ -10,7 +10,7 @@
             @if(count($articles) > 6)
                 <div class="row" id="vue-more-old-news">
                     <div class="row text-center">
-                        <button type="button" class="btn btn-danger" v-on="click: __click">Mais notícias</button>
+                        <button type="button" class="btn btn-danger" v-on:click="__click">Mais notícias</button>
                     </div>
                 </div>
             @endif

@@ -192,7 +192,7 @@
         <label for="cpf" class="sr-only control-label">CPF</label>
         <input
                 v-model="cpf"
-                v-on="keyup: checkCpf"
+                v-on:keyup="checkCpf"
                 type="text"
                 class="form-control input-lg"
                 value="{{ Input::old('cpf') || isset($subscription) ? $subscription->cpf : ''  }}"
@@ -298,7 +298,7 @@
         <label for="zip_code" class="sr-only control-label">CEP da residência</label>
         <input
             v-model="zip_code"
-            v-on="keyup: checkZip"
+            v-on:keyup="checkZip"
             type="tel"
             value="{{ Input::old('zip_code') || isset($subscription) ? $subscription->zip_code : '' }}"
             class="form-control input-lg"
