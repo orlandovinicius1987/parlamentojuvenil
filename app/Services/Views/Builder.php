@@ -39,6 +39,39 @@ class Builder
 
         $fourteenDate = (new Carbon())->subYears(14);
         $seventeenDate = (new Carbon())->subYears(18)->addDays(1);
+//
+//        $f = function() { $this->selectBanner(); };
+//        $this->execute($f, 'selectBanner');
+//
+//        $f = function() { $this->getCongressmenLinks(); };
+//        $this->execute($f, 'getCongressmenLinks');
+//
+//        $f = function() { $this->getTestimonials(); };
+//        $this->execute($f, 'getTestimonials');
+//
+//        $f = function() { $this->getCities(); };
+//        $this->execute($f, 'getCities');
+//
+//        $f = function() { $this->getNewspapersLinks(); };
+//        $this->execute($f, 'getNewspapersLinks');
+//
+//        $f = function() { $this->getGalleryLinks(9); };
+//        $this->execute($f, 'getGalleryLinks');
+//
+//        $f = function() { $this->getGalleryLinks(8); };
+//        $this->execute($f, 'getGalleryLinks');
+//
+//        $f = function() { $this->getArticles('<=', 2014); };
+//        $this->execute($f, 'getArticles');
+//
+//        $f = function() { $this->getArticles('>=', 2015); };
+//        $this->execute($f, 'getArticles');
+//
+//        $f = function() use ($fourteenDate) { $fourteenDate->format('d/m/Y'); };
+//        $this->execute($f, 'fourteenDate');
+//
+//        $f = function() use ($seventeenDate) { $seventeenDate->format('d/m/Y'); };
+//        $this->execute($f, 'seventeenDate');
 
         return  $view->with('banner_file', $this->selectBanner())
                      ->with('spreadsheet', $this->spreadsheet)
@@ -55,6 +88,16 @@ class Builder
                      ->with('now', (string) Carbon::now()->subHours(3))
                      ->with('isHome', $isHome)
                      ->with('force', $force);
+    }
+
+    private function execute($f, $name)
+    {
+        $time_pre = microtime(true);
+        $f();
+        $time_post = microtime(true);
+        $exec_time = $time_post - $time_pre;
+
+        \Log::info($name . ': ' . $exec_time);
     }
 
     public function getCongressmenLinks()

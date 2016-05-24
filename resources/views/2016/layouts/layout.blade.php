@@ -8,7 +8,7 @@
         <title>Parlamento Juvenil - ALERJ</title>
 
         <!-- javascript -->
-        <script src="//www.owlcarousel.owlgraphic.com/assets/vendors/jquery.min.js"></script>
+        <script src="//code.jquery.com/jquery-1.9.1.min.js"></script>
 
         <!-- Datepicker -->
         <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.1/css/datepicker3.css">
@@ -37,8 +37,8 @@
 
 
         <!-- Owl Stylesheets -->
-        <link rel="stylesheet" href="//www.owlcarousel.owlgraphic.com/assets/owlcarousel/assets/owl.carousel.min.css">
-        <link rel="stylesheet" href="//www.owlcarousel.owlgraphic.com/assets/owlcarousel/assets/owl.theme.default.min.css">
+        <link rel="stylesheet" href="/vendor/OwlCarousel/assets/owl.carousel.min.css">
+        <link rel="stylesheet" href="/vendor/OwlCarousel/assets/owl.theme.default.min.css">
 
         <!-- Masonry Style -->
         <link rel="stylesheet" href="/css/custom.css">
@@ -77,7 +77,7 @@
         <script src="/vendor/vue-resource/dist/vue-resource.min.js"></script>
 
         <!-- OWL -->
-        <script src="//www.owlcarousel.owlgraphic.com/assets/owlcarousel/owl.carousel.js"></script>
+        <script src="/vendor/OwlCarousel/owl-carousel/owl.carousel.min.js"></script>
 
         <!-- IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
