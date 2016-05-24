@@ -8,7 +8,7 @@
 
         <div class="carousel-inner">
             <div class="item active">
-                <img class="img-responsive" src="/pj2016/images/slider/bg_home-3-min.jpg" alt="slider">
+                <img class="img-responsive" src="/pj2016/images/slider/bg_home-3-min-min.jpg" alt="slider">
                 <div class="carousel-caption">
                     <h2>Inscreva-se já para a edição 2016 </h2>
                     <h4>Participe do Parlamento Juvenil</h4>
@@ -24,7 +24,7 @@
                 </div>
             </div>
             <div class="item">
-                <img class="img-responsive" src="/pj2016/images/slider/bg_home-4-min.jpg" alt="slider">
+                <img class="img-responsive" src="/pj2016/images/slider/bg_home-4-min-min.jpg" alt="slider">
                 <div class="carousel-caption">
                     <h2>Faça história com a gente<br> e mostre que você é 10!</h2>
                 </div>
