@@ -2,17 +2,21 @@
 
 namespace App\Console\Commands;
 
-use App\Services\News\Service;
+use App\Jobs\SyncNews;
+use App\Jobs\SyncGallery;
 use Illuminate\Console\Command;
+use Illuminate\Foundation\Bus\DispatchesJobs;
 
-class SyncNews extends Command
+class SyncAll extends Command
 {
+    use DispatchesJobs;
+
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'sync:news';
+    protected $signature = 'sync:all';
 
     /**
      * The console command description.
@@ -26,8 +30,9 @@ class SyncNews extends Command
      *
      * @return mixed
      */
-    public function handle(Service $dropbox)
+    public function handle()
     {
-        $dropbox->sync($this);
+        $this->dispatch(new SyncNews());
+        $this->dispatch(new SyncGallery());
     }
 }

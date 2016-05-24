@@ -4,8 +4,6 @@ namespace App\Services\Views;
 
 use \DB;
 use Carbon\Carbon;
-use App\Jobs\SyncNews;
-use App\Jobs\SyncGallery;
 use App\Data\Entities\State;
 use App\Data\Entities\School;
 use App\Data\Entities\Article;
@@ -32,72 +30,62 @@ class Builder
 
     public function buildViewData($view, $force = false, $isHome = false)
     {
-        $this->dispatch(new SyncNews());
-        $this->dispatch(new SyncGallery());
-
         header('X-Frame-Options: GOFORIT');
 
         $fourteenDate = (new Carbon())->subYears(14);
         $seventeenDate = (new Carbon())->subYears(18)->addDays(1);
-//
-//        $f = function() { $this->selectBanner(); };
-//        $this->execute($f, 'selectBanner');
-//
-//        $f = function() { $this->getCongressmenLinks(); };
-//        $this->execute($f, 'getCongressmenLinks');
-//
-//        $f = function() { $this->getTestimonials(); };
-//        $this->execute($f, 'getTestimonials');
-//
-//        $f = function() { $this->getCities(); };
-//        $this->execute($f, 'getCities');
-//
-//        $f = function() { $this->getNewspapersLinks(); };
-//        $this->execute($f, 'getNewspapersLinks');
-//
-//        $f = function() { $this->getGalleryLinks(9); };
-//        $this->execute($f, 'getGalleryLinks');
-//
-//        $f = function() { $this->getGalleryLinks(8); };
-//        $this->execute($f, 'getGalleryLinks');
-//
-//        $f = function() { $this->getArticles('<=', 2014); };
-//        $this->execute($f, 'getArticles');
-//
-//        $f = function() { $this->getArticles('>=', 2015); };
-//        $this->execute($f, 'getArticles');
-//
-//        $f = function() use ($fourteenDate) { $fourteenDate->format('d/m/Y'); };
-//        $this->execute($f, 'fourteenDate');
-//
-//        $f = function() use ($seventeenDate) { $seventeenDate->format('d/m/Y'); };
-//        $this->execute($f, 'seventeenDate');
 
-        return  $view->with('banner_file', $this->selectBanner())
+        $banner = $this->execute(function() { return $this->selectBanner(); }, 'selectBanner');
+
+        $congressmenLinks = $this->execute(function() { return $this->getCongressmenLinks(); }, 'getCongressmenLinks');
+
+        $testimonials = $this->execute(function() { return $this->getTestimonials(); }, 'getTestimonials');
+
+        $cities = $this->execute(function() { return $this->getCities(); }, 'getCities');
+
+        $newspapersLinks = $this->execute(function() { return $this->getNewspapersLinks(); }, 'getNewspapersLinks');
+
+        $galleryLinks9 = $this->execute(function() { return $this->getGalleryLinks(9); }, 'getGalleryLinks');
+
+        $galleryLinks8 = $this->execute(function() { return $this->getGalleryLinks(8); }, 'getGalleryLinks');
+
+        $articles2014 = $this->execute(function() { return $this->getArticles('<=', 2014); }, 'getArticles');
+
+        $articles2015 = $this->execute(function() { return $this->getArticles('>=', 2015); }, 'getArticles');
+
+        $fourteenDateString = $this->execute(function() use ($fourteenDate) { return $fourteenDate->format('d/m/Y'); }, 'fourteenDate');
+
+        $seventeenDateString = $this->execute(function() use ($seventeenDate) { return $seventeenDate->format('d/m/Y'); }, 'seventeenDate');
+
+        $now = $this->execute(function() { return (string) Carbon::now()->subHours(3); }, 'now');
+
+        return  $view->with('banner_file', $banner)
                      ->with('spreadsheet', $this->spreadsheet)
-                     ->with('congressmen', $this->getCongressmenLinks())
-                     ->with('carrousel', $this->getTestimonials())
-                     ->with('cities', $this->getCities())
-                     ->with('newspapers', $this->getNewspapersLinks())
-                     ->with('gallery', $this->getGalleryLinks(9))
-                     ->with('oldGallery', $this->getGalleryLinks(8))
-                     ->with('oldArticles', $this->getArticles('<=', 2014))
-                     ->with('newArticles', $this->getArticles('>=', 2015))
-                     ->with('fourteenDate', $fourteenDate->format('d/m/Y'))
-                     ->with('seventeenDate', $seventeenDate->format('d/m/Y'))
-                     ->with('now', (string) Carbon::now()->subHours(3))
+                     ->with('congressmen', $congressmenLinks)
+                     ->with('carrousel', $testimonials)
+                     ->with('cities', $cities)
+                     ->with('newspapers', $newspapersLinks)
+                     ->with('gallery', $galleryLinks9)
+                     ->with('oldGallery', $galleryLinks8)
+                     ->with('oldArticles', $articles2014)
+                     ->with('newArticles', $articles2015)
+                     ->with('fourteenDate', $fourteenDateString)
+                     ->with('seventeenDate', $seventeenDateString)
+                     ->with('now', $now)
                      ->with('isHome', $isHome)
                      ->with('force', $force);
     }
 
-    private function execute($f, $name)
+    private function execute($function, $name)
     {
         $time_pre = microtime(true);
-        $f();
+        $result = $function();
         $time_post = microtime(true);
         $exec_time = $time_post - $time_pre;
 
         \Log::info($name . ': ' . $exec_time);
+
+        return $result;
     }
 
     public function getCongressmenLinks()
