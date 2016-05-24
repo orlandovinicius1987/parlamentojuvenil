@@ -37,8 +37,8 @@
 
 
         <!-- Owl Stylesheets -->
-        <link rel="stylesheet" href="/vendor/OwlCarousel/assets/owl.carousel.min.css">
-        <link rel="stylesheet" href="/vendor/OwlCarousel/assets/owl.theme.default.min.css">
+        <link rel="stylesheet" href="/vendor/OwlCarousel/owl-carousel/owl.carousel.min.css">
+        <link rel="stylesheet" href="/vendor/OwlCarousel/owl-carousel/owl.theme.default.min.css">
 
         <!-- Masonry Style -->
         <link rel="stylesheet" href="/css/custom.css">
