@@ -29,9 +29,7 @@
 
     @include('2016.partials.downloads')
 
-    @if (App::environment('local'))
-        @include('2016.partials.testimonials')
-    @endif
+    @include('2016.partials.testimonials')
 
     @include('2016.partials.contact')
 @stop
