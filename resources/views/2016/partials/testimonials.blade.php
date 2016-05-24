@@ -11,6 +11,7 @@
                         <div class="text-center"><p>In hac habitasse platea dictumst. Nam pulvinar, odio sed rhoncus suscipit </p>
                             <a href="#">http://t.co/yY7s1IfrAb 2 days ago</a></div>
 
+                        <div class="text-center"><p>Carolina Pestana C. Leite <span class="pull-right">Tanguá</span></div>
                     </div>
                     <div class="item">
                         <img src="/pj2016/images/depoimentos/depoimento2.png" alt="">

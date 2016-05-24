@@ -3,10 +3,10 @@
 @section('contents')
     @include('2016.partials.header-fixed')
 
-    <section id="titulo" class="fundo-azul">
+    <section id="titulo" class="fundo-inscricao">
         <div class="container">
             <div class="row">
-                <div class="col-xs12">
+                <div class="col-xs12 text-center">
                     <h1>&nbsp;</h1>
                     <h1>Inscreva-se</h1>
                 </div>
