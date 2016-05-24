@@ -73,7 +73,7 @@
         <!--/#footer-->
 
         <!-- VueJS -->
-        <script src="/vendor/vue/dist/vue.min.js"></script>
+        <script src="/vendor/vue/dist/vue.js"></script>
         <script src="/vendor/vue-resource/dist/vue-resource.min.js"></script>
 
         <!-- OWL -->

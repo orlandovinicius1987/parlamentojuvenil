@@ -1,137 +1,143 @@
 <script>
-    var subscribe = new Vue({
-        el: '#timeline',
+    if (jQuery("#timeline").length)
+    {
+        var vueTimeline = new Vue({
+            el: '#timeline',
 
-        data:
-        {
-            year: 2016,
-            address: null,
-            timeline: null,
-            now: null,
-            timeOffset: 0,
-            days: 0,
-            hours: 0,
-            minutes: 0,
-            seconds: 0,
-        },
-
-        methods:
-        {
-            __nowW3c: function () {
-                return Date.parse(new Date().toUTCString());
+            data:
+            {
+                year: 2016,
+                address: null,
+                timeline: null,
+                now: null,
+                timeOffset: 0,
+                days: 0,
+                hours: 0,
+                minutes: 0,
+                seconds: 0,
             },
 
-            __calculateTimeOffset: function (now)
+            methods:
             {
-                var serverTimeMillisGMT = Date.parse(new Date(now).toUTCString());
-                var localMillisUTC = this.__nowW3c();
+                __nowW3c: function () {
+                    return Date.parse(new Date().toUTCString());
+                },
 
-                this.timeOffset = serverTimeMillisGMT -  localMillisUTC;
-            },
-
-            __findNextEvent: function ()
-            {
-                var now = this.__nowW3c();
-                var selected = false;
-
-                this.timeline.forEach(function(object, index)
+                __calculateTimeOffset: function (now)
                 {
-                    var startDate = Date.parse(new Date(object.startW3c).toUTCString());
-                    object.selected = false;
+                    var serverTimeMillisGMT = Date.parse(new Date(now).toUTCString());
+                    var localMillisUTC = this.__nowW3c();
 
-                    if (startDate >= now && ! selected)
+                    this.timeOffset = serverTimeMillisGMT -  localMillisUTC;
+                },
+
+                __findNextEvent: function ()
+                {
+                    var now = this.__nowW3c();
+                    var selected = false;
+
+                    this.timeline.forEach(function(object, index)
                     {
-                        object.selected = true;
-                        this.timeline.$set(index, object);
-                        selected = true;
-                    }
-                }.bind(this));
-            },
+                        var startDate = Date.parse(new Date(object.startW3c).toUTCString());
+                        object.selected = false;
 
-            __findSelectedEvent: function ()
-            {
-                var selected = null;
-                var elements = this.timeline;
-
-                elements.forEach(function(object)
-                {
-                    if (object.selected)
-                    {
-                        selected = object;
-                    }
-                }.bind(this));
-
-                this.$set('timeline', elements);
-
-                return selected;
-            },
-
-            __displayTimer: function ()
-            {
-                var event = this.__findSelectedEvent();
-
-                var eventStart = Date.parse(new Date(event.startW3c).toUTCString());
-                var now = this.__nowW3c();
-
-                this.seconds = (eventStart + this.timeOffset - now) / 1000;
-
-                this.days = Math.floor(this.seconds / (60 * 60 * 24)); //calculate the number of days
-                this.seconds -= this.days * 60 * 60 * 24; //update the seconds variable with no. of days removed
-
-                this.hours = Math.floor(this.seconds / (60 * 60));
-                this.seconds -= this.hours * 60 * 60; //update the seconds variable with no. of hours removed
-
-                this.minutes = Math.floor(this.seconds / 60);
-                this.seconds -= this.minutes * 60; //update the seconds variable with no. of minutes removed
-            },
-
-            __updateTimer: function ()
-            {
-                setTimeout(function ()
-                {
-                    this.__updateTimer();
-                }.bind(this), 1000)
-
-                if (! this.timeline)
-                {
-                    return false;
-                }
-
-                this.__findNextEvent();
-
-                this.$nextTick(function ()
-                {
-                    this.__displayTimer();
-                }.bind(this))
-            },
-
-            __fetchTimeline: function()
-            {
-                if (this.year)
-                {
-                    this.$http.get('/api/v1/timeline/' + this.year, function(timeline)
-                    {
-                        this.timeline = timeline.lines;
-
-                        this.now = timeline.now;
-
-                        this.__calculateTimeOffset(timeline.now);
+                        if (startDate >= now && ! selected)
+                        {
+                            object.selected = true;
+                            this.timeline.$set(index, object);
+                            selected = true;
+                        }
                     }.bind(this));
-                }
+                },
+
+                __findSelectedEvent: function ()
+                {
+                    var selected = null;
+                    var elements = this.timeline;
+
+                    elements.forEach(function(object)
+                    {
+                        if (object.selected)
+                        {
+                            selected = object;
+                        }
+                    }.bind(this));
+
+                    this.$set('timeline', elements);
+
+                    return selected;
+                },
+
+                __displayTimer: function ()
+                {
+                    var event = this.__findSelectedEvent();
+
+                    var eventStart = Date.parse(new Date(event.startW3c).toUTCString());
+                    var now = this.__nowW3c();
+
+                    this.seconds = (eventStart + this.timeOffset - now) / 1000;
+
+                    this.days = Math.floor(this.seconds / (60 * 60 * 24)); //calculate the number of days
+                    this.seconds -= this.days * 60 * 60 * 24; //update the seconds variable with no. of days removed
+
+                    this.hours = Math.floor(this.seconds / (60 * 60));
+                    this.seconds -= this.hours * 60 * 60; //update the seconds variable with no. of hours removed
+
+                    this.minutes = Math.floor(this.seconds / 60);
+                    this.seconds -= this.minutes * 60; //update the seconds variable with no. of minutes removed
+                },
+
+                __updateTimer: function ()
+                {
+                    setTimeout(function ()
+                    {
+                        this.__updateTimer();
+                    }.bind(this), 1000)
+
+                    if (! this.timeline)
+                    {
+                        return false;
+                    }
+
+                    this.__findNextEvent();
+
+                    this.$nextTick(function ()
+                    {
+                        this.__displayTimer();
+                    }.bind(this))
+                },
+
+                __fetchTimeline: function()
+                {
+                    if (this.year)
+                    {
+                        this.$http.get('/api/v1/timeline/' + this.year, function(timeline)
+                        {
+                            this.timeline = timeline.lines;
+
+                            this.now = timeline.now;
+
+                            this.__calculateTimeOffset(timeline.now);
+                        }.bind(this));
+                    }
+                },
+
+                __isCurrentCountdownEvent: function(item)
+                {
+                    if (typeof start !== 'undefined')
+                    {
+                        var event = this.__findSelectedEvent();
+
+                        return item.start == event.start && item.end == event.end;
+                    }
+                },
             },
 
-            __isCurrentCountdownEvent: function(item)
+            ready: function()
             {
-                var event = this.__findSelectedEvent();
-
-                return item.start == event.start && item.end == event.end;
+                this.__fetchTimeline();
+                this.__updateTimer();
             },
-        },
-
-        ready: function()
-        {
-            this.__fetchTimeline();
-            this.__updateTimer();
-        },
-    });
+        });
+    }
 </script>

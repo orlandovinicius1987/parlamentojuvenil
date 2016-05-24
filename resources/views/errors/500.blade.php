@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Be right back.</title>
+        <title>Parlamento Juvenil</title>
 
         <link href="/pj2016/css/bootstrap.min.css" rel="stylesheet">
 

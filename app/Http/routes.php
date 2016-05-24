@@ -86,6 +86,10 @@ Route::get('subscriptions/download', ['as' => 'subscriptions.download', 'uses' =
 
 Route::get('subscriptions/ignore/{id}', ['as' => 'subscriptions.ignore', 'uses' => 'Subscriptions@ignore']);
 
+Route::get('subscriptions/edit/{id}', ['as' => 'subscriptions.edit', 'uses' => 'Subscriptions@edit']);
+
+Route::post('subscriptions/edit/{id}', ['as' => 'subscriptions.edit', 'uses' => 'Subscriptions@update']);
+
 Route::get('inscricao', ['as' => 'subscriptions.index', 'uses' => 'Subscriptions@index']);
 
 Route::group(['prefix' => 'api/v1'], function ()

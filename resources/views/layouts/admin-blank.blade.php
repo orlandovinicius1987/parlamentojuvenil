@@ -6,8 +6,8 @@
     <script type='text/javascript' src='//ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.js'></script>
 
     <!-- VueJS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/0.12.12/vue.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/0.1.14/vue-resource.min.js"></script>
+    <script src="/vendor/vue/dist/vue.js"></script>
+    <script src="/vendor/vue-resource/dist/vue-resource.min.js"></script>
 
     <!-- Datepicker -->
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.1/css/datepicker3.css">
@@ -23,7 +23,7 @@
 
     <!-- DataTables CSS -->
     <link href="{{url('/')}}/vendor/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet">
-    <link href="{{url('/')}}/vendor/datatables-responsive/css/dataTables.responsive.css" rel="stylesheet">
+    {{--<link href="{{url('/')}}/vendor/datatables-responsive/css/dataTables.responsive.css" rel="stylesheet">--}}
 
     <!-- Timeline CSS -->
     <link href="{{url('/')}}/vendor/startbootstrap-sb-admin-2/dist/css/timeline.css" rel="stylesheet">
@@ -93,9 +93,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/locale/pt-br.js"></script>
 
+    <!-- Masked Input -->
+    <script src="/vendor/jquery.maskedinput/dist/jquery.maskedinput.min.js"></script>
+
     @yield('javascript')
 
-    @include('scripts.vueApp')
+    @include('scripts.all',  ['exceptFiles' => ['owl' => 1, 'pinboard' => 2]])
 
     <script>
         /// We are using pusher only on the admin site

@@ -15,8 +15,8 @@
                         todayHighlight: false,
                         format: "dd/mm/yyyy",
                         todayBtn: false,
-                        startDate: "{{ $seventeenDate  }}",
-                        endDate: "{{ $fourteenDate }}",
+                        startDate: "{{ isset($seventeenDate) ? $seventeenDate : '' }}",
+                        endDate: "{{ isset($fourteenDate) ? $fourteenDate : '' }}",
                         language: "pt-BR"
                     });
 
@@ -25,7 +25,7 @@
 
         var cpf = jQuery("#cpf");
 
-        if ( ! cpfMasked && cpf.length !== 0)
+        if (! cpfMasked && cpf.length)
         {
             cpf.mask("999.999.999-99");
 
@@ -34,7 +34,7 @@
 
         var zipCode = jQuery("#zip_code");
 
-        if ( ! zipCodeMasked && zipCode.length !== 0)
+        if (! zipCodeMasked && zipCode.length)
         {
             zipCode.mask("99.999-999");
 

@@ -40,9 +40,20 @@
     {{--});--}}
 {{--</script>--}}
 
-@include('scripts.owl')
 @include('scripts.mask')
+@include('scripts.vueAdmin')
 @include('scripts.vueApp')
+@include('scripts.vueFilters')
+@include('scripts.vueGallery')
 @include('scripts.vueMap')
+@include('scripts.vueSchools')
 @include('scripts.vueTimeline')
-@include('scripts.pinboard')
+@include('scripts.helpers')
+
+@if (! isset($exceptFiles['owl']))
+    @include('scripts.owl')
+@endif
+
+@if (! isset($exceptFiles['pinboard']))
+    @include('scripts.pinboard')
+@endif

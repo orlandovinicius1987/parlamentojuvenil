@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use App\Jobs\SyncNews;
 use App\Jobs\SyncGallery;
 use App\Data\Entities\State;
+use App\Data\Entities\School;
 use App\Data\Entities\Article;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -22,7 +23,7 @@ class Builder
      */
     private $filesystem;
 
-    private $spreadsheet = 'https://docs.google.com/a/antoniocarlosribeiro.com/spreadsheets/d/1wrR7y4qk2ofj4kPgkhyPVBjwSohh8k1J6drsZ3bGzic/edit?usp=sharing';
+    public $spreadsheet = 'https://docs.google.com/a/antoniocarlosribeiro.com/spreadsheets/d/1wrR7y4qk2ofj4kPgkhyPVBjwSohh8k1J6drsZ3bGzic/edit?usp=sharing';
 
     public function __construct(Filesystem $filesystem)
     {
@@ -56,7 +57,7 @@ class Builder
                      ->with('force', $force);
     }
 
-    private function getCongressmenLinks()
+    public function getCongressmenLinks()
     {
         $from7 = $this->filesystem->congressmenLinks(env('PHOTOS_DIR').DIRECTORY_SEPARATOR.'7a edicao (2013)');
 
@@ -72,12 +73,12 @@ class Builder
         ];
     }
 
-    private function getCities()
+    public function getCities()
     {
         return State::where('code', 'RJ')->first()->cities()->orderBy('name')->get();
     }
 
-    private function getNewspapersLinks()
+    public function getNewspapersLinks()
     {
         $files = $this->filesystem->allLinks(env('NEWSPAPERS_DIR'));
         $links = $files['links'];
@@ -101,17 +102,17 @@ class Builder
         return $result;
     }
 
-    private function getArticles($operand, $year)
+    public function getArticles($operand, $year)
     {
         return $this->getArticlesForType($operand, $year, 'Notícias');
     }
 
-    private function getGalleryLinks($edition)
+    public function getGalleryLinks($edition)
     {
         return $this->getArticlesForType(null, null, 'Fotos', $edition);
     }
 
-    private function getTestimonials()
+    public function getTestimonials()
     {
         $file = file(public_path('files/apps/parlamentojuvenil/parlamentares/testemunhos-parlamentares-juvenis.txt'));
 
@@ -144,7 +145,7 @@ class Builder
         return $result;
     }
 
-    private function makeLinkAttributes($file, $name, $parts)
+    public function makeLinkAttributes($file, $name, $parts)
     {
         $url = null;
         $pdf = null;
@@ -178,7 +179,7 @@ class Builder
      * @param $year
      * @return mixed
      */
-    private function getArticlesForType($operand, $year, $type, $edition = null)
+    public function getArticlesForType($operand, $year, $type, $edition = null)
     {
         $articles = Article::orderBy('published_at', 'descending')->where('type', $type);
 
@@ -243,5 +244,10 @@ class Builder
         Session::put('used_banners', $usedBanners->toArray());
 
         return $banner;
+    }
+
+    public function getSchoolsForCity($city)
+    {
+        return School::where('city', 'like', DB::raw("UPPER('".$city."')"))->get();
     }
 }

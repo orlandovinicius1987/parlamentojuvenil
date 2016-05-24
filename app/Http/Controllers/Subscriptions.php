@@ -142,4 +142,30 @@ class Subscriptions extends BaseController
 
         return redirect()->route('subscriptions.index');
     }
+
+    public function edit($id)
+    {
+        if ( ! $subscription = Subscription::find($id))
+        {
+            return view('admin.message')->with('message', 'Inscrição não encontrada.');
+        }
+
+        return view('admin.subscriptions.edit')
+                ->with('subscription', $subscription)
+                ->with('spreadsheet', $this->dataRepository->viewBuilder->spreadsheet)
+                ->with('schools', $this->dataRepository->viewBuilder->getSchoolsForCity($subscription->city))
+                ->with('cities', $this->dataRepository->viewBuilder->getCities())
+        ;
+    }
+
+    public function update($id)
+    {
+        $subscription = Subscription::find($id);
+
+        $subscription->update(Input::only($subscription->getFillable()));
+
+        $subscription->save();
+
+        return redirect()->route('admin.city', ['city' => $subscription->city]);
+    }
 }

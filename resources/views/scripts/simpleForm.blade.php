@@ -12,8 +12,6 @@
 
     function updateChecklist(element)
     {
-        console.log('changed');
-
         var school = jQuery(element).val();
 
         jQuery.ajax({

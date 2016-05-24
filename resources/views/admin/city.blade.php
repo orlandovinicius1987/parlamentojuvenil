@@ -25,7 +25,7 @@
                                     <th>Idade</th>
                                     <th>Escola</th>
                                     <th>Facebook</th>
-                                    <th>Ignorar</th>
+                                    <th>Ferramentas</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -54,6 +54,7 @@
                                         </td>
 
                                         <td>
+                                            <a href="/subscriptions/edit/{{ $person->id }}" class="btn btn-warning btn-xs">Editar</a>
                                             <a href="/subscriptions/ignore/{{ $person->id }}" class="btn btn-{{ $person->ignored ? 'success' : 'danger' }} btn-xs">{{ $person->ignored ? 'Reativar' : 'Ignorar' }}</a>
                                         </td>
                                     </tr>
