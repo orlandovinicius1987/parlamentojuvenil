@@ -556,14 +556,27 @@
   }
 
   #depoimentos-feed .item img {
-    width: 50%;
-    height: 50%;
-    border: 4px black solid;
-    margin-top: 15px;
+    /*width: 50%;*/
+    width: 100%;
+    /* height: 50%; */
+    /* border-bottom: 4px black solid; */
+    /* margin-top: 15px; */
+    border: none;
+    /* text-align: center; */
+    margin: 0 auto;
+    /* margin-left: -15px; */
+    /* margin-right: -15px; */
+    padding: 0px;
+    position: initial;
+    border-left: 4px black solid;
+    border-bottom: 4px black solid;
+    border-right: 4px black solid;
   }
 
   .depoimentos-control-left, .depoimentos-control-right {
-    /*display: none;*/
+    position: initial;
+    font-size: 60px;
+    color: black !important;
   }
 }
 
