@@ -78,14 +78,9 @@ class Builder
 
     private function execute($function, $name)
     {
-        $time_pre = microtime(true);
-        $result = $function();
-        $time_post = microtime(true);
-        $exec_time = $time_post - $time_pre;
+        // we could create some caching here
 
-        \Log::info($name . ': ' . $exec_time);
-
-        return $result;
+        return $function();
     }
 
     public function getCongressmenLinks()
