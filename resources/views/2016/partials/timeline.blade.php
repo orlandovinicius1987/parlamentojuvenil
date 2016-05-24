@@ -8,6 +8,7 @@
             <div class="col-md-12 col-sm-5">
                 <h2>Cronograma</h2>
                 <ul id="timeline" class="timeline">
+
                     <li v-for="(index, item) in timeline" :class="{ 'timeline-inverted': index % 2 }">
                         <div class="timeline-badge info"><i class=""></i></div>
                         <div class="timeline-panel">

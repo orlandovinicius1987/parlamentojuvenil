@@ -16,14 +16,13 @@
             methods: {
                 __fetchSchools: function ()
                 {
-                    console.log('fetching schools');
-                    if (this.city) {
+                    if (this.city)
+                    {
                         this.$data.schools.length = 0;
                         this.$data.schools = [{value: '', text: 'SELECIONE SUA ESCOLA'}];
 
                         this.$http.get('/schools/' + this.city, function (schools)
                         {
-                            console.log(schools);
                             schools.forEach(newSchool);
                         });
                     }

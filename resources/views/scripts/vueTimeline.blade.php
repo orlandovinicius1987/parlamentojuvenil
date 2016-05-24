@@ -124,10 +124,10 @@
 
                 __isCurrentCountdownEvent: function(item)
                 {
-                    if (typeof start !== 'undefined')
-                    {
-                        var event = this.__findSelectedEvent();
+                    var event = this.__findSelectedEvent();
 
+                    if (event && typeof event !== 'undefined')
+                    {
                         return item.start == event.start && item.end == event.end;
                     }
                 },
