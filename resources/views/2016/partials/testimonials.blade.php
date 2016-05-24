@@ -9,7 +9,7 @@
                     <div class="item active">
                         <div class="row borda-preta">
                             <div class="col-xs-12 col-md-4 pull-left">
-                                <img src="/pj2016/images/depoimentos/depoimento1.png" alt="">
+                                <img src="/pj2016/images/depoimentos/depoimento1.png" alt="" class="img-responsive">
                             </div>
                             <div class="col-xs-12 col-md-8">
                                 <div class="text-center"><p>In hac habitasse platea dictumst. Nam pulvinar, odio sed rhoncus suscipit </p>
@@ -17,8 +17,8 @@
                             </div>
                         </div>
                         <div class="row borda-preta-lateral borda-preta-final">
-                            <div class="col-xs-10 text-center childbox"><p>Carolina Pestana C. Leite</p></div>
-                            <div class="col-xs-2 text-center childbox-inverse"><p>Tanguá</p></div>
+                            <div class="col-xs-12 col-md-10 text-center childbox"><p>Carolina Pestana C. Leite</p></div>
+                            <div class="col-xs-12 col-md-2 text-center childbox-inverse"><p>Tanguá</p></div>
                         </div>
                     </div>
 

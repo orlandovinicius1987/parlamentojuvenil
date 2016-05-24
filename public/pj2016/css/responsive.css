@@ -563,7 +563,7 @@
   }
 
   .depoimentos-control-left, .depoimentos-control-right {
-    display: none;
+    /*display: none;*/
   }
 }
 
