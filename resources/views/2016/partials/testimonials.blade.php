@@ -11,19 +11,19 @@
                     @foreach ($carrousel as $congressman)
                         <div class="item {{ $active }}">
                             <div class="row">
-                                <div class="col-xs-12 col-md-4 pull-left">
+                                <div class="col-xs-12 col-sm-4">
                                     <img src="{!! make_image_url($congressman['photo']) !!}" alt="" class="img-responsive">
                                 </div>
-                                <div class="col-xs-12 col-md-8">
+                                <div class="col-xs-12 col-sm-8">
                                     <div><p>{{ $congressman['testimonial'] }}</p></div>
                                 </div>
                             </div>
                             <div class="row borda-preta-topo">
-                                <div class="col-xs-12 col-md-8 childbox">
+                                <div class="col-xs-12 col-sm-8 childbox">
                                     <p>{{ $congressman['name'] }}</p>
                                     {{--<p>Parlamentar Juvenil, {{ $congressman['editions'] }}</p>--}}
                                 </div>
-                                <div class="col-xs-12 col-md-4 text-center childbox-inverse"><p>{{ $congressman['city'] }}</p></div>
+                                <div class="col-xs-12 col-sm-4 text-center childbox-inverse"><p>{{ $congressman['city'] }}</p></div>
                             </div>
                         </div>
 
