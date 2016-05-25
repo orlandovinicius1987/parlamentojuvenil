@@ -217,6 +217,10 @@ section#home {
   font-size: 20px;
 }
 
+#noticias .pull-left a, #noticias .pull-left a:link, #noticias .pull-left a:visited, #noticias .pull-left a:hover, #noticias .pull-left a:focus {
+  color: black;
+}
+
 #noticias .fa-facebook {
   padding-left: 10px;
   padding-right: 10px;
