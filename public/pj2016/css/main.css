@@ -1979,6 +1979,8 @@ select.input-lg {
   background-color: black;
 }
 
-.childbox-inverse p {
-  text-align: center; !important
+#depoimentos-feed .item .childbox-inverse p {
+  text-align: center !important;
+  font-size: 18px !important;
+  line-height: 1.9em;
 }
