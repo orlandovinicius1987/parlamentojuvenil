@@ -25,9 +25,19 @@
 
             <div class="col-xs-12 quadro-branco borda-preta-lateral borda-preta-final">
                 <div class="pull-left">
-                    <i class="fa fa-facebook" aria-hidden="true"></i>
-                    <i class="fa fa-twitter" aria-hidden="true"></i>
-                    <i class="fa fa-google-plus" aria-hidden="true"></i>
+
+                    <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode($url) }}" target="_blank">
+                        <i class="fa fa-facebook" aria-hidden="true"></i>
+                    </a>
+
+                    <a href="https://twitter.com/intent/tweet?url={{ urlencode($url) }}" target="_blank">
+                        <i class="fa fa-twitter" aria-hidden="true"></i>
+                    </a>
+
+                    <a href="https://plus.google.com/share?url={{ urlencode($url) }}" target="_blank">
+                        <i class="fa fa-google-plus" aria-hidden="true"></i>
+                    </a>
+
                 </div>
                 <div class="pull-right">
                     <i class="fa fa-plus" aria-hidden="true"></i>
