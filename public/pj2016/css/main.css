@@ -101,12 +101,6 @@ section#home {
   padding: 0;
 }
 
-@media (max-width: 479px) {
-  section#home {
-    margin-top: 28%;
-  }
-}
-
 /* Paleta de Cores Azul */
 /* http://paletton.com/#uid=13L0u0kjywt9AQ4f1G5nvsTrFoo */
 

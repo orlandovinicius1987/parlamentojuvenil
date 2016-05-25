@@ -1,6 +1,6 @@
 /* lg */ 
 @media (min-width: 1200px) {
-  
+
 }
 
 /* md */
@@ -11,7 +11,7 @@
   }
 
   .navbar-right li a {
-    padding: 35px 15px;
+    padding: 35px 10px;
   }
 
   .fixed-menu .container {
@@ -487,6 +487,12 @@
     padding: 0;
   }
 
+  section#home {
+    /*margin-top: 28%;*/
+    margin-top: 85px;
+    /*display: none;*/
+  }
+
   .margem {
     margin: -10px;
     margin-bottom: 30px;
@@ -600,4 +606,16 @@
   }
 
 }
+
+/* Portrait */
+@media only screen
+and (max-width: 479px)
+and (orientation: portrait) {
+
+  section#home {
+    display: none;
+  }
+
+}
+
 
