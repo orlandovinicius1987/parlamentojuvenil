@@ -4,6 +4,7 @@ namespace App\Services\Views;
 
 use \DB;
 use Carbon\Carbon;
+use Illuminate\Support\Str;
 use App\Data\Entities\State;
 use App\Data\Entities\School;
 use App\Data\Entities\Article;
@@ -225,6 +226,7 @@ class Builder
             {
                 $article->image = env('ARTICLE_IMAGE_URL_BASE') . DIRECTORY_SEPARATOR . $article->image;
                 $article->date = Carbon::createFromFormat('Y-m-d', $article->date)->format('d m Y');
+                $article->short_body = Str::limit($this->stripTags($article->body), 300);
             }
         }
 
@@ -275,5 +277,17 @@ class Builder
     public function getSchoolsForCity($city)
     {
         return School::where('city', 'like', DB::raw("UPPER('".$city."')"))->get();
+    }
+
+    private function stripTags($body)
+    {
+        $body = strip_tags($body);
+
+        $body = str_replace("\n", '', $body);
+        $body = str_replace("\r", '', $body);
+        $body = str_replace("\t", ' ', $body);
+        $body = str_replace('  ', ' ', $body);
+
+        return $body;
     }
 }

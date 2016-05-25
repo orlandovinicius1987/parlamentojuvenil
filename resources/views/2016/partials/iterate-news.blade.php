@@ -19,7 +19,7 @@
                 @endif
 
                 <div>
-                    {!! $article['body'] !!}}
+                    {!! $article['short_body'] !!}
                 </div>
             </div>
 
