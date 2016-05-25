@@ -537,7 +537,7 @@
 
   .timeline > li > .timeline-end {
     left: 28px;
-    margin-left: 0;
+    margin-left: 28px;
     top: 30px;
   }
 
@@ -593,6 +593,10 @@
     border-left: 4px black solid;
     border-bottom: 4px black solid;
     border-right: 4px black solid;
+  }
+
+  .navbar-toggle {
+    margin-right: 28px;
   }
 
 }
