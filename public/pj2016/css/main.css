@@ -1987,3 +1987,10 @@ select.input-lg {
   font-size: 18px !important;
   line-height: 1.9em;
 }
+
+#error {
+  height: 97vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
