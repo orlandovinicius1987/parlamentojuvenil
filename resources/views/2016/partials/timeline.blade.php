@@ -5,7 +5,7 @@
                 {{--<img class="img-responsive" src="/pj2016/images/watch.png" alt="">--}}
             </div>
 
-            <div class="col-md-12 col-sm-5">
+            <div class="col-xs-12">
                 <h2>Cronograma</h2>
                 <ul id="timeline" class="timeline">
 

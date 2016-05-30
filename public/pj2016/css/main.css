@@ -101,12 +101,6 @@ section#home {
   padding: 0;
 }
 
-@media (max-width: 479px) {
-  section#home {
-    margin-top: 28%;
-  }
-}
-
 /* Paleta de Cores Azul */
 /* http://paletton.com/#uid=13L0u0kjywt9AQ4f1G5nvsTrFoo */
 
@@ -174,6 +168,11 @@ section#home {
   font-family: 'Palanquin Dark', sans-serif;
   font-size: 16px;
   font-weight: bold;
+
+  min-height: 82px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .borda-preta {
@@ -210,6 +209,10 @@ section#home {
   padding: 5px;
   padding-bottom: 25px;
   font-size: 20px;
+}
+
+#noticias .pull-left a, #noticias .pull-left a:link, #noticias .pull-left a:visited, #noticias .pull-left a:hover, #noticias .pull-left a:focus {
+  color: black;
 }
 
 #noticias .fa-facebook {
@@ -1979,6 +1982,15 @@ select.input-lg {
   background-color: black;
 }
 
-.childbox-inverse p {
-  text-align: center; !important
+#depoimentos-feed .item .childbox-inverse p {
+  text-align: center !important;
+  font-size: 18px !important;
+  line-height: 1.9em;
+}
+
+#error {
+  height: 97vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
