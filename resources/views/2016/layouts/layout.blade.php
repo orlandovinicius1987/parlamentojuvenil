@@ -14,7 +14,7 @@
         <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.1/css/datepicker3.css">
 
         <!-- Font Awesome -->
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
 
         <!-- Google Fonts -->
         <link href="//fonts.googleapis.com/css?family=Amatic+SC:400,700%7CShadows+Into+Light%7CDosis:400,200,600" rel="stylesheet" type="text/css" >
@@ -23,25 +23,25 @@
         <link href='//fonts.googleapis.com/css?family=Kreon:400,300|Palanquin+Dark' rel='stylesheet' type='text/css'>
 
         <!-- Blueimp Lightbox -->
-        <link rel="stylesheet" href="//blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
+        <link rel="stylesheet" type="text/css" href="//blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
 
 
-        <link href="/pj2016/css/bootstrap.min.css" rel="stylesheet">
-        <link href="/pj2016/css/font-awesome.min.css" rel="stylesheet">
-        <link href="/pj2016/css/main.css" rel="stylesheet">
-        <link href="/pj2016/css/animate.css" rel="stylesheet">
-        <link href="/pj2016/css/responsive.css" rel="stylesheet">
+        <link href="/pj2016/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <link href="/pj2016/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="/pj2016/css/main.css" rel="stylesheet" type="text/css">
+        <link href="/pj2016/css/animate.css" rel="stylesheet" type="text/css">
+        <link href="/pj2016/css/responsive.css" rel="stylesheet" type="text/css">
 
         <!-- Pinboard -->
-        <link href="/pj2016/css/pinboard.css" rel="stylesheet">
+        <link href="/pj2016/css/pinboard.css" rel="stylesheet" type="text/css">
 
 
         <!-- Owl Stylesheets -->
-        <link rel="stylesheet" href="/vendor/OwlCarousel/owl-carousel/owl.carousel.min.css">
-        <link rel="stylesheet" href="/vendor/OwlCarousel/owl-carousel/owl.theme.default.min.css">
+        <link rel="stylesheet" type="text/css" href="/vendor/OwlCarousel/owl-carousel/owl.carousel.min.css">
+        <link rel="stylesheet" type="text/css" href="/vendor/OwlCarousel/owl-carousel/owl.theme.default.min.css">
 
         <!-- Masonry Style -->
-        <link rel="stylesheet" href="/css/custom.css">
+        <link rel="stylesheet" type="text/css" href="/css/custom.css">
 
 
         <link rel="shortcut icon" href="/pj2016/images/ico/favicon.ico">
