@@ -17,9 +17,9 @@
         <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
 
         <!-- Google Fonts -->
-        <link href="//fonts.googleapis.com/css?family=Amatic+SC:400,700%7CShadows+Into+Light%7CDosis:400,200,600" rel="stylesheet" type="text/css" >
-        <link href="//fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
-        <link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic,300italic' rel='stylesheet' type='text/css'>
+        {{--<link href="//fonts.googleapis.com/css?family=Amatic+SC:400,700%7CShadows+Into+Light%7CDosis:400,200,600" rel="stylesheet" type="text/css" >--}}
+        {{--<link href="//fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">--}}
+        {{--<link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic,300italic' rel='stylesheet' type='text/css'>--}}
         <link href='//fonts.googleapis.com/css?family=Kreon:400,300|Palanquin+Dark' rel='stylesheet' type='text/css'>
 
         <!-- Blueimp Lightbox -->
