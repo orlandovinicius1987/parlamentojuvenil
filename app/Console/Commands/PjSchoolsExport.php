@@ -12,14 +12,14 @@ class PjSchoolsExport extends Command
      *
      * @var string
      */
-    protected $signature = 'pj:schools:export';
+    protected $signature = 'pj:schools:export {file?}';
     
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Display an inspiring quote';
+    protected $description = 'Export database';
 
     /**
      * Execute the console command.
@@ -30,6 +30,6 @@ class PjSchoolsExport extends Command
     {
         $seeder = new SchoolsSeeder();
 
-        $seeder->export();
+        $seeder->export($this->argument('file'));
     }
 }

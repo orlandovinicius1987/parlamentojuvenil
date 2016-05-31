@@ -20,7 +20,7 @@ class SchoolsSeeder extends Seeder
         return $school;
     }
 
-    public function export()
+    public function export($file = 'UEs2016-full.txt')
     {
         $result = [];
 
@@ -35,7 +35,7 @@ class SchoolsSeeder extends Seeder
             $result[] = implode(';', $line) . "\n";
         }
 
-        Storage::disk('databases')->put('UEs2016-full.txt', $result);
+        Storage::disk('databases')->put($file, $result);
     }
 
     /**
