@@ -22,10 +22,7 @@
                     </div>
                 @endif
 
-                {{--<div class="row text-center">--}}
-                {{--<button type="button" class="btn btn-default">Ver mais notícias</button>--}}
-                {{--</div>--}}
-                {{--</div>--}}
             </div>
         </div>
+    </div>
 </section>
