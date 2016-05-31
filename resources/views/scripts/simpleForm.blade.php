@@ -1,5 +1,4 @@
 <script>
-
     jQuery(document).ready(function()
     {
         jQuery(document).on("change", '#city-edit', function(element)

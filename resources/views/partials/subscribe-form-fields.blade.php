@@ -40,7 +40,8 @@
     <div class="row control-group" transition="expand">
         <div class="form-group col-xs-12 floating-label-form-group controls">
             <label for="city" class="sr-only control-label">Município</label>
-            <select id="city-edit" v-model="city" v-on:change="__cityChanged" class="form-control input-lg" placeholder="Município" name="city" id="city" required data-validation-required-message="Por favor preencha o município.">
+            {{--<select id="XXXXcity-edit" v-model="city" v-on:change="__fetchSchools($event)" class="form-control input-lg" placeholder="Município" name="city" id="city" required data-validation-required-message="Por favor preencha o município.">--}}
+            <select id="city-edit" v-model="city" class="form-control input-lg" placeholder="Município" name="city" id="city" required data-validation-required-message="Por favor preencha o município.">
                 <option value="" selected>CIDADE AONDE VOCÊ ESTUDA</option>
                 @foreach ($cities as $key => $city)
                     <option

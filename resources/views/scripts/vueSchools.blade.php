@@ -14,7 +14,7 @@
             },
 
             methods: {
-                __fetchSchools: function ()
+                __fetchSchools: function (event)
                 {
                     if (this.city)
                     {

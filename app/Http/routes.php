@@ -35,6 +35,8 @@ Route::any('cities', function ()
 
 Route::any('schools/{city}', function ($city)
 {
+    $city = mb_strtoclean($city);
+
 	return School::where('city', '~*', strtoupper($city))->orderBy('name')->get();
 });
 

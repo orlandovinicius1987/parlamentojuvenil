@@ -11,7 +11,22 @@
                 address_city: null,
                 cpf: null,
                 cpfValid: false,
-                zipValid: false
+                zipValid: false,
+                birthdate: null,
+                city: null,
+                facebook: null,
+                social_name: null,
+                id_issuer: null,
+                registration: null,
+                email: null,
+                grade: null,
+                phone_home: null,
+                phone_cellular: null,
+                name: null,
+                zip_code: null,
+                gender: null,
+                gender2: null,
+                id_number: null,
             },
 
             methods: {
