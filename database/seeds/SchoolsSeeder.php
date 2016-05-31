@@ -108,13 +108,13 @@ class SchoolsSeeder extends Seeder
 
             $parts = explode("\t", $school);
 
-            $school = School::firstOrNew(array('name' => $parts[3]));
+            $school = School::firstOrNew(array('censo' => $parts[0]));
 
             $school->fill([
+                              'censo' => $parts[0],
                               'regional' => $parts[1],
                               'city' => $parts[2],
                               'city_id' => $this->findCityByName($parts[2])->id,
-                              'censo' => $parts[0],
                               'name' => $parts[3],
                               'email' => $parts[4],
                           ]);
