@@ -35,7 +35,122 @@
 
 
 
+    <section id="" class="fundo-azul1 parlamentares-anteriores">
+        <div class="container text-center">
 
+            <h2 class="text-center">Parlamentares da VIX Edição</h2>
+
+
+            <div class="form-group">
+                <div class="icon-addon addon-lg">
+                    <input type="text" placeholder="Buscar" class="form-control borda-preta" id="search">
+                    <label for="email" class="glyphicon glyphicon-search" rel="tooltip" title="search"></label>
+                </div>
+            </div>
+
+
+            {{--<i class="icon-search" title="Search">ggg</i>
+
+
+            <form id="search-parlamentares" method="GET" action="/search">
+
+                <div class="row control-group">
+                    <div class="form-group col-xs-12 floating-label-form-group controls">
+                        <label for="name" class="sr-only control-label">Buscar Parlamentar</label>
+                        <input type="text" class="form-control input-lg" value="" placeholder="Buscar Parlamentar" name="name" id="name" required="" data-validation-required-message="Por favor digite seu nome.">
+                        <i class="icon-search" title="Search"></i>
+                        <span class="help-block text-danger"></span>
+                    </div>
+                </div>
+            </form>--}}
+
+
+
+            {{--<div class="well well-sm">
+                <strong>Category Title</strong>
+                <div class="btn-group">
+                    <a href="#" id="list" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th-list">
+            </span>List</a> <a href="#" id="grid" class="btn btn-default btn-sm"><span
+                                class="glyphicon glyphicon-th"></span>Grid</a>
+                </div>
+            </div>--}}
+            <div id="products" class="row list-group">
+                <div class="item  col-xs-4 col-lg-3 ">
+                    <div class="thumbnail quadro-amarelo borda-preta">
+                        <img class="group list-group-image" src="http://www.parlamento-juvenil.rj.gov.br/files/apps/parlamentojuvenil/parlamentares/fotos/8a%20edicao%20(2014)/Joyce%20Dias%20de%20Lima%20-%20Guapimirim.jpg" alt="" />
+                        <div class="label">Julie Souto da Silva<br><span class="city-name">Japeri</span></div>
+                    </div>
+                </div>
+                <div class="item  col-xs-4 col-lg-3 ">
+                    <div class="thumbnail quadro-amarelo borda-preta">
+                        <img class="group list-group-image" src="http://www.parlamento-juvenil.rj.gov.br/files/apps/parlamentojuvenil/parlamentares/fotos/8a%20edicao%20(2014)/Joyce%20Dias%20de%20Lima%20-%20Guapimirim.jpg" alt="" />
+                        <div class="label">Julie Souto da Silva<br><span class="city-name">Japeri</span></div>
+                    </div>
+                </div>
+                <div class="item  col-xs-4 col-lg-3 ">
+                    <div class="thumbnail quadro-amarelo borda-preta">
+                        <img class="group list-group-image" src="http://www.parlamento-juvenil.rj.gov.br/files/apps/parlamentojuvenil/parlamentares/fotos/8a%20edicao%20(2014)/Joyce%20Dias%20de%20Lima%20-%20Guapimirim.jpg" alt="" />
+                        <div class="label">Julie Souto da Silva<br><span class="city-name">Japeri</span></div>
+                    </div>
+                </div>
+                <div class="item  col-xs-4 col-lg-3 ">
+                    <div class="thumbnail quadro-amarelo borda-preta">
+                        <img class="group list-group-image" src="http://www.parlamento-juvenil.rj.gov.br/files/apps/parlamentojuvenil/parlamentares/fotos/8a%20edicao%20(2014)/Joyce%20Dias%20de%20Lima%20-%20Guapimirim.jpg" alt="" />
+                        <div class="label">Julie Souto da Silva<br><span class="city-name">Japeri</span></div>
+                    </div>
+                </div>
+                <div class="item  col-xs-4 col-lg-3 ">
+                    <div class="thumbnail quadro-amarelo borda-preta">
+                        <img class="group list-group-image" src="http://www.parlamento-juvenil.rj.gov.br/files/apps/parlamentojuvenil/parlamentares/fotos/8a%20edicao%20(2014)/Joyce%20Dias%20de%20Lima%20-%20Guapimirim.jpg" alt="" />
+                        <div class="label">Julie Souto da Silva<br><span class="city-name">Japeri</span></div>
+                    </div>
+                </div>
+                <div class="item  col-xs-4 col-lg-3  ">
+                    <div class="thumbnail quadro-amarelo borda-preta">
+                        <img class="group list-group-image" src="http://www.parlamento-juvenil.rj.gov.br/files/apps/parlamentojuvenil/parlamentares/fotos/8a%20edicao%20(2014)/Joyce%20Dias%20de%20Lima%20-%20Guapimirim.jpg" alt="" />
+                        <div class="label">Julie Souto da Silva<br><span class="city-name">Japeri</span></div>
+                    </div>
+                </div>
+                <div class="item  col-xs-4 col-lg-3 ">
+                    <div class="thumbnail quadro-amarelo borda-preta">
+                        <img class="group list-group-image" src="http://www.parlamento-juvenil.rj.gov.br/files/apps/parlamentojuvenil/parlamentares/fotos/8a%20edicao%20(2014)/Joyce%20Dias%20de%20Lima%20-%20Guapimirim.jpg" alt="" />
+                        <div class="label">Julie Souto da Silva<br><span class="city-name">Japeri</span></div>
+                    </div>
+                </div>
+                <div class="item  col-xs-4 col-lg-3  ">
+                    <div class="thumbnail quadro-amarelo borda-preta">
+                        <img class="group list-group-image" src="http://www.parlamento-juvenil.rj.gov.br/files/apps/parlamentojuvenil/parlamentares/fotos/8a%20edicao%20(2014)/Joyce%20Dias%20de%20Lima%20-%20Guapimirim.jpg" alt="" />
+                        <div class="label">Julie Souto da Silva<br><span class="city-name">Japeri</span></div>
+                    </div>
+                </div>
+                <div class="item  col-xs-4 col-lg-3 ">
+                    <div class="thumbnail quadro-amarelo borda-preta">
+                        <img class="group list-group-image" src="http://www.parlamento-juvenil.rj.gov.br/files/apps/parlamentojuvenil/parlamentares/fotos/8a%20edicao%20(2014)/Joyce%20Dias%20de%20Lima%20-%20Guapimirim.jpg" alt="" />
+                        <div class="label">Julie Souto da Silva<br><span class="city-name">Japeri</span></div>
+                    </div>
+                </div>
+                <div class="item  col-xs-4 col-lg-3  ">
+                    <div class="thumbnail quadro-amarelo borda-preta">
+                        <img class="group list-group-image" src="http://www.parlamento-juvenil.rj.gov.br/files/apps/parlamentojuvenil/parlamentares/fotos/8a%20edicao%20(2014)/Joyce%20Dias%20de%20Lima%20-%20Guapimirim.jpg" alt="" />
+                        <div class="label">Julie Souto da Silva<br><span class="city-name">Japeri</span></div>
+                    </div>
+                </div>
+                <div class="item  col-xs-4 col-lg-3 ">
+                    <div class="thumbnail quadro-amarelo borda-preta">
+                        <img class="group list-group-image" src="http://www.parlamento-juvenil.rj.gov.br/files/apps/parlamentojuvenil/parlamentares/fotos/8a%20edicao%20(2014)/Joyce%20Dias%20de%20Lima%20-%20Guapimirim.jpg" alt="" />
+                        <div class="label">Julie Souto da Silva<br><span class="city-name">Japeri</span></div>
+                    </div>
+                </div>
+                <div class="item  col-xs-4 col-lg-3  ">
+                    <div class="thumbnail quadro-amarelo borda-preta">
+                        <img class="group list-group-image" src="http://www.parlamento-juvenil.rj.gov.br/files/apps/parlamentojuvenil/parlamentares/fotos/8a%20edicao%20(2014)/Joyce%20Dias%20de%20Lima%20-%20Guapimirim.jpg" alt="" />
+                        <div class="label">Julie Souto da Silva<br><span class="city-name">Japeri</span></div>
+                    </div>
+                </div>
+        </div>
+
+
+    </section>
 
     <section id="parlamentares-anteriores" class="fundo-azul1" >
         <div class="container-fluid">

@@ -1,5 +1,5 @@
 <section id="depoimentos" class="fundo-azul">
-    <div id="depoimentos-feed" class="carousel slide" data-interval="false">
+    <div id="depoimentos-feed" class="carousel slide depoimentos-feed" data-interval="false">
         {{--<div class="depo">--}}
         {{--<img class="img-responsive" src="/pj2016/images/twit.png" alt="twit">--}}
         {{--</div>--}}
@@ -15,16 +15,13 @@
                                     <img src="{!! make_image_url($congressman['photo']) !!}" alt="" class="img-responsive">
                                 </div>
                                 <div class="col-xs-12 col-sm-8">
-                                    <div><p>{{ $congressman['testimonial'] }}</p></div>
+                                    <p class="depoimento">"{{ $congressman['testimonial'] }}"</p>
+                                    <p class="nome">{{ $congressman['name'] }}</p>
+                                    <p class="edicao">{{ $congressman['editions'] }}</p>
+                                    <p class="cidade">{{ $congressman['city'] }}</p>
                                 </div>
                             </div>
-                            <div class="row borda-preta-topo">
-                                <div class="col-xs-12 col-sm-8 childbox">
-                                    <p>{{ $congressman['name'] }}</p>
-                                    {{--<p>Parlamentar Juvenil, {{ $congressman['editions'] }}</p>--}}
-                                </div>
-                                <div class="col-xs-12 col-sm-4 text-center childbox-inverse"><p>{{ $congressman['city'] }}</p></div>
-                            </div>
+
                         </div>
 
                         <?php $active = ''; ?>
