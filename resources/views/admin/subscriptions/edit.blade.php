@@ -17,7 +17,7 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-lg-12">
-                                <form method="POST" action="{{ route('subscriptions.edit', ['id' => $subscription->id])}}">
+                                <form method="POST" id="subscribe" action="{{ route('subscriptions.edit', ['id' => $subscription->id])}}">
                                     {!! csrf_field() !!}
 
                                     @include('partials.subscribe-form-fields')

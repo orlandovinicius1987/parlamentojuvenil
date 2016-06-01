@@ -97,7 +97,8 @@
         <script src="/vendor/jquery.maskedinput/dist/jquery.maskedinput.min.js"></script>
 
         <!-- CPF -->
-        <script src="//www.receita.fazenda.gov.br/aplicacoes/atcta/cpf/funcoes.js"></script>
+        {{--<script src="//www.receita.fazenda.gov.br/aplicacoes/atcta/cpf/funcoes.js"></script>--}}
+        <script src="/js/receita.js"></script>
 
         <!-- Blueimp Lightbox -->
         <script src="//blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>

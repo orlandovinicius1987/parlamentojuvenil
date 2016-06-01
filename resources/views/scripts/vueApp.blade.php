@@ -1,6 +1,8 @@
 <script>
     if (jQuery("#subscribe").length)
     {
+        var emptySchool = [{value: '', text: 'SELECIONE SUA ESCOLA'}];
+
         var vueApp = new Vue({
             el: '#subscribe',
 
@@ -27,6 +29,8 @@
                 gender: null,
                 gender2: null,
                 id_number: null,
+                schools: emptySchool,
+                school: '{{ Input::old('school') ?: (isset($subscription) ? $subscription->school : '') }}',
             },
 
             methods: {
@@ -63,8 +67,40 @@
                             }
                         });
                     }
-                }
-            }
+                },
+
+                __fetchSchools: function (event)
+                {
+                    if (this.city)
+                    {
+                        this.$http.get('/schools/' + this.city, function (schools)
+                        {
+                            this.schools = schools;
+                        });
+                    }
+                },
+
+                __cityChanged: function (event)
+                {
+                    var city = '{{ Input::old('city') ?: (isset($subscription) ? $subscription->city : '') }}';
+
+                    if (this.city !== city)
+                    {
+                        this.school = '';
+                    }
+
+                    this.__fetchSchools();
+                },
+            },
+
+            watch: {
+                'city': '__cityChanged',
+            },
+
+            ready: function ()
+            {
+                this.__fetchSchools();
+            },
         });
     }
 </script>

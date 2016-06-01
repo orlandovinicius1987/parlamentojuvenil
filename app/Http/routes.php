@@ -33,12 +33,12 @@ Route::any('cities', function ()
 	return State::where('code', 'RJ')->first()->cities()->orderBy('name')->get();
 });
 
-Route::any('schools/{city}', function ($city)
+Route::any('schools/{city}',['middleware' => 'cors', function ($city)
 {
     $city = mb_strtoclean($city);
 
 	return School::where('city', '~*', strtoupper($city))->orderBy('name')->get();
-});
+}]);
 
 Route::get('download/{file}', ['as' => 'download', 'uses' => function ($file)
 {
