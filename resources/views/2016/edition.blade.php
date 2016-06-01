@@ -151,7 +151,7 @@
 
 
     </section>
-
+{{--
     <section id="parlamentares-anteriores" class="fundo-azul1" >
         <div class="container-fluid">
             <div class="row">
@@ -1672,7 +1672,7 @@
             </div>
 
         </div>
-    </section><!--/#anteriores-->
+    </section><!--/#anteriores-->--}}
 
 
 
