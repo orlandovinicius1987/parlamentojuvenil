@@ -21,4 +21,9 @@ class Api extends BaseController
     {
         return $this->dataRepository->getTimeline($year);
     }
+
+    public function getCongressmen($year)
+    {
+        return $this->dataRepository->getCongressmen($year);
+    }
 }

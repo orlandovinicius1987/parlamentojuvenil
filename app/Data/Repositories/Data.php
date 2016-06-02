@@ -11,6 +11,7 @@ use App\Exceptions\AlreadySubscribed;
 use App\Events\SubscriptionWasCreated;
 use App\Services\News\Service as SyncNewsService;
 use Illuminate\Support\Collection as IlluminateCollection;
+use App\Services\Filesystem\Service as Filesystem;
 
 class Data
 {
@@ -153,11 +154,50 @@ class Data
      * @var Builder
      */
     public $viewBuilder;
+    /**
+     * @var Filesystem
+     */
+    private $filesystem;
 
-    public function __construct(SyncNewsService $syncNewsService, Builder $viewBuilder)
+    public function __construct(SyncNewsService $syncNewsService, Builder $viewBuilder, Filesystem $filesystem)
     {
         $this->syncNewsService = $syncNewsService;
         $this->viewBuilder = $viewBuilder;
+        $this->filesystem = $filesystem;
+    }
+
+    public function getCongressmen($year)
+    {
+        $year = $this->getYearString($year);
+
+        $congressmen = $this->filesystem->congressmenLinks(env('PHOTOS_DIR').DIRECTORY_SEPARATOR.$year);
+
+        return $congressmen;
+    }
+
+    /**
+     * @param $year
+     */
+    private function getYearString($year)
+    {
+        if ($year == 2013)
+        {
+            $year = '7a edicao (2013)';
+        }
+        elseif ($year == 2014)
+        {
+            $year = '8a edicao (2014)';
+        }
+        elseif ($year == 2015)
+        {
+            $year = '9a edicao (2015)';
+        }
+        elseif ($year == 2016)
+        {
+            $year = '10a edicao (2016)';
+        }
+
+        return $year;
     }
 
     public function sendSubscriptionCreatedMail($subscription)

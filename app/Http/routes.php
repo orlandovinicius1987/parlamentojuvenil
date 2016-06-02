@@ -97,8 +97,9 @@ Route::get('inscricao', ['as' => 'subscriptions.index', 'uses' => 'Subscriptions
 Route::group(['prefix' => 'api/v1'], function ()
 {
     Route::get('timeline/{year}', ['as' => 'api.timeline', 'uses' => 'Api@getTimeline']);
-});
 
+    Route::get('congressmen/{year}', ['as' => 'api.congressmen', 'uses' => 'Api@getCongressmen']);
+});
 
 // Year pages
 
