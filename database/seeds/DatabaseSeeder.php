@@ -14,7 +14,10 @@ class DatabaseSeeder extends Seeder
     {
         Model::unguard();
 
-//	    $this->call(CitiesSeeder::class);
+        // Is safe to run Cities seeder, it does not zap tables
+	    $this->call(CitiesSeeder::class);
+
+        // Be careful!
 	    $this->call(SchoolsSeeder::class);
 
         Model::reguard();

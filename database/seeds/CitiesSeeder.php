@@ -29,14 +29,21 @@ class CitiesSeeder extends Seeder
 
 	private function seedCountries()
 	{
-		Country::truncate();
+		// Country::truncate();
 
-		$this->country = Country::create(['code' => 'BR', 'name' => 'Brasil']);
+        try 
+        {
+            $this->country = Country::create(['code' => 'BR', 'name' => 'Brasil']);
+        }
+        catch (Exception $e)
+        {
+            // do nothing
+        }
 	}
 
 	private function seedStates()
 	{
-		State::truncate();
+		// State::truncate();
 
 		$states = [
 			['internal' => 1, 'name' => 'Acre', 'code' => 'AC', 'country_id' => $this->country->id],
@@ -70,13 +77,20 @@ class CitiesSeeder extends Seeder
 
 		foreach ($states as $state)
 		{
-			State::create($state);
+            try
+            {
+                State::create($state);
+            }
+            catch (Exception $e)
+            {
+                // do nothing
+            }
 		}
 	}
 
 	private function seedCities()
 	{
-		City::truncate();
+		// City::truncate();
 
 		$cities = [
 			['name' => 'Água Doce do Norte', 'state_id' => State::where('internal', 8)->first()->id],
@@ -5646,7 +5660,14 @@ class CitiesSeeder extends Seeder
 
 		foreach ($cities as $city)
 		{
-			City::create($city);
+            try
+            {
+                City::create($city);
+            }
+            catch (Exception $e)
+            {
+                // do nothing
+            }
 		}
 	}
 }

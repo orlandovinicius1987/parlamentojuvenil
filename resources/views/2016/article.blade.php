@@ -1,7 +1,19 @@
-<?php $count = 1; ?>
-<?php $articleCount = 1; ?>
-@foreach ($articles as $article)
-    @if ($articleCount >= $first && $articleCount <= $last)
+@extends('2016.layouts.layout')
+
+@section('contents')
+    @include('2016.partials.header')
+
+    <section id="home">
+        <div id="main-slider" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="item active">
+                    <img class="img-responsive" src="/pj2016/images/edicoes/vix/banner_vix.jpg" alt="slider">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="article">
         <div class="col-xs-12 col-md-4 quadro-amarelo texto-preto" id="article_{{ $article['id'] }}">
             <div class="titulo borda-preta text-center">{{ $article['heading'] }}</div>
 
@@ -40,23 +52,11 @@
 
                 </div>
                 <div class="pull-right">
-                    <a href="{{ route('article.show', ['article' => $article['id']]) }}">
+                    <a href="">
                         <i class="fa fa-plus" aria-hidden="true"></i>
                     </a>
                 </div>
             </div>
         </div>
-
-        <div class="col-xs-12 hidden-lg hidden-md respiro"></div>
-
-        @if ($count % 3 == 0)
-            </div>
-            <br>
-            <div class="row">
-        @endif
-
-        <?php $count++;?>
-    @endif
-
-    <?php $articleCount++;?>
-@endforeach
+    </section>
+@stop
