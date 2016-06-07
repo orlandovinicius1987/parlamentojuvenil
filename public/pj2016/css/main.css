@@ -163,6 +163,14 @@ section#home {
   background-clip: content-box;
 }
 
+.quadro-amarelo-nopadding {
+  background-color: #FFC908;
+}
+
+.quadro-branco {
+  background: #fff;
+}
+
 #noticias .titulo {
   padding: 15px;
   font-family: 'Palanquin Dark', sans-serif;
@@ -1523,6 +1531,24 @@ section#home {
   display: block;
   font-weight: 800;
 }
+
+
+/*************************
+****** article CSS****
+**************************/
+
+.article {
+  padding-top: 250px;
+  display: table;
+}
+
+
+.article-content .thumbnail {
+  border: none;
+  padding: 0;
+  margin: 15px 0 0 0;
+}
+
 
 
 
