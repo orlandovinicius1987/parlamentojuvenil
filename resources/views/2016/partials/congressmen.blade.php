@@ -12,8 +12,8 @@
         <div id="products" class="row list-group">
             <div v-for="item in congressmen | filterBy searchText in 'name' 'city'" class="item col-xs-4 col-lg-3">
                 <div class="thumbnail quadro-amarelo borda-preta">
-                    <img width="50px" class="group list-group-image" :src="item.url" alt="" />
-                    <div class="label">@{{ item.name }}<br><span class="city-name">@{{ item.city }}</span></div>
+                    <img class="group list-group-image" :src="item.url" alt="" />
+                    <div class="descricao">@{{ item.name }}<br><span class="city-name">@{{ item.city }}</span></div>
                 </div>
             </div>
         </div>
