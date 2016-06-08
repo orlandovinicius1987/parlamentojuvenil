@@ -1561,30 +1561,82 @@
 
 
     <section id="mesadiretora-anteriores" class="fundo-azul2">
-        <div class="container-fluid">
-            <div class="row about-section no-border">
+        <div class="container">
+            <div class="row about-section no-border text-center">
 
                     <h1 id="calendar" style="text-align: center;">MESA DIRETORA</h1>
 
                     <div class="row text-center">
-                        <h3 class="calendar-title">Presidente</h3>
-                        <p>Lara Carvalho (Duas Barras)</p>
+                        <div class="tree">
+                            <ul>
+                                <li>
+                                    <a href="#"><p class="cargo">Vice Presidente</P>
+                                        <img src="http://local.parlamentojuvenil.com/files/apps/parlamentojuvenil/parlamentares/fotos/8a%20edicao%20(2014)/recortadas/Luiza%20Barros%20do%20Nascimento%20-%20Iguaba%20Grande.jpg" alt=""><BR>
+                                        <P>Nome do Parlamentar</P>
+                                        <div class="caixa-preta"> Cidade </div>
+                                    </a>
+                                    <ul>
+                                        <li class="largura">
+                                            <a href="#"><p class="cargo">Vice Presidente</P>
+                                                <img src="http://local.parlamentojuvenil.com/files/apps/parlamentojuvenil/parlamentares/fotos/8a%20edicao%20(2014)/recortadas/Luiza%20Barros%20do%20Nascimento%20-%20Iguaba%20Grande.jpg" alt=""><BR>
+                                                <P>Nome do Parlamentar</P>
+                                                <div class="caixa-preta"> Cidade </div>
+                                            </a>
+                                        </li>
+                                        <li>
 
-                        <h3 class="calendar-title">Vice-presidente</h3>
-                        <p>Enzo Carvalho (Resende)</p>
+                                            <ul>
+                                                <li>
+                                                    <a href="#"><p class="cargo">1ª Secretária</P>
+                                                        <img src="http://local.parlamentojuvenil.com/files/apps/parlamentojuvenil/parlamentares/fotos/8a%20edicao%20(2014)/recortadas/Luiza%20Barros%20do%20Nascimento%20-%20Iguaba%20Grande.jpg" alt=""><BR>
+                                                        <P>Nome do Parlamentar</P>
+                                                        <div class="caixa-preta"> Cidade </div>
+                                                    </a>
+                                                    <ul class="">
+                                                        <li>
+                                                            <a href="#"><p class="cargo">Suplentes</P>
+                                                                <img src="http://local.parlamentojuvenil.com/files/apps/parlamentojuvenil/parlamentares/fotos/8a%20edicao%20(2014)/recortadas/Luiza%20Barros%20do%20Nascimento%20-%20Iguaba%20Grande.jpg" alt=""><BR>
+                                                                <P>Nome do Parlamentar</P>
+                                                                <div class="caixa-preta"> Cidade </div>
+                                                            </a>
+                                                        </li>
 
-                        <h3 class="calendar-title">2ª vice-presidente</h3>
-                        <p>Luiza Barros (Iguaba Grande)</p>
 
-                        <h3 class="calendar-title">1ª secretária</h3>
-                        <p>Sárya Martins (Quissamã)</p>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <a href="#"><p class="cargo">2ª Secretária</P>
+                                                        <img src="http://local.parlamentojuvenil.com/files/apps/parlamentojuvenil/parlamentares/fotos/8a%20edicao%20(2014)/recortadas/Luiza%20Barros%20do%20Nascimento%20-%20Iguaba%20Grande.jpg" alt=""><BR>
+                                                        <P>Nome do Parlamentar</P>
+                                                        <div class="caixa-preta"> Cidade </div>
+                                                    </a>                        <ul class="">
+                                                        <li>
+                                                            <a href="#"><p class="cargo">Suplentes</P>
+                                                                <img src="http://local.parlamentojuvenil.com/files/apps/parlamentojuvenil/parlamentares/fotos/8a%20edicao%20(2014)/recortadas/Luiza%20Barros%20do%20Nascimento%20-%20Iguaba%20Grande.jpg" alt=""><BR>
+                                                                <P>Nome do Parlamentar</P>
+                                                                <div class="caixa-preta"> Cidade </div>
+                                                            </a>
+                                                        </li>
 
-                        <h3 class="calendar-title">2º secretário</h3>
-                        <p>Lucas Mota (Santo Antônio de Pádua)</p>
 
-                        <h3 class="calendar-title">Suplentes</h3>
-                        <p>João Pedro Valente (São Pedro da Aldeia)</p>
-                        <p>Maria Luíza (Belford Roxo)</p>
+                                                    </ul>
+
+                                                </li>
+
+                                            </ul>
+                                        </li>
+                                        <li class="largura">
+                                            <a href="#"><p class="cargo">2º Vice Presidente</P>
+                                                <img src="http://local.parlamentojuvenil.com/files/apps/parlamentojuvenil/parlamentares/fotos/8a%20edicao%20(2014)/recortadas/Luiza%20Barros%20do%20Nascimento%20-%20Iguaba%20Grande.jpg" alt=""><BR>
+                                                <P>Nome do Parlamentar</P>
+                                                <div class="caixa-preta"> Cidade </div>
+                                            </a>
+
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
 
             </div>
