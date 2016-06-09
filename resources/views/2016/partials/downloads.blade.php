@@ -22,7 +22,7 @@
 
                 <div class="col-xs-12 col-lg-4">
                     <div class="classWithPad caixa-amarela">
-                        <a href="http://www.parlamento-juvenil.rj.gov.br/download/anexo-ii-calendario-de-atividades-9a-edicao.pdf" class="btn border-button">
+                        <a href="http://www.parlamento-juvenil.rj.gov.br/download/2016/anexo-ii-calendario-de-atividades-10a-edicao.pdf" class="btn border-button">
                             <img src="/pj2016/images/calendario.png" class="img-responsive" alt="Calendario">
                         </a>
                         <p>Calendário de Atividades</p>
