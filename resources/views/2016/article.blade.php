@@ -124,7 +124,7 @@
                 <!-- -- SIDEBAR ---->
                 <div class="col-lg-4">
 
-                    <div class="row quadro-amarelo-nopadding texto-preto borda-preta" >
+  {{--                  <div class="row quadro-amarelo-nopadding texto-preto borda-preta" >
                         <div class="col-sm-12">
                             <h4>Search</h4>
                             <div class="hline"></div>
@@ -136,12 +136,12 @@
                     </div>
 
 
-                    <hr>
+                    <hr>--}}
 
-                    <div class="row " >
+                    <div class="row  quadro-amarelo-nopadding texto-preto borda-preta" >
 
-                            <div class="col-xs-12  quadro-amarelo texto-preto" id="article_{{ $article['id'] }}">
-                                <div class="titulo borda-preta text-center">{{ $article['heading'] }}</div>
+                            <div class="col-xs-12 " id="article_{{ $article['id'] }}">
+                                <div class="titulo  text-center">{{ $article['heading'] }}</div>
 
                                 <div class="thumbnail">
                                     <a href="#">
@@ -149,7 +149,7 @@
                                     </a>
                                 </div>
 
-                                <div class="col-xs-12 quadro-branco borda-preta-lateral texto-preto">
+                                <div class="col-xs-12 ">
                                     {{ $article['date'] }}
 
                                     @if ($article['subheading'])
@@ -161,7 +161,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-xs-12 quadro-branco borda-preta-lateral borda-preta-final">
+                                <div class="col-xs-12">
                                     <div class="pull-left">
 
                                         <a href="https://www.facebook.com/sharer/sharer.php?u=" target="_blank">
@@ -187,14 +187,9 @@
 
                     </div>
 
-
-
-                    <hr>
-
-
+{{--                    <hr>
                     <div class="row quadro-amarelo-nopadding texto-preto borda-preta" >
                         <div class="col-sm-12">
-
                             <h4>Categories</h4>
                             <div class="hline"></div>
                             <p><a href="#"><i class="fa fa-angle-right"></i> Wordpress</a> <span class="badge badge-theme pull-right">9</span></p>
@@ -203,14 +198,11 @@
                             <p><a href="#"><i class="fa fa-angle-right"></i> Development</a> <span class="badge badge-theme pull-right">5</span></p>
                             <p><a href="#"><i class="fa fa-angle-right"></i> Tips &amp; Tricks</a> <span class="badge badge-theme pull-right">7</span></p>
                             <p><a href="#"><i class="fa fa-angle-right"></i> Code Snippets</a> <span class="badge badge-theme pull-right">12</span></p>
-
                         </div>
-                    </div>
+                    </div>--}}
 
 
                     <hr>
-
-
                     <div class="row quadro-amarelo-nopadding texto-preto borda-preta" >
                         <div class="col-sm-12">
 
@@ -258,32 +250,6 @@
                                     </div>
                                 </li>
                             </ul>
-                        </div>
-                    </div>
-
-                    <hr>
-
-                    <div class="row quadro-amarelo-nopadding texto-preto borda-preta" >
-                        <div class="col-sm-12">
-
-                            <h4>Popular Tags</h4>
-                            <div class="hline"></div>
-                            <p>
-                                <a class="label label-default btn btn-theme" href="#" role="button">Design</a>
-                                <a class="label label-default btn btn-theme" href="#" role="button">Wordpress</a>
-                                <a class="label label-default btn btn-theme" href="#" role="button">Flat</a>
-                                <a class="label label-default btn btn-theme" href="#" role="button">Modern</a>
-                                <a class="label label-default btn btn-theme" href="#" role="button">Wallpaper</a>
-                                <a class="label label-default btn btn-theme" href="#" role="button">HTML5</a>
-                                <a class="label label-default btn btn-theme" href="#" role="button">Pre-processor</a>
-                                <a class="label label-default btn btn-theme" href="#" role="button">Developer</a>
-                                <a class="label label-default btn btn-theme" href="#" role="button">Windows</a>
-                                <a class="label label-default btn btn-theme" href="#" role="button">Phothosop</a>
-                                <a class="label label-default btn btn-theme" href="#" role="button">UX</a>
-                                <a class="label label-default btn btn-theme" href="#" role="button">Interface</a>
-                                <a class="label label-default btn btn-theme" href="#" role="button">UI</a>
-                                <a class="label label-default btn btn-theme" href="#" role="button">Blog</a>
-                            </p>
                         </div>
                     </div>
                 </div>

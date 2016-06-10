@@ -1750,6 +1750,9 @@
     </section>
 
 
+    @include('2016.partials.projects')
+
+
     <section id="noticias-anteriores" class="fundo-azul5 numeros">
 
         <div class="container">
