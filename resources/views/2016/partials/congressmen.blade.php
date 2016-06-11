@@ -10,7 +10,7 @@
         </div>
 
         <div id="products" class="row list-group">
-            <div v-for="item in congressmen | filterBy searchText in 'name' 'city'" class="item col-xs-4 col-lg-3">
+            <div v-for="item in congressmen | filterBy searchText in 'name' 'city'" class="item col-xs-12 col-sm-6 col-md-4 col-lg-3">
                 <div class="thumbnail quadro-amarelo borda-preta">
                     <img class="group list-group-image" :src="item.url" alt="" />
                     <div class="descricao">@{{ item.name }}<br><span class="city-name">@{{ item.city }}</span></div>

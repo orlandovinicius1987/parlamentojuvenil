@@ -1185,6 +1185,122 @@ section#home {
 
 
 
+/*************************
+******PROJECTS CSS****
+**************************/
+
+#projects {
+  /*background-color: #ecedef;*/
+  /*background-image: url("../images/twitter-bg.jpg");*/
+  /*background-position: center bottom;*/
+  /*background-size: cover;*/
+  /*background-repeat:no-repeat;*/
+  /*position: relative;*/
+  /*padding: 95px 0 90px;*/
+  /*overflow: hidden;*/
+}
+
+/*.depo {*/
+/*position: absolute;*/
+/*left: 0;*/
+/*top:-10%;*/
+/*}*/
+
+#projects-feed .item {
+  text-align: left;
+}
+
+#projects-feed .item img {
+  display: inline-block;
+  border-left: 4px black solid;
+}
+
+#projects-feed .item a,
+#projects-feed .item p {
+  font-size: 16px;
+  font-family: 'Yanone Kaffeesatz','sans-serif';
+}
+
+#projects-feed .item p {
+  font-family: 'Palanquin Dark', sans-serif;
+  color: black;
+  /*padding: 10px;*/
+  /*margin-top: 10px;*/
+}
+
+#projects-feed .item a {
+  color:#b21416;
+}
+
+#projects-feed .corpo-projeto {
+  padding-top: 15px;
+}
+
+.projects-control-left,
+.projects-control-right {
+  position: absolute;
+  /*color: #00c3ff;*/
+  color: black;
+  top: 24%;
+  font-size: 120px;
+  color: black !important;
+}
+
+.projects-control-left {
+  left: -50px;
+}
+
+.projects-control-right {
+  right: -50px;
+}
+
+#projects .carousel-inner {
+  background-color: #FFFFFF;
+}
+
+.titulo-projeto {
+  background-color: #FFC908;
+  border-bottom: solid #000000 4px;
+  margin: 0 -30px 0 -15px;
+  text-transform: uppercase;
+  padding: 10px 0 10px 0px ;
+  color: #000000;
+  font-size: 130%;
+  font-weight: 700 ;
+  text-align: center;
+}
+
+.projects-feed p.depoimento {
+  text-align: center;
+  margin: 50px 0 30px 0;
+  padding: 0 30px 0 50px;
+}
+
+
+.projects-feed p.nome {
+  text-align: center;
+  font-size: 35px !important;
+  margin: 0;
+  padding: 0;
+}
+
+.projects-feed p.edicao {
+  text-align: center;
+  font-size: 22px !important;
+  margin: -10px 0 0 0 ;
+  padding: 0;
+  font-style: italic;
+}
+
+.projects-feed p.cidade {
+  text-align: center;
+  font-size: 30px !important;
+  margin: 20px 0 0 0;
+  padding: 0;
+}
+
+
+
 
 /*************************
 ******Twitter CSS****
@@ -1580,6 +1696,15 @@ section#home {
   max-width: 254px;
 }
 
+@media (max-width: 479px) {
+  .tree li.largura a {
+    width: 60px !important;
+  }
+
+  .tree img {
+    max-width: 54px !important;
+  }
+}
 
 
 .tree li {
@@ -2266,12 +2391,12 @@ select.input-lg {
   /*margin-right: -15px;*/
 }
 
-#depoimentos-feed .item .childbox p {
+#projects-feed .item .childbox p {
   color: white;
   text-align: center;
 }
 
-#depoimentos-feed .item .childbox p span {
+#projects-feed .item .childbox p span {
   background-color: white;
   margin-top: -18px;
   color: black;
@@ -2289,7 +2414,7 @@ select.input-lg {
   background-color: black;
 }
 
-#depoimentos-feed .item .childbox-inverse p {
+#projects-feed .item .childbox-inverse p {
   text-align: center !important;
   font-size: 18px !important;
   line-height: 1.9em;
