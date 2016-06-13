@@ -14,12 +14,16 @@
     </section>--}}
 
     <section id="article" class="fundo-azul article">
-        <div class="row">
-            <div class="col-xs-12 text-center">
-                <h2>Últimas Notícias</h2>
+        <div class="container">
+            <div class="row">
+
+                <div class="col-xs-12 text-center">
+                    <h2>Últimas Notícias</h2>
+                </div>
             </div>
         </div>
-        <div class="col-xs-12 col-md-8 quadro-amarelo texto-preto" id="article_{{ $article['id'] }}">
+
+        {{--<div class="col-xs-12 col-md-8 quadro-amarelo texto-preto" id="article_{{ $article['id'] }}">
             <div class="titulo borda-preta text-center">{{ $article['heading'] }}</div>
 
             <div class="thumbnail">
@@ -75,7 +79,7 @@
                     </a>
                 </div>
             </div>
-        </div>
+        </div>--}}
 
 
         <div class="container">
@@ -138,53 +142,105 @@
 
                     <hr>--}}
 
-                    <div class="row  quadro-amarelo-nopadding texto-preto borda-preta" >
 
-                            <div class="col-xs-12 " id="article_{{ $article['id'] }}">
-                                <div class="titulo  text-center">{{ $article['heading'] }}</div>
+                    <div class="row" >
 
-                                <div class="thumbnail">
-                                    <a href="#">
-                                        <img src="{!! make_image_url($article['image']) !!}" alt="">
-                                    </a>
-                                </div>
 
-                                <div class="col-xs-12 ">
-                                    {{ $article['date'] }}
+                        <div class="col-xs-12 quadro-amarelo texto-preto article-list" id="article_28577">
+                            <div class="titulo borda-preta text-center">Três projetos podem virar Lei</div>
 
-                                    @if ($article['subheading'])
-                                        - {{ $article['subheading'] }}
-                                    @endif
+                            <div class="thumbnail">
+                                <a href="#">
+                                    <img src="http://www2.alerj.rj.gov.br/parlamentojuvenil/media/image//pj_projeto_final_lm_27_11_15.jpg" alt="">
+                                </a>
+                            </div>
 
-                                    <div>
-                                        {!! $article['short_body'] !!}
-                                    </div>
-                                </div>
+                            <div class="col-xs-12 quadro-branco borda-preta-lateral texto-preto">
+                                27 11 2015
 
-                                <div class="col-xs-12">
-                                    <div class="pull-left">
 
-                                        <a href="https://www.facebook.com/sharer/sharer.php?u=" target="_blank">
-                                            <i class="fa fa-facebook" aria-hidden="true"></i>
-                                        </a>
-
-                                        <a href="https://twitter.com/intent/tweet?url=" target="_blank">
-                                            <i class="fa fa-twitter" aria-hidden="true"></i>
-                                        </a>
-
-                                        <a href="https://plus.google.com/share?url=" target="_blank">
-                                            <i class="fa fa-google-plus" aria-hidden="true"></i>
-                                        </a>
-
-                                    </div>
-                                    <div class="pull-right">
-                                        <a href="{{ route('article.show', ['article' => $article['id']]) }}">
-                                            <i class="fa fa-plus" aria-hidden="true"></i>
-                                        </a>
-                                    </div>
+                                <div>
+                                    Proposta mais votada tem como tema a violência contra a mulher; textos serão encaminhados ao governador Luiz Fernando Pezão &nbsp; No encerramento da 9ª edição do Parlamento Juvenil (PJ), nesta sexta-feira (27/11), foram escolhidos três projetos de lei a...
                                 </div>
                             </div>
 
+                            <div class="col-xs-12 quadro-branco borda-preta-lateral borda-preta-final">
+                                <div class="pull-left">
+
+                                    <a href="https://www.facebook.com/sharer/sharer.php?u=" target="_blank">
+                                        <i class="fa fa-facebook" aria-hidden="true"></i>
+                                    </a>
+
+                                    <a href="https://twitter.com/intent/tweet?url=" target="_blank">
+                                        <i class="fa fa-twitter" aria-hidden="true"></i>
+                                    </a>
+
+                                    <a href="https://plus.google.com/share?url=" target="_blank">
+                                        <i class="fa fa-google-plus" aria-hidden="true"></i>
+                                    </a>
+
+                                </div>
+                                <div class="pull-right">
+                                    <a href="http://local.parlamentojuvenil.com/article/28577">
+                                        <i class="fa fa-plus" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12 quadro-amarelo texto-preto" id="article_28577">
+                            <div class="titulo borda-preta text-center">Três projetos podem virar Lei</div>
+
+                            <div class="thumbnail">
+                                <a href="#">
+                                    <img src="http://www2.alerj.rj.gov.br/parlamentojuvenil/media/image//pj_projeto_final_lm_27_11_15.jpg" alt="">
+                                </a>
+                            </div>
+
+                            <div class="col-xs-12 quadro-branco borda-preta-lateral texto-preto">
+                                27 11 2015
+
+
+                                <div>
+                                    Proposta mais votada tem como tema a violência contra a mulher; textos serão encaminhados ao governador Luiz Fernando Pezão &nbsp; No encerramento da 9ª edição do Parlamento Juvenil (PJ), nesta sexta-feira (27/11), foram escolhidos três projetos de lei a...
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12 quadro-branco borda-preta-lateral borda-preta-final">
+                                <div class="pull-left">
+
+                                    <a href="https://www.facebook.com/sharer/sharer.php?u=" target="_blank">
+                                        <i class="fa fa-facebook" aria-hidden="true"></i>
+                                    </a>
+
+                                    <a href="https://twitter.com/intent/tweet?url=" target="_blank">
+                                        <i class="fa fa-twitter" aria-hidden="true"></i>
+                                    </a>
+
+                                    <a href="https://plus.google.com/share?url=" target="_blank">
+                                        <i class="fa fa-google-plus" aria-hidden="true"></i>
+                                    </a>
+
+                                </div>
+                                <div class="pull-right">
+                                    <a href="http://local.parlamentojuvenil.com/article/28577">
+                                        <i class="fa fa-plus" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row text-center padding-top-15" id="more-gallery-new-button">
+                        <div class="col-md-5 quadro-amarelo hidden-xs hidden-sm"><div class="borda-preta">&nbsp;</div></div>
+                        <div class="col-md-2 col-xs-12"><div class="quadro-vermelho borda-preta">+</div></div>
+                        <div class="col-md-5 quadro-amarelo hidden-xs hidden-sm"><div class="borda-preta">&nbsp;</div></div>
+                    </div>
+
+                    <div class="row text-center padding-top-15">
+                        <div class="col-md-5 quadro-amarelo hidden-xs hidden-sm"><div class="borda-preta">&nbsp;</div></div>
+                        <div class="col-md-2 col-xs-12"><div class="quadro-vermelho borda-preta">+</div></div>
+                        <div class="col-md-5 quadro-amarelo hidden-xs hidden-sm"><div class="borda-preta">&nbsp;</div></div>
                     </div>
 
 {{--                    <hr>
@@ -202,8 +258,8 @@
                     </div>--}}
 
 
-                    <hr>
-                    <div class="row quadro-amarelo-nopadding texto-preto borda-preta" >
+                    {{--<hr>--}}
+                   {{-- <div class="row quadro-amarelo-nopadding texto-preto borda-preta" >
                         <div class="col-sm-12">
 
                             <h4>Recent Posts</h4>
@@ -252,7 +308,9 @@
                             </ul>
                         </div>
                     </div>
-                </div>
+
+
+                </div>--}}
             </div><!-- --/row ---->
         </div>
     </section>
