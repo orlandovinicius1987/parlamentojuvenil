@@ -1109,21 +1109,21 @@ section#home {
   }
   .depoimentos-feed p.nome {
     text-align: center;
-    font-size: 26px !important;
+    font-size: 22px !important;
     margin: 0;
     padding: 0;
   }
   .depoimentos-feed p.edicao {
     text-align: center;
     font-size: 18px !important;
-    margin: -5px 0 0 0 !important;
+    margin: 0px 0 0 0 !important;
     padding: 0;
     font-style: italic;
     line-height: 19px !important;
   }
   .depoimentos-feed p.cidade {
     text-align: center;
-    font-size: 26px !important;
+    font-size: 22px !important;
     margin: 5px 0 15px 0 !important;
     padding: 0;
   }
@@ -1159,7 +1159,7 @@ section#home {
 
 #depoimentos-feed .item a,
 #depoimentos-feed .item p {
-  font-size: 24px;
+  /*font-size: 24px;*/
   font-weight: bold;
   font-family: 'Yanone Kaffeesatz','sans-serif';
 }
@@ -1201,19 +1201,20 @@ section#home {
   text-align: center;
   margin: 50px 0 30px 0;
   padding: 0 30px 0 50px;
+  font-size: 22px;
 }
 
 
 .depoimentos-feed p.nome {
   text-align: center;
-  font-size: 35px !important;
+  font-size: 35px;
   margin: 0;
   padding: 0;
 }
 
 .depoimentos-feed p.edicao {
   text-align: center;
-  font-size: 22px !important;
+  font-size: 22px;
   margin: -10px 0 0 0 ;
   padding: 0;
   font-style: italic;
@@ -1221,7 +1222,7 @@ section#home {
 
 .depoimentos-feed p.cidade {
   text-align: center;
-  font-size: 30px !important;
+  font-size: 30px;
   margin: 20px 0 0 0;
   padding: 0;
 }
