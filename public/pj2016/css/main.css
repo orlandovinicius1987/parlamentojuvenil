@@ -1084,6 +1084,52 @@ section#home {
 ******Depoimentos CSS****
 **************************/
 
+
+@media (max-width: 479px) {
+  #depoimentos-feed .item img {
+    width: 100% important;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding: 0px;
+    border-left: 0px black solid !important;
+    border-top: 0px black solid !important;
+    border-bottom: 4px black solid !important;
+    border-right: 0px black solid !important;
+  }
+
+  #depoimentos-feed .depoimentos-foto {
+    padding: 0px;
+    margin: 0px;
+  }
+  .depoimentos-feed p.depoimento {
+    text-align: center;
+    margin: 10px 0 0px 0 !important;
+    padding: 0 0px 0 0px !important;
+    font-size: 17px !important;
+  }
+  .depoimentos-feed p.nome {
+    text-align: center;
+    font-size: 26px !important;
+    margin: 0;
+    padding: 0;
+  }
+  .depoimentos-feed p.edicao {
+    text-align: center;
+    font-size: 18px !important;
+    margin: -5px 0 0 0 !important;
+    padding: 0;
+    font-style: italic;
+    line-height: 19px !important;
+  }
+  .depoimentos-feed p.cidade {
+    text-align: center;
+    font-size: 26px !important;
+    margin: 5px 0 15px 0 !important;
+    padding: 0;
+  }
+}
+
+
 #depoimentos {
   /*background-color: #ecedef;*/
   /*background-image: url("../images/twitter-bg.jpg");*/
@@ -1107,13 +1153,7 @@ section#home {
 
 #depoimentos-feed .item img {
   display: inline-block;
-  /*width: 300px;*/
-  /*height: 300px;*/
-  /*border-radius: 50%;*/
   border-right: 4px black solid;
-  /*padding: 5px;*/
-  /*margin-bottom: 30px;*/
-  /*margin-right: 10px;*/
   margin-left: -30px;
 }
 
@@ -1187,6 +1227,23 @@ section#home {
 }
 
 
+/* xs */
+@media (max-width: 767px) {
+  #depoimentos-feed .item img {
+    display: block;
+    width: 300px;
+    margin: 0 auto;
+    /* height: 300px; */
+    /* border-radius: 50%; */
+    border: 4px black solid;
+    border-top: none;
+  }
+  .depoimentos-control-left, .depoimentos-control-right {
+    position: initial;
+    font-size: 60px;
+    color: black !important;
+  }
+}
 
 
 /*************************
