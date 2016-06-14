@@ -1130,6 +1130,25 @@ section#home {
 }
 
 
+@media (max-width: 1024px) {
+  #depoimentos-feed .item img {
+    display: inline-block;
+    border-right: 0px black solid !important;
+    border-bottom: 4px black solid;
+    margin-left: 0px !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .depoimentos-feed p.depoimento {
+    text-align: center;
+    margin: 70px 0 50px 0 !important;
+    padding: 0 30px 0 50px;
+    font-size: 32px !important;
+  }
+}
+
+
 #depoimentos {
   /*background-color: #ecedef;*/
   /*background-image: url("../images/twitter-bg.jpg");*/
@@ -1151,10 +1170,19 @@ section#home {
   text-align: left;
 }
 
+#depoimentos-feed .depoimentos-foto {
+  padding: 0px;
+  margin: 0px;
+}
+
 #depoimentos-feed .item img {
   display: inline-block;
   border-right: 4px black solid;
-  margin-left: -30px;
+  /*margin-left: -30px;*/
+}
+
+#depoimentos-feed .img-responsive{
+  width: 100%;
 }
 
 #depoimentos-feed .item a,
@@ -1199,7 +1227,7 @@ section#home {
 
 .depoimentos-feed p.depoimento {
   text-align: center;
-  margin: 50px 0 30px 0;
+  margin: 30px 0 30px 0;
   padding: 0 30px 0 50px;
   font-size: 22px;
 }
@@ -1717,13 +1745,25 @@ section#home {
 **************************/
 
 .article {
-  padding-top: 250px;
+  padding: 250px 0 40px 0 ;
   /*display: table;*/
 }
 
 .article .titulo {
   padding: 5px 0 5px 0;
 }
+
+.article-content {
+  margin: 0 0 20px 0;
+}
+
+@media (max-width: 479px) {
+  .article-content {
+    border-left: 0px;
+    border-right: 0px;
+  }
+}
+
 
 .article-content .thumbnail {
   border: none;
