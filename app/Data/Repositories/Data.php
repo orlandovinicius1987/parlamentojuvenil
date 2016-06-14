@@ -129,12 +129,6 @@ class Data
             ],
 
             [
-                'start' => '2016-11-22 00:00:00',
-                'end' => '2016-11-28 23:59:59',
-                'title' => 'Parlamento Juvenil na Alerj',
-            ],
-
-            [
                 'start' => '2016-11-11 00:00:00',
                 'end' => '2016-11-11 23:59:59',
                 'title' => 'Envio dos projetos de lei - Prazo final',
@@ -142,7 +136,7 @@ class Data
 
             [
                 'start' => '2016-11-20 00:00:00',
-                'end' => '2016-11-26 23:59:59',
+                'end' => '2016-11-26 21:59:59',
                 'title' => 'Semana do Parlamento Juvenil',
                 'description' => '20 a 26 de novembro',
             ],
