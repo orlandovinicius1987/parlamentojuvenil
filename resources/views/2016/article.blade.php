@@ -146,7 +146,7 @@
                     <div class="row" >
 
 
-                        <div class="col-xs-12 quadro-amarelo texto-preto article-list" id="article_28577">
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-12 quadro-amarelo texto-preto article-list" id="article_28577">
                             <div class="titulo borda-preta text-center">Três projetos podem virar Lei</div>
 
                             <div class="thumbnail">
@@ -188,7 +188,7 @@
                             </div>
                         </div>
 
-                        <div class="col-xs-12 quadro-amarelo texto-preto" id="article_28577">
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-12 quadro-amarelo texto-preto" id="article_28577">
                             <div class="titulo borda-preta text-center">Três projetos podem virar Lei</div>
 
                             <div class="thumbnail">
