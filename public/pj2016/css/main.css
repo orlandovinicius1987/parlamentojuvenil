@@ -1260,7 +1260,7 @@ section#home {
 @media (max-width: 767px) {
   #depoimentos-feed .item img {
     display: block;
-    width: 300px;
+    /*width: 300px;*/
     margin: 0 auto;
     /* height: 300px; */
     /* border-radius: 50%; */
@@ -1819,7 +1819,7 @@ section#home {
 }
 
 .tree li.largura a {
-  width: 260px !important;
+  width: 260px;
 }
 
 .tree img {
@@ -1828,15 +1828,39 @@ section#home {
   max-width: 254px;
 }
 
-@media (max-width: 479px) {
-  .tree li.largura a {
-    width: 60px !important;
+
+
+@media (max-width: 1025px) {
+  .tree img {
+    border-top: 3px solid #000;
+    border-bottom: 3px solid #000;
+    max-width: 205px;
   }
 
-  .tree img {
-    max-width: 54px !important;
+  .tree li.largura a {
+    width: 211px;
   }
 }
+
+@media (max-width: 769px) {
+  .tree img {
+    max-width: 150px !important;
+  }
+
+  .tree li.largura a {
+    width: 156px;
+  }
+}
+
+@media (max-width: 479px) {
+  .tree li.largura a {
+    width: 60px;
+  }
+  .tree img {
+    max-width: 54px;
+  }
+}
+
 
 
 .tree li {
@@ -2645,3 +2669,5 @@ select.input-lg {
 .icon-addon:hover .fa {
   color: #2580db;
 }
+
+
