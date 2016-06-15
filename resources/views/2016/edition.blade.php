@@ -1717,7 +1717,7 @@
     </section>
 
 
-    <section id="noticias-anteriores" class="fundo-azul4 noticias">
+   {{-- <section id="noticias-anteriores" class="fundo-azul4 noticias">
 
         <div class="container">
             <div class="row">
@@ -1737,11 +1737,11 @@
                     <p><a class="btn btn-info btn-sm" href="#">Read more</a></p>
                     <br/>
                     <ul class="list-inline">
-                      {{--  <li><i class="glyphicon glyphicon-user"></i> by <a href="#">John</a> | </li>--}}
+                      --}}{{--  <li><i class="glyphicon glyphicon-user"></i> by <a href="#">John</a> | </li>--}}{{--
                         <li><i class="glyphicon glyphicon-calendar"></i> Sept 16th, 2012 | </li>
-                        {{--<li><i class="glyphicon glyphicon-comment"></i> <a href="#">3 Comments</a> | </li>
-                        <li><i class="glyphicon glyphicon-share"></i> <a href="#">39 Shares</a></li>--}}
-                        <li><i class="icon-tags"></i> {{--Tags :--}} <a href="#"><span class="label label-info">Snipp</span></a>
+                        --}}{{--<li><i class="glyphicon glyphicon-comment"></i> <a href="#">3 Comments</a> | </li>
+                        <li><i class="glyphicon glyphicon-share"></i> <a href="#">39 Shares</a></li>--}}{{--
+                        <li><i class="icon-tags"></i> --}}{{--Tags :--}}{{-- <a href="#"><span class="label label-info">Snipp</span></a>
                             <a href="#"><span class="label label-info">Bootstrap</span></a>
                             <a href="#"><span class="label label-info">UI</span></a>
                             <a href="#"><span class="label label-info">growth</span></a></li>
@@ -1763,11 +1763,11 @@
                     <p><a class="btn btn-info btn-sm" href="#">Read more</a></p>
                     <br/>
                     <ul class="list-inline">
-                      {{--  <li><i class="glyphicon glyphicon-user"></i> by <a href="#">John</a> | </li>--}}
+                      --}}{{--  <li><i class="glyphicon glyphicon-user"></i> by <a href="#">John</a> | </li>--}}{{--
                         <li><i class="glyphicon glyphicon-calendar"></i> Sept 16th, 2012 | </li>
-                        {{--<li><i class="glyphicon glyphicon-comment"></i> <a href="#">3 Comments</a> | </li>
-                        <li><i class="glyphicon glyphicon-share"></i> <a href="#">39 Shares</a></li>--}}
-                        <li><i class="icon-tags"></i> {{--Tags :--}} <a href="#"><span class="label label-info">Snipp</span></a>
+                        --}}{{--<li><i class="glyphicon glyphicon-comment"></i> <a href="#">3 Comments</a> | </li>
+                        <li><i class="glyphicon glyphicon-share"></i> <a href="#">39 Shares</a></li>--}}{{--
+                        <li><i class="icon-tags"></i> --}}{{--Tags :--}}{{-- <a href="#"><span class="label label-info">Snipp</span></a>
                             <a href="#"><span class="label label-info">Bootstrap</span></a>
                             <a href="#"><span class="label label-info">UI</span></a>
                             <a href="#"><span class="label label-info">growth</span></a></li>
@@ -1789,11 +1789,11 @@
                     <p><a class="btn btn-info btn-sm" href="#">Read more</a></p>
                     <br/>
                     <ul class="list-inline">
-                      {{--  <li><i class="glyphicon glyphicon-user"></i> by <a href="#">John</a> | </li>--}}
+                      --}}{{--  <li><i class="glyphicon glyphicon-user"></i> by <a href="#">John</a> | </li>--}}{{--
                         <li><i class="glyphicon glyphicon-calendar"></i> Sept 16th, 2012 | </li>
-                        {{--<li><i class="glyphicon glyphicon-comment"></i> <a href="#">3 Comments</a> | </li>
-                        <li><i class="glyphicon glyphicon-share"></i> <a href="#">39 Shares</a></li>--}}
-                        <li><i class="icon-tags"></i> {{--Tags :--}} <a href="#"><span class="label label-info">Snipp</span></a>
+                        --}}{{--<li><i class="glyphicon glyphicon-comment"></i> <a href="#">3 Comments</a> | </li>
+                        <li><i class="glyphicon glyphicon-share"></i> <a href="#">39 Shares</a></li>--}}{{--
+                        <li><i class="icon-tags"></i> --}}{{--Tags :--}}{{-- <a href="#"><span class="label label-info">Snipp</span></a>
                             <a href="#"><span class="label label-info">Bootstrap</span></a>
                             <a href="#"><span class="label label-info">UI</span></a>
                             <a href="#"><span class="label label-info">growth</span></a></li>
@@ -1807,13 +1807,13 @@
             <button type="button" class="btn btn-default">Ver mais notícias</button>
         </div>
 
-    </section>
+    </section>--}}
 
 
     @include('2016.partials.projects')
 
 
-    <section id="noticias-anteriores" class="fundo-azul5 numeros">
+    {{--<section id="noticias-anteriores" class="fundo-azul5 numeros">
 
         <div class="container">
             <div class="row">
@@ -1826,7 +1826,7 @@
                     <div class="right">
                         <span class="count_top"><i class="fa fa-user"></i>Pessoas Inscritas</span>
                         <div class="count">2500</div>
-                        {{--<span class="count_bottom"><i class="green">4% </i> From last Week</span>--}}
+                        --}}{{--<span class="count_bottom"><i class="green">4% </i> From last Week</span>--}}{{--
                     </div>
                 </div>
 
@@ -1835,7 +1835,7 @@
                     <div class="right">
                         <span class="count_top"><i class="fa fa-user"></i>Projetos Inscritos</span>
                         <div class="count green">2,500</div>
-                        {{--<span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>--}}
+                        --}}{{--<span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>--}}{{--
                     </div>
                 </div>
                 <div class="animated flipInY col-md-4 col-sm-4 col-xs-4 tile_stats_count text-center">
@@ -1843,10 +1843,10 @@
                     <div class="right">
                         <span class="count_top"><i class="fa fa-user"></i>Projetos Aprovados</span>
                         <div class="count">4,567</div>
-                        {{--<span class="count_bottom"><i class="red"><i class="fa fa-sort-desc"></i>12% </i> From last Week</span>--}}
+                        --}}{{--<span class="count_bottom"><i class="red"><i class="fa fa-sort-desc"></i>12% </i> From last Week</span>--}}{{--
                     </div>
                 </div>
-{{--
+--}}{{--
                 <div class="animated flipInY col-md-2 col-sm-4 col-xs-4 tile_stats_count">
                     <div class="left"></div>
                     <div class="right">
@@ -1863,14 +1863,14 @@
                         <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>
                     </div>
                 </div>
---}}
+--}}{{--
             </div>
         </div>
 
-    </section>
+    </section>--}}
 
 
-    <section id="downloads-anteriores" class="fundo-azul6">
+   {{-- <section id="downloads-anteriores" class="fundo-azul6">
 
         <div id="whatis" class="content-section-b" style="border-top-width: 0px;">
             <div class="container">
@@ -1913,10 +1913,10 @@
                 </div>
               </div>
         </div>
-    </section>
+    </section>--}}
 
 
-    <section id="clippings-anteriores" class="pinboards fundo-azul5">
+   {{-- <section id="clippings-anteriores" class="pinboards fundo-azul5">
         <div class="container ">
             <div class="row">
                 <h1 class="text-center">Clipping Edição 2015</h1>
@@ -1977,7 +1977,7 @@
             </div>
 
         </div>
-    </section>
+    </section>--}}
 
 
 @stop
