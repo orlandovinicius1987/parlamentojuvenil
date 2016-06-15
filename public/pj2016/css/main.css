@@ -1840,6 +1840,27 @@ section#home {
 ****** MESA DIRETORA ORGANOGRAMA CSS****
 **************************/
 
+.mesadiretora-anteriores .mobile .item{
+  margin: 0 20px 20px 20px;
+}
+.mesadiretora-anteriores .mobile .item p{
+  color: #000000;
+}
+.mesadiretora-anteriores .mobile .item p.cargo{
+  padding: 10px 0 3px 0;
+}
+
+.mesadiretora-anteriores .mobile .item p.nome{
+  padding: 10px 0 3px 0;
+}
+
+.mesadiretora-anteriores .mobile .item img{
+  border-bottom: 4px solid #000000;
+  border-top: 4px solid #000000;
+  width: 100%;
+}
+
+
 
 /* Code based on this sample http://thecodeplayer.com/walkthrough/css3-family-tree */
 
@@ -1882,7 +1903,6 @@ section#home {
   .tree img {
     max-width: 150px !important;
   }
-
   .tree li.largura a {
     width: 156px;
   }
