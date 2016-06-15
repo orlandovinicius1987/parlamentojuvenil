@@ -1084,8 +1084,31 @@ section#home {
 ******Depoimentos CSS****
 **************************/
 
+#depoimentos .carousel-inner {
+  background-color: #FFC908;
+}
+#depoimentos-feed .item a,
+#depoimentos-feed .item p {
+  font-weight: bold;
+  font-family: 'Yanone Kaffeesatz','sans-serif';
+}
+#depoimentos-feed .item p {
+  font-family: 'Palanquin Dark', sans-serif;
+  color: black;
+  /*padding: 10px;*/
+  /*margin-top: 10px;*/
+}
+#depoimentos-feed .item a {
+  color:#b21416;
+}
+#depoimentos-feed .img-responsive{
+  width: 100%;
+}
+
+
 
 @media (max-width: 479px) {
+
   #depoimentos-feed .item img {
     width: 100% important;
     margin-left: 0px;
@@ -1129,25 +1152,136 @@ section#home {
   }
 }
 
+/* xs */
+@media (max-width: 767px) {
+  #depoimentos-feed .item img {
+    display: block;
+    /*width: 300px;*/
+    margin: 0 auto;
+    /* height: 300px; */
+    /* border-radius: 50%; */
+    border: 4px black solid;
+    border-top: none;
+  }
+  .depoimentos-control-left, .depoimentos-control-right {
+    position: initial;
+    font-size: 60px;
+    color: black !important;
+  }
+}
 
-@media (max-width: 1024px) {
+@media screen and (min-width: 768px) and (max-width: 1024px) {
   #depoimentos-feed .item img {
     display: inline-block;
     border-right: 0px black solid !important;
     border-bottom: 4px black solid;
     margin-left: 0px !important;
   }
-}
-
-@media (min-width: 1024px) {
-  .depoimentos-feed p.depoimento {
+  /*#depoimentos-feed .item p{
+    background: #0f0;
+  }*/
+  .depoimentos-feed p.cidade {
     text-align: center;
-    margin: 70px 0 50px 0 !important;
-    padding: 0 30px 0 50px;
-    font-size: 32px !important;
+    font-size: 30px;
+    margin: 20px 0 40px 0;
+    padding: 0;
+  }
+  .depoimentos-feed .depoimentos-foto{
+    padding: 0;
   }
 }
 
+@media (min-width: 1025px) {
+  .depoimentos-feed p.depoimento {
+    text-align: center;
+    margin: 30px 0 50px 0;
+    padding: 0 30px 0 50px;
+    font-size: 28px;
+  }
+  .depoimentos-feed p.cidade {
+    text-align: center;
+    font-size: 30px;
+    margin: 20px 0 0 0;
+    padding: 0;
+  }
+}
+
+@media (min-width: 1200px) {
+  .depoimentos-feed p.depoimento {
+    text-align: center;
+    margin: 30px 0 30px 0;
+    padding: 0 30px 0 50px;
+    font-size: 24px;
+    line-height: 22px;
+  }
+/*  .depoimentos-feed p.depoimento {
+    text-align: center;
+    margin: 30px 0 30px 0;
+    padding: 0 30px 0 50px;
+    font-size: 22px;
+  }*/
+
+  .depoimentos-feed p.cidade {
+    text-align: center;
+    font-size: 30px;
+    margin: 20px 0 0 0;
+    padding: 0;
+  }
+
+  #depoimentos-feed .item {
+    text-align: left;
+  }
+  #depoimentos-feed .depoimentos-foto {
+    padding: 0px;
+    margin: 0px;
+  }
+  #depoimentos-feed .item img {
+    display: inline-block;
+    border-right: 4px black solid;
+    /*margin-left: -30px;*/
+  }
+  .depoimentos-control-left,
+  .depoimentos-control-right {
+    position: absolute;
+    /*color: #00c3ff;*/
+    color: black;
+    top: 24%;
+    font-size: 120px;
+    color: black !important;
+  }
+  .depoimentos-control-left {
+    left: -50px;
+  }
+  .depoimentos-control-right {
+    right: -50px;
+  }
+
+
+  .depoimentos-feed p.nome {
+    text-align: center;
+    font-size: 35px;
+    margin: 0;
+    padding: 0;
+  }
+  .depoimentos-feed p.edicao {
+    text-align: center;
+    font-size: 22px;
+    margin: -10px 0 0 0 ;
+    padding: 0;
+    font-style: italic;
+  }
+}
+
+@media (min-width: 1800px) {
+  .depoimentos-feed p.depoimento {
+    text-align: center;
+    margin: 50px 0 50px 0;
+    padding: 0 30px 0 50px;
+    font-size: 30px;
+    line-height: 32px;
+  }
+
+}
 
 #depoimentos {
   /*background-color: #ecedef;*/
@@ -1166,113 +1300,15 @@ section#home {
   /*top:-10%;*/
 /*}*/
 
-#depoimentos-feed .item {
-  text-align: left;
-}
-
-#depoimentos-feed .depoimentos-foto {
-  padding: 0px;
-  margin: 0px;
-}
-
-#depoimentos-feed .item img {
-  display: inline-block;
-  border-right: 4px black solid;
-  /*margin-left: -30px;*/
-}
-
-#depoimentos-feed .img-responsive{
-  width: 100%;
-}
-
-#depoimentos-feed .item a,
-#depoimentos-feed .item p {
-  /*font-size: 24px;*/
-  font-weight: bold;
-  font-family: 'Yanone Kaffeesatz','sans-serif';
-}
-
-#depoimentos-feed .item p {
-  font-family: 'Palanquin Dark', sans-serif;
-  color: black;
-  /*padding: 10px;*/
-  /*margin-top: 10px;*/
-}
-
-#depoimentos-feed .item a {
-  color:#b21416;
-}
-
-.depoimentos-control-left,
-.depoimentos-control-right {
-  position: absolute;
-  /*color: #00c3ff;*/
-  color: black;
-  top: 24%;
-  font-size: 120px;
-  color: black !important;
-}
-
-.depoimentos-control-left {
-  left: -50px;
-}
-
-.depoimentos-control-right {
-  right: -50px;
-}
-
-#depoimentos .carousel-inner {
-  background-color: #FFC908;
-}
-
-.depoimentos-feed p.depoimento {
-  text-align: center;
-  margin: 30px 0 30px 0;
-  padding: 0 30px 0 50px;
-  font-size: 22px;
-}
-
-
-.depoimentos-feed p.nome {
-  text-align: center;
-  font-size: 35px;
-  margin: 0;
-  padding: 0;
-}
-
-.depoimentos-feed p.edicao {
-  text-align: center;
-  font-size: 22px;
-  margin: -10px 0 0 0 ;
-  padding: 0;
-  font-style: italic;
-}
-
+/*
 .depoimentos-feed p.cidade {
   text-align: center;
   font-size: 30px;
   margin: 20px 0 0 0;
   padding: 0;
-}
+}*/
 
 
-/* xs */
-@media (max-width: 767px) {
-  #depoimentos-feed .item img {
-    display: block;
-    /*width: 300px;*/
-    margin: 0 auto;
-    /* height: 300px; */
-    /* border-radius: 50%; */
-    border: 4px black solid;
-    border-top: none;
-  }
-  .depoimentos-control-left, .depoimentos-control-right {
-    position: initial;
-    font-size: 60px;
-    color: black !important;
-  }
-}
 
 
 /*************************
