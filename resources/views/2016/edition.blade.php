@@ -1560,17 +1560,77 @@
 
 
 
-    <section id="mesadiretora-anteriores" class="fundo-azul2">
+    <section id="mesadiretora-anteriores" class="fundo-azul2 mesadiretora-anteriores">
         <div class="container">
             <div class="row about-section no-border text-center">
 
                     <h1 id="calendar" style="text-align: center;">MESA DIRETORA</h1>
 
                     <div class="row text-center">
-                        <div class="tree">
+
+                        <div class="visible-xs mobile">
+                            <div class="item quadro-amarelo borda-preta">
+                                <a href="#"><p class="cargo">Presidente</P>
+                                    <img src="http://local.parlamentojuvenil.com/files/apps/parlamentojuvenil/parlamentares/fotos/8a%20edicao%20(2014)/recortadas/Luiza%20Barros%20do%20Nascimento%20-%20Iguaba%20Grande.jpg" alt=""><BR>
+                                    <P class="nome">Nome do Parlamentar</P>
+                                    <div class="caixa-preta"> Cidade </div>
+                                </a>
+                            </div>
+
+                            <div class="item quadro-amarelo borda-preta">
+                                <a href="#"><p class="cargo">Vice Presidente</P>
+                                    <img src="http://local.parlamentojuvenil.com/files/apps/parlamentojuvenil/parlamentares/fotos/8a%20edicao%20(2014)/recortadas/Luiza%20Barros%20do%20Nascimento%20-%20Iguaba%20Grande.jpg" alt=""><BR>
+                                    <P class="nome">Nome do Parlamentar</P>
+                                    <div class="caixa-preta"> Cidade </div>
+                                </a>
+                            </div>
+
+                            <div class="item quadro-amarelo borda-preta">
+                                <a href="#"><p class="cargo">2ª Vice Presidente</P>
+                                    <img src="http://local.parlamentojuvenil.com/files/apps/parlamentojuvenil/parlamentares/fotos/8a%20edicao%20(2014)/recortadas/Luiza%20Barros%20do%20Nascimento%20-%20Iguaba%20Grande.jpg" alt=""><BR>
+                                    <P class="nome">Nome do Parlamentar</P>
+                                    <div class="caixa-preta"> Cidade </div>
+                                </a>
+                            </div>
+
+                            <div class="item quadro-amarelo borda-preta">
+                                <a href="#"><p class="cargo">1ª Secretária</P>
+                                    <img src="http://local.parlamentojuvenil.com/files/apps/parlamentojuvenil/parlamentares/fotos/8a%20edicao%20(2014)/recortadas/Luiza%20Barros%20do%20Nascimento%20-%20Iguaba%20Grande.jpg" alt=""><BR>
+                                    <P class="nome">Nome do Parlamentar</P>
+                                    <div class="caixa-preta"> Cidade </div>
+                                </a>
+                            </div>
+
+                            <div class="item quadro-amarelo borda-preta">
+                                <a href="#"><p class="cargo">2ª Secretária</P>
+                                    <img src="http://local.parlamentojuvenil.com/files/apps/parlamentojuvenil/parlamentares/fotos/8a%20edicao%20(2014)/recortadas/Luiza%20Barros%20do%20Nascimento%20-%20Iguaba%20Grande.jpg" alt=""><BR>
+                                    <P class="nome">Nome do Parlamentar</P>
+                                    <div class="caixa-preta"> Cidade </div>
+                                </a>
+                            </div>
+
+
+
+                            <div class="item quadro-amarelo borda-preta">
+                                <a href="#"><p class="cargo">Suplentes</P>
+                                    <img src="http://local.parlamentojuvenil.com/files/apps/parlamentojuvenil/parlamentares/fotos/8a%20edicao%20(2014)/recortadas/Luiza%20Barros%20do%20Nascimento%20-%20Iguaba%20Grande.jpg" alt=""><BR>
+                                    <P class="nome">Nome do Parlamentar</P>
+                                    <div class="caixa-preta"> Cidade </div>
+                                </a>
+                            </div>
+
+                            <div class="item quadro-amarelo borda-preta">
+                                <a href="#"><p class="cargo">Suplentes</P>
+                                    <img src="http://local.parlamentojuvenil.com/files/apps/parlamentojuvenil/parlamentares/fotos/8a%20edicao%20(2014)/recortadas/Luiza%20Barros%20do%20Nascimento%20-%20Iguaba%20Grande.jpg" alt=""><BR>
+                                    <P class="nome">Nome do Parlamentar</P>
+                                    <div class="caixa-preta"> Cidade </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="tree hidden-xs">
                             <ul>
                                 <li>
-                                    <a href="#"><p class="cargo">Vice Presidente</P>
+                                    <a href="#"><p class="cargo">Presidente</P>
                                         <img src="http://local.parlamentojuvenil.com/files/apps/parlamentojuvenil/parlamentares/fotos/8a%20edicao%20(2014)/recortadas/Luiza%20Barros%20do%20Nascimento%20-%20Iguaba%20Grande.jpg" alt=""><BR>
                                         <P>Nome do Parlamentar</P>
                                         <div class="caixa-preta"> Cidade </div>
