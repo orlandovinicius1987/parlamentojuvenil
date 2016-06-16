@@ -51,6 +51,17 @@
     z-index: 10;
   }
 
+  .projects-control-right {
+    right: -50px;
+  }
+  .projects-control-left {
+    left: -50px;
+  }
+
+  .projects-control-left, .projects-control-right {
+    top: 24%;
+    font-size: 120px;
+  }
 
 }
 
@@ -418,6 +429,33 @@
     top: 30%;
     font-size: 60px;
   }
+
+  #projects-feed .conteudo {
+    /* margin-left: -22px; */
+    padding: 0 0 0 0px;
+  }
+  #projects-feed .item img {
+    border-right: 0px black solid;
+    border-bottom: 4px black solid;
+    width: 100%;
+  }
+  .projects-control-right {
+    right: 22px;
+  }
+  .projects-control-left {
+    left: 22px;
+  }
+
+  .projects-control-left, .projects-control-right {
+    top: 24%;
+    font-size: 60px;
+  }
+
+  .projects-feed {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
 
   #sponsor {
     background-position: right 0 bottom;

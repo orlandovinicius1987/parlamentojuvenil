@@ -12,11 +12,11 @@
                         <div class="item {{ $active }}">
                             <div class="row">
 
-                                <div class="col-xs-12 col-sm-5 nopadding">
+                                <div class="col-xs-12 col-sm-4 nopadding">
                                     <img src="{!! make_image_url($congressman['photo']) !!}" alt="" class="">
                                 </div>
 
-                                <div class="col-xs-12 col-sm-7 nopadding conteudo">
+                                <div class="col-xs-12 col-sm-8 nopadding conteudo">
                                     <div class="titulo-projeto">Projeto de Lei Nº 51212/2016 </div>
                                     <div class="corpo-projeto">
                                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas congue tellus felis, ut semper nulla ultricies fermentum. Morbi aliquam mi id posuere elementum. Donec fermentum vel augue vel congue. Aenean at lorem a odio mattis tempor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed venenatis ut mi pretium ultricies. Morbi non metus accumsan, condimentum odio at, euismod libero. Vivamus ut fermentum velit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
