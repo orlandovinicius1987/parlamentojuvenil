@@ -1446,12 +1446,12 @@ section#home {
 #projects-feed .item img {
   display: inline-block;
   border-right: 4px black solid;
-  margin-left: -15px;
+  margin-left: 0px;
 }
 
 #projects-feed .conteudo {
   /*margin-left: -22px;*/
-  padding: 0;
+  padding: 0 0 0 5px;
 }
 
 
@@ -1473,7 +1473,8 @@ section#home {
 }
 
 #projects-feed .corpo-projeto {
-  padding-top: 15px;
+  padding: 15px 15px 0px 15px ;
+
 }
 
 .projects-control-left,
@@ -1501,7 +1502,7 @@ section#home {
 .titulo-projeto {
   background-color: #FFC908;
   border-bottom: solid #000000 4px;
-  margin: 0 -30px 0 -22px;
+  margin: 0 0px 0 0px;
   text-transform: uppercase;
   padding: 10px 0 10px 0px ;
   color: #000000;
@@ -1539,6 +1540,8 @@ section#home {
   padding: 0;
 }
 
+/*
+
 @media (max-width: 479px) {
   #projects-feed .carousel-inner{
     margin-top: 40px;
@@ -1561,6 +1564,7 @@ section#home {
 
 
 
+*/
 
 /*************************
 ******Twitter CSS****
