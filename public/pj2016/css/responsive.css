@@ -408,11 +408,15 @@
   }
 
   .twitter-control-left {
-    left: 46%;
+    left: 6%;
   }
 
   .twitter-control-right {
-    right: 46%;
+    right: 6%;
+  }
+  .twitter-control-left, .twitter-control-right {
+    top: 30%;
+    font-size: 60px;
   }
 
   #sponsor {
@@ -572,6 +576,41 @@
   .navbar-toggle {
     margin-right: 28px;
   }
+
+  #twitter-feed .item img {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    border-radius: 0%;
+    /* background-color: #000000; */
+    padding: 0px;
+    margin-bottom: 30px;
+    margin-top: 0px;
+    border-bottom: 4px solid #000000;
+  }
+
+
+  #twitter-feed .item p.depoimento {
+    font-size: 20px;
+    line-height: 1;
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-bottom: 15px;
+  }
+
+  #twitter-feed .item p.nome {
+    font-size: 26px;
+  }
+
+  #twitter-feed .item p.edicao {
+    font-style: italic;
+  }
+
+  #twitter-feed .item p.cidade {
+    font-size: 22px;
+    margin-bottom: 30px;
+  }
+
 
 }
 
