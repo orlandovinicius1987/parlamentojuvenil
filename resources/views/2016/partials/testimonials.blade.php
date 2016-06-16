@@ -11,7 +11,7 @@
 
                     <div class="item {{ $active }}">
                         <img class="foto" src="{!! make_image_url($congressman['photo']) !!}" alt="">
-                        <p class="depoimento">"{{ $congressman['testimonial'] }}"</p>
+                        <p class="depoimento">&ldquo;{{ $congressman['testimonial'] }}"</p>
                         <p class="nome">{{ $congressman['name'] }}</p>
                         <p class="edicao">{{ $congressman['editions'] }}</p>
                         <p class="cidade">{{ $congressman['city'] }}</p>
