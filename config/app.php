@@ -8,7 +8,7 @@ return [
 
     'url' => env('URL_BASE'),
 
-    'timezone' => 'UTC',
+    'timezone' => 'America/Sao_Paulo',
 
     'locale' => 'pt_BR',
 
