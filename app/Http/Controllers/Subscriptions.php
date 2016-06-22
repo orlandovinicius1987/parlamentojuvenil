@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use \DB;
 use Event;
 use Input;
+use Storage;
 use Carbon\Carbon;
 use App\Data\Entities\City;
 use Illuminate\Http\Request;
@@ -66,16 +67,9 @@ class Subscriptions extends BaseController
 
         $date = Carbon::now()->format('Y-m-d-h-m-s');
 
-		return
-
-			Excel::create('InscricoesParlamentoJuvenil-'.$date, function($excel) use ($subscriptions)
-			{
-				$excel->sheet('Inscricoes', function($sheet) use ($subscriptions)
-				{
-					$sheet->fromArray($subscriptions);
-				});
-			})->download('xls');
-	}
+//        return $this->exportToExcel($date, $subscriptions);
+        return $this->exportToCsv($date, $subscriptions);
+    }
 
 	private function allSubscriptions()
 	{
@@ -109,7 +103,44 @@ class Subscriptions extends BaseController
 		return $subscriptions;
 	}
 
-	public function ignore($id)
+    private function exportToCsv($date, $subscriptions)
+    {
+        $fileName = 'InscricoesParlamentoJuvenil-' . $date . '.csv';
+
+        $lines = $subscriptions[0];
+
+        $lines = '"' . implode(array_keys($lines), '";"') . '"' . "\n";
+
+        foreach ($subscriptions as $subscription)
+        {
+            $lines .= '"' . implode($subscription, '";"') . '"' . "\n";
+        }
+
+        Storage::disk('local')->put($fileName, utf8_decode($lines));
+
+        $path = Storage::disk('local')->getDriver()->getAdapter()->getPathPrefix();
+
+        return response()->download("$path/$fileName")->deleteFileAfterSend(true);
+    }
+
+    /**
+     * @param $date
+     * @param $subscriptions
+     * @return mixed
+     */
+    private function exportToExcel($date, $subscriptions)
+    {
+        return
+
+            Excel::create('InscricoesParlamentoJuvenil-' . $date, function ($excel) use ($subscriptions) {
+                $excel->sheet('Inscricoes', function ($sheet) use ($subscriptions) {
+                    $sheet->fromArray($subscriptions);
+                });
+            })->download('xls')
+            ;
+    }
+
+    public function ignore($id)
 	{
 		if ( ! $subscription = Subscription::find($id))
 		{

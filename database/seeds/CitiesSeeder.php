@@ -3734,7 +3734,7 @@ class CitiesSeeder extends Seeder
 			['name' => 'Nova Iguaçu', 'state_id' => State::where('internal', 19)->first()->id],
 			['name' => 'Paracambi', 'state_id' => State::where('internal', 19)->first()->id],
 			['name' => 'Paraíba do Sul', 'state_id' => State::where('internal', 19)->first()->id],
-			['name' => 'Paraty', 'state_id' => State::where('internal', 19)->first()->id],
+			['name' => 'Parati', 'state_id' => State::where('internal', 19)->first()->id],
 			['name' => 'Paty do Alferes', 'state_id' => State::where('internal', 19)->first()->id],
 			['name' => 'Petrópolis', 'state_id' => State::where('internal', 19)->first()->id],
 			['name' => 'Pinheiral', 'state_id' => State::where('internal', 19)->first()->id],
