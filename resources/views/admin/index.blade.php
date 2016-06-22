@@ -39,14 +39,14 @@
                                 <th v-on:click="__changeOrder('subscriptioncount')" class="text-right">
                                     Inscrições
                                     <div v-show="orderby == 'subscriptioncount'" class="btn btn-danger btn-xs">
-                                        <i class="fa fa-arrow-@{{ ordertype == '' ? 'down' : 'up' }}"></i>
+                                        <i class="fa fa-arrow-@{{ ordertype == 1 ? 'down' : 'up' }}"></i>
                                     </div>
                                 </th>
 
                                 <th v-on:click="__changeOrder('city')">
                                     Município
                                     <div v-show="orderby == 'city'" class="btn btn-danger btn-xs">
-                                        <i class="fa fa-arrow-@{{ ordertype == '' ? 'down' : 'up' }}">
+                                        <i class="fa fa-arrow-@{{ ordertype == 1 ? 'down' : 'up' }}">
                                         </i>
                                     </div>
                                 </th>
@@ -54,14 +54,14 @@
                                 <th v-on:click="__changeOrder('schoolcount')">
                                     Escolas
                                     <div v-show="orderby == 'schoolcount'" class="btn btn-danger btn-xs">
-                                        <i class="fa fa-arrow-@{{ ordertype == '' ? 'down' : 'up' }}"></i>
+                                        <i class="fa fa-arrow-@{{ ordertype == 1 ? 'down' : 'up' }}"></i>
                                     </div>
                                 </th>
 
                                 <th v-on:click="__changeOrder('lastsubscription')">
                                     Data/hora última inscrição
                                     <div v-show="orderby == 'lastsubscription'" class="btn btn-danger btn-xs">
-                                        <i class="fa fa-arrow-@{{ ordertype == '' ? 'down' : 'up' }}"></i>
+                                        <i class="fa fa-arrow-@{{ ordertype == 1 ? 'down' : 'up' }}"></i>
                                     </div>
                                 </th>
                             </tr>
