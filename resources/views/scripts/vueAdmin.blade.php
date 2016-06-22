@@ -13,19 +13,17 @@
                 citiesOut: 0,
                 filterSchools : false,
                 orderby: 'city',
-                ordertype: '',
+                ordertype: 1,
             },
 
             methods: {
                 __formatDates: function () {
                     var items = clone(this.subscriptions);
 
-                    items.forEach(function(object) {
-                        if ( ! object.lastsubscription)
-                        {
-                            object.lastsubscription = '1970-10-31 09:35:13';
-                        }
+                    items.forEach(function(object)
+                    {
                         object.formatteddate = this.__formatDate(object.lastsubscription);
+                        object.lastsubscription = new Date(object.lastsubscription).getTime() / 1000;
                         object.index = Date.now();
                     }.bind(this));
 
@@ -33,10 +31,10 @@
 
                     this._digest();
 
-                    setTimeout(function ()
-                    {
-                        vueAdminIndex.__formatDates();
-                    }, 1000);
+//                    setTimeout(function ()
+//                    {
+//                        vueAdminIndex.__formatDates();
+//                    }, 1000);
                 },
 
                 __fetchSubscriptions: function() {
@@ -67,17 +65,19 @@
 
                     if (this.orderby == field)
                     {
-                        this.ordertype = this.ordertype == '' ? 'reverse' : '';
+                        this.ordertype = this.ordertype * -1;
 
                         return;
                     }
+
+                    this.ordertype = 1;
 
                     this.orderby = field;
                 },
 
                 __formatDate: function(date)
                 {
-                    return '';
+                    return date;
                 },
             },
 
