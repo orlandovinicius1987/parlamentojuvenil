@@ -24,8 +24,8 @@ class Subscribe extends Request
         return [
             'name' => 'required',
             'social_name' => '',
-            'city' => 'required',
-            'school' => 'required',
+            'city' => 'required|exists:cities,name',
+            'school' => 'required|exists:schools,name',
             'registration' => 'required',
             'gender' => 'required',
             'gender2' => 'required',
