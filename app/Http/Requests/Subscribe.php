@@ -29,7 +29,7 @@ class Subscribe extends Request
             'registration' => 'required',
             'gender' => 'required',
             'gender2' => 'required',
-            'birthdate' => 'required|date_format:d/m/Y|lessthan18',
+            'birthdate' => 'required|date_format:d/m/Y|lessthan18|morethan13',
             'cpf' => 'required|cpf',
             'id_number' => 'required',
             'id_issuer' => 'required',

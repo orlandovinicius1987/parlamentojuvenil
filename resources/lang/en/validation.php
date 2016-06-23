@@ -4,6 +4,7 @@ return [
     'cpf' => 'CPF inválido',
 
     'lessthan18' => 'É necessário ter menos de 18 anos quando da realização do Parlamento Juvenil',
+    'morethan13' => 'É necessário ter no mínimo 14 anos quando da realização do Parlamento Juvenil',
 
     'max' => [
         'string' => '":attribute" não pode ter mais do que :max characteres.',
