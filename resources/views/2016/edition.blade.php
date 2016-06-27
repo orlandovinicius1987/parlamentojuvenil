@@ -1564,7 +1564,7 @@
         <div class="container">
             <div class="row about-section no-border text-center">
 
-                    <h1 id="calendar" style="text-align: center;">MESA DIRETORA</h1>
+                    <h2 id="calendar">MESA DIRETORA</h2>
 
                     <div class="row text-center">
 
@@ -1706,9 +1706,9 @@
 
     <section id="video-anteriores" class="fundo-azul3">
         <div class="container">
-            <div class="row">
+            <div class="row text-center">
 
-                <h1 style="text-align: center;">Vídeo Institucional IX Edição</h1>
+                <h2>Vídeo Institucional IX Edição</h2>
 
                 <style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='https://www.youtube.com/embed/EWKw3Zt105E' frameborder='0' allowfullscreen></iframe></div>
 
@@ -1916,10 +1916,10 @@
     </section>--}}
 
 
-   {{-- <section id="clippings-anteriores" class="pinboards fundo-azul5">
+    <section id="clippings-anteriores" class="pinboards fundo-azul2">
         <div class="container ">
-            <div class="row">
-                <h1 class="text-center">Clipping Edição 2015</h1>
+            <div class="row text-center">
+                <h2>Clipping Edição 2015</h2>
 
                 <section id="pinBoot">
                     <article class="white-panel"><img src="http://i.imgur.com/sDLIAZD.png" alt="">
@@ -1977,7 +1977,7 @@
             </div>
 
         </div>
-    </section>--}}
+    </section>
 
 
 @stop
