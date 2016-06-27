@@ -1560,17 +1560,77 @@
 
 
 
-    <section id="mesadiretora-anteriores" class="fundo-azul2">
+    <section id="mesadiretora-anteriores" class="fundo-azul2 mesadiretora-anteriores">
         <div class="container">
             <div class="row about-section no-border text-center">
 
-                    <h1 id="calendar" style="text-align: center;">MESA DIRETORA</h1>
+                    <h2 id="calendar">MESA DIRETORA</h2>
 
                     <div class="row text-center">
-                        <div class="tree">
+
+                        <div class="visible-xs mobile">
+                            <div class="item quadro-amarelo borda-preta">
+                                <a href="#"><p class="cargo">Presidente</P>
+                                    <img src="http://local.parlamentojuvenil.com/files/apps/parlamentojuvenil/parlamentares/fotos/8a%20edicao%20(2014)/recortadas/Luiza%20Barros%20do%20Nascimento%20-%20Iguaba%20Grande.jpg" alt=""><BR>
+                                    <P class="nome">Nome do Parlamentar</P>
+                                    <div class="caixa-preta"> Cidade </div>
+                                </a>
+                            </div>
+
+                            <div class="item quadro-amarelo borda-preta">
+                                <a href="#"><p class="cargo">Vice Presidente</P>
+                                    <img src="http://local.parlamentojuvenil.com/files/apps/parlamentojuvenil/parlamentares/fotos/8a%20edicao%20(2014)/recortadas/Luiza%20Barros%20do%20Nascimento%20-%20Iguaba%20Grande.jpg" alt=""><BR>
+                                    <P class="nome">Nome do Parlamentar</P>
+                                    <div class="caixa-preta"> Cidade </div>
+                                </a>
+                            </div>
+
+                            <div class="item quadro-amarelo borda-preta">
+                                <a href="#"><p class="cargo">2ª Vice Presidente</P>
+                                    <img src="http://local.parlamentojuvenil.com/files/apps/parlamentojuvenil/parlamentares/fotos/8a%20edicao%20(2014)/recortadas/Luiza%20Barros%20do%20Nascimento%20-%20Iguaba%20Grande.jpg" alt=""><BR>
+                                    <P class="nome">Nome do Parlamentar</P>
+                                    <div class="caixa-preta"> Cidade </div>
+                                </a>
+                            </div>
+
+                            <div class="item quadro-amarelo borda-preta">
+                                <a href="#"><p class="cargo">1ª Secretária</P>
+                                    <img src="http://local.parlamentojuvenil.com/files/apps/parlamentojuvenil/parlamentares/fotos/8a%20edicao%20(2014)/recortadas/Luiza%20Barros%20do%20Nascimento%20-%20Iguaba%20Grande.jpg" alt=""><BR>
+                                    <P class="nome">Nome do Parlamentar</P>
+                                    <div class="caixa-preta"> Cidade </div>
+                                </a>
+                            </div>
+
+                            <div class="item quadro-amarelo borda-preta">
+                                <a href="#"><p class="cargo">2ª Secretária</P>
+                                    <img src="http://local.parlamentojuvenil.com/files/apps/parlamentojuvenil/parlamentares/fotos/8a%20edicao%20(2014)/recortadas/Luiza%20Barros%20do%20Nascimento%20-%20Iguaba%20Grande.jpg" alt=""><BR>
+                                    <P class="nome">Nome do Parlamentar</P>
+                                    <div class="caixa-preta"> Cidade </div>
+                                </a>
+                            </div>
+
+
+
+                            <div class="item quadro-amarelo borda-preta">
+                                <a href="#"><p class="cargo">Suplentes</P>
+                                    <img src="http://local.parlamentojuvenil.com/files/apps/parlamentojuvenil/parlamentares/fotos/8a%20edicao%20(2014)/recortadas/Luiza%20Barros%20do%20Nascimento%20-%20Iguaba%20Grande.jpg" alt=""><BR>
+                                    <P class="nome">Nome do Parlamentar</P>
+                                    <div class="caixa-preta"> Cidade </div>
+                                </a>
+                            </div>
+
+                            <div class="item quadro-amarelo borda-preta">
+                                <a href="#"><p class="cargo">Suplentes</P>
+                                    <img src="http://local.parlamentojuvenil.com/files/apps/parlamentojuvenil/parlamentares/fotos/8a%20edicao%20(2014)/recortadas/Luiza%20Barros%20do%20Nascimento%20-%20Iguaba%20Grande.jpg" alt=""><BR>
+                                    <P class="nome">Nome do Parlamentar</P>
+                                    <div class="caixa-preta"> Cidade </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="tree hidden-xs">
                             <ul>
                                 <li>
-                                    <a href="#"><p class="cargo">Vice Presidente</P>
+                                    <a href="#"><p class="cargo">Presidente</P>
                                         <img src="http://local.parlamentojuvenil.com/files/apps/parlamentojuvenil/parlamentares/fotos/8a%20edicao%20(2014)/recortadas/Luiza%20Barros%20do%20Nascimento%20-%20Iguaba%20Grande.jpg" alt=""><BR>
                                         <P>Nome do Parlamentar</P>
                                         <div class="caixa-preta"> Cidade </div>
@@ -1646,9 +1706,9 @@
 
     <section id="video-anteriores" class="fundo-azul3">
         <div class="container">
-            <div class="row">
+            <div class="row text-center">
 
-                <h1 style="text-align: center;">Vídeo Institucional IX Edição</h1>
+                <h2>Vídeo Institucional IX Edição</h2>
 
                 <style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='https://www.youtube.com/embed/EWKw3Zt105E' frameborder='0' allowfullscreen></iframe></div>
 
@@ -1657,7 +1717,7 @@
     </section>
 
 
-    <section id="noticias-anteriores" class="fundo-azul4 noticias">
+   {{-- <section id="noticias-anteriores" class="fundo-azul4 noticias">
 
         <div class="container">
             <div class="row">
@@ -1677,11 +1737,11 @@
                     <p><a class="btn btn-info btn-sm" href="#">Read more</a></p>
                     <br/>
                     <ul class="list-inline">
-                      {{--  <li><i class="glyphicon glyphicon-user"></i> by <a href="#">John</a> | </li>--}}
+                      --}}{{--  <li><i class="glyphicon glyphicon-user"></i> by <a href="#">John</a> | </li>--}}{{--
                         <li><i class="glyphicon glyphicon-calendar"></i> Sept 16th, 2012 | </li>
-                        {{--<li><i class="glyphicon glyphicon-comment"></i> <a href="#">3 Comments</a> | </li>
-                        <li><i class="glyphicon glyphicon-share"></i> <a href="#">39 Shares</a></li>--}}
-                        <li><i class="icon-tags"></i> {{--Tags :--}} <a href="#"><span class="label label-info">Snipp</span></a>
+                        --}}{{--<li><i class="glyphicon glyphicon-comment"></i> <a href="#">3 Comments</a> | </li>
+                        <li><i class="glyphicon glyphicon-share"></i> <a href="#">39 Shares</a></li>--}}{{--
+                        <li><i class="icon-tags"></i> --}}{{--Tags :--}}{{-- <a href="#"><span class="label label-info">Snipp</span></a>
                             <a href="#"><span class="label label-info">Bootstrap</span></a>
                             <a href="#"><span class="label label-info">UI</span></a>
                             <a href="#"><span class="label label-info">growth</span></a></li>
@@ -1703,11 +1763,11 @@
                     <p><a class="btn btn-info btn-sm" href="#">Read more</a></p>
                     <br/>
                     <ul class="list-inline">
-                      {{--  <li><i class="glyphicon glyphicon-user"></i> by <a href="#">John</a> | </li>--}}
+                      --}}{{--  <li><i class="glyphicon glyphicon-user"></i> by <a href="#">John</a> | </li>--}}{{--
                         <li><i class="glyphicon glyphicon-calendar"></i> Sept 16th, 2012 | </li>
-                        {{--<li><i class="glyphicon glyphicon-comment"></i> <a href="#">3 Comments</a> | </li>
-                        <li><i class="glyphicon glyphicon-share"></i> <a href="#">39 Shares</a></li>--}}
-                        <li><i class="icon-tags"></i> {{--Tags :--}} <a href="#"><span class="label label-info">Snipp</span></a>
+                        --}}{{--<li><i class="glyphicon glyphicon-comment"></i> <a href="#">3 Comments</a> | </li>
+                        <li><i class="glyphicon glyphicon-share"></i> <a href="#">39 Shares</a></li>--}}{{--
+                        <li><i class="icon-tags"></i> --}}{{--Tags :--}}{{-- <a href="#"><span class="label label-info">Snipp</span></a>
                             <a href="#"><span class="label label-info">Bootstrap</span></a>
                             <a href="#"><span class="label label-info">UI</span></a>
                             <a href="#"><span class="label label-info">growth</span></a></li>
@@ -1729,11 +1789,11 @@
                     <p><a class="btn btn-info btn-sm" href="#">Read more</a></p>
                     <br/>
                     <ul class="list-inline">
-                      {{--  <li><i class="glyphicon glyphicon-user"></i> by <a href="#">John</a> | </li>--}}
+                      --}}{{--  <li><i class="glyphicon glyphicon-user"></i> by <a href="#">John</a> | </li>--}}{{--
                         <li><i class="glyphicon glyphicon-calendar"></i> Sept 16th, 2012 | </li>
-                        {{--<li><i class="glyphicon glyphicon-comment"></i> <a href="#">3 Comments</a> | </li>
-                        <li><i class="glyphicon glyphicon-share"></i> <a href="#">39 Shares</a></li>--}}
-                        <li><i class="icon-tags"></i> {{--Tags :--}} <a href="#"><span class="label label-info">Snipp</span></a>
+                        --}}{{--<li><i class="glyphicon glyphicon-comment"></i> <a href="#">3 Comments</a> | </li>
+                        <li><i class="glyphicon glyphicon-share"></i> <a href="#">39 Shares</a></li>--}}{{--
+                        <li><i class="icon-tags"></i> --}}{{--Tags :--}}{{-- <a href="#"><span class="label label-info">Snipp</span></a>
                             <a href="#"><span class="label label-info">Bootstrap</span></a>
                             <a href="#"><span class="label label-info">UI</span></a>
                             <a href="#"><span class="label label-info">growth</span></a></li>
@@ -1747,13 +1807,13 @@
             <button type="button" class="btn btn-default">Ver mais notícias</button>
         </div>
 
-    </section>
+    </section>--}}
 
 
     @include('2016.partials.projects')
 
 
-    <section id="noticias-anteriores" class="fundo-azul5 numeros">
+    {{--<section id="noticias-anteriores" class="fundo-azul5 numeros">
 
         <div class="container">
             <div class="row">
@@ -1766,7 +1826,7 @@
                     <div class="right">
                         <span class="count_top"><i class="fa fa-user"></i>Pessoas Inscritas</span>
                         <div class="count">2500</div>
-                        {{--<span class="count_bottom"><i class="green">4% </i> From last Week</span>--}}
+                        --}}{{--<span class="count_bottom"><i class="green">4% </i> From last Week</span>--}}{{--
                     </div>
                 </div>
 
@@ -1775,7 +1835,7 @@
                     <div class="right">
                         <span class="count_top"><i class="fa fa-user"></i>Projetos Inscritos</span>
                         <div class="count green">2,500</div>
-                        {{--<span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>--}}
+                        --}}{{--<span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>--}}{{--
                     </div>
                 </div>
                 <div class="animated flipInY col-md-4 col-sm-4 col-xs-4 tile_stats_count text-center">
@@ -1783,10 +1843,10 @@
                     <div class="right">
                         <span class="count_top"><i class="fa fa-user"></i>Projetos Aprovados</span>
                         <div class="count">4,567</div>
-                        {{--<span class="count_bottom"><i class="red"><i class="fa fa-sort-desc"></i>12% </i> From last Week</span>--}}
+                        --}}{{--<span class="count_bottom"><i class="red"><i class="fa fa-sort-desc"></i>12% </i> From last Week</span>--}}{{--
                     </div>
                 </div>
-{{--
+--}}{{--
                 <div class="animated flipInY col-md-2 col-sm-4 col-xs-4 tile_stats_count">
                     <div class="left"></div>
                     <div class="right">
@@ -1803,14 +1863,14 @@
                         <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>
                     </div>
                 </div>
---}}
+--}}{{--
             </div>
         </div>
 
-    </section>
+    </section>--}}
 
 
-    <section id="downloads-anteriores" class="fundo-azul6">
+   {{-- <section id="downloads-anteriores" class="fundo-azul6">
 
         <div id="whatis" class="content-section-b" style="border-top-width: 0px;">
             <div class="container">
@@ -1853,13 +1913,13 @@
                 </div>
               </div>
         </div>
-    </section>
+    </section>--}}
 
 
-    <section id="clippings-anteriores" class="pinboards fundo-azul5">
+    <section id="clippings-anteriores" class="pinboards fundo-azul2">
         <div class="container ">
-            <div class="row">
-                <h1 class="text-center">Clipping Edição 2015</h1>
+            <div class="row text-center">
+                <h2>Clipping Edição 2015</h2>
 
                 <section id="pinBoot">
                     <article class="white-panel"><img src="http://i.imgur.com/sDLIAZD.png" alt="">

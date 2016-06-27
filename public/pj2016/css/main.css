@@ -1081,8 +1081,308 @@ section#home {
 
 
 /*************************
+******Twitter CSS****
+**************************/
+
+#twitter {
+  /*background-color: #ecedef;
+  background-image: url("../images/twitter-bg.jpg");*/
+  background-position: center bottom;
+  background-size: cover;
+  background-repeat:no-repeat;
+  position: relative;
+  padding: 95px 0 90px;
+  overflow: hidden;
+}
+
+.twit {
+  position: absolute;
+  left: 0;
+  top:-10%;
+}
+
+#twitter-feed .item {
+  text-align: center;
+}
+
+#twitter-feed .item img {
+  display: inline-block;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background-color: #000000;
+  padding: 5px;
+  margin-bottom: 30px;
+  margin-top: 30px;
+
+}
+
+#twitter-feed .item a,
+#twitter-feed .item p {
+  font-size: 24px;
+  font-weight: 300;
+  font-family: 'Palanquin Dark', sans-serif;
+}
+
+#twitter-feed .item p {
+  color: #000000;
+}
+
+#twitter-feed .item a {
+  color:#00c3ff;
+}
+
+
+#twitter-feed .item p.depoimento {
+  font-size: 30px;
+  line-height: 1;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-bottom: 30px;
+}
+
+#twitter-feed .item p.nome {
+  font-size: 36px;
+}
+
+#twitter-feed .item p.edicao {
+  font-style: italic;
+}
+
+#twitter-feed .item p.cidade {
+  font-size: 32px;
+  margin-bottom: 30px;
+}
+
+
+.twitter-control-left,
+.twitter-control-right {
+  position: absolute;
+  color: #000000 !important;
+  top: 30%;
+  font-size: 120px
+}
+
+.twitter-control-left {
+  left: -60px;
+}
+
+.twitter-control-right {
+  right: -60px;
+}
+
+
+
+
+
+
+/*************************
 ******Depoimentos CSS****
 **************************/
+
+#depoimentos .carousel-inner {
+  background-color: #FFC908;
+}
+#depoimentos-feed .item a,
+#depoimentos-feed .item p {
+  font-weight: bold;
+  font-family: 'Yanone Kaffeesatz','sans-serif';
+}
+#depoimentos-feed .item p {
+  font-family: 'Palanquin Dark', sans-serif;
+  color: black;
+  /*padding: 10px;*/
+  /*margin-top: 10px;*/
+}
+#depoimentos-feed .item a {
+  color:#b21416;
+}
+#depoimentos-feed .img-responsive{
+  width: 100%;
+}
+
+
+
+@media (max-width: 479px) {
+
+  #depoimentos-feed .item img {
+    width: 100% important;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding: 0px;
+    border-left: 0px black solid !important;
+    border-top: 0px black solid !important;
+    border-bottom: 4px black solid !important;
+    border-right: 0px black solid !important;
+  }
+
+  #depoimentos-feed .depoimentos-foto {
+    padding: 0px;
+    margin: 0px;
+  }
+  .depoimentos-feed p.depoimento {
+    text-align: center;
+    margin: 10px 0 0px 0 !important;
+    padding: 0 0px 0 0px !important;
+    font-size: 17px !important;
+  }
+  .depoimentos-feed p.nome {
+    text-align: center;
+    font-size: 22px !important;
+    margin: 0;
+    padding: 0;
+  }
+  .depoimentos-feed p.edicao {
+    text-align: center;
+    font-size: 18px !important;
+    margin: 0px 0 0 0 !important;
+    padding: 0;
+    font-style: italic;
+    line-height: 19px !important;
+  }
+  .depoimentos-feed p.cidade {
+    text-align: center;
+    font-size: 22px !important;
+    margin: 5px 0 15px 0 !important;
+    padding: 0;
+  }
+}
+
+/* xs */
+@media (max-width: 767px) {
+
+  #depoimentos-feed .item img {
+    display: block;
+    /*width: 300px;*/
+    margin: 0 auto;
+    /* height: 300px; */
+    /* border-radius: 50%; */
+    border: 4px black solid;
+    border-top: none;
+  }
+  .depoimentos-control-left, .depoimentos-control-right {
+    position: initial;
+    font-size: 60px;
+    color: black !important;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+
+  #depoimentos-feed .item img {
+    display: inline-block;
+    border-right: 0px black solid !important;
+    border-bottom: 4px black solid;
+    margin-left: 0px !important;
+  }
+  /*#depoimentos-feed .item p{
+    background: #0f0;
+  }*/
+  .depoimentos-feed p.cidade {
+    text-align: center;
+    font-size: 30px;
+    margin: 20px 0 40px 0;
+    padding: 0;
+  }
+  .depoimentos-feed .depoimentos-foto{
+    padding: 0;
+  }
+  #depoimentos-feed .item p.depoimento{
+    font-size: 26px;
+  }
+}
+
+@media (min-width: 1025px) {
+  .depoimentos-feed p.depoimento {
+    text-align: center;
+    margin: 30px 0 50px 0;
+    padding: 0 30px 0 50px;
+    font-size: 28px;
+  }
+  .depoimentos-feed p.cidade {
+    text-align: center;
+    font-size: 30px;
+    margin: 20px 0 0 0;
+    padding: 0;
+  }
+}
+
+@media (min-width: 1200px) {
+  .depoimentos-feed p.depoimento {
+    text-align: center;
+    margin: 30px 0 30px 0;
+    padding: 0 30px 0 50px;
+    font-size: 24px;
+    line-height: 22px;
+  }
+/*  .depoimentos-feed p.depoimento {
+    text-align: center;
+    margin: 30px 0 30px 0;
+    padding: 0 30px 0 50px;
+    font-size: 22px;
+  }*/
+
+  .depoimentos-feed p.cidade {
+    text-align: center;
+    font-size: 30px;
+    margin: 20px 0 0 0;
+    padding: 0;
+  }
+
+  #depoimentos-feed .item {
+    text-align: left;
+  }
+  #depoimentos-feed .depoimentos-foto {
+    padding: 0px;
+    margin: 0px;
+  }
+  #depoimentos-feed .item img {
+    display: inline-block;
+    border-right: 4px black solid;
+    /*margin-left: -30px;*/
+  }
+  .depoimentos-control-left,
+  .depoimentos-control-right {
+    position: absolute;
+    /*color: #00c3ff;*/
+    color: black;
+    top: 24%;
+    font-size: 120px;
+    color: black !important;
+  }
+  .depoimentos-control-left {
+    left: -50px;
+  }
+  .depoimentos-control-right {
+    right: -50px;
+  }
+
+
+  .depoimentos-feed p.nome {
+    text-align: center;
+    font-size: 35px;
+    margin: 0;
+    padding: 0;
+  }
+  .depoimentos-feed p.edicao {
+    text-align: center;
+    font-size: 22px;
+    margin: -10px 0 0 0 ;
+    padding: 0;
+    font-style: italic;
+  }
+}
+
+@media (min-width: 1800px) {
+  .depoimentos-feed p.depoimento {
+    text-align: center;
+    margin: 50px 0 50px 0;
+    padding: 0 30px 0 50px;
+    font-size: 30px;
+    line-height: 32px;
+  }
+
+}
 
 #depoimentos {
   /*background-color: #ecedef;*/
@@ -1101,90 +1401,13 @@ section#home {
   /*top:-10%;*/
 /*}*/
 
-#depoimentos-feed .item {
-  text-align: left;
-}
-
-#depoimentos-feed .item img {
-  display: inline-block;
-  /*width: 300px;*/
-  /*height: 300px;*/
-  /*border-radius: 50%;*/
-  border-right: 4px black solid;
-  /*padding: 5px;*/
-  /*margin-bottom: 30px;*/
-  /*margin-right: 10px;*/
-  margin-left: -30px;
-}
-
-#depoimentos-feed .item a,
-#depoimentos-feed .item p {
-  font-size: 24px;
-  font-weight: bold;
-  font-family: 'Yanone Kaffeesatz','sans-serif';
-}
-
-#depoimentos-feed .item p {
-  font-family: 'Palanquin Dark', sans-serif;
-  color: black;
-  /*padding: 10px;*/
-  /*margin-top: 10px;*/
-}
-
-#depoimentos-feed .item a {
-  color:#b21416;
-}
-
-.depoimentos-control-left,
-.depoimentos-control-right {
-  position: absolute;
-  /*color: #00c3ff;*/
-  color: black;
-  top: 24%;
-  font-size: 120px;
-  color: black !important;
-}
-
-.depoimentos-control-left {
-  left: -50px;
-}
-
-.depoimentos-control-right {
-  right: -50px;
-}
-
-#depoimentos .carousel-inner {
-  background-color: #FFC908;
-}
-
-.depoimentos-feed p.depoimento {
-  text-align: center;
-  margin: 50px 0 30px 0;
-  padding: 0 30px 0 50px;
-}
-
-
-.depoimentos-feed p.nome {
-  text-align: center;
-  font-size: 35px !important;
-  margin: 0;
-  padding: 0;
-}
-
-.depoimentos-feed p.edicao {
-  text-align: center;
-  font-size: 22px !important;
-  margin: -10px 0 0 0 ;
-  padding: 0;
-  font-style: italic;
-}
-
+/*
 .depoimentos-feed p.cidade {
   text-align: center;
-  font-size: 30px !important;
+  font-size: 30px;
   margin: 20px 0 0 0;
   padding: 0;
-}
+}*/
 
 
 
@@ -1192,6 +1415,7 @@ section#home {
 /*************************
 ******PROJECTS CSS****
 **************************/
+
 
 #projects {
   /*background-color: #ecedef;*/
@@ -1210,14 +1434,26 @@ section#home {
 /*top:-10%;*/
 /*}*/
 
+#projects-feed .nopadding{
+  margin:0;
+  padding: 0;
+}
 #projects-feed .item {
   text-align: left;
 }
 
+
 #projects-feed .item img {
   display: inline-block;
-  border-left: 4px black solid;
+  border-right: 4px black solid;
+  margin-left: 0px;
 }
+
+#projects-feed .conteudo {
+  /*margin-left: -22px;*/
+  padding: 0 0 0 5px;
+}
+
 
 #projects-feed .item a,
 #projects-feed .item p {
@@ -1237,7 +1473,8 @@ section#home {
 }
 
 #projects-feed .corpo-projeto {
-  padding-top: 15px;
+  padding: 15px 15px 0px 15px ;
+
 }
 
 .projects-control-left,
@@ -1265,7 +1502,7 @@ section#home {
 .titulo-projeto {
   background-color: #FFC908;
   border-bottom: solid #000000 4px;
-  margin: 0 -30px 0 -15px;
+  margin: 0 0px 0 0px;
   text-transform: uppercase;
   padding: 10px 0 10px 0px ;
   color: #000000;
@@ -1303,12 +1540,36 @@ section#home {
   padding: 0;
 }
 
+/*
+
+@media (max-width: 479px) {
+  #projects-feed .carousel-inner{
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+  #projects-feed .item img {
+    display: inline-block;
+    border-bottom: 4px black solid;
+    border-right: 0px black solid;
+    margin-left: 0px;
+    width: 100%;
+  }
+  #projects-feed .item .titulo-projeto{
+    font-size: 20px;
+  }
+  #projects-feed .item .corpo-projeto{
+    padding: 15px 15px 0 15px;
+  }
+}
 
 
+
+*/
 
 /*************************
 ******Twitter CSS****
 **************************/
+/*
 
 #twitter {
   background-color: #ecedef;
@@ -1371,6 +1632,7 @@ section#home {
 .twitter-control-right {
   right:0;
 } 
+*/
 
 
 
@@ -1659,13 +1921,25 @@ section#home {
 **************************/
 
 .article {
-  padding-top: 250px;
+  padding: 250px 0 40px 0 ;
   /*display: table;*/
 }
 
 .article .titulo {
   padding: 5px 0 5px 0;
 }
+
+.article-content {
+  margin: 0 0 20px 0;
+}
+
+@media (max-width: 479px) {
+  .article-content {
+    border-left: 0px;
+    border-right: 0px;
+  }
+}
+
 
 .article-content .thumbnail {
   border: none;
@@ -1702,9 +1976,44 @@ section#home {
   margin-bottom: 30px;
 }
 
+
+
+
+
+/*************************
+****** Clippings Anteriores ****
+**************************/
+section#pinBoot {
+  border: 0;
+}
+
+
+
+
 /*************************
 ****** MESA DIRETORA ORGANOGRAMA CSS****
 **************************/
+
+.mesadiretora-anteriores .mobile .item{
+  margin: 0 20px 20px 20px;
+}
+.mesadiretora-anteriores .mobile .item p{
+  color: #000000;
+}
+.mesadiretora-anteriores .mobile .item p.cargo{
+  padding: 10px 0 3px 0;
+}
+
+.mesadiretora-anteriores .mobile .item p.nome{
+  padding: 10px 0 3px 0;
+}
+
+.mesadiretora-anteriores .mobile .item img{
+  border-bottom: 4px solid #000000;
+  border-top: 4px solid #000000;
+  width: 100%;
+}
+
 
 
 /* Code based on this sample http://thecodeplayer.com/walkthrough/css3-family-tree */
@@ -1721,7 +2030,7 @@ section#home {
 }
 
 .tree li.largura a {
-  width: 260px !important;
+  width: 260px;
 }
 
 .tree img {
@@ -1730,15 +2039,38 @@ section#home {
   max-width: 254px;
 }
 
-@media (max-width: 479px) {
-  .tree li.largura a {
-    width: 60px !important;
+
+
+@media (max-width: 1025px) {
+  .tree img {
+    border-top: 3px solid #000;
+    border-bottom: 3px solid #000;
+    max-width: 205px;
   }
 
-  .tree img {
-    max-width: 54px !important;
+  .tree li.largura a {
+    width: 211px;
   }
 }
+
+@media (max-width: 769px) {
+  .tree img {
+    max-width: 150px !important;
+  }
+  .tree li.largura a {
+    width: 156px;
+  }
+}
+
+@media (max-width: 479px) {
+  .tree li.largura a {
+    width: 60px;
+  }
+  .tree img {
+    max-width: 54px;
+  }
+}
+
 
 
 .tree li {
@@ -2547,3 +2879,6 @@ select.input-lg {
 .icon-addon:hover .fa {
   color: #2580db;
 }
+
+
+

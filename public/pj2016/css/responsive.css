@@ -51,6 +51,17 @@
     z-index: 10;
   }
 
+  .projects-control-right {
+    right: -50px;
+  }
+  .projects-control-left {
+    left: -50px;
+  }
+
+  .projects-control-left, .projects-control-right {
+    top: 24%;
+    font-size: 120px;
+  }
 
 }
 
@@ -280,21 +291,6 @@
     padding: 70px 25px 110px;
   }
 
-  #depoimentos-feed .item img {
-    display: block;
-    width: 300px;
-    margin: 0 auto;
-    /* height: 300px; */
-    /* border-radius: 50%; */
-    border: 4px black solid;
-    border-top: none;
-  }
-
-  .depoimentos-control-left, .depoimentos-control-right {
-    position: initial;
-    font-size: 60px;
-    color: black !important;
-  }
 
 }
 
@@ -423,12 +419,43 @@
   }
 
   .twitter-control-left {
-    left: 46%;
+    left: 6%;
   }
 
   .twitter-control-right {
-    right: 46%;
+    right: 6%;
   }
+  .twitter-control-left, .twitter-control-right {
+    top: 30%;
+    font-size: 60px;
+  }
+
+  #projects-feed .conteudo {
+    /* margin-left: -22px; */
+    padding: 0 0 0 0px;
+  }
+  #projects-feed .item img {
+    border-right: 0px black solid;
+    border-bottom: 4px black solid;
+    width: 100%;
+  }
+  .projects-control-right {
+    right: 22px;
+  }
+  .projects-control-left {
+    left: 22px;
+  }
+
+  .projects-control-left, .projects-control-right {
+    top: 24%;
+    font-size: 60px;
+  }
+
+  .projects-feed {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
 
   #sponsor {
     background-position: right 0 bottom;
@@ -583,27 +610,45 @@
     margin-bottom: 15px;
   }
 
-  #depoimentos-feed .item img {
-    /*width: 50%;*/
-    width: 80%;
-    /* height: 50%; */
-    /* border-bottom: 4px black solid; */
-    /* margin-top: 15px; */
-    border: none;
-    /* text-align: center; */
-    margin: 0 auto;
-    /* margin-left: -15px; */
-    /* margin-right: -15px; */
-    padding: 0px;
-    position: initial;
-    border-left: 4px black solid;
-    border-bottom: 4px black solid;
-    border-right: 4px black solid;
-  }
 
   .navbar-toggle {
     margin-right: 28px;
   }
+
+  #twitter-feed .item img {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    border-radius: 0%;
+    /* background-color: #000000; */
+    padding: 0px;
+    margin-bottom: 30px;
+    margin-top: 0px;
+    border-bottom: 4px solid #000000;
+  }
+
+
+  #twitter-feed .item p.depoimento {
+    font-size: 20px;
+    line-height: 1;
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-bottom: 15px;
+  }
+
+  #twitter-feed .item p.nome {
+    font-size: 26px;
+  }
+
+  #twitter-feed .item p.edicao {
+    font-style: italic;
+  }
+
+  #twitter-feed .item p.cidade {
+    font-size: 22px;
+    margin-bottom: 30px;
+  }
+
 
 }
 
