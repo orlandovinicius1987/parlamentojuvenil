@@ -7,6 +7,42 @@ class Clipping
     public static function all()
     {
         return [
+            2012 => [
+                [
+                    'id' => '245',
+                    'title' => 'Novo recomeço',
+                    'lead' => 'Até 28 de março, todas as escolas da rede pública estadual de ensino estarão envolvidas em um projeto que visa a formar
+cidadãos preocupados com o futuro do estado e do País: o Parlamento Juvenil da Alerj.',
+                    'vehicle' => 'Jornal da Alerj',
+                    'file' => '2012_Jornal da Alerj_no245',
+                    'url' => '',
+                ],
+                [
+                    'id' => '253',
+                    'title' => 'Juventude reunida',
+                    'lead' => 'Parlamento Juvenil chega à sexta edição, elege, pela primeira vez, uma mulher como presidente e traz para o Palácio Tiradentes
+alunos da rede pública de várias regiões do estado',
+                    'vehicle' => 'Jornal da Alerj',
+                    'file' => '2012_Jornal da Alerj_no253',
+                    'url' => '',
+                ],
+                [
+                    'id' => '07/08/2012',
+                    'title' => 'Alerj dá início à sexta edição do Parlamento Juvenil',
+                    'lead' => 'Teve início, nesta terça-feira, a sexta edição do Parlamento Juvenil da Assembleia  Legislativa do Rio (Alerj). Tomaram posse como parlamentares juvenis  representantes de 70 municípios do estado, todos alunos da rede estadual de ensino. Além da solenidade, a manhã foi marcada pelo início dos trabalhos.',
+                    'vehicle' => 'Sidney Rezende',
+                    'file' => '2012-08-07-srzd',
+                    'url' => 'http://www.sidneyrezende.com/noticia/181037+alerj+da+inicio+a+sexta+edicao+do+parlamento+juvenil',
+                ],
+                [
+                    'id' => '09/08/2012',
+                    'title' => 'Magé e Teresópolis no Parlamento Juvenil da Alerj',
+                    'lead' => 'Esta vem sendo uma semana diferente para jovens estudantes do Estado do Rio de Janeiro.  Tomaram posse como parlamentares juvenis representantes de 70 municípios do estado, todos alunos da rede estadual de ensino.  O projeto Parlamento Juvenil da Assembleia Legislativa do Estado do Rio de Janeiro está em sua sexta edição e os alunos que participam tem uma noção de todo o processo democrático, pois são eleitos por estudantes de suas cidades.',
+                    'vehicle' => 'A Gazeta Fluminense',
+                    'file' => '2012-08-09-a-gazeta-fluminense',
+                    'url' => 'http://agazetafluminense.blogspot.com.br/2012/08/mage-e-teresopolis-no-parlamento.html',
+                ],
+            ],
             2013 => [
                 [
                     'id' => '',
