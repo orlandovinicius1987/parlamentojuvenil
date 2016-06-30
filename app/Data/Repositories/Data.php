@@ -12,8 +12,8 @@ use Illuminate\Support\Facades\Mail;
 use App\Exceptions\AlreadySubscribed;
 use App\Events\SubscriptionWasCreated;
 use App\Services\News\Service as SyncNewsService;
-use Illuminate\Support\Collection as IlluminateCollection;
 use App\Services\Filesystem\Service as Filesystem;
+use Illuminate\Support\Collection as IlluminateCollection;
 
 class Data
 {
@@ -36,7 +36,10 @@ class Data
     public function __construct(SyncNewsService $syncNewsService, Builder $viewBuilder, Filesystem $filesystem)
     {
         $this->syncNewsService = $syncNewsService;
+
         $this->viewBuilder = $viewBuilder;
+        $this->viewBuilder->setDataRepository($this);
+
         $this->filesystem = $filesystem;
     }
 

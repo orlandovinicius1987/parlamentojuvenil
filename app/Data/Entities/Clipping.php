@@ -387,6 +387,15 @@ mostrando a disposição dos jovens para mudar a realidade em que vivem',
 
     public static function byYear($year)
     {
-        return self::all()[$year];
+        $values = self::all()[$year];
+
+        foreach ($values as $key => $value)
+        {
+            $values[$key]['year'] = $year;
+            $values[$key]['jpg'] = "/files/apps/parlamentojuvenil/clipping/$year/".$value['file'].".jpg";
+            $values[$key]['pdf'] = "/files/apps/parlamentojuvenil/clipping/$year/".$value['file'].".pdf";
+        }
+
+        return $values;
     }
 }

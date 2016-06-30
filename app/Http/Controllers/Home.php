@@ -13,7 +13,7 @@ class Home extends BaseController
 
     public function index($force = false)
 	{
-		return $this->buildView('home', $force, true);
+		return $this->buildView('home', null, $force, true);
 	}
 
     public function page($page)

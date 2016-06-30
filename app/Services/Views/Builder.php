@@ -8,6 +8,7 @@ use Illuminate\Support\Str;
 use App\Data\Entities\State;
 use App\Data\Entities\School;
 use App\Data\Entities\Article;
+use App\Data\Repositories\Data;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use App\Services\Filesystem\Service as Filesystem;
@@ -24,12 +25,17 @@ class Builder
 
     public $spreadsheet = 'https://docs.google.com/a/antoniocarlosribeiro.com/spreadsheets/d/1wrR7y4qk2ofj4kPgkhyPVBjwSohh8k1J6drsZ3bGzic/edit?usp=sharing';
 
+    /**
+     * @var Data
+     */
+    private $dataRepository;
+
     public function __construct(Filesystem $filesystem)
     {
         $this->filesystem = $filesystem;
     }
 
-    public function buildViewData($view, $force = false, $isHome = false)
+    public function buildViewData($view, $force = false, $isHome = false, $year = null)
     {
         header('X-Frame-Options: GOFORIT');
 
@@ -58,6 +64,8 @@ class Builder
 
         $seventeenDateString = $this->execute(function() use ($seventeenDate) { return $seventeenDate->format('d/m/Y'); }, 'seventeenDate');
 
+        $clipping = ! $year ? null : $this->execute(function() use ($year) { return $this->getClipping($year); }, 'getClipping');
+
         $now = $this->execute(function() { return (string) Carbon::now()->subHours(3); }, 'now');
 
         return  $view->with('banner_file', $banner)
@@ -73,6 +81,7 @@ class Builder
                      ->with('fourteenDate', $fourteenDateString)
                      ->with('seventeenDate', $seventeenDateString)
                      ->with('now', $now)
+                     ->with('clipping', $clipping)
                      ->with('isHome', $isHome)
                      ->with('force', $force);
     }
@@ -82,6 +91,11 @@ class Builder
         // we could create some caching here
 
         return $function();
+    }
+
+    private function getClipping($year)
+    {
+        return $this->dataRepository->getClipping($year);
     }
 
     public function getCongressmenLinks()
@@ -277,6 +291,14 @@ class Builder
     public function getSchoolsForCity($city)
     {
         return School::where('city', 'like', DB::raw("UPPER('".$city."')"))->get();
+    }
+
+    /**
+     * @param Data $dataRepository
+     */
+    public function setDataRepository($dataRepository)
+    {
+        $this->dataRepository = $dataRepository;
     }
 
     private function stripTags($body)
