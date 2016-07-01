@@ -1988,6 +1988,22 @@ section#pinBoot {
 }
 
 
+.pinboards .fa-plus {
+  padding: 7px;
+  border: 4px black solid;
+  /*margin: 11px;*/
+  margin-bottom: 10px;
+}
+
+.pinboards .detalhes {
+  padding-top: 10px;
+  background: #ffffff;
+}
+
+.pinboards .vehicle {
+  margin-top: 8px;
+}
+
 
 
 /*************************

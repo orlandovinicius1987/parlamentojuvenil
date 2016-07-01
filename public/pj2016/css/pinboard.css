@@ -38,10 +38,7 @@ stylize any heading tags withing white-panel below
     transition: all 0.3s ease-in-out;
 }
 
-.white-panel p {
-    padding-left: 5px;
-    padding-right: 5px;
-}
+
 
 #pinBoot a:link, #pinBoot a:visited, #pinBoot a:hover, #pinBoot a:focus {
     color: #000000;
@@ -52,4 +49,23 @@ stylize any heading tags withing white-panel below
     color: #000;
     border: 4px solid #000000;
     background: #ffc908;
+}
+
+.white-panel h4{
+    margin-left: 10px;
+    margin-right: 10px;
+    border-bottom: 3px solid #000000;
+    padding-bottom: 10px;
+}
+
+.white-panel p {
+    margin-left-left: 10px !important;
+    margin-right-right: 10px !important;
+    margin-bottom: 10px;
+    line-height: 1.1;
+}
+.white-panel p.lead1 {
+
+    margin-left: 10px;
+    margin-right: 10px;
 }
