@@ -256,14 +256,6 @@ mostrando a disposição dos jovens para mudar a realidade em que vivem',
             ],
             2013 => [
                 [
-                    'id' => '',
-                    'title' => '',
-                    'lead' => '',
-                    'vehicle' => '',
-                    'file' => '',
-                    'url' => '',
-                ],
-                [
                     'id' => '04/10/2013',
                     'title' => 'Parlamentar Juvenil de Belford Roxo, Luan Peixoto, participa de curso de capacitação sobre atuação na Alerj',
                     'lead' => 'Na última terça-feira (01 de Outubro), ocorreu o primeiro curso de capacitação do projeto Parlamento Juvenil, no Colégio Estadual José Leite Lopes, o Nave, na Tijuca, Zona Norte do Rio de Janeiro. O encontro serviu para colocar as ideias e propostas nos moldes de um projeto de lei, além de conhecer as normas básicas do regimento interno da Assembleia Legislativa do Rio (Alerj).',
