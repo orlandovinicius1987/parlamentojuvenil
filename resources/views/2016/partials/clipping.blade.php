@@ -8,6 +8,8 @@
                     @foreach($clipping as $item)
                         <article class="white-panel"><a href="{{ $item['pdf'] }}"><img src="{{ $item['jpg'] }}" alt=""></a>
                             <h4><a href="{{ $item['pdf'] }}">{{ $item['title'] }}</a></h4>
+
+                            <div class="linhadivisoria">  </div>
                             <p class="lead1">{{ $item['lead'] }}</p>
 
 

@@ -35,15 +35,16 @@
 <section id="projects2" class="fundo-azul">
 
     <div class="container">
-        <div class='row'>
+        <div class='row text-center'>
+            <h2 class="">Projetos de Lei</h2>
             <div class='col-md-12'>
                 <div class="carousel slide" data-ride="carousel" id="quote-carousel">
                     <!-- Bottom Carousel Indicators -->
-                    <ol class="carousel-indicators">
+                   {{-- <ol class="carousel-indicators">
                         <li data-target="#quote-carousel" data-slide-to="0" class="active"></li>
                         <li data-target="#quote-carousel" data-slide-to="1"></li>
                         <li data-target="#quote-carousel" data-slide-to="2"></li>
-                    </ol>
+                    </ol>--}}
                     <!-- Carousel Slides / Quotes -->
                     <div class="carousel-inner">
                         <!-- Quote 1 -->
