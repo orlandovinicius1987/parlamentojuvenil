@@ -1415,24 +1415,24 @@ section#home {
 /*************************
 ******PROJECTS CSS****
 **************************/
-
+/*
 
 #projects {
-  /*background-color: #ecedef;*/
-  /*background-image: url("../images/twitter-bg.jpg");*/
-  /*background-position: center bottom;*/
-  /*background-size: cover;*/
-  /*background-repeat:no-repeat;*/
-  /*position: relative;*/
-  /*padding: 95px 0 90px;*/
-  /*overflow: hidden;*/
+  !*background-color: #ecedef;*!
+  !*background-image: url("../images/twitter-bg.jpg");*!
+  !*background-position: center bottom;*!
+  !*background-size: cover;*!
+  !*background-repeat:no-repeat;*!
+  !*position: relative;*!
+  !*padding: 95px 0 90px;*!
+  !*overflow: hidden;*!
 }
 
-/*.depo {*/
-/*position: absolute;*/
-/*left: 0;*/
-/*top:-10%;*/
-/*}*/
+!*.depo {*!
+!*position: absolute;*!
+!*left: 0;*!
+!*top:-10%;*!
+!*}*!
 
 #projects-feed .nopadding{
   margin:0;
@@ -1450,7 +1450,7 @@ section#home {
 }
 
 #projects-feed .conteudo {
-  /*margin-left: -22px;*/
+  !*margin-left: -22px;*!
   padding: 0 0 0 5px;
 }
 
@@ -1464,8 +1464,8 @@ section#home {
 #projects-feed .item p {
   font-family: 'Palanquin Dark', sans-serif;
   color: black;
-  /*padding: 10px;*/
-  /*margin-top: 10px;*/
+  !*padding: 10px;*!
+  !*margin-top: 10px;*!
 }
 
 #projects-feed .item a {
@@ -1480,7 +1480,7 @@ section#home {
 .projects-control-left,
 .projects-control-right {
   position: absolute;
-  /*color: #00c3ff;*/
+  !*color: #00c3ff;*!
   color: black;
   top: 24%;
   font-size: 120px;
@@ -1538,7 +1538,7 @@ section#home {
   font-size: 30px !important;
   margin: 20px 0 0 0;
   padding: 0;
-}
+}*/
 
 /*
 
@@ -1565,6 +1565,205 @@ section#home {
 
 
 */
+
+
+
+
+/*************************
+******Projetos2 CSS****
+**************************/
+/*
+
+
+/* Row with equal height columns */
+.row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
+}
+
+
+.fundo-pink{
+  background: #f0f;
+}
+
+.fundo-branco{
+  background: #fff;
+}
+.fundo-preto{
+  background: #000;
+  color: #fff;
+}
+
+.borda-preta{
+  border: solid 4px #000;
+}
+
+.borda-imagem{
+  border-top: solid 4px #000;
+  border-left: solid 4px #000;
+  border-bottom: solid 4px #000;
+  padding:0;
+  margin:0;
+}
+
+.autoria{
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+
+.titulo-projeto {
+  background-color: #FFC908;
+
+  margin: 0 -15px 0 -15px;
+  text-transform: uppercase;
+  padding: 10px 0 10px 0px ;
+  color: #000000;
+  font-size: 130%;
+  font-weight: 700 ;
+  text-align: center;
+}
+
+
+.dados-projeto{
+  background-color: #FFC908;
+  border-bottom: solid #000000 4px;
+  margin: 0 -15px 0 -15px;
+  padding-bottom:10px;
+  color:#000;
+}
+
+
+.texto-projeto {
+  font-size: 80%;
+  margin-top: 10px;
+  color: #000;
+}
+
+.cidade-projeto {
+  font-size: 80%;
+}
+
+/* carousel */
+#quote-carousel
+{
+  padding: 0 10px 30px 10px;
+  margin-top: 30px;
+}
+
+/* Control buttons  */
+#quote-carousel .carousel-control
+{
+  background: none;
+  color: #222;
+  font-size: 85px;
+  text-shadow: none;
+  margin-top: 170px;
+}
+/* Previous button  */
+#quote-carousel .carousel-control.left
+{
+  left: -82px;
+}
+/* Next button  */
+#quote-carousel .carousel-control.right
+{
+  right: -82px !important;
+}
+/* Changes the position of the indicators */
+#quote-carousel .carousel-indicators
+{
+  right: 50%;
+  top: auto;
+  bottom: 0px;
+  margin-right: -19px;
+}
+/* Changes the color of the indicators */
+#quote-carousel .carousel-indicators li
+{
+  background: #c0c0c0;
+}
+#quote-carousel .carousel-indicators .active
+{
+  background: #333333;
+}
+#quote-carousel img
+{
+  width: 100%;
+}
+/* End carousel */
+
+.item blockquote {
+  border-left: none;
+  margin: 0;
+}
+
+.item blockquote img {
+
+}
+
+/*.item blockquote p:before {
+    content: "\f10d";
+    font-family: 'Fontawesome';
+    float: left;
+    margin-right: 10px;
+}*/
+
+
+
+/**
+  MEDIA QUERIES
+*/
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  #quote-carousel
+  {
+    margin-bottom: 0;
+    padding: 0 40px 30px 40px;
+  }
+
+}
+
+/* Small devices (tablets, up to 768px) */
+@media (max-width: 768px) {
+
+  /* Make the indicators larger for easier clicking with fingers/thumb on mobile */
+
+  #quote-carousel .carousel-indicators {
+    bottom: -20px !important;
+  }
+  #quote-carousel .carousel-indicators li {
+    display: inline-block;
+    margin: 0px 5px;
+    width: 15px;
+    height: 15px;
+  }
+  #quote-carousel .carousel-indicators li.active {
+    margin: 0px 5px;
+    width: 20px;
+    height: 20px;
+  }
+  .borda-imagem{
+    border-top: solid 4px #000;
+    border-left: solid 4px #000;
+    border-right: solid 4px #000;
+    border-bottom: 0px;
+    padding:0;
+    margin:0;
+  }
+  /* Row with equal height columns */
+  .row-eq-height {
+    display: block;
+  }
+  .autoria{
+    position: static;
+  }
+}
+
+
 
 /*************************
 ******Twitter CSS****
