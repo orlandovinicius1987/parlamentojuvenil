@@ -1122,7 +1122,7 @@ section#home {
   width: 300px;
   height: 300px;
   border-radius: 50%;
-  background-color: #000000;
+  background-color: #fff;
   padding: 5px;
   margin-bottom: 30px;
   margin-top: 30px;
@@ -1134,10 +1134,6 @@ section#home {
   font-size: 24px;
   font-weight: 300;
   font-family: 'Palanquin Dark', sans-serif;
-}
-
-#twitter-feed .item p {
-  color: #000000;
 }
 
 #twitter-feed .item a {
@@ -1170,7 +1166,6 @@ section#home {
 .twitter-control-left,
 .twitter-control-right {
   position: absolute;
-  color: #000000 !important;
   top: 30%;
   font-size: 120px
 }
