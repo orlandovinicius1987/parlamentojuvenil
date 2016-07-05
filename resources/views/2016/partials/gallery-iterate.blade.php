@@ -1,7 +1,7 @@
 <?php
     $count = 1;
     $photoCount = 1;
-    $max = 10;
+    $max = 12;
     $current = 0;
 ?>
 
@@ -25,11 +25,11 @@
 
 @if (count($images) > $max)
     {{--<button type="button" class="btn btn-danger" v-on:click="__show('{{ $kind }}')">Mais fotos</button>--}}
-    <div class="row text-center" id="more-gallery-{{ $kind }}-button">
+{{--    <div class="row text-center rodapegaleria" id="more-gallery-{{ $kind }}-button">
         <div class="col-md-5 quadro-amarelo hidden-xs hidden-sm"><div class="borda-preta">&nbsp;</div></div>
         <div class="col-md-2 col-xs-12"><div class="quadro-vermelho borda-preta">Mais fotos</div></div>
         <div class="col-md-5 quadro-amarelo hidden-xs hidden-sm"><div class="borda-preta">&nbsp;</div></div>
-    </div>
+    </div>--}}
 
     <!-- more gallery -->
     <div class="row" id="more-gallery-{{ $kind }}" style="display:none">
