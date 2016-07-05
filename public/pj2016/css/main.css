@@ -795,6 +795,10 @@ section#home {
   /*text-transform: uppercase;*/
 }
 
+.row.text-center.rodapegaleria {
+  margin-top: 30px;
+}
+
 
 /*************************
 *******About CSS**********
