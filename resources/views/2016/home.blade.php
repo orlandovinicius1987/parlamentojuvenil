@@ -19,9 +19,11 @@
         @include('2016.partials.news', ['articles' => $newArticles])
     @endif
 
+{{--
     @if (App::environment('local'))
         @include('2016.partials.congressmen')
     @endif
+--}}
 
     @if (App::environment('local'))
         @include('2016.partials.gallery')
