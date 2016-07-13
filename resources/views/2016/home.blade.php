@@ -16,7 +16,7 @@
     @include('2016.partials.timeline')
 
     @if (App::environment('local'))
-        @include('2016.partials.news', ['articles' => $newArticles])
+        @include('2016.partials.news', ['articles' => $newArticles, 'first' => 1, 'last' => 6])
     @endif
 
 {{--
