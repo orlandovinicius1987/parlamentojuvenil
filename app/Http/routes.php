@@ -14,9 +14,9 @@ Route::get('seed', ['as' => 'seed', 'uses' => function()
     Artisan::call('db:seed');
 }]);
 
-Route::get('old', ['as' => 'home', 'uses' => 'Home@index']);
-Route::get('/', ['as' => 'home', 'uses' => 'Home@breno']);
-Route::get('register', ['as' => 'home', 'uses' => 'Home@force']);
+Route::get('old', ['as' => 'old', 'uses' => 'Home@index']);
+Route::get('/', ['as' => 'home', 'uses' => 'Home@index2016']);
+//Route::get('register', ['as' => 'home', 'uses' => 'Home@force']);
 
 Route::post('googleforms', function ()
 {
@@ -105,7 +105,7 @@ Route::get('article/{id}', ['as' => 'article.show', 'uses' => 'News@showArticle'
 
 // Year pages
 
-Route::get('{year}', ['as' => 'home', 'uses' => 'Pages@edition'])->where('year', '[0-9][0-9][0-9][0-9]');;
+Route::get('{year}', ['as' => 'edition', 'uses' => 'Pages@edition'])->where('year', '[0-9][0-9][0-9][0-9]');;
 Route::get('{year}/gallery', ['as' => 'page.gallery', 'uses' => 'Pages@gallery']);
 Route::get('{year}/news', ['as' => 'page.news', 'uses' => 'Pages@news']);
 

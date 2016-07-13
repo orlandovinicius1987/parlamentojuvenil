@@ -21,7 +21,7 @@ class Home extends BaseController
         return $this->buildView('2016.pages.'.$page);
     }
 
-	public function breno()
+	public function index2016()
 	{
 		return $this->buildView('2016.home', null, true);
 	}
