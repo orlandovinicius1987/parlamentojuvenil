@@ -22,4 +22,9 @@ class Capacitation extends BaseController
 	{
 		return view('2016.capacitation.index');
 	}
+
+	public function content()
+	{
+		return view('2016.capacitation.content');
+	}
 }

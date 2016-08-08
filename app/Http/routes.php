@@ -105,13 +105,12 @@ Route::get('article/{id}', ['as' => 'article.show', 'uses' => 'News@showArticle'
 
 // Year pages
 
-<<<<<<< HEAD
 Route::get('{year}/capacitation', ['as' => 'capacitation.index', 'uses' => 'Capacitation@index'])->where('year', '[0-9][0-9][0-9][0-9]');;
+Route::get('{year}/capacitation/content', ['as' => 'capacitation.content', 'uses' => 'Capacitation@content'])->where('year', '[0-9][0-9][0-9][0-9]');;
 
-Route::get('{year}', ['as' => 'home', 'uses' => 'Pages@edition'])->where('year', '[0-9][0-9][0-9][0-9]');;
-=======
 Route::get('{year}', ['as' => 'edition', 'uses' => 'Pages@edition'])->where('year', '[0-9][0-9][0-9][0-9]');;
->>>>>>> upstream/master
+
+
 Route::get('{year}/gallery', ['as' => 'page.gallery', 'uses' => 'Pages@gallery']);
 Route::get('{year}/news', ['as' => 'page.news', 'uses' => 'Pages@news']);
 

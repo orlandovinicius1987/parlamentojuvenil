@@ -3,7 +3,7 @@
 @section('contents')
     @include('2016.partials.header-fixed')
 
-    <section id="titulo" class="fundo-capacitacao">
+    <section id="header-capacitacao" class="fundo-capacitacao">
         <div class="container">
             <div class="row">
                 <div class="col-xs12 text-center">
