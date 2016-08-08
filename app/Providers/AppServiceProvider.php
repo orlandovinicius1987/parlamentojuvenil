@@ -15,13 +15,24 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Validator::extend('lessthan18', function($attribute, $value, $parameters, $validator)
+        $end = Carbon::createFromFormat('d/m/Y', '20/11/2016');
+
+        Validator::extend('lessthan18', function($attribute, $value, $parameters, $validator) use ($end)
         {
             $birth = Carbon::createFromFormat('d/m/Y', $value);
 
-            $end = Carbon::createFromFormat('d/m/Y', '20/11/2016');
+            $diff = $end->diffInYears($birth);
 
-            return $end->diffInYears($birth) < 18;
+            return $diff < 18;
+        });
+
+        Validator::extend('morethan13', function($attribute, $value, $parameters, $validator) use ($end)
+        {
+            $birth = Carbon::createFromFormat('d/m/Y', $value);
+
+            $diff = $end->diffInYears($birth);
+
+            return $diff > 13;
         });
     }
 

@@ -3,7 +3,6 @@
 @section('contents')
     @include('2016.partials.header')
 
-
     <section id="home">
         <div id="main-slider" class="carousel slide" data-ride="carousel">
             {{--    <ol class="carousel-indicators">
@@ -33,5 +32,5 @@
     </section>
     <!--/#home-->
 
-    @include('2016.partials.news')
+    @include('2016.partials.news', ['articles' => $newArticles, 'first' => 1, 'last' => 9999999])
 @stop

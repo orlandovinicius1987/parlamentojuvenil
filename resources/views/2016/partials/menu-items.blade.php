@@ -2,7 +2,10 @@
     <ul class="nav navbar-nav navbar-right">
         <li class="scroll active"><a href="/#home">Início</a></li>
         <li class="scroll"><a href="/#sobre">Sobre</a></li>
-        <li class="scroll"><a href="/inscricao" class="external">Inscrição</a></li>
+
+        @if (false)
+            <li class="scroll"><a href="/inscricao" class="external">Inscrição</a></li>
+        @endif
 
         @if (App::environment('local'))
             <li class="scroll"><a href="/#noticias">Notícias</a></li>

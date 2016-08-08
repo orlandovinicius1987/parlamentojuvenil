@@ -15,8 +15,8 @@
                         todayHighlight: false,
                         format: "dd/mm/yyyy",
                         todayBtn: false,
-                        startDate: "{{ isset($seventeenDate) ? $seventeenDate : '' }}",
-                        endDate: "{{ isset($fourteenDate) ? $fourteenDate : '' }}",
+                        {{--startDate: "{{ isset($seventeenDate) ? $seventeenDate : '' }}",--}}
+                        {{--endDate: "{{ isset($fourteenDate) ? $fourteenDate : '' }}",--}}
                         language: "pt-BR"
                     });
 

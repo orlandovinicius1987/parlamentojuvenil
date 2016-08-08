@@ -56,10 +56,6 @@ class Builder
 
         $galleryLinks8 = $this->execute(function() { return $this->getGalleryLinks(8); }, 'getGalleryLinks');
 
-        $articles2014 = $this->execute(function() { return $this->getArticles('<=', 2014); }, 'getArticles');
-
-        $articles2015 = $this->execute(function() { return $this->getArticles('>=', 2015); }, 'getArticles');
-
         $fourteenDateString = $this->execute(function() use ($fourteenDate) { return $fourteenDate->format('d/m/Y'); }, 'fourteenDate');
 
         $seventeenDateString = $this->execute(function() use ($seventeenDate) { return $seventeenDate->format('d/m/Y'); }, 'seventeenDate');
@@ -67,6 +63,12 @@ class Builder
         $clipping = ! $year ? null : $this->execute(function() use ($year) { return $this->getClipping($year); }, 'getClipping');
 
         $now = $this->execute(function() { return (string) Carbon::now()->subHours(3); }, 'now');
+
+        $year = $year ?: Carbon::now()->year;
+
+        $articles = $this->execute(function() use ($year) { return $this->getArticles('>=', $year); }, 'getArticles');
+
+        $articlesOld = $this->execute(function() use ($year) { return $this->getArticles('<=', $year-1); }, 'getArticles');
 
         return  $view->with('banner_file', $banner)
                      ->with('spreadsheet', $this->spreadsheet)
@@ -76,11 +78,13 @@ class Builder
                      ->with('newspapers', $newspapersLinks)
                      ->with('gallery', $galleryLinks9)
                      ->with('oldGallery', $galleryLinks8)
-                     ->with('oldArticles', $articles2014)
-                     ->with('newArticles', $articles2015)
+                     ->with('oldArticles', $articlesOld)
+                     ->with('newArticles', $articles)
+                     ->with('articles', $articles)
                      ->with('fourteenDate', $fourteenDateString)
                      ->with('seventeenDate', $seventeenDateString)
                      ->with('now', $now)
+                     ->with('year', $year)
                      ->with('clipping', $clipping)
                      ->with('isHome', $isHome)
                      ->with('force', $force);
