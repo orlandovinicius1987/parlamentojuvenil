@@ -12,6 +12,13 @@
         @endif
 
         @if (App::environment('local'))
+            <li ><a href="/capacitation">Capacitação</a></li>
+        @endif
+
+
+
+
+    @if (App::environment('local'))
             <li class="scroll"><a href="/#galeria">Galeria</a></li>
         @endif
 
