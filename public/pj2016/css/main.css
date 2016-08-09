@@ -3126,13 +3126,75 @@ select.input-lg {
   height: 650px;
 }
 
-#titulo.fundo-capacitacao h1{
+#header-capacitacao{
+  margin-top: 90px;
+  padding: 60px 0 60px 0;
+}
+
+
+#header-capacitacao.fundo-capacitacao h1{
   opacity: 0.8;
-  margin-bottom: 30px !important;
+  margin-bottom: 20px !important;
 }
 
 
 #capacitation-form {
   margin-top: 40px;
+}
+
+
+
+#header-capacitacao-content{
+  margin-top: 90px;
+  padding: 60px 0 60px 0;
+}
+
+.fundo-capacitacao-content {
+  background: url("../images/imagem-top-capacitacao.jpg") no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 450px;
+}
+
+.capacitacao-greatings {
+  font-size: 30px;
+}
+
+span.capacitacao-username {
+  font-style: italic;
+  opacity: 0.7;
+}
+
+
+.capacitacao-videos .video-box {
+  min-height: 20px;
+  padding: 0px;
+  margin-bottom: 20px;
+  background-color: #748DC8;
+  border: 4px solid #000000;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+  transition: all 0.3s ease;
+}
+.capacitacao-videos .video-box:hover {
+  background: #35539A;
+}
+.capacitacao-videos .video-box.inactive {
+  opacity: 0.3;
+}
+
+.capacitacao-videos .media-object{
+  border-right: 4px solid #000000;
+}
+
+.capacitacao-videos .media-body {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.capacitacao-videos .media-heading{
+  margin: 15px 0 15px 0px;
 }
 
