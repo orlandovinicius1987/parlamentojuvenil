@@ -29,7 +29,7 @@
     <section class="fundo-azul1">
         <div class="container">
             <div class="row">
-                <div class="col-xs12">
+                <div class="col-xs12 capacitacao-videos">
 
 
                         <div class="video-box">
@@ -38,11 +38,13 @@
                                     <img class="media-object" src="http://placekitten.com/408/287">
                                 </a>
                                 <div class="media-body">
-                                    <h4 class="media-heading">Receta 1</h4>
+                                    <a href="#">
+                                    <h4 class="media-heading">Título do vídeo sobre a capacitação 1</h4>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
                                         Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis
                                         dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
                                         Aliquam in felis sit amet augue.</p>
+                                        </a>
 
                                 </div>
                             </div>
@@ -53,7 +55,7 @@
                                     <img class="media-object" src="http://placekitten.com/408/287">
                                 </a>
                                 <div class="media-body">
-                                    <h4 class="media-heading">Receta 2</h4>
+                                    <h4 class="media-heading">Título do vídeo sobre a capacitação 2</h4>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
                                         Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis
                                         dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
@@ -68,7 +70,7 @@
                                 <img class="media-object" src="http://placekitten.com/408/287">
                             </a>
                             <div class="media-body">
-                                <h4 class="media-heading">Receta 2</h4>
+                                <h4 class="media-heading">Título do vídeo sobre a capacitação 3</h4>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
                                     Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis
                                     dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
