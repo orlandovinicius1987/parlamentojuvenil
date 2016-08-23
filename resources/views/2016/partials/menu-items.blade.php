@@ -12,7 +12,7 @@
         @endif
 
         @if (App::environment('local'))
-            <li ><a href="/capacitation">Capacitação</a></li>
+            <li ><a href="/2016/training">Capacitação</a></li>
         @endif
 
 

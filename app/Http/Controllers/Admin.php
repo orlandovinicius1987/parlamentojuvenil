@@ -23,6 +23,13 @@ class Admin extends BaseController
 		;
 	}
 
+    function elected()
+    {
+        $elected = Subscription::where('elected', true)->orderBy('name')->get();
+
+        return view('admin.elected')->with('elected', $elected);
+    }
+
 	function schools()
 	{
 		$schools = School::join('subscriptions', 'subscriptions.school', '=', 'schools.name')

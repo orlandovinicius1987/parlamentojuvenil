@@ -51,11 +51,14 @@
                 <li>
                     <a href="{{ route('home') }}"><i class="fa fa-home fa-fw"></i> Hotsite</a>
                 </li>
-                <li active="active">
-                    <a href="{{ route('admin.home') }}"><i class="fa fa-dashboard fa-fw"></i> Inscrições</a>
+                <li active="{{ request()->is('admin/2016/subscriptions') ? 'active' : '' }}">
+                    <a href="{{ route('admin.home') }}"><i class="fa fa-list fa-fw"></i> Inscrições</a>
                 </li>
-                <li active="active">
-                    <a href="{{ route('admin.schools') }}"><i class="fa fa-dashboard fa-fw"></i> Escolas</a>
+                <li active="{{ request()->is('admin/2016/schools') ? 'active' : '' }}">
+                    <a href="{{ route('admin.schools') }}"><i class="fa fa-graduation-cap fa-fw"></i> Escolas</a>
+                </li>
+                <li active="{{ request()->is('admin/2016/elected') ? 'active' : '' }}">
+                    <a href="{{ route('admin.elected') }}"><i class="fa fa-users fa-fw"></i> Eleitos</a>
                 </li>
             </ul>
         </div>

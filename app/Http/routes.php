@@ -61,9 +61,11 @@ Route::any('dados', function ($city)
 
 Route::group(['prefix' => 'admin/2016'], function ()
 {
-	Route::get('/', ['as' => 'admin.home', 'uses' => 'Admin@index']);
+	Route::get('subscriptions', ['as' => 'admin.home', 'uses' => 'Admin@index']);
 
 	Route::get('schools', ['as' => 'admin.schools', 'uses' => 'Admin@schools']);
+
+    Route::get('elected', ['as' => 'admin.elected', 'uses' => 'Admin@elected']);
 
 	Route::get('{city}', ['as' => 'admin.city', 'uses' => 'Admin@city']);
 });
@@ -105,8 +107,8 @@ Route::get('article/{id}', ['as' => 'article.show', 'uses' => 'News@showArticle'
 
 // Year pages
 
-Route::get('{year}/capacitation', ['as' => 'capacitation.index', 'uses' => 'Capacitation@index'])->where('year', '[0-9][0-9][0-9][0-9]');;
-Route::get('{year}/capacitation/content', ['as' => 'capacitation.content', 'uses' => 'Capacitation@content'])->where('year', '[0-9][0-9][0-9][0-9]');;
+Route::get('{year}/training', ['as' => 'training.index', 'uses' => 'Training@index'])->where('year', '[0-9][0-9][0-9][0-9]');;
+Route::get('{year}/training/content', ['as' => 'capacitation.content', 'uses' => 'Training@content'])->where('year', '[0-9][0-9][0-9][0-9]');;
 
 Route::get('{year}', ['as' => 'edition', 'uses' => 'Pages@edition'])->where('year', '[0-9][0-9][0-9][0-9]');;
 

@@ -30,6 +30,7 @@ class Subscription extends Model
 		'address_neighborhood',
 		'address_city',
 		'facebook',
+        'elected',
 	];
 
     public function schoolRecord()

@@ -17,7 +17,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xs12">
-                        @include('partials.capacitation-login-form')
+                        @include('partials.training-login-form')
                     </div>
                 </div>
             </div>

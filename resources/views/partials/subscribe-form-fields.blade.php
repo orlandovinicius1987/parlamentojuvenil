@@ -414,6 +414,31 @@
         </div>
     </div>
 
+    {{-- Elected --}}
+    <div class="row control-group"  transition="expand">
+        <div class="form-group col-lg-4 floating-label-form-group controls">
+            <label for="elected" class="sr-only control-label">Eleito</label>
+            <select v-model="elected" class="form-control input-lg" placeholder="Eleito" name="elected" id="elected" required data-validation-required-message="Por favor preencha o eleito.">
+                <option value="" selected>ELEITO</option>
+
+                <option
+                        value="Y"
+                        {{ (Input::old('elected') === true ?: (! $isSubscribeForm ? $subscription->elected === true : false) ? 'selected' : '') }}
+                >
+                    ELEITO: SIM
+                </option>
+
+                <option
+                        value="N"
+                        {{ (Input::old('elected') === false ?: (! $isSubscribeForm ? $subscription->elected === false : false) ? 'selected' : '') }}
+                >
+                    ELEITO: NÃO
+                </option>
+            </select>
+            <span class="help-block text-danger"></span>
+        </div>
+    </div>
+
     <div id="success"></div>
 
     <div class="row"  transition="expand">

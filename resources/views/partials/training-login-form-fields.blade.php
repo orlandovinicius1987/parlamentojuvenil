@@ -1,6 +1,6 @@
 
 
-<div id="capacitation-form">
+<div id="training-form">
 
 
     <div id="vue-schools-VUE-DISABLED">
