@@ -3126,6 +3126,15 @@ select.input-lg {
   height: 650px;
 }
 
+.fundo-capacitacao-video {
+  background: url("../images/imagem-top-capacitacao.jpg") no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 1050px;
+}
+
 #header-capacitacao{
   margin-top: 90px;
   padding: 60px 0 60px 0;
@@ -3342,3 +3351,26 @@ nav.sidebar, .main{
   padding-left: 15px;
 }
 
+
+
+
+/*****************************
+******* EMBED CONTAINER ******
+*******************************/
+
+.embed-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+}
+.embed-container iframe, .embed-container object, .embed-container embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/*******************************!FIM - EMBED CONTAINER *******************************/
