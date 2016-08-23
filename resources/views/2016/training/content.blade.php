@@ -10,7 +10,7 @@
                     &nbsp;<BR>
                     <h1>Capacitação</h1>
                     &nbsp;<BR> &nbsp;<BR>
-                    <div class="capacitacao-greatings">Olá <span  class="capacitacao-username">Nome do Usuário Logado</span></div>
+                    <div class="capacitacao-greatings">Olá <span  class="capacitacao-username">{{ $loggedUser->name }}</span></div>
                     &nbsp;<BR> &nbsp;<BR>
                     <div class="capacitacao-heading">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In et tellus eget diam sagittis rutrum at at eros. Vestibulum vel efficitur nibh. Vestibulum consectetur, tortor sed feugiat rhoncus, nisi tortor semper risus, ut accumsan massa neque quis diam. In egestas eros et enim tempus, ac semper enim dignissim. Cras porta elit quis iaculis bibendum. Praesent pellentesque sapien odio, id aliquam metus dictum in. Maecenas dapibus lorem feugiat risus ultrices sollicitudin.</div>
                 </div>
@@ -49,7 +49,6 @@
                                         dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
                                         Aliquam in felis sit amet augue.</p>
                                         </a>
-
                                 </div>
                             </div>
                         </div>

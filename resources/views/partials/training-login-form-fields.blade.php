@@ -1,11 +1,7 @@
-
-
 <div id="training-form">
-
-
-    <div id="vue-schools-VUE-DISABLED">
-
-
+    @if(Session::has('error'))
+        <p class="alert alert-danger">{{ Session::get('error') }}</p>
+    @endif
 
     {{-- Telefone --}}
     <div class="row control-group"  transition="expand">
@@ -15,8 +11,8 @@
                 v-model="matricula"
                 type="matricula"
                 class="form-control input-lg"
-                value=""
-                placeholder="Telefone Residencial"
+                value="{{ Input::old('matricula') }}"
+                placeholder="Matrícula"
                 name="matricula"
                 id="matricula"
                 required data-validation-required-message="Por favor digite seu número de matrícula."
@@ -30,7 +26,7 @@
                 v-model="nascimento"
                 type="nascimento"
                 class="form-control input-lg"
-                value=""
+                value="{{ Input::old('nascimento') }}"
                 placeholder="Data de Nascimento"
                 name="nascimento"
                 id="nascimento"
@@ -41,22 +37,13 @@
         </div>
     </div>
 
-
-
-
-
-
-
-
-
     <div id="success"></div>
 
     <div class="row"  transition="expand">
         <div class="form-group col-xs-12">
-                    <button id="submit" type="submit" class="btn btn-lg btn-primary btn-block btn-submit-subscription">
-                        Entrar
-                    </button>
+            <button id="submit" type="submit" class="btn btn-lg btn-primary btn-block btn-submit-subscription">
+                Entrar
+            </button>
         </div>
-
     </div>
 </div>

@@ -1,6 +1,6 @@
 @include('partials.errors')
 
-<form id="{{ isset($formId) ? $formId : 'subscribe' }}" method="POST" action="/subscriptions">
+<form id="{{ isset($formId) ? $formId : 'subscribe' }}" method="POST" action="/2016/training">
     {!! csrf_field() !!}
 
     @include('partials.training-login-form-fields')
