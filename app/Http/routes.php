@@ -111,13 +111,13 @@ Route::get('article/{id}', ['as' => 'article.show', 'uses' => 'News@showArticle'
 
 // Year pages
 
-Route::get('{year}/training', ['as' => 'training.index', 'uses' => 'Training@index'])->where('year', '[0-9][0-9][0-9][0-9]');;
-Route::post('{year}/training', ['as' => 'training.login', 'uses' => 'Training@login'])->where('year', '[0-9][0-9][0-9][0-9]');;
-Route::get('{year}/training/content', ['as' => 'capacitation.content', 'uses' => 'Training@content'])->where('year', '[0-9][0-9][0-9][0-9]');;
-Route::get('{year}/training/video', ['as' => 'capacitation.content', 'uses' => 'Training@video'])->where('year', '[0-9][0-9][0-9][0-9]');;
+Route::get('{year}/training', ['as' => 'training.index', 'uses' => 'Training@index'])->where('year', '[0-9][0-9][0-9][0-9]');
+Route::post('{year}/training', ['as' => 'training.login', 'uses' => 'Training@login'])->where('year', '[0-9][0-9][0-9][0-9]');
+Route::get('{year}/training/content', ['as' => 'training.content', 'uses' => 'Training@content'])->where('year', '[0-9][0-9][0-9][0-9]');
+Route::get('{year}/training/watch/{video}', ['as' => 'training.watch', 'uses' => 'Training@watch'])->where('year', '[0-9][0-9][0-9][0-9]');
+Route::get('{year}/training/download/{document}', ['as' => 'training.download', 'uses' => 'Training@download'])->where('year', '[0-9][0-9][0-9][0-9]');
 
 Route::get('{year}', ['as' => 'edition', 'uses' => 'Pages@edition'])->where('year', '[0-9][0-9][0-9][0-9]');;
-
 
 Route::get('{year}/gallery', ['as' => 'page.gallery', 'uses' => 'Pages@gallery']);
 Route::get('{year}/news', ['as' => 'page.news', 'uses' => 'Pages@news']);

@@ -19,11 +19,12 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xs12">
-                        <div class='embed-container'><iframe src='https://www.youtube.com/embed/Jv-8FS-prn4' frameborder='0' allowfullscreen></iframe></div>
+                        <h3>Por favor clique no botão para baixar o documento de capacitação:</h3>
                     </div>
                 </div>
             </div>
 
+            <a href="{{ $lesson['document-url'] }}" class="btn btn-large btn-primary" target="_blank">Baixar documento</a>
             <a href="{{ route('training.index', ['year' => 2016]) }}" class="btn btn-primary">Voltar</a>
         </div>
     </section>
@@ -37,6 +38,5 @@
             </div>
         </div>
     </section>--}}
-
 
 @stop

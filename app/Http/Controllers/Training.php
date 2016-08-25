@@ -8,9 +8,9 @@ use Input;
 use Storage;
 use Session;
 use Illuminate\Http\Request;
+use App\Data\Entities\Training as TrainingModel;
 use App\Http\Controllers\Controller as BaseController;
 use App\Data\Repositories\Training as TrainingRepository;
-use App\Data\Entities\Training as TrainingModel;
 
 class Training extends BaseController
 {
@@ -19,10 +19,10 @@ class Training extends BaseController
         return Session::get('logged-user');
     }
 
-    public function index()
+    public function index(TrainingRepository $repository)
 	{
         if ($user = $this->getLoggedUser()) {
-            return $this->renderTraining($user);
+            return $this->renderTraining($user, $repository);
         }
 
 		return view('2016.training.index');
@@ -43,17 +43,33 @@ class Training extends BaseController
         return $this->renderTraining($user);
     }
 
-    private function renderTraining($user)
+    private function renderTraining($user, $repository)
     {
-        $training = TrainingModel::byYear(2016);
+        $training = $repository->addTrainingData($user, TrainingModel::byYear(2016));
 
         return view('2016.training.content')
             ->with('loggedUser', $user)
-            ->with('training', $training);
+            ->with('videos', $training->where('type', 'video'))
+            ->with('documents', $training->where('type', 'document'));
     }
 
     public function video()
     {
         return view('2016.training.video');
+    }
+
+    public function watch($year, $item, TrainingRepository $repository)
+    {
+        $repository->markAsWatched($year, $item);
+
+        $training = $repository->addTrainingData($user = $this->getLoggedUser(), TrainingModel::byYear(2016));
+
+        $training = $training->where('id' , $item)->first();
+
+        $view = $training['type'] == 'video' ? '2016.training.video' : '2016.training.download';
+
+        return view($view)
+            ->with('loggedUser', $this->getLoggedUser())
+            ->with('lesson', $training);
     }
 }

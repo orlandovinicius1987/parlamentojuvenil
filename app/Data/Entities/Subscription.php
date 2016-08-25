@@ -37,4 +37,9 @@ class Subscription extends Model
     {
         return $this->belongsTo(School::class, 'school', 'name');
     }
+
+    public function watched()
+    {
+        return $this->hasMany(Watched::class, 'subscription_id');
+    }
 }

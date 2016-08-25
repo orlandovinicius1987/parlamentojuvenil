@@ -36,53 +36,23 @@
                         <h2>Vídeos da Capacitação</h2>
                     </div>
 
-                        <div class="video-box">
+                    @foreach($videos as $item)
+                        <div class="video-box {{ $item['watched'] ? 'inactive' : '' }}"> <!-- class inactive -->
                             <div class="media">
-                                <a class="pull-left" href="#">
-                                    <img class="media-object" src="http://placekitten.com/408/287">
+                                <a class="pull-left" href="{{ $item['watch-url'] }}">
+                                    <img class="media-object" src="{{ $item['thumb-url'] }}">
                                 </a>
                                 <div class="media-body">
-                                    <a href="#">
-                                    <h4 class="media-heading">Título do vídeo sobre a capacitação 1</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
-                                        Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis
-                                        dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
-                                        Aliquam in felis sit amet augue.</p>
-                                        </a>
+                                    <a href="{{ $item['watch-url'] }}">
+                                        <h4 class="media-heading">{{ $item['title'] }}</h4>
+                                        <p>{{ $item['lead'] }}</p>
+                                    </a>
                                 </div>
                             </div>
                         </div>
-                        <div class="video-box inactive">
-                            <div class="media">
-                                <a class="pull-left" href="#">
-                                    <img class="media-object" src="http://placekitten.com/408/287">
-                                </a>
-                                <div class="media-body">
-                                    <h4 class="media-heading">Título do vídeo sobre a capacitação 2</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
-                                        Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis
-                                        dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
-                                        Aliquam in felis sit amet augue.</p>
-
-                                </div>
-                            </div>
-                        </div>
-                    <div class="video-box inactive">
-                        <div class="media">
-                            <a class="pull-left" href="#">
-                                <img class="media-object" src="http://placekitten.com/408/287">
-                            </a>
-                            <div class="media-body">
-                                <h4 class="media-heading">Título do vídeo sobre a capacitação 3</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
-                                    Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis
-                                    dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
-                                    Aliquam in felis sit amet augue.</p>
-
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
+
                 <div class="col-xs-1 capacitacao-menu">
                     <nav class="navbar navbar-default sidebar" role="navigation">
                         <div class="">
@@ -114,63 +84,24 @@
                         <h2>Apostilas da Capacitação</h2>
                     </div>
 
-                    <div class="video-box">
-                        <div class="media">
-                            <a class="pull-left" href="#">
-                                <img class="media-object" src="http://placekitten.com/408/287">
-                            </a>
-                            <div class="media-body">
-                                <a href="#">
-                                    <h4 class="media-heading">Título da apostila sobre a capacitação 1</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
-                                        Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis
-                                        dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
-                                        Aliquam in felis sit amet augue.</p>
+                    @foreach($documents as $item)
+                        <div class="video-box {{ $item['watched'] ? 'inactive' : '' }}"> <!-- class inactive -->
+                            <div class="media">
+                                <a class="pull-left" href="#">
+                                    <img class="media-object" src="{{ $item['thumb-url'] }}">
                                 </a>
-                                <p><a href="#" class="btn caixa-amarela btn-apostilas">Fazer Download da Apostila NºXX <span style="font-size:22px; margin-left: 10px;" class="pull-right showopacity glyphicon glyphicon-download-alt"></a></p>
+                                <div class="media-body">
+                                    <a href="{{ $item['watch-url'] }}">
+                                        <h4 class="media-heading">{{ $item['title'] }}</h4>
+                                        <p>{{ $item['lead'] }}</p>
+                                    </a>
+                                    <p><a href="{{ $item['watch-url'] }}" class="btn caixa-amarela btn-apostilas">Fazer Download da Apostila NºXX <span style="font-size:22px; margin-left: 10px;" class="pull-right showopacity glyphicon glyphicon-download-alt"></a></p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="video-box inactive">
-                        <div class="media">
-                            <a class="pull-left" href="#">
-                                <img class="media-object" src="http://placekitten.com/408/287">
-                            </a>
-                            <div class="media-body">
-                                <h4 class="media-heading">Título da apostila sobre a capacitação 2</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
-                                    Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis
-                                    dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
-                                    Aliquam in felis sit amet augue.</p>
-                                <p><a href="#" class="btn caixa-amarela btn-apostilas">Fazer Download da Apostila NºXX <span style="font-size:22px; margin-left: 10px;" class="pull-right showopacity glyphicon glyphicon-download-alt"></a></p>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="video-box inactive">
-                        <div class="media">
-                            <a class="pull-left" href="#">
-                                <img class="media-object" src="http://placekitten.com/408/287">
-                            </a>
-                            <div class="media-body">
-                                <h4 class="media-heading">Título da apostila sobre a capacitação 3</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
-                                    Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis
-                                    dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
-                                    Aliquam in felis sit amet augue.</p>
-
-                                <p><a href="#" class="btn caixa-amarela btn-apostilas">Fazer Download da Apostila NºXX <span style="font-size:22px; margin-left: 10px;" class="pull-right showopacity glyphicon glyphicon-download-alt"></a></p>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-1 capacitacao-menu">
-
+                    @endforeach
                 </div>
             </div>
         </div>
     </section>
-
-
 @stop
