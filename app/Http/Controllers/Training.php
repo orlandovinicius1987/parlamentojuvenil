@@ -40,7 +40,7 @@ class Training extends BaseController
             }
         }
 
-        return $this->renderTraining($user);
+        return $this->renderTraining($user, $repository);
     }
 
     private function renderTraining($user, $repository)
