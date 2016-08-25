@@ -3239,11 +3239,22 @@ span.capacitacao-username {
   font-size: 36px;
   margin-right: 20px;
   border: solid 5px #fff;
+  background: #027a02;
 }
+.fundo-capacitacao-video a.btn.btn-success:hover {
+  background: #025302;
+}
+
 .fundo-capacitacao-video a.btn.btn-danger {
   font-size: 36px;
   border: solid 5px #fff;
+  background: #b21416;
 }
+
+.fundo-capacitacao-video a.btn.btn-danger:hover {
+  background: #960000;
+}
+
 
 
 
