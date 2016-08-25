@@ -36,14 +36,20 @@
                         <h2>Vídeos da Capacitação</h2>
                     </div>
 
+                    <?php
+                        $count = 0;
+                    ?>
                     @foreach($videos as $item)
-                        <div class="video-box {{ $item['watched'] ? 'inactive' : '' }}"> <!-- class inactive -->
+                        <?php
+                            $count += $item['watched'] ? 0 : 1;
+                        ?>
+                        <div class="video-box {{ $count > 1 ? 'inactive' : '' }}"> <!-- class inactive -->
                             <div class="media">
-                                <a class="pull-left" href="{{ $item['watch-url'] }}">
+                                <a class="pull-left" href="{{ $count > 1 ? '#' : $item['watch-url'] }}">
                                     <img class="media-object" src="{{ $item['thumb-url'] }}">
                                 </a>
                                 <div class="media-body">
-                                    <a href="{{ $item['watch-url'] }}">
+                                    <a href="{{ $count > 1 ? '#' : $item['watch-url'] }}">
                                         <h4 class="media-heading">{{ $item['title'] }}</h4>
                                         <p>{{ $item['lead'] }}</p>
                                     </a>
@@ -84,18 +90,24 @@
                         <h2>Apostilas da Capacitação</h2>
                     </div>
 
+                    <?php
+                        $count = 0;
+                    ?>
                     @foreach($documents as $item)
-                        <div class="video-box {{ $item['watched'] ? 'inactive' : '' }}"> <!-- class inactive -->
+                        <?php
+                            $count += $item['watched'] ? 0 : 1;
+                        ?>
+                        <div class="video-box {{ $count > 1 ? 'inactive' : '' }}"> <!-- class inactive -->
                             <div class="media">
                                 <a class="pull-left" href="#">
                                     <img class="media-object" src="{{ $item['thumb-url'] }}">
                                 </a>
                                 <div class="media-body">
-                                    <a href="{{ $item['watch-url'] }}">
+                                    <a href="{{ $count > 1 ? '#' : $item['watch-url'] }}">
                                         <h4 class="media-heading">{{ $item['title'] }}</h4>
                                         <p>{{ $item['lead'] }}</p>
                                     </a>
-                                    <p><a href="{{ $item['watch-url'] }}" class="btn caixa-amarela btn-apostilas">Fazer Download da Apostila NºXX <span style="font-size:22px; margin-left: 10px;" class="pull-right showopacity glyphicon glyphicon-download-alt"></a></p>
+                                    <p><a href="{{ $count > 1 ? '#' : $item['watch-url'] }}" class="btn caixa-amarela btn-apostilas">Fazer Download da Apostila NºXX <span style="font-size:22px; margin-left: 10px;" class="pull-right showopacity glyphicon glyphicon-download-alt"></a></p>
                                 </div>
                             </div>
                         </div>

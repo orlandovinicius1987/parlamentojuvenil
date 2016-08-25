@@ -19,6 +19,13 @@ class Training extends BaseController
         return Session::get('logged-user');
     }
 
+    private function logout()
+    {
+        Session::forget('logged-user');
+
+        return redirect()->route('training.index');
+    }
+
     public function index(TrainingRepository $repository)
 	{
         if ($user = $this->getLoggedUser()) {
