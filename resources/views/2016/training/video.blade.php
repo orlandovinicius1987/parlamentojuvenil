@@ -8,9 +8,9 @@
             <div class="row">
                 <div class="col-xs12 text-center">
                     &nbsp;<BR>
-                    <h1>Capacitação</h1>
-                    <h2>{{ $loggedUser->name }}</h2>
-                    <h2>{{ $lesson['title'] }}</h2>
+                    <h2>Capacitação</h2><br>
+                    <div class="capacitacao-greatings"><span class="capacitacao-username">{{ $loggedUser->name }}</span></div><br>
+                    <div class="capacitacao-tit-video">{{ $lesson['title'] }}</div>
                     &nbsp;<BR> &nbsp;<BR>
                     {{--<div class="capacitacao-heading">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In et tellus eget diam sagittis rutrum at at eros. Vestibulum vel efficitur nibh. Vestibulum consectetur, tortor sed feugiat rhoncus, nisi tortor semper risus, ut accumsan massa neque quis diam. In egestas eros et enim tempus, ac semper enim dignissim. Cras porta elit quis iaculis bibendum. Praesent pellentesque sapien odio, id aliquam metus dictum in. Maecenas dapibus lorem feugiat risus ultrices sollicitudin. Vivamus fringilla ullamcorper libero. Donec eget eleifend ligula. Etiam a consequat urna.</div>--}}
                 </div>
