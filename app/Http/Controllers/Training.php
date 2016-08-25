@@ -19,11 +19,11 @@ class Training extends BaseController
         return Session::get('logged-user');
     }
 
-    private function logout()
+    public function logout()
     {
         Session::forget('logged-user');
 
-        return redirect()->route('training.index');
+        return redirect()->route('training.index', ['year' => 2016]);
     }
 
     public function index(TrainingRepository $repository)
