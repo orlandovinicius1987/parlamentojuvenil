@@ -3359,6 +3359,57 @@ nav.sidebar, .main{
   }
 }
 
+@media (max-width: 479px) {
+  .fundo-capacitacao-video {
+    height: 100%;
+  }
+
+  #header-capacitacao-content {
+    padding:0;
+  }
+  #header-capacitacao {
+    padding:0;
+  }
+  .fundo-capacitacao-content {
+    height: 630px;
+  }
+  .capacitacao-videos .media-object {
+    border-right: 0px solid #000000;
+    border-bottom: 4px solid #000000;
+    width: 105%;
+  }
+  .capacitacao-menu .navbar-default {
+    display: none;
+  }
+  .btn-apostilas {
+    text-align: center;
+    font-size: 17px;
+  }
+  .fundo-capacitacao-video a.btn.btn-success {
+    font-size: 26px;
+    margin-right: 0px;
+  }
+  .fundo-capacitacao-video a.btn.btn-danger {
+    font-size: 26px;
+    margin: 20px 0;
+  }
+  .fundo-capacitacao-video .alert {
+    margin: 20px 15px;
+    padding: 0 20px 0 20px;
+  }
+  .fundo-capacitacao-video .alert .capacitacao-greatings {
+    font-size: 22px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .fundo-capacitacao-video .alert p {
+    font-size: 22px;
+    margin-bottom: 20px;
+    line-height: 1.1;
+  }
+}
+
+
 @media (min-width: 1330px) {
 
   .capacitacao-menu .main{

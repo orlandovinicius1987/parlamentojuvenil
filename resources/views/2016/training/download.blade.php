@@ -11,7 +11,7 @@
 
                     {{--<div class="capacitacao-heading">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In et tellus eget diam sagittis rutrum at at eros. Vestibulum vel efficitur nibh. Vestibulum consectetur, tortor sed feugiat rhoncus, nisi tortor semper risus, ut accumsan massa neque quis diam. In egestas eros et enim tempus, ac semper enim dignissim. Cras porta elit quis iaculis bibendum. Praesent pellentesque sapien odio, id aliquam metus dictum in. Maecenas dapibus lorem feugiat risus ultrices sollicitudin. Vivamus fringilla ullamcorper libero. Donec eget eleifend ligula. Etiam a consequat urna.</div>--}}
                     <div class="alert alert-info">
-                        <div class="capacitacao-greatings"><span  class="capacitacao-username">{{ $loggedUser->name }}</span></div>
+                        <div class="capacitacao-greatings">Olá <span  class="capacitacao-username">{{ $loggedUser->name }}</span></div>
                     <P>Por favor clique no botão abaixo para baixar a apostila<BR> <strong>{{ $lesson['title'] }}</strong></P>
                     </div>
 
