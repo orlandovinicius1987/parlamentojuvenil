@@ -37,33 +37,24 @@ class Training
 
                 [
                     'id' => 'training.document.2016.1',
-                    'title' => 'PDF de capacitação 01',
+                    'title' => '01 - Introdução aos Poderes Constituídose ao Processo Legislativo',
                     'type' => 'document',
                     'lead' => 'Consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. Aliquam in felis sit amet augue.',
-                    'thumb-url' => 'http://placekitten.com/408/287?x=1',
+                    'thumb-url' => '/pj2016/images/capacitacao/apostila01.jpg',
                     'video-url' => 'https://www.youtube.com/embed/c-H6p0UFHPo',
-                    'document-url' => 'http://gdlp01.c-wss.com/gds/6/0300003266/01/PSSD1300IS_IXUS105IS_CUG_EN.pdf',
+                    'document-url' => '/public/files/apps/parlamentojuvenil/site/2016/capacitation/ApresentacaoParlamentoJuvenil 2016-ParteI.odp',
                 ],
 
                 [
                     'id' => 'training.document.2016.2',
-                    'title' => 'PDF de capacitação 01',
+                    'title' => '02 - Introdução à Técnica Legislativa',
                     'type' => 'document',
                     'lead' => 'Consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. Aliquam in felis sit amet augue.',
-                    'thumb-url' => 'http://placekitten.com/408/287?x=1',
+                    'thumb-url' => '/pj2016/images/capacitacao/apostila02.jpg',
                     'video-url' => 'https://www.youtube.com/embed/c-H6p0UFHPo',
-                    'document-url' => 'http://gdlp01.c-wss.com/gds/6/0300003266/01/PSSD1300IS_IXUS105IS_CUG_EN.pdf',
+                    'document-url' => '/public/files/apps/parlamentojuvenil/site/2016/capacitation/ApresentacaoParlamentoJuvenil 2016-ParteII.odp',
                 ],
 
-                [
-                    'id' => 'training.document.2016.3',
-                    'title' => 'PDF de capacitação 01',
-                    'type' => 'document',
-                    'lead' => 'Consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. Aliquam in felis sit amet augue.',
-                    'thumb-url' => 'http://placekitten.com/408/287?x=1',
-                    'video-url' => 'https://www.youtube.com/embed/c-H6p0UFHPo',
-                    'document-url' => 'http://gdlp01.c-wss.com/gds/6/0300003266/01/PSSD1300IS_IXUS105IS_CUG_EN.pdf',
-                ],
             ],
         ]);
     }
