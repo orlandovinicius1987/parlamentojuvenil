@@ -37,7 +37,7 @@ class Training
 
                 [
                     'id' => 'training.document.2016.1',
-                    'title' => '01 - Introdução aos Poderes Constituídose ao Processo Legislativo',
+                    'title' => '01 - Introdução aos Poderes Constituídos e ao Processo Legislativo',
                     'type' => 'document',
                     'lead' => 'Consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. Aliquam in felis sit amet augue.',
                     'thumb-url' => '/pj2016/images/capacitacao/apostila01.jpg',
