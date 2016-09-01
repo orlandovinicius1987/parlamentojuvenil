@@ -42,7 +42,7 @@ class Training
                     'lead' => 'Consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. Aliquam in felis sit amet augue.',
                     'thumb-url' => '/pj2016/images/capacitacao/apostila01.jpg',
                     'video-url' => 'https://www.youtube.com/embed/c-H6p0UFHPo',
-                    'document-url' => '/public/files/apps/parlamentojuvenil/site/2016/capacitation/ApresentacaoParlamentoJuvenil 2016-ParteI.odp',
+                    'document-url' => '/files/apps/parlamentojuvenil/site/2016/capacitation/ApresentacaoParlamentoJuvenil 2016-ParteI.odp',
                 ],
 
                 [
@@ -52,7 +52,7 @@ class Training
                     'lead' => 'Consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. Aliquam in felis sit amet augue.',
                     'thumb-url' => '/pj2016/images/capacitacao/apostila02.jpg',
                     'video-url' => 'https://www.youtube.com/embed/c-H6p0UFHPo',
-                    'document-url' => '/public/files/apps/parlamentojuvenil/site/2016/capacitation/ApresentacaoParlamentoJuvenil 2016-ParteII.odp',
+                    'document-url' => '/files/apps/parlamentojuvenil/site/2016/capacitation/ApresentacaoParlamentoJuvenil 2016-ParteII.odp',
                 ],
 
             ],
