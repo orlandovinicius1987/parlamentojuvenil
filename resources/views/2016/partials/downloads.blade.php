@@ -43,7 +43,7 @@
                         <a href="{{ route('home') }}/download/primeiro-turno-pj-x.pdf" class="btn border-button">
                             <img src="/pj2016/images/documentos.png" class="img-responsive" alt="Documentos">
                         </a>
-                        <p>Eleitos no 1º turno</p>
+                        <p>Eleitos no 1º turno<br><br></p>
                     </div>
                 </div>
 
@@ -52,7 +52,16 @@
                         <a href="{{ route('home') }}/download/segundo-turno-pj-x.pdf" class="btn border-button">
                             <img src="/pj2016/images/documentos.png" class="img-responsive" alt="Documentos">
                         </a>
-                        <p>Eleitos no 2º turno</p>
+                        <p>Eleitos no 2º turno<br><br></p>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-lg-4">
+                    <div class="classWithPad caixa-amarela">
+                        <a href="{{ route('home') }}/download/cronograma-de-capacitacoes-pjx.pdf" class="btn border-button">
+                            <img src="/pj2016/images/calendario.png" class="img-responsive" alt="Documentos">
+                        </a>
+                        <p>Cronograma de Capacitações</p>
                     </div>
                 </div>
             </div>
