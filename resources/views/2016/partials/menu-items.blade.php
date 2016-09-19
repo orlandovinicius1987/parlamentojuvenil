@@ -15,10 +15,7 @@
             <li ><a href="/2016/training">Capacitação</a></li>
         @endif
 
-
-
-
-    @if (App::environment('local'))
+        @if (App::environment('local'))
             <li class="scroll"><a href="/#galeria">Galeria</a></li>
         @endif
 
