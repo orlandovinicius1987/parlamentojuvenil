@@ -112,6 +112,10 @@
                             </div>
                         </div>
                     @endforeach
+
+                    <a class="btn btn-danger" href="{{ route('quiz.index', ['year' => 2016]) }}">
+                        <i class="fa-lg"></i> Clique para entrar no Quiz
+                    </a>
                 </div>
             </div>
         </div>

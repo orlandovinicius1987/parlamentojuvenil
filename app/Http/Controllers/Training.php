@@ -14,7 +14,7 @@ use App\Data\Repositories\Training as TrainingRepository;
 
 class Training extends BaseController
 {
-    private function getLoggedUser()
+    protected function getLoggedUser()
     {
         return Session::get('logged-user');
     }
