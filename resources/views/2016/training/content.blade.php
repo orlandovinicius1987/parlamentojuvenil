@@ -29,93 +29,40 @@
     <section class="fundo-azul1">
         <div class="container">
             <div class="row">
-                <a name="videos"></a>
-                <div class="col-xs-11 capacitacao-videos">
-
+                <a name="apostilas">
+                </a>
+                <div class="col-xs-12 capacitacao-videos ">
                     <div class="capacitacao-videos-titulo">
-                        <h2>Vídeos da Capacitação</h2>
+                        <h2>AULAS</h2>
                     </div>
-
-                    <?php
-                        $count = 0;
-                    ?>
-                    @foreach($videos as $item)
-                        <?php
-                            $count += $item['watched'] ? 0 : 1;
-                        ?>
-                        <div class="video-box {{ $count > 1 ? 'inactive' : '' }}"> <!-- class inactive -->
-                            <div class="media">
-                                <a class="pull-left" href="{{ $count > 1 ? '#' : $item['watch-url'] }}">
-                                    <img class="media-object" src="{{ $item['thumb-url'] }}">
+                    <div class="video-box "> <!-- class inactive -->
+                        <div class="media">
+                            <a class="pull-left" href="#">
+                                <img class="media-object" src="/pj2016/images/capacitacao/aula001.jpg">
+                            </a>
+                            <div class="media-body">
+                                <a href="http://local.parlamentojuvenil.com/2016/training/watch/training.document.2016.1">
+                                    <h4 class="media-heading">º01 - Título da Aula</h4>
+                                    <p>Consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis dolor, in sagittis nisi. Aenean sit amet felis dolor, in sagittis nisi.  Aenean sit amet felis dolor, in sagittis nisi.  Aenean sit amet felis dolor, in sagittis nisi. Aenean sit amet felis dolor, in sagittis nisi.</p>
                                 </a>
-                                <div class="media-body">
-                                    <a href="{{ $count > 1 ? '#' : $item['watch-url'] }}">
-                                        <h4 class="media-heading">{{ $item['title'] }}</h4>
-                                        <p>{{ $item['lead'] }}</p>
-                                    </a>
-                                </div>
+                                <p> <a href="http://local.parlamentojuvenil.com/2016/training/watch/training.document.2016.1" class="btn caixa-amarela btn-apostilas">Vídeo<span style="font-size:22px; margin-left: 10px;" class="pull-right showopacity glyphicon glyphicon-film"></span></a> <a href="http://local.parlamentojuvenil.com/2016/training/watch/training.document.2016.1" class="btn caixa-amarela btn-apostilas">Apostila<span style="font-size:22px; margin-left: 10px;" class="pull-right showopacity glyphicon glyphicon-list-alt"></span></a> <a href="http://local.parlamentojuvenil.com/2016/training/watch/training.document.2016.1" class="btn caixa-amarela btn-apostilas">Quiz<span style="font-size:22px; margin-left: 10px;" class="pull-right showopacity glyphicon glyphicon-question-sign"></span></a></p>
                             </div>
                         </div>
-                    @endforeach
-                </div>
-
-                <div class="col-xs-1 capacitacao-menu">
-                    <nav class="navbar navbar-default sidebar" role="navigation">
-                        <div class="">
-                            <div class="navbar-header">
-                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
-                                    <span class="sr-only">Toggle navigation</span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                </button>
-                            </div>
-                            <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
-                                <ul class="nav navbar-nav">
-                                    <li class="active"><a href="#videos">Vídeos<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-play-circle"></span></a></li>
-                                    <li ><a href="#apostilas">Apostilas<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-folder-open"></span></a></li>
-                                    {{--<li ><a href="#">Tags<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a></li>--}}
-                                </ul>
-                            </div>
-                        </div>
-                    </nav>
-                </div>
-            </div>
-
-            <div class="row">
-                <a name="apostilas"></a>
-                <div class="col-xs-11 capacitacao-videos capacitacao-apostilas">
-
-                    <div class="capacitacao-videos-titulo">
-                        <h2>Apostilas da Capacitação</h2>
                     </div>
-
-                    <?php
-                        $count = 0;
-                    ?>
-                    @foreach($documents as $item)
-                        <?php
-                            $count += $item['watched'] ? 0 : 1;
-                        ?>
-                        <div class="video-box {{ $count > 1 ? 'inactive' : '' }}"> <!-- class inactive -->
-                            <div class="media">
-                                <a class="pull-left" href="#">
-                                    <img class="media-object" src="{{ $item['thumb-url'] }}">
+                    <div class="video-box "> <!-- class inactive -->
+                        <div class="media">
+                            <a class="pull-left" href="#">
+                                <img class="media-object" src="/pj2016/images/capacitacao/aula002.jpg">
+                            </a>
+                            <div class="media-body">
+                                <a href="http://local.parlamentojuvenil.com/2016/training/watch/training.document.2016.1">
+                                    <h4 class="media-heading">º02 - Título da Aula</h4>
+                                    <p>Consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis dolor, in sagittis nisi. Aenean sit amet felis dolor, in sagittis nisi.  Aenean sit amet felis dolor, in sagittis nisi.  Aenean sit amet felis dolor, in sagittis nisi. Aenean sit amet felis dolor, in sagittis nisi.</p>
                                 </a>
-                                <div class="media-body">
-                                    <a href="{{ $count > 1 ? '#' : $item['watch-url'] }}">
-                                        <h4 class="media-heading">{{ $item['title'] }}</h4>
-                                        <p>{{ $item['lead'] }}</p>
-                                    </a>
-                                    <p><a href="{{ $count > 1 ? '#' : $item['watch-url'] }}" class="btn caixa-amarela btn-apostilas">Fazer Download da Apostila NºXX <span style="font-size:22px; margin-left: 10px;" class="pull-right showopacity glyphicon glyphicon-download-alt"></a></p>
-                                </div>
+                                <p> <a href="http://local.parlamentojuvenil.com/2016/training/watch/training.document.2016.1" class="btn caixa-amarela btn-apostilas">Vídeo<span style="font-size:22px; margin-left: 10px;" class="pull-right showopacity glyphicon glyphicon-film"></span></a> <a href="http://local.parlamentojuvenil.com/2016/training/watch/training.document.2016.1" class="btn caixa-amarela btn-apostilas">Apostila<span style="font-size:22px; margin-left: 10px;" class="pull-right showopacity glyphicon glyphicon-list-alt"></span></a> <a href="http://local.parlamentojuvenil.com/2016/training/watch/training.document.2016.1" class="btn caixa-amarela btn-apostilas">Quiz<span style="font-size:22px; margin-left: 10px;" class="pull-right showopacity glyphicon glyphicon-question-sign"></span></a></p>
                             </div>
                         </div>
-                    @endforeach
-
-                    <a class="btn btn-danger" href="{{ route('quiz.index', ['year' => 2016]) }}">
-                        <i class="fa-lg"></i> Clique para entrar no Quiz
-                    </a>
+                    </div>
                 </div>
             </div>
         </div>
