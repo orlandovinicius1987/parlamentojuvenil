@@ -18,9 +18,13 @@ class Training extends BaseController
 
     protected $trainingRepository;
 
+    protected $user;
+
     public function __construct(TrainingRepository $trainingRepository)
     {
         $this->trainingRepository = $trainingRepository;
+
+        $this->user = $user = $this->getLoggedUser();
     }
 
     protected function getLoggedUser()
@@ -83,6 +87,7 @@ class Training extends BaseController
 
         return view($view)
             ->with('loggedUser', $this->getLoggedUser())
+            ->with('itemId', $item)
             ->with('lesson', $training);
     }
 }

@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Database\Eloquent\Collection;
+
 class Quiz extends Training
 {
     public function index()
 	{
-        if ($user = $this->getLoggedUser()) {
-            return $this->renderQuiz($user, $this->trainingRepository);
+        if ($this->user) {
+            return $this->renderQuiz($this->user, $this->trainingRepository);
         }
 
 		return redirect()->route('training.index');
@@ -21,5 +23,12 @@ class Quiz extends Training
     public function result()
     {
         return view($this->year.'.training.quiz-result')->with('loggedUser', $this->getLoggedUser());
+    }
+
+    public function questions($year, $itemId)
+    {
+        $data = $this->trainingRepository->findById($itemId, $this->user, $this->year);
+
+        return (new Collection($data))->toJson();
     }
 }

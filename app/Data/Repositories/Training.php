@@ -58,6 +58,11 @@ class Training
                     $element['watched'] = Watched::where('subscription_id', $user->id)->where('item_id', $element['id'])->first();
                     $element['visible'] = $visible || $element['watched'];
 
+                    if($relationKey == 'quiz')
+                    {
+                        $element['answer'] = $element['watched'] ? $element['watched']->answer : null;
+                    }
+
                     $visible = $element['watched'] !== null;
 
                     $item['relations'][$relationKey][$elementKey] = $element;
