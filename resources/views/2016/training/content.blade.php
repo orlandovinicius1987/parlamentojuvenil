@@ -48,9 +48,15 @@
                                         <p>Consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis dolor, in sagittis nisi. Aenean sit amet felis dolor, in sagittis nisi.  Aenean sit amet felis dolor, in sagittis nisi.  Aenean sit amet felis dolor, in sagittis nisi. Aenean sit amet felis dolor, in sagittis nisi.</p>
                                     </a>
                                     <p>
-                                        <a href="{{ $class['relations']['videos'][0]['watch-url'] }}" class="btn caixa-amarela btn-apostilas">Vídeo<span style="font-size:22px; margin-left: 10px;" class="pull-right showopacity glyphicon glyphicon-film"></span></a>
-                                        <a href="{{ $class['relations']['documents'][0]['watch-url'] }}" class="btn caixa-amarela btn-apostilas">Apostila<span style="font-size:22px; margin-left: 10px;" class="pull-right showopacity glyphicon glyphicon-list-alt"></span></a>
-                                        <a href="{{ $class['relations']['quiz'][0]['watch-url'] }}" class="btn caixa-amarela btn-apostilas">Quiz<span style="font-size:22px; margin-left: 10px;" class="pull-right showopacity glyphicon glyphicon-question-sign"></span></a>
+                                        <a href="{{ ($video = $class['relations']['videos'][0])['watch-url'] }}" class="btn caixa-amarela btn-apostilas">Vídeo<span style="font-size:22px; margin-left: 10px;" class="pull-right showopacity glyphicon glyphicon-film"></span></a>
+
+                                        @if($video['watched'])
+                                            <a href="{{ ($document = $class['relations']['documents'][0])['watch-url'] }}" class="btn caixa-amarela btn-apostilas">Apostila<span style="font-size:22px; margin-left: 10px;" class="pull-right showopacity glyphicon glyphicon-list-alt"></span></a>
+                                        @endif
+
+                                        @if(isset($document) && $document['watched'])
+                                            <a href="{{ $class['relations']['quiz'][0]['watch-url'] }}" class="btn caixa-amarela btn-apostilas">Quiz<span style="font-size:22px; margin-left: 10px;" class="pull-right showopacity glyphicon glyphicon-question-sign"></span></a>
+                                        @endif
                                     </p>
                                 </div>
                             </div>
