@@ -14,9 +14,9 @@ use App\Data\Repositories\Training as TrainingRepository;
 
 class Training extends BaseController
 {
-    private $year = 2016;
+    protected $year = 2016;
 
-    private $trainingRepository;
+    protected $trainingRepository;
 
     public function __construct(TrainingRepository $trainingRepository)
     {

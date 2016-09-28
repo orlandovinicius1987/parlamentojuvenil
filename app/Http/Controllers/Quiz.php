@@ -2,14 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Data\Repositories\Training as TrainingRepository;
-
 class Quiz extends Training
 {
-    public function index(TrainingRepository $repository)
+    public function index()
 	{
         if ($user = $this->getLoggedUser()) {
-            return $this->renderQuiz($user, $repository);
+            return $this->renderQuiz($user, $this->trainingRepository);
         }
 
 		return redirect()->route('training.index');
@@ -17,11 +15,11 @@ class Quiz extends Training
 
     private function renderQuiz($user, $repository)
     {
-        return view('2016.quiz.index')->with('loggedUser', $user);
+        return view($this->year.'.quiz.index')->with('loggedUser', $user);
     }
 
     public function result()
     {
-        return view('2016.quiz.result')->with('loggedUser', $this->getLoggedUser());
+        return view($this->year.'.training.quiz-result')->with('loggedUser', $this->getLoggedUser());
     }
 }
