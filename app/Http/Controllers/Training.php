@@ -14,6 +14,15 @@ use App\Data\Repositories\Training as TrainingRepository;
 
 class Training extends BaseController
 {
+    private $year = 2016;
+
+    private $trainingRepository;
+
+    public function __construct(TrainingRepository $trainingRepository)
+    {
+        $this->trainingRepository = $trainingRepository;
+    }
+
     protected function getLoggedUser()
     {
         return Session::get('logged-user');
@@ -23,23 +32,23 @@ class Training extends BaseController
     {
         Session::forget('logged-user');
 
-        return redirect()->route('training.index', ['year' => 2016]);
+        return redirect()->route('training.index', ['year' => $this->year]);
     }
 
-    public function index(TrainingRepository $repository)
+    public function index()
 	{
         if ($user = $this->getLoggedUser()) {
-            return $this->renderTraining($user, $repository);
+            return $this->renderTraining($user);
         }
 
-		return view('2016.training.index');
+		return view($this->year.'.training.index');
 	}
 
-    public function login(Request $request, TrainingRepository $repository)
+    public function login(Request $request)
     {
         if (! $user = $this->getLoggedUser())
         {
-            if (! $user = $repository->login($request->get('matricula'), $request->get('nascimento')))
+            if (! $user = $this->trainingRepository->login($request->get('matricula'), $request->get('nascimento')))
             {
                 Session::flash('error', 'Aluno não encontrado.');
 
@@ -47,32 +56,32 @@ class Training extends BaseController
             }
         }
 
-        return $this->renderTraining($user, $repository);
+        return $this->renderTraining($user);
     }
 
-    private function renderTraining($user, $repository)
+    private function renderTraining($user)
     {
-        $training = $repository->addTrainingData($user, TrainingModel::byYear(2016));
+        $training = $this->trainingRepository->addTrainingData($user, TrainingModel::byYear($this->year));
 
-        return view('2016.training.content')
+        return view($this->year.'.training.content')
             ->with('loggedUser', $user)
             ->with('training', $training);
     }
 
     public function video()
     {
-        return view('2016.training.video');
+        return view($this->year.'.training.video');
     }
 
-    public function watch($year, $item, TrainingRepository $repository)
+    public function watch($year, $item)
     {
-        $repository->markAsWatched($year, $item);
+        $this->trainingRepository->markAsWatched($year, $item);
 
-        $training = $repository->addTrainingData($user = $this->getLoggedUser(), TrainingModel::byYear(2016));
+        $training = $this->trainingRepository->findById($item, $this->getLoggedUser(), $this->year);
 
-        $training = $training->where('id' , $item)->first();
+//        $training = $training->where('id' , $item)->first();
 
-        $view = $training['type'] == 'video' ? '2016.training.video' : '2016.training.download';
+        $view = $training['type'] == 'video' ? $this->year.'.training.video' : $this->year.'.training.download';
 
         return view($view)
             ->with('loggedUser', $this->getLoggedUser())

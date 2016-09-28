@@ -6,9 +6,29 @@ use App\Data\Entities\Watched;
 use Illuminate\Database\Eloquent\Collection;
 use Session;
 use App\Data\Entities\Subscription;
+use App\Data\Entities\Training as TrainingModel;
 
 class Training
 {
+    public function findById($item, $user, $year)
+    {
+        $training = $this->addTrainingData($user, TrainingModel::byYear($year));
+
+        foreach ($training as $course)
+        {
+            foreach ($course['relations'] as $relation) {
+                foreach ($relation as $element) {
+                    if ($element['id'] == $item)
+                    {
+                        return $element;
+                    }
+                }
+            }
+        }
+
+        return null;
+    }
+
     public function login($registration, $birthdate)
     {
         $person = Subscription::where('registration', $registration)
