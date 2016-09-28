@@ -42,7 +42,13 @@
                                 <a class="pull-left" href="#">
                                     <img class="media-object" src="/pj2016/images/capacitacao/aula00{{$courseKey+1}}.jpg">
                                 </a>
-                                <div class="media-body">
+                                <div class="media-body assistido">
+                                    <div class="shape">
+                                        <div class="shape-text">
+                                            Assistido
+                                        </div>
+                                    </div>
+
                                     <a href="{{ $course['relations']['videos'][0]['watch-url'] }}">
                                         <h4 class="media-heading">º01 - Título da Aula</h4>
                                         <p>Consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis dolor, in sagittis nisi. Aenean sit amet felis dolor, in sagittis nisi.  Aenean sit amet felis dolor, in sagittis nisi.  Aenean sit amet felis dolor, in sagittis nisi. Aenean sit amet felis dolor, in sagittis nisi.</p>
