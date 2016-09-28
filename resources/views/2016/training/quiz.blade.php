@@ -3,7 +3,7 @@
 @section('contents')
     @include('2016.partials.header-fixed')
 
-    <section id="header-capacitacao" class="fundo-quiz">
+    <section id="vue-quiz" class="fundo-quiz">
         <div class="container">
             <div class="row">
                 <div class="col-xs12 text-center">
@@ -18,7 +18,6 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xs12">
-
                         <div class="modal-dialog">
                             <div class="modal-content quadro-amarelo borda-preta ">
 
@@ -66,4 +65,5 @@
 @stop
 
 @section('javascript')
+    @include('scripts.vueQuiz')
 @stop
