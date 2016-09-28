@@ -79,9 +79,7 @@ class Training extends BaseController
 
         $training = $this->trainingRepository->findById($item, $this->getLoggedUser(), $this->year);
 
-//        $training = $training->where('id' , $item)->first();
-
-        $view = $training['type'] == 'video' ? $this->year.'.training.video' : $this->year.'.training.download';
+        $view = $this->year.'.training.'.$training['type'];
 
         return view($view)
             ->with('loggedUser', $this->getLoggedUser())

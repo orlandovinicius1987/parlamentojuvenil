@@ -44,13 +44,21 @@ class Training
     {
         $collection = new Collection();
 
+        $visible = true;
+
         foreach ($training as $itemKey => $item)
         {
+            $item['visible'] = $visible;
+
             foreach ($item['relations'] as $relationKey => $relation) {
+
                 foreach ($relation as $elementKey => $element) {
                     $element['id'] = "{$item['id']}.{$element['id']}";
                     $element['watch-url'] = route('training.watch', ['year' => 2016, 'item' => $element['id']]);
                     $element['watched'] = Watched::where('subscription_id', $user->id)->where('item_id', $element['id'])->first();
+                    $element['visible'] = $visible || $element['watched'];
+
+                    $visible = $element['watched'] !== null;
 
                     $item['relations'][$relationKey][$elementKey] = $element;
                 }

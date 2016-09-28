@@ -48,6 +48,7 @@ class Training
                         'quiz' => [
                             [
                                 'id' => 'quiz.1.001',
+                                'type' => 'quiz',
                                 'question' => 'Quais são os três Poderes da República Federativa do Brasil?',
                                 'answers' => [
                                     'a' => 'Administrativo, Executivo e Parlamentar.',
@@ -60,6 +61,7 @@ class Training
 
                             [
                                 'id' => 'quiz.1.002',
+                                'type' => 'quiz',
                                 'question' => 'O Deputado Estadual possui competência para legislar sobre:',
                                 'answers' => [
                                     'a' => 'Salário de servidores.',
@@ -72,6 +74,7 @@ class Training
 
                             [
                                 'id' => 'quiz.1.003',
+                                'type' => 'quiz',
                                 'question' => 'Qual destas não se enquadra no conceito de proposição legislativa:',
                                 'answers' => [
                                     'a' => 'Projeto de Lei.',
@@ -85,6 +88,7 @@ class Training
 
                             [
                                 'id' => 'quiz.1.004',
+                                'type' => 'quiz',
                                 'question' => 'Não serão admitidas proposições:',
                                 'answers' => [
                                     'a' => 'Que contenham expressões ofensivas.',
@@ -97,6 +101,7 @@ class Training
 
                             [
                                 'id' => 'quiz.1.005',
+                                'type' => 'quiz',
                                 'question' => 'Qual a sequência básica correta do processo legislativo:',
                                 'answers' => [
                                     'a' => 'Criação da proposição - protocolo - sanção - tramitação pelas comissões - aprovação',
@@ -143,6 +148,7 @@ class Training
                         'quiz' => [
                             [
                                 'id' => 'quiz.2.001',
+                                'type' => 'quiz',
                                 'question' => 'O que é proposição legislativa?',
                                 'answers' => [
                                     'a' => 'Proposição é toda matéria sujeita à deliberação da Assembleia ou de suas comissões, conforme o caso.',
@@ -155,6 +161,7 @@ class Training
 
                             [
                                 'id' => 'quiz.2.002',
+                                'type' => 'quiz',
                                 'question' => 'Qual a divisão obrigatória das proposições legislativas?',
                                 'answers' => [
                                     'a' => 'Artigos, periódicos e seções.',
@@ -167,6 +174,7 @@ class Training
 
                             [
                                 'id' => 'quiz.2.003',
+                                'type' => 'quiz',
                                 'question' => 'Como são divididas as leis?',
                                 'answers' => [
                                     'a' => 'Parte preliminar - Corpo da Lei - Parte Final',
@@ -179,6 +187,7 @@ class Training
 
                             [
                                 'id' => 'quiz.2.004',
+                                'type' => 'quiz',
                                 'question' => 'O que é Ementa?',
                                 'answers' => [
                                     'a' => 'É o mesmo que artigo de lei.',
@@ -191,6 +200,7 @@ class Training
 
                             [
                                 'id' => 'quiz.2.005',
+                                'type' => 'quiz',
                                 'question' => 'O que deve conter na Parte Final de um Projeto de Lei?',
                                 'answers' => [
                                     'a' => 'Cláusula de Vigência e Revogação.',

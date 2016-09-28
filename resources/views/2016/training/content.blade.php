@@ -36,33 +36,34 @@
                         <h2>AULAS</h2>
                     </div>
 
-                    @foreach($training as $classKey => $class)
-                        <div class="video-box "> <!-- class inactive -->
+                    @foreach($training as $courseKey => $course)
+                        <div class="video-box {{ $course['visible'] ? '' : 'inactive' }}"> <!-- class inactive -->
                             <div class="media">
                                 <a class="pull-left" href="#">
-                                    <img class="media-object" src="/pj2016/images/capacitacao/aula00{{$classKey+1}}.jpg">
+                                    <img class="media-object" src="/pj2016/images/capacitacao/aula00{{$courseKey+1}}.jpg">
                                 </a>
                                 <div class="media-body">
-                                    <a href="{{ $class['relations']['videos'][0]['watch-url'] }}">
+                                    <a href="{{ $course['relations']['videos'][0]['watch-url'] }}">
                                         <h4 class="media-heading">º01 - Título da Aula</h4>
                                         <p>Consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis dolor, in sagittis nisi. Aenean sit amet felis dolor, in sagittis nisi.  Aenean sit amet felis dolor, in sagittis nisi.  Aenean sit amet felis dolor, in sagittis nisi. Aenean sit amet felis dolor, in sagittis nisi.</p>
                                     </a>
                                     <p>
-                                        <a href="{{ ($video = $class['relations']['videos'][0])['watch-url'] }}" class="btn caixa-amarela btn-apostilas">Vídeo<span style="font-size:22px; margin-left: 10px;" class="pull-right showopacity glyphicon glyphicon-film"></span></a>
-
-                                        @if($video['watched'])
-                                            <a href="{{ ($document = $class['relations']['documents'][0])['watch-url'] }}" class="btn caixa-amarela btn-apostilas">Apostila<span style="font-size:22px; margin-left: 10px;" class="pull-right showopacity glyphicon glyphicon-list-alt"></span></a>
+                                        @if($course['relations']['videos'][0]['visible'])
+                                            <a href="{{ $course['relations']['videos'][0]['watch-url']  }}" class="btn caixa-amarela btn-apostilas">Vídeo<span style="font-size:22px; margin-left: 10px;" class="pull-right showopacity glyphicon glyphicon-film"></span></a>
                                         @endif
 
-                                        @if(isset($document) && $document['watched'])
-                                            <a href="{{ $class['relations']['quiz'][0]['watch-url'] }}" class="btn caixa-amarela btn-apostilas">Quiz<span style="font-size:22px; margin-left: 10px;" class="pull-right showopacity glyphicon glyphicon-question-sign"></span></a>
+                                        @if($course['relations']['documents'][0]['visible'])
+                                            <a href="{{ $course['relations']['documents'][0]['watch-url'] }}" class="btn caixa-amarela btn-apostilas">Apostila<span style="font-size:22px; margin-left: 10px;" class="pull-right showopacity glyphicon glyphicon-list-alt"></span></a>
+                                        @endif
+
+                                        @if($course['relations']['quiz'][0]['visible'])
+                                            <a href="{{ $course['relations']['quiz'][0]['watch-url'] }}" class="btn caixa-amarela btn-apostilas">Quiz<span style="font-size:22px; margin-left: 10px;" class="pull-right showopacity glyphicon glyphicon-question-sign"></span></a>
                                         @endif
                                     </p>
                                 </div>
                             </div>
                         </div>
                     @endforeach
-
                 </div>
             </div>
         </div>
