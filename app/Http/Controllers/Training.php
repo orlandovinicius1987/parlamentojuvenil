@@ -56,8 +56,7 @@ class Training extends BaseController
 
         return view('2016.training.content')
             ->with('loggedUser', $user)
-            ->with('videos', $training->where('type', 'video'))
-            ->with('documents', $training->where('type', 'document'));
+            ->with('training', $training);
     }
 
     public function video()

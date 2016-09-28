@@ -35,34 +35,28 @@
                     <div class="capacitacao-videos-titulo">
                         <h2>AULAS</h2>
                     </div>
-                    <div class="video-box "> <!-- class inactive -->
-                        <div class="media">
-                            <a class="pull-left" href="#">
-                                <img class="media-object" src="/pj2016/images/capacitacao/aula001.jpg">
-                            </a>
-                            <div class="media-body">
-                                <a href="http://local.parlamentojuvenil.com/2016/training/watch/training.document.2016.1">
-                                    <h4 class="media-heading">º01 - Título da Aula</h4>
-                                    <p>Consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis dolor, in sagittis nisi. Aenean sit amet felis dolor, in sagittis nisi.  Aenean sit amet felis dolor, in sagittis nisi.  Aenean sit amet felis dolor, in sagittis nisi. Aenean sit amet felis dolor, in sagittis nisi.</p>
+
+                    @foreach($training as $classKey => $class)
+                        <div class="video-box "> <!-- class inactive -->
+                            <div class="media">
+                                <a class="pull-left" href="#">
+                                    <img class="media-object" src="/pj2016/images/capacitacao/aula00{{$classKey+1}}.jpg">
                                 </a>
-                                <p> <a href="http://local.parlamentojuvenil.com/2016/training/watch/training.document.2016.1" class="btn caixa-amarela btn-apostilas">Vídeo<span style="font-size:22px; margin-left: 10px;" class="pull-right showopacity glyphicon glyphicon-film"></span></a> <a href="http://local.parlamentojuvenil.com/2016/training/watch/training.document.2016.1" class="btn caixa-amarela btn-apostilas">Apostila<span style="font-size:22px; margin-left: 10px;" class="pull-right showopacity glyphicon glyphicon-list-alt"></span></a> <a href="http://local.parlamentojuvenil.com/2016/training/watch/training.document.2016.1" class="btn caixa-amarela btn-apostilas">Quiz<span style="font-size:22px; margin-left: 10px;" class="pull-right showopacity glyphicon glyphicon-question-sign"></span></a></p>
+                                <div class="media-body">
+                                    <a href="{{ $class['relations']['videos'][0]['watch-url'] }}">
+                                        <h4 class="media-heading">º01 - Título da Aula</h4>
+                                        <p>Consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis dolor, in sagittis nisi. Aenean sit amet felis dolor, in sagittis nisi.  Aenean sit amet felis dolor, in sagittis nisi.  Aenean sit amet felis dolor, in sagittis nisi. Aenean sit amet felis dolor, in sagittis nisi.</p>
+                                    </a>
+                                    <p>
+                                        <a href="{{ $class['relations']['videos'][0]['watch-url'] }}" class="btn caixa-amarela btn-apostilas">Vídeo<span style="font-size:22px; margin-left: 10px;" class="pull-right showopacity glyphicon glyphicon-film"></span></a>
+                                        <a href="{{ $class['relations']['documents'][0]['watch-url'] }}" class="btn caixa-amarela btn-apostilas">Apostila<span style="font-size:22px; margin-left: 10px;" class="pull-right showopacity glyphicon glyphicon-list-alt"></span></a>
+                                        <a href="{{ $class['relations']['quiz'][0]['watch-url'] }}" class="btn caixa-amarela btn-apostilas">Quiz<span style="font-size:22px; margin-left: 10px;" class="pull-right showopacity glyphicon glyphicon-question-sign"></span></a>
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="video-box "> <!-- class inactive -->
-                        <div class="media">
-                            <a class="pull-left" href="#">
-                                <img class="media-object" src="/pj2016/images/capacitacao/aula002.jpg">
-                            </a>
-                            <div class="media-body">
-                                <a href="http://local.parlamentojuvenil.com/2016/training/watch/training.document.2016.1">
-                                    <h4 class="media-heading">º02 - Título da Aula</h4>
-                                    <p>Consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis dolor, in sagittis nisi. Aenean sit amet felis dolor, in sagittis nisi.  Aenean sit amet felis dolor, in sagittis nisi.  Aenean sit amet felis dolor, in sagittis nisi. Aenean sit amet felis dolor, in sagittis nisi.</p>
-                                </a>
-                                <p> <a href="http://local.parlamentojuvenil.com/2016/training/watch/training.document.2016.1" class="btn caixa-amarela btn-apostilas">Vídeo<span style="font-size:22px; margin-left: 10px;" class="pull-right showopacity glyphicon glyphicon-film"></span></a> <a href="http://local.parlamentojuvenil.com/2016/training/watch/training.document.2016.1" class="btn caixa-amarela btn-apostilas">Apostila<span style="font-size:22px; margin-left: 10px;" class="pull-right showopacity glyphicon glyphicon-list-alt"></span></a> <a href="http://local.parlamentojuvenil.com/2016/training/watch/training.document.2016.1" class="btn caixa-amarela btn-apostilas">Quiz<span style="font-size:22px; margin-left: 10px;" class="pull-right showopacity glyphicon glyphicon-question-sign"></span></a></p>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
+
                 </div>
             </div>
         </div>

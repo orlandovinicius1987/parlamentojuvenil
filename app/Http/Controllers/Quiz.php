@@ -19,4 +19,9 @@ class Quiz extends Training
     {
         return view('2016.quiz.index')->with('loggedUser', $user);
     }
+
+    public function result()
+    {
+        return view('2016.quiz.result')->with('loggedUser', $this->getLoggedUser());
+    }
 }
