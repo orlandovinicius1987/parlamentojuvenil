@@ -10,7 +10,14 @@
                     &nbsp;<BR>
                     <h2>Capacitação</h2>
                     <br><br>
-                    <div class="capacitacao-heading">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In et tellus eget diam sagittis rutrum at at eros. Vestibulum vel efficitur nibh. Vestibulum consectetur, tortor sed feugiat rhoncus, nisi tortor semper risus, ut accumsan massa neque quis diam. In egestas eros et enim tempus, ac semper enim dignissim. Cras porta elit quis iaculis bibendum. Praesent pellentesque sapien odio, id aliquam metus dictum in. Maecenas dapibus lorem feugiat risus ultrices sollicitudin. Vivamus fringilla ullamcorper libero. Donec eget eleifend ligula. Etiam a consequat urna.</div>
+                    <div class="capacitacao-heading">
+                        <h4>Bem vindos, parlamentares juvenis!</h4>
+
+                        <p>Insira aqui sua Matrícula e sua data de nascimento para ter acesso à area restrita das Capacitações On-Line.</P>
+                        É muito importante que você cumpra todo o processo para que consiga redigir o seu projeto de lei. <br>
+                        Qualquer dúvida, entre em contato com a gente pelo e-mail: <a href="mailto:pjalerj@gmail.com">pjalerj@gmail.com</a>  <br> ou pelos telefones: (21) 2588-1202 // (21) 2588-1536.</p>
+
+                    </div>
                     <br>
                 </div>
             </div>

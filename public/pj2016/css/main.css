@@ -3928,7 +3928,7 @@ label .glyphicon {
 
 
 .shape{
-  border-style: solid; border-width: 0 145px 79px 0; float:right; height: 0px; width: 0px;
+  border-style: solid; border-width: 0 187px 105px 0; float:right; height: 0px; width: 0px;
   -ms-transform:rotate(360deg); /* IE 9 */
   -o-transform: rotate(360deg);  /* Opera 10.5 */
   -webkit-transform:rotate(360deg); /* Safari and Chrome */
@@ -3947,8 +3947,8 @@ border-color: rgba(255,255,255,0) #5cb85c rgba(255,255,255,0) rgba(255,255,255,0
   font-size: 19px;
   font-weight: bold;
   position: relative;
-  right: -18px;
-  top: 2px;
+  right: -61px;
+  top: -2px;
   white-space: nowrap;
   -ms-transform: rotate(30deg);
   -o-transform: rotate(360deg);
