@@ -21,9 +21,12 @@
 
                         <div class="modal-dialog">
                             <div class="quadro-amarelo borda-preta ">
+                                <div class="results-header caixa-preta text-center">
+                                    <h4>Você acertou</h4>
+                                </div>
+
                                 <div class="results-body">
                                     <div class="rating-block text-center">
-                                        <h4>Você acertou</h4>
                                         <h2 class="bold padding-bottom-7">{{ $correct }} <small> de um total de {{ $total }}</small></h2>
                                         <div class="text-center">
                                             <div class="pull-left" style="width:{{ $percent }}%;">
