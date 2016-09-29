@@ -18,12 +18,7 @@ class Quiz extends Training
 
     private function makeResult($year, $id)
     {
-        $result = $this->trainingRepository->getResult($year, $id, $this->getLoggedUser());
-
-        foreach ($result as $item)
-        {
-
-        }
+        return new Collection($this->trainingRepository->getResult($year, $id, $this->getLoggedUser()));
     }
 
     private function renderQuiz($user, $repository)
@@ -35,7 +30,10 @@ class Quiz extends Training
     {
         $result = $this->makeResult($year, $id);
 
-        return view($this->year.'.training.quiz-result')->with('result', $result);
+        return view($this->year.'.training.quiz-result')
+            ->with('correct', $correct = $result->where('correct', true)->count())
+            ->with('total', $total = $result->count())
+            ->with('percent', ($correct/$total)*100);
     }
 
     public function questions($year, $itemId)

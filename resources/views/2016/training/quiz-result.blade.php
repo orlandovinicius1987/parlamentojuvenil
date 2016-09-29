@@ -24,11 +24,11 @@
                                 <div class="results-body">
                                     <div class="rating-block text-center">
                                         <h4>Você acertou</h4>
-                                        <h2 class="bold padding-bottom-7">4 <small> de um total de 5</small></h2>
+                                        <h2 class="bold padding-bottom-7">{{ $correct }} <small> de um total de {{ $total }}</small></h2>
                                         <div class="text-center">
-                                            <div class="pull-left" style="width:100%;">
+                                            <div class="pull-left" style="width:{{ $percent }}%;">
                                                 <div class="progress" style="height:16px; margin:8px 0;">
-                                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="5" aria-valuemin="0" aria-valuemax="5" style="width: 1000%">
+                                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{ $correct }}" aria-valuemin="0" aria-valuemax="{{ $total }}" style="width: 1000%">
                                                         <span class="sr-only">80% Complete (danger)</span>
                                                     </div>
                                                 </div>
