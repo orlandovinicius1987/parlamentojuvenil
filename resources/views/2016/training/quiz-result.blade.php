@@ -36,9 +36,9 @@
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
 
+                            <a href="{{ route('training.index', ['year' => 2016]) }}" class="btn btn-lg btn-block btn-submit-subscription quadro-vermelho borda-preta">Voltar à capacitação</a>
                         </div>
                     </div>
                 </div>
