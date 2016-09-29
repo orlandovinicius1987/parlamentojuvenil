@@ -55,11 +55,6 @@
             </div>
 
             <modal :show.sync="askForConfirmation">
-                <!--
-                  you can use custom content here to overwrite
-                  default content
-                -->
-                <h3 slot="header">custom header</h3>
             </modal>
         </div>
     </section>
