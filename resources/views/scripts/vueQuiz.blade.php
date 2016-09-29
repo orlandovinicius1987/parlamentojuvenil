@@ -38,6 +38,10 @@
                     this.askForConfirmation = true;
                 },
 
+                cancelAnswer: function () {
+                    this.askForConfirmation = false
+                },
+
                 sendAnsweredQuestion: function (answer) {
                     this.$http.get(this.baseUrl+'/'+this.id+'/answer/'+this.currentQuestion+'/'+answer, function (result)
                     {
@@ -45,6 +49,8 @@
                     });
 
                     this.currentQuestion++;
+
+                    this.askForConfirmation = false;
                 },
             },
             
