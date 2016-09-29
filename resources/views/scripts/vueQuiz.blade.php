@@ -21,9 +21,11 @@
             data: {
                 id: '{{ $itemId }}',
                 baseUrl: '{{ route('quiz.index', ['year' => 2016]) }}',
+                resultUrl: '{{ route('quiz.result', ['year' => 2016, 'id' => $itemId ]) }}',
                 currentQuestion: 0,
                 quiz: null,
                 askForConfirmation: false,
+                currentAnswer: null,
             },
 
             methods: {
@@ -35,6 +37,7 @@
                 },
 
                 answerQuestion: function (answer) {
+                    this.currentAnswer = answer;
                     this.askForConfirmation = true;
                 },
 
@@ -43,14 +46,19 @@
                 },
 
                 sendAnsweredQuestion: function (answer) {
-                    this.$http.get(this.baseUrl+'/'+this.id+'/answer/'+this.currentQuestion+'/'+answer, function (result)
-                    {
-
-                    });
-
-                    this.currentQuestion++;
+                    this.$http.get(this.baseUrl+'/'+this.id+'/answer/'+this.currentQuestion+'/'+this.currentAnswer);
 
                     this.askForConfirmation = false;
+
+                    if (this.currentQuestion+1 >= Object.keys(this.quiz.questions).length)
+                    {
+                        console.log('GO!');
+                        window.location = this.resultUrl;
+                    }
+                    else
+                    {
+                        this.currentQuestion++;
+                    }
                 },
             },
             

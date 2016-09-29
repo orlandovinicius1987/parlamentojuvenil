@@ -29,6 +29,13 @@ class Training
         return null;
     }
 
+    public function getResult($year, $id, $user)
+    {
+        $answers = Watched::where('item_id', 'like', $id.'.%')->where('subscription_id', $user->id)->get();
+
+        dd($answers);
+    }
+
     public function login($registration, $birthdate)
     {
         $person = Subscription::where('registration', $registration)
@@ -75,7 +82,7 @@ class Training
         return $collection;
     }
 
-    public function markAsWatched($year, $item)
+    public function markAsWatched($year, $item, $answer = null)
     {
         $user = Session::get('logged-user');
 
@@ -84,10 +91,13 @@ class Training
 
         if (! $watched)
         {
-            Watched::create([
+            $watched = Watched::create([
                 'subscription_id' => $user->id,
                 'item_id' => $item,
             ]);
         }
+
+        $watched->answer = $answer;
+        $watched->save();
     }
 }
