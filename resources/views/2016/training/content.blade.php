@@ -12,7 +12,13 @@
                     &nbsp;<BR> &nbsp;<BR>
                     <div class="capacitacao-greatings">Olá <span  class="capacitacao-username">{{ $loggedUser->name }}</span></div>
                     <a href="/2016/training/logout" class="btn btn-primary">Sair</a>
-                    <div class="capacitacao-heading">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In et tellus eget diam sagittis rutrum at at eros. Vestibulum vel efficitur nibh. Vestibulum consectetur, tortor sed feugiat rhoncus, nisi tortor semper risus, ut accumsan massa neque quis diam. In egestas eros et enim tempus, ac semper enim dignissim. Cras porta elit quis iaculis bibendum. Praesent pellentesque sapien odio, id aliquam metus dictum in. Maecenas dapibus lorem feugiat risus ultrices sollicitudin.</div>
+                    <div class="capacitacao-heading">
+                        <p> É uma honra para o Parlamento Juvenil da ALERJ, recebê-lo por aqui. </p>
+                        <p> É importante que faça todo o processo de capacitação com muita atenção, para que conheça as ferramentas necessárias para elaborar o seu projeto de lei, que pode ir para a mão do Governador.</p>
+
+                        Boa aula!
+
+                    </div>
                 </div>
             </div>
 
