@@ -11,9 +11,7 @@
             <li class="scroll"><a href="/#noticias">Notícias</a></li>
         @endif
 
-        @if (App::environment('local'))
-            <li ><a href="/2016/training">Capacitação</a></li>
-        @endif
+        <li><a href="/2016/training">Capacitação</a></li>
 
         @if (App::environment('local'))
             <li class="scroll"><a href="/#galeria">Galeria</a></li>
