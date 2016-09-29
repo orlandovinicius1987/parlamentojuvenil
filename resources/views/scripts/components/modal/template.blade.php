@@ -18,12 +18,12 @@
                 <div class="modal-footer">
                     <slot name="footer">
                         <button class="modal-default-button"
-                        @click="sendAnsweredQuestion()">
+                        @click="this.$root.sendAnsweredQuestion()">
                         SIM
                         </button>
 
                         <button class="modal-default-button"
-                        @click="cancelAnswer()">
+                        @click="this.$root.cancelAnswer()">
                         NÃO
                         </button>
                     </slot>
