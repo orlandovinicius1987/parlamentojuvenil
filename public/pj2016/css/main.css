@@ -3927,6 +3927,37 @@ label .glyphicon {
 
 
 
+.shape{
+  border-style: solid; border-width: 0 145px 79px 0; float:right; height: 0px; width: 0px;
+  -ms-transform:rotate(360deg); /* IE 9 */
+  -o-transform: rotate(360deg);  /* Opera 10.5 */
+  -webkit-transform:rotate(360deg); /* Safari and Chrome */
+  transform:rotate(360deg);
+  margin-right: -57px;
+}
+
+.assistido {	border-color: #5cb85c; }
+.assistido .shape{
+border-color: transparent #5cb85c transparent transparent;
+border-color: rgba(255,255,255,0) #5cb85c rgba(255,255,255,0) rgba(255,255,255,0);
+}
+
+.shape-text{
+  color: #fff;
+  font-size: 19px;
+  font-weight: bold;
+  position: relative;
+  right: -18px;
+  top: 2px;
+  white-space: nowrap;
+  -ms-transform: rotate(30deg);
+  -o-transform: rotate(360deg);
+  -webkit-transform: rotate(30deg);
+  transform: rotate(30deg);
+  text-transform: uppercase;
+}
+
+
 
 .rating-block h2.bold{
   border: 0;
