@@ -4006,7 +4006,7 @@ border-color: rgba(255,255,255,0) #5cb85c rgba(255,255,255,0) rgba(255,255,255,0
 
 .results-body {
   padding: 20px 30px;
-  min-height: 280px;
+  min-height: 240px;
 }
 .rating-block h2.bold {
   border: 0;
@@ -4015,8 +4015,7 @@ border-color: rgba(255,255,255,0) #5cb85c rgba(255,255,255,0) rgba(255,255,255,0
   margin-bottom: 40px;
 }
 
-.rating-block h4 {
-  color: #000;
-  font-size: 40px;
+.results-header  h4 {
+  font-size: 36px;
   margin-bottom: 0;
 }
