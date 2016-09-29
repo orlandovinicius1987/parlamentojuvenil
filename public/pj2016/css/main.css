@@ -274,6 +274,12 @@ section#home {
   color: white;
 }
 
+.quadro-verde {
+  background: #027a02;;
+  color: white;
+}
+
+
 .fa-plus {
   background-color: #b21416;
   color: white;
@@ -3714,8 +3720,9 @@ label .glyphicon {
 
 
 .modal-body {
-  min-height: 205px
+/*  min-height: 205px*/
 }
+
 #loadbar {
   position: absolute;
   width: 62px;
@@ -4018,4 +4025,28 @@ border-color: rgba(255,255,255,0) #5cb85c rgba(255,255,255,0) rgba(255,255,255,0
 .results-header  h4 {
   font-size: 36px;
   margin-bottom: 0;
+}
+
+
+
+
+.modal-wrapper {
+  position: relative;
+  width: auto;
+  margin: 10px;
+}
+
+.modal-footer {
+  margin-bottom: 30px;
+}
+.results-text {
+  color: #000;
+  font-size: 36px;
+}
+
+@media (min-width: 768px){
+  .modal-wrapper {
+    width: 700px;
+    margin: 30px auto;
+  }
 }
