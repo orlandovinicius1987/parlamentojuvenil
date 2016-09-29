@@ -10,7 +10,7 @@ class Quiz extends Training
     public function index()
 	{
         if ($this->user) {
-            return $this->renderQuiz($this->user, $this->trainingRepository);
+            return $this->renderQuiz($year, $this->user, $id, $this->trainingRepository);
         }
 
 		return redirect()->route('training.index');
@@ -21,8 +21,13 @@ class Quiz extends Training
         return new Collection($this->trainingRepository->getResult($year, $id, $this->getLoggedUser()));
     }
 
-    private function renderQuiz($user, $repository)
+    private function renderQuiz($year, $user, $id, $repository)
     {
+        if ($this->trainingRepository->quizDone($year, $user, $id))
+        {
+            return $this->result();
+        }
+
         return view($this->year.'.quiz.index')->with('loggedUser', $user);
     }
 

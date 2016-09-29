@@ -125,4 +125,18 @@ class Training
         $watched->answer = $answer;
         $watched->save();
     }
+
+    public function quizDone($year, $user, $id)
+    {
+        if ($result = $this->getResult($year, $id, $user))
+        {
+            $done = true;
+
+            foreach ($result as $item) {
+                $done = $done && $item['answer'];
+            }
+        }
+
+        return $result ? $done : false;
+    }
 }

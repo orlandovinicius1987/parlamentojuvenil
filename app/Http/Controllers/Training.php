@@ -85,6 +85,11 @@ class Training extends BaseController
 
         $view = $this->year.'.training.'.$training['type'];
 
+        if ($training['type'] == 'quiz' && $this->trainingRepository->quizDone($year, $this->getLoggedUser(), $item))
+        {
+            return redirect()->route('quiz.result', ['year' => $year, 'id' => $item]);
+        }
+
         return view($view)
             ->with('loggedUser', $this->getLoggedUser())
             ->with('itemId', $item)

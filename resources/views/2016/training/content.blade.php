@@ -56,7 +56,7 @@
                                     </div>
 
                                     <a href="{{ $course['relations']['videos'][0]['watch-url'] }}">
-                                        <h4 class="media-heading">º01 - Título da Aula</h4>
+                                        <h4 class="media-heading">{{ $course['name'] }}</h4>
                                         <p>PJ, nesta aula você vai aprender mais sobre os processos e técnicas legislativas para montar um bom projeto de lei! </p>
                                     </a>
                                     <p>
