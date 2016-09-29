@@ -29,11 +29,30 @@ class Training
         return null;
     }
 
+    private function getAnswerFor($year, $id, $user, $answer)
+    {
+        $training = $this->findById($id, $user, $year);
+
+        foreach ($training['questions'] as $key => $question) {
+            if ("$id.$key" == $answer)
+            {
+                return $question['correct'];
+            }
+        }
+
+        return null;
+    }
+
     public function getResult($year, $id, $user)
     {
-        $answers = Watched::where('item_id', 'like', $id.'.%')->where('subscription_id', $user->id)->get();
+        $answers = Watched::where('item_id', 'like', $id.'.%')->where('subscription_id', $user->id)->get()->toArray();
 
-        dd($answers);
+        foreach ($answers as $key => $item)
+        {
+            $answers[$key]['correct'] = $answers[$key]['answer'] == $this->getAnswerFor($year, $id, $user, $answers[$key]['item_id']);
+        }
+
+        return $answers;
     }
 
     public function login($registration, $birthdate)
