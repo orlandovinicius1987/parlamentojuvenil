@@ -48,7 +48,7 @@
                                 <a class="pull-left" href="#">
                                     <img class="media-object" src="/pj2016/images/capacitacao/aula00{{$courseKey+1}}.jpg">
                                 </a>
-                                <div class="media-body assistido">
+                                <div class="media-body {{ $course['done'] ? 'assistido' : '' }}">
                                     <div class="shape">
                                         <div class="shape-text">
                                             Assistido

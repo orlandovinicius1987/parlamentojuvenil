@@ -76,13 +76,17 @@ class Training
         {
             $item['visible'] = $visible;
 
-            foreach ($item['relations'] as $relationKey => $relation) {
+            foreach ($item['relations'] as $relationKey => $relation)
+            {
+                $done = true;
 
                 foreach ($relation as $elementKey => $element) {
                     $element['id'] = "{$item['id']}.{$element['id']}";
                     $element['watch-url'] = route('training.watch', ['year' => 2016, 'item' => $element['id']]);
                     $element['watched'] = Watched::where('subscription_id', $user->id)->where('item_id', $element['id'])->first();
                     $element['visible'] = $visible || $element['watched'];
+
+                    $done = $done && $element['watched'];
 
                     if($relationKey == 'quiz')
                     {
@@ -94,6 +98,8 @@ class Training
                     $item['relations'][$relationKey][$elementKey] = $element;
                 }
             }
+
+            $item['done'] = $done;
 
             $collection->push($item);
         }
