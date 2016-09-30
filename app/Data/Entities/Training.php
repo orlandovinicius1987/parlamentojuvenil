@@ -24,12 +24,12 @@ class Training
                         'videos' => [
                             [
                                 'id' => 'video.1',
-                                'title' => 'Título do vídeo sobre a capacitação 1',
+                                'title' => 'Aula 1- Parlamento Juvenil',
                                 'type' => 'video',
                                 'lead' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. Aliquam in felis sit amet augue.',
-                                'thumb-url' => 'http://placekitten.com/408/287',
-                                'video-url' => 'https://www.youtube.com/embed/c-H6p0UFHPo',
-                                'document-url' => 'http://placekitten.com/408/287',
+                                'thumb-url' => '/files/pj2016/images/video-aula1.jpg',
+                                'video-url' => 'https://www.youtube.com/embed/RgrZeM9CK7Q',
+                                'document-url' => '/files/pj2016/images/video-aula1.jpg',
                             ],
                         ],
 
@@ -40,7 +40,7 @@ class Training
                                 'type' => 'document',
                                 'lead' => 'Consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. Aliquam in felis sit amet augue.',
                                 'thumb-url' => '/pj2016/images/capacitacao/apostila01.jpg',
-                                'video-url' => 'https://www.youtube.com/embed/c-H6p0UFHPo',
+                                'video-url' => 'https://www.youtube.com/watch?v=RgrZeM9CK7Q',
                                 'document-url' => '/files/apps/parlamentojuvenil/site/2016/capacitation/ApresentacaoParlamentoJuvenil 2016-ParteI.odp',
                             ],
                         ],
@@ -129,12 +129,12 @@ class Training
                         'videos' => [
                             [
                                 'id' => 'video.1',
-                                'title' => 'Título do vídeo sobre a capacitação 2',
+                                'title' => 'Aula 2 - Parlamento Juvenil',
                                 'type' => 'video',
-                                'lead' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. Aliquam in felis sit amet augue.',
-                                'thumb-url' => 'http://placekitten.com/408/287',
-                                'video-url' => 'https://www.youtube.com/embed/c-H6p0UFHPo',
-                                'document-url' => 'http://placekitten.com/408/287',
+                                'lead' => '',
+                                'thumb-url' => '/files/pj2016/images/video-aula2.jpg',
+                                'video-url' => 'https://www.youtube.com/embed/_sgtPTi-1z4',
+                                'document-url' => '/files/pj2016/images/video-aula2.jpg',
                             ],
                         ],
 

@@ -19,7 +19,7 @@
             <div class="container capacitacao-video">
                 <div class="row">
                     <div class="col-xs12">
-                        <div class='embed-container'><iframe src='https://www.youtube.com/embed/Jv-8FS-prn4' frameborder='0' allowfullscreen></iframe></div>
+                        <div class='embed-container'><iframe src='{{ $lesson['video-url'] }}' frameborder='0' allowfullscreen></iframe></div>
                     </div>
 
                     <a class="btn btn-danger" href="{{ route('training.index', ['year' => 2016]) }}">
