@@ -3481,7 +3481,7 @@ nav.sidebar, .main{
 /*******************************!FIM - EMBED CONTAINER *******************************/
 
 
-.fundo-quiz .modal-content h3 {
+.fundo-quiz .quiz-content h3 {
   border: none;
   background: #000;
 }
@@ -4069,3 +4069,20 @@ label .glyphicon {
 }
 
 /*******************************!FIM - ASSISTIDO *******************************/
+
+
+.quiz-body {
+  position: relative;
+  padding: 20px;
+}
+.quiz-pergunta {
+  position: relative;
+  width: auto;
+  margin: 10px;
+}
+@media (min-width: 768px){
+  .quiz-pergunta {
+    width: 600px;
+    margin: 30px auto;
+  }
+}
