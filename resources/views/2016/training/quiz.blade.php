@@ -18,10 +18,9 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xs12">
-                        <div class="modal-dialog">
-                            <div class="modal-content quadro-amarelo borda-preta" v-if="quiz">
-
-                                <div class="modal-header row caixa-preta">
+                        <div class="quiz-pergunta">
+                            <div class="quiz-content quadro-amarelo borda-preta" v-if="quiz">
+                                <div class="row caixa-preta">
                                     <div class="col-xs-2 numero-pergunta quadro-amarelo ">
                                         <span class="numero-quiz" id="qid">@{{ currentQuestion+1  }}</span>
                                     </div>
@@ -30,7 +29,7 @@
                                     </div>
                                 </div>
 
-                                <div class="modal-body">
+                                <div class="quiz-body">
                                     <div class="quiz" id="quiz" data-toggle="buttons">
                                         <label
                                             class="element-animation1 btn btn-lg btn-primary btn-block caixa-vermelha"
@@ -43,10 +42,10 @@
 
                                             @{{ answer }}
                                         </label>
+                                        <label class="element-animation1 btn btn-lg btn-primary btn-block caixa-vermelha" data-toggle="modal" data-target=".bootstrap-modal">
+                                            <span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> Teste pro modal Bootstrap, falta laravelizar.
+                                        </label>
                                     </div>
-                                </div>
-                                <div class="modal-footer text-muted">
-                                    <div class="answer" id="answer"></div>
                                 </div>
                             </div>
                         </div>
@@ -56,6 +55,28 @@
 
             <modal :show.sync="askForConfirmation">
             </modal>
+
+            <div class="modal fade bootstrap-modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content quadro-amarelo borda-preta">
+                        <div class="modal-header caixa-preta">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            <h4 class="modal-title" id="myModalLabel">Resposta</h4>
+                        </div>
+                        <div class="modal-body results-text text-center">
+                            Confirma o envio desta resposta?
+                        </div>
+                        <div class="modal-footer">
+                            <button class="modal-default-button quadro-verde borda-preta">
+                                SIM
+                            </button>
+                            <button class="modal-default-button quadro-vermelho borda-preta">
+                                NÃO
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 @stop
