@@ -11,7 +11,12 @@
             <li class="scroll"><a href="/#noticias">Notícias</a></li>
         @endif
 
-        @if (App::environment('local') || App::environment('staging'))
+        <?php
+            $now = new DateTime('now');
+            $tomorrow = new DateTime('2016-10-03');
+        ?>
+
+        @if ($now >= $tomorrow)
             <li><a href="/2016/training">Capacitação</a></li>
         @endif
 
