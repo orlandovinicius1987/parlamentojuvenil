@@ -27,11 +27,6 @@ class Training extends BaseController
         $this->user = $user = $this->getLoggedUser();
     }
 
-    protected function getLoggedUser()
-    {
-        return Session::get('logged-user');
-    }
-
     public function logout()
     {
         Session::forget('logged-user');

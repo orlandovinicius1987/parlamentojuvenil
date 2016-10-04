@@ -22,6 +22,16 @@ class Training
                     {
                         return $element;
                     }
+
+                    if ($element['type'] == 'quiz' && starts_with($item, $element['id']))
+                    {
+                        foreach ($element['questions'] as $key => $question) {
+                            if ($element['id'].'.'.$key == $item)
+                            {
+                                return $question;
+                            }
+                        }
+                    }
                 }
             }
         }

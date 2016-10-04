@@ -72,8 +72,9 @@ Route::group(['prefix' => 'admin/2016'], function ()
     Route::get('elected', ['as' => 'admin.elected', 'uses' => 'Admin@elected']);
 
 	Route::get('{city}', ['as' => 'admin.city', 'uses' => 'Admin@city']);
-});
 
+    Route::get('training/{subscription}', ['as' => 'admin.training', 'uses' => 'Admin@training']);
+});
 
 Route::get('auth.logout', ['as' => 'auth.logout', 'uses' => function ()
 {

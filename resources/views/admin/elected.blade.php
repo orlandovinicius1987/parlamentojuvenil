@@ -48,7 +48,11 @@
                                             </td>
 
                                             <td>
-                                                NAO
+                                                @if ($person->quizResult->count())
+                                                    <a href="{{ route('admin.training', [$person->id]) }}">SIM</a>
+                                                @else
+                                                    NÃO
+                                                @endif
                                             </td>
 
                                             <td>

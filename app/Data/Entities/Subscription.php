@@ -40,6 +40,11 @@ class Subscription extends Model
 
     public function watched()
     {
-        return $this->hasMany(Watched::class, 'subscription_id');
+        return $this->hasMany(Watched::class, 'subscription_id')->orderBy('item_id');
+    }
+
+    public function quizResult()
+    {
+        return $this->watched()->where('item_id', 'like', '%.quiz.%');
     }
 }

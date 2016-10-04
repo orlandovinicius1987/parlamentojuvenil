@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Session;
 use App\Data\Repositories\Data;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
@@ -25,5 +26,10 @@ abstract class Controller extends BaseController
     public function buildView($view, $year = null, $force = false, $isHome = false)
     {
         return $this->dataRepository->viewBuilder->buildViewData(view($view), $force, $isHome, $year);
+    }
+
+    protected function getLoggedUser()
+    {
+        return Session::get('logged-user');
     }
 }

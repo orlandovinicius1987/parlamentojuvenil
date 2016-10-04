@@ -204,4 +204,5 @@ class Subscriptions extends BaseController
 
         return redirect()->route('admin.city', ['city' => $subscription->city]);
     }
+
 }

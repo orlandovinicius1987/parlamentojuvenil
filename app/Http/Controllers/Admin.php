@@ -6,9 +6,17 @@ use \DB;
 use App\Data\Entities\School;
 use App\Data\Entities\Subscription;
 use App\Http\Controllers\Controller as BaseController;
+use App\Data\Repositories\Training as TrainingRepository;
 
 class Admin extends BaseController
 {
+    private $trainingRepository;
+
+    public function __construct(TrainingRepository $trainingRepository)
+    {
+        $this->trainingRepository = $trainingRepository;
+    }
+
 	function index()
 	{
 		return view('admin.index');
@@ -25,7 +33,7 @@ class Admin extends BaseController
 
     function elected()
     {
-        $elected = Subscription::where('elected', true)->orderBy('name')->get();
+        $elected = Subscription::with('quizResult')->where('elected', true)->orderBy('name')->get();
 
         return view('admin.elected')->with('elected', $elected);
     }
@@ -44,4 +52,34 @@ class Admin extends BaseController
 			->with('schools', $schools)
 		;
 	}
+
+    public function training($id)
+    {
+        $year = 2016;
+
+        $subscription = Subscription::with('watched')->find($id);
+
+        foreach ($subscription->watched as $item) {
+            $course = $this->trainingRepository->findById($item->item_id, $subscription, $year);
+
+            $title = isset($course['title']) ?  $course['title'] : '';
+
+            if (isset($course['type']) && $course['type'] == 'quiz') {
+                if (isset($course['questions']))
+                {
+                    continue;
+                }
+            }
+
+            if (isset($course['question'])) {
+                $title = $course['question'];
+            }
+
+            $item->setAttribute('title', $title);
+        }
+
+        return view('admin.training')
+            ->with('subscription', $subscription)
+        ;
+    }
 }
