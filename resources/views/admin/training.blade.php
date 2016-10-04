@@ -26,15 +26,17 @@
                                 </thead>
                                 <tbody>
                                     @foreach($subscription->watched as $watched)
-                                        <tr>
-                                            <td>
-                                                {{ $watched->title }}
-                                            </td>
+                                        @if($watched->title)
+                                            <tr>
+                                                <td>
+                                                    {{ $watched->title }}
+                                                </td>
 
-                                            <td>
-                                                {{ $watched->answer }}
-                                            </td>
-                                        </tr>
+                                                <td>
+                                                    {{ $watched->answer }}
+                                                </td>
+                                            </tr>
+                                        @endif
                                     @endforeach
                                 </tbody>
                             </table>

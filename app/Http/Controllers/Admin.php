@@ -17,7 +17,18 @@ class Admin extends BaseController
         $this->trainingRepository = $trainingRepository;
     }
 
-	function index()
+    private function extractId($id, $elements = 1)
+    {
+        $id = explode('.', $id);
+
+        $count = count($id)  > 5 ? count($id)-4 : count($id)-3;
+
+        $id = array_slice($id, -($count), ($count));
+
+        return implode('.', $id);
+    }
+
+    function index()
 	{
 		return view('admin.index');
 	}
@@ -38,7 +49,29 @@ class Admin extends BaseController
         return view('admin.elected')->with('elected', $elected);
     }
 
-	function schools()
+    private function makeTitle($course)
+    {
+        $title = '';
+
+        if (isset($course['title']) && $course['type'] == 'video')
+        {
+            $title = sprintf('Video (%s): ', $this->extractId($course['id'])) . $course['title'];
+        }
+
+        if (isset($course['title']) && $course['type'] == 'document')
+        {
+            $title = sprintf('Apostila (%s): ', $this->extractId($course['id'])) . $course['title'];
+        }
+
+        if (isset($course['question']))
+        {
+            $title = sprintf('Quiz (%s): ', $this->extractId($course['id'])) . $course['question'];
+        }
+
+        return $title;
+    }
+
+    function schools()
 	{
 		$schools = School::join('subscriptions', 'subscriptions.school', '=', 'schools.name')
 				->select(['schools.name', 'schools.city', DB::raw('count(*) as schoolcount')])
@@ -60,19 +93,22 @@ class Admin extends BaseController
         $subscription = Subscription::with('watched')->find($id);
 
         foreach ($subscription->watched as $item) {
-            $course = $this->trainingRepository->findById($item->item_id, $subscription, $year);
+            if (! $course = $this->trainingRepository->findById($item->item_id, $subscription, $year))
+            {
+                continue;
+            }
 
-            $title = isset($course['title']) ?  ($course['type'] == 'video' ? 'Video: ' : 'Apostila: ') . $course['title']   : '';
+            if (isset($course['question'])) {
+                $course['id'] = $item->item_id;
+            }
+
+            $title = $this->makeTitle($course);
 
             if (isset($course['type']) && $course['type'] == 'quiz') {
                 if (isset($course['questions']))
                 {
                     continue;
                 }
-            }
-
-            if (isset($course['question'])) {
-                $title = 'Quiz: '.$course['question'];
             }
 
             $item->setAttribute('title', $title);
