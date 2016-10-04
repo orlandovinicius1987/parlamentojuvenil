@@ -7,6 +7,7 @@ use App\Data\Entities\School;
 use App\Data\Entities\Subscription;
 use App\Http\Controllers\Controller as BaseController;
 use App\Data\Repositories\Training as TrainingRepository;
+use Illuminate\Database\Eloquent\Collection;
 
 class Admin extends BaseController
 {
@@ -114,8 +115,10 @@ class Admin extends BaseController
             $item->setAttribute('title', $title);
         }
 
-        return view('admin.training')
-            ->with('subscription', $subscription)
-        ;
+        $watched = new Collection($subscription->watched->toArray());
+
+        $watched = $watched->sortBy('watched.title');
+
+        return view('admin.training')->with('watched', $watched)->with('name', $subscription->name);
     }
 }

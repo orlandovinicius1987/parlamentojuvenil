@@ -4,7 +4,7 @@
     <div id="vue-admin-index">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">{{ $subscription->name }}</h1>
+                <h1 class="page-header">{{ $name }}</h1>
             </div>
         </div>
 
@@ -25,15 +25,15 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($subscription->watched as $watched)
-                                        @if($watched->title)
+                                    @foreach($watched as $course)
+                                        @if(isset($course['title']))
                                             <tr>
                                                 <td>
-                                                    {{ $watched->title }}
+                                                    {{ $course['title'] }}
                                                 </td>
 
                                                 <td>
-                                                    {{ $watched->answer }}
+                                                    {{ $course['answer'] }}
                                                 </td>
                                             </tr>
                                         @endif
