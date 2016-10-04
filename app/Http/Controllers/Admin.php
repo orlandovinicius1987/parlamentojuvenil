@@ -117,7 +117,7 @@ class Admin extends BaseController
 
         $watched = new Collection($subscription->watched->toArray());
 
-        $watched = $watched->sortBy('watched.title');
+        $watched = $watched->sortBy('title');
 
         return view('admin.training')->with('watched', $watched)->with('name', $subscription->name);
     }
