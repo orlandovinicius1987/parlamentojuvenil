@@ -62,7 +62,7 @@ class Admin extends BaseController
         foreach ($subscription->watched as $item) {
             $course = $this->trainingRepository->findById($item->item_id, $subscription, $year);
 
-            $title = isset($course['title']) ?  $course['title'] : '';
+            $title = isset($course['title']) ?  ($course['type'] == 'video' ? 'Video: ' : 'Apostila: ') . $course['title']   : '';
 
             if (isset($course['type']) && $course['type'] == 'quiz') {
                 if (isset($course['questions']))
@@ -72,7 +72,7 @@ class Admin extends BaseController
             }
 
             if (isset($course['question'])) {
-                $title = $course['question'];
+                $title = 'Quiz: '.$course['question'];
             }
 
             $item->setAttribute('title', $title);
