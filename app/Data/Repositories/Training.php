@@ -67,8 +67,8 @@ class Training
 
     public function login($registration, $birthdate)
     {
-        $person = Subscription::where('registration', $registration)
-                    ->where('birthdate', $birthdate)
+        $person = Subscription::where(\DB::raw("trim(both ' ' from registration)"), trim($registration))
+                    ->where(\DB::raw("trim(both ' ' from birthdate)"), trim($birthdate))
                     ->first();
 
         Session::put('logged-user', $person);
