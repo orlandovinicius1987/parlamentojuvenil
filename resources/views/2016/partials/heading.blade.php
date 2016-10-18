@@ -16,12 +16,17 @@
                         <h4>Participe do Parlamento Juvenil</h4>
                         <a href="/inscricao">Faça a sua inscrição <i class="fa fa-angle-right"></i></a>
                     </div>
-                @else
+                @elseif (false)
                     <div class="carousel-caption">
                         <h2>Inscrições encerradas!</h2>
                     </div>
+                @else
+                    <div class="carousel-caption">
+                        <h2>Foi eleito Parlamentar Juvenil em 2016?</h2>
+                        <br>
+                        <a href="http://www2.alerj.rj.gov.br/parlamentojuvenil/projetolei/logar.aspx" class="btn btn-lg btn-primary">Clique aqui e cadastre seu Projeto de Lei</a>
+                    </div>
                 @endif
-
             </div>
             <div class="item">
                 <img class="img-responsive" src="/pj2016/images/{{ $banner_file }}" alt="slider">
