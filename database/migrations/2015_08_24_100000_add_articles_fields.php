@@ -25,7 +25,7 @@ class AddArticlesFields extends Migration
     public function down()
     {
 	    Schema::table('articles', function (Blueprint $table) {
-		    $table->drop('type');
+		    $table->dropColumn('type');
 	    });
     }
 }

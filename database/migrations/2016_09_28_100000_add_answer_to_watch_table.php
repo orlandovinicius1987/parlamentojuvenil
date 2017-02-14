@@ -25,7 +25,7 @@ class AddAnswerToWatchTable extends Migration
     public function down()
     {
         Schema::table('watched', function (Blueprint $table) {
-            $table->drop('answer');
+            $table->dropColumn('answer');
         });
     }
 }

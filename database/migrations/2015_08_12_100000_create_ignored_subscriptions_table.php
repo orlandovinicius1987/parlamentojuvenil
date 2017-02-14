@@ -25,8 +25,7 @@ class CreateIgnoredSubscriptionsTable extends Migration
     public function down()
     {
 	    Schema::table('subscriptions', function (Blueprint $table) {
-		    $table->drop('ignored');
+		    $table->dropColumn('ignored');
 	    });
-
     }
 }

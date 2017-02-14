@@ -26,7 +26,7 @@ class AddSchoolEmailColumn extends Migration
     public function down()
     {
 	    Schema::table('schools', function (Blueprint $table) {
-		    $table->drop('email');
+		    $table->dropColumn('email');
 	    });
     }
 }

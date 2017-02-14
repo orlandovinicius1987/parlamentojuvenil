@@ -26,7 +26,7 @@ class AddSubscriptionElected extends Migration
     public function down()
     {
 	    Schema::table('subscriptions', function (Blueprint $table) {
-		    $table->drop('elected');
+		    $table->dropColumn('elected');
 	    });
     }
 }
