@@ -18,6 +18,12 @@ class EventServiceProvider extends ServiceProvider
         SubscriptionWasCreated::class => [
             SendSubscriptionCreatedMail::class,
         ],
+
+        \SocialiteProviders\Manager\SocialiteWasCalled::class => [
+            // add your listeners (aka providers) here
+            'SocialiteProviders\YouTube\YouTubeExtendSocialite@handle',
+            'SocialiteProviders\Instagram\InstagramExtendSocialite@handle',
+        ],
     ];
 
     /**
