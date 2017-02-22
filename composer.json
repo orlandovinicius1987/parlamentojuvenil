@@ -14,7 +14,10 @@
         "pusher/pusher-php-server": "~2.0",
         "predis/predis": "~1.0",
         "jailtonsc/validador-cpf-laravel": "^2.0",
-        "jenssegers/date": "^3.2"
+        "jenssegers/date": "^3.2",
+        "laravel/socialite": "^2.0",
+        "socialiteproviders/youtube": "^2.0",
+        "socialiteproviders/instagram": "^2.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

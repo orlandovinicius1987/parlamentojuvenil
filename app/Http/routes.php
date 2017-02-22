@@ -5,6 +5,11 @@ use App\Data\Entities\School;
 use App\Data\Entities\Subscription;
 use App\Services\News\Service as NewsSync;
 
+
+//Social Login
+Route::get('/redirect/{socialNetwork}', 'SocialAuthController@redirect');
+Route::get('/auth/{socialNetwork}/callback', 'SocialAuthController@socialNetworkCallback');
+
 Route::get('seed', ['as' => 'seed', 'uses' => function()
 {
 //    Artisan::call('pj:school');

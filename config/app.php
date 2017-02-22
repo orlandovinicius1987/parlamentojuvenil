@@ -88,6 +88,12 @@ return [
         Maatwebsite\Excel\ExcelServiceProvider::class,
 
         ValidadorCpf\CpfServiceProvider::class,
+
+        /*
+          Other service providers...
+        */
+        //Laravel\Socialite\SocialiteServiceProvider::class,
+        SocialiteProviders\Manager\ServiceProvider::class,
     ],
 
     /*
@@ -136,6 +142,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
         'Excel'     => Maatwebsite\Excel\Facades\Excel::class,
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
     ],
 
 ];

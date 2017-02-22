@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use SocialiteProviders\Manager\SocialiteWasCalled;
 use App\Events\SubscriptionWasCreated;
 use App\Listeners\SendSubscriptionCreatedMail;
 use Illuminate\Contracts\Events\Dispatcher as DispatcherContract;
@@ -17,6 +18,12 @@ class EventServiceProvider extends ServiceProvider
     protected $listen = [
         SubscriptionWasCreated::class => [
             SendSubscriptionCreatedMail::class,
+        ],
+
+        SocialiteWasCalled::class => [
+            // add your listeners (aka providers) here
+            'SocialiteProviders\YouTube\YouTubeExtendSocialite@handle',
+            'SocialiteProviders\Instagram\InstagramExtendSocialite@handle',
         ],
     ];
 
