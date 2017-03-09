@@ -41,37 +41,37 @@ return [
 
     // Login social - Facebook
     'facebook' => [
-        'client_id'     => '907815562624609',
-        'client_secret' => '0e49c2749167ae4e0211c12257b24d43',
+        'client_id'     => env('FACEBOOK_ID'),
+        'client_secret' => env('FACEBOOK_SECRET'),
         'redirect'      => 'http://local.parlamentojuvenil.com/auth/facebook/callback',
     ],
 
     // Login social - Twitter
     'twitter' => [
-        'client_id'     => 'MZ5djJUKHM5xgrqi6BdbxgQbh',
-        'client_secret' => 'KGm94qEM7xFbNmtVmXbJ5rH95oAg6fCVdBmhHjcrNWGKb2OQht',
+        'client_id'     => env('TWITTER_ID'),
+        'client_secret' => env('TWITTER_SECRET'),
         'redirect'      => 'http://local.parlamentojuvenil.com/auth/twitter/callback',
     ],
 
     // Login social - youtube
     'youtube' => [
-        'client_id'     => '563315525052-vl6vq8akthigmkepunpsa6lcg446dni6.apps.googleusercontent.com',
-        'client_secret' => 'qX-dv4GFcYblV5AxiaL_N-Kf',
+        'client_id'     => env('YOUTUBE_ID'),
+        'client_secret' => env('YOUTUBE_SECRET'),
         'redirect'      => 'http://local.parlamentojuvenil.com/auth/youtube/callback',
     ],
 
     // Login social - linkedIn
 
     'linkedin' => [
-        'client_id'     => '78bhoat9yyi3yo',
-        'client_secret' => 'R6vtjHjmG0yDEu1f',
+        'client_id'     =>  env('LINKEDIN_ID'),
+        'client_secret' =>  env('LINKEDIN_SECRET'),
         'redirect'      => 'http://local.parlamentojuvenil.com/auth/linkedin/callback',
     ],
 
     // Login social - instagram
     'instagram' => [
-        'client_id'     => '5a7f40d8204f43d8b50fd015455179d4',
-        'client_secret' => 'b27d0a5f9c1641158f41574ce7181e36',
+        'client_id'     => env('INSTAGRAM_ID'),
+        'client_secret' => env('INSTAGRAM_SECRET'),
         'redirect'      => 'http://local.parlamentojuvenil.com/auth/instagram/callback',
     ],
 
