@@ -157,7 +157,7 @@ class Subscriptions extends BaseController
 
     public function index()
     {
-        if (false)
+        if (true)
         {
             return $this->buildView('2016.subscriptions.index');
         }

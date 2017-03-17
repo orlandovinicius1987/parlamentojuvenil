@@ -16,15 +16,27 @@ class SocialAuthController extends Controller
 
     public function redirect($socialNetwork)
     {
+        session_start();
+        $_SESSION['registration'] = $_POST['registration'];
+        $_SESSION['birthdate'] = $_POST['birthdate'];
         return $this->getDriver($socialNetwork)->redirect();
     }
 
-    public function socialNetworkCallback($socialNetwork)
+    public function beforeRedirect($socialNetwork)
     {
-        if (!$this->socialUserService->find($socialNetwork, $this->getDriver($socialNetwork)->user())) {
+        return view('partials.subscribe-form-register-and-birthdate', ['socialNetwork'=>$socialNetwork]);
+    }
+
+
+       public function socialNetworkCallback($socialNetwork)
+    {
+        session_start();
+        $regBirth = ["registration"=> $_SESSION['registration'] , "birthdate" => $_SESSION['birthdate']];
+
+        if (!$this->socialUserService->find($socialNetwork, $this->getDriver($socialNetwork)->user(), $regBirth)) {
             return redirect()->route('login');
         }
-
+        dd('AQUI tá quase lá');
         return redirect()->intended();
     }
 
