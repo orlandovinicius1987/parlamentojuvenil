@@ -24,11 +24,11 @@ class SocialUserService
         $this->usersRepository = $usersRepository;
     }
 
-    public function find($socialNetwork, $socialUser)
+    public function find($socialNetwork, $socialUser, $regBirth)
     {
         $email = $this->getEmail($socialUser, $socialNetwork);
 
-        $user = $this->findOrCreateUser($socialUser, $email);
+        $user = $this->findOrCreateUser($socialUser, $email, $regBirth);
 
         $socialNetwork = $this->getSocialNetwork($socialNetwork);
 
@@ -54,10 +54,10 @@ class SocialUserService
         return $user->getEmail() ?: sprintf('%s@%s.legislaqui.rj.gov.br', $user->getId(), $socialNetwork);
     }
 
-    public function findOrCreateUser($socialUser, $email)
+    public function findOrCreateUser($socialUser, $email, $regBirth)
     {
-        if (!$user = $this->usersRepository->findByEmail($email)) {
-            $user = $this->socialUserRepository->createUser($email, $socialUser);
+        if (!$user = $this->usersRepository->findByBirthdateAndRegistration($regBirth['birthdate'],$regBirth['registration'])) {
+            $user = $this->socialUserRepository->createUser($email, $socialUser, $regBirth);
 
             return $user;
         }
@@ -67,15 +67,15 @@ class SocialUserService
 
     public function getSocialNetwork($socialNetwork)
     {
-        $socialNetwork = SocialNetwork::where('name', $socialNetwork)->first();
 
+        $socialNetwork = SocialNetwork::where('name', $socialNetwork)->first();
         return $socialNetwork;
     }
 
     public function findOrCreateUserSocialNetwork($socialNetwork, $socialUser, $user)
     {
         if (!$userSocialNetwork = $user->socialNetworks()->where('social_network_id', $socialNetwork->id)->first()) {
-            $userSocialNetwork = $user->socialNetworks()->save($socialNetwork, ['social_network_user_id' => $socialUser->getId(), 'data' => json_encode($user)]);
+             $user->socialNetworks()->save($socialNetwork, ['social_network_user_id' => $socialUser->getId(), 'data' => json_encode($socialUser)]);
         }
     }
 }
