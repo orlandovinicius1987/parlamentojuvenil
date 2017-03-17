@@ -252,25 +252,6 @@
         </div>
     </div>
 
-    {{-- Email --}}
-    <div class="row control-group"  transition="expand">
-        <div class="form-group col-xs-12 floating-label-form-group controls">
-            <label for="email" class="sr-only control-label">E-mail</label>
-            <input
-                v-model="email"
-                type="text"
-                class="form-control input-lg"
-                value="{{ Input::old('email') ?: (! $isSubscribeForm ? $subscription->email : '') }}"
-                placeholder="E-mail"
-                name="email"
-                id="email"
-                required
-                data-validation-required-message="Por favor digite o seu email."
-            >
-            <span class="help-block text-danger"></span>
-        </div>
-    </div>
-
     {{-- Telefone --}}
     <div class="row control-group"  transition="expand">
         <div class="form-group col-lg-6 floating-label-form-group controls">
@@ -435,6 +416,44 @@
                     ELEITO: NÃO
                 </option>
             </select>
+            <span class="help-block text-danger"></span>
+        </div>
+    </div>
+
+    {{-- Email --}}
+    <div class="row control-group"  transition="expand">
+        <div class="form-group col-xs-12 floating-label-form-group controls">
+            <label for="email" class="sr-only control-label">E-mail</label>
+            <input
+                    v-model="email"
+                    type="text"
+                    class="form-control input-lg"
+                    value="{{ Input::old('email') ?: (! $isSubscribeForm ? $subscription->email : '') }}"
+                    placeholder="E-mail"
+                    name="email"
+                    id="email"
+                    required
+                    data-validation-required-message="Por favor digite o seu email."
+            >
+            <span class="help-block text-danger"></span>
+        </div>
+    </div>
+
+    {{-- Senha --}}
+    <div class="row control-group"  transition="expand">
+        <div class="form-group col-xs-12 floating-label-form-group controls">
+            <label for="senha" class="sr-only control-label">Senha</label>
+            <input
+                    v-model="password"
+                    type="password"
+                    class="form-control input-lg"
+                    value="{{ Input::old('senha') }}"
+                    placeholder="Senha"
+                    name="password"
+                    id="password"
+                    required
+                    data-validation-required-message="Por favor digite sua senha para login."
+            >
             <span class="help-block text-danger"></span>
         </div>
     </div>
