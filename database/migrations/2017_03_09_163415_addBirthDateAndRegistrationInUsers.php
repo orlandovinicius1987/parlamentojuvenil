@@ -15,8 +15,8 @@ class AddBirthDateAndRegistrationInUsers extends Migration
     {
         Schema::table('users', function (Blueprint $table)
         {
-            $table->string('registration');   // ->nullable();  // temporariamente 'nullable' RETIRAR
-            $table->string('birthdate');  //->nullable();  // temporariamente 'nullable'   RETIRAR
+            $table->string('registration')->nullable();  // temporariamente 'nullable' RETIRAR
+            $table->string('birthdate')->nullable();  // temporariamente 'nullable'   RETIRAR
         });
     }
 
