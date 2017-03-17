@@ -157,7 +157,7 @@ class Data
         $user->subscriptions()->save($subscription);
 
         event(new SubscriptionWasCreated($subscription));
-        
+
         return $subscription;
     }
 

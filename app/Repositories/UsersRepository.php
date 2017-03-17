@@ -47,22 +47,21 @@ class UsersRepository
         return $user->getUserByEmail($email);
     }
 
+    public function findByBirthdateAndRegistration($birthdate, $registration)
+    {
+        $user = User::where(['birthdate'=>$birthdate, 'registration'=>$registration])->first();
+        return $user;
+    }
+
     public function storeUser()
     {
         $user = new User();
-
-        $uuid = Uuid::uuid4();
-
         $user->name = Input::get('name');
         $user->email = Input::get('email');
         $user->password = Hash::make(Input::get('password'));
-
-        $user->uf = Input::get('uf');
-        $user->role_id = Input::get('role_id');
-        $user->cpf = Input::get('cpf');
-
-        $user->uuid = $uuid;
-
-        return $user->save();
+        $user->registration = Input::get('registration');
+        $user->birthdate = Input::get('birthdate');
+        $user->save();
+        return $user;
     }
 }

@@ -28,7 +28,7 @@ class SocialUserRepository
         return User::destroy($id);
     }
 
-    public function createUser($email, $socialUser)
+    public function createUser($email, $socialUser, $regBirth)
     {
         $userModel = new User();
 
@@ -40,18 +40,15 @@ class SocialUserRepository
             $userModel->name = 'sem nome';
         }
 
-        if ($socialUser->getEmail()) {
-        } else {
-            $userModel->email = $socialUser->getId().'@legislaqui.rj.gov.br';
-        }
-
         $userModel->email = $email;
         $userModel->password = 'Empty';
-        $userModel->uf = 'RJ';
-        $userModel->role_id = '99';
-        $uuid = Uuid::uuid4();
-        $userModel->uuid = $uuid;
-        $userModel->save();
+        $userModel->registration = $regBirth['registration'];
+        $userModel->birthdate = $regBirth['birthdate'];
+      //  $userModel->uf = 'RJ';
+      //  $userModel->role_id = '99';
+      //  $uuid = Uuid::uuid4();
+      //  $userModel->uuid = $uuid;
+         $userModel->save();
 
         return $userModel;
     }
