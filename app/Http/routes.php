@@ -6,9 +6,9 @@ use App\Data\Entities\Subscription;
 use App\Services\News\Service as NewsSync;
 
 //Social Login
-Route::post('/redirect/{socialNetwork}', 'SocialAuthController@redirect');
+Route::get('/redirect/{socialNetwork}', 'SocialAuthController@redirect');
 Route::get('/auth/{socialNetwork}/callback', 'SocialAuthController@socialNetworkCallback');
-Route::get('/redirectForm/{socialNetwork}', 'SocialAuthController@beforeRedirect');
+Route::post('/afterRedirectForm', 'SocialAuthController@afterRedirect');
 
 Route::get('seed', ['as' => 'seed', 'uses' => function()
 {
