@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Services\SocialLogin\SocialUserService;
+use Illuminate\Support\Facades\Input;
 use Socialite;
 
 class SocialAuthController extends Controller
@@ -16,28 +17,28 @@ class SocialAuthController extends Controller
 
     public function redirect($socialNetwork)
     {
-        session_start();
-        $_SESSION['registration'] = $_POST['registration'];
-        $_SESSION['birthdate'] = $_POST['birthdate'];
-        return $this->getDriver($socialNetwork)->redirect();
+       return $this->getDriver($socialNetwork)->redirect();
     }
 
-    public function beforeRedirect($socialNetwork)
+    public function afterRedirect()
     {
-        return view('partials.subscribe-form-register-and-birthdate', ['socialNetwork'=>$socialNetwork]);
+        $socialUser = session('SocialUser');
+        $socialNetwork = session('SocialNetwork');
+        $regBirth = ["registration"=> Input::get('registration') , "birthdate" => Input::get('birthdate')];
+
+        if (!$this->socialUserService->find($socialNetwork, $socialUser, $regBirth)) {
+            return redirect()->route('login');
+        }
+
+        return redirect()->intended();
     }
 
 
        public function socialNetworkCallback($socialNetwork)
     {
-        session_start();
-        $regBirth = ["registration"=> $_SESSION['registration'] , "birthdate" => $_SESSION['birthdate']];
-
-        if (!$this->socialUserService->find($socialNetwork, $this->getDriver($socialNetwork)->user(), $regBirth)) {
-            return redirect()->route('login');
-        }
-        dd('AQUI tá quase lá');
-        return redirect()->intended();
+        $socialUser = $this->getDriver($socialNetwork)->user();
+        session(['SocialUser' => $socialUser , 'SocialNetwork' => $socialNetwork]);
+        return view('partials.subscribe-form-register-and-birthdate');
     }
 
     public function getDriver($driver)
