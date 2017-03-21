@@ -142,7 +142,7 @@ class Data
         $model = new Subscription();
         $this->usersRepository = new UsersRepository();
 
-        if (!$user = $this->usersRepository->findByBirthdateAndRegistration($input->input('birthdate'), $input->input('registration')))
+        if (!$user = $this->findByBirthdateAndRegistration($input))
         {
             $user = $this->usersRepository->storeUser();
         }
@@ -156,9 +156,13 @@ class Data
         $subscription = Subscription::firstOrCreate($input);
         $user->subscriptions()->save($subscription);
 
-        event(new SubscriptionWasCreated($subscription));
+      //  event(new SubscriptionWasCreated($subscription));
 
         return $subscription;
+    }
+
+    public function findByBirthdateAndRegistration ($input) {
+        return $this->usersRepository->findByBirthdateAndRegistration($input->input('birthdate'), $input->input('registration'));
     }
 
     private function makeTimelineData($timeline)

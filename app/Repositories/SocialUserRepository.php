@@ -44,11 +44,7 @@ class SocialUserRepository
         $userModel->password = 'Empty';
         $userModel->registration = $regBirth['registration'];
         $userModel->birthdate = $regBirth['birthdate'];
-      //  $userModel->uf = 'RJ';
-      //  $userModel->role_id = '99';
-      //  $uuid = Uuid::uuid4();
-      //  $userModel->uuid = $uuid;
-         $userModel->save();
+        $userModel->save();
 
         return $userModel;
     }

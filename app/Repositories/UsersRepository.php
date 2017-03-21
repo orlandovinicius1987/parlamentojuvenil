@@ -58,7 +58,7 @@ class UsersRepository
         $user = new User();
         $user->name = Input::get('name');
         $user->email = Input::get('email');
-        $user->password = Hash::make(Input::get('password'));
+        $user->password = 'Empty';
         $user->registration = Input::get('registration');
         $user->birthdate = Input::get('birthdate');
         $user->save();
