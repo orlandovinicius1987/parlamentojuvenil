@@ -56,9 +56,8 @@ class SocialUserService
 
     public function findOrCreateUser($socialUser, $email, $regBirth)
     {
-        if (!$user = $this->usersRepository->findByBirthdateAndRegistration($regBirth['birthdate'],$regBirth['registration'])) {
+        if (!$user = $this->findByBirthdateAndRegistration($regBirth)) {
             $user = $this->socialUserRepository->createUser($email, $socialUser, $regBirth);
-
             return $user;
         }
 
@@ -78,4 +77,9 @@ class SocialUserService
              $user->socialNetworks()->save($socialNetwork, ['social_network_user_id' => $socialUser->getId(), 'data' => json_encode($socialUser)]);
         }
     }
+
+    public function findByBirthdateAndRegistration ($regBirth) {
+        return $this->usersRepository->findByBirthdateAndRegistration($regBirth['birthdate'],$regBirth['registration']);
+    }
+
 }
