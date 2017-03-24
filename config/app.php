@@ -6,6 +6,8 @@ return [
 
     'app.name' => 'Parlamento Juvenil',
 
+    'year' => 2017,
+
     'url' => env('URL_BASE'),
 
     'timezone' => 'America/Sao_Paulo',
