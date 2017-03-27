@@ -17,7 +17,7 @@
 
     @include('partials.errors')
 
-    <form id="login" method="POST" action="/redirect/<?php echo $socialNetwork ?>">
+    <form id="login" method="POST" action="/afterRedirectForm">
         {!! csrf_field() !!}
 
         <input
