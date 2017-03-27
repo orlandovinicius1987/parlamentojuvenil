@@ -14,6 +14,7 @@ class AddYearOnSubscriptions extends Migration
     {
       Schema::table('subscriptions', function (Blueprint $table){
          $table->string('year')->nullable();
+         $table->string('year', 50)->change();
       });
 
     }

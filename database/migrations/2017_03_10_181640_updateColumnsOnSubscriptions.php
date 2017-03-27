@@ -22,6 +22,6 @@ class UpdateColumnsOnSubscriptions extends Migration
      */
     public function down()
     {
-        //
+       //
     }
 }
