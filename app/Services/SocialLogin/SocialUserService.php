@@ -24,11 +24,16 @@ class SocialUserService
         $this->usersRepository = $usersRepository;
     }
 
-    public function find($socialNetwork, $socialUser, $regBirth)
-    {
-        $email = $this->getEmail($socialUser, $socialNetwork);
+    //public function find($socialNetwork, $socialUser, $regBirth)
 
-        $user = $this->findOrCreateUser($socialUser, $email, $regBirth);
+    public function find($socialNetwork, $socialUser)
+    {
+
+        $email = $this->getEmail($socialUser, $socialNetwork);   //ok
+
+    //  $user = $this->findOrCreateUser($socialUser, $email, $regBirth);
+
+        $user = $this->findOrCreateUser($socialUser, $email);
 
         $socialNetwork = $this->getSocialNetwork($socialNetwork);
 
@@ -38,6 +43,12 @@ class SocialUserService
 
         return $user;
     }
+
+    public function addBirthdateRegistration($user, $regBirth)
+    {
+        $this->usersRepository->addBirthdateRegistration($user, $regBirth);
+    }
+
 
     /**
      * @param $socialUser
@@ -54,19 +65,31 @@ class SocialUserService
         return $user->getEmail() ?: sprintf('%s@%s.legislaqui.rj.gov.br', $user->getId(), $socialNetwork);
     }
 
-    public function findOrCreateUser($socialUser, $email, $regBirth)
+    public function findOrCreateUser($socialUser, $email)
     {
-        if (!$user = $this->findByBirthdateAndRegistration($regBirth)) {
-            $user = $this->socialUserRepository->createUser($email, $socialUser, $regBirth);
-            return $user;
-        }
+        if (!$user = $this->socialUserRepository->findBySocialNetworkId($socialUser->id) ){
 
+                $user = $this->socialUserRepository->createUser($email, $socialUser);
+                return $user;
+        }
         return $user;
     }
 
+    /*
+    public function findOrCreateUser($socialUser, $email, $regBirth)
+    {
+         if (!$user = $this->findByBirthdateAndRegistration($regBirth)) {
+
+              if (!$user = $this->socialUserRepository->findBySocialNetworkId($socialUser->id) ){
+                   $user = $this->socialUserRepository->createUser($email, $socialUser, $regBirth);
+                   return $user;
+              }
+        }
+        return $user;
+    } */
+
     public function getSocialNetwork($socialNetwork)
     {
-
         $socialNetwork = SocialNetwork::where('name', $socialNetwork)->first();
         return $socialNetwork;
     }
