@@ -64,4 +64,12 @@ class UsersRepository
         $user->save();
         return $user;
     }
+
+    public function addBirthdateRegistration($user, $regBirth)
+    {
+       $user->registration = $regBirth['registration'];
+       $user->birthdate = $regBirth['birthdate'];
+       $user->save();
+    }
+
 }
