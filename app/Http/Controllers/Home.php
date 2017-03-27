@@ -8,21 +8,18 @@ class Home extends BaseController
 {
 	public function force()
 	{
-		return $this->index(true);
+		return $this->index(null, true);
 	}
 
-    public function index($force = false)
+    public function index($year = null, $force = false)
 	{
-		return $this->buildView('home', null, $force, true);
+        $year = $year ?: config('app.year');
+
+        return $this->buildView($year.'.home', null, true);
 	}
 
     public function page($page)
     {
         return $this->buildView('2016.pages.'.$page);
     }
-
-	public function index2016()
-	{
-		return $this->buildView('2016.home', null, true);
-	}
 }
