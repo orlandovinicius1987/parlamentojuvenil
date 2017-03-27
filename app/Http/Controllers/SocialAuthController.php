@@ -22,13 +22,11 @@ class SocialAuthController extends Controller
 
     public function afterRedirect()
     {
-        $socialUser = session('SocialUser');
-        $socialNetwork = session('SocialNetwork');
+        $user = session('user');
+
         $regBirth = ["registration"=> Input::get('registration') , "birthdate" => Input::get('birthdate')];
 
-        if (!$this->socialUserService->find($socialNetwork, $socialUser, $regBirth)) {
-            return redirect()->route('login');
-        }
+        $this->socialUserService->addBirthdateRegistration($user, $regBirth);
 
         return redirect()->intended();
     }
@@ -37,7 +35,11 @@ class SocialAuthController extends Controller
        public function socialNetworkCallback($socialNetwork)
     {
         $socialUser = $this->getDriver($socialNetwork)->user();
-        session(['SocialUser' => $socialUser , 'SocialNetwork' => $socialNetwork]);
+
+        $user = $this->socialUserService->find($socialNetwork, $socialUser);
+
+        session(['user' => $user]);
+
         return view('partials.subscribe-form-register-and-birthdate');
     }
 
