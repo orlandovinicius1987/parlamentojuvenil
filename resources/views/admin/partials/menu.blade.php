@@ -54,7 +54,7 @@
                 <li active="{{ request()->is('admin/2016/subscriptions') ? 'active' : '' }}">
                     <a href="{{ route('admin.home') }}"><i class="fa fa-list fa-fw"></i> Inscrições</a>
                 </li>
-                <li active="{{ request()->is('admin/2016/schools') ? 'active' : '' }}">
+                <li active="{{ request()->is('2016-felipe') ? 'active' : '' }}">
                     <a href="{{ route('admin.schools') }}"><i class="fa fa-graduation-cap fa-fw"></i> Escolas</a>
                 </li>
                 <li active="{{ request()->is('admin/2016/elected') ? 'active' : '' }}">

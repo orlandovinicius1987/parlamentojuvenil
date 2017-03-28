@@ -20,6 +20,6 @@ class Home extends BaseController
 
     public function page($page)
     {
-        return $this->buildView('2016.pages.'.$page);
+        return $this->buildView('2016-felipe.pages.'.$page);
     }
 }

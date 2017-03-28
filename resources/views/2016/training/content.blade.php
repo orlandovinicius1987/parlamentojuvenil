@@ -46,7 +46,7 @@
                         <div class="video-box {{ $course['visible'] ? '' : 'inactive' }}"> <!-- class inactive -->
                             <div class="media">
                                 <a class="pull-left" href="#">
-                                    <img class="media-object" src="/pj2016/images/capacitacao/aula00{{$courseKey+1}}.jpg">
+                                    <img class="media-object" src="/templates/2016/images/capacitacao/aula00{{$courseKey+1}}.jpg">
                                 </a>
                                 <div class="media-body {{ $course['done'] ? 'assistido' : '' }}">
                                     <div class="shape">

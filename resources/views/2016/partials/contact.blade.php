@@ -1,7 +1,7 @@
 <section id="contato" class="fundo-azul">
     <div class="contact-section">
         {{--<div class="ear-piece">--}}
-        {{--<img class="img-responsive" src="/pj2016/images/ear-piece.png" alt="">--}}
+        {{--<img class="img-responsive" src="/templates/2016/images/ear-piece.png" alt="">--}}
         {{--<i class="fa fa-envelope fa-10x" aria-hidden="true" style="opacity: 0.2"></i>--}}
         {{--</div>--}}
         <div class="container">

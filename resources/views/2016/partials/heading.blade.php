@@ -8,7 +8,7 @@
 
         <div class="carousel-inner">
             <div class="item active">
-                <img class="img-responsive" src="/pj2016/images/slider/bg_home-3-min-min.jpg" alt="slider">
+                <img class="img-responsive" src="/templates/2016/images/slider/bg_home-3-min-min.jpg" alt="slider">
 
                 @if (false)
                     <div class="carousel-caption">
@@ -29,7 +29,7 @@
                 @endif
             </div>
             <div class="item">
-                <img class="img-responsive" src="/pj2016/images/{{ $banner_file }}" alt="slider">
+                <img class="img-responsive" src="/templates/2016/images/{{ $banner_file }}" alt="slider">
                 <div class="carousel-caption">
                     <h2>Edição 2015 </h2>
                     <h4>Saiba o que aconteceu na 9ª edição</h4>
@@ -37,7 +37,7 @@
                 </div>
             </div>
             <div class="item">
-                <img class="img-responsive" src="/pj2016/images/slider/bg_home-4-min-min.jpg" alt="slider">
+                <img class="img-responsive" src="/templates/2016/images/slider/bg_home-4-min-min.jpg" alt="slider">
                 <div class="carousel-caption">
                     <h2>Faça história com a gente<br> e mostre que você é 10!</h2>
                 </div>

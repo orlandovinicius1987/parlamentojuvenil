@@ -19,7 +19,7 @@ Route::get('seed', ['as' => 'seed', 'uses' => function()
     Artisan::call('db:seed');
 }]);
 
-Route::get('/{year?}', ['as' => 'home', 'uses' => 'Home@index'])->where('year', '\d{4}');;
+Route::get('/{year?}', ['as' => 'home', 'uses' => 'Home@index'])->where('year', '\d{4}');
 
 Route::post('googleforms', function ()
 {
@@ -62,7 +62,7 @@ Route::any('dados', function ($city)
 	}
 });
 
-Route::group(['prefix' => 'admin/2016'], function ()
+Route::group(['prefix' => 'admin/2016-felipe'], function ()
 {
     Route::get('/', ['as' => 'admin.home', 'uses' => function() {
         return redirect()->route('admin.subscriptions');
