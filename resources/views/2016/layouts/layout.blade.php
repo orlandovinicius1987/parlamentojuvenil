@@ -29,14 +29,14 @@
         <link rel="stylesheet" type="text/css" href="//blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
 
 
-        <link href="/pj2016/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-        <link href="/pj2016/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-        <link href="/pj2016/css/main.css" rel="stylesheet" type="text/css">
-        <link href="/pj2016/css/animate.css" rel="stylesheet" type="text/css">
-        <link href="/pj2016/css/responsive.css" rel="stylesheet" type="text/css">
+        <link href="/templates/2016/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <link href="/templates/2016/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="/templates/2016/css/main.css" rel="stylesheet" type="text/css">
+        <link href="/templates/2016/css/animate.css" rel="stylesheet" type="text/css">
+        <link href="/templates/2016/css/responsive.css" rel="stylesheet" type="text/css">
 
         <!-- Pinboard -->
-        <link href="/pj2016/css/pinboard.css" rel="stylesheet" type="text/css">
+        <link href="/templates/2016/css/pinboard.css" rel="stylesheet" type="text/css">
 
 
         <!-- Owl Stylesheets -->
@@ -47,11 +47,11 @@
         <link rel="stylesheet" type="text/css" href="/css/custom.css">
 
 
-        <link rel="shortcut icon" href="/pj2016/images/ico/favicon.ico">
-        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/pj2016/images/ico/apple-touch-icon-144-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/pj2016/images/ico/apple-touch-icon-114-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/pj2016/images/ico/apple-touch-icon-72-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" href="/pj2016/images/ico/apple-touch-icon-57-precomposed.png">
+        <link rel="shortcut icon" href="/templates/2016/images/ico/favicon.ico">
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/templates/2016/images/ico/apple-touch-icon-144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/templates/2016/images/ico/apple-touch-icon-114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/templates/2016/images/ico/apple-touch-icon-72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="/templates/2016/images/ico/apple-touch-icon-57-precomposed.png">
     </head><!--/head-->
 
     <body>
@@ -62,13 +62,13 @@
             <div class="row">
                 <div class="col-xs-12 col-md-4">
                     {{--<p> Copyright  &copy;2014<a target="_blank" href="//shapebootstrap.net/"> Evento </a>Theme. All Rights Reserved. <br> Designed by <a target="_blank" href="//shapebootstrap.net/">ShapeBootstrap</a></p>--}}
-                    <img src="/pj2016/images/footer-alerj.png" alt="Alerj" class="img-responsive">
+                    <img src="/templates/2016/images/footer-alerj.png" alt="Alerj" class="img-responsive">
                 </div>
                 <div class="col-xs-12 col-md-4">
-                    <img src="/pj2016/images/footer-pje10.png" alt="Parlamento Juvenil" class="img-responsive">
+                    <img src="/templates/2016/images/footer-pje10.png" alt="Parlamento Juvenil" class="img-responsive">
                 </div>
                 <div class="col-xs-12 col-md-4">
-                    <img src="/pj2016/images/footer-gov-rj.png" alt="Governo do Estado do Rio de Janeiro" class="img-responsive">
+                    <img src="/templates/2016/images/footer-gov-rj.png" alt="Governo do Estado do Rio de Janeiro" class="img-responsive">
                 </div>
             </div>
             </div>
@@ -114,19 +114,19 @@
         <script src="//imagesloaded.desandro.com/imagesloaded.pkgd.min.js"></script>
 
         <!-- Bootstrap Core JavaScript -->
-        {{--<script type="text/javascript" src="/pj2016/js/bootstrap.min.js"></script>--}}
+        {{--<script type="text/javascript" src="/templates/2016/js/bootstrap.min.js"></script>--}}
         <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="/pj2016/js/smoothscroll.js"></script>
-        <script type="text/javascript" src="/pj2016/js/jquery.parallax.js"></script>
-        {{--<script type="text/javascript" src="/pj2016/js/coundown-timer.js"></script>--}}
-        <script type="text/javascript" src="/pj2016/js/jquery.scrollTo.js"></script>
-        <script type="text/javascript" src="/pj2016/js/jquery.nav.js"></script>
+        <script type="text/javascript" src="/templates/2016/js/smoothscroll.js"></script>
+        <script type="text/javascript" src="/templates/2016/js/jquery.parallax.js"></script>
+        {{--<script type="text/javascript" src="/templates/2016/js/coundown-timer.js"></script>--}}
+        <script type="text/javascript" src="/templates/2016/js/jquery.scrollTo.js"></script>
+        <script type="text/javascript" src="/templates/2016/js/jquery.nav.js"></script>
 
         <!-- Pusher -->
         <script src="http://js.pusher.com/3.1/pusher.min.js"></script>
 
         @if (isset($isHome) && $isHome)
-            <script type="text/javascript" src="/pj2016/js/main.js"></script>
+            <script type="text/javascript" src="/templates/2016/js/main.js"></script>
         @endif
 
         @include('scripts.all')
