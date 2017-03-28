@@ -7,7 +7,7 @@
         <div id="main-slider" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="item active">
-                    <img class="img-responsive" src="/pj2016/images/edicoes/vix/banner_vix.jpg" alt="slider">
+                    <img class="img-responsive" src="/templates/2016/images/edicoes/vix/banner_vix.jpg" alt="slider">
                 </div>
             </div>
         </div>

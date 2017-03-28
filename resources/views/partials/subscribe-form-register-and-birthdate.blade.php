@@ -1,8 +1,8 @@
 
-@extends('2016.layouts.layout')
+@extends('2016-felipe.layouts.layout')
 
 @section('contents')
-    @include('2016.partials.header-fixed')
+    @include('2016-felipe.partials.header-fixed')
 
     <section id="titulo" class="fundo-inscricao">
         <div class="container">

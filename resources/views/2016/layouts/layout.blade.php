@@ -8,7 +8,7 @@
 
         @yield('head-additional')
 
-        <title>Parlamento Juvenil - ALERJ</title>
+        <title>Parlamento Juvenil - ALERJ - 2016</title>
 
         <!-- javascript -->
         <script src="//code.jquery.com/jquery-1.9.1.min.js"></script>

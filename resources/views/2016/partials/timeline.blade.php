@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="watch">
-                {{--<img class="img-responsive" src="/pj2016/images/watch.png" alt="">--}}
+                {{--<img class="img-responsive" src="/templates/2016/images/watch.png" alt="">--}}
             </div>
 
             <div class="col-xs-12">

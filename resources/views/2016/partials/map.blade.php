@@ -203,7 +203,7 @@
                 position: latLng,
                 map: googleMap,
                 title: title,
-                icon: '/pj2016/images/markers/10.png'
+                icon: '/templates/2016/images/markers/10.png'
             });
 
             var infowindow = new google.maps.InfoWindow(

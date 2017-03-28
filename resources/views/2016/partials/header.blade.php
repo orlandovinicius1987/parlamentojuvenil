@@ -18,7 +18,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="/">
-                        <img class="img-responsive" src="/pj2016/images/logo-pj.png" alt="Parlamento Juvenil">
+                        <img class="img-responsive" src="/templates/2016/images/logo-pj.png" alt="Parlamento Juvenil">
                     </a>
                 </div>
 
@@ -49,7 +49,7 @@
                 {{--<span class="icon-bar"></span>--}}
             {{--</button>--}}
             {{--<a class="navbar-brand" href="/">--}}
-                {{--<img class="img-responsive" src="/pj2016/images/logo-pj.png" alt="Parlamento Juvenil">--}}
+                {{--<img class="img-responsive" src="/templates/2016/images/logo-pj.png" alt="Parlamento Juvenil">--}}
             {{--</a>--}}
         {{--</div>--}}
 
