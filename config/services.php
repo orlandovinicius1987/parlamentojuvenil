@@ -61,7 +61,6 @@ return [
     ],
 
     // Login social - linkedIn
-
     'linkedin' => [
         'client_id'     =>  env('LINKEDIN_ID'),
         'client_secret' =>  env('LINKEDIN_SECRET'),
@@ -75,6 +74,4 @@ return [
         'redirect'      => 'http://local.parlamentojuvenil.com/auth/instagram/callback',
     ],
 
-
-    
 ];

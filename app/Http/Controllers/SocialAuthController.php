@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Request;
 use App\Services\SocialLogin\SocialUserService;
 use Illuminate\Support\Facades\Input;
 use Socialite;
