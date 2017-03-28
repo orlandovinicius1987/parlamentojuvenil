@@ -84,13 +84,7 @@ class ComposerServiceProvider extends ServiceProvider {
 
 		View::composer('*', function($view)
 		{
-			$view->with('caption_client', strtolower(Auth::check() ? Inflector::singular(Auth::user()->present()->clientFieldName) : 'client'));
-			$view->with('caption_Client', Auth::check() ? Inflector::singular(Auth::user()->present()->clientFieldName) : 'client');
 
-			$view->with('caption_clients', strtolower(Auth::check() ? Inflector::plural(Auth::user()->present()->clientFieldName) : 'client'));
-			$view->with('caption_Clients', Auth::check() ? Inflector::plural(Auth::user()->present()->clientFieldName) : 'client');
-
-//			$view->with('date_format', Language::getDateFormat());
 		});
 
 

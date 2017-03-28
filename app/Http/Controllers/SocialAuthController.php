@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Request;
 use App\Services\SocialLogin\SocialUserService;
+use Illuminate\Support\Facades\Input;
 use Socialite;
 
 class SocialAuthController extends Controller
@@ -16,16 +18,30 @@ class SocialAuthController extends Controller
 
     public function redirect($socialNetwork)
     {
-        return $this->getDriver($socialNetwork)->redirect();
+       return $this->getDriver($socialNetwork)->redirect();
     }
 
-    public function socialNetworkCallback($socialNetwork)
+    public function afterRedirect()
     {
-        if (!$this->socialUserService->find($socialNetwork, $this->getDriver($socialNetwork)->user())) {
-            return redirect()->route('login');
-        }
+        $user = session('user');
+
+        $regBirth = ["registration"=> Input::get('registration') , "birthdate" => Input::get('birthdate')];
+
+        $this->socialUserService->addBirthdateRegistration($user, $regBirth);
 
         return redirect()->intended();
+    }
+
+
+       public function socialNetworkCallback($socialNetwork)
+    {
+        $socialUser = $this->getDriver($socialNetwork)->user();
+
+        $user = $this->socialUserService->find($socialNetwork, $socialUser);
+
+        session(['user' => $user]);
+
+        return view('partials.subscribe-form-register-and-birthdate');
     }
 
     public function getDriver($driver)

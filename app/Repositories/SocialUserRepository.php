@@ -14,13 +14,23 @@ use Ramsey\Uuid\Uuid;
 
 class SocialUserRepository
 {
-    private $SocialUser;
+    private $socialUser;
+
+    public function findBySocialNetworkId($socialUserId)
+    {
+        $this->socialUser = new SocialUser();
+        if ($socialUser = $this->socialUser->find($socialUserId)){
+            $user = $socialUser->user;
+            return $user;
+        }
+    }
+
 
     public function find($id)
     {
-        $this->SocialUser = new SocialUser();
+        $this->socialUser = new SocialUser();
 
-        return $this->SocialUser->find($id);
+        return $this->socialUser->find($id);
     }
 
     public function destroy($id)
@@ -28,7 +38,7 @@ class SocialUserRepository
         return User::destroy($id);
     }
 
-    public function createUser($email, $socialUser)
+    public function createUser($email, $socialUser)  //, $regBirth)
     {
         $userModel = new User();
 
@@ -40,19 +50,13 @@ class SocialUserRepository
             $userModel->name = 'sem nome';
         }
 
-        if ($socialUser->getEmail()) {
-        } else {
-            $userModel->email = $socialUser->getId().'@legislaqui.rj.gov.br';
-        }
-
         $userModel->email = $email;
         $userModel->password = 'Empty';
-        $userModel->uf = 'RJ';
-        $userModel->role_id = '99';
-        $uuid = Uuid::uuid4();
-        $userModel->uuid = $uuid;
+  //    $userModel->registration = $regBirth['registration'];
+  //    $userModel->birthdate = $regBirth['birthdate'];
         $userModel->save();
 
         return $userModel;
     }
+
 }

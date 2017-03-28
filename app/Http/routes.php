@@ -5,10 +5,10 @@ use App\Data\Entities\School;
 use App\Data\Entities\Subscription;
 use App\Services\News\Service as NewsSync;
 
-
 //Social Login
 Route::get('/redirect/{socialNetwork}', 'SocialAuthController@redirect');
 Route::get('/auth/{socialNetwork}/callback', 'SocialAuthController@socialNetworkCallback');
+Route::post('/afterRedirectForm', 'SocialAuthController@afterRedirect');
 
 Route::get('seed', ['as' => 'seed', 'uses' => function()
 {
@@ -114,7 +114,6 @@ Route::group(['prefix' => 'api/v1'], function ()
 Route::get('article/{id}', ['as' => 'article.show', 'uses' => 'News@showArticle']);
 
 // Year pages
-
 Route::get('{year}/training', ['as' => 'training.index', 'uses' => 'Training@index'])->where('year', '[0-9][0-9][0-9][0-9]');
 Route::post('{year}/training', ['as' => 'training.login', 'uses' => 'Training@login'])->where('year', '[0-9][0-9][0-9][0-9]');
 Route::get('{year}/training/content', ['as' => 'training.content', 'uses' => 'Training@content'])->where('year', '[0-9][0-9][0-9][0-9]');
@@ -135,7 +134,6 @@ Route::get('{year}/news', ['as' => 'page.news', 'uses' => 'Pages@news']);
 
 Route::get('{year}/members', ['as' => 'page.members', 'uses' => 'Pages@members']);
 Route::get('{year}/clipping', ['as' => 'page.clipping', 'uses' => 'Pages@clipping']);
-
 
 //// Must be last
 //Route::get('{page}', ['as' => 'home', 'uses' => 'Home@page']);

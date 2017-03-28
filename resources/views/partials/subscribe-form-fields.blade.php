@@ -7,7 +7,27 @@
     }
 ?>
 
-<div id="subscription">
+  <div id="subscription">
+     {{-- Email --}}
+     <div class="row control-group"  transition="expand">
+            <div class="form-group col-xs-12 floating-label-form-group controls">
+                <label for="email" class="sr-only control-label">E-mail</label>
+                <input
+                        v-model="email"
+                        type="text"
+                        class="form-control input-lg"
+                        value="{{ Input::old('email') ?: (! $isSubscribeForm ? $subscription->email : '') }}"
+                        placeholder="E-mail"
+                        name="email"
+                        id="email"
+                        required
+                        data-validation-required-message="Por favor digite o seu email."
+                >
+                <span class="help-block text-danger"></span>
+            </div>
+      </div>
+
+    {{--Nome--}}
     <div class="row control-group">
         <div class="form-group col-xs-12 floating-label-form-group controls">
             <label for="name" class="sr-only control-label">Nome Completo</label>
@@ -247,25 +267,6 @@
                 name="id_issuer" id="id_issuer"
                 required
                 data-validation-required-message="Por favor digite o órgao emissor."
-            >
-            <span class="help-block text-danger"></span>
-        </div>
-    </div>
-
-    {{-- Email --}}
-    <div class="row control-group"  transition="expand">
-        <div class="form-group col-xs-12 floating-label-form-group controls">
-            <label for="email" class="sr-only control-label">E-mail</label>
-            <input
-                v-model="email"
-                type="text"
-                class="form-control input-lg"
-                value="{{ Input::old('email') ?: (! $isSubscribeForm ? $subscription->email : '') }}"
-                placeholder="E-mail"
-                name="email"
-                id="email"
-                required
-                data-validation-required-message="Por favor digite o seu email."
             >
             <span class="help-block text-danger"></span>
         </div>

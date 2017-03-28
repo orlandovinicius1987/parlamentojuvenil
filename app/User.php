@@ -32,4 +32,25 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
+
+
+    public function getUserByEmail($email)
+    {
+        return self::Where('email', $email)->first();
+    }
+
+    public function socialNetworks()
+    {
+        return $this->belongsToMany('App\SocialNetwork', 'social_users', 'user_id');
+    }
+
+    public function socialUser()
+    {
+        return $this->hasMany('App\SocialUser');
+    }
+
+    public function subscriptions()
+    {
+        return $this->hasOne('App\Data\Entities\Subscription');
+    }
 }

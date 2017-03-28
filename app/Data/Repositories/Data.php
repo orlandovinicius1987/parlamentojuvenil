@@ -14,9 +14,14 @@ use App\Events\SubscriptionWasCreated;
 use App\Services\News\Service as SyncNewsService;
 use App\Services\Filesystem\Service as Filesystem;
 use Illuminate\Support\Collection as IlluminateCollection;
+use App\Repositories\UsersRepository;
+use App\User;
+
 
 class Data
 {
+
+    private $usersRepository;
     /**
      * @var SyncNewsService
      */
@@ -135,19 +140,29 @@ class Data
     public function createSubscription($input)
     {
         $model = new Subscription();
+        $this->usersRepository = new UsersRepository();
+
+        if (!$user = $this->findByBirthdateAndRegistration($input))
+        {
+            $user = $this->usersRepository->storeUser();
+        }
 
         $input = $input->only($model->getFillable());
-
         if($subscription = $model->where('cpf', $input['cpf'])->where('registration', $input['registration'])->first())
         {
             throw new AlreadySubscribed();
         }
 
         $subscription = Subscription::firstOrCreate($input);
+        $user->subscriptions()->save($subscription);
 
-        event(new SubscriptionWasCreated($subscription));
+      //  event(new SubscriptionWasCreated($subscription));
 
         return $subscription;
+    }
+
+    public function findByBirthdateAndRegistration ($input) {
+        return $this->usersRepository->findByBirthdateAndRegistration($input->input('birthdate'), $input->input('registration'));
     }
 
     private function makeTimelineData($timeline)

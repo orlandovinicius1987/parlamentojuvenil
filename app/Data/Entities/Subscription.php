@@ -47,4 +47,10 @@ class Subscription extends Model
     {
         return $this->watched()->where('item_id', 'like', '%.quiz.%');
     }
+
+    public function user()
+    {
+        $this->belongsTo('App\User');
+    }
+
 }
