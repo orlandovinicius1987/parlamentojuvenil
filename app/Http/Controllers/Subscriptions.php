@@ -155,14 +155,11 @@ class Subscriptions extends BaseController
 		return redirect()->back();
 	}
 
-    public function index()
+    public function index($year = null)
     {
-        if (true)
-        {
-            return $this->buildView('2016.subscriptions.index');
-        }
+        $year = $year ?: config('app.year');
 
-        return $this->buildView('2016.subscriptions.ended');
+        return $this->buildView($year.'.subscriptions.index');
     }
 
     public function store(Subscribe $request)

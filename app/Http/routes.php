@@ -21,10 +21,7 @@ Route::get('seed', ['as' => 'seed', 'uses' => function()
 
 Route::get('/{year?}', ['as' => 'home', 'uses' => 'Home@index'])->where('year', '\d{4}');
 
-Route::post('googleforms', function ()
-{
-	
-});
+Route::get('/subscribe', ['as' => 'home', 'uses' => 'Subscriptions@index']);
 
 Route::any('news/sync', function (NewsSync $news)
 {

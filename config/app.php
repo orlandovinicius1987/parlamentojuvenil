@@ -6,9 +6,13 @@ return [
 
     'app.name' => 'Parlamento Juvenil',
 
-    'year' => 2017,
+    'year' => env('APP_YEAR'),
 
     'url' => env('URL_BASE'),
+
+    'subscriptions' => [
+        'enabled' => env('SUBSCRIPTIONS_ENABLED')
+    ],
 
     'timezone' => 'America/Sao_Paulo',
 
