@@ -24,14 +24,10 @@ class SocialUserService
         $this->usersRepository = $usersRepository;
     }
 
-    //public function find($socialNetwork, $socialUser, $regBirth)
-
     public function findOrCreate($socialNetwork, $socialUserPlatform)
     {
         $email = $this->getEmail($socialUserPlatform, $socialNetwork);
         session(['email' => $email]);
-
-    //  $user = $this->findOrCreateUser($socialUser, $email, $regBirth);
 
         $socialNetwork = $this->getSocialNetwork($socialNetwork);
 
@@ -39,22 +35,7 @@ class SocialUserService
 
         return $socialUser;
 
-    //    $user = $this->findOrCreateUser($socialUser, $email);
-
-    //   $socialNetwork = $this->getSocialNetwork($socialNetwork);
-
-     // $this->findOrCreateUserSocialNetwork($socialNetwork, $socialUser, $user);
-
-    //    $this->login($user);
-
-    //    return $user;
     }
-
-    public function addBirthdateRegistration($user, $regBirth)
-    {
-        $this->usersRepository->addBirthdateRegistration($user, $regBirth);
-    }
-
 
     /**
      * @param $socialUser
@@ -81,31 +62,11 @@ class SocialUserService
         return $user;
     }
 
-    /*
-    public function findOrCreateUser($socialUser, $email, $regBirth)
-    {
-         if (!$user = $this->findByBirthdateAndRegistration($regBirth)) {
-
-              if (!$user = $this->socialUserRepository->findBySocialNetworkId($socialUser->id) ){
-                   $user = $this->socialUserRepository->createUser($email, $socialUser, $regBirth);
-                   return $user;
-              }
-        }
-        return $user;
-    } */
-
     public function getSocialNetwork($socialNetwork)
     {
         $socialNetwork = SocialNetwork::where('name', $socialNetwork)->first();
         return $socialNetwork;
     }
-
- /*   public function findOrCreateUserSocialNetwork($socialNetwork, $socialUser, $user)
-    {
-        if (!$userSocialNetwork = $user->socialNetworks()->where('social_network_id', $socialNetwork->id)->first()) {
-             $user->socialNetworks()->save($socialNetwork, ['social_network_user_id' => $socialUser->getId(), 'data' => json_encode($socialUser)]);
-        }
-    }*/
 
     public function findOrCreateSocialUser($socialNetwork, $socialUserPlatform)
     {
@@ -119,8 +80,11 @@ class SocialUserService
 
     public function findOrCreateUserByStudent($studentId, $socialUserId, $email, $socialUserPlatform)
     {
-
-        if($userId = $this->socialUserRepository->findByStudentId($studentId))
+        if($this->socialUserRepository->findBySocialNetworkUserId($socialUserPlatform->user_id))
+        {
+          // não finalizado    Se o usuário logar com a mesma rede social não é necessário usar nenhum dos métodos abaixo
+        }
+        elseif ($userId = $this->socialUserRepository->findByStudentId($studentId))
         {
            $this->socialUserRepository->updateSocialUser($userId->id, $studentId, $socialUserId);
         }
@@ -130,11 +94,5 @@ class SocialUserService
         }
 
     }
-
-  /*  public function*/
-
-    /*public function findByBirthdateAndRegistration ($regBirth) {
-        return $this->usersRepository->findByBirthdateAndRegistration($regBirth['birthdate'],$regBirth['registration']);
-    }*/
 
 }

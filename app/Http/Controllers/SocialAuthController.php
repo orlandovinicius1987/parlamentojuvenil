@@ -19,7 +19,7 @@ class SocialAuthController extends Controller
 
     public function login($socialNetwork)
     {
-       return $this->getDriver($socialNetwork)->redirect();
+        return $this->getDriver($socialNetwork)->redirect();
     }
 
     public function afterRedirect()
