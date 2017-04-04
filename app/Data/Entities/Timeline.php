@@ -53,8 +53,8 @@ class Timeline
 
             2016 => [
                 [
-                    'start' => '2016-05-23 00:00:00',
-                    'end' => '2016-05-23 23:59:59',
+                    'start' => '2017-05-23 00:00:00',
+                    'end' => '2017-05-23 23:59:59',
                     'title' => 'Abertura das inscrições',
                     'description' => '23 de maio até 24 de junho',
                 ],
@@ -128,60 +128,70 @@ class Timeline
                     'description' => '20 a 26 de novembro',
                 ],
             ],
+
             2017 => [
-                [
-                    'start' => '2017-04-13 00:00:00',
-                    'end' => '2017-04-13 23:59:59',
-                    'title' => 'Abertura das inscrições',
+                'colors' => [
+                    [
+                        'border' => '',
+                        'body' => '',
+                    ],
                 ],
 
-                [
-                    'start' => '2017-05-14 00:00:00',
-                    'end' => '2017-05-14 23:59:59',
-                    'title' => 'Encerramento das inscrições',
-                ],
+                'timeline' => [
+                    [
+                        'start' => '2017-04-13 00:00:00',
+                        'end' => '2017-04-13 23:59:59',
+                        'title' => 'Abertura das inscrições',
+                    ],
 
-                [
-                    'start' => '2017-05-08 00:00:00',
-                    'end' => '2017-05-08 23:59:59',
-                    'title' => '"Dia D" de sensibilização',
-                ],
+                    [
+                        'start' => '2017-05-14 00:00:00',
+                        'end' => '2017-05-14 23:59:59',
+                        'title' => 'Encerramento das inscrições',
+                    ],
 
-                [
-                    'start' => '2017-05-24 00:00:00',
-                    'end' => '2017-05-24 23:59:59',
-                    'title' => 'Eleições (1º turno)',
-                ],
+                    [
+                        'start' => '2017-05-08 00:00:00',
+                        'end' => '2017-05-08 23:59:59',
+                        'title' => '"Dia D" de sensibilização',
+                    ],
 
-                [
-                    'start' => '2017-06-14 00:00:00',
-                    'end' => '2017-06-14 23:59:59',
-                    'title' => 'Eleições (2º turno)',
-                ],
+                    [
+                        'start' => '2017-05-24 00:00:00',
+                        'end' => '2017-05-24 23:59:59',
+                        'title' => 'Eleições (1º turno)',
+                    ],
 
-                [
-                    'start' => '2017-10-02 00:00:00',
-                    'end' => '2017-10-02 23:59:59',
-                    'title' => 'Capacitação online dos eleitos',
-                ],
+                    [
+                        'start' => '2017-06-14 00:00:00',
+                        'end' => '2017-06-14 23:59:59',
+                        'title' => 'Eleições (2º turno)',
+                    ],
 
-                [
-                    'start' => '2017-10-23 00:00:00',
-                    'end' => '2017-11-01 23:59:59',
-                    'title' => 'Capacitação presencial dos eleitos',
-                ],
+                    [
+                        'start' => '2017-10-02 00:00:00',
+                        'end' => '2017-10-02 23:59:59',
+                        'title' => 'Capacitação online dos eleitos',
+                    ],
+
+                    [
+                        'start' => '2017-10-23 00:00:00',
+                        'end' => '2017-11-01 23:59:59',
+                        'title' => 'Capacitação presencial dos eleitos',
+                    ],
 
 
-                [
-                    'start' => '2017-10-16 00:00:00',
-                    'end' => '2017-10-16 23:59:59',
-                    'title' => 'Data limite para envio dos projetos de lei',
-                ],
+                    [
+                        'start' => '2017-10-16 00:00:00',
+                        'end' => '2017-10-16 23:59:59',
+                        'title' => 'Data limite para envio dos projetos de lei',
+                    ],
 
-                [
-                    'start' => '2017-11-26 00:00:00',
-                    'end' => '2017-12-01 23:59:59',
-                    'title' => 'Parlamento Juvenil na Alerj',
+                    [
+                        'start' => '2017-11-26 00:00:00',
+                        'end' => '2017-12-01 23:59:59',
+                        'title' => 'Parlamento Juvenil na Alerj',
+                    ],
                 ],
             ],
         ];
