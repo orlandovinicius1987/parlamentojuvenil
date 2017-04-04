@@ -47,11 +47,11 @@ class UsersRepository
         return $user->getUserByEmail($email);
     }
 
-    public function findByBirthdateAndRegistration($birthdate, $registration)
+    /*public function findByBirthdateAndRegistration($birthdate, $registration)
     {
         $user = User::where(['birthdate'=>$birthdate, 'registration'=>$registration])->first();
         return $user;
-    }
+    }*/
 
     public function storeUser()
     {
