@@ -47,12 +47,6 @@ class UsersRepository
         return $user->getUserByEmail($email);
     }
 
-    public function findByBirthdateAndRegistration($birthdate, $registration)
-    {
-        $user = User::where(['birthdate'=>$birthdate, 'registration'=>$registration])->first();
-        return $user;
-    }
-
     public function storeUser()
     {
         $user = new User();
@@ -63,13 +57,6 @@ class UsersRepository
         $user->birthdate = Input::get('birthdate');
         $user->save();
         return $user;
-    }
-
-    public function addBirthdateRegistration($user, $regBirth)
-    {
-       $user->registration = $regBirth['registration'];
-       $user->birthdate = $regBirth['birthdate'];
-       $user->save();
     }
 
 }

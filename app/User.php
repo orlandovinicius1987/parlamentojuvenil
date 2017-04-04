@@ -39,7 +39,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         return self::Where('email', $email)->first();
     }
 
-    public function socialNetworks()
+   /* public function socialNetworks()
     {
         return $this->belongsToMany('App\SocialNetwork', 'social_users', 'user_id');
     }
@@ -52,5 +52,12 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     public function subscriptions()
     {
         return $this->hasOne('App\Data\Entities\Subscription');
-    }
+    }*/
+
+   public function socialUser()
+   {
+     return $this->hasMany('App\SocialUser');
+   }
+
+
 }

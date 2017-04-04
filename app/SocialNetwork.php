@@ -27,4 +27,10 @@ class SocialNetwork extends Model
     {
         return $this->belongsToMany('App\User', 'social_users', 'social_network_id')->withPivot('social_network_user_id', 'data');
     }
+
+    public function socialUsers()
+    {
+        return  $this->hasMany('App\SocialUser');
+    }
+
 }

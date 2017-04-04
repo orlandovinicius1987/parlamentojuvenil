@@ -13,15 +13,18 @@ class CreateSocialUsersTable extends Migration
     public function up()
     {
         Schema::create('social_users', function (Blueprint $table) {
-            $table->integer('user_id')->unsigned();
+            $table->increments('id');
+            $table->integer('user_id')->unsigned()->nullable();
+            $table->integer('student_id')->unsigned()->nullable();
             $table->integer('social_network_id')->unsigned();
             $table->string('social_network_user_id');
             $table->json('data')->nullable();
-            $table->softDeletes();
+            $table->timestamps();
         });
 
         Schema::table('social_users', function (Blueprint $table) {
             $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('student_id')->references('id')->on('students');
             $table->foreign('social_network_id')->references('id')->on('social_networks');
         });
     }
