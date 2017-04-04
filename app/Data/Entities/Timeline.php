@@ -53,8 +53,8 @@ class Timeline
 
             2016 => [
                 [
-                    'start' => '2016-05-23 00:00:00',
-                    'end' => '2016-05-23 23:59:59',
+                    'start' => '2017-05-23 00:00:00',
+                    'end' => '2017-05-23 23:59:59',
                     'title' => 'Abertura das inscrições',
                     'description' => '23 de maio até 24 de junho',
                 ],
