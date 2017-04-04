@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
     <head>
-
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="">
@@ -24,6 +22,8 @@
         <!-- Masonry CSS -->
         <link href="/templates/2017/css/masonry.css" rel="stylesheet">
 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.2.6/vue.min.js"></script>
+
         <!-- Temporary navbar container fix until Bootstrap 4 is patched -->
         <style>
             .navbar-toggler {
@@ -36,7 +36,6 @@
                 }
             }
         </style>
-
     </head>
 
     <body id="page-top" class="index">

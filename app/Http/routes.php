@@ -2,38 +2,48 @@
 
 use App\Data\Entities\State;
 use App\Data\Entities\School;
-use App\Data\Entities\Subscription;
 use App\Services\News\Service as NewsSync;
 
-//Social Login
-Route::get('/redirect/{socialNetwork}', 'SocialAuthController@redirect');
-Route::get('/auth/{socialNetwork}/callback', 'SocialAuthController@socialNetworkCallback');
-Route::post('/afterRedirectForm', 'SocialAuthController@afterRedirect');
-
-Route::get('seed', ['as' => 'seed', 'uses' => function()
-{
-//    Artisan::call('pj:school');
-//    Artisan::call('pj:school:missing');
-//    Artisan::call('pj:school:export');
-//    Artisan::call('pj:geolocate');
-    Artisan::call('db:seed');
-}]);
-
+/*
+ * Main route
+ */
 Route::get('/{year?}', ['as' => 'home', 'uses' => 'Home@index'])->where('year', '\d{4}');
 
-Route::get('/subscribe', ['as' => 'home', 'uses' => 'Subscriptions@index']);
+/*
+ * Auth
+ */
+Route::group(['prefix' => '/auth'], function ()
+{
+    Route::get('/login', ['as' => 'auth.index', 'uses' => 'Auth@index']);
+    Route::post('/login', ['as' => 'auth.post', 'uses' => 'Auth@post']);
 
-Route::any('news/sync', function (NewsSync $news)
+    /*
+     * Social
+     */
+    Route::group(['prefix' => 'social'], function ()
+    {
+        Route::get('/login/{socialNetwork}', ['as' => 'auth.social.redirect', 'uses' => 'SocialAuthController@login']);
+        Route::get('/auth/{socialNetwork}/callback', 'SocialAuthController@socialNetworkCallback');
+        Route::post('/afterRedirectForm', 'SocialAuthController@afterRedirect');
+    });
+});
+
+Route::group(['prefix' => '/subscribe', 'middleware' => 'auth'], function ()
+{
+    Route::get('/', ['as' => 'subscribe.index', 'uses' => 'Subscriptions@index']);
+});
+
+Route::get('news/sync', function (NewsSync $news)
 {
 	return $news->sync();
 });
 
-Route::any('cities', function ()
+Route::get('cities', function ()
 {
 	return State::where('code', 'RJ')->first()->cities()->orderBy('name')->get();
 });
 
-Route::any('schools/{city}',['middleware' => 'cors', function ($city)
+Route::get('schools/{city}',['middleware' => 'cors', function ($city)
 {
     $city = mb_strtoclean($city);
 
@@ -49,17 +59,7 @@ Route::get('download/{file}', ['as' => 'download', 'uses' => function ($file)
 	return response()->download(public_path($path).$file);
 }]);
 
-Route::any('dados', function ($city)
-{
-	$all = Subscription::all();
-
-	foreach ($all as $person)
-	{
-
-	}
-});
-
-Route::group(['prefix' => 'admin/2016-felipe'], function ()
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function ()
 {
     Route::get('/', ['as' => 'admin.home', 'uses' => function() {
         return redirect()->route('admin.subscriptions');
@@ -131,6 +131,3 @@ Route::get('{year}/news', ['as' => 'page.news', 'uses' => 'Pages@news']);
 
 Route::get('{year}/members', ['as' => 'page.members', 'uses' => 'Pages@members']);
 Route::get('{year}/clipping', ['as' => 'page.clipping', 'uses' => 'Pages@clipping']);
-
-//// Must be last
-//Route::get('{page}', ['as' => 'home', 'uses' => 'Home@page']);
