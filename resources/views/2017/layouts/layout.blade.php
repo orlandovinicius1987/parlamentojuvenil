@@ -51,51 +51,9 @@
 </head>
 <body class="header-fixed-top">
 <div id="page-top" class="page-top"></div>
-<!-- /.page-top -->
-<!--<section id="top-contact" class="top-contact">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-8 pull-left">
-                <ul class="contact-list">
-                    <li>
-                        <a class="site-name" href="#">
-                            <span class="top-icon"><i class="fa fa-link"></i></span>
-                            www.sitename.com
-                        </a>
-                    </li>
-                    <li>
-                        <a class="info" href="#">
-                            <span class="top-icon"><i class="fa fa-envelope"></i></span>
-                            info@sitename.com
-                        </a>
-                    </li>
-                    <li>
-                        <a class="phone-no" href="#">
-                            <span class="top-icon"><i class="fa fa-phone"></i></span>
-                            8888 888888
-                        </a>
-                    </li>
-                </ul>
-            </div>
 
-            <div class="col-sm-4 pull-right">
-                <div class="top-social">
-                    <ul>
-                        <li>
-                            <a href="#" class="top-icon fa fa-facebook"></a>
-                        </li>
-                        <li>
-                            <a href="#" class="top-icon fa fa-twitter"></a>
-                        </li>
-                        <li>
-                            <a href="#" class="top-icon fa fa-linkedin"></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    </section>----><!-- /#top-contact -->
+
+
 <section id="site-banner" class="site-banner text-center">
     <div class="container">
         <div class="col-md-3">
@@ -115,9 +73,8 @@
             </div>
         </div>
     </div>
-    <!-- /.container -->
 </section>
-<!-- /#site-banner -->
+
 <header id="main-menu" class="main-menu">
     <div class="container">
         <div class="row">
@@ -148,208 +105,17 @@
                         <li class="menu-busca"><a class="" href="#contact"><i class="fa fa-search"></i></a></li>
                         <li class="menu-user"><a class="" href="#contact"><i class="fa fa-user"></i></a></li>
                     </ul>
-                    <!-- /.menu-list -->
                 </nav>
-                <!-- /.menu-list -->
+
             </div>
-            <!--          <div class="col-sm-5">
-                <div class="menu-search pull-right">
-                 <form role="search" class="search-form" action="#" method="get">
-                  <input class="search-field" type="text" name="s" id="s" placeholder="Search Here" required>
-                  <button class="btn search-btn" type="submit"><i class="fa fa-search"></i></button>
-                </form>
-                </div>
-                </div>-->
         </div>
-        <!-- /.row -->
     </div>
-    <!-- /.container -->
 </header>
 <!-- /#main-menu -->
 <!-- Header -->
-<section class="masonry-pj">
-    <div class="container">
-        <div class="row">
-            <div class="grid">
-                <div class="grow grid-item lilas1">
-                    <img class="masonry-overflow masonry10 img-responsive" src="/templates/2017/images/masonry-10.png">
-                </div>
-                <div class="grow grid-item azul1"></div>
-                <div class="grow grid-item verde3"></div>
-                <div class="grow grid-item grid-item--height2 branco2">
-                    <img class="masonry-padding img-responsive" src="/templates/2017/images/masonry-03.png">
-                </div>
-                <div class="grow grid-item verde1"><img class="masonry-overflow masonry07" src="/templates/2017/images/masonry-07.png"></div>
-                <div class="grow grid-item verde2"></div>
-                <div class="grow grid-item azul2">
-                </div>
-                <div class="grow grid-item verde1">
-                    <img class="masonry-overflow masonri-right masonry08" src="/templates/2017/images/masonry-08.png">
-                </div>
-                <div class="grow grid-item lilas2"></div>
-                <div class="grow grid-item grid-item--height3 azul1">
-                    <img class="masonry-overflow masonry-big" src="/templates/2017/images/masonry-big.png">
-                </div>
-                <div class="grow grid-item  grid-item--height2 amarelo1">
-                    <!--<div class="inscrevase form-group">
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Insira seu nome completo">
-                        <span class="input-group-btn">
-                        <button class="btn btn-default btfundo" type="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
-                        </span>
-                        </div>
-                        </div>-->
-                    <img class="masonry-nopadding" src="/templates/2017/images/masonry-04.png">
-                </div>
-                <div class="grow grid-item verde3"></div>
-                <div class="grow grid-item amarelo1"></div>
-                <div class="grow grid-item vermelho1"></div>
-                <div class="grow grid-item amarelo2">
-                    <img class="masonry-overflow masonry11" src="/templates/2017/images/masonry-11.png">
-                </div>
-                <div class="grow grid-item azul1"></div>
-                <div class="grow grid-item grid-item--height2 azul4">
-                    <img class="masonry-padding paddingtop40 masonry-informacoes img-responsive" src="/templates/2017/images/masonry-05.png">
-                </div>
-                <div class="grow grid-item laranja1">
-                    <img class="masonry-overflow masonry10" src="/templates/2017/images/masonry-06.png">
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
 
-
-
-
-<section id="timeline-container">
-    <div class="container-full">
-        <div class="row">
-            <div class="col-xs-12">
-                <h2>Cronograma</h2>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="watch">
-            </div>
-            <div class="col-xs-12">
-                <ul id="timeline" class="timeline">
-
-                    <!--                    <li>
-                                            <div class="timeline-bullet info"><i class=""></i></div>
-                                            <div class="timeline-panel-border">
-                                                <div class="timeline-panel-body">
-                                                    <h4 class="timeline-panel-title">Abertura das inscrições</h4>
-                                                    <p>23 de maio</p>
-                                                </div>
-                                            </div>
-                                        </li>-->
-                    <li class="timeline-inverted">
-
-                        <!--<div class="timeline-bullet info"><i class=""></i></div>
-                        <div class="timeline-panel-border amarelo02">
-                            <div class="timeline-date roxo01 date-left">
-                                <p>06</p>
-                                <p class="timeline-month">jul</p>
-                            </div>
-                            <div class="gtimeline-panel-body roxo01">
-                                <h4 class="timeline-panel-title">Countdown</h4>
-                                <p>ipsum lorem</p>
-
-                                <ul id="countdown" v-if="__isCurrentCountdownEvent(item)">
-                                    <li>
-                                        <span class="days time-font">@{{ days }}</span>
-                                        <p>dias </p>
-                                    </li>
-                                    <li>
-                                        <span class="hours time-font">@{{ hours }}</span>
-                                        <p class="">horas </p>
-                                    </li>
-                                    <li>
-                                        <span class="minutes time-font">@{{ minutes }}</span>
-                                        <p class="">minutos</p>
-                                    </li>
-                                    <li>
-                                        <span class="seconds time-font">@{{ seconds }}</span>
-                                        <p class="">segundos</p>
-                                    </li>
-                                </ul>
-
-                            </div>
-                        </div>     -->
-
-
-
-                        <div class="timeline-bullet info"><i class=""></i></div>
-                        <div class="timeline-panel-border amarelo02">
-                            <div class="timeline-date roxo01 date-left">
-                                <p>06</p>
-                                <p class="timeline-month">jul</p>
-                            </div>
-                            <div class="timeline-panel-body roxo01">
-                                <h4 class="timeline-panel-title">Eleições (1º turno)</h4>
-                                <p>lorem ipsum</p>
-                                <ul id="countdown">
-                                    <li>
-                                        <span class="time-font">48</span>
-                                        <p>dias </p>
-                                    </li>
-                                    <li>
-                                        <span class="time-font">11</span>
-                                        <p class="">horas </p>
-                                    </li>
-                                    <li>
-                                        <span class="time-font">8</span>
-                                        <p class="">minutos</p>
-                                    </li>
-                                    <li>
-                                        <span class="time-font">17</span>
-                                        <p class="">segundos</p>
-                                    </li>
-                                </ul>
-
-                            </div>
-                        </div>
-                    </li>
-
-                    <li>
-                        <div class="timeline-bullet info"><i class=""></i></div>
-                        <div class="timeline-panel-border roxo01">
-                            <div class="timeline-date amarelo01 date-right txt-azul01">
-                                <p>30</p>
-                                <p class="timeline-month">jun</p>
-                            </div>
-                            <div class="timeline-panel-body amarelo01 txt-azul01">
-                                <h4 class="timeline-panel-title">Encerramento das inscrições</h4>
-                                <p> ipsum lorem quad esta</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="timeline-inverted">
-                        <div class="timeline-bullet info"><i class=""></i></div>
-                        <div class="timeline-panel-border laranja01">
-                            <div class="timeline-date verde01 date-left">
-                                <p>06</p>
-                                <p class="timeline-month">jul</p>
-                            </div>
-                            <div class="timeline-panel-body verde01">
-                                <h4 class="timeline-panel-title">Eleições (1º turno)</h4>
-                                <p> ipsum lorem quad esta</p>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li class="timeline-inverted">
-                        <div class="timeline-end"><i class=""></i></div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>
+@yield('contents')
 
 
 
@@ -403,6 +169,12 @@
     </div>
     <!-- /#footer-bottom -->
 </footer>
+
+
+
+
+
+
 <div id="scroll-to-top" class="scroll-to-top">
 			<span>
 			<i class="fa fa-chevron-up"></i>

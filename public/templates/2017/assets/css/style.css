@@ -1259,5 +1259,89 @@ footer a {
 /*}*/
 
 
+.inscrevase.form-group {
+	position: absolute;
+	bottom: -10px !important;
+	left: 0;
+	width: 100%;
+	border: none;
+	z-index: 99;
+	text-align: center;
+}
+
+
+.inscrevase.form-group .btn-primary{
+	background: #0DA64A ;
+	border-color: #04522C;
+	width: 95%;
+	text-transform: uppercase;
+	font-weight: 600;
+}
+
+.inscrevase.form-group .btn-primary:before {
+	content: " ";
+	position: absolute;
+	z-index: -1;
+	top: -2px;
+	left: 6px;
+	right: 6px;
+	bottom: -2px;
+	border: 4px solid #ffea00;
+	border-radius: 5px;
+}
+
+
+.modal-header {
+
+	border-bottom: none;
+}
+
+.modal-title {
+	text-align: center;
+	padding-top: 30px;
+	font-size: 24px;
+	color: #848484;
+}
+
+.social-login-button {
+	text-align: center;
+	border-bottom: solid 1px #dddddd;
+	padding-bottom: 35px;
+	margin: 0 75px 0 75px;
+}
+
+.nao-possui-redes {
+	text-align: center;
+	padding: 35px 0 70px 0;
+}
+.nao-possui-redes p {
+	color: #2E3290;
+	font-weight: 600;
+}
+
+
+.modal-body.social-login {
+	padding-top: 60px;
+}
+
+
+
+.social-login-btn {
+	width: 65px !important;
+	height: 65px !important;
+	display: -webkit-inline-box;
+	margin-right: 15px;
+}
+
+.social-login-btn:last-child {
+	margin-right: 0px;
+}
+
+@media (min-width: 768px){
+	.modal-dialog {
+		width: 750px;
+		margin: 30px auto;
+	}
+}
 
 
