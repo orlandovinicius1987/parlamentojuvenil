@@ -19,7 +19,7 @@ class CreateSeeducTable extends Migration
             $table->string('regional')->index();
             $table->string('nome')->index();
             $table->string('matricula')->index();
-            $table->string('nascimento')->index();
+            $table->date('nascimento')->index();
             $table->timestamps();
         });
     }
