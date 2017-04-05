@@ -43,35 +43,35 @@ return [
     'facebook' => [
         'client_id'     => env('FACEBOOK_ID'),
         'client_secret' => env('FACEBOOK_SECRET'),
-        'redirect'      => 'http://local.parlamentojuvenil.com/auth/facebook/callback',
+        'redirect'      => env('FACEBOOK_REDIRECT_URL'),
     ],
 
     // Login social - Twitter
     'twitter' => [
         'client_id'     => env('TWITTER_ID'),
         'client_secret' => env('TWITTER_SECRET'),
-        'redirect'      => 'http://local.parlamentojuvenil.com/auth/twitter/callback',
+        'redirect'      => env('TWITTER_REDIRECT_URL'),
     ],
 
     // Login social - youtube
     'youtube' => [
         'client_id'     => env('YOUTUBE_ID'),
         'client_secret' => env('YOUTUBE_SECRET'),
-        'redirect'      => 'http://local.parlamentojuvenil.com/auth/youtube/callback',
+        'redirect'      => env('YOUTUBE_REDIRECT_URL'),
     ],
 
     // Login social - linkedIn
     'linkedin' => [
         'client_id'     =>  env('LINKEDIN_ID'),
         'client_secret' =>  env('LINKEDIN_SECRET'),
-        'redirect'      => 'http://local.parlamentojuvenil.com/auth/linkedin/callback',
+        'redirect'      =>  env('LINKEDIN_REDIRECT_URL'),
     ],
 
     // Login social - instagram
     'instagram' => [
         'client_id'     => env('INSTAGRAM_ID'),
         'client_secret' => env('INSTAGRAM_SECRET'),
-        'redirect'      => 'http://local.parlamentojuvenil.com/auth/instagram/callback',
+        'redirect'      => env('INSTAGRAM_REDIRECT_URL'),
     ],
 
 ];
