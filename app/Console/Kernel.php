@@ -17,6 +17,7 @@ class Kernel extends ConsoleKernel
         \App\Console\Commands\SyncAll::class,
         \App\Console\Commands\PjGeolocate::class,
         \App\Console\Commands\PjSchoolsExport::class,
+        \App\Console\Commands\Seeduc::class,
     ];
 
     /**

@@ -3,24 +3,30 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 class SocialUser extends Model
 {
-    use SoftDeletes;
-
     protected $dates = ['deleted_at'];
 
-    protected $guarded = ['user_id', 'social_network_id', 'data'];
+    protected $guarded = ['user_id', 'student_id', 'social_network_id', 'data'];
 
     public function find($id)
     {
         return self::where('social_network_user_id', $id)->first();
     }
 
-    // Socialite
     public function user()
     {
         return $this->belongsTo('App\User');
+    }
+
+    public function socialNetwork()
+    {
+        return  $this->belongsTo('App\SocialNetwork');
+    }
+
+    public function student()
+    {
+        return $this->belongsTo('App\Data\Entities\Student');
     }
 }

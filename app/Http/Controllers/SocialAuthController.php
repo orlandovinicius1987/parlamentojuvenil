@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\Request;
 use App\Services\SocialLogin\SocialUserService;
-use Illuminate\Support\Facades\Input;
 use Socialite;
+use DB;
 
 class SocialAuthController extends Controller
 {
@@ -16,36 +15,62 @@ class SocialAuthController extends Controller
         $this->socialUserService = $socialUserService;
     }
 
+    private function isSocialNetworkIsLoggedIn($socialNetwork)
+    {
+        if (is_null($user = session('user'))) {
+            return false;
+        }
+
+        return $user['socialNetwork'] == $socialNetwork;
+    }
+
     public function login($socialNetwork)
     {
-       return $this->getDriver($socialNetwork)->redirect();
+        return $this->getDriver($socialNetwork)->redirect();
     }
 
-    public function afterRedirect()
+    public function socialNetworkCallback($socialNetwork)
     {
-        $user = session('user');
+        $this->socialNetworkLogin($socialNetwork);
 
-        $regBirth = ["registration"=> Input::get('registration') , "birthdate" => Input::get('birthdate')];
-
-        $this->socialUserService->addBirthdateRegistration($user, $regBirth);
-
-        return redirect()->intended();
-    }
-
-
-       public function socialNetworkCallback($socialNetwork)
-    {
-        $socialUser = $this->getDriver($socialNetwork)->user();
-
-        $user = $this->socialUserService->find($socialNetwork, $socialUser);
-
-        session(['user' => $user]);
-
-        return view('partials.subscribe-form-register-and-birthdate');
+        return view('2017.partials.subscribe-form-register-and-birthdate');
     }
 
     public function getDriver($driver)
     {
         return Socialite::driver($driver);
     }
+
+    /**
+     * @param $socialNetwork
+     */
+    private function socialNetworkLogin($socialNetwork)
+    {
+        if (!$this->isSocialNetworkIsLoggedIn($socialNetwork)) {
+            $socialNetworkUser = $this->getDriver($socialNetwork)->user();
+
+            $socialUser = $this->socialUserService->findOrCreate($socialNetwork, $socialNetworkUser);
+
+            $this->storeUserInSession($socialNetwork, $socialUser, $socialNetworkUser);
+        }
+    }
+
+    /**
+     * @param $socialNetwork
+     * @param $socialUser
+     * @param $socialNetworkUser
+     */
+    private function storeUserInSession($socialNetwork, $socialUser, $socialNetworkUser)
+    {
+        session(
+            [
+                'user' => collect([
+                                      'socialUser'        => $socialUser,
+                                      'socialNetwork'     => $socialNetwork,
+                                      'socialNetworkUser' => $socialNetworkUser,
+                                  ])
+            ]
+        );
+    }
+
 }

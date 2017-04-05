@@ -20,9 +20,6 @@ class DatabaseSeeder extends Seeder
         // Be careful!
 	    $this->call(SchoolsSeeder::class);
 
-        // Social Network
-        $this->call(SocialNetworkSeeder::class);
-
         Model::reguard();
     }
 }

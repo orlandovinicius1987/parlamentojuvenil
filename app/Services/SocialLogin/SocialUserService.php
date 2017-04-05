@@ -1,16 +1,14 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: ffeder
- * Date: 12/12/2016
- * Time: 16:43.
- */
 
 namespace App\Services\SocialLogin;
 
-use App\Repositories\SocialUserRepository;
-use App\Repositories\UsersRepository;
+use Auth;
+use App\User;
 use App\SocialNetwork;
+use League\Flysystem\Exception;
+use Illuminate\Support\Facades\Hash;
+use App\Repositories\UsersRepository;
+use App\Repositories\SocialUserRepository;
 
 class SocialUserService
 {
@@ -24,31 +22,33 @@ class SocialUserService
         $this->usersRepository = $usersRepository;
     }
 
-    //public function find($socialNetwork, $socialUser, $regBirth)
-
-    public function find($socialNetwork, $socialUser)
+    public function findOrCreate($socialNetwork, $socialUserPlatform)
     {
+        $email = $this->getEmail($socialUserPlatform, $socialNetwork);
 
-        $email = $this->getEmail($socialUser, $socialNetwork);   //ok
-
-    //  $user = $this->findOrCreateUser($socialUser, $email, $regBirth);
-
-        $user = $this->findOrCreateUser($socialUser, $email);
+        session(['email' => $email]);
 
         $socialNetwork = $this->getSocialNetwork($socialNetwork);
 
-        $this->findOrCreateUserSocialNetwork($socialNetwork, $socialUser, $user);
+        $socialUser = $this->findOrCreateSocialUser($socialNetwork, $socialUserPlatform);
 
-        $this->login($user);
-
-        return $user;
+        return $socialUser;
     }
 
-    public function addBirthdateRegistration($user, $regBirth)
+    /**
+     * @param $email
+     */
+    private function findOrCreateUserByEmail($email)
     {
-        $this->usersRepository->addBirthdateRegistration($user, $regBirth);
-    }
+        if (! is_null($user = User::where('email', $email)->first())) {
+            return $user;
+        }
 
+        return User::create([
+            'email' => $email,
+            'password' => Hash::make(str_random(128)),
+        ]);
+    }
 
     /**
      * @param $socialUser
@@ -60,9 +60,9 @@ class SocialUserService
         return auth()->login($user);
     }
 
-    private function getEmail($user, $socialNetwork)
+    private function getEmail($socialUserPlatform, $socialNetwork)
     {
-        return $user->getEmail() ?: sprintf('%s@%s.legislaqui.rj.gov.br', $user->getId(), $socialNetwork);
+        return $socialUserPlatform->getEmail() ?: sprintf('%s@%s.legislaqui.rj.gov.br', $socialUserPlatform->getId(), $socialNetwork);
     }
 
     public function findOrCreateUser($socialUser, $email)
@@ -75,34 +75,62 @@ class SocialUserService
         return $user;
     }
 
-    /*
-    public function findOrCreateUser($socialUser, $email, $regBirth)
-    {
-         if (!$user = $this->findByBirthdateAndRegistration($regBirth)) {
-
-              if (!$user = $this->socialUserRepository->findBySocialNetworkId($socialUser->id) ){
-                   $user = $this->socialUserRepository->createUser($email, $socialUser, $regBirth);
-                   return $user;
-              }
-        }
-        return $user;
-    } */
-
     public function getSocialNetwork($socialNetwork)
     {
-        $socialNetwork = SocialNetwork::where('name', $socialNetwork)->first();
-        return $socialNetwork;
-    }
-
-    public function findOrCreateUserSocialNetwork($socialNetwork, $socialUser, $user)
-    {
-        if (!$userSocialNetwork = $user->socialNetworks()->where('social_network_id', $socialNetwork->id)->first()) {
-             $user->socialNetworks()->save($socialNetwork, ['social_network_user_id' => $socialUser->getId(), 'data' => json_encode($socialUser)]);
+        if (is_null($model = SocialNetwork::where('name', $socialNetwork)->first())) {
+            throw new Exception('Social network not found: '.$socialNetwork);
         }
+
+        return $model;
     }
 
-    public function findByBirthdateAndRegistration ($regBirth) {
-        return $this->usersRepository->findByBirthdateAndRegistration($regBirth['birthdate'],$regBirth['registration']);
+    public function findOrCreateSocialUser($socialNetwork, $socialUserPlatform)
+    {
+         if(! $socialUser = $this->socialUserRepository->findBySocialNetworkUserId($socialUserPlatform->id))
+         {
+              return $this->socialUserRepository->createSocialUser($socialNetwork, $socialUserPlatform);
+         }
+
+        return $socialUser;
+    }
+
+    public function loginSocialUser($studentId, $socialUserId, $email, $socialUserPlatform)
+    {
+        $socialUser = $this->findOrCreateUserByStudent(
+            $studentId,
+            $socialUserId,
+            $email,
+            $socialUserPlatform
+        );
+
+        $socialUser->user->socialUser = $socialUser;
+
+        Auth::login($socialUser->user);
+    }
+
+    public function findOrCreateUserByStudent($studentId, $socialUserId, $email, $socialUserPlatform)
+    {
+        $socialUser = $this->socialUserRepository->findBySocialNetworkUserId($socialUserPlatform->getId());
+
+        if (is_null($socialUser->student)) {
+            $socialUser->student_id = $studentId;
+        }
+
+        if (is_null($socialUser->user)) {
+            $socialUserByStudent = $this->socialUserRepository->findOtherSocialUsersByStudentId($studentId, $socialUserPlatform->getId());
+
+            if ($socialUserByStudent->count() == 0) {
+                $user = $this->findOrCreateUserByEmail($email);
+            } else {
+                $user = $socialUserByStudent->user;
+            }
+
+            $socialUser->user_id = $user->id;
+        }
+
+        $socialUser->save();
+
+        return $socialUser;
     }
 
 }

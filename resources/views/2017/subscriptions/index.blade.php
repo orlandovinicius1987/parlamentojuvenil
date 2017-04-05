@@ -1,5 +1,11 @@
 @extends('2017.layouts.layout')
 
 @section('contents')
-    <input type="text" name="registration">
+    <div id="subscribe">
+        @include('partials.subscribe-form-fields')
+    </div>
+@stop
+
+@section('page-javascripts')
+    @include('scripts.vueSubscribe')
 @stop
