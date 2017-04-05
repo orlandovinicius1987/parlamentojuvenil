@@ -2,6 +2,7 @@
 
 namespace App\Services\SocialLogin;
 
+use Auth;
 use App\User;
 use App\SocialNetwork;
 use League\Flysystem\Exception;
@@ -93,6 +94,20 @@ class SocialUserService
         return $socialUser;
     }
 
+    public function loginSocialUser($studentId, $socialUserId, $email, $socialUserPlatform)
+    {
+        $socialUser = $this->findOrCreateUserByStudent(
+            $studentId,
+            $socialUserId,
+            $email,
+            $socialUserPlatform
+        );
+
+        $socialUser->user->socialUser = $socialUser;
+
+        Auth::login($socialUser->user);
+    }
+
     public function findOrCreateUserByStudent($studentId, $socialUserId, $email, $socialUserPlatform)
     {
         $socialUser = $this->socialUserRepository->findBySocialNetworkUserId($socialUserPlatform->getId());
@@ -114,8 +129,6 @@ class SocialUserService
         }
 
         $socialUser->save();
-
-        dd($socialUser);
 
         return $socialUser;
     }

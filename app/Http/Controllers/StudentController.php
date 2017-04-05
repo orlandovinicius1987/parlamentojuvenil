@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Data\Entities\Seeduc;
 use App\Data\Entities\Student;
-use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\Input;
 use App\Services\SocialLogin\SocialUserService;
+use League\Flysystem\Exception;
 
 class StudentController extends Controller
 {
@@ -27,6 +27,22 @@ class StudentController extends Controller
         return Student::where('registration', $data['registration'])->where('birthdate', $data['birthdate'])->first();
     }
 
+    /**
+     * @return mixed
+     */
+    private function getEmailFromSession()
+    {
+        return session('email');
+    }
+
+    /**
+     * @return mixed
+     */
+    private function getSocialNetworkUserFromSession()
+    {
+        return session('user')['socialNetworkUser'];
+    }
+
     public function login()
     {
         $userData = ["registration"=> Input::get('registration') , "birthdate" => Input::get('birthdate')];
@@ -35,11 +51,11 @@ class StudentController extends Controller
             return redirect()->back()->withErrors('Inscrição não encontrada.');
         }
 
-        $socialUser = $this->socialUserService->findOrCreateUserByStudent(
+        $this->socialUserService->loginSocialUser(
             $student->id,
-            session('socialUserId'),
-            session('email'),
-            session('socialUserPlatform')
+            $this->getSocialNetworkUserFromSession()->getId(),
+            $this->getEmailFromSession(),
+            $this->getSocialNetworkUserFromSession()
         );
 
         return redirect()->intended();
