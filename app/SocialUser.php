@@ -4,7 +4,6 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-
 class SocialUser extends Model
 {
     protected $dates = ['deleted_at'];
@@ -16,7 +15,6 @@ class SocialUser extends Model
         return self::where('social_network_user_id', $id)->first();
     }
 
-    // Socialite
     public function user()
     {
         return $this->belongsTo('App\User');
@@ -27,9 +25,8 @@ class SocialUser extends Model
         return  $this->belongsTo('App\SocialNetwork');
     }
 
-
     public function student()
     {
-        return $this->belongsTo('App\Students');
+        return $this->belongsTo('App\Data\Entities\Student');
     }
 }

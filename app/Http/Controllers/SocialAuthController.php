@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\Request;
 use App\Services\SocialLogin\SocialUserService;
-use Illuminate\Support\Facades\Input;
 use Socialite;
 use DB;
 
@@ -17,33 +15,23 @@ class SocialAuthController extends Controller
         $this->socialUserService = $socialUserService;
     }
 
+    private function isSocialNetworkIsLoggedIn($socialNetwork)
+    {
+        if (is_null($user = session('user'))) {
+            return false;
+        }
+
+        return $user['socialNetwork'] == $socialNetwork;
+    }
+
     public function login($socialNetwork)
     {
         return $this->getDriver($socialNetwork)->redirect();
     }
 
-    public function afterRedirect()
+    public function socialNetworkCallback($socialNetwork)
     {
-        $socialUserId = session('socialUserId');
-        $email = session('email');
-        $socialUserPlatform = session('socialUserPlatform');
-
-        $regBirth = ["registration"=> Input::get('registration') , "birthdate" => Input::get('birthdate')];
-
-        $student = $this->findStudentByRegBirthSEDUC($regBirth);   // MOCK FUNCTION
-
-        $this->socialUserService->findOrCreateUserByStudent($student->id, $socialUserId, $email, $socialUserPlatform);
-
-        return redirect()->intended();
-    }
-
-       public function socialNetworkCallback($socialNetwork)
-    {
-        $socialUserPlatform = $this->getDriver($socialNetwork)->user();
-
-        $socialUser = $this->socialUserService->findOrCreate($socialNetwork, $socialUserPlatform);
-
-        session(['socialUserId' => $socialUser->id, 'socialUserPlatform' => $socialUserPlatform]);
+        $this->socialNetworkLogin($socialNetwork);
 
         return view('2017.partials.subscribe-form-register-and-birthdate');
     }
@@ -53,18 +41,36 @@ class SocialAuthController extends Controller
         return Socialite::driver($driver);
     }
 
-    // MOCK FUNCTION
-    public function findStudentByRegBirthSEDUC($regBirth)
+    /**
+     * @param $socialNetwork
+     */
+    private function socialNetworkLogin($socialNetwork)
     {
-        if(true)   // SIMULANDO UM REGISTRO ENCONTRADO
-        {
-          return $socialNetwork = DB::table('students')
-            ->where(['registration' => '201630200590637', 'birthdate' => '23/08/2000'])
-            ->first();
+        if (!$this->isSocialNetworkIsLoggedIn($socialNetwork)) {
+            $socialNetworkUser = $this->getDriver($socialNetwork)->user();
+
+            $socialUser = $this->socialUserService->findOrCreate($socialNetwork, $socialNetworkUser);
+
+            $this->storeUserInSession($socialNetwork, $socialUser, $socialNetworkUser);
         }
+    }
 
-        return dd('Você é estudante?');
-
+    /**
+     * @param $socialNetwork
+     * @param $socialUser
+     * @param $socialNetworkUser
+     */
+    private function storeUserInSession($socialNetwork, $socialUser, $socialNetworkUser)
+    {
+        session(
+            [
+                'user' => collect([
+                                      'socialUser'        => $socialUser,
+                                      'socialNetwork'     => $socialNetwork,
+                                      'socialNetworkUser' => $socialNetworkUser,
+                                  ])
+            ]
+        );
     }
 
 }

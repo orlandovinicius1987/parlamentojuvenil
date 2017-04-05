@@ -17,7 +17,7 @@
 
     @include('partials.errors')
 
-    <form id="login" method="POST" action="/afterRedirectForm">
+    <form id="login" method="POST" action="{{ route('auth.student.login') }}">
         {!! csrf_field() !!}
 
         <input

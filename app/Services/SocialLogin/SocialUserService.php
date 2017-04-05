@@ -1,17 +1,13 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: ffeder
- * Date: 12/12/2016
- * Time: 16:43.
- */
 
 namespace App\Services\SocialLogin;
 
-use App\Repositories\SocialUserRepository;
-use App\Repositories\UsersRepository;
+use App\User;
 use App\SocialNetwork;
 use League\Flysystem\Exception;
+use Illuminate\Support\Facades\Hash;
+use App\Repositories\UsersRepository;
+use App\Repositories\SocialUserRepository;
 
 class SocialUserService
 {
@@ -28,6 +24,7 @@ class SocialUserService
     public function findOrCreate($socialNetwork, $socialUserPlatform)
     {
         $email = $this->getEmail($socialUserPlatform, $socialNetwork);
+
         session(['email' => $email]);
 
         $socialNetwork = $this->getSocialNetwork($socialNetwork);
@@ -35,7 +32,21 @@ class SocialUserService
         $socialUser = $this->findOrCreateSocialUser($socialNetwork, $socialUserPlatform);
 
         return $socialUser;
+    }
 
+    /**
+     * @param $email
+     */
+    private function findOrCreateUserByEmail($email)
+    {
+        if (! is_null($user = User::where('email', $email)->first())) {
+            return $user;
+        }
+
+        return User::create([
+            'email' => $email,
+            'password' => Hash::make(str_random(128)),
+        ]);
     }
 
     /**
@@ -84,19 +95,29 @@ class SocialUserService
 
     public function findOrCreateUserByStudent($studentId, $socialUserId, $email, $socialUserPlatform)
     {
-        if($this->socialUserRepository->findBySocialNetworkUserId($socialUserPlatform->user_id))
-        {
-          // não finalizado    Se o usuário logar com a mesma rede social não é necessário usar nenhum dos métodos abaixo
-        }
-        elseif ($userId = $this->socialUserRepository->findByStudentId($studentId))
-        {
-           $this->socialUserRepository->updateSocialUser($userId->id, $studentId, $socialUserId);
-        }
-        else
-        {
-           $this->socialUserRepository->updateSocialUserAndCreateUser($studentId, $socialUserId, $email, $socialUserPlatform);
+        $socialUser = $this->socialUserRepository->findBySocialNetworkUserId($socialUserPlatform->getId());
+
+        if (is_null($socialUser->student)) {
+            $socialUser->student_id = $studentId;
         }
 
+        if (is_null($socialUser->user)) {
+            $socialUserByStudent = $this->socialUserRepository->findOtherSocialUsersByStudentId($studentId, $socialUserPlatform->getId());
+
+            if ($socialUserByStudent->count() == 0) {
+                $user = $this->findOrCreateUserByEmail($email);
+            } else {
+                $user = $socialUserByStudent->user;
+            }
+
+            $socialUser->user_id = $user->id;
+        }
+
+        $socialUser->save();
+
+        dd($socialUser);
+
+        return $socialUser;
     }
 
 }

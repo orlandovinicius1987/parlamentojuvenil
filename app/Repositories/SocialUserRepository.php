@@ -34,6 +34,14 @@ class SocialUserRepository
         return SocialUser::where('social_network_user_id', $id)->first();
     }
 
+    public function findOtherSocialUsersByStudentId($studentId, $social_network_user_id)
+    {
+        return SocialUser::where('student_id', $studentId)
+                ->where('social_network_user_id', '!=', $social_network_user_id)
+                ->whereNotNull('user_id')
+                ->get();
+    }
+
     public function findByStudentId($id)
     {
         return SocialUser::where('student_id',$id)->first();
