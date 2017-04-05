@@ -1,16 +1,9 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: falbernaz
- * Date: 27/06/2016
- * Time: 10:49.
- */
 
 namespace App\Repositories;
 
-use App\SocialUser;
 use App\User;
-use Ramsey\Uuid\Uuid;
+use App\SocialUser;
 
 class SocialUserRepository
 {
@@ -92,5 +85,4 @@ class SocialUserRepository
         $userModel->save();
         return $userModel;
     }
-
 }

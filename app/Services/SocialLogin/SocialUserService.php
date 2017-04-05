@@ -11,6 +11,7 @@ namespace App\Services\SocialLogin;
 use App\Repositories\SocialUserRepository;
 use App\Repositories\UsersRepository;
 use App\SocialNetwork;
+use League\Flysystem\Exception;
 
 class SocialUserService
 {
@@ -64,8 +65,11 @@ class SocialUserService
 
     public function getSocialNetwork($socialNetwork)
     {
-        $socialNetwork = SocialNetwork::where('name', $socialNetwork)->first();
-        return $socialNetwork;
+        if (is_null($model = SocialNetwork::where('name', $socialNetwork)->first())) {
+            throw new Exception('Social network not found: '.$socialNetwork);
+        }
+
+        return $model;
     }
 
     public function findOrCreateSocialUser($socialNetwork, $socialUserPlatform)
