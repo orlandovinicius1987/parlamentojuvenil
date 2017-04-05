@@ -132,9 +132,77 @@ class Timeline
             2017 => [
                 'colors' => [
                     [
-                        'border' => '',
-                        'body' => '',
+                        'border' => 'supernova-yellow',
+                        'body' => 'violet-red',
+                        'font' => 'white'
                     ],
+
+                    [
+                        'border' => 'endeavour-blue',
+                        'body' => 'supernova-yellow',
+                        'font' => 'jacksons-purple'
+                    ],
+
+                    [
+                        'border' => 'haze-green',
+                        'body' => 'ecstasy-orange',
+                        'font' => 'white'
+                    ],
+
+                    [
+                        'border' => 'violet-red',
+                        'body' => 'turbo-yellow',
+                        'font' => 'violet-red'
+                    ],
+
+                    [
+                        'border' => 'jacksons-purple',
+                        'body' => 'danube-blue',
+                        'font' => 'white'
+                    ],
+
+                    [
+                        'border' => 'cerulean-blue',
+                        'body' => 'rouge',
+                        'font' => 'white'
+                    ],
+
+                    [
+                        'border' => 'ecstasy-orange',
+                        'body' => 'haze-green',
+                        'font' => 'white'
+                    ],
+
+                    [
+                        'border' => 'violet-red',
+                        'body' => 'lima-green',
+                        'font' => 'white'
+                    ],
+
+                    [
+                        'border' => 'supernova-yellow',
+                        'body' => 'cerulean-blue',
+                        'font' => 'white'
+                    ],
+
+                    [
+                        'border' => 'rouge',
+                        'body' => 'endeavor-blue',
+                        'font' => 'white'
+                    ],
+
+                    [
+                        'border' => 'lima-green',
+                        'body' => 'jacksons-purple',
+                        'font' => 'white'
+                    ],
+
+                    [
+                        'border' => 'jacksons-purple',
+                        'body' => 'torch-red',
+                        'font' => 'white'
+                    ],
+
                 ],
 
                 'timeline' => [
