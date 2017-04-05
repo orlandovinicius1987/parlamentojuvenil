@@ -178,10 +178,14 @@ h1,h2,h3,h4,h5,h6 {
 
 .site-banner {
 	background-color: #292C95;
-	height: 70px;
+	height: 130px !important;
 }
 .site-logo {
 	padding-top: 35px;
+}
+
+.navbar-brand {
+	padding: 15px 0px  15px 0px;
 }
 
 /* Main Menu Section */
@@ -269,6 +273,15 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 
+img.avatar.img-responsive {
+	margin-top: 15px;
+}
+
+p.avatar-name {
+	color: #fff;
+	font-size: 12px;
+	font-weight: 700;
+}
 
 
 
@@ -1343,5 +1356,8 @@ footer a {
 		margin: 30px auto;
 	}
 }
+
+
+
 
 

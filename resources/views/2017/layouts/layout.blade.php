@@ -56,21 +56,32 @@
 
 <section id="site-banner" class="site-banner text-center">
     <div class="container">
-        <div class="col-md-3">
-            <a class="navbar-brand page-scroll" href="#page-top"><img src="/templates/2017/images/logo-parlamento2.png"></a>
-        </div>
-        <div class="col-md-6">
 
-        </div>
-        <div class="col-md-3 institucional">
-            <div class="row">
-                <div class="col-md-6">
-                    <img src="/templates/2017/images/logo-alerj.png" class="logo-alerj img-responsive">
-                </div>
-                <div class="col-md-6">
-                    <img src="/templates/2017/images/logo-governo.png" class="logo-governo img-responsive">
-                </div>
+        <div class="row">
+            <div class="col-md-5">
+                <a class="navbar-brand page-scroll" href="#page-top"><img class="logo-parlamento img-responsive" src="/templates/2017/images/logo-parlamento.png"></a>
             </div>
+            <div class="col-md-5">
+
+            </div>
+            <div class="col-md-1 ">
+{{--                <div class="row">
+                    <div class="col-md-6">
+                        <img src="/templates/2017/images/logo-alerj.png" class="logo-alerj img-responsive">
+                    </div>
+                    <div class="col-md-6">
+                        <img src="/templates/2017/images/logo-governo.png" class="logo-governo img-responsive">
+                    </div>
+                </div>--}}
+
+                <img class="avatar img-responsive"  src="/templates/2017/images/avatar.jpg" alt="">
+                <p class="avatar-name" > Olá, Alessandra</p>
+            </div>
+            <div class="col-md-1 ">
+
+            </div>
+
+
         </div>
     </div>
 </section>
@@ -120,7 +131,7 @@
 
 
 <footer>
-    <div id="footer-top" class="footer-top">
+    {{--<div id="footer-top" class="footer-top">
         <div class="container">
             <div class="row">
                 <div id="tweet" class="tweet text-left">
@@ -167,7 +178,7 @@
             <!-- /#copyright -->
         </div>
     </div>
-    <!-- /#footer-bottom -->
+    <!-- /#footer-bottom -->--}}
 </footer>
 
 
