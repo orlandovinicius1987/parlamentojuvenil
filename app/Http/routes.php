@@ -23,7 +23,9 @@ Route::group(['prefix' => '/auth'], function ()
     Route::group(['prefix' => 'social'], function ()
     {
         Route::get('/login/{socialNetwork}', ['as' => 'auth.social.redirect', 'uses' => 'SocialAuthController@login']);
-        Route::get('/auth/{socialNetwork}/callback', 'SocialAuthController@socialNetworkCallback');
+
+        Route::get('/login/{socialNetwork}/callback', ['as' => 'auth.social.callback', 'uses' => 'SocialAuthController@socialNetworkCallback']);
+
         Route::post('/afterRedirectForm', 'SocialAuthController@afterRedirect');
     });
 });
