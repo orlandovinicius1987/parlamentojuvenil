@@ -22,7 +22,7 @@
         <!-- Masonry CSS -->
         <link href="/templates/2017/css/masonry.css" rel="stylesheet">
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.2.6/vue.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.2.6/vue.js"></script>
 
         <!-- Temporary navbar container fix until Bootstrap 4 is patched -->
         <style>
@@ -549,5 +549,7 @@
                 isFitWidth: true
             });
         </script>
+
+        @yield('page-javascripts')
     </body>
 </html>

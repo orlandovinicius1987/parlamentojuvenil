@@ -7,39 +7,39 @@
     }
 ?>
 
-  <div id="subscription">
-     {{-- Email --}}
-     <div class="row control-group"  transition="expand">
-            <div class="form-group col-xs-12 floating-label-form-group controls">
-                <label for="email" class="sr-only control-label">E-mail</label>
-                <input
-                        v-model="email"
-                        type="text"
-                        class="form-control input-lg"
-                        value="{{ Input::old('email') ?: (! $isSubscribeForm ? $subscription->email : '') }}"
-                        placeholder="E-mail"
-                        name="email"
-                        id="email"
-                        required
-                        data-validation-required-message="Por favor digite o seu email."
-                >
-                <span class="help-block text-danger"></span>
-            </div>
-      </div>
+<div id="subscription">
+    {{-- Email --}}
+    <div class="row control-group"  transition="expand">
+        <div class="form-group col-xs-12 floating-label-form-group controls">
+            <label for="email" class="sr-only control-label">E-mail</label>
+            <input
+                    v-model="email"
+                    type="text"
+                    class="form-control input-lg"
+                    value="{{ Input::old('email') ?: (! $isSubscribeForm ? $subscription->email : '') }}"
+                    placeholder="E-mail"
+                    name="email"
+                    id="email"
+                    required
+                    data-validation-required-message="Por favor digite o seu email."
+            >
+            <span class="help-block text-danger"></span>
+        </div>
+    </div>
 
     {{--Nome--}}
     <div class="row control-group">
         <div class="form-group col-xs-12 floating-label-form-group controls">
             <label for="name" class="sr-only control-label">Nome Completo</label>
             <input
-                v-model="name"
-                type="text"
-                class="form-control input-lg"
-                value="{{ Input::old('name') ?: (! $isSubscribeForm ? $subscription->name : '') }}"
-                placeholder="Nome Completo"
-                name="name"
-                id="name"
-                required data-validation-required-message="Por favor digite seu nome."
+                    v-model="name"
+                    type="text"
+                    class="form-control input-lg"
+                    value="{{ Input::old('name') ?: (! $isSubscribeForm ? $subscription->name : '') }}"
+                    placeholder="Nome Completo"
+                    name="name"
+                    id="name"
+                    required data-validation-required-message="Por favor digite seu nome."
             >
             <span class="help-block text-danger"></span>
         </div>
@@ -50,15 +50,15 @@
         <div class="form-group col-xs-12 floating-label-form-group controls">
             <label for="social_name" class="sr-only control-label">Apelido</label>
             <input
-                v-model="social_name"
-                type="text"
-                class="form-control input-lg"
-                value="{{ Input::old('social_name') ?: (! $isSubscribeForm ? $subscription->social_name : '') }}"
-                placeholder="Apelido"
-                name="social_name"
-                id="social_name"
-                required
-                data-validation-required-message="Por favor digite seu nome social."
+                    v-model="social_name"
+                    type="text"
+                    class="form-control input-lg"
+                    value="{{ Input::old('social_name') ?: (! $isSubscribeForm ? $subscription->social_name : '') }}"
+                    placeholder="Apelido"
+                    name="social_name"
+                    id="social_name"
+                    required
+                    data-validation-required-message="Por favor digite seu nome social."
             >
             <span class="help-block text-danger"></span>
         </div>
@@ -70,12 +70,12 @@
             <div class="form-group col-xs-12 floating-label-form-group controls">
                 <label for="city" class="sr-only control-label">Município</label>
                 <select v-model="city" class="form-control input-lg" placeholder="Município" name="city" id="city" required data-validation-required-message="Por favor preencha o município.">
-                {{--<select id="city-edit" v-model="city" class="form-control input-lg" placeholder="Município" name="city" id="city" required data-validation-required-message="Por favor preencha o município.">--}}
+                    {{--<select id="city-edit" v-model="city" class="form-control input-lg" placeholder="Município" name="city" id="city" required data-validation-required-message="Por favor preencha o município.">--}}
                     <option value="" selected>CIDADE AONDE VOCÊ ESTUDA</option>
                     @foreach ($cities as $key => $city)
                         <option
-                            value="{{ $city->name }}"
-                            {{ (Input::old('city') == $city->name ?: (! $isSubscribeForm ? $subscription->city == $city->name : false) ? 'selected' : '') }}
+                                value="{{ $city->name }}"
+                                {{ (Input::old('city') == $city->name ?: (! $isSubscribeForm ? $subscription->city == $city->name : false) ? 'selected' : '') }}
                         >
                             {{ $city->name }}
                         </option>
@@ -92,22 +92,22 @@
                 <select id="school-editxxx" v-model="school" value="" options="schools" class="form-control input-lg" placeholder="Escola" name="school" id="school">
                     <option value="">SELECIONE SUA ESCOLA</option>
                     <option
-                        v-for="item in schools"
-                        v-bind:value="item.name"
-                        v-bind:selected="school == item.name"
+                            v-for="item in schools"
+                            v-bind:value="item.name"
+                            v-bind:selected="school == item.name"
                     >
                         @{{ item.name }}
                     </option>
 
                     {{--@if (isset($schools))--}}
-                        {{--@foreach ($schools as $key => $school)--}}
-                            {{--<option--}}
-                                {{--value="{{ $school->name }}"--}}
-                                {{--{{ (Input::old('city') == $school->name ?: ! $isSubscribeForm ? $subscription->school == $school->name : false) ? 'selected' : '' }}--}}
-                            {{-->--}}
-                                {{--{{ $school->name }}--}}
-                            {{--</option>--}}
-                        {{--@endforeach--}}
+                    {{--@foreach ($schools as $key => $school)--}}
+                    {{--<option--}}
+                    {{--value="{{ $school->name }}"--}}
+                    {{--{{ (Input::old('city') == $school->name ?: ! $isSubscribeForm ? $subscription->school == $school->name : false) ? 'selected' : '' }}--}}
+                    {{-->--}}
+                    {{--{{ $school->name }}--}}
+                    {{--</option>--}}
+                    {{--@endforeach--}}
                     {{--@endif--}}
                 </select>
                 <span class="help-block text-danger"></span>
@@ -120,15 +120,15 @@
         <div class="form-group col-xs-6 floating-label-form-group controls">
             <label for="registration" class="sr-only control-label">Matrícula</label>
             <input
-                v-model="registration"
-                type="text"
-                class="form-control input-lg"
-                value="{{ Input::old('registration') ?: (! $isSubscribeForm ? $subscription->registration : '') }}"
-                placeholder="Matrícula"
-                name="registration"
-                id="registration"
-                required
-                data-validation-required-message="Por favor digite sua matrícula."
+                    v-model="registration"
+                    type="text"
+                    class="form-control input-lg"
+                    value="{{ Input::old('registration') ?: (! $isSubscribeForm ? $subscription->registration : '') }}"
+                    placeholder="Matrícula"
+                    name="registration"
+                    id="registration"
+                    required
+                    data-validation-required-message="Por favor digite sua matrícula."
             >
             <span class="help-block text-danger"></span>
         </div>
@@ -140,15 +140,15 @@
                 <option value="" selected>ESCOLHA A SÉRIE</option>
 
                 <option
-                    value="1o ano do ensino médio"
-                    {{ (Input::old('grade') == '1o ano do ensino médio' ?: (! $isSubscribeForm ? $subscription->grade == '1o ano do ensino médio' : false) ? 'selected' : '') }}
+                        value="1o ano do ensino médio"
+                        {{ (Input::old('grade') == '1o ano do ensino médio' ?: (! $isSubscribeForm ? $subscription->grade == '1o ano do ensino médio' : false) ? 'selected' : '') }}
                 >
                     1o ano do ensino médio
                 </option>
 
                 <option
-                    value="2o ano do ensino médio"
-                    {{ (Input::old('grade') == '2o ano do ensino médio' ?: (! $isSubscribeForm ? $subscription->grade == '2o ano do ensino médio' : false) ? 'selected' : '') }}
+                        value="2o ano do ensino médio"
+                        {{ (Input::old('grade') == '2o ano do ensino médio' ?: (! $isSubscribeForm ? $subscription->grade == '2o ano do ensino médio' : false) ? 'selected' : '') }}
                 >
                     2o ano do ensino médio
                 </option>
@@ -165,14 +165,14 @@
                 <option value="" selected>SEXO</option>
 
                 <option
-                    value="F"
-                    {{ (Input::old('gender') == 'F' ?: (! $isSubscribeForm ? $subscription->gender == 'F' : false) ? 'selected' : '') }}
+                        value="F"
+                        {{ (Input::old('gender') == 'F' ?: (! $isSubscribeForm ? $subscription->gender == 'F' : false) ? 'selected' : '') }}
                 >
                     Feminino
                 </option>
 
                 <option
-                    value="M"
+                        value="M"
                         {{ (Input::old('gender') == 'M' ?: (! $isSubscribeForm ? $subscription->gender == 'M' : false) ? 'selected' : '') }}
                 >
                     Masculino
@@ -186,15 +186,15 @@
                 <option value="" selected>IDENTIDADE DE GÊNERO</option>
 
                 <option
-                    value="F"
-                    {{ (Input::old('gender2') == 'F' ?: (! $isSubscribeForm ? $subscription->gender2 == 'F' : false) ? 'selected' : '') }}
+                        value="F"
+                        {{ (Input::old('gender2') == 'F' ?: (! $isSubscribeForm ? $subscription->gender2 == 'F' : false) ? 'selected' : '') }}
                 >
                     Feminino
                 </option>
 
                 <option
-                    value="M"
-                    {{ (Input::old('gender2') == 'M' ?: (! $isSubscribeForm ? $subscription->gender2 == 'M' : false) ? 'selected' : '') }}
+                        value="M"
+                        {{ (Input::old('gender2') == 'M' ?: (! $isSubscribeForm ? $subscription->gender2 == 'M' : false) ? 'selected' : '') }}
                 >
                     Masculino
                 </option>
@@ -208,16 +208,16 @@
         <div class="form-group col-xs-6 floating-label-form-group controls">
             <label for="birthdate" class="sr-only control-label">Data de nascimento</label>
             <input
-                v-model="birthdate"
-                type="text"
-                class="form-control input-lg"
-                value="{{ Input::old('birthdate') ?: (! $isSubscribeForm ? $subscription->birthdate : '') }}"
-                {{--onkeydown="return false;"--}}
-                placeholder="Data de nascimento"
-                name="birthdate"
-                id="birthdate"
-                required
-                data-validation-required-message="Por favor digite sua data de nascimento."
+                    v-model="birthdate"
+                    type="text"
+                    class="form-control input-lg"
+                    value="{{ Input::old('birthdate') ?: (! $isSubscribeForm ? $subscription->birthdate : '') }}"
+                    {{--onkeydown="return false;"--}}
+                    placeholder="Data de nascimento"
+                    name="birthdate"
+                    id="birthdate"
+                    required
+                    data-validation-required-message="Por favor digite sua data de nascimento."
             >
         </div>
 
@@ -244,29 +244,29 @@
         <div class="form-group col-xs-6 floating-label-form-group controls">
             <label for="id_number" class="sr-only control-label">Identidade</label>
             <input
-                v-model="id_number"
-                type="text"
-                class="form-control input-lg"
-                value="{{ Input::old('id_number') ?: (! $isSubscribeForm ? $subscription->id_number : '') }}"
-                placeholder="Identidade"
-                name="id_number"
-                id="id_number"
-                required
-                data-validation-required-message="Por favor digite sua identidade."
+                    v-model="id_number"
+                    type="text"
+                    class="form-control input-lg"
+                    value="{{ Input::old('id_number') ?: (! $isSubscribeForm ? $subscription->id_number : '') }}"
+                    placeholder="Identidade"
+                    name="id_number"
+                    id="id_number"
+                    required
+                    data-validation-required-message="Por favor digite sua identidade."
             >
             <span class="help-block text-danger"></span>
         </div>
         <div class="form-group col-xs-6 floating-label-form-group controls">
             <label for="id_issuer" class="sr-only control-label">Órgão emissor</label>
             <input
-                v-model="id_issuer"
-                type="text"
-                class="form-control input-lg"
-                value="{{ Input::old('id_issuer') ?: (! $isSubscribeForm ? $subscription->id_issuer : '') }}"
-                placeholder="Órgão emissor"
-                name="id_issuer" id="id_issuer"
-                required
-                data-validation-required-message="Por favor digite o órgao emissor."
+                    v-model="id_issuer"
+                    type="text"
+                    class="form-control input-lg"
+                    value="{{ Input::old('id_issuer') ?: (! $isSubscribeForm ? $subscription->id_issuer : '') }}"
+                    placeholder="Órgão emissor"
+                    name="id_issuer" id="id_issuer"
+                    required
+                    data-validation-required-message="Por favor digite o órgao emissor."
             >
             <span class="help-block text-danger"></span>
         </div>
@@ -277,14 +277,14 @@
         <div class="form-group col-lg-6 floating-label-form-group controls">
             <label for="phone_home" class="sr-only control-label">Telefone Residencial</label>
             <input
-                v-model="phone_home"
-                type="tel"
-                class="form-control input-lg"
-                value="{{ Input::old('phone_home') ?: (! $isSubscribeForm ? $subscription->phone_home : '') }}"
-                placeholder="Telefone Residencial"
-                name="phone_home"
-                id="phone_home"
-                required data-validation-required-message="Por favor digite seu telefone."
+                    v-model="phone_home"
+                    type="tel"
+                    class="form-control input-lg"
+                    value="{{ Input::old('phone_home') ?: (! $isSubscribeForm ? $subscription->phone_home : '') }}"
+                    placeholder="Telefone Residencial"
+                    name="phone_home"
+                    id="phone_home"
+                    required data-validation-required-message="Por favor digite seu telefone."
             >
             <span class="help-block text-danger"></span>
         </div>
@@ -292,15 +292,15 @@
         <div class="form-group col-lg-6 floating-label-form-group controls">
             <label for="phone_cellular" class="sr-only control-label">Telefone Celular</label>
             <input
-                v-model="phone_cellular"
-                type="tel"
-                class="form-control input-lg"
-                value="{{ Input::old('phone_cellular') ?: (! $isSubscribeForm ? $subscription->phone_cellular : '') }}"
-                placeholder="Telefone Celular"
-                name="phone_cellular"
-                id="phone_cellular"
-                required
-                data-validation-required-message="Por favor digite seu telefone celular."
+                    v-model="phone_cellular"
+                    type="tel"
+                    class="form-control input-lg"
+                    value="{{ Input::old('phone_cellular') ?: (! $isSubscribeForm ? $subscription->phone_cellular : '') }}"
+                    placeholder="Telefone Celular"
+                    name="phone_cellular"
+                    id="phone_cellular"
+                    required
+                    data-validation-required-message="Por favor digite seu telefone celular."
             >
             <span class="help-block text-danger"></span>
         </div>
@@ -311,16 +311,16 @@
         <div class="form-group col-lg-12 floating-label-form-group controls">
             <label for="zip_code" class="sr-only control-label">CEP da residência</label>
             <input
-                v-model="zip_code"
-                v-on:keyup="checkZip"
-                type="tel"
-                value="{{ Input::old('zip_code') ?: (! $isSubscribeForm ? $subscription->zip_code : '') }}"
-                class="form-control input-lg"
-                placeholder="CEP da residência"
-                name="zip_code"
-                id="zip_code"
-                required
-                data-validation-required-message="Por favor digite seu CEP."
+                    v-model="zip_code"
+                    v-on:keyup="checkZip"
+                    type="tel"
+                    value="{{ Input::old('zip_code') ?: (! $isSubscribeForm ? $subscription->zip_code : '') }}"
+                    class="form-control input-lg"
+                    placeholder="CEP da residência"
+                    name="zip_code"
+                    id="zip_code"
+                    required
+                    data-validation-required-message="Por favor digite seu CEP."
             >
             <span class="help-block text-danger"></span>
         </div>
@@ -331,14 +331,14 @@
         <div class="form-group col-lg-12 floating-label-form-group controls">
             <label for="address" class="sr-only control-label">Endereço</label>
             <input
-                v-model="address"
-                type="tel"
-                class="form-control input-lg"
-                value="{{ Input::old('address') ?: (! $isSubscribeForm ? $subscription->address : '') }}"
-                placeholder="Endereço"
-                name="address"
-                id="address"
-                required data-validation-required-message="Por favor digite seu endereço."
+                    v-model="address"
+                    type="tel"
+                    class="form-control input-lg"
+                    value="{{ Input::old('address') ?: (! $isSubscribeForm ? $subscription->address : '') }}"
+                    placeholder="Endereço"
+                    name="address"
+                    id="address"
+                    required data-validation-required-message="Por favor digite seu endereço."
             >
             <span class="help-block text-danger"></span>
         </div>
@@ -349,14 +349,14 @@
         <div class="form-group col-lg-6 floating-label-form-group controls">
             <label for="address_complement" class="sr-only control-label">Complemento</label>
             <input
-                v-model="address_complement"
-                type="tel"
-                class="form-control input-lg"
-                value="{{ Input::old('address_complement') ?: (! $isSubscribeForm ? $subscription->address_complement : '') }}"
-                placeholder="Complemento"
-                name="address_complement"
-                id="address_complement"
-                data-validation-required-message="Por favor digite o complemento."
+                    v-model="address_complement"
+                    type="tel"
+                    class="form-control input-lg"
+                    value="{{ Input::old('address_complement') ?: (! $isSubscribeForm ? $subscription->address_complement : '') }}"
+                    placeholder="Complemento"
+                    name="address_complement"
+                    id="address_complement"
+                    data-validation-required-message="Por favor digite o complemento."
             >
             <span class="help-block text-danger"></span>
         </div>
@@ -364,15 +364,15 @@
         <div class="form-group col-lg-6 floating-label-form-group controls">
             <label for="address_neighborhood" class="sr-only control-label">Bairro</label>
             <input
-                v-model="address_neighborhood"
-                type="tel"
-                class="form-control input-lg"
-                value="{{ Input::old('address_neighborhood') ?: (! $isSubscribeForm ? $subscription->address_neighborhood : '') }}"
-                placeholder="Bairro"
-                name="address_neighborhood"
-                id="address_neighborhood"
-                required
-                data-validation-required-message="Por favor digite seu bairro."
+                    v-model="address_neighborhood"
+                    type="tel"
+                    class="form-control input-lg"
+                    value="{{ Input::old('address_neighborhood') ?: (! $isSubscribeForm ? $subscription->address_neighborhood : '') }}"
+                    placeholder="Bairro"
+                    name="address_neighborhood"
+                    id="address_neighborhood"
+                    required
+                    data-validation-required-message="Por favor digite seu bairro."
             >
             <span class="help-block text-danger"></span>
         </div>
@@ -383,15 +383,15 @@
         <div class="form-group col-lg-12 floating-label-form-group controls">
             <label for="address_city" class="sr-only control-label">Município</label>
             <input
-                v-model="address_city"
-                type="tel"
-                class="form-control input-lg"
-                value="{{ Input::old('address_city') ?: (! $isSubscribeForm ? $subscription->address_city : '') }}"
-                placeholder="Município"
-                name="address_city"
-                id="address_city"
-                required
-                data-validation-required-message="Por favor digite sua cidade."
+                    v-model="address_city"
+                    type="tel"
+                    class="form-control input-lg"
+                    value="{{ Input::old('address_city') ?: (! $isSubscribeForm ? $subscription->address_city : '') }}"
+                    placeholder="Município"
+                    name="address_city"
+                    id="address_city"
+                    required
+                    data-validation-required-message="Por favor digite sua cidade."
             >
             <span class="help-block text-danger"></span>
         </div>
@@ -402,14 +402,14 @@
         <div class="form-group col-lg-12 floating-label-form-group controls">
             <label for="facebook" class="sr-only control-label">Link ou usuário do Facebook</label>
             <input
-                v-model="facebook"
-                type="tel"
-                class="form-control input-lg"
-                value="{{ Input::old('facebook') ?: (! $isSubscribeForm ? $subscription->facebook : '') }}"
-                placeholder="Link ou usuário do Facebook"
-                name="facebook"
-                id="facebook"
-                data-validation-required-message="Por favor digite seu facebook."
+                    v-model="facebook"
+                    type="tel"
+                    class="form-control input-lg"
+                    value="{{ Input::old('facebook') ?: (! $isSubscribeForm ? $subscription->facebook : '') }}"
+                    placeholder="Link ou usuário do Facebook"
+                    name="facebook"
+                    id="facebook"
+                    data-validation-required-message="Por favor digite seu facebook."
             >
             <span class="help-block text-danger"></span>
         </div>
@@ -444,15 +444,15 @@
 
     <div class="row"  transition="expand">
         <div class="form-group col-xs-12">
-                @if (! $isSubscribeForm)
-                    <button id="submit" type="submit" class="btn btn-danger">
-                        Gravar
-                    </button>
-                @else
-                    <button id="submit" type="submit" class="btn btn-lg btn-primary btn-block btn-submit-subscription">
-                        Enviar inscri&ccedil;&atilde;o
-                    </button>
-                @endif
+            @if (! $isSubscribeForm)
+                <button id="submit" type="submit" class="btn btn-danger">
+                    Gravar
+                </button>
+            @else
+                <button id="submit" type="submit" class="btn btn-lg btn-primary btn-block btn-submit-subscription">
+                    Enviar inscri&ccedil;&atilde;o
+                </button>
+            @endif
         </div>
 
         @if(app()->environment() !== 'production')

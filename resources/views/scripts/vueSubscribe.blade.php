@@ -1,9 +1,11 @@
 <script>
+    Vue.config.devtools = true
+
     if (jQuery("#subscribe").length)
     {
         var emptySchool = [{value: '', text: 'SELECIONE SUA ESCOLA'}];
 
-        var vueApp = new Vue({
+        var vueSubscribe = new Vue({
             el: '#subscribe',
 
             data: {
@@ -30,6 +32,7 @@
                 gender2: null,
                 id_number: null,
                 schools: emptySchool,
+                elected: null,
                 school: '{{ Input::old('school') ?: (isset($subscription) ? $subscription->school : '') }}',
             },
 
