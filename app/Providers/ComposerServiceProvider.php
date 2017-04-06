@@ -5,12 +5,10 @@ namespace App\Providers;
 use View;
 use Auth;
 use Config;
-//use Language;
 use Illuminate\Support\ServiceProvider;
-use PragmaRX\Support\Inflectors\Inflector;
 
-class ComposerServiceProvider extends ServiceProvider {
-
+class ComposerServiceProvider extends ServiceProvider
+{
 	/**
 	 * Boot the service provider.
 	 *
@@ -84,7 +82,7 @@ class ComposerServiceProvider extends ServiceProvider {
 
 		View::composer('*', function($view)
 		{
-
+            $view->with('isAdmin', false);
 		});
 
 
@@ -108,5 +106,4 @@ class ComposerServiceProvider extends ServiceProvider {
 	{
 		//
 	}
-
 }
