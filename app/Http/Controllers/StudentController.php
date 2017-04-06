@@ -71,6 +71,9 @@ class StudentController extends Controller
             $student = Student::create([
                 'registration' => $seeduc->matricula,
                 'birthdate' => $seeduc->nascimento,
+                'name' => $seeduc->nome,
+                'school' => $seeduc->escola,
+                'city' => $seeduc->municipio,
             ]);
         }
 

@@ -3,9 +3,9 @@
 namespace App\Services\SocialLogin;
 
 use Auth;
-use App\User;
-use App\SocialNetwork;
+use App\Data\Entities\User;
 use League\Flysystem\Exception;
+use App\Data\Entities\SocialNetwork;
 use Illuminate\Support\Facades\Hash;
 use App\Repositories\UsersRepository;
 use App\Repositories\SocialUserRepository;
@@ -22,21 +22,22 @@ class SocialUserService
         $this->usersRepository = $usersRepository;
     }
 
-    public function findOrCreate($socialNetwork, $socialUserPlatform)
+    public function findOrCreate($socialNetwork, $socialNetworkUser)
     {
-        $email = $this->getEmail($socialUserPlatform, $socialNetwork);
+        $email = $this->getEmail($socialNetworkUser, $socialNetwork);
 
         session(['email' => $email]);
 
         $socialNetwork = $this->getSocialNetwork($socialNetwork);
 
-        $socialUser = $this->findOrCreateSocialUser($socialNetwork, $socialUserPlatform);
+        $socialUser = $this->findOrCreateSocialUser($socialNetwork, $socialNetworkUser);
 
         return $socialUser;
     }
 
     /**
      * @param $email
+     * @return static
      */
     private function findOrCreateUserByEmail($email)
     {
@@ -46,13 +47,12 @@ class SocialUserService
 
         return User::create([
             'email' => $email,
-            'password' => Hash::make(str_random(128)),
+            'password' => Hash::make(str_random(128))
         ]);
     }
 
     /**
-     * @param $socialUser
-     *
+     * @param $user
      * @return \Illuminate\Http\RedirectResponse
      */
     public function login($user)
@@ -60,9 +60,9 @@ class SocialUserService
         return auth()->login($user);
     }
 
-    private function getEmail($socialUserPlatform, $socialNetwork)
+    private function getEmail($socialNetworkUser, $socialNetwork)
     {
-        return $socialUserPlatform->getEmail() ?: sprintf('%s@%s.legislaqui.rj.gov.br', $socialUserPlatform->getId(), $socialNetwork);
+        return $socialNetworkUser->getEmail() ?: sprintf('%s@%s.legislaqui.rj.gov.br', $socialNetworkUser->getId(), $socialNetwork);
     }
 
     public function findOrCreateUser($socialUser, $email)
@@ -84,40 +84,38 @@ class SocialUserService
         return $model;
     }
 
-    public function findOrCreateSocialUser($socialNetwork, $socialUserPlatform)
+    public function findOrCreateSocialUser($socialNetwork, $socialNetworkUser)
     {
-         if(! $socialUser = $this->socialUserRepository->findBySocialNetworkUserId($socialUserPlatform->id))
+         if(! $socialUser = $this->socialUserRepository->findBySocialNetworkUserId($socialNetworkUser->getId()))
          {
-              return $this->socialUserRepository->createSocialUser($socialNetwork, $socialUserPlatform);
+              return $this->socialUserRepository->createSocialUser($socialNetwork, $socialNetworkUser);
          }
 
         return $socialUser;
     }
 
-    public function loginSocialUser($studentId, $socialUserId, $email, $socialUserPlatform)
+    public function loginSocialUser($studentId, $socialUserId, $email, $socialNetworkUser)
     {
         $socialUser = $this->findOrCreateUserByStudent(
             $studentId,
             $socialUserId,
             $email,
-            $socialUserPlatform
+            $socialNetworkUser
         );
-
-        $socialUser->user->socialUser = $socialUser;
 
         Auth::login($socialUser->user);
     }
 
-    public function findOrCreateUserByStudent($studentId, $socialUserId, $email, $socialUserPlatform)
+    public function findOrCreateUserByStudent($studentId, $socialUserId, $email, $socialNetworkUser)
     {
-        $socialUser = $this->socialUserRepository->findBySocialNetworkUserId($socialUserPlatform->getId());
+        $socialUser = $this->socialUserRepository->findBySocialNetworkUserId($socialNetworkUser->getId());
 
         if (is_null($socialUser->student)) {
             $socialUser->student_id = $studentId;
         }
 
         if (is_null($socialUser->user)) {
-            $socialUserByStudent = $this->socialUserRepository->findOtherSocialUsersByStudentId($studentId, $socialUserPlatform->getId());
+            $socialUserByStudent = $this->socialUserRepository->findOtherSocialUsersByStudentId($studentId, $socialNetworkUser->getId());
 
             if ($socialUserByStudent->count() == 0) {
                 $user = $this->findOrCreateUserByEmail($email);
@@ -126,6 +124,10 @@ class SocialUserService
             }
 
             $socialUser->user_id = $user->id;
+
+            $socialUser->fresh();
+
+            $this->setUserAvatar($user, $socialNetworkUser->getAvatar());
         }
 
         $socialUser->save();
@@ -133,4 +135,17 @@ class SocialUserService
         return $socialUser;
     }
 
+    public function makeSocialNetworkUser($user)
+    {
+        return new SocialNetworkUser($user);
+    }
+
+    private function setUserAvatar($user, $avatar)
+    {
+        if (is_null($user->avatar)) {
+            $user->avatar = $avatar;
+
+            $user->save();
+        }
+    }
 }

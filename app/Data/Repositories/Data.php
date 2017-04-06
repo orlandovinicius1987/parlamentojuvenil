@@ -15,7 +15,7 @@ use App\Services\News\Service as SyncNewsService;
 use App\Services\Filesystem\Service as Filesystem;
 use Illuminate\Support\Collection as IlluminateCollection;
 use App\Repositories\UsersRepository;
-use App\User;
+use App\Data\Entities\User;
 
 
 class Data

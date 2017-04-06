@@ -48,6 +48,8 @@
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/vue/2.2.6/vue.js"></script>
 </head>
 <body class="header-fixed-top">
 <div id="page-top" class="page-top"></div>
@@ -233,5 +235,7 @@
         isFitWidth: true
     });
 </script>
+
+    @yield('page-javascripts')
 </body>
 </html>

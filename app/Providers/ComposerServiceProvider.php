@@ -81,10 +81,15 @@ class ComposerServiceProvider extends ServiceProvider
 		});
 
 		View::composer('*', function($view)
-		{
+        {
             $view->with('isAdmin', false);
-            $view->with('loggedUser', session('loggedUser'));
-		});
+
+            $view->with('loggedUser', $loggedUser = session('loggedUser'));
+
+            if (! is_null($loggedUser) && ! is_null($student = $loggedUser->student)) {
+                $view->with('currentStudent', $student);
+            }
+        });
 
 //		/**
 //		 * Calendar

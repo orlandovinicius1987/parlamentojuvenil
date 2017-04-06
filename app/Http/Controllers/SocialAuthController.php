@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\SocialLogin\LoggedUser;
 use App\Services\SocialLogin\SocialUserService;
 use Socialite;
 use DB;
@@ -17,11 +18,11 @@ class SocialAuthController extends Controller
 
     private function isSocialNetworkIsLoggedIn($socialNetwork)
     {
-        if (is_null($user = session('user'))) {
+        if (is_null($user = session('loggedUser'))) {
             return false;
         }
 
-        return $user['socialNetwork'] == $socialNetwork;
+        return $user->socialNetwork == $socialNetwork;
     }
 
     public function login($socialNetwork)
@@ -46,8 +47,8 @@ class SocialAuthController extends Controller
      */
     private function socialNetworkLogin($socialNetwork)
     {
-        if (!$this->isSocialNetworkIsLoggedIn($socialNetwork)) {
-            $socialNetworkUser = $this->getDriver($socialNetwork)->user();
+        if (! $this->isSocialNetworkIsLoggedIn($socialNetwork)) {
+            $socialNetworkUser = $this->socialUserService->makeSocialNetworkUser($this->getDriver($socialNetwork)->user());
 
             $socialUser = $this->socialUserService->findOrCreate($socialNetwork, $socialNetworkUser);
 
@@ -62,15 +63,14 @@ class SocialAuthController extends Controller
      */
     private function storeUserInSession($socialNetwork, $socialUser, $socialNetworkUser)
     {
-        session(
-            [
-                'user' => collect([
-                                      'socialUser'        => $socialUser,
-                                      'socialNetwork'     => $socialNetwork,
-                                      'socialNetworkUser' => $socialNetworkUser,
-                                  ])
-            ]
-        );
-    }
+        $loggedUser = new LoggedUser();
 
+        $loggedUser->setSocialNetwork($socialNetwork);
+
+        $loggedUser->setSocialUser($socialUser);
+
+        $loggedUser->setSocialNetworkUser($socialNetworkUser);
+
+        session(['loggedUser' => $loggedUser]);
+    }
 }

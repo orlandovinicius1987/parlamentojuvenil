@@ -2,8 +2,8 @@
 
 namespace App\Repositories;
 
-use App\User;
-use App\SocialUser;
+use App\Data\Entities\User;
+use App\Data\Entities\SocialUser;
 
 class SocialUserRepository
 {

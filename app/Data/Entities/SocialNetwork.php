@@ -25,12 +25,11 @@ class SocialNetwork extends Model
      // Socialite
     public function users()
     {
-        return $this->belongsToMany('App\User', 'social_users', 'social_network_id')->withPivot('social_network_user_id', 'data');
+        return $this->belongsToMany('App\Data\Entities\User', 'social_users', 'social_network_id')->withPivot('social_network_user_id', 'data');
     }
 
     public function socialUsers()
     {
         return  $this->hasMany('App\SocialUser');
     }
-
 }

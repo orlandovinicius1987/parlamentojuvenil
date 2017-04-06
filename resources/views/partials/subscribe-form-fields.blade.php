@@ -7,8 +7,6 @@
     }
 ?>
 
-{{ dd($loggedUser) }}
-
 <div id="subscription">
     {{-- Matricula e Nascimento --}}
     <div class="row control-group"  transition="expand">
@@ -23,6 +21,7 @@
                     name="registration"
                     id="registration"
                     required
+                    disabled
                     data-validation-required-message="Por favor digite sua matrícula."
             >
             <span class="help-block text-danger"></span>
@@ -40,6 +39,7 @@
                     name="birthdate"
                     id="birthdate"
                     required
+                    disabled
                     data-validation-required-message="Por favor digite sua data de nascimento."
             >
         </div>
@@ -57,6 +57,7 @@
                     placeholder="Nome Completo"
                     name="name"
                     id="name"
+                    disabled
                     required data-validation-required-message="Por favor digite seu nome."
             >
             <span class="help-block text-danger"></span>

@@ -13,5 +13,8 @@ class Student extends Model
 	protected $fillable = [
         'registration',
         'birthdate',
+        'name',
+        'school',
+        'city',
     ];
 }

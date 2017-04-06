@@ -4,15 +4,55 @@ namespace App\Services\SocialLogin;
 
 class LoggedUser
 {
-    public $user;
+    protected $user;
 
-    public $student;
+    protected $socialUser;
 
-    public $socialUser;
+    protected $socialNetwork;
 
-    public $socialNetwork;
+    protected $socialNetworkUser;
 
-    public $socialNetworkUser;
+    /**
+     * @return mixed
+     */
+    public function getSocialNetwork()
+    {
+        return $this->socialNetwork;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSocialNetworkUser()
+    {
+        return $this->socialNetworkUser;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSocialUser()
+    {
+        return $this->socialUser;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getStudent()
+    {
+        return is_null($this->socialUser)
+                ? null
+                : $this->socialUser->student;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
 
     /**
      * @param mixed $socialNetwork
@@ -36,16 +76,6 @@ class LoggedUser
     public function setSocialUser($socialUser)
     {
         $this->socialUser = $socialUser;
-
-        $this->setStudent($socialUser->student);
-    }
-
-    /**
-     * @param mixed $student
-     */
-    public function setStudent($student)
-    {
-        $this->student = $student;
     }
 
     /**
@@ -54,5 +84,13 @@ class LoggedUser
     public function setUser($user)
     {
         $this->user = $user;
+    }
+
+    /**
+     * @param $key
+     */
+    public function __get($key)
+    {
+        return $this->{'get'.studly($key)}();
     }
 }
