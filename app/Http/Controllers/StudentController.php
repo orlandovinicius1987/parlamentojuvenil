@@ -40,7 +40,7 @@ class StudentController extends Controller
      */
     private function getSocialNetworkUserFromSession()
     {
-        return session('user')['socialNetworkUser'];
+        return session('loggedUser')->socialNetworkUser;
     }
 
     public function login()
