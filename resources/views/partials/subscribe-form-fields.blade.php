@@ -7,23 +7,41 @@
     }
 ?>
 
+{{ dd($loggedUser) }}
+
 <div id="subscription">
-    {{-- Email --}}
+    {{-- Matricula e Nascimento --}}
     <div class="row control-group"  transition="expand">
-        <div class="form-group col-xs-12 floating-label-form-group controls">
-            <label for="email" class="sr-only control-label">E-mail</label>
+        <div class="form-group col-xs-6 floating-label-form-group controls">
+            <label for="registration" class="sr-only control-label">Matrícula</label>
             <input
-                    v-model="email"
+                    v-model="registration"
                     type="text"
                     class="form-control input-lg"
-                    value="{{ Input::old('email') ?: (! $isSubscribeForm ? $subscription->email : '') }}"
-                    placeholder="E-mail"
-                    name="email"
-                    id="email"
+                    value="{{ Input::old('registration') ?: (! $isSubscribeForm ? $subscription->registration : '') }}"
+                    placeholder="Matrícula"
+                    name="registration"
+                    id="registration"
                     required
-                    data-validation-required-message="Por favor digite o seu email."
+                    data-validation-required-message="Por favor digite sua matrícula."
             >
             <span class="help-block text-danger"></span>
+        </div>
+
+        <div class="form-group col-xs-6 floating-label-form-group controls">
+            <label for="birthdate" class="sr-only control-label">Data de nascimento</label>
+            <input
+                    v-model="birthdate"
+                    type="text"
+                    class="form-control input-lg"
+                    value="{{ Input::old('birthdate') ?: (! $isSubscribeForm ? $subscription->birthdate : '') }}"
+                    {{--onkeydown="return false;"--}}
+                    placeholder="Data de nascimento"
+                    name="birthdate"
+                    id="birthdate"
+                    required
+                    data-validation-required-message="Por favor digite sua data de nascimento."
+            >
         </div>
     </div>
 
@@ -64,6 +82,26 @@
         </div>
     </div>
 
+    {{-- Email --}}
+    <div class="row control-group"  transition="expand">
+        <div class="form-group col-xs-12 floating-label-form-group controls">
+            <label for="email" class="sr-only control-label">E-mail</label>
+            <input
+                    v-model="email"
+                    type="text"
+                    class="form-control input-lg"
+                    value="{{ Input::old('email') ?: (! $isSubscribeForm ? $subscription->email : '') }}"
+                    placeholder="E-mail"
+                    name="email"
+                    id="email"
+                    required
+                    data-validation-required-message="Por favor digite o seu email."
+            >
+            <span class="help-block text-danger"></span>
+        </div>
+    </div>
+
+    {{-- Municipio escolar e escola --}}
     <div id="vue-schools-VUE-DISABLED">
         {{-- Cidade --}}
         <div class="row control-group" transition="expand">
@@ -84,9 +122,9 @@
             </div>
         </div>
 
-        {{-- Unidade Escolar --}}
+        {{-- Unidade Escolar e série --}}
         <div class="row control-group"  transition="expand">
-            <div class="form-group col-xs-12 floating-label-form-group controls">
+            <div class="form-group col-xs-6 floating-label-form-group controls">
                 <label for="school" class="sr-only control-label">Escola</label>
                 {{--<select id="school-editxxx" v-model="school" value="" options="schools" class="form-control input-lg" placeholder="Escola" name="school" id="school" required data-validation-required-message="Por favor escolha a escola.">--}}
                 <select id="school-editxxx" v-model="school" value="" options="schools" class="form-control input-lg" placeholder="Escola" name="school" id="school">
@@ -112,48 +150,29 @@
                 </select>
                 <span class="help-block text-danger"></span>
             </div>
-        </div>
-    </div>
 
-    {{-- Matricula --}}
-    <div class="row control-group"  transition="expand">
-        <div class="form-group col-xs-6 floating-label-form-group controls">
-            <label for="registration" class="sr-only control-label">Matrícula</label>
-            <input
-                    v-model="registration"
-                    type="text"
-                    class="form-control input-lg"
-                    value="{{ Input::old('registration') ?: (! $isSubscribeForm ? $subscription->registration : '') }}"
-                    placeholder="Matrícula"
-                    name="registration"
-                    id="registration"
-                    required
-                    data-validation-required-message="Por favor digite sua matrícula."
-            >
-            <span class="help-block text-danger"></span>
-        </div>
+            <div class="form-group col-xs-6 floating-label-form-group controls">
+                <label for="registration" class="sr-only control-label">Série</label>
 
-        <div class="form-group col-xs-6 floating-label-form-group controls">
-            <label for="registration" class="sr-only control-label">Série</label>
+                <select v-model="grade" class="form-control input-lg" placeholder="Sexo" name="grade" id="grade" required data-validation-required-message="Por favor preencha a série.">
+                    <option value="" selected>ESCOLHA A SÉRIE</option>
 
-            <select v-model="grade" class="form-control input-lg" placeholder="Sexo" name="grade" id="grade" required data-validation-required-message="Por favor preencha a série.">
-                <option value="" selected>ESCOLHA A SÉRIE</option>
+                    <option
+                            value="1o ano do ensino médio"
+                            {{ (Input::old('grade') == '1o ano do ensino médio' ?: (! $isSubscribeForm ? $subscription->grade == '1o ano do ensino médio' : false) ? 'selected' : '') }}
+                    >
+                        1o ano do ensino médio
+                    </option>
 
-                <option
-                        value="1o ano do ensino médio"
-                        {{ (Input::old('grade') == '1o ano do ensino médio' ?: (! $isSubscribeForm ? $subscription->grade == '1o ano do ensino médio' : false) ? 'selected' : '') }}
-                >
-                    1o ano do ensino médio
-                </option>
-
-                <option
-                        value="2o ano do ensino médio"
-                        {{ (Input::old('grade') == '2o ano do ensino médio' ?: (! $isSubscribeForm ? $subscription->grade == '2o ano do ensino médio' : false) ? 'selected' : '') }}
-                >
-                    2o ano do ensino médio
-                </option>
-            </select>
-            <span class="help-block text-danger"></span>
+                    <option
+                            value="2o ano do ensino médio"
+                            {{ (Input::old('grade') == '2o ano do ensino médio' ?: (! $isSubscribeForm ? $subscription->grade == '2o ano do ensino médio' : false) ? 'selected' : '') }}
+                    >
+                        2o ano do ensino médio
+                    </option>
+                </select>
+                <span class="help-block text-danger"></span>
+            </div>
         </div>
     </div>
 
@@ -203,25 +222,9 @@
         </div>
     </div>
 
-    {{-- Nascimento --}}
+    {{-- Identidade / CPF --}}
     <div class="row control-group"  transition="expand">
-        <div class="form-group col-xs-6 floating-label-form-group controls">
-            <label for="birthdate" class="sr-only control-label">Data de nascimento</label>
-            <input
-                    v-model="birthdate"
-                    type="text"
-                    class="form-control input-lg"
-                    value="{{ Input::old('birthdate') ?: (! $isSubscribeForm ? $subscription->birthdate : '') }}"
-                    {{--onkeydown="return false;"--}}
-                    placeholder="Data de nascimento"
-                    name="birthdate"
-                    id="birthdate"
-                    required
-                    data-validation-required-message="Por favor digite sua data de nascimento."
-            >
-        </div>
-
-        <div class="form-group col-xs-6 floating-label-form-group controls">
+        <div class="form-group col-xs-4 floating-label-form-group controls">
             <label for="cpf" class="sr-only control-label">CPF</label>
             <input
                     v-model="cpf"
@@ -237,11 +240,8 @@
             >
             <span class="help-block text-danger"></span>
         </div>
-    </div>
 
-    {{-- Identidade --}}
-    <div class="row control-group"  transition="expand">
-        <div class="form-group col-xs-6 floating-label-form-group controls">
+        <div class="form-group col-xs-4 floating-label-form-group controls">
             <label for="id_number" class="sr-only control-label">Identidade</label>
             <input
                     v-model="id_number"
@@ -256,7 +256,8 @@
             >
             <span class="help-block text-danger"></span>
         </div>
-        <div class="form-group col-xs-6 floating-label-form-group controls">
+
+        <div class="form-group col-xs-4 floating-label-form-group controls">
             <label for="id_issuer" class="sr-only control-label">Órgão emissor</label>
             <input
                     v-model="id_issuer"
