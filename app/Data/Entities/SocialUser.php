@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Data\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -17,12 +17,12 @@ class SocialUser extends Model
 
     public function user()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\Data\Entities\User');
     }
 
     public function socialNetwork()
     {
-        return  $this->belongsTo('App\SocialNetwork');
+        return  $this->belongsTo('App\Data\Entities\SocialNetwork');
     }
 
     public function student()

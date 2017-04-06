@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Data\Entities;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
@@ -56,8 +56,6 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
    public function socialUser()
    {
-     return $this->hasMany('App\SocialUser');
+     return $this->hasMany('App\Data\Entities\SocialUser');
    }
-
-
 }
