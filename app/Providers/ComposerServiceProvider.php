@@ -83,8 +83,8 @@ class ComposerServiceProvider extends ServiceProvider
 		View::composer('*', function($view)
 		{
             $view->with('isAdmin', false);
+            $view->with('loggedUser', session('loggedUser'));
 		});
-
 
 //		/**
 //		 * Calendar
