@@ -32,4 +32,9 @@ abstract class Controller extends BaseController
     {
         return Session::get('logged-user');
     }
+
+    public function getYear($year)
+    {
+        return $year = $year ?: config('app.year');
+    }
 }

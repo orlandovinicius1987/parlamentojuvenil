@@ -28,7 +28,7 @@ Route::group(['prefix' => '/auth'], function ()
     Route::get('/login', ['as' => 'auth.index', 'uses' => 'Auth@index']);
     Route::post('/login', ['as' => 'auth.post', 'uses' => 'Auth@post']);
 
-    Route::get('/login/email', ['as' => 'auth.login.email', 'uses' => 'Auth@emailLogin']);
+    Route::get('/login/email', ['as' => 'auth.login.email', 'uses' => 'EmailAuth@index']);
 
     /*
      * Social

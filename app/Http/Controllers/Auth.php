@@ -9,9 +9,7 @@ class Auth extends BaseController
 {
     public function index($year = null)
     {
-        $year = $year ?: config('app.year');
-
-        return $this->buildView($year.'.auth.index');
+        return $this->buildView($this->getYear($year).'.auth.index');
     }
 
     public function logout()
