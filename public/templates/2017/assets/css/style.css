@@ -635,7 +635,7 @@ p.item-description {
 }
 .post-area-title {
 	color: #6f7678;
-	font-size: 2.125em;
+	font-size: 16px;
 	font-weight: 800;
 	text-transform: uppercase;
 	position: relative;
@@ -647,7 +647,7 @@ p.item-description {
 	top: 50%;
 	height: 1px;
 	position: absolute;
-	width: 32%;
+	width: 46%;
 } 
 .post-area-title:before {
 	left: 0px;
@@ -757,7 +757,7 @@ p.item-description {
 	display: inline-block;
 }
 .subscribe-section .form-control {
-	margin: 0px !important;
+	margin: 5px !important;
 }
 .subscribe-section .btn {
   background: #ffffff !important;
@@ -799,7 +799,8 @@ p.item-description {
 }
 .message-details .form-control,
 .subscribe-section .form-control {
-	border: 1px solid #e9e9e9;
+	background: #C7C7C7;
+	border: 1px solid #696969;
 	border-radius: 2px;
 	box-shadow: none;
 	font-size: .875em;
@@ -830,6 +831,16 @@ p.item-description {
 	border-color: #3498db;
 	color: #3498db;
 }
+.btn.btn-signin {
+	background: #00A648 !important;
+	color: #fff !important;
+}
+
+.btn.btn-signup {
+	background: #FF141E !important;
+	color: #fff !important;
+}
+
 
 /* Blog Post Single Page */
 
