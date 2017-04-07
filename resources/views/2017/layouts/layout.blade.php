@@ -168,17 +168,21 @@
             <!-- /.row -->
         </div>
         <!-- /.container -->
-    </div>
+    </div>--}}
     <!-- /#footer-top -->
     <div id="footer-bottom" class="footer-bottom text-center">
         <div class="container">
-            <div id="copyright" class="copyright">
-                &copy; <a href="http://demos.jeweltheme.com/heera">Heera</a>  2015 - Designed &amp; Developed by <a href="http://jeweltheme.com">Jewel Theme</a>
+            <div class="row">
+                <div class="col-md-offset-4 col-md-2">
+                    <img src="/templates/2017/images/logo-alerj.png" class="logo-alerj img-responsive">
+                </div>
+                <div class="col-md-2">
+                    <img src="/templates/2017/images/logo-governo.png" class="logo-governo img-responsive">
+                </div>
             </div>
-            <!-- /#copyright -->
         </div>
     </div>
-    <!-- /#footer-bottom -->--}}
+    <!-- /#footer-bottom -->
 </footer>
 
 
@@ -209,6 +213,7 @@
 <script src="/templates/2017/assets/js/wow.min.js"></script>
 <script type="text/javascript" src="/templates/2017/assets/js/jquery.ajaxchimp.min.js"></script>
 <script>
+
     $(document).ready(function() {
 
         /* -------- One page Navigation ----------*/
@@ -221,8 +226,47 @@
             filter: ':not(.sub-menu a, .not-in-home)',
             easing: 'swing'
         });
+
+
+        /*----------- Google Map - with support of gmaps.js ----------------*/
+
+        function isMobile() {
+            return ('ontouchstart' in document.documentElement);
+        }
+
+        function init_gmap() {
+            if ( typeof google == 'undefined' ) return;
+            var options = {
+                center: [-37.817331, 144.955652],
+                zoom: 15,
+                mapTypeControl: true,
+                mapTypeControlOptions: {
+                    style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
+                },
+                navigationControl: true,
+                scrollwheel: false,
+                streetViewControl: true
+            }
+
+            if (isMobile()) {
+                options.draggable = false;
+            }
+
+            $('#googleMaps').gmap3({
+                map: {
+                    options: options
+                },
+                marker: {
+                    latLng: [-37.817331, 144.955652],
+                    options: { icon: 'images/mapicon.png' }
+                }
+            });
+        }
+
+        init_gmap();
     });
 </script>
+
 <!-- Masonry JavaScript -->
 <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
 <script type="text/javascript">
