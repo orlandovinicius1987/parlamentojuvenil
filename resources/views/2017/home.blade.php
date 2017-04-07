@@ -25,13 +25,6 @@
                     </div>
                     <div class="grow grid-item  grid-item--height2 amarelo1">
                         <div class="inscrevase form-group">
-                            {{--<div class="input-group">
-                                <input type="text" class="form-control" placeholder="Insira seu nome completo">
-							<span class="input-group-btn">
-							<button class="btn btn-default btfundo" type="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
-							</span>
-                            </div>--}}
-
                             <div class="center"><button data-toggle="modal" data-target="#squarespaceModal" class="btn btn-primary btn-large center-block">Clique para se inscrever</button></div>
                         </div>
 
@@ -63,43 +56,8 @@
                                             <p>Caso você não esteja em nenhuma dessas redes sociais, clique aqui.</p>
                                         </div>
 
-                                        <!-- content goes here -->
-                                        {{--<form>
-                                            <div class="form-group">
-                                                <label for="exampleInputEmail1">Email address</label>
-                                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="exampleInputPassword1">Password</label>
-                                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="exampleInputFile">File input</label>
-                                                <input type="file" id="exampleInputFile">
-                                                <p class="help-block">Example block-level help text here.</p>
-                                            </div>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox"> Check me out
-                                                </label>
-                                            </div>
-                                            <button type="submit" class="btn btn-default">Submit</button>
-                                        </form>--}}
 
                                     </div>
-{{--                                    <div class="modal-footer">
-                                        <div class="btn-group btn-group-justified" role="group" aria-label="group button">
-                                            <div class="btn-group" role="group">
-                                                <button type="button" class="btn btn-default" data-dismiss="modal"  role="button">Close</button>
-                                            </div>
-                                            <div class="btn-group btn-delete hidden" role="group">
-                                                <button type="button" id="delImage" class="btn btn-default btn-hover-red" data-dismiss="modal"  role="button">Delete</button>
-                                            </div>
-                                            <div class="btn-group" role="group">
-                                                <button type="button" id="saveImage" class="btn btn-default btn-hover-green" data-action="save" role="button">Save</button>
-                                            </div>
-                                        </div>
-                                    </div>--}}
                                 </div>
                             </div>
                         </div>
@@ -124,6 +82,78 @@
             </div>
         </div>
     </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <div class="como-funciona">
+
+                <div class="row">
+                    <div class="como-funciona-itens">
+                        <div class="col-sm-5">
+                            <div class="item item-1">
+                                <div class="row">
+                                    <div class="col-sm-8">
+                                        <div class="row">
+
+                                        {{--<span class="sub-title">O Parlamento Juvenil é um projeto da Assembleia Legislativa do Estado do Rio de Janeiro (Alerj) para incentivar a participação de jovens na política. Os estudantes passasm uma semana vivendo o dia a dia de um Deputado Estadual, discutindo e aprimorando projetos de lei que els mesmos criam. Os seis projetos aprovados ainda podem virar lei no Estado. </span>--}}
+
+                                            <p class="item-description">
+                                                O Parlamento Juvenil é um projeto da Assembleia Legislativa do Estado do Rio de Janeiro (Alerj) para incentivar a participação de jovens na política. Os estudantes passasm uma semana vivendo o dia a dia de um Deputado Estadual, discutindo e aprimorando projetos de lei que els mesmos criam. Os seis projetos aprovados ainda podem virar lei no Estado.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="azul1 square02">
+
+                                        </div>
+                                        {{--<div class="grow grid-item verde3" style="position: absolute; left: 380px; top: 380px;"></div>--}}
+                                    </div>
+                                </div><!-- /.row -->
+                            </div><!-- /.item -->
+
+                            <div class="item item-2">
+                                <div class="row">
+                                    <div class="col-sm-2 vermelho1 square01">
+
+                                    </div>
+                                    <div class="col-sm-10">
+                                        <h3 class="item-title">Quem pode participar?</h3>
+                                        <p class="item-description">
+                                            Alunos do 1º e 2º ano do ensino médio da Rede Pública Estadual do Rio de Janeiro, com idade entre 14 e 17 anos.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="row paddingtop10">
+                                    <div class="col-sm-10">
+                                        <ul>
+                                            <li>
+                                                O aluno que completar 18 anos após a semana do Parlamento Juvenil (20 a 26 de novembro) poderá concorrer.
+                                            </li>
+                                            <li>
+                                                Os eleitores do PJ são alunos do 8º ano em diante.
+                                            </li>
+                                        </ul>
+
+                                    </div>
+                                    <div class="col-sm-2 verde01 square01">
+
+                                    </div>
+                                </div>
+                            </div><!-- /.item -->
+                        </div>
+                        <div class="col-sm-7">
+
+                            <style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='https://www.youtube.com/embed/tE6Tx5xbvzo' frameborder='0' allowfullscreen></iframe></div>
+
+                        </div>
+                    </div><!-- /.como-funciona-itens -->
+                </div><!-- /.row -->
+            </div><!-- /.service-area -->
+        </div><!-- /.container -->
+    </section>
+
+
     <section id="timeline-container">
         <div class="container-full">
             <div class="row">
@@ -203,4 +233,156 @@
             </div>
         </div>
     </section>
+
+
+
+
+
+    <section id="latest-post" class="mapa-das-inscricoes">
+        <div class="container">
+            <div class="">
+
+
+                <div class="row">
+                    <div class="">
+                        <div class="col-sm-3">
+
+                        </div>
+                        <div class="col-sm-6  text-center">
+                            <h2 class="">Mapa das inscrições</h2>
+                        </div>
+                        <div class="col-sm-3">
+
+                        </div>
+                    </div>
+                    <!-- /.latest-posts -->
+                </div>
+                <!-- /.row -->
+
+
+                <div class="row">
+                    <div class="">
+                        <div class="col-sm-2">
+                            <div class="item">
+                                <article class="post type-post">
+                                    <div class="post-top">
+                                        <div class="post-thumbnail">
+                                            <img src="images/blog/1.jpg" alt="post Image">
+                                        </div><!-- /.post-thumbnail -->
+                                        <div class="post-meta">
+                                            <div class="entry-meta">
+                      <span class="entry-date">
+                        <time datetime="2015-01-15">15 Jan 2015</time>
+                      </span>
+                      <span class="author-name">
+                        <a href="#">John Doe</a>
+                      </span>
+                      <span class="post-tags">
+                        <ul class="tag-list">
+                            <li><a href="#">web-design</a></li>
+                            <li><a href="#">html5</a></li>
+                            <li><a href="#">css3</a></li>
+                        </ul>
+                      </span>
+                                            </div><!-- /.entry-meta -->
+                                        </div><!-- /.post-meta -->
+                                    </div><!-- /.post-top -->
+                                    <div class="post-content">
+                                        <h2 class="entry-title"><a href="blog-single.html">Standard Blog post Title</a></h2>
+                                        <p class="entry-text">
+                                            Sed non neque elit. Sed ut imperdiet nisi. Proin condimentum fermentum nunc. Etiam pharetra, erat sed fermentum feugiat, velit mauris egestas quam, ut aliquam massa nisl quis neque. Suspendisse in orci enim.
+                                        </p>
+                                        <a class="btn" href="#">
+                                            <span class="btn-icon"><i class="fa fa-arrow-circle-right"></i></span>
+                                            Read More
+                                        </a>
+                                    </div><!-- /.post-content -->
+                                </article>
+                            </div><!-- /.item -->
+                        </div>
+                        <div class="col-sm-8">
+
+
+                            <div class="map-container">
+                                <div id="googleMaps" class="google-map-container">
+                                </div>
+                            </div><!-- /.map-container -->
+                        </div><!-- /#google-map-->
+                        <!-- Google Map Section End -->
+
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="item">
+                                <article class="post type-post">
+                                    <div class="post-top">
+                                        <div class="post-thumbnail">
+                                            <img src="images/blog/2.jpg" alt="post Image">
+                                        </div><!-- /.post-thumbnail -->
+                                        <div class="post-meta">
+                                            <div class="entry-meta">
+                    <span class="entry-date">
+                      <time datetime="2015-01-15">15 Jan 2015</time>
+                    </span>
+                    <span class="author-name">
+                      <a href="#">John Doe</a>
+                    </span>
+                    <span class="post-tags">
+                      <ul class="tag-list">
+                          <li><a href="#">web-design</a></li>
+                          <li><a href="#">html5</a></li>
+                          <li><a href="#">css3</a></li>
+                      </ul>
+                    </span>
+                                            </div><!-- /.entry-meta -->
+                                        </div><!-- /.post-meta -->
+                                    </div><!-- /.post-top -->
+                                    <div class="post-content">
+                                        <h2 class="entry-title"><a href="blog-single.html">Standard Blog post Title</a></h2>
+                                        <p class="entry-text">
+                                            Etiam pharetra, erat sed fermentum feugiat, velit mauris egestas quam, ut aliquam massa nisl quis neque. Suspendisse in orci enim.
+                                        </p>
+                                        <a class="btn" href="#">
+                                            <span class="btn-icon"><i class="fa fa-arrow-circle-right"></i></span>
+                                            Read More
+                                        </a>
+                                    </div><!-- /.post-content -->
+                                </article>
+                            </div><!-- /.item -->
+                        </div>
+                    </div><!-- /.latest-posts -->
+                </div><!-- /.row -->
+
+            <div class="row">
+                <div class="">
+                    <div class="col-sm-3">
+
+                    </div>
+                    <div class="col-sm-6 text-center">
+                        <h2 class="">Mapa das inscrições</h2>
+                    </div>
+                    <div class="col-sm-3">
+
+                    </div>
+                </div>
+                <!-- /.latest-posts -->
+            </div>
+            <!-- /.row -->
+
+
+
+            </div><!-- /.post-area -->
+        </div><!-- /.container -->
+    </section><!-- /#latest-post -->
+
+
+    <section id="contact" class="contact">
+        <div class="contact-area">
+            <!-- Google Map Section -->
+            <div id="google-map" class="google-map">
+
+
+        </div><!-- /.contact-area -->
+    </section><!-- /#contact -->
+
+
 @stop

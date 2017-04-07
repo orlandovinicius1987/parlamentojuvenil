@@ -8,5 +8,13 @@
          url('../fonts/oswald-regular-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
+}
 
+
+@font-face {
+    font-family: 'five_boroughs';
+    src: url('/templates/2017/assets/fonts/fiveboroughshandwriting-webfont.woff2') format('woff2'),
+    url('/templates/2017/assets/fonts/fiveboroughshandwriting-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
