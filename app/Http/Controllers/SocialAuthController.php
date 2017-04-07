@@ -52,8 +52,18 @@ class SocialAuthController extends Controller
 
             $socialUser = $this->socialUserService->findOrCreate($socialNetwork, $socialNetworkUser);
 
-            $this->storeUserInSession($socialNetwork, $socialUser, $socialNetworkUser);
+            $this->storeUserInSession(
+                $socialNetwork,
+                $socialUser,
+                $socialNetworkUser,
+                $this->getEmail($socialNetworkUser, $socialNetwork)
+            );
         }
+    }
+
+    private function getEmail($socialNetworkUser, $socialNetwork)
+    {
+        return $socialNetworkUser->getEmail() ?: sprintf('%s@%s.legislaqui.rj.gov.br', $socialNetworkUser->getId(), $socialNetwork);
     }
 
     /**
@@ -61,16 +71,13 @@ class SocialAuthController extends Controller
      * @param $socialUser
      * @param $socialNetworkUser
      */
-    private function storeUserInSession($socialNetwork, $socialUser, $socialNetworkUser)
+    private function storeUserInSession($socialNetwork, $socialUser, $socialNetworkUser, $email)
     {
-        $loggedUser = new LoggedUser();
-
-        $loggedUser->setSocialNetwork($socialNetwork);
-
-        $loggedUser->setSocialUser($socialUser);
-
-        $loggedUser->setSocialNetworkUser($socialNetworkUser);
-
-        session(['loggedUser' => $loggedUser]);
+        session([
+            'loggedUser' => with(new LoggedUser())->setSocialNetwork($socialNetwork)
+                                                  ->setSocialUser($socialUser)
+                                                  ->setSocialNetworkUser($socialNetworkUser)
+                                                  ->setEmail($email)
+        ]);
     }
 }

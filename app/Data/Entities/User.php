@@ -58,4 +58,16 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
    {
      return $this->hasMany('App\Data\Entities\SocialUser');
    }
+
+    public function getAvatarAttribute()
+    {
+        return isset($this->attributes['avatar'])
+                ? $this->attributes['avatar']
+                : null;
+    }
+
+    public function getSocialNameAttribute()
+    {
+        return $this->email;
+    }
 }

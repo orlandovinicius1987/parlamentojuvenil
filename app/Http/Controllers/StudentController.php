@@ -32,7 +32,7 @@ class StudentController extends Controller
      */
     private function getEmailFromSession()
     {
-        return session('email');
+        return session('loggedUser')->email;
     }
 
     /**
@@ -45,7 +45,10 @@ class StudentController extends Controller
 
     public function login()
     {
-        $userData = ["registration"=> Input::get('registration') , "birthdate" => Input::get('birthdate')];
+        $userData = [
+            "registration"=> Input::get('registration') ,
+            "birthdate" => Input::get('birthdate')
+        ];
 
         if (! $student = $this->findStudentBySeeduc($userData)) {
             return redirect()->back()->withErrors('Inscrição não encontrada.');
@@ -68,7 +71,7 @@ class StudentController extends Controller
                 return null;
             }
 
-            $student = Student::create([
+            $student = Student::createStudent([
                 'registration' => $seeduc->matricula,
                 'birthdate' => $seeduc->nascimento,
                 'name' => $seeduc->nome,

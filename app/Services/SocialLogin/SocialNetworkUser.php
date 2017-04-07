@@ -22,4 +22,9 @@ class SocialNetworkUser
 
         return call_user_func_array([$this->user, $method], (array) $parameters);
     }
+
+    public function serialize()
+    {
+        return json_encode($this->user);
+    }
 }

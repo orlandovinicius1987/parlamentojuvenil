@@ -17,4 +17,24 @@ class Student extends Model
         'school',
         'city',
     ];
+
+    public function getSocialNameAttribute()
+    {
+        return studly(strtolower(
+            isset($this->attributes['social_name'])
+                ? $this->attributes['social_name']
+                : explode(' ', trim($this->name))[0]
+        ));
+	}
+
+	public static function createStudent($attributes)
+    {
+        $student = static::create($attributes);
+
+        $student->social_name = $student->getSocialNameAttribute();
+
+        $student->save();
+
+        return $student;
+    }
 }

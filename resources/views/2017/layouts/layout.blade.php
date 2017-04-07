@@ -76,8 +76,10 @@
                     </div>
                 </div>--}}
 
-                <img class="avatar img-responsive"  src="/templates/2017/images/avatar.jpg" alt="">
-                <p class="avatar-name" > Olá, Alessandra</p>
+                @if (isset($loggedUser) && $loggedUser->user)
+                    <img class="avatar img-responsive" src="{{ $loggedUser->user->avatar }}" alt="">
+                    <p class="avatar-name" >{{ $loggedUser->student->social_name or $loggedUser->user->social_name }}</p>
+                @endif
             </div>
             <div class="col-md-1 ">
 

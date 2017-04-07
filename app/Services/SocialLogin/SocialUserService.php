@@ -2,6 +2,7 @@
 
 namespace App\Services\SocialLogin;
 
+use App\Data\Entities\SocialUser;
 use Auth;
 use App\Data\Entities\User;
 use League\Flysystem\Exception;
@@ -24,10 +25,6 @@ class SocialUserService
 
     public function findOrCreate($socialNetwork, $socialNetworkUser)
     {
-        $email = $this->getEmail($socialNetworkUser, $socialNetwork);
-
-        session(['email' => $email]);
-
         $socialNetwork = $this->getSocialNetwork($socialNetwork);
 
         $socialUser = $this->findOrCreateSocialUser($socialNetwork, $socialNetworkUser);
@@ -51,6 +48,11 @@ class SocialUserService
         ]);
     }
 
+    private function getFreshSocialUser($socialUser)
+    {
+        return SocialUser::where('id', $socialUser->id)->first();
+    }
+
     /**
      * @param $user
      * @return \Illuminate\Http\RedirectResponse
@@ -58,11 +60,6 @@ class SocialUserService
     public function login($user)
     {
         return auth()->login($user);
-    }
-
-    private function getEmail($socialNetworkUser, $socialNetwork)
-    {
-        return $socialNetworkUser->getEmail() ?: sprintf('%s@%s.legislaqui.rj.gov.br', $socialNetworkUser->getId(), $socialNetwork);
     }
 
     public function findOrCreateUser($socialUser, $email)
@@ -103,6 +100,8 @@ class SocialUserService
             $socialNetworkUser
         );
 
+        $socialUser = $this->updateLoggedSocialUser($socialUser);
+
         Auth::login($socialUser->user);
     }
 
@@ -114,7 +113,7 @@ class SocialUserService
             $socialUser->student_id = $studentId;
         }
 
-        if (is_null($socialUser->user)) {
+        if (is_null($user = $socialUser->user)) {
             $socialUserByStudent = $this->socialUserRepository->findOtherSocialUsersByStudentId($studentId, $socialNetworkUser->getId());
 
             if ($socialUserByStudent->count() == 0) {
@@ -125,12 +124,17 @@ class SocialUserService
 
             $socialUser->user_id = $user->id;
 
-            $socialUser->fresh();
-
             $this->setUserAvatar($user, $socialNetworkUser->getAvatar());
         }
 
         $socialUser->save();
+
+        $socialUser = $this->getFreshSocialUser($socialUser);
+
+        if (is_null($socialUser->student->email)) {
+            $socialUser->student->email = $email;
+            $socialUser->student->save();
+        }
 
         return $socialUser;
     }
@@ -147,5 +151,18 @@ class SocialUserService
 
             $user->save();
         }
+    }
+
+    private function updateLoggedSocialUser($socialUser)
+    {
+        $loggedUser = session('loggedUser');
+
+        $loggedUser->setSocialUser($socialUser);
+
+        $loggedUser->setUser($socialUser->user);
+
+        session(['loggedUser' => $loggedUser]);
+
+        return $socialUser;
     }
 }

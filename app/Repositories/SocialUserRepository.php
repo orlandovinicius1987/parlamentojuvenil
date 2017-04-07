@@ -64,14 +64,13 @@ class SocialUserRepository
       $socialUser->save();
     }
 
-    public function createSocialUser($socialNetwork, $socialUserPlatform)
+    public function createSocialUser($socialNetwork, $socialNetworkUser)
     {
-        $socialUser = new SocialUser();
-        $socialUser->social_network_id = $socialNetwork->id;
-        $socialUser->social_network_user_id = $socialUserPlatform->getId();
-        $socialUser->data = json_encode($socialUserPlatform);
-        $socialUser->save();
-        return $socialUser;
+        return SocialUser::create([
+            'social_network_id' => $socialNetwork->id,
+            'social_network_user_id' => $socialNetworkUser->getId(),
+            'data' => $socialNetworkUser->serialize(),
+        ]);
     }
 
     public function createUser($email, $socialUserPlatform)  //, $socialUser)  //, $regBirth)

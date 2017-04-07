@@ -6,11 +6,21 @@ class LoggedUser
 {
     protected $user;
 
+    protected $email;
+
     protected $socialUser;
 
     protected $socialNetwork;
 
     protected $socialNetworkUser;
+
+    /**
+     * @return mixed
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
 
     /**
      * @return mixed
@@ -55,11 +65,23 @@ class LoggedUser
     }
 
     /**
+     * @param mixed $email
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
      * @param mixed $socialNetwork
      */
     public function setSocialNetwork($socialNetwork)
     {
         $this->socialNetwork = $socialNetwork;
+
+        return $this;
     }
 
     /**
@@ -68,6 +90,8 @@ class LoggedUser
     public function setSocialNetworkUser($socialNetworkUser)
     {
         $this->socialNetworkUser = $socialNetworkUser;
+
+        return $this;
     }
 
     /**
@@ -76,6 +100,8 @@ class LoggedUser
     public function setSocialUser($socialUser)
     {
         $this->socialUser = $socialUser;
+
+        return $this;
     }
 
     /**
@@ -84,6 +110,8 @@ class LoggedUser
     public function setUser($user)
     {
         $this->user = $user;
+
+        return $this;
     }
 
     /**

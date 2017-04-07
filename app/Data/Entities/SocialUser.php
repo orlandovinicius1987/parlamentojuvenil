@@ -6,9 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class SocialUser extends Model
 {
-    protected $dates = ['deleted_at'];
+    protected $dates = ['created_at', 'updated_at', 'deleted_at'];
 
-    protected $guarded = ['user_id', 'student_id', 'social_network_id', 'data'];
+    protected $fillable = [
+        'social_network_id',
+        'social_network_user_id',
+        'data',
+    ];
 
     public function find($id)
     {
