@@ -375,6 +375,42 @@
     </section><!-- /#latest-post -->
 
 
+
+
+
+    <!-- Subscribe Section -->
+    <section id="subscribe-section" class="subscribe-section text-center">
+        <div class="container">
+            <form class="news-letter" method="post">
+                <p class="alert-success"></p>
+                <p class="alert-warning"></p>
+
+                <div class="subscribe-hide">
+                    <input class="form-control" type="email" id="subscribe-email" name="subscribe-email" placeholder="Email "  required>
+                    <button  type="submit" id="subscribe-submit" class="btn btn-md btn-signup">Cadastre-se</button>
+                    <input class="form-control" type="password" id="subscribe-password" name="subscribe-password" placeholder="Senha"  required>
+                    <button  type="submit" id="subscribe-submit2" class="btn btn-md btn-signin">Entre</button>
+                    <div class="subscribe-error"></div>
+                </div><!-- /.subscribe-hide -->
+                <div class="subscribe-message"></div>
+            </form><!-- /.news-letter -->
+            <h2 class="post-area-title">ou</h2>
+
+            <p  class="subscribe-social-buttons">
+                <a class="social-login-btn social-facebook" href="/auth/facebook"><img class="img-responsive" src="/templates/2017/assets/img/socialbtn-facebook.png"></a>
+                <a class="social-login-btn social-twitter" href="/auth/twitter"><img class="img-responsive" src="/templates/2017/assets/img/socialbtn-twitter.png"></a>
+                <a class="social-login-btn social-instagram" href="/auth/instagram"><img class="img-responsive" src="/templates/2017/assets/img/socialbtn-instagram.png"></a>
+                <a class="social-login-btn social-linkedin" href="/auth/linkedin"><img class="img-responsive" src="/templates/2017/assets/img/socialbtn-linkedin.png"></a>
+                <a class="social-login-btn social-youtube" href="/auth/youtube"><img class="img-responsive" src="/templates/2017/assets/img/socialbtn-youtube.png"></a>
+
+            </p>
+        </div><!-- /.container -->
+    </section><!-- /#subscribe-section -->
+    <!-- Subscribe Section End -->
+
+
+
+
     <section id="contact" class="contact">
         <div class="contact-area">
             <!-- Google Map Section -->
