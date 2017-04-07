@@ -17,7 +17,7 @@
                 </p>
 
                 <div class="nao-possui-redes">
-                    <a href="naotenhorede.html"><p>Caso você não esteja em nenhuma dessas redes sociais, clique aqui.</p></a>
+                    <a href="naotenhorede.html"><p><a href="{{ route('auth.login.email') }}">Caso você não esteja em nenhuma dessas redes sociais, clique aqui.</a></p></a>
                 </div>
             </div>
         </div>

@@ -11,18 +11,24 @@ Route::get('/phpinfo', function () {
     phpinfo();
 });
 
+Route::get('/', ['as' => 'home', 'uses' => 'Home@index']);
+
 /*
  * Main route
  */
-Route::get('/{year?}', ['as' => 'home', 'uses' => 'Home@index'])->where('year', '\d{4}');
+Route::get('/{year?}', ['as' => 'home.year', 'uses' => 'Home@index'])->where('year', '\d{4}');
 
 /*
  * Auth
  */
 Route::group(['prefix' => '/auth'], function ()
 {
+    Route::get('/logout', ['as' => 'auth.index', 'uses' => 'Auth@logout']);
+
     Route::get('/login', ['as' => 'auth.index', 'uses' => 'Auth@index']);
     Route::post('/login', ['as' => 'auth.post', 'uses' => 'Auth@post']);
+
+    Route::get('/login/email', ['as' => 'auth.login.email', 'uses' => 'Auth@emailLogin']);
 
     /*
      * Social
