@@ -746,15 +746,19 @@ p.item-description {
 /* Subscribe Section */
 
 .subscribe-section {
-	background: #3498db;
+	/*background: #3498db;*/
 	padding: 60px 0px;
 }
 .subscribe-section p {
-	margin: 0px; 
+	margin: 45px;
 }
 .subscribe-section input {
-	max-width: 510px;
+	max-width: 400px;
 	display: inline-block;
+}
+
+form.subscribre-form {
+	margin: 45px 0;
 }
 .subscribe-section .form-control {
 	margin: 5px !important;
@@ -795,15 +799,15 @@ p.item-description {
 }
 .message-details input,
 .subscribe-section input {
-	padding: 21px 20px !important;
+	padding: 30px 20px !important;
 }
 .message-details .form-control,
 .subscribe-section .form-control {
 	background: #C7C7C7;
 	border: 1px solid #696969;
-	border-radius: 2px;
+	border-radius: 0px;
 	box-shadow: none;
-	font-size: .875em;
+	font-size: 16px;
 	padding: 20px;
 	margin-bottom: 15px;
 }
@@ -834,11 +838,13 @@ p.item-description {
 .btn.btn-signin {
 	background: #00A648 !important;
 	color: #fff !important;
+	height: 63px;
 }
 
 .btn.btn-signup {
 	background: #FF141E !important;
 	color: #fff !important;
+	height: 63px;
 }
 
 

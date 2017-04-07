@@ -385,13 +385,13 @@
     <!-- Subscribe Section -->
     <section id="subscribe-section" class="subscribe-section text-center">
         <div class="container">
-            <form class="news-letter" method="post">
+            <form class="subscribre-form" method="post">
                 <p class="alert-success"></p>
                 <p class="alert-warning"></p>
 
                 <div class="subscribe-hide">
                     <input class="form-control" type="email" id="subscribe-email" name="subscribe-email" placeholder="Email "  required>
-                    <button  type="submit" id="subscribe-submit" class="btn btn-md btn-signup">Cadastre-se</button>
+                    <button  type="submit" id="subscribe-submit" class="btn btn-md btn-signup">Cadastre-se</button><br>
                     <input class="form-control" type="password" id="subscribe-password" name="subscribe-password" placeholder="Senha"  required>
                     <button  type="submit" id="subscribe-submit2" class="btn btn-md btn-signin">Entre</button>
                     <div class="subscribe-error"></div>
