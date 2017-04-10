@@ -108,6 +108,28 @@ input,
 textarea {
 	width: 100%;
 }
+
+
+
+.form-control {
+	background: #C7C7C7;
+	border: 1px solid #696969;
+	border-radius: 0px;
+	box-shadow: none;
+	font-size: 16px;
+	padding: 20px;
+	margin-bottom: 15px;
+	padding: 30px 20px !important;
+	font-weight: 600;
+}
+
+.form-control::placeholder{
+	color: #696969;
+	font-weight: 600;
+}
+
+
+
 .form-control:focus,
 input:focus,
 textarea:focus,
@@ -816,15 +838,6 @@ form.subscribre-form {
 
 /* Contact Section */
 
-.form-control {
-	background: #C7C7C7;
-	border: 1px solid #696969;
-	border-radius: 0px;
-	box-shadow: none;
-	font-size: 16px;
-	padding: 20px;
-	margin-bottom: 15px;
-}
 
 
 
@@ -1467,6 +1480,18 @@ footer a {
 }
 
 
+.identify-yourself {
+	margin-top: 160px;
+	margin-bottom: 200px;
+}
+
+
+.identify-title {
+	text-align: center;
+/*	padding-top: 30px;*/
+	font-size: 24px;
+	color: #848484;
+}
 
 
 
