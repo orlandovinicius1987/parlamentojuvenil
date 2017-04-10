@@ -33,6 +33,9 @@
     <link href="/pj2016/css/animate.css" rel="stylesheet">
     <link href="/pj2016/css/responsive.css" rel="stylesheet">
 
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
         <style>
             html, body {
                 height: 100%;
@@ -45,26 +48,60 @@
                 color: #B0BEC5;
                 display: table;
                 font-weight: 100;
-                font-family: 'Kreon', serif;
+                font-family: 'Open Sans', serif;
             }
 
             .title {
                 font-size: 72px;
                 margin-bottom: 40px;
             }
+
+
+
+            .error404-box {
+                width: 370px;
+                margin: 7% auto;
+            }
+
+
+            .error404-logo {
+                text-align: center;
+                margin-bottom: 10px;
+                font-weight: 300;
+            }
+
+            .error404-box-msg {
+                    margin: 0;
+                    text-align: center;
+                    padding: 0 20px 0px 20px;
+                font-size: 26px;
+                color: #EE272B;
+                }
+            .error404-box-body {
+                background: #fff;
+                padding: 20px;
+                border-top: 0;
+                color: #848484;
+                text-align: center;
+                font-size: 24px;
+            }
+
         </style>
 
 </head>
 <body>
     <section id="error" class="fundo-azul">
         <div class="container">
-            <div class="row">
-                <div class="col-xs-12 text-center">
-                    <h2>Erro 404</h2>
-                    <div class="title">Esta página não existe.</div>
-                    <a href="/" class="btn btn-lg quadro-vermelho borda-preta">Página inicial</a>
+            <div class="error404-box">
+                <div class="error404-logo">
+                   <img src="/templates/2017/assets/img/404error.jpg" alt="404 Error">
+                </div>
+                <div class="error404-box-body">
+                    <p class="error404-box-msg">Página não encontrada</p>
+                    erro 404
                 </div>
             </div>
+
         </div>
     </section>
 </body>
