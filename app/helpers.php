@@ -1,5 +1,7 @@
 <?php
 
+use App\Services\SocialLogin\LoggedUser;
+
 function calculate_age($date)
 {
 	try
@@ -56,4 +58,13 @@ function mb_strtoclean($string)
                                 );
 
     return mb_strtolower(strtr($string, $unwanted_array ));
+}
+
+/**
+ * Get the current logged user object.
+ *
+ * @return LoggedUser
+ */
+function loggedUser() {
+    return app(LoggedUser::class);
 }

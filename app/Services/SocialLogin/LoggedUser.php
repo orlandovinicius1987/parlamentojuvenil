@@ -71,6 +71,8 @@ class LoggedUser
     {
         $this->email = $email;
 
+        $this->updateSession();
+
         return $this;
     }
 
@@ -80,6 +82,8 @@ class LoggedUser
     public function setSocialNetwork($socialNetwork)
     {
         $this->socialNetwork = $socialNetwork;
+
+        $this->updateSession();
 
         return $this;
     }
@@ -91,6 +95,8 @@ class LoggedUser
     {
         $this->socialNetworkUser = $socialNetworkUser;
 
+        $this->updateSession();
+
         return $this;
     }
 
@@ -100,6 +106,8 @@ class LoggedUser
     public function setSocialUser($socialUser)
     {
         $this->socialUser = $socialUser;
+
+        $this->updateSession();
 
         return $this;
     }
@@ -111,6 +119,8 @@ class LoggedUser
     {
         $this->user = $user;
 
+        $this->updateSession();
+
         return $this;
     }
 
@@ -120,5 +130,15 @@ class LoggedUser
     public function __get($key)
     {
         return $this->{'get'.studly($key)}();
+    }
+
+    private function updateSession()
+    {
+        session()->put('loggedUser', $this);
+    }
+
+    public function logged()
+    {
+        return $this->user || $this->socialUser;
     }
 }

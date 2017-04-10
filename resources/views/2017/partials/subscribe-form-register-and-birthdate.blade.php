@@ -15,8 +15,6 @@
         </div>
     </section>
 
-    @include('partials.errors')
-
     <form id="login" method="POST" action="{{ route('auth.student.login') }}">
         {!! csrf_field() !!}
 
@@ -42,7 +40,6 @@
                 required
                 data-validation-required-message="Por favor digite sua data de nascimento."
         >
-
 
         <button id="submit" type="submit" class="btn btn-lg btn-primary btn-block btn-submit-subscription">
             Enviar

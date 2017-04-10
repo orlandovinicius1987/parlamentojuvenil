@@ -20,6 +20,7 @@ class Handler extends ExceptionHandler
     protected $dontReport = [
         HttpException::class,
     ];
+
     /**
      * @var Builder
      */
@@ -34,6 +35,13 @@ class Handler extends ExceptionHandler
 
     private function handleException($e)
     {
+        if ($e instanceof Authentication) {
+            return redirect()
+                    ->back()
+                    ->withInput()
+                    ->withErrors($e->getMessage());
+        }
+
         if ($e instanceof AlreadySubscribed)
         {
             $view = $this

@@ -32,7 +32,7 @@ class StudentController extends Controller
      */
     private function getEmailFromSession()
     {
-        return session('loggedUser')->email;
+        return loggedUser()->email;
     }
 
     /**
@@ -40,7 +40,7 @@ class StudentController extends Controller
      */
     private function getSocialNetworkUserFromSession()
     {
-        return session('loggedUser')->socialNetworkUser;
+        return loggedUser()->socialNetworkUser;
     }
 
     public function login()

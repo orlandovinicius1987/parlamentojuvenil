@@ -127,10 +127,11 @@
 <!-- /#main-menu -->
 <!-- Header -->
 
+<div class="container">
+    @include('partials.errors')
+</div>
 
 @yield('contents')
-
-
 
 <footer>
     {{--<div id="footer-top" class="footer-top">

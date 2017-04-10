@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Carbon\Carbon;
+use App\Services\SocialLogin\LoggedUser;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Validator;
 
@@ -15,25 +16,18 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $end = Carbon::createFromFormat('d/m/Y', '20/11/2016');
+        $this->createValidators();
+    }
 
-        Validator::extend('lessthan18', function($attribute, $value, $parameters, $validator) use ($end)
-        {
-            $birth = Carbon::createFromFormat('d/m/Y', $value);
+    private function instantiateLoggedUser()
+    {
+        $loggedUser = session('loggedUser') ?: new LoggedUser();
 
-            $diff = $end->diffInYears($birth);
+        app()->singleton('loggedUser', $loggedUser);
 
-            return $diff < 18;
-        });
+        app()->singleton(LoggedUser::class, $loggedUser);
 
-        Validator::extend('morethan13', function($attribute, $value, $parameters, $validator) use ($end)
-        {
-            $birth = Carbon::createFromFormat('d/m/Y', $value);
-
-            $diff = $end->diffInYears($birth);
-
-            return $diff > 13;
-        });
+        app()->instance(LoggedUser::class, $loggedUser);
     }
 
     /**
@@ -43,6 +37,27 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->instantiateLoggedUser();
+    }
+
+    private function createValidators(): void
+    {
+        $end = Carbon::createFromFormat('d/m/Y', '20/11/2016');
+
+        Validator::extend('lessthan18', function ($attribute, $value, $parameters, $validator) use ($end) {
+            $birth = Carbon::createFromFormat('d/m/Y', $value);
+
+            $diff = $end->diffInYears($birth);
+
+            return $diff < 18;
+        });
+
+        Validator::extend('morethan13', function ($attribute, $value, $parameters, $validator) use ($end) {
+            $birth = Carbon::createFromFormat('d/m/Y', $value);
+
+            $diff = $end->diffInYears($birth);
+
+            return $diff > 13;
+        });
     }
 }

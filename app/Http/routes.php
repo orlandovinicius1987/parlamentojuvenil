@@ -26,9 +26,11 @@ Route::group(['prefix' => '/auth'], function ()
     Route::get('/logout', ['as' => 'auth.index', 'uses' => 'Auth@logout']);
 
     Route::get('/login', ['as' => 'auth.index', 'uses' => 'Auth@index']);
-    Route::post('/login', ['as' => 'auth.post', 'uses' => 'Auth@post']);
 
     Route::get('/login/email', ['as' => 'auth.login.email', 'uses' => 'EmailAuth@index']);
+    Route::post('/login/email', ['as' => 'auth.login.email.post', 'uses' => 'EmailAuth@post']);
+    Route::post('/login/email/register', ['as' => 'auth.login.email.register', 'uses' => 'EmailAuth@register']);
+    Route::get('/login/email/student', ['as' => 'auth.login.email.student', 'uses' => 'EmailAuth@student']);
 
     /*
      * Social
@@ -49,7 +51,7 @@ Route::group(['prefix' => '/auth'], function ()
     });
 });
 
-Route::group(['prefix' => '/subscribe', 'middleware' => 'auth'], function ()
+Route::group(['prefix' => '/subscribe', 'middleware' => ['auth', 'student-login']], function ()
 {
     Route::get('/', ['as' => 'subscribe.index', 'uses' => 'Subscriptions@index']);
 });

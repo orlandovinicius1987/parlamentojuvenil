@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\SocialLogin\LoggedUser;
 use App\Services\SocialLogin\SocialUserService;
 use Socialite;
 use DB;
@@ -18,11 +17,11 @@ class SocialAuthController extends Controller
 
     private function isSocialNetworkIsLoggedIn($socialNetwork)
     {
-        if (is_null($user = session('loggedUser'))) {
+        if (loggedUser()->logged()) {
             return false;
         }
 
-        return $user->socialNetwork == $socialNetwork;
+        return loggedUser()->socialNetwork == $socialNetwork;
     }
 
     public function login($socialNetwork)
@@ -32,7 +31,7 @@ class SocialAuthController extends Controller
 
     public function socialNetworkCallback($socialNetwork)
     {
-        $this->socialNetworkLogin($socialNetwork);
+        $this->socialUserService->socialNetworkLogin($socialNetwork);
 
         return view('2017.partials.subscribe-form-register-and-birthdate');
     }
@@ -45,7 +44,7 @@ class SocialAuthController extends Controller
     /**
      * @param $socialNetwork
      */
-    private function socialNetworkLogin($socialNetwork)
+    public function socialNetworkLogin($socialNetwork)
     {
         if (! $this->isSocialNetworkIsLoggedIn($socialNetwork)) {
             $socialNetworkUser = $this->socialUserService->makeSocialNetworkUser($this->getDriver($socialNetwork)->user());
@@ -63,7 +62,7 @@ class SocialAuthController extends Controller
 
     private function getEmail($socialNetworkUser, $socialNetwork)
     {
-        return $socialNetworkUser->getEmail() ?: sprintf('%s@%s.legislaqui.rj.gov.br', $socialNetworkUser->getId(), $socialNetwork);
+        return $socialNetworkUser->getEmail() ?: sprintf('%s@%s.parlamentojuvenil.rj.gov.br', $socialNetworkUser->getId(), $socialNetwork);
     }
 
     /**
@@ -73,11 +72,9 @@ class SocialAuthController extends Controller
      */
     private function storeUserInSession($socialNetwork, $socialUser, $socialNetworkUser, $email)
     {
-        session([
-            'loggedUser' => with(new LoggedUser())->setSocialNetwork($socialNetwork)
-                                                  ->setSocialUser($socialUser)
-                                                  ->setSocialNetworkUser($socialNetworkUser)
-                                                  ->setEmail($email)
-        ]);
+        loggedUser()->setSocialNetwork($socialNetwork)
+                    ->setSocialUser($socialUser)
+                    ->setSocialNetworkUser($socialNetworkUser)
+                    ->setEmail($email);
     }
 }
