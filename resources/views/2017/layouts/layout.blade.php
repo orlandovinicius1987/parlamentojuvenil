@@ -131,7 +131,13 @@
     @include('partials.errors')
 </div>
 
-@yield('contents')
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            @yield('contents')
+        </div>
+    </div>
+</div>
 
 <footer>
     {{--<div id="footer-top" class="footer-top">
