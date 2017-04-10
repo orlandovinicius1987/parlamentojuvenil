@@ -1486,3 +1486,37 @@ footer a {
 .row.form-subscribe {
 	padding-bottom: 30px;
 }
+
+
+
+
+
+
+
+.error404-box {
+	width: 370px;
+	margin: 7% auto;
+}
+
+
+.error404-logo {
+	text-align: center;
+	margin-bottom: 10px;
+	font-weight: 300;
+}
+
+.error404-box-msg {
+	margin: 0;
+	text-align: center;
+	padding: 0 20px 0px 20px;
+	font-size: 26px;
+	color: #EE272B;
+}
+.error404-box-body {
+	background: #fff;
+	padding: 20px;
+	border-top: 0;
+	color: #848484;
+	text-align: center;
+	font-size: 24px;
+}
