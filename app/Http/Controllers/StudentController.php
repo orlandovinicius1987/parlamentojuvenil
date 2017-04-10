@@ -6,7 +6,6 @@ use App\Data\Entities\Seeduc;
 use App\Data\Entities\Student;
 use Illuminate\Support\Facades\Input;
 use App\Services\SocialLogin\SocialUserService;
-use League\Flysystem\Exception;
 
 class StudentController extends Controller
 {

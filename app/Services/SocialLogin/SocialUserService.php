@@ -2,10 +2,11 @@
 
 namespace App\Services\SocialLogin;
 
-use App\Data\Entities\SocialUser;
 use Auth;
+use Socialite;
 use App\Data\Entities\User;
 use League\Flysystem\Exception;
+use App\Data\Entities\SocialUser;
 use App\Data\Entities\SocialNetwork;
 use Illuminate\Support\Facades\Hash;
 use App\Repositories\UsersRepository;
@@ -158,5 +159,56 @@ class SocialUserService
         loggedUser()->setSocialUser($socialUser);
 
         loggedUser()->setUser($socialUser->user);
+    }
+
+    /**
+     * @param $socialNetwork
+     */
+    public function socialNetworkLogin($socialNetwork)
+    {
+        if (! $this->isSocialNetworkIsLoggedIn($socialNetwork)) {
+            $socialNetworkUser = $this->makeSocialNetworkUser($this->getDriver($socialNetwork)->user());
+
+            $socialUser = $this->findOrCreate($socialNetwork, $socialNetworkUser);
+
+            $this->storeUserInSession(
+                $socialNetwork,
+                $socialUser,
+                $socialNetworkUser,
+                $this->getEmail($socialNetworkUser, $socialNetwork)
+            );
+        }
+    }
+
+    private function isSocialNetworkIsLoggedIn($socialNetwork)
+    {
+        if (loggedUser()->logged()) {
+            return false;
+        }
+
+        return loggedUser()->socialNetwork == $socialNetwork;
+    }
+
+    private function getEmail($socialNetworkUser, $socialNetwork)
+    {
+        return $socialNetworkUser->getEmail() ?: sprintf('%s@%s.parlamentojuvenil.rj.gov.br', $socialNetworkUser->getId(), $socialNetwork);
+    }
+
+    public function getDriver($driver)
+    {
+        return Socialite::driver($driver);
+    }
+
+    /**
+     * @param $socialNetwork
+     * @param $socialUser
+     * @param $socialNetworkUser
+     */
+    private function storeUserInSession($socialNetwork, $socialUser, $socialNetworkUser, $email)
+    {
+        loggedUser()->setSocialNetwork($socialNetwork)
+                    ->setSocialUser($socialUser)
+                    ->setSocialNetworkUser($socialNetworkUser)
+                    ->setEmail($email);
     }
 }
