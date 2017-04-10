@@ -40,7 +40,7 @@ class AppServiceProvider extends ServiceProvider
         $this->instantiateLoggedUser();
     }
 
-    private function createValidators(): void
+    private function createValidators()
     {
         $end = Carbon::createFromFormat('d/m/Y', '20/11/2016');
 
