@@ -26,22 +26,6 @@ class StudentController extends Controller
         return Student::where('registration', $data['registration'])->where('birthdate', $data['birthdate'])->first();
     }
 
-    /**
-     * @return mixed
-     */
-    private function getEmailFromSession()
-    {
-        return loggedUser()->email;
-    }
-
-    /**
-     * @return mixed
-     */
-    private function getSocialNetworkUserFromSession()
-    {
-        return loggedUser()->socialNetworkUser;
-    }
-
     public function login()
     {
         $userData = [
@@ -53,11 +37,13 @@ class StudentController extends Controller
             return redirect()->back()->withErrors('Inscrição não encontrada.');
         }
 
+        $user = loggedUser()->socialNetworkUser;
+
         $this->socialUserService->loginSocialUser(
             $student->id,
-            $this->getSocialNetworkUserFromSession()->getId(),
-            $this->getEmailFromSession(),
-            $this->getSocialNetworkUserFromSession()
+            $user->getId(),
+            loggedUser()->email,
+            loggedUser()->socialNetworkUser
         );
 
         return redirect()->intended();
