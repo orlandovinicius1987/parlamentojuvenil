@@ -121,6 +121,36 @@ button:focus {
 	outline: 0; 
 }
 
+.btn-lg {
+	padding: 10px 16px;
+	font-size: 18px;
+	line-height: 1.3333333;
+	border-radius: 0px;
+	text-transform: uppercase;
+}
+
+
+
+
+.btn-primary {
+	color: #fff;
+	background: #21a54b;
+	border-color: #1E9945;
+}
+
+.btn-primary:hover {
+	background: #1E9945;
+	border-color: #1B883E;
+}
+
+.btn-submit-subscription{
+	background: #21a54b;
+}
+
+
+
+
+
 .paddingtop10{
 	margin-top: 20px;
 }
@@ -785,6 +815,19 @@ form.subscribre-form {
 
 
 /* Contact Section */
+
+.form-control {
+	background: #C7C7C7;
+	border: 1px solid #696969;
+	border-radius: 0px;
+	box-shadow: none;
+	font-size: 16px;
+	padding: 20px;
+	margin-bottom: 15px;
+}
+
+
+
 .map-container img{
 	max-width: inherit;
 	height: inherit;
@@ -811,6 +854,8 @@ form.subscribre-form {
 	padding: 20px;
 	margin-bottom: 15px;
 }
+
+
 .message-details .btn,
 .subscribe-section .btn {
 	background-color: #3498db;
@@ -1425,3 +1470,19 @@ footer a {
 
 
 
+
+.fundo-inscricao {
+	margin-top: 160px;
+	margin-bottom: 200px;
+}
+
+.subscribe-title {
+	text-align: center;
+	padding-bottom: 50px;
+	font-size: 24px;
+	color: #848484;
+}
+
+.row.form-subscribe {
+	padding-bottom: 30px;
+}

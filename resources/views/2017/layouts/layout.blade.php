@@ -99,7 +99,7 @@
                         <i class="fa fa-bars"></i>
                     </button>
                     <div class="menu-logo">
-                        <a href="./"><img src="/templates/2017/images/logo.png" alt="menu Logo"></a>
+                        <a href="{{ route('home') }}"><img src="/templates/2017/images/logo.png" alt="menu Logo"></a>
                     </div>
                     <!-- /.menu-logo -->
                 </div>
