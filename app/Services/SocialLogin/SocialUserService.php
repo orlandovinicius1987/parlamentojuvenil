@@ -156,9 +156,11 @@ class SocialUserService
 
     private function updateLoggedSocialUser($socialUser)
     {
-        loggedUser()->setSocialUser($socialUser);
+        loggedUser()->socialUser = $socialUser;
 
-        loggedUser()->setUser($socialUser->user);
+        loggedUser()->user = $socialUser->user;
+
+        return $socialUser;
     }
 
     /**

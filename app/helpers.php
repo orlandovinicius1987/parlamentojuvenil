@@ -68,3 +68,7 @@ function mb_strtoclean($string)
 function loggedUser() {
     return app(LoggedUser::class);
 }
+
+function subscriptionsEnabled() {
+    return app()->environment() != 'production' || config('app.subscriptions.enabled');
+}

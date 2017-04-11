@@ -2,143 +2,79 @@
 
 namespace App\Services\SocialLogin;
 
+use PhpSpec\Exception\Fracture\MethodNotFoundException;
+
 class LoggedUser
 {
-    protected $user;
-
-    protected $email;
-
-    protected $socialUser;
-
-    protected $socialNetwork;
-
-    protected $socialNetworkUser;
+    const SESSION_VAR_NAME = 'loggedUser';
 
     /**
-     * @return mixed
+     * @param $key
+     * @return null
      */
-    public function getEmail()
+    private function get($key)
     {
-        return $this->email;
+        $key = snake_case($key);
+
+        $value = $this->loadSessionVar();
+
+        $value = isset($value[$key])
+                ? $value[$key]
+                : null;
+
+        return $value;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getSocialNetwork()
+    private function loadSessionVar()
     {
-        return $this->socialNetwork;
+        return session(self::SESSION_VAR_NAME);
     }
 
-    /**
-     * @return mixed
-     */
-    public function getSocialNetworkUser()
+    private function set($key, $data)
     {
-        return $this->socialNetworkUser;
-    }
+        $loggedUser = $this->loadSessionVar();
 
-    /**
-     * @return mixed
-     */
-    public function getSocialUser()
-    {
-        return $this->socialUser;
-    }
+        $loggedUser[snake_case($key)] = $data;
 
-    /**
-     * @return mixed
-     */
-    public function getStudent()
-    {
-        return is_null($this->socialUser)
-                ? null
-                : $this->socialUser->student;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getUser()
-    {
-        return $this->user;
-    }
-
-    /**
-     * @param mixed $email
-     */
-    public function setEmail($email)
-    {
-        $this->email = $email;
-
-        $this->updateSession();
-
-        return $this;
-    }
-
-    /**
-     * @param mixed $socialNetwork
-     */
-    public function setSocialNetwork($socialNetwork)
-    {
-        $this->socialNetwork = $socialNetwork;
-
-        $this->updateSession();
-
-        return $this;
-    }
-
-    /**
-     * @param mixed $socialNetworkUser
-     */
-    public function setSocialNetworkUser($socialNetworkUser)
-    {
-        $this->socialNetworkUser = $socialNetworkUser;
-
-        $this->updateSession();
-
-        return $this;
-    }
-
-    /**
-     * @param mixed $socialUser
-     */
-    public function setSocialUser($socialUser)
-    {
-        $this->socialUser = $socialUser;
-
-        $this->updateSession();
-
-        return $this;
-    }
-
-    /**
-     * @param mixed $user
-     */
-    public function setUser($user)
-    {
-        $this->user = $user;
-
-        $this->updateSession();
+        $this->updateSession($loggedUser);
 
         return $this;
     }
 
     /**
      * @param $key
+     * @return null
      */
     public function __get($key)
     {
-        return $this->{'get'.studly($key)}();
+        return $this->get($key);
     }
 
-    private function updateSession()
+    public function __set($name, $value) {
+        return $this->set($name, $value);
+    }
+
+    public function __call($name, $arguments) {
+        if (method_exists($this, $name)) {
+            return call_user_func_array([$this, $name], $arguments);
+        }
+
+        if (! starts_with($name, 'set')) {
+            throw new MethodNotFoundException("Method $name does not exists.");
+        }
+
+        $arguments = array_merge((array) substr($name, 3), $arguments);
+
+        return call_user_func_array([$this, 'set'], $arguments);
+    }
+
+    private function updateSession($loggedUser)
     {
-        session()->put('loggedUser', $this);
+        session()->put(self::SESSION_VAR_NAME, $loggedUser);
     }
 
     public function logged()
     {
-        return $this->user || $this->socialUser;
+        return $this->get('user') || $this->get('socialUser');
     }
 }

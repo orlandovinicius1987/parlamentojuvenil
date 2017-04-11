@@ -4,13 +4,6 @@ use App\Data\Entities\State;
 use App\Data\Entities\School;
 use App\Services\News\Service as NewsSync;
 
-/*
- * DEBUG
- */
-Route::get('/phpinfo', function () {
-    phpinfo();
-});
-
 Route::get('/', ['as' => 'home', 'uses' => 'Home@index']);
 
 /*

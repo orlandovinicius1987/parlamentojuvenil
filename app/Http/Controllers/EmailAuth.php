@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\SocialLogin\EmailAuthProvider;
 use Auth as IlluminateAuth;
-use Laravel\Socialite\Two\User;
-use App\Services\SocialLogin\LoggedUser;
+use App\Services\SocialLogin\EmailAuthProvider;
 use App\Data\Repositories\Data as DataRepository;
 use App\Data\Repositories\Users as UsersRepository;
 use App\Http\Controllers\Controller as BaseController;
@@ -17,18 +15,11 @@ class EmailAuth extends BaseController
      */
     private $usersRepository;
 
-    /**
-     * @var LoggedUser
-     */
-    private $loggedUser;
-
-    public function __construct(UsersRepository $usersRepository, DataRepository $dataRepository, LoggedUser $loggedUser)
+    public function __construct(UsersRepository $usersRepository, DataRepository $dataRepository)
     {
         parent::__construct($dataRepository);
 
         $this->usersRepository = $usersRepository;
-
-        $this->loggedUser = $loggedUser;
     }
 
     public function index($year = null)
@@ -39,7 +30,7 @@ class EmailAuth extends BaseController
     public function post()
     {
         if (IlluminateAuth::attempt(request()->only(['email', 'password']))) {
-            $this->loggedUser->setUser(IlluminateAuth::user());
+            loggedUser()->setUser(IlluminateAuth::user());
 
             return redirect()->intended();
         }
@@ -53,7 +44,7 @@ class EmailAuth extends BaseController
     public function register()
     {
         if ($user = $this->usersRepository->register(request()->only(['email', 'password']))) {
-            $this->loggedUser->setUser($user);
+            loggedUser()->setUser($user);
 
             return redirect()->route('home');
         }
@@ -66,7 +57,7 @@ class EmailAuth extends BaseController
 
     public function student()
     {
-        if (is_null($this->usersRepository->findStudentByUser($this->loggedUser->user))) {
+        if (is_null($this->usersRepository->findStudentByUser(loggedUser()->user))) {
             $socialNetworkProvider = new EmailAuthProvider();
 
             $this->socialUserService->socialNetworkLogin($socialNetworkProvider);
