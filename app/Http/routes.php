@@ -25,6 +25,8 @@ Route::group(['prefix' => '/auth'], function ()
     Route::post('/login/email/register', ['as' => 'auth.login.email.register', 'uses' => 'EmailAuth@register']);
     Route::get('/login/email/student', ['as' => 'auth.login.email.student', 'uses' => 'EmailAuth@student']);
 
+    Route::get('/student/identify', ['as' => 'student.identify', 'uses' => 'StudentController@identify']);
+
     /*
      * Social
      */
@@ -44,7 +46,7 @@ Route::group(['prefix' => '/auth'], function ()
     });
 });
 
-Route::group(['prefix' => '/subscribe', 'middleware' => ['auth', 'student-login']], function ()
+Route::group(['prefix' => '/subscribe', 'middleware' => ['subscribing', 'auth', 'student-login']], function ()
 {
     Route::get('/', ['as' => 'subscribe.index', 'uses' => 'Subscriptions@index']);
 });

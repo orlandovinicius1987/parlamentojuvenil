@@ -63,7 +63,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     {
         return isset($this->attributes['avatar'])
                 ? $this->attributes['avatar']
-                : null;
+                : makeAvatar($this->attributes['email']);
     }
 
     public function getSocialNameAttribute()

@@ -37,13 +37,12 @@ class StudentController extends Controller
             return redirect()->back()->withErrors('Inscrição não encontrada.');
         }
 
-        $user = loggedUser()->socialNetworkUser;
+        loggedUser()->student = $student;
 
         $this->socialUserService->loginSocialUser(
             $student->id,
-            $user->getId(),
-            loggedUser()->email,
-            loggedUser()->socialNetworkUser
+            loggedUser()->socialNetworkUser,
+            loggedUser()->email
         );
 
         return redirect()->intended();
@@ -66,5 +65,10 @@ class StudentController extends Controller
         }
 
         return $student;
+    }
+
+    public function identify()
+    {
+        return view('2017.partials.subscribe-form-register-and-birthdate');
     }
 }

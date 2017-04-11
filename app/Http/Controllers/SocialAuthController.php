@@ -23,6 +23,6 @@ class SocialAuthController extends Controller
     {
         $this->socialUserService->socialNetworkLogin($socialNetwork);
 
-        return view('2017.partials.subscribe-form-register-and-birthdate');
+        return redirect()->route('student.identify');
     }
 }

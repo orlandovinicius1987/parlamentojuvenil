@@ -68,6 +68,14 @@ class LoggedUser
         return call_user_func_array([$this, 'set'], $arguments);
     }
 
+    /**
+     * @return bool
+     */
+    private function studentIsLogged(): bool
+    {
+        return ((!$this->isSubscribing) || $this->student);
+    }
+
     private function updateSession($loggedUser)
     {
         session()->put(self::SESSION_VAR_NAME, $loggedUser);
@@ -75,6 +83,19 @@ class LoggedUser
 
     public function logged()
     {
-        return $this->get('user') || $this->get('socialUser');
+        return $this->userIsLogged() && $this->studentIsLogged();
+    }
+
+    public function all()
+    {
+        return collect($this->loadSessionVar());
+    }
+
+    /**
+     * @return bool
+     */
+    private function userIsLogged(): bool
+    {
+        return ($this->get('user') || $this->get('socialUser'));
     }
 }

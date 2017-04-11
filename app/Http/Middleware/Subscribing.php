@@ -4,8 +4,19 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class StudentLogin
+class Subscribing
 {
+
+    /**
+     * Create a new filter instance.
+     *
+     * @param  Guard  $auth
+     * @return void
+     */
+    public function __construct()
+    {
+    }
+
     /**
      * Handle an incoming request.
      *
@@ -15,13 +26,7 @@ class StudentLogin
      */
     public function handle($request, Closure $next)
     {
-        if (! loggedUser()->userIsLogged()) {
-            return redirect()->route('auth.login.email.student');
-        }
-
-        if (! loggedUser()->studentIsLogged()) {
-            return redirect()->route('student.identify');
-        }
+        loggedUser()->isSubscribing = true;
 
         return $next($request);
     }

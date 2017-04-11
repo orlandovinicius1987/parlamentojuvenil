@@ -24,6 +24,11 @@ class SocialUserService
         $this->usersRepository = $usersRepository;
     }
 
+    private function createSocialUserForEmail()
+    {
+
+    }
+
     public function findOrCreate($socialNetwork, $socialNetworkUser)
     {
         $socialNetwork = $this->getSocialNetwork($socialNetwork);
@@ -52,6 +57,19 @@ class SocialUserService
     private function getFreshSocialUser($socialUser)
     {
         return SocialUser::where('id', $socialUser->id)->first();
+    }
+
+    /**
+     * @param $socialNetwork
+     * @return mixed
+     */
+    private function getSocialUserForDriver($socialNetwork)
+    {
+        if ($socialNetwork == 'email') {
+            return $this->createSocialUserForEmail();
+        }
+
+        return $this->getDriver($socialNetwork)->user();
     }
 
     /**
@@ -92,11 +110,10 @@ class SocialUserService
         return $socialUser;
     }
 
-    public function loginSocialUser($studentId, $socialUserId, $email, $socialNetworkUser)
+    public function loginSocialUser($studentId, $email, $socialNetworkUser)
     {
         $socialUser = $this->findOrCreateUserByStudent(
             $studentId,
-            $socialUserId,
             $email,
             $socialNetworkUser
         );
@@ -106,7 +123,7 @@ class SocialUserService
         Auth::login($socialUser->user);
     }
 
-    public function findOrCreateUserByStudent($studentId, $socialUserId, $email, $socialNetworkUser)
+    public function findOrCreateUserByStudent($studentId, $email, $socialNetworkUser)
     {
         $socialUser = $this->socialUserRepository->findBySocialNetworkUserId($socialNetworkUser->getId());
 
@@ -169,7 +186,7 @@ class SocialUserService
     public function socialNetworkLogin($socialNetwork)
     {
         if (! $this->isSocialNetworkIsLoggedIn($socialNetwork)) {
-            $socialNetworkUser = $this->makeSocialNetworkUser($this->getDriver($socialNetwork)->user());
+            $socialNetworkUser = $this->makeSocialNetworkUser($this->getSocialUserForDriver($socialNetwork));
 
             $socialUser = $this->findOrCreate($socialNetwork, $socialNetworkUser);
 

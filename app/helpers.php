@@ -72,3 +72,7 @@ function loggedUser() {
 function subscriptionsEnabled() {
     return app()->environment() != 'production' || config('app.subscriptions.enabled');
 }
+
+function makeAvatar($email) {
+    return 'https://www.gravatar.com/avatar/'.md5($email);
+}
