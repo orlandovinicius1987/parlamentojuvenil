@@ -75,7 +75,7 @@ class LoggedUser
     /**
      * @return bool
      */
-    private function studentIsLogged(): bool
+    private function studentIsLogged()
     {
         return ((!$this->mustBeStudent) || $this->student);
     }
@@ -98,7 +98,7 @@ class LoggedUser
     /**
      * @return bool
      */
-    private function userIsLogged(): bool
+    private function userIsLogged()
     {
         return ($this->get('user') || $this->get('socialUser'));
     }
