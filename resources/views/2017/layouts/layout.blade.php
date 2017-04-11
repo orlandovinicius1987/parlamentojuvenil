@@ -192,10 +192,10 @@
     <div id="footer-bottom" class="footer-bottom text-center">
         <div class="container">
             <div class="row">
-                <div class="col-md-offset-4 col-md-2">
+                <div class="col-xs-offset-1 col-xs-5 col-md-offset-4 col-md-2">
                     <img src="/templates/2017/images/logo-alerj.png" class="logo-alerj img-responsive">
                 </div>
-                <div class="col-md-2">
+                <div class="col-xs-5 col-md-2">
                     <img src="/templates/2017/images/logo-governo.png" class="logo-governo img-responsive">
                 </div>
             </div>
