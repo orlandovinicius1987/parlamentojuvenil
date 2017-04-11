@@ -41,8 +41,8 @@ class StudentController extends Controller
 
         $this->socialUserService->loginSocialUser(
             $student->id,
-            loggedUser()->socialNetworkUser,
-            loggedUser()->email
+            loggedUser()->email,
+            loggedUser()->socialNetworkUser
         );
 
         return redirect()->intended();

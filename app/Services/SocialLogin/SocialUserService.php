@@ -91,10 +91,11 @@ class SocialUserService
     public function findOrCreateUser($socialUser, $email)
     {
         if (!$user = $this->socialUserRepository->findBySocialNetworkId($socialUser->id) ){
+            $user = $this->socialUserRepository->createUser($email, $socialUser);
 
-                $user = $this->socialUserRepository->createUser($email, $socialUser);
-                return $user;
+            return $user;
         }
+
         return $user;
     }
 
@@ -144,7 +145,7 @@ class SocialUserService
             if ($socialUserByStudent->count() == 0) {
                 $user = $this->findOrCreateUserByEmail($email);
             } else {
-                $user = $socialUserByStudent->user;
+                $user = $socialUserByStudent[0]->user;
             }
 
             $socialUser->user_id = $user->id;
@@ -192,18 +193,16 @@ class SocialUserService
      */
     public function socialNetworkLogin($socialNetwork)
     {
-        if (! $this->isSocialNetworkIsLoggedIn($socialNetwork)) {
-            $socialNetworkUser = $this->makeSocialNetworkUser($this->getSocialUserForDriver($socialNetwork));
+        $socialNetworkUser = $this->makeSocialNetworkUser($this->getSocialUserForDriver($socialNetwork));
 
-            $socialUser = $this->findOrCreate($socialNetwork, $socialNetworkUser);
+        $socialUser = $this->findOrCreate($socialNetwork, $socialNetworkUser);
 
-            $this->storeUserInSession(
-                $socialNetwork,
-                $socialUser,
-                $socialNetworkUser,
-                $this->getEmail($socialNetworkUser, $socialNetwork)
-            );
-        }
+        $this->storeUserInSession(
+            $socialNetwork,
+            $socialUser,
+            $socialNetworkUser,
+            $this->getEmail($socialNetworkUser, $socialNetwork)
+        );
     }
 
     private function isSocialNetworkIsLoggedIn($socialNetwork)

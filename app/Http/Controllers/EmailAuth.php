@@ -41,6 +41,10 @@ class EmailAuth extends BaseController
 
             $this->socialUserService->socialNetworkLogin(loggedUser()->socialNetwork = 'email');
 
+            if (loggedUser()->isSubscribing) {
+                return redirect()->route('subscribe.index');
+            }
+
             return redirect()->intended();
         }
 
