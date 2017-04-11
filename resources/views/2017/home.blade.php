@@ -24,16 +24,11 @@
                         <img class="masonry-overflow masonry-big" src="/templates/2017/images/masonry-big.png">
                     </div>
                     <div class="grow grid-item  grid-item--height2 amarelo1">
-
-
-                        <!-- Botão Clique para inscrever - modal - descomentar para habilitar -->
-{{--                        <div class="inscrevase form-group">
-                            <div class="center"><button data-toggle="modal" data-target="#squarespaceModal" class="btn btn-primary btn-large center-block">Clique para se inscrever</button></div>
-                        </div>--}}
-
-                        <!-- FIM - Botão Clique para inscrever - modal - descomentar para habilitar -->
-
-
+                        @if (subscriptionsEnabled())
+                            <div class="inscrevase form-group">
+                                <div class="center"><button data-toggle="modal" data-target="#squarespaceModal" class="btn btn-primary btn-large center-block">Clique para se inscrever</button></div>
+                            </div>
+                        @endif
 
                         <!-- line modal -->
                         <div class="modal fade" id="squarespaceModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
