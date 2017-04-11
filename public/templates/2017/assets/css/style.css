@@ -104,10 +104,12 @@ audio {
 	height: auto;
 	border: none;
 }
+/*
 input,
 textarea {
 	width: 100%;
 }
+*/
 
 
 
@@ -802,12 +804,12 @@ p.item-description {
 	padding: 60px 0px;
 }
 .subscribe-section p {
-	margin: 45px;
+	margin: 35px;
 }
-.subscribe-section input {
+/*.subscribe-section input {
 	max-width: 400px;
 	display: inline-block;
-}
+}*/
 
 form.subscribre-form {
 	margin: 45px 0;
@@ -815,7 +817,7 @@ form.subscribre-form {
 .subscribe-section .form-control {
 	margin: 5px !important;
 }
-.subscribe-section .btn {
+/*.subscribe-section .btn {
   background: #ffffff !important;
   border-radius: 0px;
   color:  #3498db !important;
@@ -824,7 +826,7 @@ form.subscribre-form {
   font-weight: normal !important;
   margin-top: -1px;
   margin-left: 10px;
-}
+}*/
 
 
 
@@ -853,10 +855,12 @@ form.subscribre-form {
 .message-details {
 	padding: 60px 0px;
 }
+/*
 .message-details input,
 .subscribe-section input {
 	padding: 30px 20px !important;
 }
+*/
 .message-details .form-control,
 .subscribe-section .form-control {
 	background: #C7C7C7;
@@ -1561,3 +1565,39 @@ a.signout-button {
 a.signout-button:hover {
 	color: #ffffff;
 }
+
+
+.subscribe-buttons{
+	margin-top: 20px;
+	margin-bottom: 30px;
+}
+
+.row.ou-divider {
+	margin-top: 30px;
+}
+
+.checkbox {
+	text-align: left;
+}
+
+
+@media only screen
+and (min-device-width : 375px)
+and (max-device-width : 667px) {
+	.subscribe-section {
+		padding: 0px 0px;
+	}
+	.social-login-btn {
+		width: 45px !important;
+		height: 45px !important;
+		display: -webkit-inline-box;
+		margin-right: 10px;
+	}
+	.subscribe-section p {
+		margin: 35px 10px;
+	}
+	.signin-btn-container {
+		margin-bottom: 10px;
+	}
+}
+
