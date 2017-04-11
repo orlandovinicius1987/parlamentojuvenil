@@ -4,6 +4,7 @@ namespace App\Services\SocialLogin;
 
 use Auth;
 use Socialite;
+use Rhumsaa\Uuid\Uuid;
 use App\Data\Entities\User;
 use League\Flysystem\Exception;
 use App\Data\Entities\SocialUser;
@@ -11,6 +12,7 @@ use App\Data\Entities\SocialNetwork;
 use Illuminate\Support\Facades\Hash;
 use App\Repositories\UsersRepository;
 use App\Repositories\SocialUserRepository;
+use Laravel\Socialite\Two\User as SocialiteUser;
 
 class SocialUserService
 {
@@ -26,7 +28,12 @@ class SocialUserService
 
     private function createSocialUserForEmail()
     {
+        $user = new SocialiteUser();
 
+        $user->email = loggedUser()->user->email;
+        $user->id = (string) Uuid::uuid4();
+
+        return $user;
     }
 
     public function findOrCreate($socialNetwork, $socialNetworkUser)
@@ -93,7 +100,7 @@ class SocialUserService
 
     public function getSocialNetwork($socialNetwork)
     {
-        if (is_null($model = SocialNetwork::where('name', $socialNetwork)->first())) {
+        if (is_null($model = SocialNetwork::where('slug', snake_case($socialNetwork))->first())) {
             throw new Exception('Social network not found: '.$socialNetwork);
         }
 

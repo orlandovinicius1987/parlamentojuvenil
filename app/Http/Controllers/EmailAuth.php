@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\SocialLogin\SocialUserService;
 use Auth as IlluminateAuth;
 use App\Services\SocialLogin\EmailAuthProvider;
 use App\Data\Repositories\Data as DataRepository;
@@ -14,12 +15,18 @@ class EmailAuth extends BaseController
      * @var Users
      */
     private $usersRepository;
+    /**
+     * @var SocialUserService
+     */
+    private $socialUserService;
 
-    public function __construct(UsersRepository $usersRepository, DataRepository $dataRepository)
+    public function __construct(UsersRepository $usersRepository, DataRepository $dataRepository, SocialUserService $socialUserService)
     {
         parent::__construct($dataRepository);
 
         $this->usersRepository = $usersRepository;
+
+        $this->socialUserService = $socialUserService;
     }
 
     public function index($year = null)
@@ -31,6 +38,8 @@ class EmailAuth extends BaseController
     {
         if (IlluminateAuth::attempt(request()->only(['email', 'password']))) {
             loggedUser()->setUser(IlluminateAuth::user());
+
+            $this->socialUserService->socialNetworkLogin(loggedUser()->socialNetwork = 'email');
 
             return redirect()->intended();
         }

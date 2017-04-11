@@ -6,8 +6,9 @@
         <div class="container">
             <div class="row" style="margin-top:60px;">
                 <div class="col-md-6 col-md-offset-3">
-                    <form method="POST" action="http://bootsnipp.com/login" accept-charset="UTF-8" role="form" id="loginform" class="form-signin">
-                        <input name="_token" type="hidden" value="Bov3XwZudEvkoOMBPX2H5v6VSCR3Fi5zh6b1YEQO">
+                    <form method="POST" action="{{ route('auth.login.email') }}" accept-charset="UTF-8" role="form" id="loginform" class="form-signin">
+                        {{ csrf_field() }}
+
                         <fieldset>
                             <div class="row">
                                 <input class="form-control email-title" placeholder="E-mail" name="email" type="text">
