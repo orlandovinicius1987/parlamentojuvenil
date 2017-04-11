@@ -29,9 +29,9 @@ class SocialUserRepository
         return User::destroy($id);
     }
 
-    public function findBySocialNetworkUserId($id)
+    public function findBySocialNetworkUserId($socialNetworkUserId)
     {
-        return SocialUser::where('social_network_user_id', $id)->first();
+        return SocialUser::where('social_network_user_id', $socialNetworkUserId)->first();
     }
 
     public function findOtherSocialUsersByStudentId($studentId, $social_network_user_id)

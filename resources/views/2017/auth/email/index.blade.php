@@ -1,6 +1,7 @@
 @extends('2017.layouts.layout')
 
 @section('contents')
+
         <!-- Subscribe Section -->
         <section id="subscribe-section" class="subscribe-section text-center">
             <div class="container">
@@ -22,6 +23,7 @@
                                     </div>
                                     <div class="col-md-6 forgot-password">
                                         <a class="pull-right" href="#">Esqueceu sua senha?</a>
+
                                     </div>
                                 </div>
                                 <div class="row subscribe-buttons">

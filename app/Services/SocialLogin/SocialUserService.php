@@ -11,6 +11,7 @@ use App\Data\Entities\SocialNetwork;
 use Illuminate\Support\Facades\Hash;
 use App\Repositories\UsersRepository;
 use App\Repositories\SocialUserRepository;
+use Laravel\Socialite\Two\User as SocialiteUser;
 
 class SocialUserService
 {
@@ -26,7 +27,13 @@ class SocialUserService
 
     private function createSocialUserForEmail()
     {
+        $user = new SocialiteUser();
 
+        $user->email = loggedUser()->user->email;
+
+        $user->id = sha1(loggedUser()->user->email);
+
+        return $user;
     }
 
     public function findOrCreate($socialNetwork, $socialNetworkUser)
@@ -84,16 +91,17 @@ class SocialUserService
     public function findOrCreateUser($socialUser, $email)
     {
         if (!$user = $this->socialUserRepository->findBySocialNetworkId($socialUser->id) ){
+            $user = $this->socialUserRepository->createUser($email, $socialUser);
 
-                $user = $this->socialUserRepository->createUser($email, $socialUser);
-                return $user;
+            return $user;
         }
+
         return $user;
     }
 
     public function getSocialNetwork($socialNetwork)
     {
-        if (is_null($model = SocialNetwork::where('name', $socialNetwork)->first())) {
+        if (is_null($model = SocialNetwork::where('slug', snake_case($socialNetwork))->first())) {
             throw new Exception('Social network not found: '.$socialNetwork);
         }
 
@@ -104,23 +112,27 @@ class SocialUserService
     {
          if(! $socialUser = $this->socialUserRepository->findBySocialNetworkUserId($socialNetworkUser->getId()))
          {
-              return $this->socialUserRepository->createSocialUser($socialNetwork, $socialNetworkUser);
+              $socialUser = $this->socialUserRepository->createSocialUser($socialNetwork, $socialNetworkUser);
          }
 
         return $socialUser;
     }
 
-    public function loginSocialUser($studentId, $email, $socialNetworkUser)
+    public function loginSocialUser($student = null)
     {
-        $socialUser = $this->findOrCreateUserByStudent(
-            $studentId,
-            $email,
-            $socialNetworkUser
-        );
+        if (loggedUser()->mustBeStudent && ! is_null($student) && is_null(loggedUser()->socialUser->student) && is_null(loggedUser()->student)) {
+            loggedUser()->student = $student;
 
-        $socialUser = $this->updateLoggedSocialUser($socialUser);
+            $this->updateLoggedSocialUser(
+                $this->findOrCreateUserByStudent(
+                    loggedUser()->student->id,
+                    loggedUser()->email,
+                    loggedUser()->socialNetworkUser
+                )
+            );
+        }
 
-        Auth::login($socialUser->user);
+        Auth::login(loggedUser()->user);
     }
 
     public function findOrCreateUserByStudent($studentId, $email, $socialNetworkUser)
@@ -137,7 +149,7 @@ class SocialUserService
             if ($socialUserByStudent->count() == 0) {
                 $user = $this->findOrCreateUserByEmail($email);
             } else {
-                $user = $socialUserByStudent->user;
+                $user = $socialUserByStudent[0]->user;
             }
 
             $socialUser->user_id = $user->id;
@@ -185,18 +197,19 @@ class SocialUserService
      */
     public function socialNetworkLogin($socialNetwork)
     {
-        if (! $this->isSocialNetworkIsLoggedIn($socialNetwork)) {
-            $socialNetworkUser = $this->makeSocialNetworkUser($this->getSocialUserForDriver($socialNetwork));
+        $socialNetworkUser = $this->makeSocialNetworkUser($this->getSocialUserForDriver($socialNetwork));
 
-            $socialUser = $this->findOrCreate($socialNetwork, $socialNetworkUser);
+        $socialUser = $this->findOrCreate($socialNetwork, $socialNetworkUser);
 
-            $this->storeUserInSession(
-                $socialNetwork,
-                $socialUser,
-                $socialNetworkUser,
-                $this->getEmail($socialNetworkUser, $socialNetwork)
-            );
-        }
+        $this->storeUserInSession(
+            $socialNetwork,
+            $socialUser,
+            $socialNetworkUser,
+            $this->getEmail($socialNetworkUser, $socialNetwork),
+            $socialUser->student
+        );
+
+        $this->loginSocialUser();
     }
 
     private function isSocialNetworkIsLoggedIn($socialNetwork)
@@ -227,6 +240,8 @@ class SocialUserService
     {
         loggedUser()->setSocialNetwork($socialNetwork)
                     ->setSocialUser($socialUser)
+                    ->setUser($socialUser->user)
+                    ->setStudent($socialUser ? $socialUser->student : null)
                     ->setSocialNetworkUser($socialNetworkUser)
                     ->setEmail($email);
     }
