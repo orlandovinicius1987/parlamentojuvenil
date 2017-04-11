@@ -30,40 +30,40 @@
                                     <a href="{{ route('subscribe.index') }}" class="btn btn-primary btn-large center-block">Clique para se inscrever</a>
                                 </div>
                             </div>
-                        @endif
+                            @endif
 
-                        <!-- line modal -->
-                        <div class="modal fade" id="squarespaceModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-                                        <h3 class="modal-title" id="lineModalLabel">Identifique-se2</h3>
-                                    </div>
-                                    <div class="modal-body social-login ">
-
-
-
-                                        <p  class="social-login-button">
-                                            <a class="social-login-btn social-facebook" href="/auth/facebook"><img class="img-responsive" src="/templates/2017/assets/img/socialbtn-facebook.png"></a>
-                                            <a class="social-login-btn social-twitter" href="/auth/twitter"><img class="img-responsive" src="/templates/2017/assets/img/socialbtn-twitter.png"></a>
-                                            <a class="social-login-btn social-instagram" href="/auth/instagram"><img class="img-responsive" src="/templates/2017/assets/img/socialbtn-instagram.png"></a>
-                                            <a class="social-login-btn social-linkedin" href="/auth/linkedin"><img class="img-responsive" src="/templates/2017/assets/img/socialbtn-linkedin.png"></a>
-                                            <a class="social-login-btn social-youtube" href="/auth/youtube"><img class="img-responsive" src="/templates/2017/assets/img/socialbtn-youtube.png"></a>
-
-                                        </p>
-
-                                        <div class="nao-possui-redes">
-                                            <p>Caso você não esteja em nenhuma dessas redes sociais, clique aqui.</p>
+                                    <!-- line modal -->
+                            <div class="modal fade" id="squarespaceModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                                            <h3 class="modal-title" id="lineModalLabel">Identifique-se2</h3>
                                         </div>
+                                        <div class="modal-body social-login ">
 
 
+
+                                            <p  class="social-login-button">
+                                                <a class="social-login-btn social-facebook" href="/auth/facebook"><img class="img-responsive" src="/templates/2017/assets/img/socialbtn-facebook.png"></a>
+                                                <a class="social-login-btn social-twitter" href="/auth/twitter"><img class="img-responsive" src="/templates/2017/assets/img/socialbtn-twitter.png"></a>
+                                                <a class="social-login-btn social-instagram" href="/auth/instagram"><img class="img-responsive" src="/templates/2017/assets/img/socialbtn-instagram.png"></a>
+                                                <a class="social-login-btn social-linkedin" href="/auth/linkedin"><img class="img-responsive" src="/templates/2017/assets/img/socialbtn-linkedin.png"></a>
+                                                <a class="social-login-btn social-youtube" href="/auth/youtube"><img class="img-responsive" src="/templates/2017/assets/img/socialbtn-youtube.png"></a>
+
+                                            </p>
+
+                                            <div class="nao-possui-redes">
+                                                <p>Caso você não esteja em nenhuma dessas redes sociais, clique aqui.</p>
+                                            </div>
+
+
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <img class="masonry-nopadding" src="/templates/2017/images/masonry-04.png">
+                            <img class="masonry-nopadding" src="/templates/2017/images/masonry-04.png">
 
                     </div>
                     <div class="grow grid-item verde3"></div>
@@ -79,14 +79,48 @@
                     <div class="grow grid-item laranja1">
                         <img class="masonry-overflow masonry10" src="/templates/2017/images/masonry-06.png">
                     </div>
+
+                    <div class="grow grid-item azul1"></div>
+
+                    <div class="grow grid-item laranja1"></div>
+
+                    <div class="grow grid-item grid-item--height2 branco2">
+                        <img class="masonry-padding img-responsive" src="/templates/2017/images/logo-alerj-cores.png">
+                    </div>
+
+                    <div class="grow grid-item verde3"></div>
+
+                    <div class="grow grid-item vermelho1"></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="services" class="services">
+    <section id="sobreopj" class="sobreopj">
         <div class="container">
             <div class="como-funciona">
+                {{--  <div class="row">
+                      <div class="col-md-2 grow grid-item lilas2">
+                          1
+
+                      </div>
+                      <div class="col-md-2 grow grid-item azul1">
+                          2
+
+                      </div>
+                      <div class="col-md-4">
+                          3
+
+                      </div>
+                      <div class="col-md-2grow grid-item verde01">
+                          4
+
+                      </div>
+                      <div class="col-md-2 grow grid-item azul1">
+                          5
+
+                      </div>
+                  </div>--}}
 
                 <div class="row">
                     <div class="como-funciona-itens">
@@ -96,7 +130,7 @@
                                     <div class="col-sm-8">
                                         <div class="row">
 
-                                        {{--<span class="sub-title">O Parlamento Juvenil é um projeto da Assembleia Legislativa do Estado do Rio de Janeiro (Alerj) para incentivar a participação de jovens na política. Os estudantes passasm uma semana vivendo o dia a dia de um Deputado Estadual, discutindo e aprimorando projetos de lei que els mesmos criam. Os seis projetos aprovados ainda podem virar lei no Estado. </span>--}}
+                                            {{--<span class="sub-title">O Parlamento Juvenil é um projeto da Assembleia Legislativa do Estado do Rio de Janeiro (Alerj) para incentivar a participação de jovens na política. Os estudantes passasm uma semana vivendo o dia a dia de um Deputado Estadual, discutindo e aprimorando projetos de lei que els mesmos criam. Os seis projetos aprovados ainda podem virar lei no Estado. </span>--}}
 
                                             <p class="item-description">
                                                 O Parlamento Juvenil é um projeto da Assembleia Legislativa do Estado do Rio de Janeiro (Alerj) para incentivar a participação de jovens na política. Os estudantes passasm uma semana vivendo o dia a dia de um Deputado Estadual, discutindo e aprimorando projetos de lei que els mesmos criam. Os seis projetos aprovados ainda podem virar lei no Estado.
@@ -311,16 +345,16 @@
                         </div><!-- /#google-map-->
                         <!-- Google Map Section End -->
 
-                        </div>
-                        <div class="col-sm-2">
-                            <div class="item">
-                                <article class="post type-post">
-                                    <div class="post-top">
-                                        <div class="post-thumbnail">
-                                            <img src="images/blog/2.jpg" alt="post Image">
-                                        </div><!-- /.post-thumbnail -->
-                                        <div class="post-meta">
-                                            <div class="entry-meta">
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="item">
+                            <article class="post type-post">
+                                <div class="post-top">
+                                    <div class="post-thumbnail">
+                                        <img src="images/blog/2.jpg" alt="post Image">
+                                    </div><!-- /.post-thumbnail -->
+                                    <div class="post-meta">
+                                        <div class="entry-meta">
                     <span class="entry-date">
                       <time datetime="2015-01-15">15 Jan 2015</time>
                     </span>
@@ -334,24 +368,24 @@
                           <li><a href="#">css3</a></li>
                       </ul>
                     </span>
-                                            </div><!-- /.entry-meta -->
-                                        </div><!-- /.post-meta -->
-                                    </div><!-- /.post-top -->
-                                    <div class="post-content">
-                                        <h2 class="entry-title"><a href="blog-single.html">Standard Blog post Title</a></h2>
-                                        <p class="entry-text">
-                                            Etiam pharetra, erat sed fermentum feugiat, velit mauris egestas quam, ut aliquam massa nisl quis neque. Suspendisse in orci enim.
-                                        </p>
-                                        <a class="btn" href="#">
-                                            <span class="btn-icon"><i class="fa fa-arrow-circle-right"></i></span>
-                                            Read More
-                                        </a>
-                                    </div><!-- /.post-content -->
-                                </article>
-                            </div><!-- /.item -->
-                        </div>
-                    </div><!-- /.latest-posts -->
-                </div><!-- /.row -->
+                                        </div><!-- /.entry-meta -->
+                                    </div><!-- /.post-meta -->
+                                </div><!-- /.post-top -->
+                                <div class="post-content">
+                                    <h2 class="entry-title"><a href="blog-single.html">Standard Blog post Title</a></h2>
+                                    <p class="entry-text">
+                                        Etiam pharetra, erat sed fermentum feugiat, velit mauris egestas quam, ut aliquam massa nisl quis neque. Suspendisse in orci enim.
+                                    </p>
+                                    <a class="btn" href="#">
+                                        <span class="btn-icon"><i class="fa fa-arrow-circle-right"></i></span>
+                                        Read More
+                                    </a>
+                                </div><!-- /.post-content -->
+                            </article>
+                        </div><!-- /.item -->
+                    </div>
+                </div><!-- /.latest-posts -->
+            </div><!-- /.row -->
 
             <div class="row">
                 <div class="">
@@ -371,43 +405,13 @@
 
 
 
-            </div><!-- /.post-area -->
+        </div><!-- /.post-area -->
         </div><!-- /.container -->
     </section><!-- /#latest-post -->
 
 
 
 
-
-    <!-- Subscribe Section -->
-    <section id="subscribe-section" class="subscribe-section text-center">
-        <div class="container">
-            <form class="subscribre-form" method="post">
-                <p class="alert-success"></p>
-                <p class="alert-warning"></p>
-
-                <div class="subscribe-hide">
-                    <input class="form-control" type="email" id="subscribe-email" name="subscribe-email" placeholder="Email "  required>
-                    <button  type="submit" id="subscribe-submit" class="btn btn-md btn-signup">Cadastre-se</button><br>
-                    <input class="form-control" type="password" id="subscribe-password" name="subscribe-password" placeholder="Senha"  required>
-                    <button  type="submit" id="subscribe-submit2" class="btn btn-md btn-signin">Entre</button>
-                    <div class="subscribe-error"></div>
-                </div><!-- /.subscribe-hide -->
-                <div class="subscribe-message"></div>
-            </form><!-- /.news-letter -->
-            <h2 class="post-area-title">ou</h2>
-
-            <p  class="subscribe-social-buttons">
-                <a class="social-login-btn social-facebook" href="/auth/facebook"><img class="img-responsive" src="/templates/2017/assets/img/socialbtn-facebook.png"></a>
-                <a class="social-login-btn social-twitter" href="/auth/twitter"><img class="img-responsive" src="/templates/2017/assets/img/socialbtn-twitter.png"></a>
-                <a class="social-login-btn social-instagram" href="/auth/instagram"><img class="img-responsive" src="/templates/2017/assets/img/socialbtn-instagram.png"></a>
-                <a class="social-login-btn social-linkedin" href="/auth/linkedin"><img class="img-responsive" src="/templates/2017/assets/img/socialbtn-linkedin.png"></a>
-                <a class="social-login-btn social-youtube" href="/auth/youtube"><img class="img-responsive" src="/templates/2017/assets/img/socialbtn-youtube.png"></a>
-
-            </p>
-        </div><!-- /.container -->
-    </section><!-- /#subscribe-section -->
-    <!-- Subscribe Section End -->
 
 
 
@@ -418,7 +422,7 @@
             <div id="google-map" class="google-map">
 
 
-        </div><!-- /.contact-area -->
+            </div><!-- /.contact-area -->
     </section><!-- /#contact -->
 
 
