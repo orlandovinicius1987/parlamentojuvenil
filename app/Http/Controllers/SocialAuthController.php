@@ -23,6 +23,10 @@ class SocialAuthController extends Controller
     {
         $this->socialUserService->socialNetworkLogin($socialNetwork);
 
-        return redirect()->route('student.identify');
+        if (loggedUser()->mustBeStudent) {
+            return redirect()->route('subscribe.index');
+        }
+
+        return redirect()->intended();
     }
 }

@@ -4,7 +4,6 @@ namespace App\Services\SocialLogin;
 
 use Auth;
 use Socialite;
-use Rhumsaa\Uuid\Uuid;
 use App\Data\Entities\User;
 use League\Flysystem\Exception;
 use App\Data\Entities\SocialUser;
@@ -31,7 +30,8 @@ class SocialUserService
         $user = new SocialiteUser();
 
         $user->email = loggedUser()->user->email;
-        $user->id = (string) Uuid::uuid4();
+
+        $user->id = sha1(loggedUser()->user->email);
 
         return $user;
     }
@@ -112,23 +112,27 @@ class SocialUserService
     {
          if(! $socialUser = $this->socialUserRepository->findBySocialNetworkUserId($socialNetworkUser->getId()))
          {
-              return $this->socialUserRepository->createSocialUser($socialNetwork, $socialNetworkUser);
+              $socialUser = $this->socialUserRepository->createSocialUser($socialNetwork, $socialNetworkUser);
          }
 
         return $socialUser;
     }
 
-    public function loginSocialUser($studentId, $email, $socialNetworkUser)
+    public function loginSocialUser($student = null)
     {
-        $socialUser = $this->findOrCreateUserByStudent(
-            $studentId,
-            $email,
-            $socialNetworkUser
-        );
+        if (loggedUser()->mustBeStudent && ! is_null($student) && is_null(loggedUser()->socialUser->student) && is_null(loggedUser()->student)) {
+            loggedUser()->student = $student;
 
-        $socialUser = $this->updateLoggedSocialUser($socialUser);
+            $this->updateLoggedSocialUser(
+                $this->findOrCreateUserByStudent(
+                    loggedUser()->student->id,
+                    loggedUser()->email,
+                    loggedUser()->socialNetworkUser
+                )
+            );
+        }
 
-        Auth::login($socialUser->user);
+        Auth::login(loggedUser()->user);
     }
 
     public function findOrCreateUserByStudent($studentId, $email, $socialNetworkUser)
@@ -201,8 +205,11 @@ class SocialUserService
             $socialNetwork,
             $socialUser,
             $socialNetworkUser,
-            $this->getEmail($socialNetworkUser, $socialNetwork)
+            $this->getEmail($socialNetworkUser, $socialNetwork),
+            $socialUser->student
         );
+
+        $this->loginSocialUser();
     }
 
     private function isSocialNetworkIsLoggedIn($socialNetwork)
@@ -233,6 +240,8 @@ class SocialUserService
     {
         loggedUser()->setSocialNetwork($socialNetwork)
                     ->setSocialUser($socialUser)
+                    ->setUser($socialUser->user)
+                    ->setStudent($socialUser ? $socialUser->student : null)
                     ->setSocialNetworkUser($socialNetworkUser)
                     ->setEmail($email);
     }

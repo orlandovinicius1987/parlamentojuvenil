@@ -37,13 +37,7 @@ class StudentController extends Controller
             return redirect()->back()->withErrors('Inscrição não encontrada.');
         }
 
-        loggedUser()->student = $student;
-
-        $this->socialUserService->loginSocialUser(
-            $student->id,
-            loggedUser()->email,
-            loggedUser()->socialNetworkUser
-        );
+        $this->socialUserService->loginSocialUser($student);
 
         return redirect()->intended();
     }

@@ -6,12 +6,12 @@
         <div class="container">
             <div class="row" style="margin-top:60px;">
                 <div class="col-md-6 col-md-offset-3">
-                    <form method="POST" action="{{ route('auth.login.email') }}" accept-charset="UTF-8" role="form" id="loginform" class="form-signin">
+                    <form method="POST" id="email-register-login-form" action="{{ route('auth.login.email') }}" accept-charset="UTF-8" role="form" id="loginform" class="form-signin">
                         {{ csrf_field() }}
 
                         <fieldset>
                             <div class="row">
-                                <input class="form-control email-title" placeholder="E-mail" name="email" type="text">
+                                <input class="form-control email-title" placeholder="E-mail" name="email" type="text" value="{{ old('email') }}">
                                 <input class="form-control" placeholder="Password" name="password" type="password" value="">
                             </div>
                             <div class="row">

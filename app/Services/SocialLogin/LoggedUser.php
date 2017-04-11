@@ -32,6 +32,10 @@ class LoggedUser
 
     private function set($key, $data)
     {
+        if (is_null($data)) {
+            return $this;
+        }
+
         $loggedUser = $this->loadSessionVar();
 
         $loggedUser[snake_case($key)] = $data;
@@ -73,7 +77,7 @@ class LoggedUser
      */
     private function studentIsLogged(): bool
     {
-        return ((!$this->isSubscribing) || $this->student);
+        return ((!$this->mustBeStudent) || $this->student);
     }
 
     private function updateSession($loggedUser)
