@@ -1,6 +1,6 @@
 @extends('2017.layouts.layout')
 
-@section('contents')
+@section('original')
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
@@ -43,8 +43,8 @@
             var form = document.getElementById(formId);
 
             form.action = val !== 'register'
-                            ? '{{ route('auth.login.email.post') }}'
-                            : '{{ route('auth.login.email.register') }}';
+                ? '{{ route('auth.login.email.post') }}'
+                : '{{ route('auth.login.email.register') }}';
 
             console.log(val, form.action);
 
