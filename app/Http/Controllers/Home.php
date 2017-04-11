@@ -15,7 +15,7 @@ class Home extends BaseController
 	{
         $year = $year ?: config('app.year');
 
-        return $this->buildView($year.'.home', null, true);
+        return $this->buildView($year.'.home.index', null, true);
 	}
 
     public function page($page)
