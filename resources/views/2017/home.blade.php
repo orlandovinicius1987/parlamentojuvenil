@@ -38,7 +38,7 @@
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-                                        <h3 class="modal-title" id="lineModalLabel">Identifique-se</h3>
+                                        <h3 class="modal-title" id="lineModalLabel">Identifique-se2</h3>
                                     </div>
                                     <div class="modal-body social-login ">
 

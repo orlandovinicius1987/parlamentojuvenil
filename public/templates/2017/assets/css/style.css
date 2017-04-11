@@ -1448,14 +1448,16 @@ footer a {
 
 .social-login-button {
 	text-align: center;
-	border-bottom: solid 1px #dddddd;
+	/*border-bottom: solid 1px #dddddd;*/
 	padding-bottom: 35px;
 	margin: 0 75px 0 75px;
 }
 
 .nao-possui-redes {
 	text-align: center;
-	padding: 35px 0 70px 0;
+	padding: 30px 0 70px 0;
+	border-top: 1px solid #dddddd;
+	margin-top: 20px;
 }
 .nao-possui-redes p {
 	color: #2E3290;
@@ -1481,21 +1483,27 @@ footer a {
 		width: 750px;
 		margin: 30px auto;
 	}
+
+	.identify-yourself {
+		margin-top: 100px;
+		margin-bottom: 100px;
+	}
+
 }
 
 
-.identify-yourself {
-	margin-top: 160px;
-	margin-bottom: 200px;
-}
 
 
 .identify-title {
+	margin-bottom: 30px;
 	text-align: center;
 /*	padding-top: 30px;*/
 	font-size: 24px;
 	color: #848484;
 }
+
+
+
 
 
 
@@ -1574,6 +1582,7 @@ a.signout-button:hover {
 
 .row.ou-divider {
 	margin-top: 30px;
+	margin-bottom: 20px;
 }
 
 .checkbox {
@@ -1593,6 +1602,10 @@ and (max-device-width : 667px) {
 		display: -webkit-inline-box;
 		margin-right: 10px;
 	}
+	.subscribe-section {
+		margin-top: 20px;
+	}
+
 	.subscribe-section p {
 		margin: 35px 10px;
 	}
@@ -1601,3 +1614,56 @@ and (max-device-width : 667px) {
 	}
 }
 
+
+.social-login{
+	position:relative;
+	float: left;
+	width: 100% ;
+	height:auto;
+	padding: 10px 0 15px 0;
+}
+
+.social-login a{
+	position:relative;
+	float: left;
+	width:100%;
+	text-decoration: none;
+	color: #fff;
+	border: 1px solid rgba(0,0,0,0.05);
+	padding: 12px;
+	border-radius: 2px;
+	font-size: 12px;
+	text-transform: uppercase;
+	margin: 0 0px 10px 0px ;
+	text-align:center;
+}
+.social-login a i{
+	position: relative;
+	float: left;
+	width: 20px;
+	top: 2px;
+}
+
+
+
+
+.col-md-6.forgot-password {
+	margin-top: 10px;
+}
+
+
+.social-login .facebook-login{
+	background-color: #49639F;
+}
+.social-login .twitter-login{
+	background-color: #449dd5;
+}
+.social-login .instagram-login{
+	background-color: #cf2e8c;
+}
+.social-login .linkedin-login {
+	background-color: #1f7cb5;
+}
+.social-login .youtube-login{
+	background-color: #DF4A32;
+}
