@@ -63,10 +63,23 @@
             <div class="col-md-5">
                 <a class="navbar-brand page-scroll" href="#page-top"><img class="logo-parlamento img-responsive" src="/templates/2017/images/logo-parlamento.png"></a>
             </div>
-            <div class="col-md-5">
+            <div class="col-md-4">
 
             </div>
-            <div class="col-md-1 ">
+
+            <div class="col-md-3 ">
+                <div class="row">
+                    <div class="col-md-6 user-email-login">
+                        @if (isset($loggedUser) && $loggedUser->user)
+                            <a href="{{ route('auth.logout')}}" class="signout-button"><i class="fa fa-sign-out" aria-hidden="true"></i></a>
+                            <p class="avatar-name" >{{ $loggedUser->student->social_name or $loggedUser->user->social_name }}</p>
+                    </div>
+                    <div class="col-md-6">
+                            <img class="avatar img-responsive" src="{{ $loggedUser->user->avatar }}" alt="">
+                        @endif
+
+                    </div>
+                </div>
 {{--                <div class="row">
                     <div class="col-md-6">
                         <img src="/templates/2017/images/logo-alerj.png" class="logo-alerj img-responsive">
@@ -76,10 +89,7 @@
                     </div>
                 </div>--}}
 
-                @if (isset($loggedUser) && $loggedUser->user)
-                    <img class="avatar img-responsive" src="{{ $loggedUser->user->avatar }}" alt="">
-                    <p class="avatar-name" >{{ $loggedUser->student->social_name or $loggedUser->user->social_name }}</p>
-                @endif
+
             </div>
             <div class="col-md-1 ">
 
