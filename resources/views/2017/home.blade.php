@@ -26,7 +26,9 @@
                     <div class="grow grid-item  grid-item--height2 amarelo1">
                         @if (subscriptionsEnabled())
                             <div class="inscrevase form-group">
-                                <div class="center"><button data-toggle="modal" data-target="#squarespaceModal" class="btn btn-primary btn-large center-block">Clique para se inscrever</button></div>
+                                <div class="center">
+                                    <a href="{{ route('subscribe.index') }}" class="btn btn-primary btn-large center-block">Clique para se inscrever</a>
+                                </div>
                             </div>
                         @endif
 
