@@ -9,7 +9,8 @@
                     <div class="col-md-6 col-md-offset-3">
                         <h3 class="identify-title">Identifique-se</h3>
                         <form id="email-register-login-form" method="POST" action="{{ route('auth.login.email') }}" id="loginform" class="form-signin">
-                            <input name="_token" type="hidden" value="Bov3XwZudEvkoOMBPX2H5v6VSCR3Fi5zh6b1YEQO">
+                            {{ csrf_token() }}
+
                             <fieldset>
                                 <div class="row">
                                     <input class="form-control email-title" placeholder="E-mail" name="email" type="text">

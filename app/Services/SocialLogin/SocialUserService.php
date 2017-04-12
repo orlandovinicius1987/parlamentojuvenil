@@ -38,11 +38,33 @@ class SocialUserService
 
     public function findOrCreate($socialNetwork, $socialNetworkUser)
     {
-        $socialNetwork = $this->getSocialNetwork($socialNetwork);
+        return $this->findOrCreateSocialUser($socialNetworkUser, $socialNetwork);
+    }
 
-        $socialUser = $this->findOrCreateSocialUser($socialNetwork, $socialNetworkUser);
+    private function findOrCreateDataForSocialNetworkUser($socialNetwork)
+    {
+        $socialNetworkUser = $this->makeSocialNetworkUser($socialNetwork);
 
-        return $socialUser;
+        list($socialUser, $user, $student) = $this->findOrCreateSocialUserAndStudent($socialNetworkUser);
+
+        return [$socialUser, $user, $student, $socialNetworkUser];
+    }
+
+    private function findOrCreateSocialUserAndStudent($socialNetworkUser)
+    {
+        $socialUser = $this->findOrCreateSocialUser($socialNetworkUser);
+
+        if ($user = $this->findOrCreateUserBySocialUser($socialUser, $socialNetworkUser)) {
+            $socialUser->user()->associate($user->id);
+        }
+
+        if ($student = $this->findStudentBySocialUser($socialUser)) {
+            $socialUser->student()->associate($student->id);
+        }
+
+        $socialUser->save();
+
+        return [$socialUser, $user, $student];
     }
 
     /**
@@ -61,6 +83,33 @@ class SocialUserService
         ]);
     }
 
+    private function findSocialNetworkBySlug($slug)
+    {
+        if (is_null($socialNetwork = SocialNetwork::where('slug', snake_case($slug))->first())) {
+            throw new Exception('Social network not found: '.$socialNetwork);
+        }
+
+        return $socialNetwork;
+    }
+
+    private function findStudentBySocialUser($socialUser)
+    {
+        return $socialUser->student;
+    }
+
+    private function findOrCreateUserBySocialUser($socialUser, $socialNetworkUser)
+    {
+        if ($user = $socialUser->user) {
+            return $user;
+        }
+
+        if ($user = $this->usersRepository->findByEmail($socialNetworkUser->getEmail())) {
+            return $user;
+        }
+
+        return $this->socialUserRepository->createUser($socialNetworkUser);
+    }
+
     private function getFreshSocialUser($socialUser)
     {
         return SocialUser::where('id', $socialUser->id)->first();
@@ -76,7 +125,7 @@ class SocialUserService
             return $this->createSocialUserForEmail();
         }
 
-        return $this->getDriver($socialNetwork)->user();
+        return $this->getDriver($socialNetwork->slug)->user();
     }
 
     /**
@@ -88,34 +137,13 @@ class SocialUserService
         return auth()->login($user);
     }
 
-    public function findOrCreateUser($socialUser, $email)
+    public function findOrCreateSocialUser($socialNetworkUser)
     {
-        if (!$user = $this->socialUserRepository->findBySocialNetworkId($socialUser->id) ){
-            $user = $this->socialUserRepository->createUser($email, $socialUser);
-
-            return $user;
+        if (is_null($user = $this->socialUserRepository->findBySocialNetworkUserId($socialNetworkUser->getId()))){
+            $user = $this->socialUserRepository->createSocialUser($socialNetworkUser);
         }
 
         return $user;
-    }
-
-    public function getSocialNetwork($socialNetwork)
-    {
-        if (is_null($model = SocialNetwork::where('slug', snake_case($socialNetwork))->first())) {
-            throw new Exception('Social network not found: '.$socialNetwork);
-        }
-
-        return $model;
-    }
-
-    public function findOrCreateSocialUser($socialNetwork, $socialNetworkUser)
-    {
-         if(! $socialUser = $this->socialUserRepository->findBySocialNetworkUserId($socialNetworkUser->getId()))
-         {
-              $socialUser = $this->socialUserRepository->createSocialUser($socialNetwork, $socialNetworkUser);
-         }
-
-        return $socialUser;
     }
 
     public function loginSocialUser($student = null)
@@ -169,9 +197,9 @@ class SocialUserService
         return $socialUser;
     }
 
-    public function makeSocialNetworkUser($user)
+    public function makeSocialNetworkUser($socialNetwork)
     {
-        return new SocialNetworkUser($user);
+        return new SocialNetworkUser($this->getSocialUserForDriver($socialNetwork), $socialNetwork);
     }
 
     private function setUserAvatar($user, $avatar)
@@ -197,16 +225,16 @@ class SocialUserService
      */
     public function socialNetworkLogin($socialNetwork)
     {
-        $socialNetworkUser = $this->makeSocialNetworkUser($this->getSocialUserForDriver($socialNetwork));
+        $socialNetwork = $this->findSocialNetworkBySlug($socialNetwork);
 
-        $socialUser = $this->findOrCreate($socialNetwork, $socialNetworkUser);
+        list($socialUser, $user, $student, $socialNetworkUser) = $this->findOrCreateDataForSocialNetworkUser($socialNetwork);
 
         $this->storeUserInSession(
             $socialNetwork,
             $socialUser,
             $socialNetworkUser,
-            $this->getEmail($socialNetworkUser, $socialNetwork),
-            $socialUser->student
+            $user->email,
+            $student
         );
 
         $this->loginSocialUser();

@@ -2,7 +2,7 @@
 
 namespace App\Data\Entities;
 
-use Illuminate\Database\Eloquent\Model;
+use App\Base\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class SocialNetwork extends Model

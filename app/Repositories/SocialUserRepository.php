@@ -4,24 +4,13 @@ namespace App\Repositories;
 
 use App\Data\Entities\User;
 use App\Data\Entities\SocialUser;
+use Illuminate\Support\Facades\Hash;
 
 class SocialUserRepository
 {
-    private $socialUser;
-
-    public function findBySocialNetworkId($socialUserId)
-    {
-        $this->socialUser = new SocialUser();
-        if ($socialUser = $this->socialUser->find($socialUserId)){
-            $user = $socialUser->user;
-            return $user;
-        }
-    }
-
     public function find($id)
     {
-       $socialUser = SocialUser::where('id', $id)->first();
-        return $socialUser;
+        return SocialUser::find($id);
     }
 
     public function destroy($id)
@@ -64,32 +53,31 @@ class SocialUserRepository
       $socialUser->save();
     }
 
-    public function createSocialUser($socialNetwork, $socialNetworkUser)
+    public function createSocialUser($socialNetworkUser)
     {
         return SocialUser::create([
-            'social_network_id' => $socialNetwork->id,
+            'social_network_id' => $socialNetworkUser->social_network->id,
             'social_network_user_id' => $socialNetworkUser->getId(),
             'data' => $socialNetworkUser->serialize(),
         ]);
     }
 
-    public function createUser($email, $socialUserPlatform)  //, $socialUser)  //, $regBirth)
+    public function createUser($socialNetworkUser)  //, $socialUser)  //, $regBirth)
     {
-        $userModel = new User();
+        $user = new User();
 
-        if ($socialUserPlatform->getName()) {
-            $userModel->name = $socialUserPlatform->getName();
-        } elseif ($socialUserPlatform->getNickname()) {
-            $userModel->name = $socialUserPlatform->getNickname();
-        } else {
-            $userModel->name = 'sem nome';
-        }
+        $user->nickname = $socialNetworkUser->getNickname();
 
-        $userModel->email = $email;
-        $userModel->password = 'Empty';
-  //    $userModel->registration = $regBirth['registration'];
-  //    $userModel->birthdate = $regBirth['birthdate'];
-        $userModel->save();
-        return $userModel;
+        $user->name = ($socialNetworkUser->getName() ?: $user->nickname) ?: '<nome desconhecido>';
+
+        $user->email = $socialNetworkUser->getEmail();
+
+        $user->password = Hash::make(str_random(128));
+
+        $user->avatar = $socialNetworkUser->getAvatar();
+
+        $user->save();
+
+        return $user;
     }
 }
