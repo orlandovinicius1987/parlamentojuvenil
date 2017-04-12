@@ -9,6 +9,17 @@ class Model extends Eloquent
 {
     protected $columns = []; // add all columns from you table
 
+    protected $eagerLoadableRelations = [];
+
+    public function save(array $options = [])
+    {
+        $saved = parent::save($options);
+
+        $this->setRelations($this->load($this->eagerLoadableRelations)->getRelations());
+
+        return $saved;
+    }
+
     public function scopeExclude($query,$value = array())
     {
         $columns = Schema::getColumnListing($this->table);

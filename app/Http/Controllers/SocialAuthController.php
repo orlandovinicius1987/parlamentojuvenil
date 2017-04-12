@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\SocialLogin\SocialUserService;
 use DB;
+use App\Services\SocialLogin\SocialUserService;
 
 class SocialAuthController extends Controller
 {

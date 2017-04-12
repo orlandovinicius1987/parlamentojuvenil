@@ -2,7 +2,7 @@
 
 namespace App\Data\Entities;
 
-use Illuminate\Database\Eloquent\Model;
+use App\Base\Model;
 
 class SocialUser extends Model
 {
@@ -14,10 +14,10 @@ class SocialUser extends Model
         'data',
     ];
 
-    public function find($id)
-    {
-        return self::where('social_network_user_id', $id)->first();
-    }
+    protected $eagerLoadableRelations = [
+        'user',
+        'student'
+    ];
 
     public function user()
     {

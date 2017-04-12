@@ -61,6 +61,12 @@ Route::get('cities', function ()
 	return State::where('code', 'RJ')->first()->cities()->orderBy('name')->get();
 });
 
+Route::group(['prefix' => '/docs'], function ()
+{
+    Route::get('/terms', ['as' => 'docs.terms', 'uses' => 'Docs@terms']);
+    Route::get('/privacy', ['as' => 'docs.privacy', 'uses' => 'Docs@privacy']);
+});
+
 Route::get('schools/{city}',['middleware' => 'cors', function ($city)
 {
     $city = mb_strtoclean($city);

@@ -32,11 +32,13 @@ class LoggedUser
 
     private function set($key, $data)
     {
-        if (is_null($data)) {
-            return $this;
-        }
+        $key = snake_case($key);
 
         $loggedUser = $this->loadSessionVar();
+
+        if (isset($loggedUser[$key]) && is_null($data) && ! is_null($loggedUser[$key])) {
+            return $this;
+        }
 
         $loggedUser[snake_case($key)] = $data;
 

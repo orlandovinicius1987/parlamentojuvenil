@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserRegister;
 use Auth as IlluminateAuth;
 use App\Services\SocialLogin\SocialUserService;
 use App\Services\SocialLogin\EmailAuthProvider;
@@ -35,18 +36,19 @@ class EmailAuth extends BaseController
         return $this->buildView($this->getYear($year).'.auth.email.index');
     }
 
-    public function post()
+    private function loginUser($user)
+    {
+        loggedUser()->user = $user;
+
+        $this->socialUserService->socialNetworkLogin(loggedUser()->socialNetwork = 'email');
+
+        return $this->redirectToIntended();
+    }
+
+    public function post(UserRegister $userRegister)
     {
         if (IlluminateAuth::attempt(request()->only(['email', 'password']))) {
-            loggedUser()->user = IlluminateAuth::user();
-
-            $this->socialUserService->socialNetworkLogin(loggedUser()->socialNetwork = 'email');
-
-            if (loggedUser()->mustBeStudent) {
-                return redirect()->route('subscribe.index');
-            }
-
-            return redirect()->intended();
+            return $this->loginUser(IlluminateAuth::user());
         }
 
         return redirect()
@@ -55,12 +57,19 @@ class EmailAuth extends BaseController
                 ->withErrors('Usuário ou senha inválido.');
     }
 
-    public function register()
+    private function redirectToIntended()
+    {
+        if (loggedUser()->mustBeStudent) {
+            return redirect()->route('subscribe.index');
+        }
+
+        return redirect()->intended();
+    }
+
+    public function register(UserRegister $userRegister)
     {
         if ($user = $this->usersRepository->register(request()->only(['email', 'password']))) {
-            loggedUser()->setUser($user);
-
-            return redirect()->route('home');
+            return $this->loginUser($user);
         }
 
         return redirect()

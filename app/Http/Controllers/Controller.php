@@ -37,4 +37,9 @@ abstract class Controller extends BaseController
     {
         return $year = $year ?: config('app.year');
     }
+
+    protected function makeViewName($year, $name)
+    {
+        return ($year ?: config('app.year')) . '.' . $name;
+    }
 }
