@@ -52,20 +52,20 @@
         <section id="site-banner" class="site-banner text-center">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-5">
+                    <div class="col-md-4">
                         <a class="navbar-brand page-scroll" href="#page-top"><img class="logo-parlamento img-responsive" src="/templates/2017/images/logo-parlamento.png"></a>
                     </div>
 
-                    <div class="col-md-4"></div>
+                    <div class="col-md-3"></div>
 
-                    <div class="col-md-3 ">
+                    <div class="col-md-5">
                         <div class="row">
                             @if (isset($loggedUser) && $loggedUser->user)
-                                <div class="col-md-6 user-email-login">
+                                <div class="col-md-9 user-email-login">
                                     <a href="{{ route('auth.logout')}}" class="signout-button"><i class="fa fa-sign-out" aria-hidden="true"></i></a>
                                     <p class="avatar-name">{{ $loggedUser->student->social_name or $loggedUser->user->social_name }}</p>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-3">
                                     <img class="avatar img-responsive" src="{{ $loggedUser->user->avatar }}" alt="">
                                 </div>
                             @endif
