@@ -121,11 +121,11 @@ class SocialUserService
      */
     private function getSocialUserForDriver($socialNetwork)
     {
-        if ($socialNetwork == 'email') {
+        if ($slug = $socialNetwork->slug == 'email') {
             return $this->createSocialUserForEmail();
         }
 
-        return $this->getDriver($socialNetwork->slug)->user();
+        return $this->getDriver($slug)->user();
     }
 
     /**

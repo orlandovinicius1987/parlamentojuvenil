@@ -9,7 +9,7 @@
                     <div class="col-md-6 col-md-offset-3">
                         <h3 class="identify-title">Identifique-se</h3>
                         <form id="email-register-login-form" method="POST" action="{{ route('auth.login.email') }}" id="loginform" class="form-signin">
-                            {{ csrf_token() }}
+                            {{ csrf_field() }}
 
                             <fieldset>
                                 <div class="row">
