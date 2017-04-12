@@ -11,23 +11,23 @@
                     </div>
                     <div class="social-login">
                         <a href="{{ route('auth.social.redirect', ['facebook']) }}" class="facebook-login">
-                            <i class="fa fa-facebook fa-lg"></i>
+                            <img src="/templates/2017/assets/img/sociallogin-facebook.png" class="btn-login-social">
                             Entrar com facebook
                         </a>
                         <a href="{{ route('auth.social.redirect', ['twitter']) }}"  class="twitter-login" >
-                            <i class="fa fa-twitter fa-lg"></i>
+                            <img src="/templates/2017/assets/img/sociallogin-twitter.png" class="btn-login-social">
                             Entrar com Twitter
                         </a>
                         <a href="{{ route('auth.social.redirect', ['youtube']) }}"  class="instagram-login">
-                            <i class="fa fa-instagram fa-lg"></i>
+                            <img src="/templates/2017/assets/img/sociallogin-instagram.png" class="btn-login-social">
                             Entrar com Instagram
                         </a>
                         <a href="{{ route('auth.social.redirect', ['linkedin']) }}"  class="linkedin-login">
-                            <i class="fa fa-linkedin fa-lg"></i>
+                            <img src="/templates/2017/assets/img/sociallogin-linkedin.png" class="btn-login-social">
                             Entrar com Linkedin
                         </a>
                         <a href="{{ route('auth.social.redirect', ['instagram']) }}" class="youtube-login" >
-                            <i class="fa fa-youtube fa-lg"></i>
+                            <img src="/templates/2017/assets/img/sociallogin-youtube.png" class="btn-login-social">
                             Entrar com Youtube
                         </a>
                     </div>
