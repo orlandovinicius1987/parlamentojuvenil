@@ -572,16 +572,13 @@ p.avatar-name {
 .sobreopj {
 	padding: 0px 0px 0px 0px;
 }
-.como-funciona {
-	border-bottom: 2px solid #3498db;
-	display: inline-block;
-}
+
 p.item-description {
 	font-size: 14px;
 }
 
 
-.como-funciona-itens .item-title {
+.sobreopj-itens .item-title {
 	color: #3498db;
 	font-size: 1.5em;
 	font-weight: 800;
@@ -591,38 +588,38 @@ p.item-description {
 	color: #FF141E;
 	letter-spacing: 2px ;
 }
-.como-funciona-itens .sub-title {
+.sobreopj-itens .sub-title {
 	color: #3498db;
 	font-size: 1.5em;
 	font-weight: 300;
 	line-height: 27px;
 }
-.como-funciona-itens .item {
+.sobreopj-itens .item {
 	padding-bottom: 10px;
 }
-.como-funciona-itens .item-1 {
+.sobreopj-itens .item-1 {
 	border-bottom:  1px solid #d7dee0;
 }
-.como-funciona-itens .item-2 {
+.sobreopj-itens .item-2 {
 	padding-top: 20px;
 }
 
-.como-funciona-itens ul {
+.sobreopj-itens ul {
 	list-style-type: square;
 	/*color: #ff0000 !important;*/
 }
 
-.como-funciona-itens li {
+.sobreopj-itens li {
 	font-size: 14px;
 	color: #333333 ;
 }
 
-/*.como-funciona-itens li::before {
+/*.sobreopj-itens li::before {
 	content: "Q";
 	color: #ff0000 ;
 }*/
 
-.como-funciona-itens .btn {
+.sobreopj-itens .btn {
 	background-color: #3498db;
 	color: #ffffff;
 	font-weight: 800;
@@ -630,7 +627,7 @@ p.item-description {
 	padding: 8px 15px;
 	text-transform: uppercase;
 }
-.como-funciona-itens .btn:hover {
+.sobreopj-itens .btn:hover {
 	background-color: #ffffff;
 	border-color: #3498db;
 	color: #3498db;
@@ -817,9 +814,9 @@ p.item-description {
 form.subscribre-form {
 	margin: 45px 0;
 }
-.subscribe-section .form-control {
+/*.subscribe-section .form-control {
 	margin: 5px !important;
-}
+}*/
 /*.subscribe-section .btn {
   background: #ffffff !important;
   border-radius: 0px;
@@ -1745,3 +1742,81 @@ img.btn-login-social {
 
 
 */
+
+
+
+.como-funciona {
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.titulo-comofunciona  h2{
+	text-align: center;
+	padding: 30px 0 30px 0;
+	margin: 0;
+	font-family: 'five_boroughs';
+	letter-spacing: 3px;
+	color: #FF141E;
+}
+
+
+.comofunciona-item-numero {
+	font-family: 'oswaldregular';
+	position: absolute;
+	width: 90px;
+	height: 90px;
+	text-align: center;
+	font-weight: 900;
+	font-size: 26px;
+	color: #ffffff;
+}
+
+.comofunciona-item-numero p {
+	margin: 0 0 0px;
+	font-size: 50px;
+}
+
+.comofunciona-itemnumber-left {
+	left: 0px;
+	top: 0px;
+	-webkit-box-shadow: 10px 10px 0px 0px rgba(0,0,0,0.4);
+	-moz-box-shadow: 10px 10px 0px 0px rgba(0,0,0,0.4);
+	box-shadow: 10px 10px 0px 0px rgba(0,0,0,0.4);
+}
+
+
+.comofunciona-panel-body {
+	/* height: 100%; */
+	min-height: 125px;
+	padding: 15px 10px;
+	color: #292C95;
+}
+
+.comofunciona-panel-body span {
+	float: left;
+	width: 87px;
+	font-size: 400%;
+	font-family: 'oswaldregular';
+	line-height: 73%;
+}
+
+.comofunciona-panel-border {
+	padding: 10px;
+}
+
+
+.comofunciona-date {
+	font-family: 'oswaldregular';
+	position: absolute;
+	width: 90px;
+	height: 75px;
+	text-align: center;
+	font-weight: 900;
+	font-size: 26px;
+	color: #292C95;
+}
+
+.comofunciona-date p {
+	margin: 4px 0 0 0px;
+	font-size: 50px;
+}
