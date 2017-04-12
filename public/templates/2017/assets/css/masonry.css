@@ -43,6 +43,8 @@
 
 
 
+.grid-item--height5 { height: 85px;  }
+.grid-item--height6 { height: 65px;  }
 
 
 
@@ -126,6 +128,9 @@
 }
 .laranja1:hover{
     background: #EA730B;
+}
+.laranja2{
+    background: #FF8100;
 }
 
 .vermelho1{

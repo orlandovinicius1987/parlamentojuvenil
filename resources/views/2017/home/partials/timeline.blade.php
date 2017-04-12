@@ -1,4 +1,38 @@
 <section id="timeline-container">
+    <div class="row">
+        <div class="col-md-1">
+            <div class="grow grid-item--height6 ">
+
+            </div>
+            <div class="grow grid-item--height6 vermelho1">
+
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="grow grid-item verde2">
+
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="row text-center">
+                <div class="">
+                    <h2>Cronograma</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="grow grid-item laranja1">
+
+            </div>
+        </div>
+        <div class="col-md-1">
+            <div class="grow grid-item--height6 azul3">
+
+            </div>
+        </div>
+    </div>
+
+
     <div class="container-full">
         <div class="row">
             <div class="col-xs-12">
@@ -6,6 +40,7 @@
             </div>
         </div>
     </div>
+
     <div class="container">
         <div class="row">
             <div class="watch">
