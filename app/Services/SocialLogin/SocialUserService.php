@@ -121,7 +121,7 @@ class SocialUserService
      */
     private function getSocialUserForDriver($socialNetwork)
     {
-        if ($slug = $socialNetwork->slug == 'email') {
+        if (($slug = $socialNetwork->slug) == 'email') {
             return $this->createSocialUserForEmail();
         }
 
@@ -247,11 +247,6 @@ class SocialUserService
         }
 
         return loggedUser()->socialNetwork == $socialNetwork;
-    }
-
-    private function getEmail($socialNetworkUser, $socialNetwork)
-    {
-        return $socialNetworkUser->getEmail() ?: sprintf('%s@%s.parlamentojuvenil.rj.gov.br', $socialNetworkUser->getId(), $socialNetwork);
     }
 
     public function getDriver($driver)

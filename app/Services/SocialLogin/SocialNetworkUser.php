@@ -16,9 +16,7 @@ class SocialNetworkUser
 
     public function __construct($user, $socialNetwork)
     {
-        $this->user = $user;
-
-        $this->populateSocialNetwork($socialNetwork);
+        $this->populateSocialNetwork($user, $socialNetwork);
     }
 
     public function __call($method, $parameters)
@@ -32,12 +30,28 @@ class SocialNetworkUser
 
     /**
      * @param $socialNetwork
+     * @param $socialNetworkUser
      */
-    private function populateSocialNetwork($socialNetwork)
+    private function makeEmail($socialNetwork, $socialNetworkUser)
     {
+        $this->email = $socialNetworkUser->getEmail()
+                        ?: sprintf('%s@%s.parlamentojuvenil.rj.gov.br', $socialNetworkUser->getId(), $socialNetwork->slug);
+
+        $this->user->email = $this->email;
+    }
+
+    /**
+     * @param $socialNetwork
+     */
+    private function populateSocialNetwork($socialNetworkUser, $socialNetwork)
+    {
+        $this->user = $socialNetworkUser;
+
         $this->social_network_slug = snake_case($socialNetwork->slug);
 
         $this->social_network_name = $socialNetwork->name;
+
+        $this->email = $this->makeEmail($socialNetwork, $socialNetworkUser);
 
         $this->social_network = SocialNetwork::where('slug', $this->social_network_slug)->first();
     }

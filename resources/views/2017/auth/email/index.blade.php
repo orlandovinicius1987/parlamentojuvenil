@@ -52,7 +52,7 @@
                                 <img src="/templates/2017/assets/img/sociallogin-twitter.png" class="btn-login-social">
                                 Entrar com Twitter
                             </a>
-                            <a href="{{ route('auth.social.redirect', ['youtube']) }}"  class="instagram-login">
+                            <a href="{{ route('auth.social.redirect', ['instagram']) }}"  class="instagram-login">
                                 <img src="/templates/2017/assets/img/sociallogin-instagram.png" class="btn-login-social">
                                 Entrar com Instagram
                             </a>
@@ -60,7 +60,7 @@
                                 <img src="/templates/2017/assets/img/sociallogin-linkedin.png" class="btn-login-social">
                                 Entrar com Linkedin
                             </a>
-                            <a href="{{ route('auth.social.redirect', ['instagram']) }}" class="youtube-login" >
+                            <a href="{{ route('auth.social.redirect', ['youtube']) }}" class="youtube-login" >
                                 <img src="/templates/2017/assets/img/sociallogin-youtube.png" class="btn-login-social">
                                 Entrar com Youtube
                             </a>
