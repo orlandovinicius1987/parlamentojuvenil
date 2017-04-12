@@ -68,6 +68,6 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
     public function getSocialNameAttribute()
     {
-        return $this->email;
+        return $this->nickname ?: $this->email;
     }
 }

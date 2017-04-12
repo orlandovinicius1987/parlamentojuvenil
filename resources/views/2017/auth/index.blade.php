@@ -1,7 +1,6 @@
 @extends('2017.layouts.layout')
 
 @section('contents')
-
     <section id="identify" class="identify-yourself">
         <div class="container">
             <div class="row">
