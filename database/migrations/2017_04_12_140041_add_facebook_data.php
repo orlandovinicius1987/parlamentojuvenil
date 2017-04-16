@@ -27,7 +27,7 @@ class AddFacebookData extends Migration
             'regional' => 'ACR',
             'nome' => 'Antonio Carlos Ribeiro',
             'matricula' => '002ANTONIOCARLOS',
-            'nascimento' => '1970-31-10',
+            'nascimento' => '1970-10-31',
         ]);
 
         Seeduc::create([
