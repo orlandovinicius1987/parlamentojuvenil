@@ -1,5 +1,18 @@
 @extends('2017.layouts.layout')
+
 @section('contents')
+    <section class="notifications">
+        <div class="container">
+            @if (config('app.subscriptions.enabled') === false)
+                <div class="row">
+                    <div class="jumbotron">
+                        <h2>Início das inscrições adiado para o dia 19/04</h2>
+                    </div>
+                </div>
+            @endif
+        </div>
+    </section>
+
     <section class="masonry-pj">
         <div class="container">
             <div class="row">
