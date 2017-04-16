@@ -18,7 +18,9 @@ use App\Http\Controllers\Controller as BaseController;
 
 class Subscriptions extends BaseController
 {
-	public function byState()
+    const MATRICULA_E_DATA_DE_NASCIMENTO = 'Não foi encontrado nenhum aluno com esta matrícula e data de nascimento';
+
+    public function byState()
 	{
 		return City::leftJoin('subscriptions', 'cities.name', '=', 'subscriptions.city')
 			->join('states', 'states.id', '=', 'cities.state_id')
@@ -144,7 +146,7 @@ class Subscriptions extends BaseController
 	{
 		if ( ! $subscription = Subscription::find($id))
 		{
-			return view('admin.message')->with('message', 'Inscrição não encontrada.');
+			return view('admin.message')->with('message', self::MATRICULA_E_DATA_DE_NASCIMENTO);
 		}
 
 		$subscription->ignored = ! $subscription->ignored;
@@ -180,7 +182,7 @@ class Subscriptions extends BaseController
     {
         if ( ! $subscription = Subscription::find($id))
         {
-            return view('admin.message')->with('message', 'Inscrição não encontrada.');
+            return view('admin.message')->with('message', static::MATRICULA_E_DATA_DE_NASCIMENTO);
         }
 
         return view('admin.subscriptions.edit')

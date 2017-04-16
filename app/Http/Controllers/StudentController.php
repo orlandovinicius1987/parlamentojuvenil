@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Data\Entities\Seeduc;
 use App\Data\Entities\Student;
+use App\Http\Requests\LoginSeeducUser;
 use Illuminate\Support\Facades\Input;
 use App\Services\SocialLogin\SocialUserService;
 
@@ -26,7 +27,7 @@ class StudentController extends Controller
         return Student::where('registration', $data['registration'])->where('birthdate', $data['birthdate'])->first();
     }
 
-    public function login()
+    public function login(LoginSeeducUser $seeducUser)
     {
         $userData = [
             "registration"=> Input::get('registration') ,
@@ -34,7 +35,7 @@ class StudentController extends Controller
         ];
 
         if (! $student = $this->findStudentBySeeduc($userData)) {
-            return redirect()->back()->withErrors('Inscrição não encontrada.');
+            return redirect()->back()->withErrors(Subscriptions::MATRICULA_E_DATA_DE_NASCIMENTO);
         }
 
         $this->socialUserService->loginSocialUser($student);
