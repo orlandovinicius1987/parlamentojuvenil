@@ -66,11 +66,19 @@ class SocialUserRepository
     {
         $user = new User();
 
-        $user->nickname = $socialNetworkUser->getNickname();
+        $unknown = '<nome desconhecido>';
 
-        $user->name = ($socialNetworkUser->getName() ?: $user->nickname) ?: '<nome desconhecido>';
+        $name = $socialNetworkUser->getName();
 
-        $user->email = $socialNetworkUser->getEmail();
+        $nickname = $socialNetworkUser->getNickname();
+
+        $email = $socialNetworkUser->getEmail();
+
+        $user->nickname = (($nickname ?: $name) ?: $email) ?: $unknown;
+
+        $user->name =  (($name ?: $nickname) ?: $email) ?: $unknown;
+
+        $user->email = $email;
 
         $user->password = Hash::make(str_random(128));
 
