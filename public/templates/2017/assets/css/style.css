@@ -1821,3 +1821,11 @@ img.btn-login-social {
 	margin: 4px 0 0 0px;
 	font-size: 50px;
 }
+
+/*
+ Incluido por Antonio Carlos para resolver problema do header que não estava ficando do tamanho certo
+ */
+
+.site-banner {
+    min-height: 105px !important;
+}
