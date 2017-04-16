@@ -17,7 +17,7 @@
         <!-- icon fonts font Awesome -->
         <link href="/templates/2017/assets/css/font-awesome.min.css" rel="stylesheet">
         <!-- icon fonts font Awesome -->
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+        <link href="//fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
         <!-- Import Magnific Pop Up Styles -->
         <link rel="stylesheet" href="/templates/2017/assets/css/magnific-popup.css">
         <!-- Import Custom Styles -->
@@ -41,7 +41,7 @@
         <link href="/templates/2017/assets/css/masonry.css" rel="stylesheet">
 
         <!--[if IE]>
-        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
 
         <script src="//cdnjs.cloudflare.com/ajax/libs/vue/2.2.6/vue.js"></script>
@@ -138,7 +138,7 @@
         <!-- Include magnific-popup.min.js -->
         <script src="/templates/2017/assets/js/jquery.magnific-popup.min.js"></script>
         <!-- Google Maps Script -->
-        <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+        <script src="//maps.google.com/maps/api/js?sensor=true"></script>
         <!-- Gmap3.js For Static Maps -->
         <script src="/templates/2017/assets/js/gmap3.js"></script>
         <!-- Javascript Plugins  -->
@@ -200,7 +200,7 @@
         </script>
 
         <!-- Masonry JavaScript -->
-        <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+        <script src="//unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
 
         <script type="text/javascript">
             $('.grid').masonry({
