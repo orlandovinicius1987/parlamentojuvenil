@@ -76,3 +76,25 @@ function subscriptionsEnabled() {
 function makeAvatar($email) {
     return 'https://www.gravatar.com/avatar/'.md5($email);
 }
+
+function string_to_date($date)
+{
+    $formats = [
+        'd-m-Y',
+        'd/m/Y',
+        'm/d/Y',
+        'm-d-Y',
+        'Y/m/d',
+        'Y-m-d',
+    ];
+
+    foreach ($formats as $format) {
+        try {
+            return Carbon\Carbon::createFromFormat($format, $date);
+        } catch (\Exception $exception) {
+            // do nothing here
+        }
+    }
+
+    return null;
+}

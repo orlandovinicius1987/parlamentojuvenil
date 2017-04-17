@@ -40,6 +40,7 @@ class Builder
         header('X-Frame-Options: GOFORIT');
 
         $fourteenDate = (new Carbon())->subYears(14);
+
         $seventeenDate = (new Carbon())->subYears(18)->addDays(1);
 
         $banner = $this->execute(function() { return $this->selectBanner(); }, 'selectBanner');
@@ -75,6 +76,8 @@ class Builder
                      ->with('congressmen', $congressmenLinks)
                      ->with('carrousel', $testimonials)
                      ->with('cities', $cities)
+                     ->with('student', loggedUser()->student)
+                     ->with('isSubscribeForm', loggedUser()->must_be_student)
                      ->with('newspapers', $newspapersLinks)
                      ->with('gallery', $galleryLinks9)
                      ->with('oldGallery', $galleryLinks8)

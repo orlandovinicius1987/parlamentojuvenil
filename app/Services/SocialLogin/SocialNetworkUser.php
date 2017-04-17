@@ -35,7 +35,7 @@ class SocialNetworkUser
     private function makeEmail($socialNetwork, $socialNetworkUser)
     {
         $this->email = $socialNetworkUser->getEmail()
-                        ?: sprintf('%s@%s.parlamentojuvenil.rj.gov.br', $socialNetworkUser->getId(), $socialNetwork->slug);
+                        ?: sprintf('%s@%s'.config('app.domain'), $socialNetworkUser->getId(), $socialNetwork->slug);
 
         $this->user->email = $this->email;
     }

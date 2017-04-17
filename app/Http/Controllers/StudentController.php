@@ -27,14 +27,30 @@ class StudentController extends Controller
         return Student::where('registration', $data['registration'])->where('birthdate', $data['birthdate'])->first();
     }
 
-    public function login(LoginSeeducUser $seeducUser)
+    /**
+     * @return array
+     */
+    private function getUserData()
     {
-        $userData = [
-            "registration"=> Input::get('registration') ,
-            "birthdate" => Input::get('birthdate')
+        return [
+            "registration" => Input::get('registration'),
+            "birthdate" => string_to_date(Input::get('birthdate')),
         ];
+    }
 
-        if (! $student = $this->findStudentBySeeduc($userData)) {
+    private function getUserEmail($user)
+    {
+        return strpos($user->email, config('app.domain')) == false
+                ? $user->email
+                : ''
+        ;
+    }
+
+    public function login(LoginSeeducUser $request)
+    {
+        $userData = $this->getUserData();
+
+        if (! $student = $this->findStudentBySeeduc($userData, loggedUser()->user)) {
             return redirect()->back()->withErrors(Subscriptions::MATRICULA_E_DATA_DE_NASCIMENTO);
         }
 
@@ -43,7 +59,7 @@ class StudentController extends Controller
         return redirect()->intended();
     }
 
-    public function findStudentBySeeduc($data)
+    public function findStudentBySeeduc($data, $user = null)
     {
         if (is_null($student = $this->findStudentByRegistrationAndBirth($data))) {
             if (is_null($seeduc = $this->findSeeducStudentByRegistrationAndBirth($data))) {
@@ -56,6 +72,7 @@ class StudentController extends Controller
                 'name' => $seeduc->nome,
                 'school' => $seeduc->escola,
                 'city' => $seeduc->municipio,
+                'email' => $user ? $this->getUserEmail($user) : null,
             ]);
         }
 

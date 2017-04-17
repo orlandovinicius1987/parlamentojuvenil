@@ -6,6 +6,8 @@ return [
 
     'app.name' => 'Parlamento Juvenil',
 
+    'domain' => env('APP_DOMAIN', 'parlamentojuvenil.rj.gov.br'),
+
     'year' => env('APP_YEAR'),
 
     'url' => env('URL_BASE'),

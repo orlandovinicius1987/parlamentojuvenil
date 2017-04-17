@@ -2,7 +2,7 @@
 
 @section('contents')
     <div id="subscribe" class="form-subscribe" >
-        <h1>Título do formulário de inscrição</h1>
+        <h1>Inscreva-se no Parlamento Juvenil {{ config('app.year') }}</h1>
         @include('partials.subscribe-form-fields')
     </div>
 @stop

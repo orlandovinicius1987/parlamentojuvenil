@@ -85,10 +85,6 @@ class ComposerServiceProvider extends ServiceProvider
             $view->with('isAdmin', false);
 
             $view->with('loggedUser', loggedUser());
-
-            if (loggedUser()->logged() && ! is_null($student = loggedUser()->student)) {
-                $view->with('currentStudent', $student);
-            }
         });
 
 //		/**

@@ -13,30 +13,30 @@ class AddFacebookData extends Migration
     public function up()
     {
         Seeduc::create([
-            'escola' => 'FACEBOOK',
-            'municipio' => 'FACEBOOK',
-            'regional' => 'FACEBOOK',
-            'nome' => 'Facebook Developer',
+            'escola' => 'CE AGOSTINHO PORTO',
+            'municipio' => 'SÃO JOÃO DE MERITI',
+            'regional' => 'METROPOLITANA VII',
+            'nome' => 'FACEBOOK DO NASCIMENTO PELICIONI',
             'matricula' => '001FACEBOOK',
             'nascimento' => '2017-04-12',
         ]);
 
         Seeduc::create([
-            'escola' => 'ACR',
-            'municipio' => 'ACR',
-            'regional' => 'ACR',
-            'nome' => 'Antonio Carlos Ribeiro',
+            'escola' => 'CE AGOSTINHO PORTO',
+            'municipio' => 'SÃO JOÃO DE MERITI',
+            'regional' => 'METROPOLITANA VII',
+            'nome' => 'ANTONIO CARLOS DO NASCIMENTO PELICIONI',
             'matricula' => '002ANTONIOCARLOS',
             'nascimento' => '1970-10-31',
         ]);
 
         Seeduc::create([
-            'escola' => 'BRENOT',
-            'municipio' => 'BRENOT',
-            'regional' => 'BRENOT',
-            'nome' => 'Breno Trengrouse',
+            'escola' => 'CE AGOSTINHO PORTO',
+            'municipio' => 'SÃO JOÃO DE MERITI',
+            'regional' => 'METROPOLITANA VII',
+            'nome' => 'BRENOT NASCIMENTO PELICIONI',
             'matricula' => '003BRENOT',
-            'nascimento' => '1980-01-01',
+            'nascimento' => '2000-01-01',
         ]);
     }
 

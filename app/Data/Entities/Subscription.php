@@ -52,5 +52,4 @@ class Subscription extends Model
     {
         $this->belongsTo('App\Data\Entities\User');
     }
-
 }

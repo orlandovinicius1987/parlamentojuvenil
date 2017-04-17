@@ -2,11 +2,12 @@
 
 namespace App\Data\Entities;
 
+use Carbon\Carbon;
 use App\Base\Model;
 
 class Student extends Model
 {
-	protected $dates = ['created_at', 'updated_at'];
+	protected $dates = ['created_at', 'updated_at', 'birthdate'];
 
 	protected $table = 'students';
 
@@ -16,6 +17,7 @@ class Student extends Model
         'name',
         'school',
         'city',
+        'email',
     ];
 
     public function getSocialNameAttribute()
@@ -36,5 +38,10 @@ class Student extends Model
         $student->save();
 
         return $student;
+    }
+
+    public function getBirthdateAttribute($date)
+    {
+        return Carbon::parse($date)->format('d/m/Y');
     }
 }
