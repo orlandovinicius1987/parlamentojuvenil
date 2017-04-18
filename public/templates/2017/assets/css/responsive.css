@@ -248,6 +248,35 @@
 		font-weight: 600;
 	}
 
+	.sobreopj p.item-description {
+		font-size: 20px;
+	}
+
+	.sobreopj .square02 {
+		height: 210px;
+	}
+	.sobreopj .vermelho1.square01 {
+		height: 126px;
+	}
+	.sobreopj-itens .item-title {
+		font-size: 2.5em;
+		padding-bottom: 12px;
+		letter-spacing: 3px;
+	}
+
+	.sobreopj-itens li {
+		font-size: 20px;
+		color: #333333;
+		margin-bottom: 15px;
+	}
+
+	.sobreopj .verde01.square01 {
+		height: 116px;
+		margin-bottom: 15px;
+	}
+
+
+
 
 	.contact-list li {
 		padding-right: 10px;
