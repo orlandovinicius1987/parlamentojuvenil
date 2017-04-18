@@ -13,29 +13,29 @@
                 cpfValid: false,
                 cpfWasChecked: false,
                 zipValid: false,
-                address: "{{ $student->address or '' }}",
-                address_complement: "{{ $student->address_complement or '' }}",
-                address_neighborhood: "{{ $student->address_neighborhood or '' }}",
-                address_city: "{{ $student->address_city or '' }}",
-                cpf: "{{ $student->cpf or '' }}",
-                birthdate: "{{ $student->birthdate or '' }}",
-                city: "{{ $student ? mb_strtoclean($student->city) : '' }}",
-                facebook: "{{ $student->facebook or '' }}",
-                social_name: "{{ $student->social_name or '' }}",
-                id_issuer: "{{ $student->id_issuer or '' }}",
-                registration: "{{ $student->registration or '' }}",
-                email: "{{ $student->email or '' }}",
-                grade: "{{ $student->grade or '' }}",
-                phone_home: "{{ $student->phone_home or '' }}",
-                phone_cellular: "{{ $student->phone_cellular or '' }}",
-                name: "{{ $student->name or '' }}",
-                zip_code: "{{ $student->zip_code or '' }}",
-                gender: "{{ $student->gender or '' }}",
-                gender2: "{{ $student->gender2 or '' }}",
-                id_number: "{{ $student->id_number or '' }}",
+                address: "{!! $student->address or '' !!}",
+                address_complement: "{!! $student->address_complement or '' !!}",
+                address_neighborhood: "{!! $student->address_neighborhood or '' !!}",
+                address_city: "{!! $student->address_city or '' !!}",
+                cpf: "{!! $student->cpf or '' !!}",
+                birthdate: "{!! $student->birthdate or '' !!}",
+                city: "{!! $student ? mb_strtoclean($student->city) : '' !!}",
+                facebook: "{!! $student->facebook or '' !!}",
+                social_name: "{!! $student->social_name or '' !!}",
+                id_issuer: "{!! $student->id_issuer or '' !!}",
+                registration: "{!! $student->registration or '' !!}",
+                email: "{!! $student->email or '' !!}",
+                grade: "{!! $student->grade or '' !!}",
+                phone_home: "{!! $student->phone_home or '' !!}",
+                phone_cellular: "{!! $student->phone_cellular or '' !!}",
+                name: "{!! $student->name or '' !!}",
+                zip_code: "{!! $student->zip_code or '' !!}",
+                gender: "{!! $student->gender or '' !!}",
+                gender2: "{!! $student->gender2 or '' !!}",
+                id_number: "{!! $student->id_number or '' !!}",
                 schools: emptySchool,
-                elected: "{{ $student->elected or '' }}",
-                school: "{{ $student->school or '' }}",
+                elected: "{!! $student->elected or '' !!}",
+                school: "{!! $student->school or '' !!}",
             },
 
             methods: {
@@ -101,7 +101,7 @@
 
                 __cityChanged: function (event)
                 {
-                    var city = '{{ Input::old('city') ?: (isset($subscription) ? $subscription->city : '') }}';
+                    var city = '{!! Input::old('city') ?: (isset($subscription) ? $subscription->city : '') !!}';
 
                     if (this.city !== city)
                     {

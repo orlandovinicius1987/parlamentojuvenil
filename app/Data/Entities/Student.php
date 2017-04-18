@@ -76,4 +76,11 @@ class Student extends Model
     {
         return Carbon::parse($date)->format('d/m/Y');
     }
+
+    public function isSubscribed()
+    {
+        $what = Subscription::findByStudent($this);
+
+        return ! is_null($what);
+    }
 }

@@ -52,9 +52,7 @@ class Data
      */
     private function findSubscription($student)
     {
-        $subscription = Subscription::where('year', $this->getCurrentYear())->where('student_id', $student->id)->first();
-
-        return $subscription;
+        return Subscription::findByStudent($student);
     }
 
     public function getCongressmen($year)

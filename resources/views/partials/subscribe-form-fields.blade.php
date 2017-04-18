@@ -1,4 +1,5 @@
-    <input type="hidden" name="student_id" value="{{ $student->id }}">
+<div>
+    <input type="hidden" name="student_id" value="{!! $student->id !!}">
 
     {{-- Matricula e Nascimento --}}
     <div class="row control-group"  transition="expand">
@@ -8,7 +9,7 @@
                     v-model="registration"
                     type="text"
                     class="form-control input-lg"
-                    value="{{ Input::old('registration') ?: (! $isSubscribeForm ? $student->registration : '') }}"
+                    value="{!! Input::old('registration') ?: $student->registration !!}"
                     placeholder="Matrícula"
                     name="registration"
                     id="registration"
@@ -25,7 +26,7 @@
                     v-model="birthdate"
                     type="text"
                     class="form-control input-lg"
-                    value="{{ Input::old('birthdate') ?: (! $isSubscribeForm ? $student->birthdate : '') }}"
+                    value="{!! Input::old('birthdate') ?: $student->birthdate !!}"
                     {{--onkeydown="return false;"--}}
                     placeholder="Data de nascimento"
                     name="birthdate"
@@ -45,7 +46,7 @@
                     v-model="name"
                     type="text"
                     class="form-control input-lg"
-                    value="{{ Input::old('name') ?: (! $isSubscribeForm ? $student->name : '') }}"
+                    value="{!! Input::old('name') ?: $student->name !!}"
                     placeholder="Nome Completo"
                     name="name"
                     id="name"
@@ -64,7 +65,7 @@
                     v-model="social_name"
                     type="text"
                     class="form-control input-lg"
-                    value="{{ Input::old('social_name') ?: (! $isSubscribeForm ? $student->social_name : '') }}"
+                    value="{!! Input::old('social_name') ?: $student->social_name !!}"
                     placeholder="Apelido"
                     name="social_name"
                     id="social_name"
@@ -83,7 +84,7 @@
                     v-model="email"
                     type="text"
                     class="form-control input-lg"
-                    value="{{ Input::old('email') ?: (! $isSubscribeForm ? $student->email : '') }}"
+                    value="{!! Input::old('email') ?: $student->email !!}"
                     placeholder="E-mail"
                     name="email"
                     id="email"
@@ -103,16 +104,16 @@
                 <select v-model="city" class="form-control input-lg" placeholder="Município" name="city" id="city" required data-validation-required-message="Por favor preencha o município.">
                     {{--<select id="city-edit" v-model="city" class="form-control input-lg" placeholder="Município" name="city" id="city" required data-validation-required-message="Por favor preencha o município.">--}}
 
-                    @if (is_null($city = Input::old('city') ?: (isset($student) ? $student->city : null)) && $isSubscribeForm)
+                    @if (is_null($city = Input::old('city') ?: $student->city) && $isSubscribeForm)
                         <option value="" selected>CIDADE AONDE VOCÊ ESTUDA</option>
                     @endif
 
                     @foreach ($cities as $key => $city)
                         <option
-                            value="{{ mb_strtoclean($city->name) }}"
-                            {{ $student->city == $city->name ? 'selected' : '' }}
+                            value="{!! mb_strtoclean($city->name) !!}"
+                            {!! $student->city == $city->name ? 'selected' : '' !!}
                         >
-                            {{ $city->name }}
+                            {!! $city->name !!}
                         </option>
                     @endforeach
                 </select>
@@ -145,14 +146,14 @@
 
                     <option
                             value="1o ano do ensino médio"
-                            {{ (Input::old('grade') == '1o ano do ensino médio' ?: (! $isSubscribeForm ? $student->grade == '1o ano do ensino médio' : false) ? 'selected' : '') }}
+                            {!! (Input::old('grade') == '1o ano do ensino médio' || $student->grade == '1o ano do ensino médio') ? 'selected' : '' !!}
                     >
                         1o ano do ensino médio
                     </option>
 
                     <option
                             value="2o ano do ensino médio"
-                            {{ (Input::old('grade') == '2o ano do ensino médio' ?: (! $isSubscribeForm ? $student->grade == '2o ano do ensino médio' : false) ? 'selected' : '') }}
+                            {!! (Input::old('grade') == '2o ano do ensino médio' || $student->grade == '2o ano do ensino médio') ? 'selected' : '' !!}
                     >
                         2o ano do ensino médio
                     </option>
@@ -171,14 +172,14 @@
 
                 <option
                         value="F"
-                        {{ (Input::old('gender') == 'F' ?: (! $isSubscribeForm ? $student->gender == 'F' : false) ? 'selected' : '') }}
+                        {!! (Input::old('gender') == 'F' || $student->gender == 'F') ? 'selected' : '' !!}
                 >
                     Feminino
                 </option>
 
                 <option
                         value="M"
-                        {{ (Input::old('gender') == 'M' ?: (! $isSubscribeForm ? $student->gender == 'M' : false) ? 'selected' : '') }}
+                        {!! (Input::old('gender') == 'M' ?: $student->gender == 'M') ? 'selected' : '' !!}
                 >
                     Masculino
                 </option>
@@ -192,14 +193,14 @@
 
                 <option
                         value="F"
-                        {{ (Input::old('gender2') == 'F' ?: (! $isSubscribeForm ? $student->gender2 == 'F' : false) ? 'selected' : '') }}
+                        {!! (Input::old('gender2') == 'F' ?: $student->gender2 == 'F') ? 'selected' : '' !!}
                 >
                     Feminino
                 </option>
 
                 <option
                         value="M"
-                        {{ (Input::old('gender2') == 'M' ?: (! $isSubscribeForm ? $student->gender2 == 'M' : false) ? 'selected' : '') }}
+                        {!! (Input::old('gender2') == 'M' ?: $student->gender2 == 'M') ? 'selected' : '' !!}
                 >
                     Masculino
                 </option>
@@ -217,7 +218,7 @@
                     v-on:keyup="checkCpf"
                     type="text"
                     class="form-control input-lg"
-                    value="{{ Input::old('cpf') ?: (! $isSubscribeForm ? $student->cpf : '') }}"
+                    value="{!! Input::old('cpf') ?: $student->cpf !!}"
                     title="Seu CPF ou do responsável"
                     placeholder="CPF"
                     name="cpf"
@@ -233,7 +234,7 @@
                     v-model="id_number"
                     type="text"
                     class="form-control input-lg"
-                    value="{{ Input::old('id_number') ?: (! $isSubscribeForm ? $student->id_number : '') }}"
+                    value="{!! Input::old('id_number') ?: $student->id_number !!}"
                     placeholder="Identidade"
                     name="id_number"
                     id="id_number"
@@ -249,7 +250,7 @@
                     v-model="id_issuer"
                     type="text"
                     class="form-control input-lg"
-                    value="{{ Input::old('id_issuer') ?: (! $isSubscribeForm ? $student->id_issuer : '') }}"
+                    value="{!! Input::old('id_issuer') ?: $student->id_issuer !!}"
                     placeholder="Órgão emissor"
                     name="id_issuer" id="id_issuer"
                     required
@@ -267,7 +268,7 @@
                     v-model="phone_home"
                     type="tel"
                     class="form-control input-lg"
-                    value="{{ Input::old('phone_home') ?: (! $isSubscribeForm ? $student->phone_home : '') }}"
+                    value="{!! Input::old('phone_home') ?: $student->phone_home !!}"
                     placeholder="Telefone Residencial"
                     name="phone_home"
                     id="phone_home"
@@ -282,7 +283,7 @@
                     v-model="phone_cellular"
                     type="tel"
                     class="form-control input-lg"
-                    value="{{ Input::old('phone_cellular') ?: (! $isSubscribeForm ? $student->phone_cellular : '') }}"
+                    value="{!! Input::old('phone_cellular') ?: $student->phone_cellular !!}"
                     placeholder="Telefone Celular"
                     name="phone_cellular"
                     id="phone_cellular"
@@ -301,7 +302,7 @@
                     v-model="zip_code"
                     v-on:keyup="checkZip"
                     type="tel"
-                    value="{{ Input::old('zip_code') ?: (! $isSubscribeForm ? $student->zip_code : '') }}"
+                    value="{!! Input::old('zip_code') ?: $student->zip_code !!}"
                     class="form-control input-lg"
                     placeholder="CEP da residência"
                     name="zip_code"
@@ -321,7 +322,7 @@
                     v-model="address"
                     type="tel"
                     class="form-control input-lg"
-                    value="{{ Input::old('address') ?: (! $isSubscribeForm ? $student->address : '') }}"
+                    value="{!! Input::old('address') ?: $student->address !!}"
                     placeholder="Endereço"
                     name="address"
                     id="address"
@@ -339,7 +340,7 @@
                     v-model="address_complement"
                     type="tel"
                     class="form-control input-lg"
-                    value="{{ Input::old('address_complement') ?: (! $isSubscribeForm ? $student->address_complement : '') }}"
+                    value="@{{{ {!! Input::old('address_complement') ?: $student->address_complement !!} }}}"
                     placeholder="Complemento"
                     name="address_complement"
                     id="address_complement"
@@ -354,7 +355,7 @@
                     v-model="address_neighborhood"
                     type="tel"
                     class="form-control input-lg"
-                    value="{{ Input::old('address_neighborhood') ?: (! $isSubscribeForm ? $student->address_neighborhood : '') }}"
+                    value="{!! Input::old('address_neighborhood') ?: $student->address_neighborhood !!}"
                     placeholder="Bairro"
                     name="address_neighborhood"
                     id="address_neighborhood"
@@ -373,7 +374,7 @@
                     v-model="address_city"
                     type="tel"
                     class="form-control input-lg"
-                    value="{{ Input::old('address_city') ?: (! $isSubscribeForm ? $student->address_city : '') }}"
+                    value="{!! Input::old('address_city') ?: $student->address_city !!}"
                     placeholder="Município"
                     name="address_city"
                     id="address_city"
@@ -383,24 +384,6 @@
             <span class="help-block text-danger"></span>
         </div>
     </div>
-
-    {{-- Facebook --}}
-    {{--<div class="row control-group"  transition="expand">--}}
-        {{--<div class="form-group col-lg-12 floating-label-form-group controls">--}}
-            {{--<label for="facebook" class="sr-only control-label">Link ou usuário do Facebook</label>--}}
-            {{--<input--}}
-                    {{--v-model="facebook"--}}
-                    {{--type="tel"--}}
-                    {{--class="form-control input-lg"--}}
-                    {{--value="{{ Input::old('facebook') ?: (! $isSubscribeForm ? $student->facebook : '') }}"--}}
-                    {{--placeholder="Link ou usuário do Facebook"--}}
-                    {{--name="facebook"--}}
-                    {{--id="facebook"--}}
-                    {{--data-validation-required-message="Por favor digite seu facebook."--}}
-            {{-->--}}
-            {{--<span class="help-block text-danger"></span>--}}
-        {{--</div>--}}
-    {{--</div>--}}
 
     @if ($isAdmin)
         {{-- Elected --}}
@@ -412,14 +395,14 @@
 
                     <option
                             value="Y"
-                            {{ (Input::old('elected') === true ?: (! $isSubscribeForm ? $student->elected === true : false) ? 'selected' : '') }}
+                            {!! Input::old('elected') === true || $student->elected === true ? 'selected' : '' !!}
                     >
                         ELEITO: SIM
                     </option>
 
                     <option
                             value="N"
-                            {{ (Input::old('elected') === false ?: (! $isSubscribeForm ? $student->elected === false : false) ? 'selected' : '') }}
+                            {!! Input::old('elected') === false || $student->elected === false ? 'selected' : '' !!}
                     >
                         ELEITO: NÃO
                     </option>

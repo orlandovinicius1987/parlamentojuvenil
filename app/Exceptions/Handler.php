@@ -46,7 +46,9 @@ class Handler extends ExceptionHandler
         {
             $view = $this
                         ->viewBuilder
-                        ->buildViewData(view('2016.messages.already-subscribed'));
+                        ->buildViewData(
+                            view(make_view_name_year_based('messages.already-subscribed'))
+                        );
 
             return Response::make($view);
         }

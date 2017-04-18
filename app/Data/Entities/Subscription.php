@@ -13,6 +13,11 @@ class Subscription extends Model
         'student_id',
 	];
 
+    public static function findByStudent($student, $year = null)
+    {
+        return static::where('year', get_current_year($year))->where('student_id', $student->id)->first();
+    }
+
     public function schoolRecord()
     {
         return $this->belongsTo(School::class, 'school', 'name');
@@ -31,5 +36,10 @@ class Subscription extends Model
     public function user()
     {
         $this->belongsTo('App\Data\Entities\User');
+    }
+
+    public function student()
+    {
+        $this->belongsTo('App\Data\Entities\Student');
     }
 }

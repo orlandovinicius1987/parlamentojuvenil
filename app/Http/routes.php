@@ -46,7 +46,7 @@ Route::group(['prefix' => '/auth'], function ()
     });
 });
 
-Route::group(['prefix' => '/subscribe', 'middleware' => ['subscribing', 'auth', 'student-login']], function ()
+Route::group(['prefix' => '/subscribe', 'middleware' => ['subscribing', 'auth', 'student-login', 'cannot-re-subscribe']], function ()
 {
     Route::get('/', ['as' => 'subscribe.index', 'uses' => 'Subscriptions@index']);
 });

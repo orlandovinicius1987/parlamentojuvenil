@@ -166,7 +166,9 @@ class Subscriptions extends BaseController
 
     public function store(Subscribe $request)
     {
-        $this->dataRepository->createSubscription($request);
+        $subscription = $this->dataRepository->createSubscription($request);
+
+        $this->updateLoggedStudent($subscription->student);
 
         return $this->buildView('subscriptions.success');
     }
@@ -204,4 +206,8 @@ class Subscriptions extends BaseController
         return redirect()->route('admin.city', ['city' => $subscription->city]);
     }
 
+    private function updateLoggedStudent($student)
+    {
+        loggedUser()->student = $student;
+    }
 }
