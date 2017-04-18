@@ -154,7 +154,7 @@
         <script>
             $(document).ready(function () {
                 /* -------- One page Navigation ----------*/
-                $('#main-menu #menu').onePageNav({
+                /*$('#main-menu #menu').onePageNav({
                     currentClass: 'active',
                     changeHash: false,
                     scrollSpeed: 1500,
@@ -162,7 +162,7 @@
                     scrollOffset: 95,
                     filter: ':not(.sub-menu a, .not-in-home)',
                     easing: 'swing'
-                });
+                });*/
                 /*----------- Google Map - with support of gmaps.js ----------------*/
 
                 function isMobile() {
