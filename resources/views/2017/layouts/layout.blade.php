@@ -115,10 +115,21 @@
             <div id="footer-bottom" class="footer-bottom text-center">
                 <div class="container">
                     <div class="row">
-                        <div class="col-xs-offset-1 col-xs-5 col-md-offset-4 col-md-2">
+
+                        <div class="midias-sociais-rodape col-xs-12 col-sm-3 col-md-2" >
+                            <a target="_blank" href="//www.facebook.com/parlamentojuvenilrio/"><i class="fa fa-facebook"></i></a>
+                            <a target="_blank" href="//www.youtube.com/user/parlamentojuvenilrj"><i class="fa fa-twitter"></i></a>
+                            <a target="_blank" href="//www.facebook.com/parlamentojuvenilrio/"><i class="fa fa-instagram"></i></a>
+                            <a target="_blank" href="//www.youtube.com/user/parlamentojuvenilrj"><i class="fa fa-youtube"></i></a>
+                        </div>
+                        <div class="contatos col-sm-3 col-md-4 ">
+                            21 2588 1536 - 21 2588 1202 &nbsp;| &nbsp;<a href="mailto:pjalerj@gmail.com">pjalerj@gmail.com</a>
+                        </div>
+
+                        <div class="col-xs-offset-2 col-xs-4 col-sm-offset-0 col-sm-3 col-md-offset-2 col-md-2">
                             <img src="/templates/2017/images/logo-alerj.png" class="logo-alerj img-responsive">
                         </div>
-                        <div class="col-xs-5 col-md-2">
+                        <div class="col-xs-4 col-sm-3 col-md-2">
                             <img src="/templates/2017/images/logo-governo.png" class="logo-governo img-responsive">
                         </div>
                     </div>

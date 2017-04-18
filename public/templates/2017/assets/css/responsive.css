@@ -58,6 +58,18 @@
 /*	.navbar-nav>li>a {
 		padding: 25px 20px;
 	}*/
+	.midias-sociais-rodape a {
+		margin-right: 8px;
+	}
+	.footer-bottom .contatos {
+		font-size: 12px;
+		font-weight: 600;
+		margin-top: 18px;
+	}
+	img.logo-governo {
+		margin-top: 9px;
+	}
+
 	.navbar-nav>li>a {
 		padding: 20px 15px;
 	}
@@ -215,6 +227,11 @@
 }
 
 @media screen and (min-width: 768px) and (max-width: 800px) {
+	.footer-bottom .contatos {
+		font-size: 11px;
+		font-weight: 600;
+		margin-top: 13px;
+	}
 
 	.main-menu .container {
 		padding-left: 0 !important;
@@ -443,6 +460,16 @@
 }
 
 @media screen and (min-width: 639px) and (max-width: 720px) {
+
+	.footer-bottom img.logo-governo {
+		margin-top: 5px;
+	}
+	.midias-sociais-rodape {
+		font-size: 40px;
+		margin-top: 0px;
+		margin-bottom: 20px;
+	}
+
 	.top-icon {
 		width: 25px;
 		height: 25px;
@@ -540,6 +567,16 @@
 }
 
 @media screen and (min-width: 569px) and (max-width: 640px) {
+
+	.footer-bottom img.logo-governo {
+		margin-top: 5px;
+	}
+	.midias-sociais-rodape {
+		font-size: 36px;
+		margin-top: 0px;
+		margin-bottom: 20px;
+	}
+
 	.contact-list li {
 		padding-right: 5px;
 	}
@@ -643,6 +680,15 @@
 }
 
 @media screen and (min-width: 481px) and (max-width: 568px) {
+
+	.footer-bottom img.logo-governo {
+		margin-top: 5px;
+	}
+	.midias-sociais-rodape {
+		font-size: 36px;
+		margin-top: 0px;
+		margin-bottom: 20px;
+	}
 	.contact-list li {
 		padding-right: 5px;
 	}
@@ -753,6 +799,14 @@
 }
 
 @media screen and (min-width: 415px) and (max-width: 480px) {
+	.footer-bottom img.logo-governo {
+		margin-top: 5px;
+	}
+	.midias-sociais-rodape {
+		font-size: 30px;
+		margin-top: 0px;
+		margin-bottom: 20px;
+	}
 	.top-contact {
 		display: none;
 	}
@@ -849,6 +903,16 @@
 }
 
 @media screen and (min-width: 374px) and (max-width: 414px) {
+
+	.footer-bottom img.logo-governo {
+		margin-top: 5px;
+	}
+	.midias-sociais-rodape {
+		font-size: 24px;
+		margin-top: 0px;
+		margin-bottom: 20px;
+	}
+
 	.top-contact {
 		display: none;
 	}
@@ -949,6 +1013,22 @@
 }
 
 @media screen and (min-width: 321px) and (max-width: 375px) {
+
+	.footer-bottom img.logo-governo {
+		margin-top: 5px;
+	}
+
+	.midias-sociais-rodape {
+		font-size: 24px;
+		margin-top: 0px;
+		margin-bottom: 20px;
+	}
+	.footer-bottom .contatos {
+		font-size: 14px;
+		margin-top: 10px !important;
+		margin-bottom: 10px;
+	}
+
 	.top-contact {
 		display: none;
 	}
@@ -1069,6 +1149,22 @@
 }
 
 @media screen and (max-width: 320px) {
+	.footer-bottom .contatos {
+		font-size: 12px;
+		font-weight: 600;
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+	.footer-bottom img.logo-governo {
+		margin-top: 5px;
+	}
+	.midias-sociais-rodape {
+		font-size: 24px;
+		margin-top: 0px;
+		margin-bottom: 20px;
+	}
+
+
 	.top-contact {
 		display: none;
 	}
