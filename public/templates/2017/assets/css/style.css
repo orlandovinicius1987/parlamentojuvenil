@@ -1827,7 +1827,7 @@ img.btn-login-social {
  */
 
 .site-banner {
-    min-height: 105px !important;
+    height: 105px;
 }
 
 .container .jumbotron, .container-fluid .jumbotron {

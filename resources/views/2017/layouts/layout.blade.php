@@ -26,8 +26,7 @@
         <link href="/templates/2017/assets/css/animate.min.css" rel="stylesheet">
         <!-- Import owl.carousel Styles -->
         <link href="/templates/2017/assets/css/owl.carousel.css" rel="stylesheet">
-        <!-- Import Custom Responsive Styles -->
-        <link href="/templates/2017/assets/css/responsive.css" rel="stylesheet">
+
         <!-- Style CSS -->
         <link href="/templates/2017/assets/css/style.css" rel="stylesheet">
 
@@ -39,6 +38,10 @@
 
         <!-- Masonry CSS -->
         <link href="/templates/2017/assets/css/masonry.css" rel="stylesheet">
+
+
+        <!-- Import Custom Responsive Styles -->
+        <link href="/templates/2017/assets/css/responsive.css" rel="stylesheet">
 
         <!--[if IE]>
         <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
