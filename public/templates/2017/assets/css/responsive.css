@@ -275,6 +275,20 @@
 		margin-bottom: 15px;
 	}
 
+	.site-banner {
+		height: 80px;
+	}
+
+	img.avatar.img-responsive {
+		margin-top: 10px;
+		max-width: 60px;
+	}
+	.user-email-login {
+		padding-top: 10px;
+		margin-right: -18px;
+		text-align: right;
+	}
+
 
 
 
