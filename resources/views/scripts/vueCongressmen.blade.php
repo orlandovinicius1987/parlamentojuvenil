@@ -12,13 +12,21 @@
 
             methods: {
                 __fetchCongressmen: function() {
-                    this.$http.get('/api/v1/congressmen/2015' , function(congressmen) {
-                        this.congressmen = congressmen;
-                    });
+                    this.$http.get('/api/v1/congressmen/2015').then(
+                        function(response) {
+                            this.congressmen = response.body;
+                        },
+
+                        this.__requestError
+                    );
                 },
             },
 
-            ready: function ()
+            __requestError: function(error) {
+                console.log('Request error: ', error);
+            },
+
+            mounted: function ()
             {
                 this.__fetchCongressmen();
             }

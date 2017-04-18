@@ -60,27 +60,46 @@
                     {
                         this.zipValid = true;
 
-                        this.$http.get('http://viacep.com.br/ws/'+zip+'/json/', function(zip)
-                        {
-                            if (zip.localidade)
+                        this.$http.get('http://viacep.com.br/ws/'+zip+'/json/').then(
+                            function(response)
                             {
-                                this.address_city = zip.localidade;
-                                this.address = zip.logradouro;
-                                this.address_neighborhood = zip.bairro;
-                            }
-                        });
+                                if (response.body.localidade)
+                                {
+                                    this.address_city = response.body.localidade;
+                                    this.address = response.body.logradouro;
+                                    this.address_neighborhood = response.body.bairro;
+                                }
+                            },
+
+                            this.__requestError
+                        );
                     }
+                },
+
+                __requestError: function(error) {
+                    console.log('Request error: ', error);
                 },
 
                 __fetchSchools: function (event)
                 {
                     if (this.city)
                     {
-                        this.$http.get('/schools/' + this.city, function (schools)
-                        {
-                            this.schools = schools;
-                        });
+                        console.log('will');
+                        this.$http.get('/schools/' + this.city).then(
+                            function (response)
+                            {
+                                console.log('found');
+                                console.log(response.body);
+                                this.schools = response.body;
+                            },
+
+                            this.__requestError
+                        );
                     }
+                },
+
+                __requestError: function(error) {
+                    console.log('Request error: ', error);
                 },
 
                 __cityChanged: function (event)
@@ -97,11 +116,14 @@
             },
 
             watch: {
-                'city': '__cityChanged',
+                city: function() {
+                    this.__fetchSchools()
+                },
             },
 
-            ready: function ()
+            mounted: function ()
             {
+                console.log('ready');
                 this.__fetchSchools();
             },
         });

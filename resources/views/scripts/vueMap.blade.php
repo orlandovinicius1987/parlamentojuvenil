@@ -74,15 +74,19 @@
 
                 __fetchSubscriptions: function()
                 {
-                    this.$http.get('/subscriptions/schools', function(schools)
-                    {
-                        this.schools = schools;
-
-                        this.$nextTick(function ()
+                    this.$http.get('/subscriptions/schools').then(
+                        function(response)
                         {
-                            this.__createMarkers();
-                        }.bind(this))
-                    }.bind(this));
+                            this.schools = response.body;
+
+                            this.$nextTick(function ()
+                            {
+                                this.__createMarkers();
+                            }.bind(this))
+                        }.bind(this),
+
+                        this.__requestError
+                    );
 
                     if (this.timeout < 10000)
                     {
@@ -93,7 +97,11 @@
                 },
             },
 
-            ready: function()
+            __requestError: function(error) {
+                console.log('Request error: ', error);
+            },
+
+            mounted: function()
             {
                 this.__fetchSubscriptions();
             },

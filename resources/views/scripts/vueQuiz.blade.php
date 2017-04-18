@@ -30,10 +30,18 @@
 
             methods: {
                 loadQuestions: function () {
-                    this.$http.get(this.baseUrl+'/'+this.id+'/questions', function (quiz)
-                    {
-                        this.quiz = quiz;
-                    });
+                    this.$http.get(this.baseUrl+'/'+this.id+'/questions').then(
+                        function (response)
+                        {
+                            this.quiz = response.body;
+                        },
+
+                        this.__requestError
+                    );
+                },
+
+                __requestError: function(error) {
+                    console.log('Request error: ', error);
                 },
 
                 answerQuestion: function (answer) {
@@ -62,7 +70,7 @@
                 },
             },
             
-            ready: function() {
+            mounted: function() {
                 this.loadQuestions();
             }
         });
