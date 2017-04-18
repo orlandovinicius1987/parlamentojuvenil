@@ -1834,3 +1834,32 @@ img.btn-login-social {
     background-color: #bc1c91;
     border-radius: 0px;
 }
+
+
+
+
+
+
+.informacoes-masonry {
+	line-height: 17px;
+	color: #fff;
+}
+
+.title {
+	text-align: center;
+	padding: 30px 0 0px 0;
+	font-family: 'five_boroughs';
+	letter-spacing: 3px;
+	color: #F58220;
+	font-size: 34px;
+}
+
+.social-links-home {
+	margin-top: 20px;
+}
+
+.social-links-home a {
+	color: #fff;
+	padding: 10px;
+	font-size: 30px;
+}

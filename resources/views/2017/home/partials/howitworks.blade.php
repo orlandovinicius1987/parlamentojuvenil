@@ -1,30 +1,30 @@
 <section id="como-funciona" class="como-funciona">
     <div class="container">
         <div class="row">
-            <div class="col-md-2">
+            <div class="col-sm-2">
                 <div class="grow grid-item azul2">
 
                 </div>
             </div>
-            <div class="col-md-2">
+            <div class="col-sm-2">
                 <div class="grow grid-item verde2">
 
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-sm-4">
                 <div class="row">
-                    <div class="col-md-7">
+                    <div class="hidden-sm col-sm-hidden col-md-7">
                         <div class="grow grid-item--height5 amarelo1">
 
                         </div>
                     </div>
-                    <div class="col-md-1">
+                    <div class="hidden-sm col-md-1">
                         <div class="grow grid-item--height5 branco2">
 
                         </div>
                     </div>
 
-                    <div class="col-md-4">
+                    <div class="hidden-sm col-md-4">
                         <div class="grow grid-item--height5 verde01">
 
                         </div>
@@ -40,12 +40,12 @@
 
 
             </div>
-            <div class="col-md-2">
+            <div class="col-sm-2">
                 <div class="grow grid-item laranja1">
 
                 </div>
             </div>
-            <div class="col-md-2">
+            <div class="col-sm-2">
                 <div class="grow grid-item lilas2">
 
                 </div>

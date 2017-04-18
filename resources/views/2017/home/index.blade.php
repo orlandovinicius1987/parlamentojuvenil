@@ -87,7 +87,16 @@
                     </div>
                     <div class="grow grid-item azul1"></div>
                     <div class="grow grid-item grid-item--height2 azul4">
-                        <img class="masonry-padding paddingtop40 masonry-informacoes img-responsive" src="/templates/2017/images/masonry-05.png">
+                        {{--<img class="asonry-padding paddingtop40 masonry-informacoes img-responsive" src="/templates/2017/images/masonry-05.png"><br>--}}
+                        <div class="informacoes-masonry text-center">
+                            <div class="title">Informações</div><br>
+                            <div class="telefones">21 2588-1536 ou 21 2588-1202</div>
+                        </div>
+                        <div class="social-links-home text-center">
+                            <a target="_blank" href="//www.facebook.com/parlamentojuvenilrio/"><i class="fa fa-facebook"></i></a>
+                            <a target="_blank" href="//www.youtube.com/user/parlamentojuvenilrj"><i class="fa fa-youtube"></i></a>
+                        </div>
+
                     </div>
                     <div class="grow grid-item laranja1">
                         <img class="masonry-overflow masonry10" src="/templates/2017/images/masonry-06.png">
