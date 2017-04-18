@@ -223,7 +223,7 @@
                     id="cpf"
                     required data-validation-required-message="Por favor digite seu CPF."
             >
-            <span class="help-block text-danger"></span>
+            <span class="help-block text-danger" v-if="!cpfValid && cpfWasChecked">CPF INVÁLIDO</span>
         </div>
 
         <div class="form-group col-xs-4 floating-label-form-group controls">

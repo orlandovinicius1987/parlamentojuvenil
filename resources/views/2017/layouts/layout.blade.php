@@ -46,6 +46,8 @@
 
         <script src="//cdnjs.cloudflare.com/ajax/libs/vue/2.2.6/vue.js"></script>
         <script src="//cdn.jsdelivr.net/vue.resource/1.3.1/vue-resource.min.js"></script>
+
+        <script src="/js/receita.js"></script>
     </head>
 
     <body class="header-fixed-top">

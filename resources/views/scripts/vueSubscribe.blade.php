@@ -9,7 +9,9 @@
             el: '#subscribe',
 
             data: {
+                cpf: '',
                 cpfValid: false,
+                cpfWasChecked: false,
                 zipValid: false,
                 address: "{{ $student->address or '' }}",
                 address_complement: "{{ $student->address_complement or '' }}",
@@ -39,13 +41,11 @@
             methods: {
                 checkCpf: function()
                 {
-                    var cpf = jQuery('#cpf').val();
-
-                    cpf = cpf.split('.').join("");
-                    cpf = cpf.split('-').join("");
-                    cpf = cpf.split('_').join("");
+                    var cpf = this.cpf.split('.').join("").split('-').join("").split('_').join("");
 
                     this.cpfValid = TestaCPF(cpf);
+
+                    this.cpfWasChecked = true;
                 },
 
                 checkZip: function()
