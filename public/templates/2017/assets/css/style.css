@@ -1897,3 +1897,11 @@ img.btn-login-social {
 	display: block;
 }
 
+
+.midias-sociais-rodape {
+	font-size: 24px;
+	margin-top:10px;
+}
+.midias-sociais-rodape a {
+	margin-right: 15px;
+}
