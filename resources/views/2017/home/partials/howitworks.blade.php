@@ -13,23 +13,25 @@
             </div>
             <div class="col-sm-4">
                 <div class="row">
-                    <div class="hidden-sm col-sm-hidden col-md-7">
+                    <div class="hidden-sm col-sm-hidden col-md-7 col-lg-7">
+
                         <div class="grow grid-item--height5 amarelo1">
 
                         </div>
                     </div>
-                    <div class="hidden-sm col-md-1">
+                    <div class="hidden-sm col-md-1 col-lg-1">
+
                         <div class="grow grid-item--height5 branco2">
 
                         </div>
                     </div>
 
-                    <div class="hidden-sm col-md-4">
+                    <div class="hidden-sm col-md-3 col-lg-4">
+
                         <div class="grow grid-item--height5 verde01">
 
                         </div>
                     </div>
-
 
                 </div>
                 <div class="row text-center">
