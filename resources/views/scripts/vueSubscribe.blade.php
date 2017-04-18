@@ -84,9 +84,13 @@
                 {
                     if (this.city)
                     {
+                        console.log('fetchSchools/'+this.city);
+
                         this.$http.get('/schools/' + this.city).then(
                             function (response)
                             {
+                                console.log(response);
+
                                 this.schools = response.body;
                             },
 
