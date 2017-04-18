@@ -2,6 +2,7 @@
 
 namespace App\Data\Entities;
 
+use DB;
 use App\Base\Model;
 
 class City extends Model
@@ -20,4 +21,9 @@ class City extends Model
     {
         return mb_strtoclean($name);
 	}
+
+	public static function findCityByname($name)
+    {
+        return static::where(DB::raw('unaccent(name)'), '~*', $name)->first();
+    }
 }

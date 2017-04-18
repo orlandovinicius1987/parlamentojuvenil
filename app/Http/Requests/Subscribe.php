@@ -22,14 +22,15 @@ class Subscribe extends Request
     public function rules()
     {
         return [
-            'name' => 'required',
+//            'name' => 'required',
+//            'registration' => 'required',
+//            'birthdate' => 'required|date_format:d/m/Y|lessthan18|morethan13',
+            'student_id' => 'required',
             'social_name' => '',
-            'city' => 'required|exists:cities,name',
+            'city' => 'required|city',
             'school' => 'required|exists:schools,name',
-            'registration' => 'required',
             'gender' => 'required',
             'gender2' => 'required',
-            'birthdate' => 'required|date_format:d/m/Y|lessthan18|morethan13',
             'cpf' => 'required|cpf',
             'id_number' => 'required',
             'id_issuer' => 'required',

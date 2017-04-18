@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Data\Entities\City;
 use Carbon\Carbon;
 use App\Services\SocialLogin\LoggedUser;
 use Illuminate\Support\ServiceProvider;
@@ -58,6 +59,10 @@ class AppServiceProvider extends ServiceProvider
             $diff = $end->diffInYears($birth);
 
             return $diff > 13;
+        });
+
+        Validator::extend('city', function ($attribute, $value, $parameters, $validator) {
+            return City::findCityByname($value) instanceof City;
         });
     }
 }

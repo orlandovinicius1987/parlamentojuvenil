@@ -4,18 +4,16 @@ namespace App\Data\Repositories;
 
 use App\Data\Entities\School;
 use App\Data\Entities\Clipping;
+use App\Data\Entities\Student;
 use App\Data\Entities\Timeline;
 use App\Services\Views\Builder;
 use Jenssegers\Date\Date as Carbon;
 use App\Data\Entities\Subscription;
 use Illuminate\Support\Facades\Mail;
 use App\Exceptions\AlreadySubscribed;
-use App\Events\SubscriptionWasCreated;
 use App\Services\News\Service as SyncNewsService;
 use App\Services\Filesystem\Service as Filesystem;
 use Illuminate\Support\Collection as IlluminateCollection;
-use App\Repositories\UsersRepository;
-use App\Data\Entities\User;
 
 
 class Data
@@ -48,6 +46,17 @@ class Data
         $this->filesystem = $filesystem;
     }
 
+    /**
+     * @param $student
+     * @return mixed
+     */
+    private function findSubscription($student)
+    {
+        $subscription = Subscription::where('year', $this->getCurrentYear())->where('student_id', $student->id)->first();
+
+        return $subscription;
+    }
+
     public function getCongressmen($year)
     {
         $year = $this->getYearString($year);
@@ -55,6 +64,14 @@ class Data
         $congressmen = $this->filesystem->congressmenLinks(env('PHOTOS_DIR').DIRECTORY_SEPARATOR.$year);
 
         return $congressmen;
+    }
+
+    /**
+     * @return mixed
+     */
+    private function getCurrentYear()
+    {
+        return config('app.year');
     }
 
     /**
@@ -81,6 +98,13 @@ class Data
         }
 
         return $year;
+    }
+
+    private function makeSubscriptionData($input, $fillable, $prefilled)
+    {
+        $data = collect($input->only($fillable))->except($prefilled)->toArray();
+
+        return $data;
     }
 
     public function sendSubscriptionCreatedMail($subscription)
@@ -139,24 +163,21 @@ class Data
 
     public function createSubscription($input)
     {
-        $model = new Subscription();
-        $this->usersRepository = new UsersRepository();
+        $student = Student::find($input['student_id']);
 
-        if (!$user = $this->findByBirthdateAndRegistration($input))
-        {
-            $user = $this->usersRepository->storeUser();
-        }
+        $student->fill($this->makeSubscriptionData($input, $student->getFillable(), $student->getPrefilled()));
 
-        $input = $input->only($model->getFillable());
-        if($subscription = $model->where('cpf', $input['cpf'])->where('registration', $input['registration'])->first())
+        $student->save();
+
+        if($subscription = $this->findSubscription($student))
         {
             throw new AlreadySubscribed();
         }
 
-        $subscription = Subscription::firstOrCreate($input);
-        $user->subscriptions()->save($subscription);
-
-      //  event(new SubscriptionWasCreated($subscription));
+        $subscription = Subscription::firstOrCreate([
+            'year' => $this->getCurrentYear(),
+            'student_id' => $student->id,
+        ]);
 
         return $subscription;
     }

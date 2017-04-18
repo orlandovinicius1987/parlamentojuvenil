@@ -199,7 +199,7 @@ class SchoolsSeeder extends Seeder
 
 	private function findCityByName($city)
 	{
-		if ( ! $found = City::where(DB::raw('unaccent(name)'), '~*', $city)->first())
+		if ( ! $found = City::findCityByname($city))
 		{
 			dd('City not found: ' . $city);
 		}

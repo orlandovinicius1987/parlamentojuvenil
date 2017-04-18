@@ -84,12 +84,9 @@
                 {
                     if (this.city)
                     {
-                        console.log('will');
                         this.$http.get('/schools/' + this.city).then(
                             function (response)
                             {
-                                console.log('found');
-                                console.log(response.body);
                                 this.schools = response.body;
                             },
 
@@ -123,7 +120,6 @@
 
             mounted: function ()
             {
-                console.log('ready');
                 this.__fetchSchools();
             },
         });

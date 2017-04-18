@@ -1,3 +1,4 @@
+    <input type="hidden" name="student_id" value="{{ $student->id }}">
 
     {{-- Matricula e Nascimento --}}
     <div class="row control-group"  transition="expand">

@@ -1,5 +1,3 @@
-@include('partials.errors')
-
 <form id="{{ isset($formId) ? $formId : 'subscribe' }}" method="POST" action="/subscriptions">
     {!! csrf_field() !!}
 

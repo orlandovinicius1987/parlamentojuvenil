@@ -42,7 +42,7 @@
 
 @include('scripts.mask')
 @include('scripts.vueAdmin')
-@include('scripts.vueApp')
+@include('scripts.vueSubscribe')
 @include('scripts.vueCongressmen')
 @include('scripts.vueFilters')
 @include('scripts.vueGallery')
