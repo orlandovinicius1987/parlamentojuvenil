@@ -126,7 +126,7 @@ textarea {
 .form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
 	cursor: not-allowed;
 	background-color: #eee;
-	opacity: 1;
+	opacity: 0.4;
 }
 
 .form-control::placeholder{
@@ -1877,3 +1877,25 @@ img.btn-login-social {
 	padding: 10px;
 	font-size: 30px;
 }
+
+
+
+
+.alert {
+	margin-top: 50px;
+	margin-bottom: 0;
+}
+
+.alert-danger {
+	background: none;
+	border: none;
+	color: #FD101A;
+	font-size: 22px;
+	font-weight: 600;
+	text-align: center;
+}
+
+.alert-danger li {
+	display: block;
+}
+

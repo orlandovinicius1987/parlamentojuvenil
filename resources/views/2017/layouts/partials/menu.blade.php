@@ -1,7 +1,7 @@
 <nav id="menu" class="menu collapse navbar-collapse">
     <ul id="headernavigation" class="menu-list nav navbar-nav">
-        <li class="active"><a href="#page-top">Sobre</a></li>
-        <li><a href="#about">Como Funciona</a></li>
+        <li{{-- class="active"--}}><a href="#sobreopj">Sobre</a></li>
+        <li><a href="#como-funciona">Como Funciona</a></li>
 
         @if (app()->environment() != 'production')
             <li><a href="#portfolio">Cronograma</a></li>
