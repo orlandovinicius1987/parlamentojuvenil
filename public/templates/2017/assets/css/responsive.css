@@ -55,8 +55,11 @@
 }
 
 @media screen and (min-width: 1024px) and (max-width: 1100px) {
-	.navbar-nav>li>a {
+/*	.navbar-nav>li>a {
 		padding: 25px 20px;
+	}*/
+	.navbar-nav>li>a {
+		padding: 20px 15px;
 	}
 	.affix .navbar-nav>li>a {
 		padding: 20px 20px;
