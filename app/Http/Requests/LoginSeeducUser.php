@@ -23,7 +23,7 @@ class LoginSeeducUser extends Request
     {
         return [
             'registration' => 'required',
-            'birthdate'    => 'required|date'
+            'birthdate'    => 'required|birthdate'
         ];
     }
 }

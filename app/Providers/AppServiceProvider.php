@@ -64,5 +64,15 @@ class AppServiceProvider extends ServiceProvider
         Validator::extend('city', function ($attribute, $value, $parameters, $validator) {
             return City::findCityByname($value) instanceof City;
         });
+
+        Validator::extend('birthdate', function ($attribute, $value, $parameters, $validator) {
+            if (is_null($date = string_to_date($value))) {
+                return false;
+            }
+
+            request()->merge(['birthdate' => $date->format('d/m/Y')]);
+
+            return true;
+        });
     }
 }

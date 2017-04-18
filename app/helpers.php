@@ -80,12 +80,23 @@ function makeAvatar($email) {
 function string_to_date($date)
 {
     $formats = [
-        'd-m-Y',
+        'd-m-y',
+        'd/m/y',
+        'd m y',
         'd/m/Y',
+        'd-m-Y',
+        'd m Y',
+
+        'm/d/y',
+        'm-d-y',
+        'm d y',
         'm/d/Y',
         'm-d-Y',
+        'm d Y',
+
         'Y/m/d',
         'Y-m-d',
+        'Y m d',
     ];
 
     foreach ($formats as $format) {
