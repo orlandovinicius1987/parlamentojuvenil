@@ -18,7 +18,9 @@ class MoveElected extends Migration
 
             $table->boolean('elected_2nd')->default(false);
 
-            $table->timestamps();
+            $table->timestamp('created_at')->default(DB::raw('NOW()'));
+
+            $table->timestamp('updated_at')->default(DB::raw('NOW()'));
         });
 
         Schema::table('students', function (Blueprint $table) {
@@ -37,6 +39,10 @@ class MoveElected extends Migration
             $table->dropColumn('elected_1nd');
 
             $table->dropColumn('elected_2nd');
+
+            $table->dropColumn('created_at');
+
+            $table->dropColumn('updated_at');
         });
 
         Schema::table('students', function (Blueprint $table) {

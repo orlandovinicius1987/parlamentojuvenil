@@ -1,5 +1,6 @@
 <?php
 
+use App\Data\Entities\City;
 use \DB as Database;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\PostgresConnection;
@@ -13,8 +14,12 @@ class CreateUnaccent extends Migration
      */
     public function up()
     {
-        if (Database::connection() instanceof PostgresConnection) {
-            Database::statement('CREATE EXTENSION unaccent;');
+        try {
+            City::findCityByname('RIO');
+        } catch (\Exception $exception) {
+            if (Database::connection() instanceof PostgresConnection) {
+                Database::statement('CREATE EXTENSION unaccent;');
+            }
         }
     }
 
