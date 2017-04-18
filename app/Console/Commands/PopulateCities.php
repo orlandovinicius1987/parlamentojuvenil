@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use DB;
 use App\Data\Entities\City;
 use App\Data\Entities\State;
 use Illuminate\Console\Command;
