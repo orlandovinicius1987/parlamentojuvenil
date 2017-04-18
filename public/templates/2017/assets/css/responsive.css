@@ -64,6 +64,11 @@
 	.affix .navbar-nav>li>a {
 		padding: 20px 20px;
 	}
+	.como-funciona .grid-item {
+		width: 145px;
+		height: 145px;
+	}
+
 	.main-slider,
 	.main-slider svg,
 	.google-map-container {
