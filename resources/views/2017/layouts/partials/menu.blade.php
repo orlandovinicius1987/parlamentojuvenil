@@ -12,9 +12,9 @@
             <li><a href="#contact">Contato</a></li>
         @endif
 
-        <li class="hidden-sm social-buttons"><a target="_blank" href="//www.facebook.com/parlamentojuvenilrio/"><i class="fa fa-facebook"></i></a></li>
-        <li class="hidden-sm social-buttons ultimo"><a target="_blank" href="//www.youtube.com/user/parlamentojuvenilrj"><i class="fa fa-youtube"></i></a></li>
+        {{--<li class="hidden-sm social-buttons"><a target="_blank" href="//www.facebook.com/parlamentojuvenilrio/"><i class="fa fa-facebook"></i></a></li>--}}
+        {{--<li class="hidden-sm social-buttons ultimo"><a target="_blank" href="//www.youtube.com/user/parlamentojuvenilrj"><i class="fa fa-youtube"></i></a></li>--}}
         <li class="menu-busca"><a class="" href="#contact"><i class="fa fa-search"></i></a></li>
-        <li class="hidden-sm menu-user"><a class="" href="#contact"><i class="fa fa-user"></i></a></li>
+        {{--<li class="hidden-sm menu-user"><a class="" href="#contact"><i class="fa fa-user"></i></a></li>--}}
     </ul>
 </nav>
