@@ -1905,3 +1905,15 @@ img.btn-login-social {
 .midias-sociais-rodape a {
 	margin-right: 15px;
 }
+
+.midias-sociais-rodape a:hover {
+	color: rgb(191, 192, 237);
+}
+
+
+
+.footer-bottom .contatos {
+	font-size: 14px;
+	font-weight: 600;
+	margin-top: 18px;
+}
