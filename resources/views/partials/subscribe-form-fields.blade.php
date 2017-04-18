@@ -132,17 +132,6 @@
                     >
                         @{{ item.name }}
                     </option>
-
-                    {{--@if (isset($schools))--}}
-                    {{--@foreach ($schools as $key => $school)--}}
-                    {{--<option--}}
-                    {{--value="{{ $school->name }}"--}}
-                    {{--{{ (Input::old('city') == $school->name ?: ! $isSubscribeForm ? $student->school == $school->name : false) ? 'selected' : '' }}--}}
-                    {{-->--}}
-                    {{--{{ $school->name }}--}}
-                    {{--</option>--}}
-                    {{--@endforeach--}}
-                    {{--@endif--}}
                 </select>
                 <span class="help-block text-danger"></span>
             </div>

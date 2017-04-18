@@ -111,15 +111,23 @@
                 {
                     if (this.year)
                     {
-                        this.$http.get('/api/v1/timeline/' + this.year, function(timeline)
-                        {
-                            this.timeline = timeline.lines;
+                        this.$http.get('/api/v1/timeline/' + this.year).then(
+                            function(response)
+                            {
+                                this.timeline = response.body.lines;
 
-                            this.now = timeline.now;
+                                this.now = response.body.now;
 
-                            this.__calculateTimeOffset(timeline.now);
-                        }.bind(this));
+                                this.__calculateTimeOffset(response.body.now);
+                            }.bind(this),
+
+                            this.__requestError
+                        );
                     }
+                },
+
+                __requestError: function(error) {
+                    console.log('Request error: ', error);
                 },
 
                 __isCurrentCountdownEvent: function(item)
@@ -133,7 +141,7 @@
                 },
             },
 
-            ready: function()
+            mounted: function()
             {
                 this.__fetchTimeline();
                 this.__updateTimer();

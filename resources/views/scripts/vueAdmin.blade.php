@@ -30,19 +30,22 @@
                     this.subscriptions = clone(items);
 
                     this._digest();
-
-//                    setTimeout(function ()
-//                    {
-//                        vueAdminIndex.__formatDates();
-//                    }, 1000);
                 },
 
                 __fetchSubscriptions: function() {
-                    this.$http.get('/subscriptions' , function(subscriptions) {
-                        this.subscriptions = subscriptions;
-                        this.__formatDates();
-                        this.__countSubscriptions();
-                    });
+                    this.$http.get('/subscriptions').then(
+                        function(response) {
+                            this.subscriptions = response.body;
+                            this.__formatDates();
+                            this.__countSubscriptions();
+                        },
+
+                        this.__requestError
+                    );
+                },
+
+                __requestError: function(error) {
+                    console.log('Request error: ', error);
                 },
 
                 __countSubscriptions: function () {
@@ -81,7 +84,7 @@
                 },
             },
 
-            ready: function ()
+            mounted: function ()
             {
                 this.__fetchSubscriptions();
             }

@@ -38,6 +38,24 @@ class AddFacebookData extends Migration
             'matricula' => '003BRENOT',
             'nascimento' => '2000-01-01',
         ]);
+
+        Seeduc::create([
+            'escola' => 'CE ALVARO ALVIM',
+            'municipio' => 'MIGUEL PEREIRA',
+            'regional' => 'CENTRO SUL',
+            'nome' => 'BRUNO CAMPOS BARBOSA',
+            'matricula' => '004BRUNO',
+            'nascimento' => '2000-02-02',
+        ]);
+
+        Seeduc::create([
+            'escola' => 'CE BARAO DE TINGUA',
+            'municipio' => 'NOVA IGUAÇU',
+            'regional' => 'METROPOLITANA I',
+            'nome' => 'FILIPE RODRIGUES CARDOSO',
+            'matricula' => '005FILIPE',
+            'nascimento' => '2000-03-03',
+        ]);
     }
 
     /**
@@ -48,7 +66,9 @@ class AddFacebookData extends Migration
     public function down()
     {
         Seeduc::where('matricula', '001FACEBOOK')->delete();
-        Seeduc::where('matricula', '003BRENOT')->delete();
         Seeduc::where('matricula', '002ANTONIOCARLOS')->delete();
+        Seeduc::where('matricula', '003BRENOT')->delete();
+        Seeduc::where('matricula', '004BRUNO')->delete();
+        Seeduc::where('matricula', '005FILIPE')->delete();
     }
 }
