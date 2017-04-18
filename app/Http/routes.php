@@ -69,9 +69,7 @@ Route::group(['prefix' => '/docs'], function ()
 
 Route::get('schools/{city}',['middleware' => 'cors', function ($city)
 {
-    $city = mb_strtoclean($city);
-
-	return School::where('city', '~*', strtoupper($city))->orderBy('name')->get();
+	return School::allByName($city);
 }]);
 
 Route::get('download/{file}', ['as' => 'download', 'uses' => function ($file)

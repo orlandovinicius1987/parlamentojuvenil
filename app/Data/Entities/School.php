@@ -17,4 +17,14 @@ class School extends Model
 	{
 		return $this->hasMany(Subscription::class, 'school', 'name');
 	}
+
+    public static function allByName($name)
+    {
+        return static::whereRaw(
+            sprintf(
+                "lower(unaccent(city)) ~* '%s'",
+                strtolower(mb_strtoclean($name))
+            )
+        )->orderBy('name')->get();
+	}
 }
