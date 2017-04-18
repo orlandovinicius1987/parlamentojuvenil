@@ -339,7 +339,7 @@
                     v-model="address_complement"
                     type="tel"
                     class="form-control input-lg"
-                    value="@{{{ {!! Input::old('address_complement') ?: $student->address_complement !!} }}}"
+                    value="{!! Input::old('address_complement') ?: $student->address_complement !!}"
                     placeholder="Complemento"
                     name="address_complement"
                     id="address_complement"
