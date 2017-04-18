@@ -8,11 +8,11 @@ class Docs extends BaseController
 {
     public function terms($year = null)
 	{
-        return $this->buildView($this->makeViewName($year, 'docs.terms'), null, true);
+        return $this->buildView('docs.terms', $year, null, true);
 	}
 
     public function privacy($year = null)
     {
-        return $this->buildView($this->makeViewName($year, 'docs.privacy'), null, true);
+        return $this->buildView('docs.privacy', $year, null, true);
     }
 }

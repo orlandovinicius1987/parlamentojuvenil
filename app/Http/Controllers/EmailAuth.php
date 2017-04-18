@@ -33,7 +33,7 @@ class EmailAuth extends BaseController
 
     public function index($year = null)
     {
-        return $this->buildView($this->getYear($year).'.auth.email.index');
+        return $this->buildView('auth.email.index', $year);
     }
 
     private function loginUser($user)

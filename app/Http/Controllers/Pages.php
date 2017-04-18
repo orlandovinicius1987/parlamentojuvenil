@@ -48,12 +48,12 @@ class Pages extends BaseController
 
 	public function index($force = false)
 	{
-		return $this->buildView('home', 2016, $force);
+		return $this->buildView('home', null, $force);
 	}
 
     public function page($page)
     {
-        return $this->buildView('2016.pages.'.$page, 2016);
+        return $this->buildView('pages.'.$page);
     }
 
 	private function getCongressmenLinks()
@@ -204,33 +204,28 @@ class Pages extends BaseController
 		];
 	}
 
-	public function breno()
-	{
-		return $this->buildView('breno', 2016);
-	}
-
     public function edition($year)
     {
-        return $this->buildView('2016.edition', $year);
+        return $this->buildView('edition', $year);
     }
 
     public function gallery($year)
     {
-        return $this->buildView('2016.gallery', $year);
+        return $this->buildView('gallery', $year);
     }
 
     public function news($year)
     {
-        return $this->buildView('2016.news', $year);
+        return $this->buildView('news', $year);
     }
 
     public function clipping($year)
     {
-        return $this->buildView('2016.clipping', $year);
+        return $this->buildView('clipping', $year);
     }
 
     public function members($year)
     {
-        return $this->buildView('2016.members', $year);
+        return $this->buildView('members', $year);
     }
 }

@@ -161,14 +161,14 @@ class Subscriptions extends BaseController
     {
         $year = $year ?: config('app.year');
 
-        return $this->buildView($year.'.subscriptions.index');
+        return $this->buildView('subscriptions.index', $year);
     }
 
     public function store(Subscribe $request)
     {
         $this->dataRepository->createSubscription($request);
 
-        return $this->buildView('2016.subscriptions.success');
+        return $this->buildView('subscriptions.success');
     }
 
     public function start(Request $request)

@@ -25,7 +25,15 @@ abstract class Controller extends BaseController
      */
     public function buildView($view, $year = null, $force = false, $isHome = false)
     {
-        return $this->dataRepository->viewBuilder->buildViewData(view($view), $force, $isHome, $year);
+        return $this
+                ->dataRepository
+                ->viewBuilder
+                ->buildViewData(
+                    view($this->makeViewName($view, $year)),
+                    $force,
+                    $isHome,
+                    $year
+                );
     }
 
     protected function getLoggedUser()
@@ -33,13 +41,13 @@ abstract class Controller extends BaseController
         return Session::get('logged-user');
     }
 
-    public function getYear($year)
+    public function getYear($year = null)
     {
         return $year = $year ?: config('app.year');
     }
 
-    protected function makeViewName($year, $name)
+    protected function makeViewName($name, $year = null)
     {
-        return ($year ?: config('app.year')) . '.' . $name;
+        return make_view_name_year_based($name, $year);
     }
 }

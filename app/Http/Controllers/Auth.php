@@ -9,7 +9,7 @@ class Auth extends BaseController
 {
     public function index($year = null)
     {
-        return $this->buildView($this->getYear($year).'.auth.index');
+        return $this->buildView('auth.index', $year);
     }
 
     public function logout()
