@@ -59,7 +59,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-4">
-                        <a class="navbar-brand page-scroll" href="#page-top"><img class="logo-parlamento img-responsive" src="/templates/2017/images/logo-parlamento.png"></a>
+                        <a class="navbar-brand page-scroll" href="/"><img class="logo-parlamento img-responsive" src="/templates/2017/images/logo-parlamento.png"></a>
                     </div>
                     <div class="col-sm-8 pull-right">
                         <div class="row">
