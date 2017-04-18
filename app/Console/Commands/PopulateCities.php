@@ -4,8 +4,6 @@ namespace App\Console\Commands;
 
 use App\Data\Entities\City;
 use App\Data\Entities\State;
-use DB;
-use App\Data\Entities\Seeduc;
 use Illuminate\Console\Command;
 
 class PopulateCities extends Command
