@@ -124,8 +124,7 @@
         <div class="row control-group"  transition="expand">
             <div class="form-group col-xs-6 floating-label-form-group controls">
                 <label for="school" class="sr-only control-label">Escola</label>
-                {{--<select id="school-editxxx" v-model="school" value="" options="schools" class="form-control input-lg" placeholder="Escola" name="school" id="school" required data-validation-required-message="Por favor escolha a escola.">--}}
-                <select id="school-editxxx" v-model="school" value="" options="schools" class="form-control input-lg" placeholder="Escola" name="school" id="school">
+                <select id="school-edit" v-model="school" value="" options="schools" class="form-control input-lg" placeholder="Escola" name="school" id="school">
                     <option value="">SELECIONE SUA ESCOLA</option>
                     <option
                             v-for="item in schools"
