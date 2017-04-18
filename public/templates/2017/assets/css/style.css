@@ -122,11 +122,9 @@ textarea {
 	padding: 30px 20px !important;
 	font-weight: 600;
 }
-
-.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
-	cursor: not-allowed;
-	background-color: #eee;
-	opacity: 0.4;
+F
+.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control, html input[disabled] {
+	opacity: 0.4 !important;
 }
 
 .form-control::placeholder{
