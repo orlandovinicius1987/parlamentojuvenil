@@ -207,6 +207,77 @@
 }
 
 @media screen and (min-width: 768px) and (max-width: 800px) {
+
+	.main-menu .container {
+		padding-left: 0 !important;
+		padding-right: 0 !important;
+		margin-left: 0!important;
+		margin-right: 0px !important;
+	}
+
+	.menu-list li a {
+		font-weight: 600;
+		font-style: normal;
+		text-transform: uppercase;
+		font-size: 10px !important;
+	}
+
+	li.menu-busca a {
+		padding-right: 7px;
+		padding-left: 7px;
+	}
+
+	.como-funciona .grid-item {
+		width: 100px;
+		height: 100px;
+	}
+	.comofunciona-panel-border {
+		margin-bottom: 20px;
+	}
+	.comofunciona-panel-body span {
+		float: left;
+		width: 87px;
+		font-size: 36px !important;
+		font-family: 'oswaldregular';
+		line-height: 80%;
+		margin-bottom: 40px;
+
+	}
+	.comofunciona-panel-body p{
+		font-size: 20px;
+		font-weight: 600;
+	}
+
+	.sobreopj p.item-description {
+		font-size: 20px;
+	}
+
+	.sobreopj .square02 {
+		height: 210px;
+	}
+	.sobreopj .vermelho1.square01 {
+		height: 126px;
+	}
+	.sobreopj-itens .item-title {
+		font-size: 2.5em;
+		padding-bottom: 12px;
+		letter-spacing: 3px;
+	}
+
+	.sobreopj-itens li {
+		font-size: 20px;
+		color: #333333;
+		margin-bottom: 15px;
+	}
+
+	.sobreopj .verde01.square01 {
+		height: 116px;
+		margin-bottom: 15px;
+	}
+
+
+
+
 	.contact-list li {
 		padding-right: 10px;
 	}

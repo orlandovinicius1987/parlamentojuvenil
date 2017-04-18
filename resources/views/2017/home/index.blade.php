@@ -30,7 +30,7 @@
                     <div class="grow grid-item azul2">
                     </div>
                     <div class="grow grid-item verde1">
-                        <img class="masonry-overflow masonri-right masonry08" src="/templates/2017/images/masonry-08.png">
+                        <img class="hidden-sm masonry-overflow masonri-right masonry08" src="/templates/2017/images/masonry-08.png">
                     </div>
                     <div class="grow grid-item lilas2"></div>
                     <div class="grow grid-item grid-item--height3 azul1">
@@ -83,7 +83,7 @@
                     <div class="grow grid-item amarelo1"></div>
                     <div class="grow grid-item vermelho1"></div>
                     <div class="grow grid-item amarelo2">
-                        <img class="masonry-overflow masonry11" src="/templates/2017/images/masonry-11.png">
+                        <img class="hidden-sm masonry-overflow masonry11" src="/templates/2017/images/masonry-11.png">
                     </div>
                     <div class="grow grid-item azul1"></div>
                     <div class="grow grid-item grid-item--height2 azul4">
