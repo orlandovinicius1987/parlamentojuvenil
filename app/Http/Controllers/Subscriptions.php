@@ -22,18 +22,19 @@ class Subscriptions extends BaseController
 
     public function byState()
 	{
-		return City::leftJoin('subscriptions', 'cities.name', '=', 'subscriptions.city')
+		return City::join('students', 'cities.name', '=', 'students.city')
+            ->join('subscriptions', 'subscriptions.student_id', '=', 'students.id')
 			->join('states', 'states.id', '=', 'cities.state_id')
 			->where('states.code', 'RJ')
 			->distinct()
 			->select(
 				'cities.name as city',
-				DB::raw('(select count(*) from subscriptions where subscriptions.ignored = false and subscriptions.city = cities.name) as subscriptionCount'),
-				DB::raw('(select max(created_at) from subscriptions where subscriptions.ignored = false and subscriptions.city = cities.name) as lastSubscription'),
-				DB::raw('(select count(distinct school) from subscriptions where subscriptions.ignored = false and subscriptions.city = cities.name) as schoolCount'),
-				DB::raw('(select count(*) from subscriptions where subscriptions.ignored != false and subscriptions.city = cities.name) as cancelledCount'),
-				DB::raw('(select count(*) from cities where cities.state_id = 19 and cities.name in (select city from subscriptions where subscriptions.ignored = false)) as citiesIn'),
-				DB::raw('(select count(*) from cities where cities.state_id = 19 and cities.name not in (select city from subscriptions where subscriptions.ignored = false)) as citiesOut')
+				DB::raw('(select count(*) from students where subscriptions.ignored = false and students.city = cities.name) as subscriptionCount'),
+				DB::raw('(select max(created_at) from students where subscriptions.ignored = false and students.city = cities.name) as lastSubscription'),
+				DB::raw('(select count(distinct school) from students where subscriptions.ignored = false and students.city = cities.name) as schoolCount'),
+				DB::raw('(select count(*) from students where subscriptions.ignored != false and students.city = cities.name) as cancelledCount'),
+				DB::raw('(select count(*) from cities where cities.state_id = 19 and cities.name in (select city from students where subscriptions.ignored = false)) as citiesIn'),
+				DB::raw('(select count(*) from cities where cities.state_id = 19 and cities.name not in (select city from students where subscriptions.ignored = false)) as citiesOut')
 			)
 			->orderBy('cities.name')
 			->get()

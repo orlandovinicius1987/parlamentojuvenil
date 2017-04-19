@@ -2,6 +2,7 @@
 
 namespace App\Data\Entities;
 
+use App\Data\Entities\Subscription;
 use Carbon\Carbon;
 use App\Base\Model;
 
@@ -82,5 +83,10 @@ class Student extends Model
         $what = Subscription::findByStudent($this);
 
         return ! is_null($what);
+    }
+
+    public function subscriptions()
+    {
+        return $this->hasMany(Subscription::class);
     }
 }

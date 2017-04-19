@@ -1,9 +1,9 @@
 <script>
-    Vue.transition('stagger', {
-        stagger: function (index) {
-            return Math.min(300, index * 50)
-        }
-    });
+//    Vue.transition('stagger', {
+//        stagger: function (index) {
+//            return Math.min(300, index * 50)
+//        }
+//    });
 
     Vue.filter('moreThanOneSchool', function (value)
     {

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Data\Entities\Student;
 use \DB;
 use App\Data\Entities\School;
 use App\Data\Entities\Subscription;
@@ -38,7 +39,7 @@ class Admin extends BaseController
 	{
 		return view('admin.city')
 				->with('city', $city)
-				->with('subscriptions', Subscription::where('city', $city)->get())
+				->with('subscriptions', Student::join('subscriptions', 'subscriptions.student_id', '=', 'students.id')->where('students.city', $city)->get())
 				->with('schools', School::where('city', 'like', DB::raw("UPPER('".$city."')"))->get())
 		;
 	}
@@ -74,18 +75,24 @@ class Admin extends BaseController
 
     function schools()
 	{
-		$schools = School::join('subscriptions', 'subscriptions.school', '=', 'schools.name')
-				->select(['schools.name', 'schools.city', DB::raw('count(*) as schoolcount')])
-				->groupBy(['schools.name', 'schools.city'])
-				->orderBy('schoolcount', 'desc')
-				->orderBy('schools.city')
-				->orderBy('schools.name')
-				->get();
+		$schools = School::join('students', 'students.school', '=', 'schools.name')
+                    ->join('subscriptions', 'subscriptions.student_id', '=', 'students.id')
+                    ->select(['schools.name', 'schools.city', DB::raw('count(*) as schoolcount')])
+                    ->groupBy(['schools.name', 'schools.city'])
+                    ->orderBy('schoolcount', 'desc')
+                    ->orderBy('schools.city')
+                    ->orderBy('schools.name')
+                    ->get();
 
 		return view('admin.schools')
 			->with('schools', $schools)
 		;
 	}
+
+    function seeduc()
+    {
+        return view('admin.seeduc');
+    }
 
     public function training($id)
     {

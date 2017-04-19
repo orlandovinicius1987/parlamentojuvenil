@@ -42,8 +42,9 @@
 
 @include('scripts.mask')
 @include('scripts.vueAdmin')
-@include('scripts.vueSubscribe')
+{{--@include('scripts.vueSubscribe')--}}
 @include('scripts.vueCongressmen')
+@include('scripts.vueSeeduc')
 @include('scripts.vueFilters')
 @include('scripts.vueGallery')
 @include('scripts.vueMap')

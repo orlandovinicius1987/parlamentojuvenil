@@ -27,6 +27,7 @@ class Kernel extends HttpKernel
      */
     protected $routeMiddleware = [
         'auth' => \App\Http\Middleware\Authenticate::class,
+        'only-administrators' => \App\Http\Middleware\OnlyAdministrators::class,
         'subscribing' => \App\Http\Middleware\Subscribing::class,
         'cannot-re-subscribe' => \App\Http\Middleware\CannotResubscribe::class,
         'student-login' => \App\Http\Middleware\StudentLogin::class,

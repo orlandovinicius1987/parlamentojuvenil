@@ -29,11 +29,12 @@
 
                     this.subscriptions = clone(items);
 
-                    this._digest();
+//                    this._digest();
                 },
 
                 __fetchSubscriptions: function() {
-                    this.$http.get('/subscriptions').then(
+                    console.log('fetching');
+                    this.$http.get('/api/v1/subscriptions').then(
                         function(response) {
                             this.subscriptions = response.body;
                             this.__formatDates();
@@ -82,12 +83,41 @@
                 {
                     return date;
                 },
+
+                __getCityLink:  function (subscription) {
+                    return '{{ route('admin.home') }}/'+subscription.city;
+                },
+
+                _getSubscriptionCountClass: function (subscription) {
+                    if (subscription.subscriptioncount) {
+                        return 'sucess';
+                    }
+
+                    return 'danger';
+                },
             },
 
             mounted: function ()
             {
+                console.log('mounted');
                 this.__fetchSubscriptions();
-            }
+            },
+
+            computed: {
+                filteredSubscriptions: function () {
+                    return _.orderBy(this.subscriptions, this.orderby, [this.ordertype])
+
+                    //                    filter moreThanOneSchool
+                },
+
+                _arrowClass: function () {
+                    if (this.ordertype == 1) {
+                        return 'fa-arrow-down';
+                    }
+
+                    return 'fa-arrow-up';
+                },
+            },
         });
     }
 </script>

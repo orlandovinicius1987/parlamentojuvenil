@@ -81,7 +81,7 @@ Route::get('download/{file}', ['as' => 'download', 'uses' => function ($file)
 	return response()->download(public_path($path).$file);
 }]);
 
-Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function ()
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'only-administrators']], function ()
 {
     Route::get('/', ['as' => 'admin.home', 'uses' => function() {
         return redirect()->route('admin.subscriptions');
@@ -93,12 +93,12 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function ()
 
     Route::get('elected', ['as' => 'admin.elected', 'uses' => 'Admin@elected']);
 
+    Route::get('seeduc', ['as' => 'admin.seeduc', 'uses' => 'Admin@seeduc']);
+
 	Route::get('{city}', ['as' => 'admin.city', 'uses' => 'Admin@city']);
 
     Route::get('training/{subscription}', ['as' => 'admin.training', 'uses' => 'Admin@training']);
 });
-
-Route::get('subscriptions', ['as' => 'subscriptions', 'uses' => 'Subscriptions@byState']);
 
 Route::get('subscriptions/schools', ['as' => 'subscriptions.schools', 'uses' => 'Subscriptions@bySchool']);
 
@@ -123,6 +123,10 @@ Route::group(['prefix' => 'api/v1'], function ()
     Route::get('timeline/{year}', ['as' => 'api.timeline', 'uses' => 'Api@getTimeline']);
 
     Route::get('congressmen/{year}', ['as' => 'api.congressmen', 'uses' => 'Api@getCongressmen']);
+
+    Route::get('subscriptions', ['as' => 'subscriptions', 'uses' => 'Subscriptions@byState']);
+
+    Route::get('search/seeduc', ['as' => 'api.search.seeduc', 'uses' => 'ApiSearch@seeduc']);
 });
 
 Route::get('article/{id}', ['as' => 'article.show', 'uses' => 'News@showArticle']);

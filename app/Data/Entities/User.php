@@ -2,6 +2,7 @@
 
 namespace App\Data\Entities;
 
+use App\Base\Constants;
 use App\Base\Model;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Auth\Passwords\CanResetPassword;
@@ -69,5 +70,15 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     public function getSocialNameAttribute()
     {
         return $this->nickname ?: $this->email;
+    }
+
+    public function isAdministrator()
+    {
+        return $this->roles()->where('role', Constants::ROLE_ADMINISTRATOR)->first();
+    }
+
+    public function roles()
+    {
+        return $this->hasMany('App\Data\Entities\Role');
     }
 }

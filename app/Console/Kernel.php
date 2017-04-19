@@ -19,6 +19,7 @@ class Kernel extends ConsoleKernel
         \App\Console\Commands\PjSchoolsExport::class,
         \App\Console\Commands\Seeduc::class,
         \App\Console\Commands\PopulateCities::class,
+        \App\Console\Commands\PjMakeAdmin::class,
     ];
 
     /**

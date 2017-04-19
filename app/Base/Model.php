@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model as Eloquent;
 
 class Model extends Eloquent
 {
+    protected $dates = ['created_at', 'updated_at'];
+
     protected $columns = []; // add all columns from you table
 
     protected $eagerLoadableRelations = [];

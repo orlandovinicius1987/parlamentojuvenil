@@ -39,49 +39,48 @@
                                 <th v-on:click="__changeOrder('subscriptioncount')" class="text-right">
                                     Inscrições
                                     <div v-show="orderby == 'subscriptioncount'" class="btn btn-danger btn-xs">
-                                        <i class="fa fa-arrow-@{{ ordertype == 1 ? 'down' : 'up' }}"></i>
+                                        <i class="fa" v-bind:class="_arrowClass"></i>
                                     </div>
                                 </th>
 
                                 <th v-on:click="__changeOrder('city')">
                                     Município
                                     <div v-show="orderby == 'city'" class="btn btn-danger btn-xs">
-                                        <i class="fa fa-arrow-@{{ ordertype == 1 ? 'down' : 'up' }}">
-                                        </i>
+                                        <i class="fa" v-bind:class="_arrowClass"></i>
                                     </div>
                                 </th>
 
                                 <th v-on:click="__changeOrder('schoolcount')">
                                     Escolas
                                     <div v-show="orderby == 'schoolcount'" class="btn btn-danger btn-xs">
-                                        <i class="fa fa-arrow-@{{ ordertype == 1 ? 'down' : 'up' }}"></i>
+                                        <i class="fa" v-bind:class="_arrowClass"></i>
                                     </div>
                                 </th>
 
                                 <th v-on:click="__changeOrder('lastsubscription')">
                                     Data/hora última inscrição
                                     <div v-show="orderby == 'lastsubscription'" class="btn btn-danger btn-xs">
-                                        <i class="fa fa-arrow-@{{ ordertype == 1 ? 'down' : 'up' }}"></i>
+                                        <i class="fa" v-bind:class="_arrowClass"></i>
                                     </div>
                                 </th>
                             </tr>
                         </thead>
                         <tbody>
-                            <template v-for="subscription in subscriptions | orderBy orderby ordertype | filterBy moreThanOneSchool" track-by="city">
+                            <template v-for="subscription in filteredSubscriptions" track-by="city">
                                 <tr>
-                                    <td class="text-right @{{ subscription.subscriptioncount ? 'success' : 'danger' }}">
+                                    <td class="text-right" v-bind:class="_getSubscriptionCountClass(subscription)">
                                         @{{ subscription.subscriptioncount || '' }}
                                     </td>
 
-                                    <td class="@{{ subscription.subscriptioncount ? 'success' : 'danger' }}">
-                                        <a href="{{ route('admin.home') }}/@{{ subscription.city }}">@{{ subscription.city }}</a>
+                                    <td v-bind:class="_getSubscriptionCountClass(subscription)">
+                                        <a v-bind:href="__getCityLink(subscription)">@{{ subscription.city }}</a>
                                     </td>
 
-                                    <td class="@{{ subscription.subscriptioncount ? 'success' : 'danger' }}">
+                                    <td v-bind:class="_getSubscriptionCountClass(subscription)">
                                         @{{ subscription.schoolcount }}
                                     </td>
 
-                                    <td class="@{{ subscription.subscriptioncount ? 'success' : 'danger' }}">
+                                    <td v-bind:class="_getSubscriptionCountClass(subscription)">
                                         @{{ subscription.formatteddate }}
                                     </td>
                                 </tr>

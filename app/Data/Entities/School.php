@@ -15,7 +15,7 @@ class School extends Model
 
 	public function subscriptions()
 	{
-		return $this->hasMany(Subscription::class, 'school', 'name');
+		return $this->hasManyThrough(Subscription::class, Student::class, 'school', 'student_id');
 	}
 
     public static function allByName($name)

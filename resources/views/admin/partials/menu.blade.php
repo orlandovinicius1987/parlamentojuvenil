@@ -48,17 +48,27 @@
                     {{--</div>--}}
                     {{--<!-- /input-group -->--}}
                 {{--</li>--}}
+
                 <li>
                     <a href="{{ route('home') }}"><i class="fa fa-home fa-fw"></i> Hotsite</a>
                 </li>
-                <li active="{{ request()->is('admin/2016/subscriptions') ? 'active' : '' }}">
+
+                <li active="{{ request()->is('admin/subscriptions') ? 'active' : '' }}">
                     <a href="{{ route('admin.home') }}"><i class="fa fa-list fa-fw"></i> Inscrições</a>
                 </li>
-                <li active="{{ request()->is('2016-felipe') ? 'active' : '' }}">
+
+                <li active="{{ request()->is('2016') ? 'active' : '' }}">
                     <a href="{{ route('admin.schools') }}"><i class="fa fa-graduation-cap fa-fw"></i> Escolas</a>
                 </li>
-                <li active="{{ request()->is('admin/2016/elected') ? 'active' : '' }}">
-                    <a href="{{ route('admin.elected') }}"><i class="fa fa-users fa-fw"></i> Eleitos</a>
+
+                @if (app()->environment('production'))
+                    <li active="{{ request()->is('admin/elected') ? 'active' : '' }}">
+                        <a href="{{ route('admin.elected') }}"><i class="fa fa-users fa-fw"></i> Eleitos</a>
+                    </li>
+                @endif
+
+                <li active="{{ request()->is('admin/seeduc') ? 'active' : '' }}">
+                    <a href="{{ route('admin.seeduc') }}"><i class="fa fa-search fa-fw"></i> Seeduc</a>
                 </li>
             </ul>
         </div>

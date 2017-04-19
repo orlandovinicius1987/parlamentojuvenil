@@ -69,7 +69,7 @@
                                     <p class="avatar-name">{{ $loggedUser->student->social_name or $loggedUser->user->social_name }}</p>
                                 </div>
                                 <div class="col-sm-2">
-                                    <img class="avatar img-responsive" src="{{ $loggedUser->user->avatar }}" alt="">
+                                    <img class="avatar img-responsive" src="{{ $loggedUser->user->avatar }}" alt="" title="{{ $loggedUser->user->id }}">
                                 </div>
                             @endif
                         </div>
