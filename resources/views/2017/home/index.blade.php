@@ -3,7 +3,7 @@
 @section('contents')
     <section class="notifications">
         <div class="container">
-            @if (config('app.subscriptions.enabled') === false)
+            @if (config('app.subscriptions.enabled') === true)
                 <div class="row">
                     <div class="jumbotron">
                         <h2>Inscrições abertas</h2>
