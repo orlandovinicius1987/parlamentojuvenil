@@ -6,7 +6,11 @@
             @if (config('app.subscriptions.enabled') === false)
                 <div class="row">
                     <div class="jumbotron">
-                        <h2>Início das inscrições adiado para o dia 19/04</h2>
+                        <h2>Inscrições abertas</h2>
+                        <br>
+                        <a href="{{ route('subscribe.index') }}" class="btn btn-primary btn-large center-block">
+                            <h3>Clique para se inscrever</h3>
+                        </a>
                     </div>
                 </div>
             @endif
@@ -43,7 +47,7 @@
                                     <a href="{{ route('subscribe.index') }}" class="btn btn-primary btn-large center-block">Clique para se inscrever</a>
                                 </div>
                             </div>
-                            @endif
+                        @endif
 
                                     <!-- line modal -->
                             <div class="modal fade" id="squarespaceModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
