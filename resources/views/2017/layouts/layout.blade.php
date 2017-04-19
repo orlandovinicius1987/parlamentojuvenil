@@ -219,7 +219,7 @@
         <script type="text/javascript">
             $('.grid').masonry({
                 itemSelector: '.grid-item',
-                columnWidth: 170,
+                columnWidth: 176,
                 gutter: 20,
                 isFitWidth: true
             });
