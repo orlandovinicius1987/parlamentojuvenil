@@ -103,6 +103,7 @@ return [
         //Laravel\Socialite\SocialiteServiceProvider::class,
         SocialiteProviders\Manager\ServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
+        BackupManager\Laravel\Laravel5ServiceProvider::class,
     ],
 
     /*
