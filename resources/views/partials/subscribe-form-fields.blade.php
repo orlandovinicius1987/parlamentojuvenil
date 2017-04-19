@@ -9,7 +9,7 @@
                     v-model="registration"
                     type="text"
                     class="form-control input-lg"
-                    value="{!! Input::old('registration') ?: $student->registration !!}"
+                    value="{!! old('registration') ?: $student->registration !!}"
                     placeholder="Matrícula"
                     name="registration"
                     id="registration"
@@ -26,7 +26,7 @@
                     v-model="birthdate"
                     type="text"
                     class="form-control input-lg"
-                    value="{!! Input::old('birthdate') ?: $student->birthdate !!}"
+                    value="{!! old('birthdate') ?: $student->birthdate !!}"
                     {{--onkeydown="return false;"--}}
                     placeholder="Data de nascimento"
                     name="birthdate"
@@ -46,7 +46,7 @@
                     v-model="name"
                     type="text"
                     class="form-control input-lg"
-                    value="{!! Input::old('name') ?: $student->name !!}"
+                    value="{!! old('name') ?: $student->name !!}"
                     placeholder="Nome Completo"
                     name="name"
                     id="name"
@@ -65,7 +65,7 @@
                     v-model="social_name"
                     type="text"
                     class="form-control input-lg"
-                    value="{!! Input::old('social_name') ?: $student->social_name !!}"
+                    value="{!! old('social_name') ?: $student->social_name !!}"
                     placeholder="Apelido"
                     name="social_name"
                     id="social_name"
@@ -84,7 +84,7 @@
                     v-model="email"
                     type="text"
                     class="form-control input-lg"
-                    value="{!! Input::old('email') ?: $student->email !!}"
+                    value="{!! old('email') ?: $student->email !!}"
                     placeholder="E-mail"
                     name="email"
                     id="email"
@@ -104,7 +104,7 @@
                 <select v-model="city" class="form-control input-lg" placeholder="Município" name="city" id="city" required data-validation-required-message="Por favor preencha o município.">
                     {{--<select id="city-edit" v-model="city" class="form-control input-lg" placeholder="Município" name="city" id="city" required data-validation-required-message="Por favor preencha o município.">--}}
 
-                    @if (is_null($city = Input::old('city') ?: $student->city) && $isSubscribeForm)
+                    @if (is_null($city = old('city') ?: $student->city) && $isSubscribeForm)
                         <option value="" selected>CIDADE AONDE VOCÊ ESTUDA</option>
                     @endif
 
@@ -145,14 +145,14 @@
 
                     <option
                             value="1o ano do ensino médio"
-                            {!! (Input::old('grade') == '1o ano do ensino médio' || $student->grade == '1o ano do ensino médio') ? 'selected' : '' !!}
+                            {!! (old('grade') == '1o ano do ensino médio' || $student->grade == '1o ano do ensino médio') ? 'selected' : '' !!}
                     >
                         1o ano do ensino médio
                     </option>
 
                     <option
                             value="2o ano do ensino médio"
-                            {!! (Input::old('grade') == '2o ano do ensino médio' || $student->grade == '2o ano do ensino médio') ? 'selected' : '' !!}
+                            {!! (old('grade') == '2o ano do ensino médio' || $student->grade == '2o ano do ensino médio') ? 'selected' : '' !!}
                     >
                         2o ano do ensino médio
                     </option>
@@ -171,14 +171,14 @@
 
                 <option
                         value="F"
-                        {!! (Input::old('gender') == 'F' || $student->gender == 'F') ? 'selected' : '' !!}
+                        {!! (old('gender') == 'F' || $student->gender == 'F') ? 'selected' : '' !!}
                 >
                     Feminino
                 </option>
 
                 <option
                         value="M"
-                        {!! (Input::old('gender') == 'M' ?: $student->gender == 'M') ? 'selected' : '' !!}
+                        {!! (old('gender') == 'M' ?: $student->gender == 'M') ? 'selected' : '' !!}
                 >
                     Masculino
                 </option>
@@ -192,14 +192,14 @@
 
                 <option
                         value="F"
-                        {!! (Input::old('gender2') == 'F' ?: $student->gender2 == 'F') ? 'selected' : '' !!}
+                        {!! (old('gender2') == 'F' ?: $student->gender2 == 'F') ? 'selected' : '' !!}
                 >
                     Feminino
                 </option>
 
                 <option
                         value="M"
-                        {!! (Input::old('gender2') == 'M' ?: $student->gender2 == 'M') ? 'selected' : '' !!}
+                        {!! (old('gender2') == 'M' ?: $student->gender2 == 'M') ? 'selected' : '' !!}
                 >
                     Masculino
                 </option>
@@ -217,7 +217,7 @@
                     v-on:keyup="checkCpf"
                     type="text"
                     class="form-control input-lg"
-                    value="{!! Input::old('cpf') ?: $student->cpf !!}"
+                    value="{!! old('cpf') ?: $student->cpf !!}"
                     title="Seu CPF ou do responsável"
                     placeholder="CPF"
                     name="cpf"
@@ -233,7 +233,7 @@
                     v-model="id_number"
                     type="text"
                     class="form-control input-lg"
-                    value="{!! Input::old('id_number') ?: $student->id_number !!}"
+                    value="{!! old('id_number') ?: $student->id_number !!}"
                     placeholder="Identidade"
                     name="id_number"
                     id="id_number"
@@ -249,7 +249,7 @@
                     v-model="id_issuer"
                     type="text"
                     class="form-control input-lg"
-                    value="{!! Input::old('id_issuer') ?: $student->id_issuer !!}"
+                    value="{!! old('id_issuer') ?: $student->id_issuer !!}"
                     placeholder="Órgão emissor"
                     name="id_issuer" id="id_issuer"
                     required
@@ -267,7 +267,7 @@
                     v-model="phone_home"
                     type="tel"
                     class="form-control input-lg"
-                    value="{!! Input::old('phone_home') ?: $student->phone_home !!}"
+                    value="{!! old('phone_home') ?: $student->phone_home !!}"
                     placeholder="Telefone Residencial"
                     name="phone_home"
                     id="phone_home"
@@ -282,7 +282,7 @@
                     v-model="phone_cellular"
                     type="tel"
                     class="form-control input-lg"
-                    value="{!! Input::old('phone_cellular') ?: $student->phone_cellular !!}"
+                    value="{!! old('phone_cellular') ?: $student->phone_cellular !!}"
                     placeholder="Telefone Celular"
                     name="phone_cellular"
                     id="phone_cellular"
@@ -301,7 +301,7 @@
                     v-model="zip_code"
                     v-on:keyup="checkZip"
                     type="tel"
-                    value="{!! Input::old('zip_code') ?: $student->zip_code !!}"
+                    value="{!! old('zip_code') ?: $student->zip_code !!}"
                     class="form-control input-lg"
                     placeholder="CEP da residência"
                     name="zip_code"
@@ -321,7 +321,7 @@
                     v-model="address"
                     type="tel"
                     class="form-control input-lg"
-                    value="{!! Input::old('address') ?: $student->address !!}"
+                    value="{!! old('address') ?: $student->address !!}"
                     placeholder="Endereço"
                     name="address"
                     id="address"
@@ -339,7 +339,7 @@
                     v-model="address_complement"
                     type="tel"
                     class="form-control input-lg"
-                    value="{!! Input::old('address_complement') ?: $student->address_complement !!}"
+                    value="{!! old('address_complement') ?: $student->address_complement !!}"
                     placeholder="Complemento"
                     name="address_complement"
                     id="address_complement"
@@ -354,7 +354,7 @@
                     v-model="address_neighborhood"
                     type="tel"
                     class="form-control input-lg"
-                    value="{!! Input::old('address_neighborhood') ?: $student->address_neighborhood !!}"
+                    value="{!! old('address_neighborhood') ?: $student->address_neighborhood !!}"
                     placeholder="Bairro"
                     name="address_neighborhood"
                     id="address_neighborhood"
@@ -373,7 +373,7 @@
                     v-model="address_city"
                     type="tel"
                     class="form-control input-lg"
-                    value="{!! Input::old('address_city') ?: $student->address_city !!}"
+                    value="{!! old('address_city') ?: $student->address_city !!}"
                     placeholder="Município"
                     name="address_city"
                     id="address_city"
@@ -394,14 +394,14 @@
 
                     <option
                             value="Y"
-                            {!! Input::old('elected') === true || $student->elected === true ? 'selected' : '' !!}
+                            {!! old('elected') === true || $student->elected === true ? 'selected' : '' !!}
                     >
                         ELEITO: SIM
                     </option>
 
                     <option
                             value="N"
-                            {!! Input::old('elected') === false || $student->elected === false ? 'selected' : '' !!}
+                            {!! old('elected') === false || $student->elected === false ? 'selected' : '' !!}
                     >
                         ELEITO: NÃO
                     </option>

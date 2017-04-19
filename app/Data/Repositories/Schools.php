@@ -19,8 +19,8 @@ class Schools
 
     private function compare($a, $b)
     {
-        $a = strtolower($this->translit($a));
-        $b = strtolower($this->translit($b));
+        $a = mb_strtolower($this->translit($a));
+        $b = mb_strtolower($this->translit($b));
 
         $a = str_replace('morais', 'moraes', $a);
         $b = str_replace('morais', 'moraes', $b);
@@ -192,7 +192,7 @@ class Schools
     {
         $string = str_replace('\n', '', $string);
 
-        return strtolower(iconv('utf8', 'ASCII//TRANSLIT', $string));
+        return mb_strtolower(iconv('utf8', 'ASCII//TRANSLIT', $string));
     }
 }
 

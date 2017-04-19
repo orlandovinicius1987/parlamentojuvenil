@@ -35,11 +35,11 @@ class Subscription extends Model
 
     public function user()
     {
-        $this->belongsTo('App\Data\Entities\User');
+        return $this->belongsTo('App\Data\Entities\User');
     }
 
     public function student()
     {
-        $this->belongsTo('App\Data\Entities\Student');
+        return $this->belongsTo('App\Data\Entities\Student');
     }
 }

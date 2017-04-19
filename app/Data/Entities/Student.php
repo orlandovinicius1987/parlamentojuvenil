@@ -54,7 +54,7 @@ class Student extends Model
 
     public function getSocialNameAttribute()
     {
-        return studly(strtolower(
+        return studly(mb_strtolower(
             isset($this->attributes['social_name'])
                 ? $this->attributes['social_name']
                 : explode(' ', trim($this->name))[0]

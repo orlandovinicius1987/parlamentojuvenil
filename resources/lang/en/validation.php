@@ -3,6 +3,8 @@
 return [
     'cpf' => 'CPF inválido',
 
+    'birthdate' => 'Data inválida',
+
     'lessthan18' => 'É necessário ter menos de 18 anos quando da realização do Parlamento Juvenil',
     'morethan13' => 'É necessário ter no mínimo 14 anos quando da realização do Parlamento Juvenil',
 
@@ -89,5 +91,27 @@ return [
             'rooms_names' => 'nomes das salas',
             'telephones' => 'telefones',
             'zip_code' => 'CEP',
+            'registration' => 'matrícula',
+            'birthdate' => 'data de nascimento',
+            'name' => 'nome',
+            'school' => 'escola',
+            'city' => 'cidade',
+            'email' => 'e-mail',
+            'social_name' => 'apelido',
+            'grade' => 'série',
+            'gender' => 'sexo',
+            'gender2' => 'identidade de gênero',
+            'cpf' => 'cpf',
+            'id_number' => 'identidade',
+            'id_issuer' => 'órgão emissor',
+            'email' => 'e-mail',
+            'phone_home' => 'telefone residencial',
+            'phone_cellular' => 'telefone comercial',
+            'zip_code' => 'cep',
+            'address' => 'endereço',
+            'address_complement' => 'complemento (do endereço)',
+            'address_neighborhood' => 'bairro',
+            'address_city' => 'cidade (do endereço)',
         ],
 ];
+

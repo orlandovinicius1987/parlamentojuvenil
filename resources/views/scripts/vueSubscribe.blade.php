@@ -13,29 +13,29 @@
                 cpfValid: false,
                 cpfWasChecked: false,
                 zipValid: false,
-                address: "{!! $student->address or '' !!}",
-                address_complement: "{!! $student->address_complement or '' !!}",
-                address_neighborhood: "{!! $student->address_neighborhood or '' !!}",
-                address_city: "{!! $student->address_city or '' !!}",
-                cpf: "{!! $student->cpf or '' !!}",
-                birthdate: "{!! $student->birthdate or '' !!}",
-                city: "{!! $student ? mb_strtoclean($student->city) : '' !!}",
-                facebook: "{!! $student->facebook or '' !!}",
-                social_name: "{!! $student->social_name or '' !!}",
-                id_issuer: "{!! $student->id_issuer or '' !!}",
-                registration: "{!! $student->registration or '' !!}",
-                email: "{!! $student->email or '' !!}",
-                grade: "{!! $student->grade or '' !!}",
-                phone_home: "{!! $student->phone_home or '' !!}",
-                phone_cellular: "{!! $student->phone_cellular or '' !!}",
-                name: "{!! $student->name or '' !!}",
-                zip_code: "{!! $student->zip_code or '' !!}",
-                gender: "{!! $student->gender or '' !!}",
-                gender2: "{!! $student->gender2 or '' !!}",
-                id_number: "{!! $student->id_number or '' !!}",
+                address: "{!! old('address') ?: $student->address !!}",
+                address_complement: "{!! old('address_complement') ?: $student->address_complement !!}",
+                address_neighborhood: "{!! old('address_neighborhood') ?: $student->address_neighborhood !!}",
+                address_city: "{!! old('address_city') ?: $student->address_city !!}",
+                cpf: "{!! old('cpf') ?: $student->cpf !!}",
+                birthdate: "{!! old('birthdate') ?: $student->birthdate !!}",
+                city: "{!! old('city') ?: $student ? mb_strtoclean($student->city) : '' !!}",
+                facebook: "{!! old('facebook') ?: $student->facebook !!}",
+                social_name: "{!! old('social_name') ?: $student->social_name !!}",
+                id_issuer: "{!! old('id_issuer') ?: $student->id_issuer !!}",
+                registration: "{!! old('registration') ?: $student->registration !!}",
+                email: "{!! old('email') ?: $student->email !!}",
+                grade: "{!! old('grade') ?: $student->grade !!}",
+                phone_home: "{!! old('phone_home') ?: $student->phone_home !!}",
+                phone_cellular: "{!! old('phone_cellular') ?: $student->phone_cellular !!}",
+                name: "{!! old('name') ?: $student->name !!}",
+                zip_code: "{!! old('zip_code') ?: $student->zip_code !!}",
+                gender: "{!! old('gender') ?: $student->gender !!}",
+                gender2: "{!! old('gender2') ?: $student->gender2 !!}",
+                id_number: "{!! old('id_number') ?: $student->id_number !!}",
                 schools: emptySchool,
-                elected: "{!! $student->elected or '' !!}",
-                school: "{!! $student->school or '' !!}",
+                elected: "{!! old('elected') ?: $student->elected !!}",
+                school: "{!! old('school') ?: $student->school !!}",
             },
 
             methods: {
@@ -105,7 +105,7 @@
 
                 __cityChanged: function (event)
                 {
-                    var city = '{!! Input::old('city') ?: (isset($subscription) ? $subscription->city : '') !!}';
+                    var city = '{!! old('city') ?: (isset($subscription) ? $subscription->city : '') !!}';
 
                     if (this.city !== city)
                     {

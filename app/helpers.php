@@ -57,7 +57,7 @@ function mb_strtoclean($string)
                                 'ö'=>'o', 'ø'=>'o', 'ù'=>'u', 'ú'=>'u', 'û'=>'u', 'ý'=>'y', 'ý'=>'y', 'þ'=>'b', 'ÿ'=>'y'
                                 );
 
-    return mb_strtolower(strtr($string, $unwanted_array ));
+    return mb_strtolower(strtr($string, $unwanted_array));
 }
 
 /**

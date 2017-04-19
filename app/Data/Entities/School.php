@@ -23,7 +23,7 @@ class School extends Model
         return static::whereRaw(
             sprintf(
                 "lower(unaccent(city)) ~* '%s'",
-                strtolower(mb_strtoclean($name))
+                mb_strtoclean($name)
             )
         )->orderBy('name')->get();
 	}
