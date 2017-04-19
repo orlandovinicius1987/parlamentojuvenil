@@ -2,19 +2,15 @@
 
 @section('contents')
     <section class="notifications">
-        <div class="container">
             @if (config('app.subscriptions.enabled') === true)
-                <div class="row">
                     <div class="jumbotron text-center">
                         <h2>Inscrições abertas</h2>
-                        <br>
+                        <p>Alunos do 1º e 2º ano do ensino médio da Rede Pública Estadual do Rio de Janeiro, com idade entre 14 e 17 anos (nascidos entre 26 de novembro de 2003 e 3 de dezembro de 1999).</p>
                         <a href="{{ route('subscribe.index') }}" class="btn btn-primary btn-large center-block">
                             Clique para se inscrever
                         </a>
                     </div>
-                </div>
             @endif
-        </div>
     </section>
 
     <section class="masonry-pj">
@@ -121,6 +117,8 @@
             </div>
         </div>
     </section>
+
+    
 
     @include('2017.home.partials.about')
     @include('2017.home.partials.howitworks')

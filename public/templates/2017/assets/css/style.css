@@ -1512,10 +1512,7 @@ footer a {
 		margin-top: 100px;
 		margin-bottom: 100px;
 	}
-	.form-subscribe {
-		margin-top: 70px;
-		margin-bottom: 100px;
-	}
+
 
 }
 
@@ -1713,7 +1710,7 @@ img.btn-login-social {
 .form-subscribe h1 {
 	margin-bottom: 30px;
 	text-align: center;
-	font-size: 24px;
+	/*font-size: 24px;*/
 	color: #848484;
 }
 
@@ -1856,7 +1853,7 @@ img.btn-login-social {
 .container .jumbotron h2, .container-fluid .jumbotron h2 {
 	font-family: 'five_boroughs';
 	letter-spacing: 3px;
-	font-size: 34px;
+	font-size: 46px;
 	color: #1E9945;
 }
 
@@ -1864,6 +1861,13 @@ img.btn-login-social {
 	text-transform: uppercase;
 	font-size: 24px;
 	font-weight: 600;
+}
+.jumbotron p {
+	margin-bottom: 20px;
+	margin-top: 20px;
+	font-size: 21px;
+	font-weight: 500;
+	color: #7A6200;
 }
 
 
@@ -1935,4 +1939,11 @@ img.btn-login-social {
 	font-size: 14px;
 	font-weight: 600;
 	margin-top: 18px;
+}
+
+
+
+.form-subscribe {
+	margin-top: 150px;
+	margin-bottom: 420px;
 }
