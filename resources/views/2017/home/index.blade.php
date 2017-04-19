@@ -5,11 +5,12 @@
         <div class="container">
             @if (config('app.subscriptions.enabled') === true)
                 <div class="row">
-                    <div class="jumbotron">
+                    <div class="jumbotron text-center">
+                        <h2>Início das inscrições adiado para o dia 19/04</h2>
                         <h2>Inscrições abertas</h2>
                         <br>
                         <a href="{{ route('subscribe.index') }}" class="btn btn-primary btn-large center-block">
-                            <h3>Clique para se inscrever</h3>
+                            Clique para se inscrever
                         </a>
                     </div>
                 </div>

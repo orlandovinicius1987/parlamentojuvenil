@@ -1843,8 +1843,27 @@ img.btn-login-social {
 .container .jumbotron, .container-fluid .jumbotron {
     margin-top: 20px;
     color: white;
-    background-color: #E0B400;
+    background-color: #FFCA00;
     border-radius: 0px;
+}
+
+
+.container .jumbotron .btn-primary.active,.container .jumbotron .btn-primary.focus, .container .jumbotron .btn-primary:active,.container .jumbotron .btn-primary:focus,.container .jumbotron .btn-primary:hover,.container .jumbotron .open>.dropdown-toggle.btn-primary {
+	background-color: #187736;
+	border-color: #14662E;
+}
+
+.container .jumbotron h2, .container-fluid .jumbotron h2 {
+	font-family: 'five_boroughs';
+	letter-spacing: 3px;
+	font-size: 34px;
+	color: #1E9945;
+}
+
+.jumbotron .btn-large {
+	text-transform: uppercase;
+	font-size: 24px;
+	font-weight: 600;
 }
 
 
