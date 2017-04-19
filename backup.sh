@@ -26,7 +26,7 @@
 #
 #  -- Example
 #
-#   bash backup.sh parlamentojuvenil www.parlamento-juvenil.rj.gov.br pgsql s3 falcon /home/forge/www.parlamento-juvenil.rj.gov.br/
+#   bash backup.sh parlamentojuvenil www.parlamento-juvenil.rj.gov.br parlamentojuvenil-production pgsql s3 falcon /home/forge/www.parlamento-juvenil.rj.gov.br/
 #
 
 NAMESPACE=$1
