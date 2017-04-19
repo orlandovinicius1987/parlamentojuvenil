@@ -6,6 +6,7 @@
             @if (config('app.subscriptions.enabled') === false)
                 <div class="row">
                     <div class="jumbotron">
+                        {{--jumbotrom--}}
                         <h2>Início das inscrições adiado para o dia 19/04</h2>
                     </div>
                 </div>
