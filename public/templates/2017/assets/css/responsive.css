@@ -37,6 +37,12 @@
 ---------------------------------------------------------------------- */
 
 @media screen and (min-width: 1171px) and (max-width: 1200px) {
+	.form-subscribe {
+		margin-top: 150px;
+		margin-bottom: 320px;
+	}
+
+
 	.navbar-nav>li>a {
 		padding: 25px 20px;
 	}
@@ -46,6 +52,13 @@
 }
 
 @media screen and (min-width: 1100px) and (max-width: 1170px) {
+
+	.form-subscribe {
+		margin-top: 150px;
+		margin-bottom: 320px;
+	}
+
+
 	.navbar-nav>li>a {
 		padding: 25px 20px;
 	}
@@ -55,6 +68,12 @@
 }
 
 @media screen and (min-width: 1024px) and (max-width: 1100px) {
+	.form-subscribe {
+		margin-top: 150px;
+		margin-bottom: 320px;
+	}
+
+
 /*	.navbar-nav>li>a {
 		padding: 25px 20px;
 	}*/
@@ -227,6 +246,13 @@
 }
 
 @media screen and (min-width: 768px) and (max-width: 800px) {
+
+	.form-subscribe {
+		margin-top: 230px;
+		margin-bottom: 280px;
+	}
+
+
 	.footer-bottom .contatos {
 		font-size: 11px;
 		font-weight: 600;
@@ -362,6 +388,14 @@
 }
 
 @media screen and (max-width: 767px) {
+
+	.form-subscribe {
+		margin-top: 170px;
+		margin-bottom: 280px;
+	}
+
+
+
 	.service-items .sub-title {
 		font-size: 1.25em;
 		line-height: 25px;
@@ -460,6 +494,24 @@
 }
 
 @media screen and (min-width: 639px) and (max-width: 720px) {
+
+
+	.form-subscribe {
+		margin-top: 75px;
+		margin-bottom: 75px;
+	}
+	.form-subscribe h1 {
+		margin-bottom: 30px;
+		font-size: 26px;
+	}
+	.form-subscribe .contact-text p{
+		font-size: 16px;
+	}
+
+	.footer-bottom .contatos {
+		margin-top: 18px;
+		margin-bottom: 25px;
+	}
 
 	.footer-bottom img.logo-governo {
 		margin-top: 5px;
@@ -681,6 +733,19 @@
 
 @media screen and (min-width: 481px) and (max-width: 568px) {
 
+	.form-subscribe {
+		margin-top: 75px;
+		margin-bottom: 75px;
+	}
+	.form-subscribe h1 {
+		margin-bottom: 30px;
+		font-size: 26px;
+	}
+	.form-subscribe .contact-text p{
+		font-size: 16px;
+	}
+
+
 	.footer-bottom img.logo-governo {
 		margin-top: 5px;
 	}
@@ -799,6 +864,19 @@
 }
 
 @media screen and (min-width: 415px) and (max-width: 480px) {
+
+	.form-subscribe {
+		margin-top: 75px;
+		margin-bottom: 75px;
+	}
+	.form-subscribe h1 {
+		margin-bottom: 50px;
+		font-size: 30px;
+	}
+	.form-subscribe .contact-text p{
+		font-size: 18px;
+	}
+
 
 	.jumbotron .btn-large {
 		text-transform: uppercase;
@@ -921,6 +999,18 @@
 }
 
 @media screen and (min-width: 374px) and (max-width: 414px) {
+	.form-subscribe {
+		margin-top: 130px;
+		margin-bottom: 280px;
+	}
+	.form-subscribe h1 {
+		margin-bottom: 50px;
+		font-size: 30px;
+	}
+	.form-subscribe .contact-text p{
+		font-size: 18px;
+	}
+
 
 	.footer-bottom img.logo-governo {
 		margin-top: 5px;
@@ -1031,6 +1121,20 @@
 }
 
 @media screen and (min-width: 321px) and (max-width: 375px) {
+
+	.form-subscribe {
+		margin-top: 100px;
+		margin-bottom: 200px;
+	}
+	.form-subscribe h1 {
+		margin-bottom: 30px;
+		font-size: 26px;
+	}
+	.form-subscribe .contact-text p{
+		font-size: 16px;
+	}
+
+
 
 
 	.jumbotron .btn-large {
@@ -1183,6 +1287,18 @@
 }
 
 @media screen and (max-width: 320px) {
+	.form-subscribe {
+		margin-top: 100px;
+		margin-bottom: 120px;
+	}
+	.form-subscribe h1 {
+		margin-bottom: 30px;
+		font-size: 26px;
+	}
+	.form-subscribe .contact-text p{
+		font-size: 16px;
+	}
+
 	.jumbotron .btn-large {
 		text-transform: uppercase;
 		font-size: 16px;
