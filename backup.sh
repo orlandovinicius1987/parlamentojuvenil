@@ -24,6 +24,10 @@
 #    corinna \
 #    /var/www/kallzenter/
 #
+#  -- Example
+#
+#   bash backup.sh parlamentojuvenil www.parlamento-juvenil.rj.gov.br pgsql s3 falcon /home/forge/www.parlamento-juvenil.rj.gov.br/
+#
 
 NAMESPACE=$1
 
@@ -37,7 +41,7 @@ DESTINATION=$5
 
 HOST=$6
 
-APP_PATH=$6
+APP_PATH=$7
 
 YEAR="$(date +'%Y')"
 
