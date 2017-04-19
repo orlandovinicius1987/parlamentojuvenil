@@ -1512,10 +1512,7 @@ footer a {
 		margin-top: 100px;
 		margin-bottom: 100px;
 	}
-	.form-subscribe {
-		margin-top: 70px;
-		margin-bottom: 100px;
-	}
+
 
 }
 
@@ -1713,7 +1710,7 @@ img.btn-login-social {
 .form-subscribe h1 {
 	margin-bottom: 30px;
 	text-align: center;
-	font-size: 24px;
+	/*font-size: 24px;*/
 	color: #848484;
 }
 
@@ -1942,4 +1939,11 @@ img.btn-login-social {
 	font-size: 14px;
 	font-weight: 600;
 	margin-top: 18px;
+}
+
+
+
+.form-subscribe {
+	margin-top: 150px;
+	margin-bottom: 420px;
 }
