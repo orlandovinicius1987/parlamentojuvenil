@@ -16,7 +16,7 @@
                     </div>
 
                     <div class="panel-body">
-                        <div class="row control-group"  transition="expand">
+                        <div class="row control-group" transition="expand">
                             <div class="form-group col-lg-6 floating-label-form-group controls">
                                 <label for="matricula" class="sr-only control-label">Matrícula</label>
                                 <input
@@ -27,7 +27,7 @@
                             </div>
 
                             <div class="form-group col-lg-6 floating-label-form-group controls">
-                                <label for="nascimento" class="sr-only control-label">Data de Nascimento</label>
+                                <label for="birthdate" class="sr-only control-label">Data de Nascimento</label>
                                 <input
                                     v-model="birthdate"
                                     class="form-control input-lg"
@@ -35,6 +35,19 @@
                                 >
                             </div>
                         </div>
+
+                        @if (Auth::user()->email == 'antoniocarlos@cys.com.br')
+                            <div class="row control-group" transition="expand">
+                                <div class="form-group col-lg-12 floating-label-form-group controls">
+                                    <label for="name" class="sr-only control-label">Nome</label>
+                                    <input
+                                        v-model="name"
+                                        class="form-control input-lg"
+                                        placeholder="Nome"
+                                    >
+                                </div>
+                            </div>
+                        @endif
 
                         <div class="row"  transition="expand">
                             <div class="form-group col-xs-12">

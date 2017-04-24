@@ -23,7 +23,7 @@
                                     <th>Nome</th>
                                     <th>Cidade</th>
                                     <th>Nascimento</th>
-                                    <th>Matricula</th>
+                                    <th>Matrícula</th>
                                     <th>Capacitação</th>
                                     <th>Opções</th>
                                 </tr>
