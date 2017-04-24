@@ -2042,3 +2042,30 @@ img.btn-login-social {
 	font-size: 150%;
 	font-weight: 600;
 }
+
+
+
+.alert-success i.fa.fa-check {
+	font-size: 120px;
+	color: #01a648;
+}
+
+.voto-valido{
+	color: #01a648;
+}
+
+.alert{
+	color: #818181;
+}
+
+.alert h1{
+	font-size: 28px;
+	margin-bottom: 15px;
+	font-weight: 600;
+}
+
+.alert-success {
+	background-color: #fff;
+	border: none;
+	margin: 60px 0 160px 0 !important;
+}
