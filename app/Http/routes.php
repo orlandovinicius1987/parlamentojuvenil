@@ -100,6 +100,13 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'only-administrators
     Route::get('training/{subscription}', ['as' => 'admin.training', 'uses' => 'Admin@training']);
 });
 
+Route::group(['prefix' => 'vote', 'middleware' => ['auth']], function ()
+{
+    Route::get('/', ['as' => 'vote.index', 'uses' => 'Vote@index']);
+    Route::get('/confirm', ['as' => 'vote.confirm', 'uses' => 'Vote@confirm']);
+    Route::get('/voted', ['as' => 'vote.voted', 'uses' => 'Vote@voted']);
+});
+
 Route::get('subscriptions/schools', ['as' => 'subscriptions.schools', 'uses' => 'Subscriptions@bySchool']);
 
 Route::get('subscriptions/students', ['as' => 'subscriptions.students', 'uses' => 'Subscriptions@byStudent']);

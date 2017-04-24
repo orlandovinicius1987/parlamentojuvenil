@@ -7,6 +7,7 @@
             data: {
                 registration: '',
                 birthdate: '',
+                name: '',
                 students: [],
                 searching: false,
             },
@@ -15,7 +16,7 @@
                 __search: function () {
                     this.searching = true;
 
-                    var url = '/api/v1/search/seeduc?registration='+this.registration+'&birthdate='+this.birthdate;
+                    var url = '/api/v1/search/seeduc?registration='+this.registration+'&birthdate='+this.birthdate+'&name='+this.name;
 
                     this.$http.get(url).then(
                         function(response) {
