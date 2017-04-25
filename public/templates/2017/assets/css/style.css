@@ -2063,27 +2063,39 @@ img.btn-login-social {
 
 
 
+
+
+.alert {
+	border: none;
+	margin: 60px 0 160px 0 !important;
+	color: #818181;
+	background-color: #fff;
+}
+
+
 .alert-success i.fa.fa-check {
 	font-size: 120px;
 	color: #01a648;
 }
 
-.voto-valido{
-	color: #01a648;
+.alert i.fa.fa-warning {
+	font-size: 120px;
+	color: #e9382f;
 }
 
-.alert{
-	color: #818181;
+.alert-success h1{
+	color: #01a648;
 }
+.alert-danger h1{
+	color: #e9382f;
+}
+
 
 .alert h1{
 	font-size: 28px;
 	margin-bottom: 15px;
 	font-weight: 600;
 }
-
-.alert-success {
-	background-color: #fff;
-	border: none;
-	margin: 60px 0 160px 0 !important;
+.alert h3{
+	font-size: 28px;
 }
