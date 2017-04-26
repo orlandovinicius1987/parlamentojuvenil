@@ -1,5 +1,5 @@
 <div>
-    <input type="hidden" name="student_id" value="{!! $student->id !!}">
+    <input type="hidden" name="student_id" value="{!! $subscription->student_id !!}">
 
     {{-- Matricula e Nascimento --}}
     <div class="row control-group"  transition="expand">

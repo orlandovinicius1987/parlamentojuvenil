@@ -45,6 +45,35 @@ class Student extends Model
         'facebook',
     ];
 
+    protected $editable = [
+        'social_name',
+        'city',
+        'school',
+        'grade',
+        'gender',
+        'gender2',
+        'cpf',
+        'id_number',
+        'id_issuer',
+        'email',
+        'phone_home',
+        'phone_cellular',
+        'zip_code',
+        'address',
+        'address_complement',
+        'address_neighborhood',
+        'address_city',
+        'facebook',
+    ];
+
+    /**
+     * @return array
+     */
+    public function getEditable()
+    {
+        return $this->editable;
+    }
+
     /**
      * @return array
      */
@@ -55,11 +84,11 @@ class Student extends Model
 
     public function getSocialNameAttribute()
     {
-        return studly(mb_strtolower(
+        return
             isset($this->attributes['social_name'])
                 ? $this->attributes['social_name']
-                : explode(' ', trim($this->name))[0]
-        ));
+                : ucwords(mb_strtolower(explode(' ', trim($this->name))[0]))
+        ;
 	}
 
 	public static function createStudent($attributes)

@@ -242,6 +242,8 @@ class Subscriptions extends BaseController
 
         $subscription->update(Input::only($subscription->getFillable()));
 
+        $subscription->student->update(Input::only($subscription->student->getEditable()));
+
         $subscription->save();
 
         return redirect()->route('admin.city', ['city' => $subscription->city]);
