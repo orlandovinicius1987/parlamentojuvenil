@@ -203,6 +203,15 @@ class Subscriptions extends BaseController
         return $this->buildView('subscriptions.index', $year);
     }
 
+    private function normalizeInput($input)
+    {
+        if ($city = City::findCityByname($input['city'])) {
+            $input['city'] = $city->name;
+        }
+
+        return $input;
+    }
+
     public function store(Subscribe $request)
     {
         $subscription = $this->dataRepository->createSubscription($request);
@@ -242,7 +251,7 @@ class Subscriptions extends BaseController
 
         $subscription->update(Input::only($subscription->getFillable()));
 
-        $subscription->student->update(Input::only($subscription->student->getEditable()));
+        $subscription->student->update($this->normalizeInput(Input::only($subscription->student->getEditable())));
 
         $subscription->save();
 
