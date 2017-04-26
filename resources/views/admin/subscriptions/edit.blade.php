@@ -17,7 +17,7 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-lg-12">
-                                <form method="POST" id="subscribe" action="{{ route('subscriptions.edit', ['id' => $student->id])}}">
+                                <form method="POST" id="vue-subscribe" action="{{ route('subscriptions.edit', ['id' => $student->id])}}">
                                     {!! csrf_field() !!}
 
                                     @include('partials.subscribe-form-fields')
@@ -35,3 +35,8 @@
         </div>
     </div>
 @stop
+
+@section('page-javascripts')
+    @include('scripts.vueSubscribe')
+@stop
+

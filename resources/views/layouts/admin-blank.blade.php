@@ -99,6 +99,8 @@
 
     @yield('javascript')
 
+    @yield('page-javascripts')
+
     @include('scripts.all',  ['exceptFiles' => ['owl' => 1, 'pinboard' => 2]])
 
     <script>

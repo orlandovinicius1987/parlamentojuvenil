@@ -1,12 +1,12 @@
 <script>
     Vue.config.devtools = true
 
-    if (jQuery("#subscribe").length)
+    if (jQuery("#vue-subscribe").length)
     {
         var emptySchool = [{value: '', text: 'SELECIONE SUA ESCOLA'}];
 
         var vueSubscribe = new Vue({
-            el: '#subscribe',
+            el: '#vue-subscribe',
 
             data: {
                 cpf: '',

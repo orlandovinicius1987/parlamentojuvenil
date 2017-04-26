@@ -1,4 +1,4 @@
-<form id="{{ isset($formId) ? $formId : 'subscribe' }}" method="POST" action="/subscriptions">
+<form id="{{ isset($formId) ? $formId : 'vue-subscribe' }}" method="POST" action="/subscriptions">
     {!! csrf_field() !!}
 
     @include('partials.subscribe-form-fields')

@@ -88,7 +88,6 @@
                     placeholder="E-mail"
                     name="email"
                     id="email"
-                    required
                     data-validation-required-message="Por favor digite o seu email."
             >
             <span class="help-block text-danger"></span>
