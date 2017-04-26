@@ -56,11 +56,11 @@ class Subscriptions extends BaseController
             return $item['city_name'] == 'FACEBOOK' || $item['city_name'] == 'ACR' || $item['city_name'] == 'BRENOT';
         });
 
-        $citiesIn = $subscriptions->reject(function($item) {
+        $citiesIn = $cities->reject(function($item) {
             return $item['subscriptions_count'] == 0;
         });
 
-        $citiesOut = $subscriptions->reject(function($item) {
+        $citiesOut = $cities->reject(function($item) {
             return $item['subscriptions_count'] > 0;
         });
 
