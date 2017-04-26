@@ -19,60 +19,30 @@
                             <div class="col-lg-12">
                                 <div class="row">
                                     @foreach($student->socialUsers as $socialUser)
-                                        <div class="col-xs-3 well">
-                                            <a href="{{ $socialUser->profileUrl }}">
-                                                <div class="row">
-                                                    <div class="col-xs-5">
-                                                        <img
-                                                            src="{{ $socialUser->user->avatar }}"
-                                                            alt=""
-                                                            width="80px"
-                                                        >
-                                                    </div>
-
-                                                    <div class="col-xs-2">
-                                                        <h1 class="text-center">
-                                                            <i class="fa fa-arrow-right"></i>
-                                                        </h1>
-                                                    </div>
-
-                                                    <div class="col-xs-5">
-                                                        <img
-                                                                src="/templates/{{ get_current_year() }}/assets/img/socialbtn-{{ $socialUser->socialNetwork->slug }}.png"
-                                                                alt=""
-                                                                width="80px"
-                                                        >
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-
-                                        <div class="col-xs-3 well">
-                                            <a href="{{ $socialUser->profileUrl }}">
-                                                <div class="row">
-                                                    <div class="col-xs-5">
-                                                        <img
+                                        <div class="col-xs-3">
+                                            <div class="well">
+                                                <a href="{{ $socialUser->profileUrl }}">
+                                                    <div class="row">
+                                                        <div class="col-xs-6">
+                                                            <img
                                                                 src="{{ $socialUser->user->avatar }}"
+                                                                class="img-responsive"
                                                                 alt=""
                                                                 width="80px"
-                                                        >
-                                                    </div>
+                                                            >
+                                                        </div>
 
-                                                    <div class="col-xs-2">
-                                                        <h1 class="text-center">
-                                                            <i class="fa fa-arrow-right"></i>
-                                                        </h1>
-                                                    </div>
-
-                                                    <div class="col-xs-5">
-                                                        <img
+                                                        <div class="col-xs-6">
+                                                            <img
                                                                 src="/templates/{{ get_current_year() }}/assets/img/socialbtn-{{ $socialUser->socialNetwork->slug }}.png"
+                                                                class="img-responsive"
                                                                 alt=""
                                                                 width="80px"
-                                                        >
+                                                            >
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </a>
+                                                </a>
+                                            </div>
                                         </div>
                                     @endforeach
                                 </div>
