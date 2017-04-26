@@ -119,6 +119,11 @@ class Student extends Model
         return $this->hasMany(Subscription::class);
     }
 
+    public function socialUsers()
+    {
+        return $this->hasMany(SocialUser::class);
+    }
+
     public function hasRightAge()
     {
         $date = Carbon::parse($this->attributes['birthdate'])->format('Y-m-d');

@@ -33,4 +33,15 @@ class SocialUser extends Model
     {
         return $this->belongsTo('App\Data\Entities\Student');
     }
+
+    public function getProfileUrlAttribute()
+    {
+        $data = json_decode($this->data, true);
+
+        if (isset($data['profileUrl'])) {
+            return $data['profileUrl'];
+        }
+
+        return null;
+    }
 }
