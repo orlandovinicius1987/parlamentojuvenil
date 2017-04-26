@@ -227,7 +227,9 @@ class Subscriptions extends BaseController
         }
 
         return view('admin.subscriptions.edit')
+                ->with('isSubscribeForm', false)
                 ->with('subscription', $subscription)
+                ->with('student', $subscription->student)
                 ->with('spreadsheet', $this->dataRepository->viewBuilder->spreadsheet)
                 ->with('schools', $this->dataRepository->viewBuilder->getSchoolsForCity($subscription->city))
                 ->with('cities', $this->dataRepository->viewBuilder->getCities())

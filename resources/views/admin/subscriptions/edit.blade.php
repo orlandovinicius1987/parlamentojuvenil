@@ -4,7 +4,7 @@
     <div>
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">{{ $subscription->name }}</h1>
+                <h1 class="page-header">{{ $student->name }}</h1>
             </div>
         </div>
 
@@ -17,7 +17,7 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-lg-12">
-                                <form method="POST" id="subscribe" action="{{ route('subscriptions.edit', ['id' => $subscription->id])}}">
+                                <form method="POST" id="subscribe" action="{{ route('subscriptions.edit', ['id' => $student->id])}}">
                                     {!! csrf_field() !!}
 
                                     @include('partials.subscribe-form-fields')
