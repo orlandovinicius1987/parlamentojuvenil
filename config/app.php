@@ -16,6 +16,13 @@ return [
         'enabled' => env('SUBSCRIPTIONS_ENABLED')
     ],
 
+    'student' => [
+        'birthdate' => [
+            'start' => env('STUDENT_BIRTHDATE_START'),
+            'end' => env('STUDENT_BIRTHDATE_END'),
+        ]
+    ],
+
     'timezone' => 'America/Sao_Paulo',
 
     'locale' => 'pt_BR',

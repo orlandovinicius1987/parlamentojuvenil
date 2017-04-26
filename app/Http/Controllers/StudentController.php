@@ -83,4 +83,9 @@ class StudentController extends Controller
     {
         return view('2017.partials.subscribe-form-register-and-birthdate');
     }
+
+    public function wrongAge()
+    {
+        return view('2017.students.wrong-age');
+    }
 }

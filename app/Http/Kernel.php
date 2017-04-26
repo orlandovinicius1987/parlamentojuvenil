@@ -31,6 +31,7 @@ class Kernel extends HttpKernel
         'subscribing' => \App\Http\Middleware\Subscribing::class,
         'cannot-re-subscribe' => \App\Http\Middleware\CannotResubscribe::class,
         'student-login' => \App\Http\Middleware\StudentLogin::class,
+        'check-student-age' => \App\Http\Middleware\CheckStudentAge::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'cors' => \App\Http\Middleware\Cors::class,

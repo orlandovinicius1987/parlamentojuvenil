@@ -89,4 +89,12 @@ class Student extends Model
     {
         return $this->hasMany(Subscription::class);
     }
+
+    public function hasRightAge()
+    {
+        $date = Carbon::parse($this->attributes['birthdate'])->format('Y-m-d');
+
+        return $date >= config('app.student.birthdate.start') &&
+                $date <= config('app.student.birthdate.end');
+    }
 }

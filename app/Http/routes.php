@@ -43,10 +43,11 @@ Route::group(['prefix' => '/auth'], function ()
     Route::group(['prefix' => 'student'], function ()
     {
         Route::post('/login', ['as' => 'auth.student.login', 'uses' => 'StudentController@login']);
+        Route::get('/wrongAge', ['as' => 'auth.student.wrong-age', 'uses' => 'StudentController@wrongAge']);
     });
 });
 
-Route::group(['prefix' => '/subscribe', 'middleware' => ['subscribing', 'auth', 'student-login', 'cannot-re-subscribe']], function ()
+Route::group(['prefix' => '/subscribe', 'middleware' => ['subscribing', 'auth', 'student-login', 'check-student-age', 'cannot-re-subscribe']], function ()
 {
     Route::get('/', ['as' => 'subscribe.index', 'uses' => 'Subscriptions@index']);
 });
