@@ -77,11 +77,11 @@
                                     </td>
 
                                     <td v-bind:class="_getSubscriptionCountClass(city)">
-                                        @{{ city.school_count }}
+                                        @{{ city.schools_count > 0 ? city.schools_count : '' }}
                                     </td>
 
                                     <td v-bind:class="_getSubscriptionCountClass(city)">
-                                        @{{ city.subscriptions_created_at }}
+                                        @{{ city.last_subscription }}
                                     </td>
                                 </tr>
                             </template>

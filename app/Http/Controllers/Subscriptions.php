@@ -38,16 +38,22 @@ class Subscriptions extends BaseController
                         ->orderBy('cities.name')
                         ->get();
 
+        $cities = City::select(
+                            'cities.id as city_id',
+                            'cities.name as city_name',
+                            DB::raw('(select count(*)  from subscriptions su1  join students st1 on st1.id = su1.student_id join cities ci2 on ci2.name = st1.city  where ci2.name = cities.name and su1.ignored = false) as subscriptions_count'),
+                            DB::raw('(select count(distinct(st1.school)) from subscriptions su1 join students st1 on st1.id = su1.student_id join cities ci2 on ci2.name = st1.city where ci2.name = cities.name and su1.ignored = false) as schools_count'),
+                            DB::raw('(select max(su1.created_at) from subscriptions su1  join students st1 on st1.id = su1.student_id join cities ci2 on ci2.name = st1.city  where ci2.name = cities.name) as last_subscription')
+                        )
+                        ->where('cities.name', '<>', 'FACEBOOK')
+                        ->where('cities.name', '<>', 'ACR')
+                        ->where('cities.name', '<>', 'BRENOT')
+                        ->groupBy(['cities.id', 'cities.name'])
+                        ->orderBy('cities.name')
+                        ->get();
+
         $subscriptions = $subscriptions->reject(function ($item) {
             return $item['city_name'] == 'FACEBOOK' || $item['city_name'] == 'ACR' || $item['city_name'] == 'BRENOT';
-        });
-
-        $subscriptions->map(function($data) use ($subscriptions) {
-            $data['school_count'] = $subscriptions->reject(function($item) {
-                return $item['subscriptions_count'] == 0;
-            })->where('city_name', $data['city_name'])->unique('school_name')->count();
-
-            $data['last_subscription'] = $subscriptions->where('city_name', $data['city_name'])->max('subscriptions_created_at');
         });
 
         $citiesIn = $subscriptions->reject(function($item) {
@@ -57,10 +63,6 @@ class Subscriptions extends BaseController
         $citiesOut = $subscriptions->reject(function($item) {
             return $item['subscriptions_count'] > 0;
         });
-
-//        dd($citiesIn->sortBy('city_name')->unique('city_name')->pluck('city_name'));
-
-        return $subscriptions->pluck('city_name')->unique('city_name');
 
         return [
             'subscriptionCount' => $subscriptions->count(),
@@ -73,7 +75,7 @@ class Subscriptions extends BaseController
             'validSubscriptionsCount' => $subscriptions->where('subscription_ignored', false)->count(),
 
             'subscriptions' => $subscriptions,
-            'cities' => $subscriptions->unique('city_name')->values(),
+            'cities' => $cities,
         ];
 	}
 
