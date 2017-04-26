@@ -9,10 +9,10 @@
     </thead>
     <tbody>
         <tr>
-            <td class="text-center">@{{ total }}</td>
-            <td class="text-center">@{{ citiesIn }}</td>
-            <td class="text-center">@{{ citiesOut }}</td>
-            <td class="text-center">@{{ cancelled }}</td>
+            <td class="text-center">@{{ validSubscriptionsCount }}</td>
+            <td class="text-center">@{{ citiesInCount }}</td>
+            <td class="text-center">@{{ citiesOutCount }}</td>
+            <td class="text-center">@{{ cancelledSubscriptionsCount }}</td>
         </tr>
     </tbody>
 </table>

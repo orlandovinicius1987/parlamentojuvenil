@@ -22,23 +22,59 @@ class Subscriptions extends BaseController
 
     public function byState()
 	{
-		return City::join('students', 'cities.name', '=', 'students.city')
-            ->join('subscriptions', 'subscriptions.student_id', '=', 'students.id')
-			->join('states', 'states.id', '=', 'cities.state_id')
-			->where('states.code', 'RJ')
-			->distinct()
-			->select(
-				'cities.name as city',
-				DB::raw('(select count(*) from students where subscriptions.ignored = false and students.city = cities.name) as subscriptionCount'),
-				DB::raw('(select max(created_at) from students where subscriptions.ignored = false and students.city = cities.name) as lastSubscription'),
-				DB::raw('(select count(distinct school) from students where subscriptions.ignored = false and students.city = cities.name) as schoolCount'),
-				DB::raw('(select count(*) from students where subscriptions.ignored != false and students.city = cities.name) as cancelledCount'),
-				DB::raw('(select count(*) from cities where cities.state_id = 19 and cities.name in (select city from students where subscriptions.ignored = false)) as citiesIn'),
-				DB::raw('(select count(*) from cities where cities.state_id = 19 and cities.name not in (select city from students where subscriptions.ignored = false)) as citiesOut')
-			)
-			->orderBy('cities.name')
-			->get()
-		;
+        $subscriptions = City::select(
+                            'students.school as school_name',
+                            'cities.id as city_id',
+                            'cities.name as city_name',
+                            'cities.state_id',
+                            'subscriptions.created_at as subscriptions_created_at',
+                            'subscriptions.ignored as subscription_ignored',
+                            DB::raw('(select count(*)  from subscriptions su1  join students st1 on st1.id = su1.student_id join cities ci1 on ci1.name = st1.city  where ci1.name = cities.name and subscriptions.ignored = false) as subscriptions_count')
+                        )
+                        ->leftJoin('students', 'cities.name', '=', 'students.city')
+                        ->leftJoin('states', 'states.id', '=', 'cities.state_id')
+                        ->leftJoin('subscriptions', 'subscriptions.student_id', '=', 'students.id')
+                        ->where('states.code', 'RJ')
+                        ->orderBy('cities.name')
+                        ->get();
+
+        $subscriptions = $subscriptions->reject(function ($item) {
+            return $item['city_name'] == 'FACEBOOK' || $item['city_name'] == 'ACR' || $item['city_name'] == 'BRENOT';
+        });
+
+        $subscriptions->map(function($data) use ($subscriptions) {
+            $data['school_count'] = $subscriptions->reject(function($item) {
+                return $item['subscriptions_count'] == 0;
+            })->where('city_name', $data['city_name'])->unique('school_name')->count();
+
+            $data['last_subscription'] = $subscriptions->where('city_name', $data['city_name'])->max('subscriptions_created_at');
+        });
+
+        $citiesIn = $subscriptions->reject(function($item) {
+            return $item['subscriptions_count'] == 0;
+        });
+
+        $citiesOut = $subscriptions->reject(function($item) {
+            return $item['subscriptions_count'] > 0;
+        });
+
+//        dd($citiesIn->sortBy('city_name')->unique('city_name')->pluck('city_name'));
+
+        return $subscriptions->pluck('city_name')->unique('city_name');
+
+        return [
+            'subscriptionCount' => $subscriptions->count(),
+            'citiesCount' => $subscriptions->unique('city_name')->count(),
+            'citiesInCount' => $citiesIn->unique('city_name')->count(),
+            'citiesOutCount' => $citiesOut->unique('city_name')->count(),
+            'lastSubscriptionDate' => $subscriptions->max('subscriptions_created_at'),
+            'schoolCount' => $subscriptions->unique('school_name')->pluck('school_name')->count(),
+            'cancelledSubscriptionsCount' => $subscriptions->where('subscription_ignored', true)->count(),
+            'validSubscriptionsCount' => $subscriptions->where('subscription_ignored', false)->count(),
+
+            'subscriptions' => $subscriptions,
+            'cities' => $subscriptions->unique('city_name')->values(),
+        ];
 	}
 
     public function byStudent()

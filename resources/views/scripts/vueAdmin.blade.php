@@ -5,12 +5,18 @@
             el: '#vue-admin-index',
 
             data: {
-                total: 0,
+                cities: [],
                 subscriptions: [],
+                citiesInCount: '',
+                citiesOutCount: '',
+                subscriptionCount: '',
+                citiesCount: '',
+                lastSubscriptionDate: '',
+                schoolCount: '',
+                cancelledSubscriptionsCount: '',
+                validSubscriptionsCount: '',
                 hash: '',
                 cancelled: 0,
-                citiesIn: 0,
-                citiesOut: 0,
                 filterSchools : false,
                 orderby: 'city',
                 ordertype: 1,
@@ -36,7 +42,17 @@
                     console.log('fetching');
                     this.$http.get('/api/v1/subscriptions').then(
                         function(response) {
-                            this.subscriptions = response.body;
+                            this.cities = response.body.cities;
+                            this.subscriptions = response.body.subscriptions;
+                            this.citiesInCount = response.body.citiesInCount;
+                            this.citiesOutCount = response.body.citiesOutCount;
+                            this.subscriptionCount = response.body.subscriptionCount;
+                            this.citiesCount = response.body.citiesCount;
+                            this.lastSubscriptionDate = response.body.lastSubscriptionDate;
+                            this.schoolCount = response.body.schoolCount;
+                            this.cancelledSubscriptionsCount = response.body.cancelledSubscriptionsCount;
+                            this.validSubscriptionsCount = response.body.validSubscriptionsCount;
+
                             this.__formatDates();
                             this.__countSubscriptions();
                         },
@@ -50,15 +66,6 @@
                 },
 
                 __countSubscriptions: function () {
-                    this.total = 0;
-                    this.cancelled = 0;
-
-                    this.subscriptions.forEach(function(item) {
-                        vueAdminIndex.$data.total += item.subscriptioncount;
-                        vueAdminIndex.$data.cancelled += item.cancelledcount;
-                        vueAdminIndex.$data.citiesIn = item.citiesin;
-                        vueAdminIndex.$data.citiesOut = item.citiesout;
-                    })
                 },
 
                 __clickFilterSchools: function() {
@@ -85,11 +92,11 @@
                 },
 
                 __getCityLink:  function (subscription) {
-                    return '{{ route('admin.home') }}/'+subscription.city;
+                    return '{{ route('admin.home') }}/'+subscription.city_name;
                 },
 
                 _getSubscriptionCountClass: function (subscription) {
-                    if (subscription.subscriptioncount) {
+                    if (subscription.subscriptions_count) {
                         return 'sucess';
                     }
 

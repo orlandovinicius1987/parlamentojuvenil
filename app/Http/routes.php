@@ -104,6 +104,7 @@ Route::group(['prefix' => 'vote', 'middleware' => ['auth']], function ()
 {
     Route::get('/', ['as' => 'vote.index', 'uses' => 'Vote@index']);
     Route::get('/confirm', ['as' => 'vote.confirm', 'uses' => 'Vote@confirm']);
+    Route::get('/error', ['as' => 'vote.error', 'uses' => 'Vote@error']);
     Route::get('/voted', ['as' => 'vote.voted', 'uses' => 'Vote@voted']);
 });
 

@@ -4,7 +4,7 @@
     <div id="vue-admin-index">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Inscrições (@{{ total }})</h1>
+                <h1 class="page-header">Inscrições (@{{ validSubscriptionsCount }})</h1>
             </div>
         </div>
 
@@ -66,22 +66,22 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <template v-for="subscription in filteredSubscriptions" track-by="city">
+                            <template v-for="city in cities" track-by="city">
                                 <tr>
-                                    <td class="text-right" v-bind:class="_getSubscriptionCountClass(subscription)">
-                                        @{{ subscription.subscriptioncount || '' }}
+                                    <td class="text-right" v-bind:class="_getSubscriptionCountClass(city)">
+                                        @{{ city.subscriptions_count || '' }}
                                     </td>
 
-                                    <td v-bind:class="_getSubscriptionCountClass(subscription)">
-                                        <a v-bind:href="__getCityLink(subscription)">@{{ subscription.city }}</a>
+                                    <td v-bind:class="_getSubscriptionCountClass(city)">
+                                        <a v-bind:href="__getCityLink(city)">@{{ city.city_name }}</a>
                                     </td>
 
-                                    <td v-bind:class="_getSubscriptionCountClass(subscription)">
-                                        @{{ subscription.schoolcount }}
+                                    <td v-bind:class="_getSubscriptionCountClass(city)">
+                                        @{{ city.school_count }}
                                     </td>
 
-                                    <td v-bind:class="_getSubscriptionCountClass(subscription)">
-                                        @{{ subscription.formatteddate }}
+                                    <td v-bind:class="_getSubscriptionCountClass(city)">
+                                        @{{ city.subscriptions_created_at }}
                                     </td>
                                 </tr>
                             </template>
@@ -95,7 +95,7 @@
                                 <td></td>
 
                                 <td class="text-right">
-                                    @{{ total }}
+                                    @{{ validSubscriptionsCount }}
                                 </td>
                             </tr>
                         </tbody>

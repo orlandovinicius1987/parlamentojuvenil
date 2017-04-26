@@ -20,4 +20,9 @@ class Vote extends BaseController
     {
         return $this->buildView('vote.voted', $year, null, true);
     }
+
+    public function error($year = null, $force = false)
+    {
+        return $this->buildView('vote.error', $year, null, true);
+    }
 }
