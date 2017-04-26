@@ -1,9 +1,7 @@
 @extends('2017.layouts.layout')
 
 @section('contents')
-
-
-    <div class="votacao">
+   <div class="votacao">
         <div class="text-center">
             <h1> Olá Maria Luiza,<br>
                 escolha e vote em seu candidato
@@ -69,18 +67,6 @@
                     </div>
                 </div>
             </div>
-
-
-
         </div>
     </div>
-
-
-
-
-
-
-
-
-
 @stop

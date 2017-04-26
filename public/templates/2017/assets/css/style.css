@@ -1962,6 +1962,16 @@ img.btn-login-social {
 }
 
 .votacao h2 {
+	color: #858585;
+	margin: 30px 0;
+	padding: 0;
+	text-align: center;
+	font-size: 16px;
+	font-weight: 600;
+
+}
+
+.votacao h2.vote-cidade {
 	width: 100%;
 	margin: 30px 0;
 	padding: 0;
@@ -1971,7 +1981,7 @@ img.btn-login-social {
 	font-weight: 600;
 	text-transform: uppercase;
 }
-.votacao h2:after {
+.votacao h2.vote-cidade:after {
 	display: inline-block;
 	margin: 0 0 5px 30px;
 	height: 2px;
@@ -1980,7 +1990,7 @@ img.btn-login-social {
 	background-color: #292C95;
 	width: 35%;
 }
-.votacao h2:before {
+.votacao h2.vote-cidade:before {
 	display: inline-block;
 	margin: 0 30px 5px 0;
 	height: 2px;
@@ -1994,9 +2004,17 @@ img.btn-login-social {
 
 
 
+
+
 .vote {
 	color: #fff;
 }
+
+.vote-confirmation{
+	color: #858585;
+}
+
+
 .vote .btn-large {
 	font-size: 24px;
 	font-weight: 600;
@@ -2045,27 +2063,39 @@ img.btn-login-social {
 
 
 
+
+
+.alert {
+	border: none;
+	margin: 60px 0 160px 0 !important;
+	color: #818181;
+	background-color: #fff;
+}
+
+
 .alert-success i.fa.fa-check {
 	font-size: 120px;
 	color: #01a648;
 }
 
-.voto-valido{
-	color: #01a648;
+.alert i.fa.fa-warning {
+	font-size: 120px;
+	color: #e9382f;
 }
 
-.alert{
-	color: #818181;
+.alert-success h1{
+	color: #01a648;
 }
+.alert-danger h1{
+	color: #e9382f;
+}
+
 
 .alert h1{
 	font-size: 28px;
 	margin-bottom: 15px;
 	font-weight: 600;
 }
-
-.alert-success {
-	background-color: #fff;
-	border: none;
-	margin: 60px 0 160px 0 !important;
+.alert h3{
+	font-size: 28px;
 }
