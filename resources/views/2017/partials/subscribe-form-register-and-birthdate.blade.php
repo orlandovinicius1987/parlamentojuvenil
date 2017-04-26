@@ -12,10 +12,12 @@
                 <h1 class="subscribe-title">Insira os dados para a sua identificação:</h1>
             </div>
         </div>
-        <div class="row form-subscribe">
-            <div class="col-md-offset-2 col-md-4 text-center">
+        <div class="row form-subscribe-registration">
+            <div class="col-md-offset-2 col-md-4 text-left">
                 <form id="login" method="POST" action="{{ route('auth.student.login') }}">
                     {!! csrf_field() !!}
+
+                    <label for="registration" class="control-label">Digite sua matrícula</label>
                     <input
                             v-model="name"
                             type="text"
@@ -27,7 +29,8 @@
                             required data-validation-required-message="Por favor digite seu nome."
                     >
             </div>
-            <div class="col-md-4 text-center">
+            <div class="col-md-4 text-left">
+                <label for="birthdate" class="control-label">Data de nascimento</label>
                 <input
                         v-model="birthdate"
                         type="text"

@@ -12,9 +12,12 @@
                             {{ csrf_field() }}
 
                             <fieldset>
-                                <div class="row">
+                                <div class="row text-left">
+                                    <label for="email" class="control-label">E-mail</label>
                                     <input class="form-control email-title" placeholder="E-mail" name="email" type="text">
-                                    <input class="form-control" placeholder="Password" name="password" type="password" value="">
+
+                                    <label for="password" class="control-label">Senha</label>
+                                    <input class="form-control" placeholder="Senha" name="password" type="password" value="">
                                 </div>
                                 <div class="row remember-forgot">
                                     <div class="col-md-6">

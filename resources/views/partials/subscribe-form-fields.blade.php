@@ -4,7 +4,7 @@
     {{-- Matricula e Nascimento --}}
     <div class="row control-group"  transition="expand">
         <div class="form-group col-xs-6 floating-label-form-group controls">
-            <label for="registration" class="sr-only control-label">Matrícula</label>
+            <label for="registration" class="control-label">Matrícula</label>
             <input
                     v-model="registration"
                     type="text"
@@ -21,7 +21,7 @@
         </div>
 
         <div class="form-group col-xs-6 floating-label-form-group controls">
-            <label for="birthdate" class="sr-only control-label">Data de nascimento</label>
+            <label for="birthdate" class="control-label">Data de nascimento</label>
             <input
                     v-model="birthdate"
                     type="text"
@@ -41,7 +41,7 @@
     {{--Nome--}}
     <div class="row control-group">
         <div class="form-group col-xs-12 floating-label-form-group controls">
-            <label for="name" class="sr-only control-label">Nome Completo</label>
+            <label for="name" class="control-label">Nome Completo</label>
             <input
                     v-model="name"
                     type="text"
@@ -60,7 +60,7 @@
     {{-- Nome Social --}}
     <div class="row control-group">
         <div class="form-group col-xs-12 floating-label-form-group controls">
-            <label for="social_name" class="sr-only control-label">Apelido</label>
+            <label for="social_name" class="control-label">Apelido</label>
             <input
                     v-model="social_name"
                     type="text"
@@ -79,7 +79,7 @@
     {{-- Email --}}
     <div class="row control-group"  transition="expand">
         <div class="form-group col-xs-12 floating-label-form-group controls">
-            <label for="email" class="sr-only control-label">E-mail</label>
+            <label for="email" class="control-label">E-mail</label>
             <input
                     v-model="email"
                     type="text"
@@ -100,7 +100,7 @@
         {{-- Cidade --}}
         <div class="row control-group" transition="expand">
             <div class="form-group col-xs-12 floating-label-form-group controls">
-                <label for="city" class="sr-only control-label">Município</label>
+                <label for="city" class="control-label">Município</label>
                 <select v-model="city" class="form-control input-lg" placeholder="Município" name="city" id="city" required data-validation-required-message="Por favor preencha o município.">
                     {{--<select id="city-edit" v-model="city" class="form-control input-lg" placeholder="Município" name="city" id="city" required data-validation-required-message="Por favor preencha o município.">--}}
 
@@ -123,7 +123,7 @@
         {{-- Unidade Escolar e série --}}
         <div class="row control-group"  transition="expand">
             <div class="form-group col-xs-6 floating-label-form-group controls">
-                <label for="school" class="sr-only control-label">Escola</label>
+                <label for="school" class="control-label">Escola</label>
                 <select id="school-edit" v-model="school" value="" options="schools" class="form-control input-lg" placeholder="Escola" name="school" id="school">
                     <option value="">SELECIONE SUA ESCOLA</option>
                     <option
@@ -138,7 +138,7 @@
             </div>
 
             <div class="form-group col-xs-6 floating-label-form-group controls">
-                <label for="registration" class="sr-only control-label">Série</label>
+                <label for="registration" class="control-label">Série</label>
 
                 <select v-model="grade" class="form-control input-lg" placeholder="Sexo" name="grade" id="grade" required data-validation-required-message="Por favor preencha a série.">
                     <option value="" selected>ESCOLHA A SÉRIE</option>
@@ -165,7 +165,7 @@
     {{-- Sexo --}}
     <div class="row control-group"  transition="expand">
         <div class="form-group col-lg-4 floating-label-form-group controls">
-            <label for="gender" class="sr-only control-label">Sexo</label>
+            <label for="gender" class="control-label">Sexo</label>
             <select v-model="gender" class="form-control input-lg" placeholder="Sexo" name="gender" id="gender" required data-validation-required-message="Por favor preencha o sexo.">
                 <option value="" selected>SEXO</option>
 
@@ -186,7 +186,7 @@
             <span class="help-block text-danger"></span>
         </div>
         <div class="form-group col-lg-8 floating-label-form-group controls">
-            <label for="gender2" class="sr-only control-label">Identidade de Gênero</label>
+            <label for="gender2" class="control-label">Identidade de Gênero</label>
             <select v-model="gender2" class="form-control input-lg" placeholder="Identidade de Gênero" name="gender2" id="gender2" required data-validation-required-message="Por favor preencha a identidade de gênero.">
                 <option value="" selected>IDENTIDADE DE GÊNERO</option>
 
@@ -211,7 +211,7 @@
     {{-- Identidade / CPF --}}
     <div class="row control-group"  transition="expand">
         <div class="form-group col-xs-4 floating-label-form-group controls">
-            <label for="cpf" class="sr-only control-label">CPF</label>
+            <label for="cpf" class="control-label">CPF</label>
             <input
                     v-model="cpf"
                     v-on:keyup="checkCpf"
@@ -228,7 +228,7 @@
         </div>
 
         <div class="form-group col-xs-4 floating-label-form-group controls">
-            <label for="id_number" class="sr-only control-label">Identidade</label>
+            <label for="id_number" class="control-label">Identidade</label>
             <input
                     v-model="id_number"
                     type="text"
@@ -244,7 +244,7 @@
         </div>
 
         <div class="form-group col-xs-4 floating-label-form-group controls">
-            <label for="id_issuer" class="sr-only control-label">Órgão emissor</label>
+            <label for="id_issuer" class="control-label">Órgão emissor</label>
             <input
                     v-model="id_issuer"
                     type="text"
@@ -262,7 +262,7 @@
     {{-- Telefone --}}
     <div class="row control-group"  transition="expand">
         <div class="form-group col-lg-6 floating-label-form-group controls">
-            <label for="phone_home" class="sr-only control-label">Telefone Residencial</label>
+            <label for="phone_home" class="control-label">Telefone Residencial</label>
             <input
                     v-model="phone_home"
                     type="tel"
@@ -277,7 +277,7 @@
         </div>
 
         <div class="form-group col-lg-6 floating-label-form-group controls">
-            <label for="phone_cellular" class="sr-only control-label">Telefone Celular</label>
+            <label for="phone_cellular" class="control-label">Telefone Celular</label>
             <input
                     v-model="phone_cellular"
                     type="tel"
@@ -296,7 +296,7 @@
     {{-- CEP --}}
     <div class="row control-group"  transition="expand">
         <div class="form-group col-lg-12 floating-label-form-group controls">
-            <label for="zip_code" class="sr-only control-label">CEP da residência</label>
+            <label for="zip_code" class="control-label">CEP da residência</label>
             <input
                     v-model="zip_code"
                     v-on:keyup="checkZip"
@@ -316,7 +316,7 @@
     {{-- Endereço --}}
     <div class="row control-group"  transition="expand">
         <div class="form-group col-lg-12 floating-label-form-group controls">
-            <label for="address" class="sr-only control-label">Endereço</label>
+            <label for="address" class="control-label">Endereço</label>
             <input
                     v-model="address"
                     type="tel"
@@ -334,7 +334,7 @@
     {{-- Complemento & Bairro --}}
     <div class="row control-group"  transition="expand">
         <div class="form-group col-lg-6 floating-label-form-group controls">
-            <label for="address_complement" class="sr-only control-label">Complemento</label>
+            <label for="address_complement" class="control-label">Complemento</label>
             <input
                     v-model="address_complement"
                     type="tel"
@@ -349,7 +349,7 @@
         </div>
 
         <div class="form-group col-lg-6 floating-label-form-group controls">
-            <label for="address_neighborhood" class="sr-only control-label">Bairro</label>
+            <label for="address_neighborhood" class="control-label">Bairro</label>
             <input
                     v-model="address_neighborhood"
                     type="tel"
@@ -368,7 +368,7 @@
     {{-- Município --}}
     <div class="row control-group"  transition="expand">
         <div class="form-group col-lg-12 floating-label-form-group controls">
-            <label for="address_city" class="sr-only control-label">Município</label>
+            <label for="address_city" class="control-label">Município</label>
             <input
                     v-model="address_city"
                     type="tel"
@@ -388,7 +388,7 @@
         {{-- Elected --}}
         <div class="row control-group"  transition="expand">
             <div class="form-group col-lg-4 floating-label-form-group controls">
-                <label for="elected" class="sr-only control-label">Eleito</label>
+                <label for="elected" class="control-label">Eleito</label>
                 <select v-model="elected" class="form-control input-lg" placeholder="Eleito" name="elected" id="elected" required data-validation-required-message="Por favor preencha o eleito.">
                     <option value="" selected>ELEITO</option>
 
