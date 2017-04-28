@@ -25,7 +25,7 @@ class Subscribe extends Request
 //            'name' => 'required',
 //            'registration' => 'required',
 //            'birthdate' => 'required|date_format:d/m/Y|lessthan18|morethan13',
-            'student_id' => 'required',
+//            'student_id' => 'required',
             'social_name' => '',
             'city' => 'required|city',
             'school' => 'required|exists:schools,name',
