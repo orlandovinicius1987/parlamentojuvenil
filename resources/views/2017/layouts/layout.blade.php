@@ -225,6 +225,8 @@
             });
         </script>
 
-        @yield('page-javascripts')
+        @yield('page-javascripts')]
+
+        @include('partials.analytics')
     </body>
 </html>
