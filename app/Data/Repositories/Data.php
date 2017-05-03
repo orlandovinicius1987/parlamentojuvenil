@@ -161,7 +161,7 @@ class Data
 
     public function createSubscription($input)
     {
-        $student = Student::find($input['student_id']);
+        $student = Student::findOrFail($input['student_id']);
 
         $student->fill($this->makeSubscriptionData($input, $student->getFillable(), $student->getPrefilled()));
 

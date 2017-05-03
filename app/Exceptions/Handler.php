@@ -57,6 +57,8 @@ class Handler extends ExceptionHandler
         {
             return Response::make(view('errors.404'));
         }
+
+        return Response::make(view('errors.500'));
     }
 
     /**
