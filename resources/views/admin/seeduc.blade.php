@@ -36,18 +36,16 @@
                             </div>
                         </div>
 
-                        @if (Auth::user()->email == 'antoniocarlos@cys.com.br')
-                            <div class="row control-group" transition="expand">
-                                <div class="form-group col-lg-12 floating-label-form-group controls">
-                                    <label for="name" class="sr-only control-label">Nome</label>
-                                    <input
-                                        v-model="name"
-                                        class="form-control input-lg"
-                                        placeholder="Nome"
-                                    >
-                                </div>
+                        <div class="row control-group" transition="expand">
+                            <div class="form-group col-lg-12 floating-label-form-group controls">
+                                <label for="name" class="sr-only control-label">Nome</label>
+                                <input
+                                    v-model="name"
+                                    class="form-control input-lg"
+                                    placeholder="Nome"
+                                >
                             </div>
-                        @endif
+                        </div>
 
                         <div class="row"  transition="expand">
                             <div class="form-group col-xs-12">
