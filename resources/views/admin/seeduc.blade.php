@@ -21,6 +21,7 @@
                                 <label for="matricula" class="sr-only control-label">Matrícula</label>
                                 <input
                                     v-model="registration"
+                                    @keyup.enter="__search"
                                     class="form-control input-lg"
                                     placeholder="Matrícula"
                                 >
@@ -30,6 +31,7 @@
                                 <label for="birthdate" class="sr-only control-label">Data de Nascimento</label>
                                 <input
                                     v-model="birthdate"
+                                    @keyup.enter="__search"
                                     class="form-control input-lg"
                                     placeholder="Data de nascimento"
                                 >
@@ -41,6 +43,7 @@
                                 <label for="name" class="sr-only control-label">Nome</label>
                                 <input
                                     v-model="name"
+                                    @keyup.enter="__search"
                                     class="form-control input-lg"
                                     placeholder="Nome"
                                 >
