@@ -75,13 +75,15 @@ class Admin extends BaseController
 
     function schools()
 	{
-		$schools = School::join('students', 'students.school', '=', 'schools.name')
-                    ->join('subscriptions', 'subscriptions.student_id', '=', 'students.id')
-                    ->select(['schools.name', 'schools.city', DB::raw('count(*) as schoolcount')])
-                    ->groupBy(['schools.name', 'schools.city'])
+		$schools = Subscription::join('students', 'students.id', '=', 'subscriptions.student_id')
+                    ->select([
+                        'students.school',
+                        'students.city',
+                        DB::raw('(select count(*) from subscriptions as su2 join students as st2 on st2.id = su2.student_id where st2.school = students.school) as schoolcount')
+                    ])
                     ->orderBy('schoolcount', 'desc')
-                    ->orderBy('schools.city')
-                    ->orderBy('schools.name')
+                    ->orderBy('students.city')
+                    ->orderBy('students.school')
                     ->get();
 
 		return view('admin.schools')

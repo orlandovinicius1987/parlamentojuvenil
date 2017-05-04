@@ -29,7 +29,7 @@
                                     @foreach($schools as $school)
                                         <tr>
                                             <td>
-                                                {{ $school->name }}
+                                                {{ $school->school }}
                                             </td>
                                             <td>
                                                 {{ $school->city }}
