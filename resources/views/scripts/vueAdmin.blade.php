@@ -6,6 +6,7 @@
 
             data: {
                 cities: [],
+                cities_copy: null,
                 subscriptions: [],
                 citiesInCount: '',
                 citiesOutCount: '',
@@ -18,13 +19,13 @@
                 hash: '',
                 cancelled: 0,
                 filterSchools : false,
-                orderby: 'city',
-                ordertype: 1,
+                orderBy: 'city',
+                orderType: 'asc',
             },
 
             methods: {
                 __formatDates: function () {
-                    var items = clone(this.subscriptions);
+                    var items = clone(this.cities);
 
                     items.forEach(function(object)
                     {
@@ -33,16 +34,17 @@
                         object.index = Date.now();
                     }.bind(this));
 
-                    this.subscriptions = clone(items);
+                    this.cities = clone(items);
 
 //                    this._digest();
                 },
 
                 __fetchSubscriptions: function() {
-                    console.log('fetching');
                     this.$http.get('/api/v1/subscriptions').then(
                         function(response) {
+                            console.log(response.body.cities);
                             this.cities = response.body.cities;
+                            this.cities_copy = response.body.cities;
                             this.subscriptions = response.body.subscriptions;
                             this.citiesInCount = response.body.citiesInCount;
                             this.citiesOutCount = response.body.citiesOutCount;
@@ -73,17 +75,16 @@
                 },
 
                 __changeOrder: function(field) {
-
-                    if (this.orderby == field)
+                    if (this.orderBy == field)
                     {
-                        this.ordertype = this.ordertype * -1;
+                        this.orderType = this.orderType == 'asc' ? 'desc' : 'asc';
 
                         return;
                     }
 
-                    this.ordertype = 1;
+                    this.orderType = 'asc';
 
-                    this.orderby = field;
+                    this.orderBy = field;
                 },
 
                 __formatDate: function(date)
@@ -106,19 +107,17 @@
 
             mounted: function ()
             {
-                console.log('mounted');
                 this.__fetchSubscriptions();
             },
 
             computed: {
-                filteredSubscriptions: function () {
-                    return _.orderBy(this.subscriptions, this.orderby, [this.ordertype])
-
-                    //                    filter moreThanOneSchool
+                _cities: function() {
+                    console.log(this.cities, this.orderBy, this.orderType)
+                    return _.orderBy(this.cities, this.orderBy, this.orderType)
                 },
 
                 _arrowClass: function () {
-                    if (this.ordertype == 1) {
+                    if (this.orderType == 'asc') {
                         return 'fa-arrow-down';
                     }
 

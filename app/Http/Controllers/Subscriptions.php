@@ -41,10 +41,12 @@ class Subscriptions extends BaseController
         $cities = City::select(
                             'cities.id as city_id',
                             'cities.name as city_name',
-                            DB::raw('(select count(*)  from subscriptions su1  join students st1 on st1.id = su1.student_id join cities ci2 on ci2.name = st1.city  where ci2.name = cities.name and su1.ignored = false) as subscriptions_count'),
-                            DB::raw('(select count(distinct(st1.school)) from subscriptions su1 join students st1 on st1.id = su1.student_id join cities ci2 on ci2.name = st1.city where ci2.name = cities.name and su1.ignored = false) as schools_count'),
-                            DB::raw('(select max(su1.created_at) from subscriptions su1  join students st1 on st1.id = su1.student_id join cities ci2 on ci2.name = st1.city  where ci2.name = cities.name) as last_subscription')
+                            DB::raw('(select count(*)  from subscriptions su1 join students st2 on st2.id = su1.student_id join cities ci2 on ci2.name = st2.city  where ci2.name = cities.name and su1.ignored = false) as subscriptions_count'),
+                            DB::raw('(select count(distinct(st2.school)) from subscriptions su2 join students st2 on st2.id = su2.student_id join cities ci2 on ci2.name = st2.city where ci2.name = cities.name and su2.ignored = false) as schools_count'),
+                            DB::raw('max(su1.created_at) as last_subscription')
                         )
+                        ->leftJoin('students as st1', 'cities.name', '=', 'st1.city')
+                        ->leftJoin('subscriptions as su1', 'su1.student_id', '=', 'st1.id')
                         ->where('cities.name', '<>', 'FACEBOOK')
                         ->where('cities.name', '<>', 'ACR')
                         ->where('cities.name', '<>', 'BRENOT')

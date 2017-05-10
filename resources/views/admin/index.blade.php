@@ -36,37 +36,37 @@
                     <table class="table table-striped table-bordered table-hover">
                         <thead>
                             <tr>
-                                <th v-on:click="__changeOrder('subscriptioncount')" class="text-right">
+                                <th v-on:click="__changeOrder('subscriptions_count')" class="text-right">
                                     Inscrições
-                                    <div v-show="orderby == 'subscriptioncount'" class="btn btn-danger btn-xs">
+                                    <div v-show="orderBy == 'subscriptions_count'" class="btn btn-danger btn-xs">
                                         <i class="fa" v-bind:class="_arrowClass"></i>
                                     </div>
                                 </th>
 
-                                <th v-on:click="__changeOrder('city')">
+                                <th v-on:click="__changeOrder('city_name')">
                                     Município
-                                    <div v-show="orderby == 'city'" class="btn btn-danger btn-xs">
+                                    <div v-show="orderBy == 'city_name'" class="btn btn-danger btn-xs">
                                         <i class="fa" v-bind:class="_arrowClass"></i>
                                     </div>
                                 </th>
 
-                                <th v-on:click="__changeOrder('schoolcount')">
+                                <th v-on:click="__changeOrder('schools_count')">
                                     Escolas
-                                    <div v-show="orderby == 'schoolcount'" class="btn btn-danger btn-xs">
+                                    <div v-show="orderBy == 'schools_count'" class="btn btn-danger btn-xs">
                                         <i class="fa" v-bind:class="_arrowClass"></i>
                                     </div>
                                 </th>
 
-                                <th v-on:click="__changeOrder('lastsubscription')">
+                                <th v-on:click="__changeOrder('last_subscription')">
                                     Data/hora última inscrição
-                                    <div v-show="orderby == 'lastsubscription'" class="btn btn-danger btn-xs">
+                                    <div v-show="orderBy == 'last_subscription'" class="btn btn-danger btn-xs">
                                         <i class="fa" v-bind:class="_arrowClass"></i>
                                     </div>
                                 </th>
                             </tr>
                         </thead>
                         <tbody>
-                            <template v-for="city in cities" track-by="city">
+                            <template v-for="city in _cities" track-by="city">
                                 <tr>
                                     <td class="text-right" v-bind:class="_getSubscriptionCountClass(city)">
                                         @{{ city.subscriptions_count || '' }}
