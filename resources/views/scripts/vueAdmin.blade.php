@@ -112,8 +112,19 @@
 
             computed: {
                 _cities: function() {
-                    console.log(this.cities, this.orderBy, this.orderType)
-                    return _.orderBy(this.cities, this.orderBy, this.orderType)
+                    var orderBy = this.orderBy;
+
+                    var orderType = this.orderType;
+
+                    return _.orderBy(
+                        this.cities,
+
+                        function(item) {
+                            return item[orderBy] || '';
+                        },
+
+                        orderType
+                    );
                 },
 
                 _arrowClass: function () {
