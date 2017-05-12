@@ -119,3 +119,7 @@ function make_view_name_year_based($name, $year = null)
 {
     return ($year ?: config('app.year')) . '.' . $name;
 }
+
+function fix_cities() {
+    app(Cities::class)->fixCities();
+}

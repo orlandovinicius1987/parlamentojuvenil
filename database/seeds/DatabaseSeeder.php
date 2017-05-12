@@ -21,5 +21,7 @@ class DatabaseSeeder extends Seeder
 	    $this->call(SchoolsSeeder::class);
 
         Model::reguard();
+
+        fix_cities();
     }
 }
