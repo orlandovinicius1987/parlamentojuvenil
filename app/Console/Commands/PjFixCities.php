@@ -4,7 +4,6 @@ namespace App\Console\Commands;
 
 use League\Csv\Statement;
 use Illuminate\Console\Command;
-use App\Data\Repositories\Cities;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 
 class PjFixCities extends Command

@@ -121,5 +121,5 @@ function make_view_name_year_based($name, $year = null)
 }
 
 function fix_cities() {
-    app(Cities::class)->fixCities();
+    app(\App\Data\Repositories\Cities::class)->fixCities();
 }
