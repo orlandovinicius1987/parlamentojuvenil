@@ -61,11 +61,11 @@ class ApiSearch extends BaseController
         if ($name = trim((string) $request->get('name'))) {
             $name = $this->makeWildcardSearchable($name);
 
-            $query->whereRaw("lower(unaccent(name)) like '{$name}'");
+            $query->whereRaw("lower(unaccent(users.name)) like '{$name}'");
         }
 
         if ($email = trim((string) $request->get('email'))) {
-            $query->where('email', 'like', '%'.$email.'%');
+            $query->where('users.email', 'like', '%'.$email.'%');
         }
 
         $query->join('social_users', 'social_users.user_id', '=', 'users.id');
