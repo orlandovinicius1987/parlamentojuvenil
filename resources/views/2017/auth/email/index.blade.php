@@ -26,7 +26,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-6 forgot-password">
-                                        <a class="pull-right" href="#">Esqueceu sua senha?</a>
+                                        <a class="pull-right" href="{{ route('auth.login.email.password') }}">Esqueceu sua senha?</a>
                                     </div>
                                 </div>
                                 <div class="row subscribe-buttons">

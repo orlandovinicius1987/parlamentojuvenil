@@ -45,6 +45,7 @@
 {{--@include('scripts.vueSubscribe')--}}
 @include('scripts.vueCongressmen')
 @include('scripts.vueSeeduc')
+@include('scripts.vueUsers')
 @include('scripts.vueFilters')
 @include('scripts.vueGallery')
 @include('scripts.vueMap')

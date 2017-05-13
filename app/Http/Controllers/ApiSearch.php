@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Data\Entities\User;
 use DB;
 use App\Data\Entities\Seeduc;
 use Illuminate\Http\Request;
@@ -39,6 +40,39 @@ class ApiSearch extends BaseController
         }
 
         if (empty($registration) && empty($birthdate) && empty($name)) {
+            return [];
+        }
+
+        return $query->get();
+    }
+
+    public function users(Request $request)
+    {
+        $query = User::query();
+
+        $query->select(
+            'users.name',
+            'users.nickname',
+            'users.email',
+            'users.avatar',
+            'social_networks.slug as social_network'
+        );
+
+        if ($name = trim((string) $request->get('name'))) {
+            $name = $this->makeWildcardSearchable($name);
+
+            $query->whereRaw("lower(unaccent(name)) like '{$name}'");
+        }
+
+        if ($email = trim((string) $request->get('email'))) {
+            $query->where('email', 'like', '%'.$email.'%');
+        }
+
+        $query->join('social_users', 'social_users.user_id', '=', 'users.id');
+
+        $query->join('social_networks', 'social_networks.id', '=', 'social_users.social_network_id');
+
+        if (empty($email) && empty($name)) {
             return [];
         }
 

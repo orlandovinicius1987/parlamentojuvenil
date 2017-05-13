@@ -96,6 +96,11 @@ class Admin extends BaseController
         return view('admin.seeduc');
     }
 
+    function users()
+    {
+        return view('admin.users');
+    }
+
     public function training($id)
     {
         $year = 2016;

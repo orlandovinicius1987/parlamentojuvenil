@@ -24,6 +24,8 @@ Route::group(['prefix' => '/auth'], function ()
     Route::post('/login/email', ['as' => 'auth.login.email.post', 'uses' => 'EmailAuth@post']);
     Route::post('/login/email/register', ['as' => 'auth.login.email.register', 'uses' => 'EmailAuth@register']);
     Route::get('/login/email/student', ['as' => 'auth.login.email.student', 'uses' => 'EmailAuth@student']);
+    Route::get('/login/email/password', ['as' => 'auth.login.email.password', 'uses' => 'EmailAuth@password']);
+    Route::post('/login/email/password', ['as' => 'auth.login.email.password', 'uses' => 'EmailAuth@resetPassword']);
 
     Route::get('/student/identify', ['as' => 'student.identify', 'uses' => 'StudentController@identify']);
 
@@ -96,6 +98,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'only-administrators
 
     Route::get('seeduc', ['as' => 'admin.seeduc', 'uses' => 'Admin@seeduc']);
 
+    Route::get('users', ['as' => 'admin.users', 'uses' => 'Admin@users']);
+
 	Route::get('{city}', ['as' => 'admin.city', 'uses' => 'Admin@city']);
 
     Route::get('training/{subscription}', ['as' => 'admin.training', 'uses' => 'Admin@training']);
@@ -136,6 +140,8 @@ Route::group(['prefix' => 'api/v1'], function ()
     Route::get('subscriptions', ['as' => 'subscriptions', 'uses' => 'Subscriptions@byState']);
 
     Route::get('search/seeduc', ['as' => 'api.search.seeduc', 'uses' => 'ApiSearch@seeduc']);
+
+    Route::get('search/users', ['as' => 'api.search.users', 'uses' => 'ApiSearch@users']);
 });
 
 Route::get('article/{id}', ['as' => 'article.show', 'uses' => 'News@showArticle']);

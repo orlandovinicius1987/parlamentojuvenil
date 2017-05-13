@@ -90,4 +90,14 @@ class EmailAuth extends BaseController
 
         return redirect()->intended();
     }
+
+    public function password($year = null)
+    {
+        return $this->buildView('auth.email.password', $year);
+    }
+
+    public function resetPassword($year = null, RecoverPasswordValidation $recoverPasswordValidation)
+    {
+
+    }
 }

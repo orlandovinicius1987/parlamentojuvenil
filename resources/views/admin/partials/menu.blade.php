@@ -70,6 +70,10 @@
                 <li active="{{ request()->is('admin/seeduc') ? 'active' : '' }}">
                     <a href="{{ route('admin.seeduc') }}"><i class="fa fa-search fa-fw"></i> Seeduc</a>
                 </li>
+
+                <li active="{{ request()->is('admin/users') ? 'active' : '' }}">
+                    <a href="{{ route('admin.users') }}"><i class="fa fa-user fa-fw"></i> Usuários</a>
+                </li>
             </ul>
         </div>
         <!-- /.sidebar-collapse -->
