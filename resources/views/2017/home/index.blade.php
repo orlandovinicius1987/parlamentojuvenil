@@ -33,10 +33,15 @@
                         <img class="hidden-sm masonry-overflow masonri-right masonry08" src="/templates/2017/images/masonry-08.png">
                     </div>
                     <div class="grow grid-item lilas2"></div>
+                    <div class="grow grid-item grid-item--height3 branco2">
+                        <a href="/vote"><img class="" src="/templates/2017/images/vote-agora.png"></a>
+                    </div>
+
                     <div class="grow grid-item grid-item--height3 azul1">
                         <img class="masonry-overflow masonry-big" src="/templates/2017/images/masonry-big.png">
                     </div>
-                    <div class="grow grid-item  grid-item--height2 amarelo1">
+
+                    {{--<div class="grow grid-item  grid-item--height2 amarelo1">
                         @if (subscriptionsEnabled())
                             <div class="inscrevase form-group">
                                 <div class="center">
@@ -78,7 +83,7 @@
 
                             <img class="masonry-nopadding" src="/templates/2017/images/masonry-04.png">
 
-                    </div>
+                    </div>--}}
                     <div class="grow grid-item verde3"></div>
                     <div class="grow grid-item amarelo1"></div>
                     <div class="grow grid-item vermelho1"></div>
@@ -102,7 +107,7 @@
                         <img class="masonry-overflow masonry10" src="/templates/2017/images/masonry-06.png">
                     </div>
 
-                    <div class="grow grid-item azul1"></div>
+                    {{--<div class="grow grid-item azul1"></div>--}}
 
                     <div class="grow grid-item laranja1"></div>
 
@@ -112,7 +117,7 @@
 
                     <div class="grow grid-item verde3"></div>
 
-                    <div class="grow grid-item vermelho1"></div>
+                    {{--<div class="grow grid-item vermelho1"></div>--}}
                 </div>
             </div>
         </div>
