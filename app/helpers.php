@@ -70,7 +70,9 @@ function loggedUser() {
 }
 
 function subscriptionsEnabled() {
-    return app()->environment() != 'production' || config('app.subscriptions.enabled');
+    return (Auth::user() && Auth::user()->isAdministrator())
+            || app()->environment() != 'production'
+            || config('app.subscriptions.enabled');
 }
 
 function makeAvatar($email) {
