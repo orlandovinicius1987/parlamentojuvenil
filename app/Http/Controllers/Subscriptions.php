@@ -198,11 +198,13 @@ class Subscriptions extends BaseController
 		return redirect()->back();
 	}
 
-    public function index($year = null)
+    public function index($force = null)
     {
-        $year = $year ?: config('app.year');
+        if (! subscriptionsEnabled() && $force !== 'force-admin') {
+            return redirect()->route('home');
+        }
 
-        return $this->buildView('subscriptions.index', $year);
+        return $this->buildView('subscriptions.index', config('app.year'));
     }
 
     private function normalizeInput($input)
