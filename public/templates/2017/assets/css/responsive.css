@@ -36,6 +36,29 @@
 /* 1 - media screen and (max-width: 992px)
 ---------------------------------------------------------------------- */
 
+@media screen and (min-width: 1201px) {
+	.votacao h2.vote-cidade:after {
+		display: inline-block;
+		margin: 0 0 5px 30px;
+		height: 2px;
+		content: " ";
+		text-shadow: none;
+		background-color: #292C95;
+		width: 35%;
+	}
+
+	.votacao h2.vote-cidade:before {
+		display: inline-block;
+		margin: 0 30px 5px 0;
+		height: 2px;
+		content: " ";
+		text-shadow: none;
+		background-color: #292C95;
+		width: 35%;
+	}
+
+}
+
 @media screen and (min-width: 1171px) and (max-width: 1200px) {
 
 	.vote-confirmation .btn-large {
@@ -1148,6 +1171,12 @@
 }
 
 @media screen and (min-width: 321px) and (max-width: 375px) {
+
+	.foto-candidato-outer {
+		margin-left: 86px;
+		margin-right: 85px;
+	}
+
 	.vote .dados-candidato {
 		padding: 10px 15px 0px 15px;
 	}
@@ -1318,6 +1347,12 @@
 }
 
 @media screen and (max-width: 320px) {
+
+
+	.foto-candidato-outer {
+		margin-left: 58px;
+		margin-right: 58px;
+	}
 
 	.vote .dados-candidato {
 		padding: 10px 15px 0px 15px;
