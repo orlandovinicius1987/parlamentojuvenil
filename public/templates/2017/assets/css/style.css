@@ -1985,30 +1985,14 @@ img.btn-login-social {
 	font-weight: 600;
 	text-transform: uppercase;
 }
-.votacao h2.vote-cidade:after {
-	display: inline-block;
-	margin: 0 0 5px 30px;
-	height: 2px;
-	content: " ";
-	text-shadow: none;
-	background-color: #292C95;
-	width: 35%;
+
+
+
+
+
+.row.vote {
+	margin-top: 80px;
 }
-.votacao h2.vote-cidade:before {
-	display: inline-block;
-	margin: 0 30px 5px 0;
-	height: 2px;
-	content: " ";
-	text-shadow: none;
-	background-color: #292C95;
-	width: 35%;
-}
-
-
-
-
-
-
 
 .vote {
 	color: #fff;
@@ -2027,6 +2011,15 @@ img.btn-login-social {
 	border: 1px solid #fff;
 	margin-top: 30px;
 }
+
+.vote .borda-foto {
+	background: rgba(0, 0, 0, 0.3);
+	height: 71px;
+	padding-left: 4px;
+	margin-top: -14px;
+}
+
+
 .vote .foto-candidato {
 	padding-left: 0;
 	padding-right: 0;
@@ -2034,10 +2027,12 @@ img.btn-login-social {
 
 .vote .foto-candidato img{
 	border: 1px solid #fff;
+	position: absolute;
+	top: -52px;
 }
 
 .vote .dados-candidato {
-	padding: 10px 15px 0px 30px;
+	padding: 20px 15px 15px 15px;
 }
 .vote .cargo {
 	font-weight: 600;
@@ -2047,10 +2042,11 @@ img.btn-login-social {
 }
 
 
+
 .well {
 	min-height: 20px;
 	padding: 15px;
-	margin-bottom: 30px;
+	margin-bottom: 70px;
 	border: none;
 	border-radius: 0;
 	-webkit-box-shadow: none;
@@ -2065,8 +2061,40 @@ img.btn-login-social {
 	font-weight: 600;
 }
 
+/*
+
+.foto-candidato-inner {
+	display: table;
+	margin: 0 auto;
+}
+
+.foto-candidato-outer{
+	background: rgba(0, 0, 0, 0.3);
+	height: 75px;
+	margin-top: -15px;
+}
+
+*/
 
 
+
+
+.foto-candidato-inner {
+	display: table;
+	margin: 0 auto;
+}
+
+.foto-candidato-outer {
+	background: rgba(0, 0, 0, 0.4);
+	margin-top: -15px;
+	margin-left: 11px;
+	margin-right: 12px;
+}
+.foto-candidato-social {
+	margin-top: -50px;
+	margin-bottom: 5px;
+	border: 1px solid #fff;
+}
 
 
 .alert {
