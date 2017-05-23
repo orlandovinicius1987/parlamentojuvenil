@@ -67,6 +67,7 @@
 
 .azul3{
     background: #0060AE;
+    color: #fff;
 }
 .azul3:hover{
     background: #004F8F;
@@ -75,6 +76,7 @@
 
 .azul4{
     background: #292C95;
+    color: #fff;
 }
 .azul4:hover{
     background: #1F2170;
@@ -82,6 +84,7 @@
 
 .verde1{
     background: #91CE18;
+    color: #fff;
 }
 .verde1:hover{
     background: #74A413;
