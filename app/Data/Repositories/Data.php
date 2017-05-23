@@ -67,9 +67,9 @@ class Data extends Repository
     /**
      * @return mixed
      */
-    private function getCurrentYear()
+    public function getCurrentYear($year = NULL)
     {
-        return config('app.year');
+        return $year ?: config('app.year');
     }
 
     /**
