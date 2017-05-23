@@ -26,7 +26,7 @@ class Subscribing
      */
     public function handle($request, Closure $next)
     {
-        loggedUser()->mustBeStudent = true;
+        loggedUser()->isSubscribing = true;
 
         return $next($request);
     }

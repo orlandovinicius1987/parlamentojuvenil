@@ -16,7 +16,7 @@ use App\Services\Filesystem\Service as Filesystem;
 use Illuminate\Support\Collection as IlluminateCollection;
 
 
-class Data
+class Data extends Repository
 {
 
     private $usersRepository;

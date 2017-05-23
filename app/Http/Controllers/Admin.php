@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Data\Entities\Student;
+use App\Data\Repositories\Subscriptions;
 use \DB;
 use App\Data\Entities\School;
 use App\Data\Entities\Subscription;
@@ -14,9 +15,16 @@ class Admin extends BaseController
 {
     private $trainingRepository;
 
-    public function __construct(TrainingRepository $trainingRepository)
+    /**
+     * @var Subscriptions
+     */
+    private $subscriptionsRepository;
+
+    public function __construct(TrainingRepository $trainingRepository, Subscriptions $subscriptionsRepository)
     {
         $this->trainingRepository = $trainingRepository;
+
+        $this->subscriptionsRepository = $subscriptionsRepository;
     }
 
     private function extractId($id, $elements = 1)
@@ -46,9 +54,9 @@ class Admin extends BaseController
 
     function elected()
     {
-        $elected = Subscription::with('quizResult')->where('elected', true)->orderBy('name')->get();
+        list($elected_1nd, $elected_2nd) = $this->subscriptionsRepository->getElectedOn1and2();
 
-        return view('admin.elected')->with('elected', $elected);
+        return view('admin.elected')->with('elected', $elected_1nd, $elected_2nd);
     }
 
     private function makeTitle($course)

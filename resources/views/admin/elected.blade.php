@@ -24,6 +24,10 @@
                                     <th>Cidade</th>
                                     <th>Nascimento</th>
                                     <th>Matrícula</th>
+                                    <th>Eleito 1o turno</th>
+                                    <th>Votos 1o turno</th>
+                                    <th>Eleito 2o turno</th>
+                                    <th>Votos 2o turno</th>
                                     <th>Capacitação</th>
                                     <th>Opções</th>
                                 </tr>
@@ -45,6 +49,22 @@
 
                                             <td>
                                                 {{ $person->registration }}
+                                            </td>
+
+                                            <td>
+                                                {{ $person->elected_1nd ? 'SIM' : 'NÃO' }}
+                                            </td>
+
+                                            <td>
+                                                {{ $person->votes_1nd }}
+                                            </td>
+
+                                            <td>
+                                                {{ $person->elected_2nd ? 'SIM' : 'NÃO' }}
+                                            </td>
+
+                                            <td>
+                                                {{ $person->votes_2nd }}
                                             </td>
 
                                             <td>

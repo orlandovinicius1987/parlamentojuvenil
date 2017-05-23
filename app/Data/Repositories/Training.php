@@ -8,7 +8,7 @@ use Session;
 use App\Data\Entities\Subscription;
 use App\Data\Entities\Training as TrainingModel;
 
-class Training
+class Training extends Repository
 {
     public function findById($item, $user, $year)
     {

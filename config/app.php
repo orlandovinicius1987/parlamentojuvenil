@@ -12,8 +12,13 @@ return [
 
     'url' => env('URL_BASE'),
 
+    'election' => [
+        'round' => env('ELECTION_ROUND')
+    ],
+
     'subscriptions' => [
-        'enabled' => env('SUBSCRIPTIONS_ENABLED')
+        'enabled' => env('ELECTION_ENABLED'),
+        'round' => env('ELECTION_ROUND'),
     ],
 
     'student' => [

@@ -383,26 +383,36 @@
         </div>
     </div>
 
-    @if ($isAdmin)
+    @if (loggedUser()->user->is_administrator)
         {{-- Elected --}}
         <div class="row control-group"  transition="expand">
             <div class="form-group col-lg-4 floating-label-form-group controls">
-                <label for="elected" class="control-label">Eleito</label>
-                <select v-model="elected" class="form-control input-lg" placeholder="Eleito" name="elected" id="elected" required data-validation-required-message="Por favor preencha o eleito.">
-                    <option value="" selected>ELEITO</option>
+                <label for="elected_1nd" class="control-label">Eleito no 1o Turno</label>
+                <select v-model="elected_1nd" class="form-control input-lg" placeholder="Eleito" name="elected_1nd" id="elected_1nd" required data-validation-required-message="Por favor preencha o eleito.">
+                    <option value="">ELEITO 1o TURNO</option>
 
-                    <option
-                            value="Y"
-                            {!! old('elected') === true || $student->elected === true ? 'selected' : '' !!}
-                    >
-                        ELEITO: SIM
+                    <option value="1">
+                        SIM
                     </option>
 
-                    <option
-                            value="N"
-                            {!! old('elected') === false || $student->elected === false ? 'selected' : '' !!}
-                    >
-                        ELEITO: NÃO
+                    <option value="0">
+                        NÃO
+                    </option>
+                </select>
+                <span class="help-block text-danger"></span>
+            </div>
+
+            <div class="form-group col-lg-4 floating-label-form-group controls">
+                <label for="elected_2nd" class="control-label">Eleito no 1o Turno</label>
+                <select v-model="elected_2nd" class="form-control input-lg" placeholder="Eleito" name="elected_2nd" id="elected_2nd" required data-validation-required-message="Por favor preencha o eleito.">
+                    <option value="">ELEITO 2o TURNO</option>
+
+                    <option value="1">
+                        SIM
+                    </option>
+
+                    <option value="0">
+                        NÃO
                     </option>
                 </select>
                 <span class="help-block text-danger"></span>

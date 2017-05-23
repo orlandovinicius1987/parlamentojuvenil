@@ -4,8 +4,18 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class StudentLogin
+class Voting
 {
+    /**
+     * Create a new filter instance.
+     *
+     * @param  Guard  $auth
+     * @return void
+     */
+    public function __construct()
+    {
+    }
+
     /**
      * Handle an incoming request.
      *
@@ -15,13 +25,7 @@ class StudentLogin
      */
     public function handle($request, Closure $next)
     {
-        if (! loggedUser()->userIsLogged()) {
-            return redirect()->route('auth.login.email.student');
-        }
-
-        if (! loggedUser()->studentIsLogged() && ! loggedUser()->voterIsLogged()) {
-            return redirect()->route('student.identify');
-        }
+        loggedUser()->isVoting = true;
 
         return $next($request);
     }

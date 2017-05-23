@@ -59,7 +59,7 @@ class EmailAuth extends BaseController
 
     private function redirectToIntended()
     {
-        if (loggedUser()->mustBeStudent) {
+        if (loggedUser()->isSubscribing) {
             return redirect()->route('subscribe.index');
         }
 

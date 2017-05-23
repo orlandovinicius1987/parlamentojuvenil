@@ -7,7 +7,7 @@ use App\Data\Entities\User;
 use App\Data\Entities\SocialUser;
 use App\Exceptions\Authentication as AuthenticationException;
 
-class Users
+class Users extends Repository
 {
     private function findUserByEmail($email)
     {

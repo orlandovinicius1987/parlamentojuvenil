@@ -54,6 +54,15 @@ Route::group(['prefix' => '/subscribe/{force?}', 'middleware' => ['subscribing',
     Route::get('/', ['as' => 'subscribe.index', 'uses' => 'Subscriptions@index']);
 });
 
+Route::group(['prefix' => '/vote', 'middleware' => ['voting', 'auth', 'student-login']], function ()
+{
+    Route::get('/', ['as' => 'vote.index', 'uses' => 'Vote@index']);
+    Route::get('/in/{subscription_id}', ['as' => 'vote.in', 'uses' => 'Vote@voteIn']);
+    Route::get('/confirm/{subscription_id}', ['as' => 'vote.confirm', 'uses' => 'Vote@confirm']);
+    Route::get('/error', ['as' => 'vote.error', 'uses' => 'Vote@error']);
+    Route::get('/voted', ['as' => 'vote.voted', 'uses' => 'Vote@voted']);
+});
+
 Route::get('news/sync', function (NewsSync $news)
 {
 	return $news->sync();
@@ -103,14 +112,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'only-administrators
 	Route::get('{city}', ['as' => 'admin.city', 'uses' => 'Admin@city']);
 
     Route::get('training/{subscription}', ['as' => 'admin.training', 'uses' => 'Admin@training']);
-});
-
-Route::group(['prefix' => 'vote', 'middleware' => ['auth']], function ()
-{
-    Route::get('/', ['as' => 'vote.index', 'uses' => 'Vote@index']);
-    Route::get('/confirm', ['as' => 'vote.confirm', 'uses' => 'Vote@confirm']);
-    Route::get('/error', ['as' => 'vote.error', 'uses' => 'Vote@error']);
-    Route::get('/voted', ['as' => 'vote.voted', 'uses' => 'Vote@voted']);
 });
 
 Route::get('subscriptions/schools', ['as' => 'subscriptions.schools', 'uses' => 'Subscriptions@bySchool']);
