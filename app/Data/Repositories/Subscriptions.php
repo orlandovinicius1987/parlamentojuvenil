@@ -173,16 +173,29 @@ class Subscriptions extends Repository
         ]);
     }
 
-    public function getElectedOn1and2()
+    public function getElectedOn1and2($year = null)
     {
-        $elected_1nd = Subscription::with('quizResult')
-                           ->join('students', 'students.id', '=' , 'subscriptions.student_id')
-                           ->where('elected_1nd', true)->orderBy('name')->get();
+        $year = $this->getCurrentYear($year);
 
-        $elected_2nd = Subscription::with('quizResult')
-                           ->join('students', 'students.id', '=' , 'subscriptions.student_id')
-                           ->where('elected_2nd', true)->orderBy('name')->get();
+        $values = Subscription::with('quizResult')
+                ->select(
+                    'students.name',
+                    'students.city',
+                    'students.birthdate',
+                    'students.registration',
+                    'subscriptions.elected_1nd',
+                    DB::raw("(select count(*) from votes where votes.subscription_id = subscriptions.id and votes.round = 1 and votes.year = $year) as votes_1nd"),
+                    'subscriptions.elected_2nd',
+                    DB::raw("(select count(*) from votes where votes.subscription_id = subscriptions.id and votes.round = 2 and votes.year = $year) as votes_2nd")
+                )
+                ->join('students', 'students.id', '=' , 'subscriptions.student_id')
+                ->where(function ($query) {
+                    $query->where('elected_1nd', true);
+                    $query->orWhere('elected_2nd', true);
+                })
+                ->get()
+        ;
 
-        return [$elected_1nd, $elected_2nd];
+        return $values;
     }
 }
