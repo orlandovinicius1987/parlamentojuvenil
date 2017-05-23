@@ -2044,6 +2044,7 @@ img.btn-login-social {
 
 
 .well {
+	width: 100%;
 	min-height: 20px;
 	padding: 15px;
 	margin-bottom: 70px;
@@ -2090,6 +2091,15 @@ img.btn-login-social {
 	margin-left: 11px;
 	margin-right: 12px;
 }
+
+
+.vote-confirmation .foto-candidato-outer {
+	background: rgba(0, 0, 0, 0.4);
+	margin-top: -15px;
+	margin-left: 60px;
+	margin-right: 60px;
+}
+
 .foto-candidato-social {
 	margin-top: -50px;
 	margin-bottom: 5px;

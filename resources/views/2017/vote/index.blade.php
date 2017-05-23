@@ -24,7 +24,7 @@
                             </div>
                         </div>
 
-                        <div class="col-xs-12 col-sm-12 dados-candidato">
+                        <div class="col-xs-12 col-sm-12 dados-candidato text-center">
                             <p>Candidato(a)</p>
                             <p class="nome-candidato">{{ $candidate->student_name }}</p>
                             <p class="cargo">Deputado(a) Estadual Juvenil</p>
@@ -36,5 +36,6 @@
             @endforeach
         </div>
    </div>
+
 @stop
 
