@@ -17,31 +17,31 @@
         <div class="container">
             <div class="row">
                 <div class="grid">
-                    <div class="grow grid-item lilas1">
+                    <div class="grow grid-item rouge">
                         <img class="masonry-overflow masonry10 img-responsive" src="/templates/2017/images/masonry-10.png">
                     </div>
-                    <div class="grow grid-item azul1"></div>
-                    <div class="grow grid-item verde3"></div>
-                    <div class="grow grid-item grid-item--height2 branco2">
+                    <div class="grow grid-item cerulean-blue"></div>
+                    <div class="grow grid-item haze-green"></div>
+                    <div class="grow grid-item grid-item--height2 white">
                         <img class="masonry-padding img-responsive" src="/templates/2017/images/masonry-03.png">
                     </div>
-                    <div class="grow grid-item verde1"><img class="masonry-overflow masonry07" src="/templates/2017/images/masonry-07.png"></div>
+                    <div class="grow grid-item lima-green"><img class="masonry-overflow masonry07" src="/templates/2017/images/masonry-07.png"></div>
                     <div class="grow grid-item verde2"></div>
-                    <div class="grow grid-item azul2">
+                    <div class="grow grid-item danube-blue">
                     </div>
-                    <div class="grow grid-item verde1">
+                    <div class="grow grid-item lima-green">
                         <img class="hidden-sm masonry-overflow masonri-right masonry08" src="/templates/2017/images/masonry-08.png">
                     </div>
-                    <div class="grow grid-item lilas2"></div>
-                    <div class="grow grid-item grid-item--height3 branco2">
+                    <div class="grow grid-item violet-red"></div>
+                    <div class="grow grid-item grid-item--height3 white">
                         <a href="/vote"><img class="" src="/templates/2017/images/vote-agora.png"></a>
                     </div>
 
-                    <div class="grow grid-item grid-item--height3 azul1">
+                    <div class="grow grid-item grid-item--height3 cerulean-blue">
                         <img class="masonry-overflow masonry-big" src="/templates/2017/images/masonry-big.png">
                     </div>
 
-                    {{--<div class="grow grid-item  grid-item--height2 amarelo1">
+                    {{--<div class="grow grid-item  grid-item--height2 supernova-yellow">
                         @if (subscriptionsEnabled())
                             <div class="inscrevase form-group">
                                 <div class="center">
@@ -84,14 +84,14 @@
                             <img class="masonry-nopadding" src="/templates/2017/images/masonry-04.png">
 
                     </div>--}}
-                    <div class="grow grid-item verde3"></div>
-                    <div class="grow grid-item amarelo1"></div>
-                    <div class="grow grid-item vermelho1"></div>
-                    <div class="grow grid-item amarelo2">
+                    <div class="grow grid-item haze-green"></div>
+                    <div class="grow grid-item supernova-yellow"></div>
+                    <div class="grow grid-item torch-red"></div>
+                    <div class="grow grid-item supernova-yellow">
                         <img class="hidden-sm masonry-overflow masonry11" src="/templates/2017/images/masonry-11.png">
                     </div>
-                    <div class="grow grid-item azul1"></div>
-                    <div class="grow grid-item grid-item--height2 azul4">
+                    <div class="grow grid-item cerulean-blue"></div>
+                    <div class="grow grid-item grid-item--height2 jacksons-purple">
                         {{--<img class="asonry-padding paddingtop40 masonry-informacoes img-responsive" src="/templates/2017/images/masonry-05.png"><br>--}}
                         <div class="informacoes-masonry text-center">
                             <div class="title">Informações</div><br>
@@ -103,21 +103,21 @@
                         </div>
 
                     </div>
-                    <div class="grow grid-item laranja1">
+                    <div class="grow grid-item ecstasy-orange">
                         <img class="masonry-overflow masonry10" src="/templates/2017/images/masonry-06.png">
                     </div>
 
-                    {{--<div class="grow grid-item azul1"></div>--}}
+                    {{--<div class="grow grid-item cerulean-blue"></div>--}}
 
-                    <div class="grow grid-item laranja1"></div>
+                    <div class="grow grid-item ecstasy-orange"></div>
 
-                    <div class="grow grid-item grid-item--height2 branco2">
+                    <div class="grow grid-item grid-item--height2 white">
                         <img class="masonry-padding img-responsive" src="/templates/2017/images/logo-alerj-cores.png">
                     </div>
 
-                    <div class="grow grid-item verde3"></div>
+                    <div class="grow grid-item haze-green"></div>
 
-                    {{--<div class="grow grid-item vermelho1"></div>--}}
+                    {{--<div class="grow grid-item torch-red"></div>--}}
                 </div>
             </div>
         </div>
