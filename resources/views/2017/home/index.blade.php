@@ -11,6 +11,16 @@
                         </a>
                     </div>
             @endif
+
+            @if (config('app.election.enabled') === true)
+                <div class="jumbotron text-center">
+                    <h2>Vote agora</h2>
+                    <p>Todos os alunos da Rede Pública Estadual do Rio de Janeiro podem votar.</p>
+                    <a href="{{ route('vote.index') }}" class="btn btn-primary btn-large center-block">
+                        VOTE
+                    </a>
+                </div>
+            @endif
     </section>
 
     <section class="masonry-pj">
@@ -33,9 +43,16 @@
                         <img class="hidden-sm masonry-overflow masonri-right masonry08" src="/templates/2017/images/masonry-08.png">
                     </div>
                     <div class="grow grid-item lilas2"></div>
-                    <div class="grow grid-item grid-item--height3 branco2">
-                        <a href="/vote"><img class="" src="/templates/2017/images/vote-agora.png"></a>
-                    </div>
+
+                    @if (config('app.election.enabled') === true)
+                        <div class="grow grid-item grid-item--height3 branco2">
+                            <a href="{{ route('vote.index') }}"><img class="" src="/templates/2017/images/vote-agora.png"></a>
+                        </div>
+                    @else
+                        <div class="grow grid-item grid-item--height3 azul1">
+                            <img class="masonry-overflow masonry-big" src="/templates/2017/images/masonry-big.png">
+                        </div>
+                    @endif
 
                     <div class="grow grid-item grid-item--height3 azul1">
                         <img class="masonry-overflow masonry-big" src="/templates/2017/images/masonry-big.png">
