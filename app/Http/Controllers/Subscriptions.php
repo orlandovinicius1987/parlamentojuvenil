@@ -114,37 +114,38 @@ class Subscriptions extends BaseController
         return $this->exportToCsv($date, $subscriptions);
     }
 
-	private function allSubscriptions()
-	{
-		$subscriptions = array_map(function($subscription) {
-			return array(
-				'nome_completo' => $subscription['name'],
-				'apelido' => $subscription['social_name'],
-				'municipio' => $subscription['city'],
-				'escola' => $subscription['school'],
-				'matricula' => $subscription['registration'],
-				'genero' => $subscription['gender'],
-				'identidade_genero' => $subscription['gender2'],
-				'data_nascimento' => $subscription['birthdate'],
-				'cpf' => $subscription['cpf'],
-				'identidade' => $subscription['id_number'],
-				'orgao_emissor' => $subscription['id_issuer'],
-				'email' => $subscription['email'],
-				'telefone_residencial' => $subscription['phone_home'],
-				'telefone_celular' => $subscription['phone_cellular'],
-				'cep' => $subscription['zip_code'],
-				'endereco' => $subscription['address'],
-				'complemento' => $subscription['address_complement'],
-				'bairro' => $subscription['address_neighborhood'],
-				'cidade' => $subscription['address_city'],
-				'facebook' => $subscription['facebook'],
-				'ignorado' => $subscription['ignored'] ? 'Sim' : 'Não',
-				'registrado_em' => $subscription['created_at'],
-			);
-		}, Subscription::orderBy('id')->get()->toArray());
+    private function allSubscriptions()
+    {
+        $subscriptions = array_map(function($subscription) {
+            return array(
+                'nome_completo' => $subscription['student']['name'],
+                'apelido' => $subscription['student']['social_name'],
+                'municipio' => $subscription['student']['city'],
+                'escola' => $subscription['student']['school'],
+                'matricula' => $subscription['student']['registration'],
+                'genero' => $subscription['student']['gender'],
+                'identidade_genero' => $subscription['student']['gender2'],
+                'data_nascimento' => $subscription['student']['birthdate'],
+                'cpf' => $subscription['student']['cpf'],
+                'identidade' => $subscription['student']['id_number'],
+                'orgao_emissor' => $subscription['student']['id_issuer'],
+                'email' => $subscription['student']['email'],
+                'telefone_residencial' => $subscription['student']['phone_home'],
+                'telefone_celular' => $subscription['student']['phone_cellular'],
+                'cep' => $subscription['student']['zip_code'],
+                'endereco' => $subscription['student']['address'],
+                'complemento' => $subscription['student']['address_complement'],
+                'bairro' => $subscription['student']['address_neighborhood'],
+                'cidade' => $subscription['student']['address_city'],
+                'facebook' => $subscription['student']['facebook'],
+                'ignorado' => $subscription['ignored'] ? 'Sim' : 'Não',
+                'registrado_em' => $subscription['student']['created_at'],
+                'inscrito_em' => $subscription['created_at'],
+            );
+        }, Subscription::with('student')->orderBy('id')->get()->toArray());
 
-		return $subscriptions;
-	}
+        return $subscriptions;
+    }
 
     private function exportToCsv($date, $subscriptions)
     {
