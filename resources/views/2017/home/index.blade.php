@@ -128,9 +128,10 @@
     @include('2017.home.partials.about')
     @include('2017.home.partials.howitworks')
 
-
     @if (app()->environment() != 'production')
         @include('2017.home.partials.timeline')
-        @include('2017.home.partials.subscriptions-map')
+
+        @include('2017.home.partials.downloads')
+        {{--@include('2017.home.partials.subscriptions-map')--}}
     @endif
 @stop

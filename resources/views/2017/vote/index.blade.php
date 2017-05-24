@@ -1,7 +1,7 @@
 @extends('2017.layouts.layout')
 
 @section('contents')
-   <div class="votacao">
+    <div class="votacao">
         <div class="text-center">
             <h1>
                 Olá {{ loggedUser()->student->name }},<br>
@@ -35,7 +35,7 @@
                 </div>
             @endforeach
         </div>
-   </div>
+    </div>
 
 @stop
 
