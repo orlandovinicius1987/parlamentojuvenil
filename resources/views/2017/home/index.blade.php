@@ -131,7 +131,8 @@
     @if (app()->environment() != 'production')
         @include('2017.home.partials.timeline')
 
-        @include('2017.home.partials.downloads')
         {{--@include('2017.home.partials.subscriptions-map')--}}
     @endif
+
+    @include('2017.home.partials.downloads')
 @stop
