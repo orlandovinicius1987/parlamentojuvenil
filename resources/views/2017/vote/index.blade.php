@@ -15,7 +15,7 @@
             @foreach($candidates as $candidate)
                 {{--{{ dd($candidate) }}--}}
                 <div class="col-sm-4">
-                    <div class="well verde1">
+                    <div class="well lima-green">
                         <div class="col-xs-12 col-sm-offset-3 col-sm-6 text-center">
                             <div class="foto-candidato-outer">
                                 <div class="foto-candidato-inner" >
