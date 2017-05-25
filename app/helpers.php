@@ -126,6 +126,6 @@ function fix_cities() {
     app(\App\Data\Repositories\Cities::class)->fixCities();
 }
 
-function random_color() {
-    return \App\Data\Entities\Color::random()['color'];
+function random_color($scope = 'default', array $except = []) {
+    return \App\Data\Entities\Color::random($scope, $except)['name'];
 }

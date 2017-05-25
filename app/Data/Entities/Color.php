@@ -72,17 +72,28 @@ class Color
         return collect(self::all()[$year ?: get_current_year()]);
     }
 
-    private static function fillAvailableColors()
+    private static function ensureScope($scope)
     {
-        if (collect(static::$availableColors)->count() == 0) {
-            static::$availableColors = static::byYear()->shuffle();
+        if (! isset(static::$availableColors[$scope])) {
+            static::$availableColors[$scope] = [];
         }
     }
 
-    public static function random()
+    private static function fillAvailableColors($scope = 'default', array $except = [])
     {
-        static::fillAvailableColors();
+        static::ensureScope($scope);
 
-        return static::$availableColors->pop();
+        if (collect(static::$availableColors[$scope])->count() == 0) {
+            static::$availableColors[$scope] = collect(static::byYear()->shuffle())->reject(function($color) use ($except) {
+                return in_array($color['name'], $except);
+            });
+        }
+    }
+
+    public static function random($scope = 'default', array $except = [])
+    {
+        static::fillAvailableColors($scope, $except);
+
+        return static::$availableColors[$scope]->pop();
     }
 }

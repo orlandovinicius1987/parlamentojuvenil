@@ -14,7 +14,7 @@
         <div class="row vote">
             @foreach($candidates as $candidate)
                 <div class="col-sm-4">
-                    <div class="well {{ random_color() }}">
+                    <div class="well {{ random_color('vote', ['haze-green']) }}">
                         <div class="col-xs-12 col-sm-offset-3 col-sm-6 text-center">
                             <div class="foto-candidato-outer">
                                 <div class="foto-candidato-inner" >

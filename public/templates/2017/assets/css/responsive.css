@@ -359,7 +359,7 @@
 	.sobreopj .square02 {
 		height: 210px;
 	}
-	.sobreopj .vermelho1.square01 {
+	.sobreopj .torch-red.square01 {
 		height: 126px;
 	}
 	.sobreopj-itens .item-title {
@@ -374,7 +374,7 @@
 		margin-bottom: 15px;
 	}
 
-	.sobreopj .verde01.square01 {
+	.sobreopj .lima-green.square01 {
 		height: 116px;
 		margin-bottom: 15px;
 	}

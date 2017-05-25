@@ -54,7 +54,9 @@ class Admin extends BaseController
 
     function elected()
     {
-        return view('admin.elected')->with('elected', $this->subscriptionsRepository->getElectedOn1and2());
+        return view('admin.elected')
+                ->with($this->subscriptionsRepository->getElectedOn1and2())
+        ;
     }
 
     private function makeTitle($course)

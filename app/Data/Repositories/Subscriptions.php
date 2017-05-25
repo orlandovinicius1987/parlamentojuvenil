@@ -48,8 +48,6 @@ class Subscriptions extends Repository
 
     public function candidatesForCity($year = null, $round = null, $query = null)
     {
-        \DB::listen(function($sql, $bindings = [], $time = []) { info($sql); info($bindings); });
-
         return $this
                 ->makeCandidatesQuery($year, $round, $query)
                 ->where('students.city', loggedUser()->student->city)
@@ -184,9 +182,30 @@ class Subscriptions extends Repository
 
     public function getElectedOn1and2($year = null)
     {
+        $this->markAllElected();
+
         $year = $this->getCurrentYear($year);
 
         $values = Subscription::with('quizResult')
+                              ->select(
+                                  DB::raw("(select count(city) from students join subscriptions on subscriptions.student_id = students.id where subscriptions.elected_1nd = true and year = '$year') as cities_1nd"),
+                                  DB::raw("(select count(city) from students join subscriptions on subscriptions.student_id = students.id where subscriptions.elected_2nd = true and year = '$year') as cities_2nd"),
+                                  DB::raw("(select count(*) from votes where votes.round = 1 and votes.year = '$year') as votes_1nd"),
+                                  DB::raw("(select count(*) from votes where votes.round = 2 and votes.year = '$year') as votes_2nd"),
+                                  DB::raw("(select count(*) from seeduc) as total_voters")
+                              )
+                              ->first()
+        ;
+
+        $total_cities_1nd = $values['cities_1nd'];
+        $total_cities_2nd = $values['cities_2nd'];
+        $total_valid_votes_1nd = $values['votes_1nd'];
+        $total_valid_votes_2nd = $values['votes_2nd'];
+        $total_voters = $values['total_voters'];
+        $voter_percentage_1nd = round(($total_valid_votes_1nd / $total_voters) * 100, 5) . '%';
+        $voter_percentage_2nd = round(($total_valid_votes_2nd / $total_voters) * 100, 5) . '%';
+
+        $data = Subscription::with('quizResult')
                 ->select(
                     'students.name',
                     'students.city',
@@ -202,9 +221,19 @@ class Subscriptions extends Repository
                     $query->where('elected_1nd', true);
                     $query->orWhere('elected_2nd', true);
                 })
+                ->orderBy('votes_2nd', 'desc')
                 ->get()
         ;
 
-        return $values;
+        return [
+            'elected' => $data,
+            'total_cities_1nd' => $total_cities_1nd,
+            'total_cities_2nd' => $total_cities_2nd,
+            'total_valid_votes_1nd' => $total_valid_votes_1nd,
+            'total_valid_votes_2nd' => $total_valid_votes_2nd,
+            'total_voters' => $total_voters,
+            'voter_percentage_1nd' => $voter_percentage_1nd,
+            'voter_percentage_2nd' => $voter_percentage_2nd
+        ];
     }
 }
