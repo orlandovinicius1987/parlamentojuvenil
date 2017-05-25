@@ -150,7 +150,14 @@
 
 .turbo-yellow {
     background: #FFF000 !important;
+    color: #292C95;
 }
+
+.turbo-yellow:hover {
+    background: #E0D100 !important;
+    color: #292C95;
+}
+
 
 /*
 
