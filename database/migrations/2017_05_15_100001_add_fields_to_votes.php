@@ -12,7 +12,7 @@ class AddFieldsToVotes extends Migration
      */
     public function up()
     {
-        Schema::drop('votes');
+        Schema::dropIfExists('votes');
 
         Schema::create('votes', function (Blueprint $table) {
             $table->increments('id');

@@ -11,6 +11,16 @@
                         </a>
                     </div>
             @endif
+
+            @if (config('app.election.enabled') === true)
+                <div class="jumbotron text-center">
+                    <h2>Vote agora</h2>
+                    <p>Todos os alunos da Rede Pública Estadual do Rio de Janeiro podem votar.</p>
+                    <a href="{{ route('vote.index') }}" class="btn btn-primary btn-large center-block">
+                        VOTE
+                    </a>
+                </div>
+            @endif
     </section>
 
     <section class="masonry-pj">
@@ -32,58 +42,27 @@
                     <div class="grow grid-item lima-green">
                         <img class="hidden-sm masonry-overflow masonri-right masonry08" src="/templates/2017/images/masonry-08.png">
                     </div>
-                    <div class="grow grid-item violet-red"></div>
-                    <div class="grow grid-item grid-item--height3 white">
-                        <a href="/vote"><img class="" src="/templates/2017/images/vote-agora.png"></a>
-                    </div>
 
+                    <div class="grow grid-item violet-red"></div>
+
+                    @if (config('app.election.enabled') === true)
+                        <div class="grow grid-item grid-item--height3 white">
+                            <a href="{{ route('vote.index') }}"><img class="" src="/templates/2017/images/vote-agora.png"></a>
+                        </div>
+                    @else
+                        <div class="grow grid-item grid-item--height3 cerulean-blue">
+                            <img class="masonry-overflow masonry-big" src="/templates/2017/images/masonry-big.png">
+                        </div>
+                    @endif
+
+
+{{--
                     <div class="grow grid-item grid-item--height3 cerulean-blue">
                         <img class="masonry-overflow masonry-big" src="/templates/2017/images/masonry-big.png">
                     </div>
-
-                    {{--<div class="grow grid-item  grid-item--height2 supernova-yellow">
-                        @if (subscriptionsEnabled())
-                            <div class="inscrevase form-group">
-                                <div class="center">
-                                    <a href="{{ route('subscribe.index') }}" class="btn btn-primary btn-large center-block">Clique para se inscrever</a>
-                                </div>
-                            </div>
-                        @endif
-
-                                    <!-- line modal -->
-                            <div class="modal fade" id="squarespaceModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-                                            <h3 class="modal-title" id="lineModalLabel">Identifique-se</h3>
-                                        </div>
-                                        <div class="modal-body social-login ">
+--}}
 
 
-
-                                            <p  class="social-login-button">
-                                                <a class="social-login-btn social-facebook" href="/auth/facebook"><img class="img-responsive" src="/templates/2017/assets/img/socialbtn-facebook.png"></a>
-                                                <a class="social-login-btn social-twitter" href="/auth/twitter"><img class="img-responsive" src="/templates/2017/assets/img/socialbtn-twitter.png"></a>
-                                                <a class="social-login-btn social-instagram" href="/auth/instagram"><img class="img-responsive" src="/templates/2017/assets/img/socialbtn-instagram.png"></a>
-                                                <a class="social-login-btn social-linkedin" href="/auth/linkedin"><img class="img-responsive" src="/templates/2017/assets/img/socialbtn-linkedin.png"></a>
-                                                <a class="social-login-btn social-youtube" href="/auth/youtube"><img class="img-responsive" src="/templates/2017/assets/img/socialbtn-youtube.png"></a>
-
-                                            </p>
-
-                                            <div class="nao-possui-redes">
-                                                <p>Caso você não esteja em nenhuma dessas redes sociais, clique aqui.</p>
-                                            </div>
-
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <img class="masonry-nopadding" src="/templates/2017/images/masonry-04.png">
-
-                    </div>--}}
                     <div class="grow grid-item haze-green"></div>
                     <div class="grow grid-item supernova-yellow"></div>
                     <div class="grow grid-item torch-red"></div>
