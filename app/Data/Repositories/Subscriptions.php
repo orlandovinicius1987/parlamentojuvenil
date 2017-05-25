@@ -48,6 +48,8 @@ class Subscriptions extends Repository
 
     public function candidatesForCity($year = null, $round = null, $query = null)
     {
+        \DB::listen(function($sql, $bindings = [], $time = []) { info($sql); info($bindings); });
+
         return $this
                 ->makeCandidatesQuery($year, $round, $query)
                 ->where('students.city', loggedUser()->student->city)
@@ -76,6 +78,13 @@ class Subscriptions extends Repository
         if ($vote->count() > 0) {
             throw new StudentAlreadyVoted();
         }
+    }
+
+    public function deleteMyVotes()
+    {
+        Vote::where('student_id', loggedUser()->student->id)->delete();
+
+        dd('votes deleted.');
     }
 
     public function getCandidateBySubscription($subscription_id)

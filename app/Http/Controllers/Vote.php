@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Data\Entities\Color;
 use App\Data\Repositories\Data;
 use App\Data\Repositories\Subscriptions;
 use App\Http\Controllers\Controller as BaseController;
@@ -55,5 +56,10 @@ class Vote extends BaseController
         $this->subscriptionsRepository->voteIn($subscription_id);
 
         return $this->buildView('vote.voted');
+    }
+
+    public function deleteMyVotes()
+    {
+        $this->subscriptionsRepository->deleteMyVotes();
     }
 }

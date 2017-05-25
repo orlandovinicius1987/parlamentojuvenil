@@ -140,8 +140,6 @@
         </div>
     </section>
 
-
-
     @include('2017.home.partials.about')
     @include('2017.home.partials.howitworks')
 

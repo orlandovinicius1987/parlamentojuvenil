@@ -184,6 +184,18 @@ class Subscriptions extends BaseController
             ;
     }
 
+    private function getOnlyValidInput($fillable)
+    {
+        $input = collect(Input::only($fillable))->reject(function($value) {
+            return $value === null;
+        })->toArray();
+
+        $input = $this->normalizeBoolean($input, 'elected_1nd');
+        $input = $this->normalizeBoolean($input, 'elected_2nd');
+
+        return $input;
+    }
+
     public function ignore($id)
 	{
 		if ( ! $subscription = Subscription::find($id))
@@ -206,6 +218,22 @@ class Subscriptions extends BaseController
         }
 
         return $this->buildView('subscriptions.index', config('app.year'));
+    }
+
+    /**
+     * @param $input
+     * @param $var
+     * @return mixed
+     */
+    private function normalizeBoolean($input, $var)
+    {
+        if (isset($input[$var])) {
+            $input[$var] = $input[$var] == 1 || $input[$var] == true
+                ? true
+                : false;
+        }
+
+        return $input;
     }
 
     private function normalizeInput($input)
@@ -254,9 +282,9 @@ class Subscriptions extends BaseController
     {
         $subscription = Subscription::find($id);
 
-        $subscription->update(Input::only($subscription->getFillable()));
+        $subscription->update($this->getOnlyValidInput($subscription->getFillable()));
 
-        $subscription->student->update($this->normalizeInput(Input::only($subscription->student->getEditable())));
+        $subscription->student->update($this->normalizeInput($this->getOnlyValidInput($subscription->student->getEditable())));
 
         $subscription->save();
 
