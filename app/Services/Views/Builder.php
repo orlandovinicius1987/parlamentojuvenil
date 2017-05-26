@@ -2,6 +2,7 @@
 
 namespace App\Services\Views;
 
+use App\Data\Repositories\Subscriptions;
 use \DB;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
@@ -45,6 +46,8 @@ class Builder
 
         $banner = $this->execute(function() { return $this->selectBanner(); }, 'selectBanner');
 
+        $citiesInCurrentRound = $this->execute(function() { return $this->getCitiesInCurrentRound(); }, 'getCitiesInCurrentRound');
+
         $congressmenLinks = $this->execute(function() { return $this->getCongressmenLinks(); }, 'getCongressmenLinks');
 
         $testimonials = $this->execute(function() { return $this->getTestimonials(); }, 'getTestimonials');
@@ -76,6 +79,7 @@ class Builder
                      ->with('congressmen', $congressmenLinks)
                      ->with('carrousel', $testimonials)
                      ->with('cities', $cities)
+                     ->with('citiesInCurrentRound', $citiesInCurrentRound)
                      ->with('student', loggedUser()->student)
                      ->with('isSubscribeForm', loggedUser()->must_be_student)
                      ->with('newspapers', $newspapersLinks)
@@ -119,6 +123,11 @@ class Builder
             7 => $from7,
             8 => $from8,
         ];
+    }
+
+    public function getCitiesInCurrentRound()
+    {
+        return app(Subscriptions::class)->getCitiesInCurrentRound();
     }
 
     public function getCities()

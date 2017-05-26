@@ -236,4 +236,21 @@ class Subscriptions extends Repository
             'voter_percentage_2nd' => $voter_percentage_2nd
         ];
     }
+
+    public function getCitiesInCurrentRound()
+    {
+        $query = Subscription::select('students.city')
+                ->join('students', 'students.id', '=', 'subscriptions.student_id')
+                ->where('subscriptions.year', $this->getCurrentYear())
+                ->where('subscriptions.ignored', false)
+                ->where('subscriptions.year', $this->getCurrentYear())
+                ->groupBy('students.city')
+        ;
+
+        if ($this->getCurrentRound() == 2) {
+            $query->where('subscriptions.elected_1nd', true);
+        }
+
+        return $query->get();
+    }
 }

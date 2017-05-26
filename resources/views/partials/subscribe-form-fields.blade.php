@@ -403,7 +403,7 @@
             </div>
 
             <div class="form-group col-lg-4 floating-label-form-group controls">
-                <label for="elected_2nd" class="control-label">Eleito no 1o Turno</label>
+                <label for="elected_2nd" class="control-label">Eleito no 2o Turno</label>
                 <select v-model="elected_2nd" class="form-control input-lg" placeholder="Eleito" name="elected_2nd" id="elected_2nd" required data-validation-required-message="Por favor preencha o eleito.">
                     <option value="">ELEITO 2o TURNO</option>
 
