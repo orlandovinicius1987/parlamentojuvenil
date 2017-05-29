@@ -143,7 +143,8 @@
                                             </td>
 
                                             <td>
-                                                <a href="/subscriptions/edit/{{ $person->id }}" class="btn btn-warning btn-xs">Editar</a>
+                                                <a href="/subscriptions/edit/{{ $person->subscription_id }}" class="btn btn-warning btn-xs">Editar</a>
+                                                <a href="/admin/votes/{{ $person->subscription_id }}" class="btn btn-primary btn-xs">Votos</a>
                                             </td>
                                         </tr>
                                     @endforeach

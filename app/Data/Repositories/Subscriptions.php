@@ -85,11 +85,36 @@ class Subscriptions extends Repository
         dd('votes deleted.');
     }
 
+    /**
+     * @param $vote
+     * @return mixed
+     */
+    public function findBySubscriptionId($vote)
+    {
+        return Subscription::with('student')->where('id', $vote)->first();
+    }
+
     public function getCandidateBySubscription($subscription_id)
     {
         return $this->getCandidates(
             $this->candidates()->where('subscriptions.id', $subscription_id)
         )->first();
+    }
+
+    public function getVotesPerSubscription($subscription_id)
+    {
+        return Vote::select([
+                    'students.name as student_name',
+                    'students.school as student_school',
+                    'students.city as student_city',
+                    'students.registration as student_registration',
+                    'students.birthdate as student_birthdate',
+                ])
+                ->join('students', 'students.id', '=', 'votes.student_id')
+                ->orderBy('students.name')
+                ->where('votes.subscription_id', $subscription_id)
+                ->where('votes.round', $this->getCurrentRound())
+                ->get();
     }
 
     private function makeCandidatesQuery($year, $round, $query = null)
@@ -148,7 +173,7 @@ class Subscriptions extends Repository
                 }
 
                 if ($vote['votes'] == $neededVotes && $neededVotes > 0) {
-                    $subscription = Subscription::find($vote['subscription_id']);
+                    $subscription = $this->findBySubscriptionId($vote['subscription_id']);
 
                     $subscription->{$electedField} = true;
 
@@ -207,6 +232,7 @@ class Subscriptions extends Repository
 
         $data = Subscription::with('quizResult')
                 ->select(
+                    'subscriptions.id as subscription_id',
                     'students.name',
                     'students.city',
                     'students.birthdate',

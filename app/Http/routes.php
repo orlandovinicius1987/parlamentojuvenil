@@ -112,6 +112,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'only-administrators
 
 	Route::get('{city}', ['as' => 'admin.city', 'uses' => 'Admin@city']);
 
+    Route::get('/votes/{subscription_id}', ['as' => 'admin.votes.student', 'uses' => 'Admin@votesPerStudent']);
+
     Route::get('training/{subscription}', ['as' => 'admin.training', 'uses' => 'Admin@training']);
 });
 
