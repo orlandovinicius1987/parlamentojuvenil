@@ -129,14 +129,14 @@
                                         </th>
 
                                         <th v-on:click="__changeOrder('elected_2nd')">
-                                            Eleito 1o turno
+                                            Eleito 2o turno
                                             <div v-show="orderBy == 'elected_2nd'" class="btn btn-danger btn-xs">
                                                 <i class="fa" v-bind:class="_arrowClass"></i>
                                             </div>
                                         </th>
 
                                         <th v-on:click="__changeOrder('votes_2nd')">
-                                            Votos 1o turno
+                                            Votos 2o turno
                                             <div v-show="orderBy == 'votes_2nd'" class="btn btn-danger btn-xs">
                                                 <i class="fa" v-bind:class="_arrowClass"></i>
                                             </div>
@@ -196,8 +196,8 @@
                                             </td>
 
                                             <td>
-                                                <a href="/subscriptions/edit/person.subscription_id" class="btn btn-warning btn-xs">Editar</a>
-                                                <a href="/admin/votes/person.subscription_id" class="btn btn-primary btn-xs">Votos</a>
+                                                <a :href="__makeEditPersonUrl(person.subscription_id)" class="btn btn-warning btn-xs">Editar</a>
+                                                <a :href="__makeShowVotesUrl(person.subscription_id)" class="btn btn-primary btn-xs">Votos</a>
                                             </td>
                                         </tr>
                                 </tbody>

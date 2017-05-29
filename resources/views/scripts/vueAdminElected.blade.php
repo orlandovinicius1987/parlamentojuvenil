@@ -53,6 +53,14 @@
 
                     this.orderBy = field;
                 },
+
+                __makeEditPersonUrl: function(id) {
+                    return '/subscriptions/edit/'+id;
+                },
+
+                __makeShowVotesUrl: function(id) {
+                    return '/admin/votes/'+id;
+                },
             },
 
             mounted: function ()
