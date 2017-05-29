@@ -151,6 +151,8 @@ class Subscriptions extends Repository
 
             $votePer = 'school_name';
         } else {
+            $query->where('elected_1nd', true);
+
             $query->orderBy('city_name', 'asc');
 
             $votePer = 'city_name';
@@ -161,26 +163,47 @@ class Subscriptions extends Repository
         $votes = $query->get();
 
         DB::transaction(function () use ($votes, $electedField, $votePer) {
-            $currentSchool = '';
+            $currentMarker = '';
+            $markerCount = 0;
+            $lastSubscriptionForMarker = null;
 
             Subscription::where('year', $this->getCurrentYear())->update([$electedField => false]);
 
             foreach ($votes as $vote) {
-                if ($currentSchool !== $vote[$votePer]) {
-                    $currentSchool = $vote[$votePer];
+                if ($currentMarker !== $vote[$votePer]) {
+                    if ($markerCount == 1 && ! is_null($lastSubscriptionForMarker)) {
+                        $this->markAsElected($lastSubscriptionForMarker, $electedField);
+                    }
+
+                    $currentMarker = $vote[$votePer];
+
+                    $markerCount = 0;
+
+                    $lastSubscriptionForMarker = $vote['subscription_id'];
 
                     $neededVotes = $vote['votes']; /// this is the max votes of this school
                 }
 
                 if ($vote['votes'] == $neededVotes && $neededVotes > 0) {
-                    $subscription = $this->findBySubscriptionId($vote['subscription_id']);
-
-                    $subscription->{$electedField} = true;
-
-                    $subscription->save();
+                    $this->markAsElected($vote['subscription_id'], $electedField);
                 }
+
+                $markerCount++;
             }
         });
+    }
+
+    /**
+     * @param $vote
+     * @param $electedField
+     */
+    function markAsElected($subscriptionId, $electedField)
+    {
+        $subscription = $this->findBySubscriptionId($subscriptionId);
+
+        $subscription->{$electedField} = true;
+
+        $subscription->save();
     }
 
     public function getCandidates($query = null, $year = null)
@@ -245,7 +268,6 @@ class Subscriptions extends Repository
                 ->join('students', 'students.id', '=' , 'subscriptions.student_id')
                 ->where(function ($query) {
                     $query->where('elected_1nd', true);
-                    $query->orWhere('elected_2nd', true);
                 })
                 ->orderBy('votes_2nd', 'desc')
                 ->get()

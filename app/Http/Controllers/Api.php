@@ -35,6 +35,8 @@ class Api extends BaseController
 
     public function getElected($year = null)
     {
+        $this->subscriptionsRepository->markAllElected();
+
         return $this->subscriptionsRepository->getElectedOn1and2($year);
     }
 }
