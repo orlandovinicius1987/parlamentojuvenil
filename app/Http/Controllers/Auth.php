@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Auth as IlluminateAuth;
 use App\Http\Controllers\Controller as BaseController;
 
 class Auth extends BaseController
@@ -14,11 +13,7 @@ class Auth extends BaseController
 
     public function logout()
     {
-        session()->forget('loggedUser');
-
-        if (IlluminateAuth::user()) {
-            IlluminateAuth::logout();
-        }
+        logout();
 
         return redirect()->route('home');
     }
