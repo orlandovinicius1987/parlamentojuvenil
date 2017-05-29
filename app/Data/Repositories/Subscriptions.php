@@ -212,14 +212,14 @@ class Subscriptions extends Repository
         $year = $this->getCurrentYear($year);
 
         $values = Subscription::with('quizResult')
-                              ->select(
-                                  DB::raw("(select count(city) from students join subscriptions on subscriptions.student_id = students.id where subscriptions.elected_1nd = true and year = '$year') as cities_1nd"),
-                                  DB::raw("(select count(city) from students join subscriptions on subscriptions.student_id = students.id where subscriptions.elected_2nd = true and year = '$year') as cities_2nd"),
-                                  DB::raw("(select count(*) from votes where votes.round = 1 and votes.year = '$year') as votes_1nd"),
-                                  DB::raw("(select count(*) from votes where votes.round = 2 and votes.year = '$year') as votes_2nd"),
-                                  DB::raw("(select count(*) from seeduc) as total_voters")
-                              )
-                              ->first()
+                    ->select(
+                      DB::raw("(select count(city) from students join subscriptions on subscriptions.student_id = students.id where subscriptions.elected_1nd = true and year = '$year') as cities_1nd"),
+                      DB::raw("(select count(city) from students join subscriptions on subscriptions.student_id = students.id where subscriptions.elected_2nd = true and year = '$year') as cities_2nd"),
+                      DB::raw("(select count(*) from votes where votes.round = 1 and votes.year = '$year') as votes_1nd"),
+                      DB::raw("(select count(*) from votes where votes.round = 2 and votes.year = '$year') as votes_2nd"),
+                      DB::raw("(select count(*) from seeduc) as total_voters")
+                    )
+                    ->first()
         ;
 
         $total_cities_1nd = $values['cities_1nd'];
@@ -252,6 +252,7 @@ class Subscriptions extends Repository
         ;
 
         return [
+            'year' => $year,
             'elected' => $data,
             'total_cities_1nd' => $total_cities_1nd,
             'total_cities_2nd' => $total_cities_2nd,

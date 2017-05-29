@@ -146,6 +146,8 @@ Route::group(['prefix' => 'api/v1'], function ()
     Route::get('search/seeduc', ['as' => 'api.search.seeduc', 'uses' => 'ApiSearch@seeduc']);
 
     Route::get('search/users', ['as' => 'api.search.users', 'uses' => 'ApiSearch@users']);
+
+    Route::get('elected/{year?}', ['as' => 'api.elected', 'uses' => 'Api@getElected']);
 });
 
 Route::get('article/{id}', ['as' => 'article.show', 'uses' => 'News@showArticle']);
