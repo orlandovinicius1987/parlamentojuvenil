@@ -68,5 +68,7 @@ class Vote extends BaseController
     public function removeSocialAccount()
     {
         $this->subscriptionsRepository->removeSocialAccount();
+
+        return redirect()->route('home');
     }
 }

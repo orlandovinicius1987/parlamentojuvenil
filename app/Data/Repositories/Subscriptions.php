@@ -312,7 +312,5 @@ class Subscriptions extends Repository
         User::where('id', loggedUser()->user->id)->delete();
 
         logout();
-
-        dd('social user and user deleted.');
     }
 }
