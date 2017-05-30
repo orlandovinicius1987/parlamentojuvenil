@@ -2,10 +2,11 @@
 
 namespace App\Data\Repositories;
 
-use App\Data\Entities\SocialUser;
-use App\Data\Entities\User;
 use DB;
+use App\Data\Entities\User;
 use App\Data\Entities\Vote;
+use App\Data\Entities\Student;
+use App\Data\Entities\SocialUser;
 use App\Data\Entities\Subscription;
 
 class Subscriptions extends Repository
@@ -20,6 +21,7 @@ class Subscriptions extends Repository
             'users.email as user_email',
             'students.name as student_name',
             'students.city as student_city',
+            'students.regional as student_regional',
             'students.school as student_school',
             'subscriptions.id as subscription_id'
         );
@@ -50,11 +52,16 @@ class Subscriptions extends Repository
 
     public function candidatesForCity($year = null, $round = null, $query = null)
     {
-        return $this
+        $query = $this
                 ->makeCandidatesQuery($year, $round, $query)
                 ->where('students.city', loggedUser()->student->city)
-                ->get()
         ;
+
+        if (loggedUser()->student->city == 'RIO DE JANEIRO') {
+            $query = $query->where('students.regional', loggedUser()->student->regional);
+        }
+
+        return $query->get();
     }
 
     public function candidatesFirstRound($year = null)
@@ -103,12 +110,21 @@ class Subscriptions extends Repository
         )->first();
     }
 
+    private function getMarker($vote, $votePer)
+    {
+        return
+            $vote[$votePer] .
+            ($votePer == 'city_name' && $vote['city_name'] == 'RIO DE JANEIRO' ? $vote['regional'] : '')
+        ;
+    }
+
     public function getVotesPerSubscription($subscription_id)
     {
         return Vote::select([
                     'students.name as student_name',
                     'students.school as student_school',
                     'students.city as student_city',
+                    'students.regional as student_regional',
                     'students.registration as student_registration',
                     'students.birthdate as student_birthdate',
                 ])
@@ -139,6 +155,7 @@ class Subscriptions extends Repository
         $query->select(
             'students.name as student_name',
             'students.city as city_name',
+            'students.regional as student_regional',
             'subscriptions.id as subscription_id',
             'students.school as school_name',
             DB::raw(sprintf('(select count(*) from votes where year = %s and round = %s and votes.subscription_id = subscriptions.id) as votes', $this->getCurrentYear(), $round))
@@ -172,12 +189,12 @@ class Subscriptions extends Repository
             Subscription::where('year', $this->getCurrentYear())->update([$electedField => false]);
 
             foreach ($votes as $vote) {
-                if ($currentMarker !== $vote[$votePer]) {
+                if ($currentMarker !== $this->getMarker($vote, $votePer)) {
                     if ($markerCount == 1 && ! is_null($lastSubscriptionForMarker)) {
                         $this->markAsElected($lastSubscriptionForMarker, $electedField);
                     }
 
-                    $currentMarker = $vote[$votePer];
+                    $currentMarker = $this->getMarker($vote, $votePer);
 
                     $markerCount = 0;
 
@@ -312,5 +329,25 @@ class Subscriptions extends Repository
         User::where('id', loggedUser()->user->id)->delete();
 
         logout();
+    }
+
+    public function fillRegional()
+    {
+        $students = DB::select(DB::raw(<<<STRING
+            select
+                students.id, students.name, students.city, students.school, seeduc.regional
+            from students, seeduc
+            where seeduc.nome = students.name
+                and seeduc.municipio = students.city
+                and seeduc.matricula = students.registration
+                and seeduc.escola = students.school
+STRING
+        ));
+
+        foreach ($students as $student) {
+            $found = Student::find($student->id);
+            $found->regional = $student->regional;
+            $found->save();
+        }
     }
 }

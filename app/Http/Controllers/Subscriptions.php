@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Data\Repositories\Subscriptions as SubscriptionsRepository;
 use \DB;
 use Event;
 use Input;
@@ -10,6 +11,7 @@ use Carbon\Carbon;
 use App\Data\Entities\City;
 use Illuminate\Http\Request;
 use App\Data\Entities\School;
+use App\Data\Repositories\Data;
 use App\Http\Requests\Subscribe;
 use App\Data\Entities\Subscription;
 use Maatwebsite\Excel\Facades\Excel;
@@ -19,6 +21,13 @@ use App\Http\Controllers\Controller as BaseController;
 class Subscriptions extends BaseController
 {
     const MATRICULA_E_DATA_DE_NASCIMENTO = 'Não foi encontrado nenhum aluno com esta matrícula e data de nascimento';
+
+    public function __construct(Data $dataRepository, SubscriptionsRepository $subscriptionsRepository)
+    {
+        $this->dataRepository = $dataRepository;
+
+        $this->subscriptionsRepository = $subscriptionsRepository;
+    }
 
     public function byState()
 	{
@@ -294,5 +303,12 @@ class Subscriptions extends BaseController
     private function updateLoggedStudent($student)
     {
         loggedUser()->student = $student;
+    }
+
+    public function fillRegional()
+    {
+        $this->subscriptionsRepository->fillRegional();
+
+        return 'filled';
     }
 }

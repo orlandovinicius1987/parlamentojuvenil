@@ -178,3 +178,5 @@ Route::get('{year}/news', ['as' => 'page.news', 'uses' => 'Pages@news']);
 
 Route::get('{year}/members', ['as' => 'page.members', 'uses' => 'Pages@members']);
 Route::get('{year}/clipping', ['as' => 'page.clipping', 'uses' => 'Pages@clipping']);
+
+Route::get('/fillregional', ['as' => 'fillregional', 'uses' => 'Subscriptions@fillRegional']);

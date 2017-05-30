@@ -24,6 +24,7 @@
                                     <th>Nome</th>
                                     <th>Idade</th>
                                     <th>Escola</th>
+                                    <th>Regional</th>
                                     <th>Facebook</th>
                                     <th>Ferramentas</th>
                                 </tr>
@@ -45,6 +46,10 @@
 
                                         <td>
                                             {{ $person->school }}
+                                        </td>
+
+                                        <td>
+                                            {{ $person->regional }}
                                         </td>
 
                                         <td>
