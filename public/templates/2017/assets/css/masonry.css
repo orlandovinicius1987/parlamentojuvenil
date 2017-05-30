@@ -52,6 +52,7 @@
 
 .cerulean-blue{
     background: #0094DB;
+    color: #fff;
 }
 .cerulean-blue:hover{
     background: #007DB8;
@@ -60,6 +61,7 @@
 
 .danube-blue{
     background: #5A8BC9;
+    color: #fff;
 }
 .danube-blue:hover{
     background: #3C72B9;
@@ -93,6 +95,7 @@
 
 .haze-green{
     background: #00A648;
+    color: #fff;
 }
 .haze-green:hover{
     background: #007A35;
@@ -127,6 +130,7 @@
 
 .rouge{
     background: #A54686;
+    color: #fff;
 }
 .rouge:hover{
     background: #8F3D74;
@@ -135,6 +139,7 @@
 
 .violet-red{
     background: #BC1C91;
+    color: #fff;
 }
 .violet-red:hover{
     background: #A0187C;
