@@ -64,4 +64,9 @@ class Vote extends BaseController
     {
         $this->subscriptionsRepository->deleteMyVotes();
     }
+
+    public function removeSocialAccount()
+    {
+        $this->subscriptionsRepository->removeSocialAccount();
+    }
 }

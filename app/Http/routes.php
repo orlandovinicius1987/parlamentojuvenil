@@ -62,6 +62,7 @@ Route::group(['prefix' => '/vote', 'middleware' => ['voting', 'auth', 'student-l
     Route::get('/error', ['as' => 'vote.error', 'uses' => 'Vote@error']);
     Route::get('/voted', ['as' => 'vote.voted', 'uses' => 'Vote@voted']);
     Route::get('/delete/my/votes', ['as' => 'vote.delete', 'uses' => 'Vote@deleteMyVotes']);
+    Route::get('/remove/my/social/account', ['as' => 'vote.remove.social', 'uses' => 'Vote@removeSocialAccount']);
 });
 
 Route::get('news/sync', function (NewsSync $news)

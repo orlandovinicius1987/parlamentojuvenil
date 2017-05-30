@@ -63,6 +63,10 @@ class EmailAuth extends BaseController
             return redirect()->route('subscribe.index');
         }
 
+        if (loggedUser()->isVoting) {
+            return redirect()->route('vote.index');
+        }
+
         return redirect()->intended();
     }
 

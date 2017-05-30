@@ -79,7 +79,7 @@ class LoggedUser
      */
     private function studentIsLogged()
     {
-        return ((!$this->isSubscribing) || $this->student);
+        return ((! $this->isSubscribing && ! $this->isVoting) || $this->student);
     }
 
     /**

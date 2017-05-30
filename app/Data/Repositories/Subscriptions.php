@@ -2,6 +2,8 @@
 
 namespace App\Data\Repositories;
 
+use App\Data\Entities\SocialUser;
+use App\Data\Entities\User;
 use DB;
 use App\Data\Entities\Vote;
 use App\Data\Entities\Subscription;
@@ -301,5 +303,16 @@ class Subscriptions extends Repository
         }
 
         return $query->get();
+    }
+
+    public function removeSocialAccount()
+    {
+        SocialUser::where('user_id', loggedUser()->user->id)->delete();
+
+        User::where('id', loggedUser()->user->id)->delete();
+
+        logout();
+
+        dd('social user and user deleted.');
     }
 }
