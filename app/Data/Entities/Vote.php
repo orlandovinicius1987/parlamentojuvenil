@@ -14,4 +14,14 @@ class Vote extends Model
         'round',
         'year',
     ];
+
+    public function voter()
+    {
+        return $this->belongsTo(Student::class, 'student_id');
+    }
+
+    public function candidate()
+    {
+        return $this->belongsTo(Subscription::class);
+    }
 }

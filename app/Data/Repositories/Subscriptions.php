@@ -113,8 +113,15 @@ class Subscriptions extends Repository
 
     public function getElected($round)
     {
-        return Vote::where('year', $this->getCurrentYear())
-                ->where('round', $round)
+        $electedField = 'elected_'.$round.'nd';
+
+        return Subscription::with('student')
+                ->join('students', 'students.id', '=', 'subscriptions.student_id')
+                ->where('year', $this->getCurrentYear())
+                ->where($electedField, true)
+                ->orderBy('students.regional', 'asc')
+                ->orderBy('students.city', 'asc')
+                ->orderBy('students.name', 'asc')
                 ->get()
         ;
     }

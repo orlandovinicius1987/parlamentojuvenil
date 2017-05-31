@@ -77,6 +77,8 @@ class Vote extends BaseController
         return $this
                 ->buildView('vote.elected')
                 ->with('elected', $this->subscriptionsRepository->getElected($round))
+                ->with('round', $round)
+                ->with('year', get_current_year())
         ;
     }
 }
