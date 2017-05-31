@@ -15,9 +15,19 @@
         <p class="nome-candidato">{{ $candidate->student_name }}</p>
         <p class="cargo">Deputado(a) Estadual Juvenil</p>
         <p class="escola">{{ $candidate->student_school }}</p>
+            
+
 
         @if (! isset($is_elected))
             <a href="{{ route('vote.confirm', ['subscription_id' => $candidate->subscription_id]) }}" class="btn btn-primary btn-large center-block">VOTAR</a>
         @endif
     </div>
+
+    <div class="col-xs-offset-4 col-xs-4 text-center">
+        <div class="badge-elected">
+            <img class="elected-badge" src="/templates/2017/assets/img/elected.svg">
+        </div>
+    </div>
+
+
 </div>

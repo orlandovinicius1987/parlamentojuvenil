@@ -2080,7 +2080,11 @@ img.btn-login-social {
 */
 
 
-
+.badge-elected {
+	bottom: -35px;
+	position: relative;
+	margin-top: -50px;
+}
 
 .foto-candidato-inner {
 	display: table;
