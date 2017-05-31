@@ -2085,6 +2085,8 @@ img.btn-login-social {
 .foto-candidato-inner {
 	display: table;
 	margin: 0 auto;
+	margin-right: 5px;
+	margin-left: 5px;
 }
 
 .foto-candidato-outer {
