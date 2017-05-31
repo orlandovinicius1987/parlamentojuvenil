@@ -2,37 +2,47 @@
 
 @section('contents')
     <section class="notifications">
-            @if (config('app.subscriptions.enabled') === true)
-                    <div class="jumbotron text-center">
-                        <h2>Inscrições abertas</h2>
-                        <p>Alunos do 1º e 2º ano do ensino médio da Rede Pública Estadual do Rio de Janeiro, com idade entre 14 e 17 anos (nascidos entre 26 de novembro de 2003 e 3 de dezembro de 1999).</p>
-                        <a href="{{ route('subscribe.index') }}" class="btn btn-block btn-primary btn-large center-block">
-                            Clique para se inscrever
-                        </a>
-                    </div>
-            @endif
+        @if (config('app.subscriptions.enabled') === true)
+            <div class="jumbotron text-center">
+                <h2>Inscrições abertas</h2>
+                <p>Alunos do 1º e 2º ano do ensino médio da Rede Pública Estadual do Rio de Janeiro, com idade entre 14 e 17 anos (nascidos entre 26 de novembro de 2003 e 3 de dezembro de 1999).</p>
+                <a href="{{ route('subscribe.index') }}" class="btn btn-block btn-primary btn-large center-block">
+                    Clique para se inscrever
+                </a>
+            </div>
+        @endif
 
-            @if (config('app.election.enabled') === true)
-                <div class="jumbotron text-center">
-                    <h2>Vote agora</h2>
-                    <p>Todos os alunos da Rede Pública Estadual do Rio de Janeiro podem votar.</p>
-                    <a href="{{ route('vote.index') }}" class="btn btn-block btn-primary btn-large center-block">
-                        ESCOLHA SEU CANDIDATO
-                    </a>
-                    <br>
-                    <br>
-                    <div class="row">
-                        <?php $color = 1; ?>
-                        @foreach ($citiesInCurrentRound as $city)
-                            <div class="col-md-3" style="margin-bottom: 15px;">
-                                <a href="{{ route('vote.index') }}" class="btn btn-block {{ $color++ % 2 == 0 ? 'jacksons-purple' : 'danube-blue' }}">
-                                    {{ $city->city }}
-                                </a>
-                            </div>
-                        @endforeach
-                    </div>
+        @if (config('app.election.enabled') === true)
+            <div class="jumbotron text-center">
+                <h2>2o Turno - Vote agora</h2>
+                <p>Todos os alunos da Rede Pública Estadual do Rio de Janeiro podem votar.</p>
+                <a href="{{ route('vote.index') }}" class="btn btn-block btn-primary btn-large center-block">
+                    ESCOLHA SEU CANDIDATO
+                </a>
+                <br>
+                <br>
+                <div class="row">
+                    <?php $color = 1; ?>
+                    @foreach ($citiesInCurrentRound as $city)
+                        <div class="col-md-3" style="margin-bottom: 15px;">
+                            <a href="{{ route('vote.index') }}" class="btn btn-block {{ $color++ % 2 == 0 ? 'jacksons-purple' : 'danube-blue' }}">
+                                {{ $city->city }}
+                            </a>
+                        </div>
+                    @endforeach
                 </div>
-            @endif
+            </div>
+        @endif
+
+        @if (config('app.election.enabled') === true)
+            <div class="jumbotron text-center">
+                <h2>Eleitos no 1&deg; turno</h2>
+                <br><br>
+                <a href="/vote/elected/round/1" class="btn btn-lg btn-block jacksons-purple">
+                    VEJA TODOS
+                </a>
+            </div>
+        @endif
     </section>
 
     @include('2017.home.partials.downloads')

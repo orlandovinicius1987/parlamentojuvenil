@@ -18,7 +18,7 @@ class Subscriptions extends Repository
         $query->select(
             'users.name as user_name',
             'users.avatar as user_avatar',
-            DB::raw("'/templates/{$year}/images/no-avatar.png' as no_avatar"),
+            DB::raw("'/templates/{$year}/images/no-avatar.svg' as no_avatar"),
             'users.email as user_email',
             'students.name as student_name',
             'students.city as student_city',
@@ -109,6 +109,14 @@ class Subscriptions extends Repository
         return $this->getCandidates(
             $this->candidates()->where('subscriptions.id', $subscription_id)
         )->first();
+    }
+
+    public function getElected($round)
+    {
+        return Vote::where('year', $this->getCurrentYear())
+                ->where('round', $round)
+                ->get()
+        ;
     }
 
     private function getMarker($vote, $votePer)

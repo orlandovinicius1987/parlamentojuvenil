@@ -71,4 +71,12 @@ class Vote extends BaseController
 
         return redirect()->route('home');
     }
+
+    public function elected($round)
+    {
+        return $this
+                ->buildView('vote.elected')
+                ->with('elected', $this->subscriptionsRepository->getElected($round))
+        ;
+    }
 }
