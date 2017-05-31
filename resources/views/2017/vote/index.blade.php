@@ -26,7 +26,7 @@
 
         @if ($candidates->count() == 1)
             <div class="row vote">
-                <div class="col-sm-12">
+                <div class="col-xs-12 col-sm-offset-3 col-sm-6">
                     @include(get_current_year().'.vote.partials.candidate', ['candidate' => $candidates[0], 'is_elected' => true])
                 </div>
             </div>
@@ -35,7 +35,7 @@
         @if ($candidates->count() > 1)
             <div class="row vote">
                 @foreach($candidates as $candidate)
-                    <div class="col-sm-4">
+                    <div class="col-xs-12 col-sm-4">
                         @include(get_current_year().'.vote.partials.candidate', ['candidate' => $candidate])
                     </div>
                 @endforeach
