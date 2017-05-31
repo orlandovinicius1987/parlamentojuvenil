@@ -2,7 +2,7 @@
     <div class="col-xs-12 col-sm-offset-3 col-sm-6 text-center">
         <div class="foto-candidato-outer">
             <div class="foto-candidato-inner" >
-                <img src="{{ $candidate->user_avatar }}" class="img-responsive foto-candidato-social">
+                <img src="{{ $candidate->user_avatar ?: $candidate->no_avatar }}" class="img-responsive foto-candidato-social">
             </div>
         </div>
     </div>

@@ -4,28 +4,27 @@
     <div class="votacao">
         <div class="text-center">
             <h1>
-                Olá {{ loggedUser()->student->name }}
+                Olá {{ loggedUser()->student->name }},
+            </h1>
 
+            <h1>
                 @if ($candidates->count() > 1)
-                    ,<br>
                     escolha e vote em seu candidato
+                @endif
+
+                @if ($candidates->count() <= 1)
+                    não haverá segundo turno na sua cidade.
                 @endif
             </h1>
 
-            <h2 class="vote-cidade">{{ loggedUser()->student->city }}</h2>
+            <br><br>
+            <h1 class="text-center">O seguinte candidato(a) foi eleito(a)</h1>
+            <br><br>
 
-            @if ($candidates->count() <= 1)
-                <h3>
-                    Não haverá segundo turno na sua cidade.
-                </h3>
-            @endif
+            <h2 class="vote-cidade">{{ loggedUser()->student->city }}</h2>
         </div>
 
         @if ($candidates->count() == 1)
-            <br><br><br>
-            <h1 class="text-center">O seguinte candidato(a) foi eleito(a)</h1>
-            <br><br><br>
-
             <div class="row vote">
                 <div class="col-sm-12">
                     @include(get_current_year().'.vote.partials.candidate', ['candidate' => $candidates[0], 'is_elected' => true])
