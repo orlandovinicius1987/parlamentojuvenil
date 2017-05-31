@@ -34,7 +34,7 @@
             </div>
         @endif
 
-        @if (config('app.election.enabled') === true)
+        @if (config('app.election.show-elected-1nd') === true)
             <div class="jumbotron text-center">
                 <h2>Eleitos no 1&deg; turno</h2>
                 <br><br>
