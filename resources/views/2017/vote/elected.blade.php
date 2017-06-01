@@ -9,7 +9,13 @@
 
             <br><br>
 
-            <table class="table table-hover table-responsive">
+            <style>
+                .table > tbody > tr > td {
+                    vertical-align: middle;
+                }
+            </style>
+
+            <table class="table table-responsive table-bordered">
                 <thead>
                     <th>Regional</th>
                     <th>Municípío</th>
@@ -18,12 +24,27 @@
                 </thead>
 
                 <tbody>
-                    @foreach ($elected as $candidate)
+                    @foreach ($elected as $key => $candidate)
                         <tr>
-                            <td>{{ $candidate->student->regional }}</td>
-                            <td>{{ $candidate->student->city }}</td>
-                            <td>{{ $candidate->student->school }}</td>
-                            <td>{{ $candidate->student->name }}</td>
+                            @if ($candidate['regionalCount'] > 0)
+                                @if ($candidate['regionalCount'] > 1)
+                                    <td rowspan="{{ $candidate['regionalCount'] }}">
+                                @else
+                                    <td>
+                                @endif
+                                        {{ $candidate['regional'] }}
+                                    </td>
+                            @endif
+
+                            @if ($candidate['cityCount'] > 0)
+                                <td rowspan="{{ $candidate['cityCount'] }}">
+                                    {{ $candidate['city'] }}
+                                </td>
+                            @endif
+
+                            <td>{{ $candidate['school'] }}</td>
+
+                            <td>{{ $candidate['name'] }}</td>
                         </tr>
                     @endforeach
                 </tbody>

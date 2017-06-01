@@ -115,7 +115,7 @@ class Subscriptions extends Repository
     {
         $electedField = 'elected_'.$round.'nd';
 
-        return Subscription::with('student')
+        $elected = Subscription::with('student')
                 ->join('students', 'students.id', '=', 'subscriptions.student_id')
                 ->where('year', $this->getCurrentYear())
                 ->where($electedField, true)
@@ -123,7 +123,66 @@ class Subscriptions extends Repository
                 ->orderBy('students.city', 'asc')
                 ->orderBy('students.name', 'asc')
                 ->get()
+                ->toArray()
         ;
+
+        $counter = 0;
+        $last = count($elected)-1;
+
+        $counters = [];
+
+        $counters['regionalLast'] = '';
+        $counters['regionalCount'] = '';
+        $counters['regionalFirst'] = -1;
+
+        $counters['cityLast'] = '';
+        $counters['cityCount'] = '';
+        $counters['cityFirst'] = -1;
+
+        while (true) {
+            if ($counters['regionalLast'] != $elected[$counter]['regional']) {
+                $this->updateCounters($elected, $counters, 'regional', $counter, 'regionalFirst', 'regionalLast', 'regionalCount');
+            }
+
+            if ($counters['cityLast'] != $elected[$counter]['city']) {
+                $this->updateCounters($elected, $counters, 'city', $counter, 'cityFirst', 'cityLast', 'cityCount');
+            }
+
+            $counters['regionalCount']++;
+            $counters['cityCount']++;
+
+            $elected[$counter]['regionalCount'] = $counters['regionalCount'];
+            $elected[$counter]['cityCount'] = $counters['cityCount'];
+
+            $counter++;
+            if ($counter > $last) {
+                break;
+            }
+        }
+
+        $this->updateCounters($elected, $counters, 'regional', -1, 'regionalFirst', 'regionalLast', 'regionalCount');
+        $this->updateCounters($elected, $counters, 'city', -1, 'cityFirst', 'cityLast', 'cityCount');
+
+        return $elected;
+    }
+
+    private function updateCounters(&$elected, &$counters, $field, $counter, $fieldFirst, $fieldLast, $fieldCount)
+    {
+        if ($counters[$fieldCount] > 1) {
+            for ($x = $counters[$fieldFirst]; $x < $counters[$fieldFirst]+$counters[$fieldCount]; $x++) {
+                if ($x == $counters[$fieldFirst]) {
+                    $elected[$x][$fieldCount] = $counters[$fieldCount];
+                } else {
+                    $elected[$x][$fieldCount] = 0;
+                }
+            }
+        }
+
+        if ($counter >= 0 && isset($elected[$counter])) {
+            $counters[$fieldLast] = $elected[$counter][$field];
+            $counters[$fieldCount] = 0;
+            $counters[$fieldFirst] = $counter;
+        }
     }
 
     private function getMarker($vote, $votePer)
