@@ -409,20 +409,24 @@ class Subscriptions extends Repository
     public function fillRegional()
     {
         $students = DB::select(DB::raw(<<<STRING
-            select
-                students.id, students.name, students.city, students.school, seeduc.regional
-            from students, seeduc
-            where seeduc.nome = students.name
-                and seeduc.municipio = students.city
-                and seeduc.matricula = students.registration
-                and seeduc.escola = students.school
+select
+  students.id,
+  students.city,
+  students.school,
+  students.regional student_regional,
+  (select regional from seeduc where seeduc.escola = students.school limit 1) as seeduc_regional
+ from students
+where students.regional is null or students.regional = ''
+;
 STRING
         ));
 
         foreach ($students as $student) {
-            $found = Student::find($student->id);
-            $found->regional = $student->regional;
-            $found->save();
+            if (! is_null($student->seeduc_regional) && ! empty($student->seeduc_regional)) {
+                $found = Student::find($student->id);
+                $found->regional = $student->seeduc_regional;
+                $found->save();
+            }
         }
     }
 }
