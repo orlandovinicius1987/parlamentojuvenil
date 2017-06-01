@@ -24,6 +24,12 @@ class City extends Model
 
 	public static function findCityByname($name)
     {
-        return static::where(DB::raw('unaccent(name)'), '~*', $name)->first();
+        $city = static::where(DB::raw('lower(unaccent(name))'), '=', strtolower($name))->first();
+
+        if (is_null($city)) {
+            $city = static::where(DB::raw('lower(unaccent(name))'), '~*', strtolower($name))->first();
+        }
+
+        return $city;
     }
 }
