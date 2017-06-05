@@ -32,6 +32,12 @@
                     @endforeach
                 </div>
             </div>
+
+            <div class="jumbotron see-elects-1round text-center jacksons-purple">
+                <a href="#" ><p><img class="elected-badge" src="/templates/2017/assets/img/elected.svg"> Veja os eleitos do 1º Turno</p></a>
+            </div>
+
+
         @endif
 
         @if (config('app.election.show-elected-1nd') === true)
