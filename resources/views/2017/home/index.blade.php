@@ -32,22 +32,14 @@
                     @endforeach
                 </div>
             </div>
-
-            <div class="jumbotron see-elects-1round text-center jacksons-purple">
-                <a href="#" ><p><img class="elected-badge" src="/templates/2017/assets/img/elected.svg"> Veja os eleitos do 1º Turno</p></a>
-            </div>
-
-
         @endif
 
         @if (config('app.election.show-elected-1nd') === true)
-            <div class="jumbotron text-center">
-                <h2>Eleitos no 1&deg; turno</h2>
-                <br><br>
-                <a href="/vote/elected/round/1" class="btn btn-lg btn-block jacksons-purple">
-                    VEJA TODOS
-                </a>
-            </div>
+            <a href="/vote/elected/round/1" >
+                <div class="jumbotron see-elects-1round text-center jacksons-purple">
+                    <p><img class="elected-badge" src="/templates/2017/assets/img/elected.svg"> Veja os eleitos do 1º Turno</p>
+                </div>
+            </a>
         @endif
     </section>
 

@@ -139,7 +139,7 @@ class Subscriptions extends Repository
         $counters['cityCount'] = '';
         $counters['cityFirst'] = -1;
 
-        while (true) {
+        while ($last > 0) {
             if ($counters['regionalLast'] != $elected[$counter]['regional']) {
                 $this->updateCounters($elected, $counters, 'regional', $counter, 'regionalFirst', 'regionalLast', 'regionalCount');
             }
@@ -163,6 +163,7 @@ class Subscriptions extends Repository
         $this->updateCounters($elected, $counters, 'regional', -1, 'regionalFirst', 'regionalLast', 'regionalCount');
         $this->updateCounters($elected, $counters, 'city', -1, 'cityFirst', 'cityLast', 'cityCount');
 
+        dd($elected);
         return $elected;
     }
 
