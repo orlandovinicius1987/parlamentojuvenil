@@ -8,10 +8,16 @@
         </div>
 
         <div class="row downloads-links">
-            <div class=" col-sm-4">
-                <a href="/files/apps/parlamentojuvenil/site/2017/downloads/orientacoes-processo-eleitoral-pjrj-2017-1o-turno.pdf" class="well supernova-yellow">
+            {{--<div class="col-sm-4">--}}
+                {{--<a href="/files/apps/parlamentojuvenil/site/2017/downloads/orientacoes-processo-eleitoral-pjrj-2017-1o-turno.pdf" class="well supernova-yellow">--}}
+                    {{--<i class="fa fa-download" aria-hidden="true"></i>--}}
+                    {{--<p>Orientações para o processo eleitoral - 1º Turno</p>--}}
+                {{--</a>--}}
+            {{--</div>--}}
+            <div class="col-sm-4">
+                <a href="/files/apps/parlamentojuvenil/site/2017/downloads/orientacoes-processo-eleitoral-pjrj-2017-2o-turno.pdf" class="well supernova-yellow">
                     <i class="fa fa-download" aria-hidden="true"></i>
-                    <p>Orientações para o processo eleitoral - 1º Turno</p>
+                    <p>Orientações para o processo eleitoral - 2º Turno</p>
                 </a>
             </div>
             <div class="col-sm-4">
