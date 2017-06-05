@@ -79,7 +79,15 @@ class LoggedUser
      */
     private function studentIsLogged()
     {
-        return ((!$this->mustBeStudent) || $this->student);
+        return ((! $this->isSubscribing && ! $this->isVoting) || $this->student);
+    }
+
+    /**
+     * @return bool
+     */
+    private function voterIsLogged()
+    {
+        return ((!$this->isVoting) || $this->student);
     }
 
     private function updateSession($loggedUser)
@@ -89,7 +97,7 @@ class LoggedUser
 
     public function logged()
     {
-        return $this->userIsLogged() && $this->studentIsLogged();
+        return $this->userIsLogged() && ($this->studentIsLogged() || $this->voterIsLogged());
     }
 
     public function all()

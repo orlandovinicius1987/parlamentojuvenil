@@ -19,7 +19,7 @@ class StudentLogin
             return redirect()->route('auth.login.email.student');
         }
 
-        if (! loggedUser()->studentIsLogged()) {
+        if (! loggedUser()->studentIsLogged() && ! loggedUser()->voterIsLogged()) {
             return redirect()->route('student.identify');
         }
 

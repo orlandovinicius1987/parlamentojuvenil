@@ -2044,6 +2044,7 @@ img.btn-login-social {
 
 
 .well {
+	width: 100%;
 	min-height: 20px;
 	padding: 15px;
 	margin-bottom: 70px;
@@ -2059,6 +2060,8 @@ img.btn-login-social {
 .well p.nome-candidato {
 	font-size: 150%;
 	font-weight: 600;
+	min-height: 75px;
+	margin-top: 15px;
 }
 
 /*
@@ -2077,11 +2080,17 @@ img.btn-login-social {
 */
 
 
-
+.badge-elected {
+	bottom: -35px;
+	position: relative;
+	margin-top: -50px;
+}
 
 .foto-candidato-inner {
 	display: table;
 	margin: 0 auto;
+	margin-right: 5px;
+	margin-left: 5px;
 }
 
 .foto-candidato-outer {
@@ -2090,6 +2099,15 @@ img.btn-login-social {
 	margin-left: 11px;
 	margin-right: 12px;
 }
+
+
+.vote-confirmation .foto-candidato-outer {
+	background: rgba(0, 0, 0, 0.4);
+	margin-top: -15px;
+	margin-left: 60px;
+	margin-right: 60px;
+}
+
 .foto-candidato-social {
 	margin-top: -50px;
 	margin-bottom: 5px;
@@ -2130,4 +2148,46 @@ img.btn-login-social {
 }
 .alert h3{
 	font-size: 28px;
+}
+
+
+
+
+
+.downloads h2 {
+	background: #292C95;
+	color: #fff;
+	text-align: center;
+	padding: 30px 0 30px 0;
+	margin: 0;
+	font-family: 'five_boroughs';
+	letter-spacing: 3px;
+}
+
+.downloads .jacksons-purple:hover{
+	background: #292C95;
+}
+
+.downloads .well i.fa {
+	font-size: 60px;
+	float: left;
+	margin-right: 20px;
+}
+
+.downloads .well p {
+	font-size: 18px;
+}
+
+
+.row.downloads-links {
+	margin-top: 40px;
+}
+
+.title-downloads p {
+	margin-top: -20px;
+	margin-bottom: 30px;
+}
+
+.downloads {
+	border-top: 10px solid #292C95;
 }

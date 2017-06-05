@@ -23,7 +23,7 @@ class SocialAuthController extends Controller
     {
         $this->socialUserService->socialNetworkLogin($socialNetwork);
 
-        if (loggedUser()->mustBeStudent) {
+        if (loggedUser()->isSubscribing) {
             return redirect()->route('subscribe.index');
         }
 

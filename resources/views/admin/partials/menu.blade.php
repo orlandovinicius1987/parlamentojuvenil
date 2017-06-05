@@ -61,11 +61,9 @@
                     <a href="{{ route('admin.schools') }}"><i class="fa fa-graduation-cap fa-fw"></i> Escolas</a>
                 </li>
 
-                @if (app()->environment('production'))
-                    <li active="{{ request()->is('admin/elected') ? 'active' : '' }}">
-                        <a href="{{ route('admin.elected') }}"><i class="fa fa-users fa-fw"></i> Eleitos</a>
-                    </li>
-                @endif
+                <li active="{{ request()->is('admin/elected') ? 'active' : '' }}">
+                    <a href="{{ route('admin.elected') }}"><i class="fa fa-users fa-fw"></i> Eleitos</a>
+                </li>
 
                 <li active="{{ request()->is('admin/seeduc') ? 'active' : '' }}">
                     <a href="{{ route('admin.seeduc') }}"><i class="fa fa-search fa-fw"></i> Seeduc</a>

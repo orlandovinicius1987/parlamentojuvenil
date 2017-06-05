@@ -19,6 +19,7 @@ class Student extends Model
         'school',
         'city',
         'email',
+        'regional',
     ];
 
     protected $fillable = [
@@ -43,6 +44,7 @@ class Student extends Model
         'address_neighborhood',
         'address_city',
         'facebook',
+        'regional',
     ];
 
     protected $editable = [
@@ -64,6 +66,7 @@ class Student extends Model
         'address_neighborhood',
         'address_city',
         'facebook',
+        'regional',
     ];
 
     /**

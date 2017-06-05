@@ -7,7 +7,7 @@ use Geocoder\Exception\NoResult;
 use Geocoder\Provider\GoogleMaps;
 use Ivory\HttpAdapter\CurlHttpAdapter;
 
-class Schools
+class Schools extends Repository
 {
     private $geocoder;
 

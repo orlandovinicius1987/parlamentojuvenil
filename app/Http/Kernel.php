@@ -29,6 +29,7 @@ class Kernel extends HttpKernel
         'auth' => \App\Http\Middleware\Authenticate::class,
         'only-administrators' => \App\Http\Middleware\OnlyAdministrators::class,
         'subscribing' => \App\Http\Middleware\Subscribing::class,
+        'voting' => \App\Http\Middleware\Voting::class,
         'cannot-re-subscribe' => \App\Http\Middleware\CannotResubscribe::class,
         'student-login' => \App\Http\Middleware\StudentLogin::class,
         'check-student-age' => \App\Http\Middleware\CheckStudentAge::class,

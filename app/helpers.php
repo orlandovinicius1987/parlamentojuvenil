@@ -1,5 +1,6 @@
 <?php
 
+use Auth as IlluminateAuth;
 use App\Services\SocialLogin\LoggedUser;
 
 function calculate_age($date)
@@ -124,4 +125,16 @@ function make_view_name_year_based($name, $year = null)
 
 function fix_cities() {
     app(\App\Data\Repositories\Cities::class)->fixCities();
+}
+
+function random_color($scope = 'default', array $except = []) {
+    return \App\Data\Entities\Color::random($scope, $except)['name'];
+}
+
+function logout() {
+    session()->forget('loggedUser');
+
+    if (IlluminateAuth::user()) {
+        IlluminateAuth::logout();
+    }
 }

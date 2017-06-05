@@ -11,6 +11,8 @@ class Subscription extends Model
 	protected $fillable = [
         'year',
         'student_id',
+        'elected_1nd',
+        'elected_2nd',
 	];
 
     public static function findByStudent($student, $year = null)
@@ -41,5 +43,15 @@ class Subscription extends Model
     public function student()
     {
         return $this->belongsTo('App\Data\Entities\Student');
+    }
+
+    public function getElected1NdAttribute()
+    {
+        return ! $this->attributes['elected_1nd'] ? '0' : '1';
+    }
+
+    public function getElected2NdAttribute()
+    {
+        return ! $this->attributes['elected_2nd'] ? '0' : '1';
     }
 }

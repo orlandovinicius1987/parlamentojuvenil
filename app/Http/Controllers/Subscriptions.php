@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Data\Repositories\Subscriptions as SubscriptionsRepository;
 use \DB;
 use Event;
 use Input;
@@ -10,6 +11,7 @@ use Carbon\Carbon;
 use App\Data\Entities\City;
 use Illuminate\Http\Request;
 use App\Data\Entities\School;
+use App\Data\Repositories\Data;
 use App\Http\Requests\Subscribe;
 use App\Data\Entities\Subscription;
 use Maatwebsite\Excel\Facades\Excel;
@@ -19,6 +21,13 @@ use App\Http\Controllers\Controller as BaseController;
 class Subscriptions extends BaseController
 {
     const MATRICULA_E_DATA_DE_NASCIMENTO = 'Não foi encontrado nenhum aluno com esta matrícula e data de nascimento';
+
+    public function __construct(Data $dataRepository, SubscriptionsRepository $subscriptionsRepository)
+    {
+        $this->dataRepository = $dataRepository;
+
+        $this->subscriptionsRepository = $subscriptionsRepository;
+    }
 
     public function byState()
 	{
@@ -114,38 +123,38 @@ class Subscriptions extends BaseController
         return $this->exportToCsv($date, $subscriptions);
     }
 
-	private function allSubscriptions()
-	{
-		$subscriptions = array_map(function($subscription) {
-			return array(
-				'nome_completo' => $subscription['student']['name'],
-				'apelido' => $subscription['student']['social_name'],
-				'municipio' => $subscription['student']['city'],
-				'escola' => $subscription['student']['school'],
-				'matricula' => $subscription['student']['registration'],
-				'genero' => $subscription['student']['gender'],
-				'identidade_genero' => $subscription['student']['gender2'],
-				'data_nascimento' => $subscription['student']['birthdate'],
-				'cpf' => $subscription['student']['cpf'],
-				'identidade' => $subscription['student']['id_number'],
-				'orgao_emissor' => $subscription['student']['id_issuer'],
-				'email' => $subscription['student']['email'],
-				'telefone_residencial' => $subscription['student']['phone_home'],
-				'telefone_celular' => $subscription['student']['phone_cellular'],
-				'cep' => $subscription['student']['zip_code'],
-				'endereco' => $subscription['student']['address'],
-				'complemento' => $subscription['student']['address_complement'],
-				'bairro' => $subscription['student']['address_neighborhood'],
-				'cidade' => $subscription['student']['address_city'],
-				'facebook' => $subscription['student']['facebook'],
-				'ignorado' => $subscription['ignored'] ? 'Sim' : 'Não',
-				'registrado_em' => $subscription['student']['created_at'],
+    private function allSubscriptions()
+    {
+        $subscriptions = array_map(function($subscription) {
+            return array(
+                'nome_completo' => $subscription['student']['name'],
+                'apelido' => $subscription['student']['social_name'],
+                'municipio' => $subscription['student']['city'],
+                'escola' => $subscription['student']['school'],
+                'matricula' => $subscription['student']['registration'],
+                'genero' => $subscription['student']['gender'],
+                'identidade_genero' => $subscription['student']['gender2'],
+                'data_nascimento' => $subscription['student']['birthdate'],
+                'cpf' => $subscription['student']['cpf'],
+                'identidade' => $subscription['student']['id_number'],
+                'orgao_emissor' => $subscription['student']['id_issuer'],
+                'email' => $subscription['student']['email'],
+                'telefone_residencial' => $subscription['student']['phone_home'],
+                'telefone_celular' => $subscription['student']['phone_cellular'],
+                'cep' => $subscription['student']['zip_code'],
+                'endereco' => $subscription['student']['address'],
+                'complemento' => $subscription['student']['address_complement'],
+                'bairro' => $subscription['student']['address_neighborhood'],
+                'cidade' => $subscription['student']['address_city'],
+                'facebook' => $subscription['student']['facebook'],
+                'ignorado' => $subscription['ignored'] ? 'Sim' : 'Não',
+                'registrado_em' => $subscription['student']['created_at'],
                 'inscrito_em' => $subscription['created_at'],
-			);
-		}, Subscription::with('student')->orderBy('id')->get()->toArray());
+            );
+        }, Subscription::with('student')->orderBy('id')->get()->toArray());
 
-		return $subscriptions;
-	}
+        return $subscriptions;
+    }
 
     private function exportToCsv($date, $subscriptions)
     {
@@ -184,6 +193,18 @@ class Subscriptions extends BaseController
             ;
     }
 
+    private function getOnlyValidInput($fillable)
+    {
+        $input = collect(Input::only($fillable))->reject(function($value) {
+            return $value === null;
+        })->toArray();
+
+        $input = $this->normalizeBoolean($input, 'elected_1nd');
+        $input = $this->normalizeBoolean($input, 'elected_2nd');
+
+        return $input;
+    }
+
     public function ignore($id)
 	{
 		if ( ! $subscription = Subscription::find($id))
@@ -206,6 +227,22 @@ class Subscriptions extends BaseController
         }
 
         return $this->buildView('subscriptions.index', config('app.year'));
+    }
+
+    /**
+     * @param $input
+     * @param $var
+     * @return mixed
+     */
+    private function normalizeBoolean($input, $var)
+    {
+        if (isset($input[$var])) {
+            $input[$var] = $input[$var] == 1 || $input[$var] == true
+                ? true
+                : false;
+        }
+
+        return $input;
     }
 
     private function normalizeInput($input)
@@ -254,9 +291,9 @@ class Subscriptions extends BaseController
     {
         $subscription = Subscription::find($id);
 
-        $subscription->update(Input::only($subscription->getFillable()));
+        $subscription->update($this->getOnlyValidInput($subscription->getFillable()));
 
-        $subscription->student->update($this->normalizeInput(Input::only($subscription->student->getEditable())));
+        $subscription->student->update($this->normalizeInput($this->getOnlyValidInput($subscription->student->getEditable())));
 
         $subscription->save();
 
@@ -266,5 +303,12 @@ class Subscriptions extends BaseController
     private function updateLoggedStudent($student)
     {
         loggedUser()->student = $student;
+    }
+
+    public function fillRegional()
+    {
+        $this->subscriptionsRepository->fillRegional();
+
+        return 'filled';
     }
 }

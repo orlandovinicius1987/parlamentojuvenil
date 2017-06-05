@@ -50,117 +50,153 @@
 
 
 
-.azul1{
+.cerulean-blue{
     background: #0094DB;
+    color: #fff;
 }
-.azul1:hover{
+.cerulean-blue:hover{
     background: #007DB8;
+    color: #fff;
 }
 
-.azul2{
+.danube-blue{
     background: #5A8BC9;
+    color: #fff;
 }
-.azul2:hover{
+.danube-blue:hover{
     background: #3C72B9;
+    color: #fff;
 }
 
-
-.azul3{
+.endeavour-blue{
     background: #0060AE;
+    color: #fff;
 }
-.azul3:hover{
+.endeavour-blue:hover{
     background: #004F8F;
+    color: #fff;
 }
-
-
-.azul4{
+.jacksons-purple{
     background: #292C95;
+    color: #fff;
 }
-.azul4:hover{
+.jacksons-purple:hover{
     background: #1F2170;
+    color: #fff;
 }
-
-.verde1{
+.lima-green{
     background: #91CE18;
+    color: #fff;
 }
-.verde1:hover{
+.lima-green:hover{
     background: #74A413;
+    color: #fff;
 }
 
-
-.verde2{
-    background: #A7CE3B;
-}
-.verde2:hover{
-    background: #90B42D;
-}
-
-.verde3{
+.haze-green{
     background: #00A648;
+    color: #fff;
 }
-.verde3:hover{
+.haze-green:hover{
     background: #007A35;
+    color: #fff;
 }
 
-.verde4{
-    background: #7DC242;
-}
-.verde4:hover{
-    background: #6CA937;
-}
 
-.amarelo1{
+.supernova-yellow{
     background: #FFCA00;
+    color: #292C95;
 }
-.amarelo1:hover{
+.supernova-yellow:hover{
     background: #E0B400;
+    color: #292C95;
 }
 
-.amarelo2{
-    background: #FFCB05;
-}
-.amarelo2:hover{
-    background: #E0B400;
-}
 
-.laranja1{
+
+.ecstasy-orange{
     background: #F58220;
 }
-.laranja1:hover{
+.ecstasy-orange:hover{
     background: #EA730B;
 }
-.laranja2{
-    background: #FF8100;
-}
 
-.vermelho1{
+.torch-red{
     background: #FF141E;
 }
-.vermelho1:hover{
+.torch-red:hover{
     background: #F5000C;
 }
 
-.lilas1{
+.rouge{
     background: #A54686;
+    color: #fff;
 }
-.lilas1:hover{
+.rouge:hover{
     background: #8F3D74;
 }
 
 
-.lilas2{
+.violet-red{
     background: #BC1C91;
+    color: #fff;
 }
-.lilas2:hover{
+.violet-red:hover{
     background: #A0187C;
 }
 
-.branco2{
+.white{
     background: #ffffff;
 }
-.branco2:hover{
+.white:hover{
     background: #F5F5F5;
 }
+
+
+.turbo-yellow {
+    background: #FFF000 !important;
+    color: #292C95;
+}
+
+.turbo-yellow:hover {
+    background: #E0D100 !important;
+    color: #292C95;
+}
+
+
+/*
+
+.laranja01 {
+    background: #f58320 !important;
+}
+*/
+
+
+
+
+
+
+
+
+.txt-turbo-yellow {
+    color: #FFF000 !important;
+}
+
+.txt-amarelo02 {
+    color: #ffca08 !important;
+}
+.txt-laranja01 {
+    color: #f58320 !important;
+}
+
+.txt-lima-green {
+    color: #17a84b !important;
+}
+
+.txt-azul01 {
+    color: #292C95 !important;
+}
+
 
 
 .grow img {

@@ -77,6 +77,11 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         return $this->roles()->where('role', Constants::ROLE_ADMINISTRATOR)->first();
     }
 
+    public function getIsAdministratorAttribute()
+    {
+        return $this->isAdministrator();
+    }
+
     public function roles()
     {
         return $this->hasMany('App\Data\Entities\Role');

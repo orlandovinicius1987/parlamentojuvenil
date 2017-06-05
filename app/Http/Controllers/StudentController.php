@@ -72,6 +72,7 @@ class StudentController extends Controller
                 'name' => $seeduc->nome,
                 'school' => $seeduc->escola,
                 'city' => $seeduc->municipio,
+                'regional' => $seeduc->regional,
                 'email' => $user ? $this->getUserEmail($user) : null,
             ]);
         }

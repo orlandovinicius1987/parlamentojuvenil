@@ -2,6 +2,7 @@
 
 namespace App\Exceptions;
 
+use App\Data\Repositories\StudentAlreadyVoted;
 use Exception;
 use Psr\Log\LoggerInterface;
 use App\Services\Views\Builder;
@@ -53,6 +54,16 @@ class Handler extends ExceptionHandler
             return Response::make($view);
         }
 
+        if ($e instanceof StudentAlreadyVoted)
+        {
+            return Response::make(
+                $this->viewBuilder
+                  ->buildViewData(
+                      view(make_view_name_year_based('vote.error'))
+                  )
+            );
+        }
+
         if ($e instanceof NotFoundHttpException)
         {
             return Response::make(view('errors.404'));
@@ -83,9 +94,12 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $e)
     {
-        if ($response = $this->handleException($e))
+        if (! config('app.debug'))
         {
-            return $response;
+            if ($response = $this->handleException($e))
+            {
+                return $response;
+            }
         }
 
         return parent::render($request, $e);

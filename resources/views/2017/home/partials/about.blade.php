@@ -12,7 +12,7 @@
                             </div>
                         </div>
                         <div class="col-sm-4">
-                            <div class="azul1 square02">
+                            <div class="cerulean-blue square02">
 
                             </div>
                         </div>
@@ -20,7 +20,7 @@
                 </div>
                 <div class="item item-2">
                     <div class="row">
-                        <div class="col-sm-2 vermelho1 square01">
+                        <div class="col-sm-2 torch-red square01">
 
                         </div>
                         <div class="col-sm-10">
@@ -41,7 +41,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="col-sm-2 verde01 square01">
+                        <div class="col-sm-2 lima-green square01">
                         </div>
                     </div>
                 </div>

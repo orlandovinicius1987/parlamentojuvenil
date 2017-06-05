@@ -16,7 +16,7 @@ use App\Services\Filesystem\Service as Filesystem;
 use Illuminate\Support\Collection as IlluminateCollection;
 
 
-class Data
+class Data extends Repository
 {
 
     private $usersRepository;
@@ -67,9 +67,9 @@ class Data
     /**
      * @return mixed
      */
-    private function getCurrentYear()
+    public function getCurrentYear($year = NULL)
     {
-        return config('app.year');
+        return $year ?: config('app.year');
     }
 
     /**

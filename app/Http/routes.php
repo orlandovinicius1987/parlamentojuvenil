@@ -54,6 +54,26 @@ Route::group(['prefix' => '/subscribe/{force?}', 'middleware' => ['subscribing',
     Route::get('/', ['as' => 'subscribe.index', 'uses' => 'Subscriptions@index']);
 });
 
+Route::group(['prefix' => '/vote', 'middleware' => ['voting', 'auth', 'student-login']], function ()
+{
+    Route::get('/', ['as' => 'vote.index', 'uses' => 'Vote@index']);
+    Route::get('/in/{subscription_id}', ['as' => 'vote.in', 'uses' => 'Vote@voteIn']);
+    Route::get('/confirm/{subscription_id}', ['as' => 'vote.confirm', 'uses' => 'Vote@confirm']);
+    Route::get('/error', ['as' => 'vote.error', 'uses' => 'Vote@error']);
+    Route::get('/voted', ['as' => 'vote.voted', 'uses' => 'Vote@voted']);
+    Route::get('/delete/my/votes', ['as' => 'vote.delete', 'uses' => 'Vote@deleteMyVotes']);
+});
+
+Route::group(['prefix' => '/vote'], function ()
+{
+    Route::get('/elected/round/{round}', ['as' => 'vote.elected', 'uses' => 'Vote@elected']);
+});
+
+Route::group(['prefix' => '/vote', 'middleware' => ['auth']], function ()
+{
+    Route::get('/remove/my/social/account', ['as' => 'vote.remove.social', 'uses' => 'Vote@removeSocialAccount']);
+});
+
 Route::get('news/sync', function (NewsSync $news)
 {
 	return $news->sync();
@@ -102,15 +122,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'only-administrators
 
 	Route::get('{city}', ['as' => 'admin.city', 'uses' => 'Admin@city']);
 
-    Route::get('training/{subscription}', ['as' => 'admin.training', 'uses' => 'Admin@training']);
-});
+    Route::get('/votes/{subscription_id}', ['as' => 'admin.votes.student', 'uses' => 'Admin@votesPerStudent']);
 
-Route::group(['prefix' => 'vote', 'middleware' => ['auth']], function ()
-{
-    Route::get('/', ['as' => 'vote.index', 'uses' => 'Vote@index']);
-    Route::get('/confirm', ['as' => 'vote.confirm', 'uses' => 'Vote@confirm']);
-    Route::get('/error', ['as' => 'vote.error', 'uses' => 'Vote@error']);
-    Route::get('/voted', ['as' => 'vote.voted', 'uses' => 'Vote@voted']);
+    Route::get('training/{subscription}', ['as' => 'admin.training', 'uses' => 'Admin@training']);
 });
 
 Route::get('subscriptions/schools', ['as' => 'subscriptions.schools', 'uses' => 'Subscriptions@bySchool']);
@@ -142,6 +156,8 @@ Route::group(['prefix' => 'api/v1'], function ()
     Route::get('search/seeduc', ['as' => 'api.search.seeduc', 'uses' => 'ApiSearch@seeduc']);
 
     Route::get('search/users', ['as' => 'api.search.users', 'uses' => 'ApiSearch@users']);
+
+    Route::get('elected/{year?}', ['as' => 'api.elected', 'uses' => 'Api@getElected']);
 });
 
 Route::get('article/{id}', ['as' => 'article.show', 'uses' => 'News@showArticle']);
@@ -167,3 +183,5 @@ Route::get('{year}/news', ['as' => 'page.news', 'uses' => 'Pages@news']);
 
 Route::get('{year}/members', ['as' => 'page.members', 'uses' => 'Pages@members']);
 Route::get('{year}/clipping', ['as' => 'page.clipping', 'uses' => 'Pages@clipping']);
+
+Route::get('/fillregional', ['as' => 'fillregional', 'uses' => 'Subscriptions@fillRegional']);
