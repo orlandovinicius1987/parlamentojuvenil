@@ -2191,3 +2191,12 @@ img.btn-login-social {
 .downloads {
 	border-top: 10px solid #292C95;
 }
+
+.see-elects-1round img.elected-badge {
+	max-width: 100px;
+	margin-right: 20px;
+}
+
+.see-elects-1round p {
+	color: #ffc80f;
+}
