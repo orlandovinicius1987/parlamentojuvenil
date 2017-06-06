@@ -37,7 +37,7 @@
         @if (config('app.election.show-elected-1nd') === true)
             <a href="/vote/elected/round/1" >
                 <div class="jumbotron see-elects-1round text-center jacksons-purple">
-                    <p><img class="elected-badge" src="/templates/2017/assets/img/elected.svg"> Veja os eleitos do 1º Turno</p>
+                    <p><img class="elected-badge" src="/templates/2017/assets/img/elected.svg">Veja os eleitos no 1º Turno</p>
                 </div>
             </a>
         @endif
