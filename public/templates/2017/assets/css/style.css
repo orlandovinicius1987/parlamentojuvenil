@@ -2060,7 +2060,7 @@ img.btn-login-social {
 .well p.nome-candidato {
 	font-size: 150%;
 	font-weight: 600;
-	min-height: 75px;
+	min-height: 110px;
 	margin-top: 15px;
 }
 
@@ -2112,6 +2112,7 @@ img.btn-login-social {
 	margin-top: -50px;
 	margin-bottom: 5px;
 	border: 1px solid #fff;
+	width: 100%;
 }
 
 
