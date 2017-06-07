@@ -27,6 +27,6 @@ class SocialAuthController extends Controller
             return redirect()->route('subscribe.index');
         }
 
-        return redirect()->intended();
+        return $this->redirectToIntended();
     }
 }

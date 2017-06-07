@@ -6,7 +6,11 @@
             <div class="row">
                 <div class="col-md-offset-4 col-md-4">
                     <div>
-                        <h3 class="identify-title">Identifique-se</h3>
+                        @if (loggedUser()->is_voting)
+                            <h3 class="identify-title">Para votar você precisa se identificar.</h3>
+                        @else
+                            <h3 class="identify-title">Identifique-se</h3>
+                        @endif
                     </div>
                     <div class="social-login">
                         <a href="{{ route('auth.social.redirect', ['facebook']) }}" class="facebook-login">
@@ -30,13 +34,6 @@
                             Entrar com Youtube
                         </a>
                     </div>
-                    {{--
-                                                <a class="social-login-btn social-facebook" href="{{ route('auth.social.redirect', ['facebook']) }}"><img class="img-responsive" src="/templates/2017/assets/img/socialbtn-facebook.png"></a>
-                                                <a class="social-login-btn social-twitter" href="{{ route('auth.social.redirect', ['twitter']) }}"><img class="img-responsive" src="/templates/2017/assets/img/socialbtn-twitter.png"></a>
-                                                <a class="social-login-btn social-instagram" href="{{ route('auth.social.redirect', ['youtube']) }}"><img class="img-responsive" src="/templates/2017/assets/img/socialbtn-instagram.png"></a>
-                                                <a class="social-login-btn social-linkedin" href="{{ route('auth.social.redirect', ['linkedin']) }}"><img class="img-responsive" src="/templates/2017/assets/img/socialbtn-linkedin.png"></a>
-                                                <a class="social-login-btn social-youtube" href="{{ route('auth.social.redirect', ['instagram']) }}"><img class="img-responsive" src="/templates/2017/assets/img/socialbtn-youtube.png"></a>
-                                        --}}
                 </div>
             </div>
             <div class="row">

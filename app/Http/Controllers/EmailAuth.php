@@ -57,19 +57,6 @@ class EmailAuth extends BaseController
                 ->withErrors('Usuário ou senha inválido.');
     }
 
-    private function redirectToIntended()
-    {
-        if (loggedUser()->isSubscribing) {
-            return redirect()->route('subscribe.index');
-        }
-
-        if (loggedUser()->isVoting) {
-            return redirect()->route('vote.index');
-        }
-
-        return redirect()->intended();
-    }
-
     public function register(UserRegister $userRegister)
     {
         if ($user = $this->usersRepository->register(request()->only(['email', 'password']))) {

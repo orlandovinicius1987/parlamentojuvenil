@@ -50,4 +50,17 @@ abstract class Controller extends BaseController
     {
         return make_view_name_year_based($name, $year);
     }
+
+    protected function redirectToIntended()
+    {
+        if (loggedUser()->isSubscribing) {
+            return redirect()->route('subscribe.index');
+        }
+
+        if (loggedUser()->isVoting) {
+            return redirect()->route('vote.index');
+        }
+
+        return redirect()->intended();
+    }
 }
