@@ -33,7 +33,7 @@ class Vote extends BaseController
 
         return $this
                 ->buildView('vote.index', $year, null, true)
-                ->with('candidates', $candidates)
+                ->with('candidates', $candidates->shuffle())
         ;
 	}
 
