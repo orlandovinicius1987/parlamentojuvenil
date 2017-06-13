@@ -1,5 +1,6 @@
 <?php
 
+use Carbon\Carbon;
 use Auth as IlluminateAuth;
 use App\Services\SocialLogin\LoggedUser;
 
@@ -7,13 +8,13 @@ function calculate_age($date)
 {
 	try
 	{
-		$result = Carbon\Carbon::createFromFormat('d/m/Y', $date)->diffInYears();
+		$result = Carbon::createFromFormat('d/m/Y', $date)->diffInYears();
 	}
 	catch(\Exception $exception)
 	{
 		try
 		{
-			$result = Carbon\Carbon::createFromFormat('dmY', $date)->diffInYears();
+			$result = Carbon::createFromFormat('dmY', $date)->diffInYears();
 		}
 		catch(\Exception $exception)
 		{
@@ -104,7 +105,7 @@ function string_to_date($date)
 
     foreach ($formats as $format) {
         try {
-            return Carbon\Carbon::createFromFormat($format, $date);
+            return Carbon::createFromFormat($format, $date);
         } catch (\Exception $exception) {
             // do nothing here
         }
@@ -137,4 +138,17 @@ function logout() {
     if (IlluminateAuth::user()) {
         IlluminateAuth::logout();
     }
+}
+
+function election_enabled() {
+    $now = Carbon::now();
+
+    $start = Carbon::parse(config('app.election.start') . ' 00:00:00');
+
+    $end = Carbon::parse(config('app.election.end') . ' 23:59:59');
+
+    return config('app.election.enabled') === true &&
+            $now->gte($start) &&
+            $now->lte($end)
+    ;
 }

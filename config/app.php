@@ -14,6 +14,8 @@ return [
 
     'election' => [
         'enabled' => env('ELECTION_ENABLED'),
+        'start' => env('ELECTION_START'),
+        'end' => env('ELECTION_END'),
         'round' => env('ELECTION_ROUND'),
         'show-elected-1nd' => env('ELECTION_SHOW_ELECTED_1ND'),
         'show-elected-2nd' => env('ELECTION_SHOW_ELECTED_2ND'),

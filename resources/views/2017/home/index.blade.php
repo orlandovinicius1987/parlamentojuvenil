@@ -12,7 +12,7 @@
             </div>
         @endif
 
-        @if (config('app.election.enabled') === true)
+        @if (election_enabled())
             <div class="jumbotron text-center">
                 <h2>2o Turno - Vote agora</h2>
                 <p>Todos os alunos da Rede Pública Estadual do Rio de Janeiro podem votar.</p>
@@ -67,7 +67,7 @@
 
                     <div class="grow grid-item violet-red"></div>
 
-                    @if (config('app.election.enabled') === true)
+                    @if (election_enabled())
                         <div class="grow grid-item grid-item--height3 white">
                             <a href="{{ route('vote.index') }}"><img class="" src="/templates/2017/images/vote-agora.png"></a>
                         </div>
