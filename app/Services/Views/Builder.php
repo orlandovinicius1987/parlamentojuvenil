@@ -2,8 +2,8 @@
 
 namespace App\Services\Views;
 
-use App\Data\Repositories\Subscriptions;
 use \DB;
+use Cache;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
 use App\Data\Entities\State;
@@ -11,6 +11,7 @@ use App\Data\Entities\School;
 use App\Data\Entities\Article;
 use App\Data\Repositories\Data;
 use Illuminate\Support\Facades\Session;
+use App\Data\Repositories\Subscriptions;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use App\Services\Filesystem\Service as Filesystem;
 use Illuminate\Support\Collection as IlluminateCollection;
@@ -101,7 +102,15 @@ class Builder
     {
         // we could create some caching here
 
-        return $function();
+        if ($result = Cache::get($key = 'execute-'.$name)) {
+            return $result;
+        }
+
+        $result = $function();
+
+        Cache::put($key, $result, 2);
+
+        return $result;
     }
 
     private function getClipping($year)
