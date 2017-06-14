@@ -45,7 +45,7 @@ class Api extends BaseController
             SELECT
                 count(*) total_votes
             FROM votes
-            WHERE year = 2017
+            WHERE year = 2017 and is_valid = true
                 ;
 SQL
         ));
@@ -57,7 +57,7 @@ SQL
                 count(*) time_votes,
                 round((count(*)  * 100.00) / (select count(*) from votes), 2) as percentage
             FROM votes
-            WHERE votes.year = 2017
+            WHERE votes.year = 2017 and votes.is_valid = true
             GROUP BY date_time
             ORDER BY date_time desc
                 ;
@@ -73,7 +73,7 @@ SQL
             FROM votes
             JOIN subscriptions on subscriptions.id = votes.subscription_id
             JOIN students on subscriptions.student_id = students.id
-            WHERE votes.year = 2017
+            WHERE votes.year = 2017 and votes.is_valid = true
             GROUP BY students.city
             ORDER BY students.city
             ;
@@ -81,7 +81,7 @@ SQL
         ));
 
         return [
-            'total_votes' => $totalVotes,
+            'total_votes' => $totalVotes[0]->total_votes,
             'by_time' => $byTime,
             'by_city' => $byCity,
         ];

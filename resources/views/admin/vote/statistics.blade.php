@@ -4,7 +4,7 @@
     <div id="vue-vote-statistics">
         <div class="row">
             <div class="col-xs-11">
-                <h1 class="page-header">Eleições {{ get_current_year() }} - Estatísticas</h1>
+                <h1 class="page-header">Eleições {{ get_current_year() }} - Estatísticas - @{{ totalVotes }} votos</h1>
             </div>
             <div class="col-xs-1" v-if="busy">
                 <h1 class="page-header"><i class="fa fa-refresh fa-spin" style="font-size:24px"></i></h1>

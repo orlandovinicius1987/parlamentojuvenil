@@ -12,9 +12,9 @@
                 byCity: [],
 
                 timeOrderBy: 'date_time',
-                timeOrderType: 'asc',
+                timeOrderType: 'desc',
 
-                cityOrderBy: 'date_time',
+                cityOrderBy: 'city',
                 cityOrderType: 'asc',
 
                 busy: false,
@@ -28,6 +28,7 @@
                     this.$http.get('/api/v1/vote/statistics').then(
                         function (response)
                         {
+                            this.totalVotes = response.body.total_votes;
                             this.byCity = response.body.by_city;
                             this.byTime = response.body.by_time;
 
