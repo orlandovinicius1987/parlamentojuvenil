@@ -55,7 +55,7 @@ class Admin extends BaseController
 
     function elected()
     {
-        return view('admin.elected');
+        return view('admin.vote.index');
     }
 
     private function makeTitle($course)
@@ -145,22 +145,14 @@ class Admin extends BaseController
 
     public function votesPerStudent($subscription_id)
     {
-        return view('admin.votes')
+        return view('admin.vote.student')
                 ->with('subscription', $this->subscriptionsRepository->findBySubscriptionId($subscription_id))
                 ->with('votes', $this->subscriptionsRepository->getVotesPerSubscription($subscription_id))
         ;
     }
 
-    public function voteStatitics()
+    public function voteStatistics()
     {
-//        SELECT
-//    to_timestamp(floor((extract('epoch' from created_at) / 3600 )) * 3600) AT TIME ZONE 'UTC' as hora,
-//    (select count(*) from votes) as votos_total,
-//    COUNT(*) votos_na_hora,
-//    CAST(round((COUNT(*)  * 100.00) / (select count(*) from votes), 2) AS text) || '%' as percentual
-//FROM votes
-//GROUP BY hora
-//ORDER BY hora desc
-//    ;
+        return view('admin.vote.statistics');
     }
 }

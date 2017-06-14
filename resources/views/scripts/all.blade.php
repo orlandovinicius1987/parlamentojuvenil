@@ -51,6 +51,7 @@
 @include('scripts.vueGallery')
 @include('scripts.vueMap')
 @include('scripts.vueSchools')
+@include('scripts.vueVoteStatistics')
 @include('scripts.vueTimeline')
 @include('scripts.helpers')
 

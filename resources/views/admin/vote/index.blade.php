@@ -16,57 +16,67 @@
                     </div>
                     <!-- /.panel-heading -->
                     <div class="panel-body">
-                        <div class="table-responsive">
-                            <table class="table table-striped table-bordered table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>Ano</th>
-                                        <th>Cidades 1o turno</th>
-                                        <th>Cidades 2o turno</th>
-                                        <th>Votos válidos 1o turno</th>
-                                        <th>Votos válidos 2o turno</th>
-                                        <th>Total de Eleitores</th>
-                                        <th>% Votante 1o turno</th>
-                                        <th>% Votante 2o turno</th>
-                                    </tr>
-                                </thead>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Ano</th>
+                                                <th>Cidades 1o turno</th>
+                                                <th>Cidades 2o turno</th>
+                                                <th>Votos válidos 1o turno</th>
+                                                <th>Votos válidos 2o turno</th>
+                                                <th>Total de Eleitores</th>
+                                                <th>% Votante 1o turno</th>
+                                                <th>% Votante 2o turno</th>
+                                            </tr>
+                                        </thead>
 
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            @{{ year }}
-                                        </td>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    @{{ year }}
+                                                </td>
 
-                                        <td>
-                                            @{{ total_cities_1nd }}
-                                        </td>
+                                                <td>
+                                                    @{{ total_cities_1nd }}
+                                                </td>
 
-                                        <td>
-                                            @{{ total_cities_2nd }}
-                                        </td>
+                                                <td>
+                                                    @{{ total_cities_2nd }}
+                                                </td>
 
-                                        <td>
-                                            @{{ total_valid_votes_1nd }}
-                                        </td>
+                                                <td>
+                                                    @{{ total_valid_votes_1nd }}
+                                                </td>
 
-                                        <td>
-                                            @{{ total_valid_votes_2nd }}
-                                        </td>
+                                                <td>
+                                                    @{{ total_valid_votes_2nd }}
+                                                </td>
 
-                                        <td>
-                                            @{{ total_voters }}
-                                        </td>
+                                                <td>
+                                                    @{{ total_voters }}
+                                                </td>
 
-                                        <td>
-                                            @{{ voter_percentage_1nd }}
-                                        </td>
+                                                <td>
+                                                    @{{ voter_percentage_1nd }}
+                                                </td>
 
-                                        <td>
-                                            @{{ voter_percentage_2nd }}
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                                                <td>
+                                                    @{{ voter_percentage_2nd }}
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <a href="{{ route('admin.vote.statistics') }}" class="btn btn-primary">Estatísticas</a>
+                            </div>
                         </div>
                     </div>
                     <!-- /.panel-body -->

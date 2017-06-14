@@ -124,6 +124,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'only-administrators
 
     Route::get('/votes/{subscription_id}', ['as' => 'admin.votes.student', 'uses' => 'Admin@votesPerStudent']);
 
+    Route::get('/vote/statistics', ['as' => 'admin.vote.statistics', 'uses' => 'Admin@voteStatistics']);
+
     Route::get('training/{subscription}', ['as' => 'admin.training', 'uses' => 'Admin@training']);
 });
 
@@ -158,6 +160,8 @@ Route::group(['prefix' => 'api/v1'], function ()
     Route::get('search/users', ['as' => 'api.search.users', 'uses' => 'ApiSearch@users']);
 
     Route::get('elected/{year?}', ['as' => 'api.elected', 'uses' => 'Api@getElected']);
+
+    Route::get('vote/statistics/{year?}', ['as' => 'api.vote.statistics', 'uses' => 'Api@getVoteStatistics']);
 });
 
 Route::get('article/{id}', ['as' => 'article.show', 'uses' => 'News@showArticle']);
