@@ -36,13 +36,20 @@ class Api extends BaseController
 
     public function getElected($year = null)
     {
-        $this->subscriptionsRepository->markAllElected();
-
         return $this->subscriptionsRepository->getElectedOn1and2($year);
     }
 
     public function getVoteStatistics()
     {
+        $totalVotes = DB::select(DB::raw(<<<SQL
+            SELECT
+                count(*) total_votes
+            FROM votes
+            WHERE year = 2017
+                ;
+SQL
+        ));
+
         $byTime = DB::select(DB::raw(<<<SQL
             SELECT
                 to_timestamp(floor((extract('epoch' from created_at) / 3600 )) * 3600) AT TIME ZONE 'UTC' as date_time,
@@ -74,6 +81,7 @@ SQL
         ));
 
         return [
+            'total_votes' => $totalVotes,
             'by_time' => $byTime,
             'by_city' => $byCity,
         ];

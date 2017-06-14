@@ -7,8 +7,10 @@
             el: '#vue-vote-statistics',
 
             data: {
+                totalVotes: 0,
                 byTime: [],
                 byCity: [],
+
                 timeOrderBy: 'date_time',
                 timeOrderType: 'asc',
 

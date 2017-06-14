@@ -27,8 +27,6 @@ class Vote extends BaseController
 
         $this->subscriptionsRepository->markAllElected();
 
-//        $this->subscriptionsRepository->candidatesForSchool(loggedUser()->student->school);
-
         $candidates = $this->subscriptionsRepository->getCandidates($year);
 
         return $this

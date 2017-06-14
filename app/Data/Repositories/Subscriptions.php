@@ -104,6 +104,28 @@ class Subscriptions extends Repository
         return Subscription::with('student')->where('id', $vote)->first();
     }
 
+    private function getAllVotes()
+    {
+        return DB::select(DB::raw(<<<SQL
+            select
+              votes.id vote_id,
+              students.id student_id,
+              students.name,
+              students.city,
+              students.school,
+              students.registration,
+              students.birthdate,
+              students.email,
+              votes.is_valid
+            from students
+            join votes on votes.student_id = students.id
+            and votes.YEAR = 2017
+            order by students.registration, students.birthdate, votes.created_at
+            ;
+SQL
+        ));
+    }
+
     public function getCandidateBySubscription($subscription_id)
     {
         return $this->getCandidates(
@@ -113,6 +135,8 @@ class Subscriptions extends Repository
 
     public function getElected($round)
     {
+        $this->markAllElected();
+
         $electedField = 'elected_'.$round.'nd';
 
         $elected = Subscription::with('student')
@@ -164,6 +188,28 @@ class Subscriptions extends Repository
         $this->updateCounters($elected, $counters, 'city', -1, 'cityFirst', 'cityLast', 'cityCount');
 
         return $elected;
+    }
+
+    private function invalidateVote($vote_id)
+    {
+        if ($vote = Vote::find($vote_id)) {
+            $vote->is_valid = false;
+
+            $vote->save();
+        }
+    }
+
+    private function removeInvalidVotes()
+    {
+        $previous = null;
+
+        foreach ($this->getAllVotes() as $vote) {
+            if ($vote->registration == $previous) {
+                $this->invalidateVote($vote->vote_id);
+            }
+
+            $previous = $vote->registration;
+        }
     }
 
     private function updateCounters(&$elected, &$counters, $field, $counter, $fieldFirst, $fieldLast, $fieldCount)
@@ -221,6 +267,8 @@ class Subscriptions extends Repository
 
     public function markAllElected()
     {
+        $this->removeInvalidVotes();
+
         $electedField = 'elected_'.$this->getCurrentRound().'nd';
 
         $round = $this->getCurrentRound();
@@ -233,7 +281,7 @@ class Subscriptions extends Repository
             'students.regional as student_regional',
             'subscriptions.id as subscription_id',
             'students.school as school_name',
-            DB::raw(sprintf('(select count(*) from votes where year = %s and round = %s and votes.subscription_id = subscriptions.id) as votes', $this->getCurrentYear(), $round))
+            DB::raw(sprintf('(select count(*) from votes where is_valid = true and year = %s and round = %s and votes.subscription_id = subscriptions.id) as votes', $this->getCurrentYear(), $round))
         );
 
         $query->where('year', $this->getCurrentYear());

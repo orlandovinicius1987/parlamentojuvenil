@@ -3,6 +3,7 @@
 namespace App\Data\Entities;
 
 use App\Base\Model;
+use App\Data\Entities\Scopes\ValidVote;
 
 class Vote extends Model
 {
@@ -15,6 +16,18 @@ class Vote extends Model
         'year',
     ];
 
+    /**
+     * The "booting" method of the model.
+     *
+     * @return void
+     */
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::addGlobalScope(new ValidVote());
+    }
+
     public function voter()
     {
         return $this->belongsTo(Student::class, 'student_id');
@@ -22,6 +35,6 @@ class Vote extends Model
 
     public function candidate()
     {
-        return $this->belongsTo(Subscription::class);
+        return $this->belongsTo(Subscription::class, 'subscription_id');
     }
 }
