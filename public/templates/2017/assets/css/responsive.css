@@ -1172,7 +1172,7 @@
 
 @media screen and (min-width: 321px) and (max-width: 375px) {
 	body{
-		overflow: visible !important;
+		/*overflow: visible !important;*/
 	}
 
 	.foto-candidato-outer {
