@@ -1171,6 +1171,9 @@
 }
 
 @media screen and (min-width: 321px) and (max-width: 375px) {
+	body{
+		overflow: scroll;
+	}
 
 	.foto-candidato-outer {
 		margin-left: 86px;
