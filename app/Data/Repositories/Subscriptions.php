@@ -163,7 +163,6 @@ class Subscriptions extends Repository
         $this->updateCounters($elected, $counters, 'regional', -1, 'regionalFirst', 'regionalLast', 'regionalCount');
         $this->updateCounters($elected, $counters, 'city', -1, 'cityFirst', 'cityLast', 'cityCount');
 
-        dd($elected);
         return $elected;
     }
 
