@@ -21,7 +21,10 @@
                     <th>Municípío</th>
                     <th>Unidade escolar</th>
                     <th>Nome</th>
-                    <th>Votos válidos</th>
+
+                    @if ($round == 2)
+                        <th>Votos válidos</th>
+                    @endif
 
                     @if (Auth::user() && Auth::user()->isAdministrator())
                         <th>Votos</th>
@@ -53,11 +56,13 @@
 
                             <td>{{ $candidate['name'] }}</td>
 
-                            <td class="text-right">
-                                @if ($candidate['subscription_votes'] > 0)
-                                    {{ round($candidate['subscription_votes'] / $candidate['regional_votes'] * 100) }}%
-                                @endif
-                            </td>
+                            @if ($round == 2)
+                                <td class="text-right">
+                                    @if ($candidate['subscription_votes'] > 0)
+                                        {{ round($candidate['subscription_votes'] / $candidate['regional_votes'] * 100) }}%
+                                    @endif
+                                </td>
+                            @endif
 
                             @if (Auth::user() && Auth::user()->isAdministrator())
                                 <td class="text-right">
