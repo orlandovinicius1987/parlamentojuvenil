@@ -278,6 +278,7 @@ SQL
         $query->select(
             'students.name as student_name',
             'students.city as city_name',
+            DB::raw('(students.regional||students.city) as regional_and_city_name'),
             'students.regional as student_regional',
             'subscriptions.id as subscription_id',
             'students.school as school_name',
@@ -297,7 +298,9 @@ SQL
 
             $query->orderBy('city_name', 'asc');
 
-            $votePer = 'city_name';
+            $query->orderBy('student_regional', 'asc');
+
+            $votePer = 'regional_and_city_name';
         }
 
         $query->orderBy('votes', 'desc');
