@@ -140,8 +140,14 @@ SQL
         $electedField = 'elected_'.$round.'nd';
 
         $elected = Subscription::with('student')
+                ->select(
+                    'students.*',
+                    DB::raw('(select count(*) from votes where round = '.$round.' and is_valid = true and year = '.$this->getCurrentYear().' and votes.subscription_id = subscriptions.id) as subscription_votes'),
+                    DB::raw('(select count(*) from votes join students stu2 on votes.student_id = stu2.id and stu2.city = students.city and stu2.regional = students.regional where round = '.$round.' and is_valid = true and year = '.$this->getCurrentYear().') as regional_votes'),
+                    DB::raw('(select count(*) from votes where round = '.$round.' and is_valid = true and year = '.$this->getCurrentYear().') as total_votes')
+                )
                 ->join('students', 'students.id', '=', 'subscriptions.student_id')
-                ->where('year', $this->getCurrentYear())
+                ->where('subscriptions.year', $this->getCurrentYear())
                 ->where($electedField, true)
                 ->orderBy('students.regional', 'asc')
                 ->orderBy('students.city', 'asc')

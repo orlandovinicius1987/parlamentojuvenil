@@ -21,6 +21,13 @@
                     <th>Municípío</th>
                     <th>Unidade escolar</th>
                     <th>Nome</th>
+                    <th>Votos válidos</th>
+
+                    @if (Auth::user() && Auth::user()->isAdministrator())
+                        <th>Votos</th>
+                        <th>Votos regionais</th>
+                        <th>Total de votos</th>
+                    @endif
                 </thead>
 
                 <tbody>
@@ -45,6 +52,26 @@
                             <td>{{ $candidate['school'] }}</td>
 
                             <td>{{ $candidate['name'] }}</td>
+
+                            <td class="text-right">
+                                @if ($candidate['subscription_votes'] > 0)
+                                    {{ round($candidate['subscription_votes'] / $candidate['regional_votes'] * 100) }}%
+                                @endif
+                            </td>
+
+                            @if (Auth::user() && Auth::user()->isAdministrator())
+                                <td class="text-right">
+                                    {{ $candidate['subscription_votes'] }}
+                                </td>
+
+                                <td class="text-right">
+                                    {{ $candidate['regional_votes'] }}
+                                </td>
+
+                                <td class="text-right">
+                                    {{ $candidate['total_votes'] }}
+                                </td>
+                            @endif
                         </tr>
                     @endforeach
                 </tbody>
