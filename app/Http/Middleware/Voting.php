@@ -25,6 +25,10 @@ class Voting
      */
     public function handle($request, Closure $next)
     {
+        if (! config('app.election.enabled')) {
+            return redirect()->home();
+        }
+
         loggedUser()->isVoting = true;
 
         return $next($request);
