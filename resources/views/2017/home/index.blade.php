@@ -12,6 +12,16 @@
             </div>
         @endif
 
+        @if (config('app.flag.contest.show_rules'))
+            <div class="jumbotron text-center">
+                <h2>Concurso Para Seleção da Bandeira {{ get_current_year() }}</h2>
+                <br><br><br>
+                <a href="/files/apps/parlamentojuvenil/site/2017/downloads/edital-concurso-bandeira-parlamento-juvenil-2017-01.pdf" class="btn btn-block btn-primary btn-large center-block" download="download">
+                    Clique para baixar o edital
+                </a>
+            </div>
+        @endif
+
         @if (election_enabled())
             <div class="jumbotron text-center">
                 <h2>2o Turno - Vote agora</h2>

@@ -32,6 +32,12 @@ return [
         ]
     ],
 
+    'flag' => [
+        'contest' => [
+            'show_rules' => env('FLAG_CONTEST_SHOW_RULES', false),
+        ],
+    ],
+
     'timezone' => 'America/Sao_Paulo',
 
     'locale' => 'pt_BR',
