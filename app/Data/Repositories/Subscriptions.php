@@ -133,25 +133,32 @@ SQL
         )->first();
     }
 
-    public function getElected($round)
+    public function getElected($round, $showAll = false)
     {
         $this->markAllElected();
 
         $electedField = 'elected_'.$round.'nd';
+        $electedPreviousField = 'elected_'.($round-1 > 0 ? $round-1 : $round).'nd';
 
         $elected = Subscription::with('student')
                 ->select(
+                    DB::raw(($totalVotesColumn = '(select count(*) from votes where round = '.$round.' and is_valid = true and year = '.$this->getCurrentYear().')') . ' as total_votes'),
                     'students.*',
                     DB::raw('(select count(*) from votes where round = '.$round.' and is_valid = true and year = '.$this->getCurrentYear().' and votes.subscription_id = subscriptions.id) as subscription_votes'),
-                    DB::raw('(select count(*) from votes join students stu2 on votes.student_id = stu2.id and stu2.city = students.city and stu2.regional = students.regional where round = '.$round.' and is_valid = true and year = '.$this->getCurrentYear().') as regional_votes'),
-                    DB::raw('(select count(*) from votes where round = '.$round.' and is_valid = true and year = '.$this->getCurrentYear().') as total_votes')
+                    DB::raw('(select count(*) from votes join students stu2 on votes.student_id = stu2.id and stu2.city = students.city and stu2.regional = students.regional where round = '.$round.' and is_valid = true and year = '.$this->getCurrentYear().') as regional_votes')
                 )
                 ->join('students', 'students.id', '=', 'subscriptions.student_id')
                 ->where('subscriptions.year', $this->getCurrentYear())
-                ->where($electedField, true)
+                ->where(function($query) use ($electedField, $electedPreviousField, $showAll) {
+                    if (! $showAll) {
+                        $query->where($electedPreviousField, true);
+                    } else {
+                        $query->where($electedField, true);
+                    }
+                })
                 ->orderBy('students.regional', 'asc')
                 ->orderBy('students.city', 'asc')
-                ->orderBy('students.name', 'asc')
+                ->orderByRaw(DB::raw($totalVotesColumn.' asc'))
                 ->get()
                 ->toArray()
         ;
