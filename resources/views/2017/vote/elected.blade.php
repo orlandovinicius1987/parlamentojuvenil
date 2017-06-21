@@ -59,7 +59,7 @@
                             @if ($round == 2)
                                 <td class="text-right">
                                     @if ($candidate['subscription_votes'] > 0)
-                                        {{ round($candidate['subscription_votes'] / $candidate['regional_votes'] * 100) }}%
+                                        {{ round($candidate['subscription_votes'] / $candidate['regional_votes'] * 100, 2) }}%
                                     @endif
                                 </td>
                             @endif
