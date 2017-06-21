@@ -45,19 +45,19 @@
         @endif
 
         @if (config('app.election.show-elected-2nd') === true)
-            {{--<a href="/vote/elected/round/2" >--}}
-                {{--<div class="jumbotron see-elects-1round text-center jacksons-purple">--}}
-                    {{--<p><img class="elected-badge" src="/templates/2017/assets/img/elected.svg">Eleitos no 2º Turno</p>--}}
-                    {{--<h3>Conheça os Deputados Estaduais Juvenis de 2017</h3>--}}
-                {{--</div>--}}
-            {{--</a>--}}
-
-            <a href="/files/apps/parlamentojuvenil/site/2017/downloads/resultado-pj-2017.pdf" >
+            <a href="/vote/elected/round/2" >
                 <div class="jumbotron see-elects-1round text-center jacksons-purple">
                     <p><img class="elected-badge" src="/templates/2017/assets/img/elected.svg">Eleitos no 2º Turno</p>
                     <h3>Conheça os Deputados Estaduais Juvenis de 2017</h3>
                 </div>
             </a>
+
+            {{--<a href="/files/apps/parlamentojuvenil/site/2017/downloads/resultado-pj-2017.pdf" >--}}
+                {{--<div class="jumbotron see-elects-1round text-center jacksons-purple">--}}
+                    {{--<p><img class="elected-badge" src="/templates/2017/assets/img/elected.svg">Eleitos no 2º Turno</p>--}}
+                    {{--<h3>Conheça os Deputados Estaduais Juvenis de 2017</h3>--}}
+                {{--</div>--}}
+            {{--</a>--}}
         @endif
 
         @if (config('app.election.show-elected-1nd') === true)
