@@ -6,12 +6,19 @@
             <div class="row">
                 <div class="col-md-offset-4 col-md-4">
                     <div>
-                        @if (loggedUser()->is_voting)
-                            <h3 class="identify-title">Para votar você precisa se identificar.</h3>
-                        @else
-                            <h3 class="identify-title">Identifique-se</h3>
-                        @endif
+                        <h3 class="identify-title">
+                            @if (loggedUser()->is_voting)
+                                Para votar você precisa se identificar.</h3>
+                            @elseif (loggedUser()->is_flag_contest_subscribing)
+                                Para inscrever a sua bandeira você precisa se identificar.
+                            @elseif (loggedUser()->is_flag_contest_voting)
+                                Para votar em uma bandeira você precisa se identificar.
+                            @else
+                                Identifique-se
+                            @endif
+                        </h3>
                     </div>
+
                     <div class="social-login">
                         <a href="{{ route('auth.social.redirect', ['facebook']) }}" class="facebook-login">
                             <img src="/templates/2017/assets/img/sociallogin-facebook.png" class="btn-login-social">

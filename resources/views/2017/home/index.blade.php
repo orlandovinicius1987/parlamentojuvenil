@@ -2,6 +2,20 @@
 
 @section('contents')
     <section class="notifications">
+        @if (config('app.flag.contest.subscriptions.enabled') === true)
+            <div class="jumbotron text-center">
+                <h2>Concurso para seleção da bandeira do Parlamento Juvenil</h2>
+                <p>
+                    Alunos 6º ao 9º ano
+                    dos Ensinos Fundamental e de todo o ensino médio, matriculados nas
+                    unidades escolares da rede pública estadual do Rio de Janeiro.
+                </p>
+                <a href="{{ route('flag-contest.subscribe.index') }}" class="btn btn-block btn-primary btn-large center-block">
+                    Clique para inscrever a sua bandeira
+                </a>
+            </div>
+        @endif
+
         @if (config('app.subscriptions.enabled') === true)
             <div class="jumbotron text-center">
                 <h2>Inscrições abertas</h2>

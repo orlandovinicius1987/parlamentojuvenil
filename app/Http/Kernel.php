@@ -26,7 +26,6 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
-        'auth' => \App\Http\Middleware\Authenticate::class,
         'only-administrators' => \App\Http\Middleware\OnlyAdministrators::class,
         'subscribing' => \App\Http\Middleware\Subscribing::class,
         'voting' => \App\Http\Middleware\Voting::class,
@@ -36,5 +35,9 @@ class Kernel extends HttpKernel
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'cors' => \App\Http\Middleware\Cors::class,
+        'flag-contest-voting' => \App\Http\Middleware\FlagContestVoting::class,
+        'flag-contest-subscribing' => \App\Http\Middleware\FlagContestSubscribing::class,
+        'flag-contest-cannot-re-subscribe' => \App\Http\Middleware\FlagContestCannotResubscribe::class,
+        'auth' => \App\Http\Middleware\Authenticate::class,
     ];
 }

@@ -35,6 +35,14 @@ return [
     'flag' => [
         'contest' => [
             'show_rules' => env('FLAG_CONTEST_SHOW_RULES', false),
+
+            'subscriptions' => [
+                'enabled' => env('FLAG_CONTEST_SUBSCRIPTIONS_ENABLED', false),
+            ],
+
+            'election' => [
+                'enabled' => env('FLAG_CONTEST_ELECTION_ENABLED', false),
+            ],
         ],
     ],
 

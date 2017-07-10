@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class Subscribing
+class FlagContestSubscribing
 {
     /**
      * Handle an incoming request.
@@ -15,7 +15,11 @@ class Subscribing
      */
     public function handle($request, Closure $next)
     {
-        loggedUser()->isSubscribing = true;
+        if (! config('app.flag.contest.subscriptions.enabled')) {
+            return redirect()->home();
+        }
+
+        loggedUser()->isFlagContestSubscribing = true;
 
         return $next($request);
     }

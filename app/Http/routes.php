@@ -64,6 +64,16 @@ Route::group(['prefix' => '/vote', 'middleware' => ['voting', 'auth', 'student-l
     Route::get('/delete/my/votes', ['as' => 'vote.delete', 'uses' => 'Vote@deleteMyVotes']);
 });
 
+Route::group(['prefix' => '/flag-contest/subscribe', 'middleware' => ['flag-contest-subscribing', 'auth', 'student-login', 'flag-contest-cannot-re-subscribe']], function ()
+{
+    Route::get('/', ['as' => 'flag-contest.subscribe.index', 'uses' => 'FlagContest@subscribe']);
+});
+
+Route::group(['prefix' => '/flag-contest/vote', 'middleware' => ['flag-contest-voting', 'auth', 'student-login', 'flag-contest-login']], function ()
+{
+    Route::get('/', ['as' => 'flag-contest.vote.index', 'uses' => 'FlagContest@vote']);
+});
+
 Route::group(['prefix' => '/vote'], function ()
 {
     Route::get('/elected/round/{round}', ['as' => 'vote.elected', 'uses' => 'Vote@elected']);
