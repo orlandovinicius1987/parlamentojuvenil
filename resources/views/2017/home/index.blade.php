@@ -13,12 +13,40 @@
         @endif
 
         @if (config('app.flag.contest.show_rules'))
-            <div class="jumbotron text-center">
-                <h2>Concurso Para Seleção da Bandeira {{ get_current_year() }}</h2>
-                <br><br><br>
+            <div class="jumbotron text-center flag-tournment jacksons-purple">
+                <div class="row">
+                    <div class="col-md-8 pull-right">
+                        <h2>Concurso Para Seleção da Bandeira do Parlamento Juvenil {{ get_current_year() }}</h2>
+                        <h3>Inscrições até 04/09 de 2017</h3>
+                    </div>
+                    <div class="col-md-4">
+                        <img class="bandeira-pj " src="/templates/2017/assets/img/bandeira-pj.png">
+                    </div>
+
+
+                    <div class="col-md-12 flag-subscription supernova-yellow visible-lg-block ">
+
+                        <a href="#" class="btn btn-primary btn-large">
+                            Inscreva-se Agora
+                        </a>
+                        <img class="baixar-edital" src="/templates/2017/assets/img/baixar-edital.png">
+                    </div>
+
+                    <div class="col-md-12 flag-subscription hidden-lg ">
+
+                        <a href="#" class="btn btn-primary btn-large btn-block">
+                            Inscreva-se Agora
+                        </a>
+                        <img class="baixar-edital" src="/templates/2017/assets/img/baixar-edital.png">
+                    </div>
+
+
+
+                </div>
+{{--                <br><br><br>
                 <a href="/files/apps/parlamentojuvenil/site/2017/downloads/edital-concurso-bandeira-parlamento-juvenil-2017-01.pdf" class="btn btn-block btn-primary btn-large center-block" download="download">
                     Clique para baixar o edital
-                </a>
+                </a>--}}
             </div>
         @endif
 

@@ -179,7 +179,87 @@
 }
 
 
+
+@media screen and (min-width: 901px) {
+
+
+
+	.flag-tournment {
+		min-height: 310px;
+	}
+
+
+	img.bandeira-pj {
+		position: absolute;
+		top: -48px;
+		left: 0;
+		z-index: 999;
+		width: initial;
+	}
+
+
+
+
+	.flag-subscription {
+		margin-left: -45px;
+		padding-top: 15px;
+		padding-bottom: 15px;
+		margin-top: 50px;
+	}
+
+
+	.flag-tournment h2 {
+		color: #FFCA00 !important;
+		font-family: 'Open Sans', Sans-serif !important;
+		font-size: 31px !important;
+		text-align: left !important;
+		margin-left: 70px;
+		letter-spacing: 0.75px !important;
+		font-weight: 600;
+	}
+
+
+	.flag-tournment h3 {
+		text-align: left !important;
+		margin-left: 70px;
+		margin-top: 20px;
+	}
+
+	.flag-subscription {
+		/*margin-top: 55px;*/
+		border-radius: 0 5px 5px 0;
+		-webkit-box-shadow: 8px 8px 0px 0px rgba(0,0,0,0.7);
+		-moz-box-shadow: 8px 8px 0px 0px rgba(0,0,0,0.7);
+		box-shadow: 8px 8px 0px 0px rgba(0,0,0,0.7);
+		padding-top: 30px;
+		text-align: right;
+	}
+
+	img.baixar-edital {
+		position: absolute;
+		max-width: 100px;
+		top: -70px;
+		right: 15px;
+	}
+
+	.flag-subscription .btn {
+		position: absolute;
+		top: -20px;
+		right: 130px;
+		color: #BC1C91;
+		background: #FFCA05;
+		border: solid 2px #fff;
+	}
+
+	.flag-subscription .btn:hover {
+		background: #E0B000 !important;
+		border: solid 2px #fff !important;
+	}
+
+}
+
 @media screen and (min-width: 901px) and (max-width: 992px) {
+
 	.contact-list li {
 		padding-right: 10px;
 	}

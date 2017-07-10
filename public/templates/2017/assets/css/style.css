@@ -2201,3 +2201,33 @@ img.btn-login-social {
 .see-elects-1round p {
 	color: #ffc80f;
 }
+
+
+
+
+img.bandeira-pj {
+	width: 100%;
+}
+
+.flag-tournment h2 {
+	color: #FFCA00 !important;
+	font-family: 'Open Sans', Sans-serif !important;
+	text-align: center !important;
+	letter-spacing: 0.65px !important;
+	margin-bottom: 15px;
+}
+
+.flag-subscription .btn {
+	color: #BC1C91;
+	background: #FFCA05;
+	border: solid 2px #fff;
+}
+
+.flag-subscription .btn:hover {
+	background: #E0B000 !important;
+	border: solid 2px #fff !important;
+}
+
+.flag-subscription  a.btn.btn-primary.btn-large.btn-block {
+	margin-bottom: 15px;
+}
