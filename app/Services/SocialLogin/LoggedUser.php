@@ -8,6 +8,15 @@ class LoggedUser
 {
     const SESSION_VAR_NAME = 'loggedUser';
 
+    private function convertInnerJsonsToArray($array)
+    {
+        if (isset($array['social_user']['data'])) {
+            $array['social_user']['data'] = json_decode($array['social_user']['data'], true);
+        }
+
+        return $array;
+    }
+
     /**
      * @param $key
      * @return null
@@ -103,6 +112,16 @@ class LoggedUser
     public function all()
     {
         return collect($this->loadSessionVar());
+    }
+
+    public function toArray()
+    {
+        return $this->convertInnerJsonsToArray($this->all()->toArray());
+    }
+
+    public function toJson()
+    {
+        return collect($this->toArray())->toJson();
     }
 
     /**

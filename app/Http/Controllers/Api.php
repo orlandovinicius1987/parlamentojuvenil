@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use DB;
+use Validator;
 use App\Data\Repositories\Data;
 use App\Data\Repositories\Subscriptions;
 use App\Http\Controllers\Controller as BaseController;
@@ -85,5 +86,25 @@ SQL
             'by_time' => $byTime,
             'by_city' => $byCity,
         ];
+    }
+
+    public function validateType($type)
+    {
+        if ($type == 'email') {
+            return $this->validateEmail();
+        }
+    }
+
+    private function validateEmail()
+    {
+        $validator = Validator::make(request()->all(), [
+            'email' => 'required|email',
+        ]);
+
+        if ($validator->fails()) {
+            return [ 'success' => false ];
+        }
+
+        return [ 'success' => true ];
     }
 }

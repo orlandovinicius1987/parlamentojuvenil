@@ -2,20 +2,6 @@
 
 @section('contents')
     <section class="notifications">
-        @if (config('app.flag.contest.subscriptions.enabled') === true)
-            <div class="jumbotron text-center">
-                <h2>Concurso para seleção da bandeira do Parlamento Juvenil</h2>
-                <p>
-                    Alunos 6º ao 9º ano
-                    dos Ensinos Fundamental e de todo o ensino médio, matriculados nas
-                    unidades escolares da rede pública estadual do Rio de Janeiro.
-                </p>
-                <a href="{{ route('flag-contest.subscribe.index') }}" class="btn btn-block btn-primary btn-large center-block">
-                    Clique para inscrever a sua bandeira
-                </a>
-            </div>
-        @endif
-
         @if (config('app.subscriptions.enabled') === true)
             <div class="jumbotron text-center">
                 <h2>Inscrições abertas</h2>
@@ -33,29 +19,29 @@
                         <h2>Concurso Para Seleção da Bandeira do Parlamento Juvenil {{ get_current_year() }}</h2>
                         <h3>Inscrições até 04/09 de 2017</h3>
                     </div>
+
                     <div class="col-md-4">
                         <img class="bandeira-pj " src="/templates/2017/assets/img/bandeira-pj.png">
                     </div>
 
-
                     <div class="col-md-12 flag-subscription supernova-yellow visible-lg-block ">
-
-                        <a href="#" class="btn btn-primary btn-large">
+                        <a href="/flag-contest/subscribe" class="btn btn-primary btn-large">
                             Inscreva-se Agora
                         </a>
-                        <img class="baixar-edital" src="/templates/2017/assets/img/baixar-edital.png">
+
+                        <a href="/files/apps/parlamentojuvenil/site/2017/downloads/edital-concurso-bandeira-parlamento-juvenil-2017-01.pdf">
+                            <img class="baixar-edital" src="/templates/2017/assets/img/baixar-edital.png">
+                        </a>
                     </div>
 
-                    <div class="col-md-12 flag-subscription hidden-lg ">
-
+                    <div class="col-md-12 flag-subscription hidden-lg">
                         <a href="#" class="btn btn-primary btn-large btn-block">
                             Inscreva-se Agora
                         </a>
-                        <img class="baixar-edital" src="/templates/2017/assets/img/baixar-edital.png">
+                        <a href="/files/apps/parlamentojuvenil/site/2017/downloads/edital-concurso-bandeira-parlamento-juvenil-2017-01.pdf">
+                            <img class="baixar-edital" src="/templates/2017/assets/img/baixar-edital.png">
+                        </a>
                     </div>
-
-
-
                 </div>
 {{--                <br><br><br>
                 <a href="/files/apps/parlamentojuvenil/site/2017/downloads/edital-concurso-bandeira-parlamento-juvenil-2017-01.pdf" class="btn btn-block btn-primary btn-large center-block" download="download">

@@ -54,6 +54,8 @@
     </head>
 
     <body class="header-fixed-top">
+        @include('2017.layouts.partials.variables')
+
         <div id="page-top" class="page-top"></div>
         <section id="site-banner" class="site-banner text-center">
             <div class="container">

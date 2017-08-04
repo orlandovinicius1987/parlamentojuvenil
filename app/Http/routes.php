@@ -67,6 +67,10 @@ Route::group(['prefix' => '/vote', 'middleware' => ['voting', 'auth', 'student-l
 Route::group(['prefix' => '/flag-contest/subscribe', 'middleware' => ['flag-contest-subscribing', 'auth', 'student-login', 'flag-contest-cannot-re-subscribe']], function ()
 {
     Route::get('/', ['as' => 'flag-contest.subscribe.index', 'uses' => 'FlagContest@subscribe']);
+
+    Route::post('/', ['as' => 'flag-contest.subscribe.post', 'uses' => 'FlagContest@post']);
+
+    Route::get('/confirm/email/{confirmation_key}/{email}', ['as' => 'flag-contest.confirm.email', 'uses' => 'FlagContest@confirmEmail']);
 });
 
 Route::group(['prefix' => '/flag-contest/vote', 'middleware' => ['flag-contest-voting', 'auth', 'student-login', 'flag-contest-login']], function ()
@@ -172,6 +176,8 @@ Route::group(['prefix' => 'api/v1'], function ()
     Route::get('elected/{year?}', ['as' => 'api.elected', 'uses' => 'Api@getElected']);
 
     Route::get('vote/statistics/{year?}', ['as' => 'api.vote.statistics', 'uses' => 'Api@getVoteStatistics']);
+
+    Route::post('validate/{type}', ['as' => 'api.validate', 'uses' => 'Api@validateType']);
 });
 
 Route::get('article/{id}', ['as' => 'article.show', 'uses' => 'News@showArticle']);
