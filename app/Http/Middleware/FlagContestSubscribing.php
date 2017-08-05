@@ -21,6 +21,8 @@ class FlagContestSubscribing
 
         loggedUser()->isFlagContestSubscribing = true;
 
+        loggedUser()->intendedRoute = 'flag-contest.subscribe.index';
+
         return $next($request);
     }
 }

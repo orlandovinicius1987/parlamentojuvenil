@@ -31,6 +31,8 @@ class Voting
 
         loggedUser()->isVoting = true;
 
+        loggedUser()->intendedRoute = 'vote.index';
+
         return $next($request);
     }
 }

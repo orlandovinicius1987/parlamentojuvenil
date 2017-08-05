@@ -17,6 +17,8 @@ class Subscribing
     {
         loggedUser()->isSubscribing = true;
 
+        loggedUser()->intendedRoute = 'subscribe.index';
+
         return $next($request);
     }
 }

@@ -467,6 +467,8 @@ SQL
 
         User::where('id', loggedUser()->user->id)->delete();
 
+        Student::where('id', loggedUser()->student->id)->delete();
+
         logout();
     }
 

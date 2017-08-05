@@ -155,4 +155,9 @@ class Admin extends BaseController
     {
         return view('admin.vote.statistics');
     }
+
+    function contest()
+    {
+        return view('admin.contest');
+    }
 }

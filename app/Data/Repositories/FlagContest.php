@@ -52,6 +52,13 @@ class FlagContest extends Repository
         });
     }
 
+    private function sendSubscriptionConfirmedEmail($subscription)
+    {
+        Mail::send('emails.flag-contest-email-subscription-confirmation', ['subscription' => $subscription], function ($message) use ($subscription) {
+            $message->to($subscription->email, $subscription->student->name)->subject('Seu número de inscrição no Concurso da Bandeira');
+        });
+    }
+
     public function subscribe($input)
     {
         $data = [
@@ -78,6 +85,8 @@ class FlagContest extends Repository
                 $model->confirmed_at = Carbon::now();
 
                 $model->save();
+
+                $this->sendSubscriptionConfirmedEmail($model);
             }
         }
 
@@ -89,5 +98,10 @@ class FlagContest extends Repository
         $model = $this->findByStudentId($student_id);
 
         return ! is_null($model) && ! is_null($model->confirmed_at);
+    }
+
+    public function all()
+    {
+        return FlagContestModel::with('student')->get();
     }
 }

@@ -88,7 +88,10 @@ class LoggedUser
      */
     private function studentIsLogged()
     {
-        return ((! $this->isSubscribing && ! $this->isVoting) || $this->student);
+        return
+            ! is_null($this->student) &&
+            ! is_null($this->student->id)
+        ;
     }
 
     /**
@@ -96,7 +99,7 @@ class LoggedUser
      */
     private function voterIsLogged()
     {
-        return ((!$this->isVoting) || $this->student);
+        return ($this->isVoting && $this->studentIsLogged());
     }
 
     private function updateSession($loggedUser)

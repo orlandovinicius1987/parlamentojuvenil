@@ -148,7 +148,7 @@ class SocialUserService
 
     public function loginSocialUser($student = null)
     {
-        if ((loggedUser()->isSubscribing || loggedUser()->isVoting) && ! is_null($student) && is_null(loggedUser()->socialUser->student) && is_null(loggedUser()->student)) {
+        if (! is_null($student) && is_null(loggedUser()->socialUser->student) && is_null(loggedUser()->student)) {
             loggedUser()->student = $student;
 
             $this->updateLoggedSocialUser(

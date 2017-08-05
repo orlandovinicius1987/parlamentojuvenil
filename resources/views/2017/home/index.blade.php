@@ -25,9 +25,11 @@
                     </div>
 
                     <div class="col-md-12 flag-subscription supernova-yellow visible-lg-block ">
-                        <a href="/flag-contest/subscribe" class="btn btn-primary btn-large">
-                            Inscreva-se Agora
-                        </a>
+                        @if (config('app.flag.contest.subscriptions.enabled'))
+                            <a href="/flag-contest/subscribe" class="btn btn-primary btn-large">
+                                Inscreva-se Agora
+                            </a>
+                        @endif
 
                         <a href="/files/apps/parlamentojuvenil/site/2017/downloads/edital-concurso-bandeira-parlamento-juvenil-2017-01.pdf">
                             <img class="baixar-edital" src="/templates/2017/assets/img/baixar-edital.png">
@@ -35,9 +37,12 @@
                     </div>
 
                     <div class="col-md-12 flag-subscription hidden-lg">
-                        <a href="#" class="btn btn-primary btn-large btn-block">
-                            Inscreva-se Agora
-                        </a>
+                        @if (config('app.flag.contest.subscriptions.enabled'))
+                            <a href="#" class="btn btn-primary btn-large btn-block">
+                                Inscreva-se Agora
+                            </a>
+                        @endif
+
                         <a href="/files/apps/parlamentojuvenil/site/2017/downloads/edital-concurso-bandeira-parlamento-juvenil-2017-01.pdf">
                             <img class="baixar-edital" src="/templates/2017/assets/img/baixar-edital.png">
                         </a>

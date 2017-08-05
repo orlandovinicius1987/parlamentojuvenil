@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Data\Entities\User;
+use App\Data\Repositories\FlagContest;
 use DB;
 use App\Data\Entities\Seeduc;
 use Illuminate\Http\Request;
@@ -77,5 +78,10 @@ class ApiSearch extends BaseController
         }
 
         return $query->get();
+    }
+
+    public function contest(FlagContest $flagContest)
+    {
+        return $flagContest->all();
     }
 }

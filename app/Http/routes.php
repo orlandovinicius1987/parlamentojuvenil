@@ -134,13 +134,16 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'only-administrators
 
     Route::get('users', ['as' => 'admin.users', 'uses' => 'Admin@users']);
 
-	Route::get('{city}', ['as' => 'admin.city', 'uses' => 'Admin@city']);
-
     Route::get('/votes/{subscription_id}', ['as' => 'admin.votes.student', 'uses' => 'Admin@votesPerStudent']);
 
     Route::get('/vote/statistics', ['as' => 'admin.vote.statistics', 'uses' => 'Admin@voteStatistics']);
 
     Route::get('training/{subscription}', ['as' => 'admin.training', 'uses' => 'Admin@training']);
+
+    Route::get('contest', ['as' => 'admin.contest', 'uses' => 'Admin@contest']);
+
+    /// Must be last
+    Route::get('{city}', ['as' => 'admin.city', 'uses' => 'Admin@city']);
 });
 
 Route::get('subscriptions/schools', ['as' => 'subscriptions.schools', 'uses' => 'Subscriptions@bySchool']);
@@ -170,6 +173,8 @@ Route::group(['prefix' => 'api/v1'], function ()
     Route::get('subscriptions', ['as' => 'subscriptions', 'uses' => 'Subscriptions@byState']);
 
     Route::get('search/seeduc', ['as' => 'api.search.seeduc', 'uses' => 'ApiSearch@seeduc']);
+
+    Route::get('search/contest', ['as' => 'api.search.seeduc', 'uses' => 'ApiSearch@contest']);
 
     Route::get('search/users', ['as' => 'api.search.users', 'uses' => 'ApiSearch@users']);
 

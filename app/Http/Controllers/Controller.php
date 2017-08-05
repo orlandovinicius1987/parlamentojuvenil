@@ -53,12 +53,8 @@ abstract class Controller extends BaseController
 
     protected function redirectToIntended()
     {
-        if (loggedUser()->isSubscribing) {
-            return redirect()->route('subscribe.index');
-        }
-
-        if (loggedUser()->isVoting) {
-            return redirect()->route('vote.index');
+        if ($route = loggedUser()->intendedRoute) {
+            return redirect()->route($route);
         }
 
         return redirect()->intended();

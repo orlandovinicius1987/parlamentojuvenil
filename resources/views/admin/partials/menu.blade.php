@@ -72,6 +72,10 @@
                 <li active="{{ request()->is('admin/users') ? 'active' : '' }}">
                     <a href="{{ route('admin.users') }}"><i class="fa fa-user fa-fw"></i> Usuários</a>
                 </li>
+
+                <li active="{{ request()->is('admin/contest') ? 'active' : '' }}">
+                    <a href="{{ route('admin.contest') }}"><i class="fa fa-user fa-fw"></i> Concurso</a>
+                </li>
             </ul>
         </div>
         <!-- /.sidebar-collapse -->
