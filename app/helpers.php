@@ -152,3 +152,16 @@ function election_enabled() {
             $now->lte($end)
     ;
 }
+
+function flag_contest_subscription_enabled() {
+    $now = Carbon::now();
+
+    $start = Carbon::parse(config('app.flag.contest.subscriptions.start') . ' 00:00:00');
+
+    $end = Carbon::parse(config('app.flag.contest.subscriptions.end') . ' 23:59:59');
+
+    return
+        $now->gte($start) &&
+        $now->lte($end)
+    ;
+}

@@ -37,11 +37,13 @@ return [
             'show_rules' => env('FLAG_CONTEST_SHOW_RULES', false),
 
             'subscriptions' => [
-                'enabled' => env('FLAG_CONTEST_SUBSCRIPTIONS_ENABLED', false),
+                'start' => env('FLAG_CONTEST_SUBSCRIPTIONS_START'),
+                'end' => env('FLAG_CONTEST_SUBSCRIPTIONS_END'),
             ],
 
             'election' => [
-                'enabled' => env('FLAG_CONTEST_ELECTION_ENABLED', false),
+                'start' => env('FLAG_CONTEST_ELECTION_START'),
+                'end' => env('FLAG_CONTEST_ELECTION_END'),
             ],
         ],
     ],

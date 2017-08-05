@@ -25,7 +25,7 @@
                     </div>
 
                     <div class="col-md-12 flag-subscription supernova-yellow visible-lg-block ">
-                        @if (config('app.flag.contest.subscriptions.enabled'))
+                        @if (flag_contest_subscription_enabled())
                             <a href="/flag-contest/subscribe" class="btn btn-primary btn-large">
                                 Inscreva-se Agora
                             </a>
@@ -37,7 +37,7 @@
                     </div>
 
                     <div class="col-md-12 flag-subscription hidden-lg">
-                        @if (config('app.flag.contest.subscriptions.enabled'))
+                        @if (flag_contest_subscription_enabled())
                             <a href="#" class="btn btn-primary btn-large btn-block">
                                 Inscreva-se Agora
                             </a>
