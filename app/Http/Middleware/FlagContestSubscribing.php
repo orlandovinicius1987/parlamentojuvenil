@@ -15,7 +15,7 @@ class FlagContestSubscribing
      */
     public function handle($request, Closure $next)
     {
-        if (! config('app.flag.contest.subscriptions.enabled')) {
+        if (! flag_contest_subscription_enabled()) {
             return redirect()->home();
         }
 
