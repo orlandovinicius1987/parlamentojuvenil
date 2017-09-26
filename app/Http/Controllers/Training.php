@@ -14,8 +14,6 @@ use App\Data\Repositories\Training as TrainingRepository;
 
 class Training extends BaseController
 {
-    protected $year = 2016;
-
     protected $trainingRepository;
 
     protected $user;
@@ -31,7 +29,7 @@ class Training extends BaseController
     {
         Session::forget('logged-user');
 
-        return redirect()->route('training.index', ['year' => $this->year]);
+        return redirect()->route('training.index', ['year' => $this->getYear()]);
     }
 
     public function index()
@@ -40,7 +38,7 @@ class Training extends BaseController
             return $this->renderTraining($user);
         }
 
-		return view($this->year.'.training.index');
+		return view($this->getYear().'.training.index');
 	}
 
     public function login(Request $request)
@@ -60,25 +58,25 @@ class Training extends BaseController
 
     private function renderTraining($user)
     {
-        $training = $this->trainingRepository->addTrainingData($user, TrainingModel::byYear($this->year));
+        $training = $this->trainingRepository->addTrainingData($user, TrainingModel::byYear($this->getYear()));
 
-        return view($this->year.'.training.content')
+        return view($this->getYear().'.training.content')
             ->with('loggedUser', $user)
             ->with('training', $training);
     }
 
     public function video()
     {
-        return view($this->year.'.training.video');
+        return view($this->getYear().'.training.video');
     }
 
     public function watch($year, $item)
     {
         $this->trainingRepository->markAsWatched($year, $item);
 
-        $training = $this->trainingRepository->findById($item, $this->getLoggedUser(), $this->year);
+        $training = $this->trainingRepository->findById($item, $this->getLoggedUser(), $this->getYear());
 
-        $view = $this->year.'.training.'.$training['type'];
+        $view = $this->getYear().'.training.'.$training['type'];
 
         if ($training['type'] == 'quiz' && $this->trainingRepository->quizDone($year, $this->getLoggedUser(), $item))
         {
