@@ -28,7 +28,7 @@ class FlagContest extends Repository
 
     private function findOrCreate($data)
     {
-        $model = FlagContestModel::where(array_only($data, ['studen_id', 'year']))->first();
+        $model = FlagContestModel::where(array_only($data, ['student_id', 'year']))->first();
 
         if (is_null($model)) {
             $model = FlagContestModel::create($data);
