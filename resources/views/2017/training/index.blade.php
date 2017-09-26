@@ -9,22 +9,20 @@
                     <h2>Capacitação</h2>
                     <br><br>
                     <div class="capacitacao-heading">
-                        <h4>Bem vindos, parlamentares juvenis!</h4>
+                        <h4>Bem-vindo, parlamentar juvenil!</h4>
 
-                        <p>Insira aqui sua Matrícula e sua data de nascimento para ter acesso à area restrita das Capacitações On-Line.</P>
                         É muito importante que você cumpra todo o processo para que consiga redigir o seu projeto de lei. <br>
                         Qualquer dúvida, entre em contato com a gente pelo e-mail: <a href="mailto:pjalerj@gmail.com">pjalerj@gmail.com</a>  <br> ou pelos telefones: (21) 2588-1202 // (21) 2588-1536.</p>
-
                     </div>
                     <br>
                 </div>
             </div>
 
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs12">
-                        @include('partials.training-login-form')
-                    </div>
+            <div class="row"  transition="expand">
+                <div class="form-group col-xs-12">
+                    <a href="/traning/content" id="submit" type="submit" class="btn btn-lg btn-primary btn-block btn-submit-subscription">
+                        Inicar capacitação
+                    </a>
                 </div>
             </div>
         </div>

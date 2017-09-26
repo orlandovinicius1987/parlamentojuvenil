@@ -187,13 +187,15 @@ Route::group(['prefix' => 'api/v1'], function ()
 
 Route::get('article/{id}', ['as' => 'article.show', 'uses' => 'News@showArticle']);
 
-// Year pages
-Route::get('{year}/training', ['as' => 'training.index', 'uses' => 'Training@index'])->where('year', '[0-9][0-9][0-9][0-9]');
-Route::post('{year}/training', ['as' => 'training.login', 'uses' => 'Training@login'])->where('year', '[0-9][0-9][0-9][0-9]');
-Route::get('{year}/training/content', ['as' => 'training.content', 'uses' => 'Training@content'])->where('year', '[0-9][0-9][0-9][0-9]');
-Route::get('{year}/training/watch/{video}', ['as' => 'training.watch', 'uses' => 'Training@watch'])->where('year', '[0-9][0-9][0-9][0-9]');
-Route::get('{year}/training/download/{document}', ['as' => 'training.download', 'uses' => 'Training@download'])->where('year', '[0-9][0-9][0-9][0-9]');
-Route::get('{year}/training/logout', ['as' => 'training.download', 'uses' => 'Training@logout'])->where('year', '[0-9][0-9][0-9][0-9]');
+Route::group(['prefix' => '/training', 'middleware' => ['training', 'auth', 'student-login']], function ()
+{
+    Route::get('/', ['as' => 'training.index', 'uses' => 'Training@index']);
+    Route::post('/', ['as' => 'training.login', 'uses' => 'Training@login']);
+    Route::get('/content', ['as' => 'training.content', 'uses' => 'Training@content']);
+    Route::get('/watch/{video}', ['as' => 'training.watch', 'uses' => 'Training@watch']);
+    Route::get('/download/{document}', ['as' => 'training.download', 'uses' => 'Training@download']);
+    Route::get('/logout', ['as' => 'training.download', 'uses' => 'Training@logout']);
+});
 
 Route::get('{year}/quiz', ['as' => 'quiz.index', 'uses' => 'Quiz@index'])->where('year', '[0-9][0-9][0-9][0-9]');
 Route::get('{year}/quiz/result', ['as' => 'quiz.result', 'uses' => 'Quiz@result'])->where('year', '[0-9][0-9][0-9][0-9]');

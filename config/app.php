@@ -32,6 +32,11 @@ return [
         ]
     ],
 
+    'training' => [
+        'start' => env('TRAINING_START'),
+        'end' => env('TRAINING_END'),
+    ],
+
     'flag' => [
         'contest' => [
             'show_rules' => env('FLAG_CONTEST_SHOW_RULES', false),

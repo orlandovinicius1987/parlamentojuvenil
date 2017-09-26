@@ -165,3 +165,16 @@ function flag_contest_subscription_enabled() {
         $now->lte($end)
     ;
 }
+
+function training_enabled() {
+    $now = Carbon::now();
+
+    $start = Carbon::parse(config('app.training.start') . ' 00:00:00');
+
+    $end = Carbon::parse(config('app.training.end') . ' 23:59:59');
+
+    return
+        $now->gte($start) &&
+        $now->lte($end)
+    ;
+}

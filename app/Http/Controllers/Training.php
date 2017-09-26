@@ -34,34 +34,15 @@ class Training extends BaseController
 
     public function index()
 	{
-        if ($user = $this->getLoggedUser()) {
-            return $this->renderTraining($user);
-        }
-
 		return view($this->getYear().'.training.index');
 	}
 
-    public function login(Request $request)
+    public function content()
     {
-        if (! $user = $this->getLoggedUser())
-        {
-            if (! $user = $this->trainingRepository->login($request->get('matricula'), $request->get('nascimento')))
-            {
-                Session::flash('error', 'Aluno não encontrado.');
-
-                return redirect()->back()->withInput();
-            }
-        }
-
-        return $this->renderTraining($user);
-    }
-
-    private function renderTraining($user)
-    {
-        $training = $this->trainingRepository->addTrainingData($user, TrainingModel::byYear($this->getYear()));
+        $training = $this->trainingRepository->addTrainingData(loggedUser()->user, TrainingModel::byYear($this->getYear()));
 
         return view($this->getYear().'.training.content')
-            ->with('loggedUser', $user)
+            ->with('loggedUser', loggedUser()->user)
             ->with('training', $training);
     }
 
