@@ -7,7 +7,6 @@ use Event;
 use Input;
 use Storage;
 use Session;
-use Illuminate\Http\Request;
 use App\Data\Entities\Training as TrainingModel;
 use App\Http\Controllers\Controller as BaseController;
 use App\Data\Repositories\Training as TrainingRepository;
@@ -22,14 +21,7 @@ class Training extends BaseController
     {
         $this->trainingRepository = $trainingRepository;
 
-        $this->user = $user = $this->getLoggedUser();
-    }
-
-    public function logout()
-    {
-        Session::forget('logged-user');
-
-        return redirect()->route('training.index', ['year' => $this->getYear()]);
+        $this->user = $user = loggedUser()->user;
     }
 
     public function index()
@@ -51,21 +43,21 @@ class Training extends BaseController
         return view($this->getYear().'.training.video');
     }
 
-    public function watch($year, $item)
+    public function watch($item)
     {
-        $this->trainingRepository->markAsWatched($year, $item);
+        $this->trainingRepository->markAsWatched($item);
 
-        $training = $this->trainingRepository->findById($item, $this->getLoggedUser(), $this->getYear());
+        $training = $this->trainingRepository->findById($item, loggedUser()->user, $this->getYear());
 
         $view = $this->getYear().'.training.'.$training['type'];
 
-        if ($training['type'] == 'quiz' && $this->trainingRepository->quizDone($year, $this->getLoggedUser(), $item))
+        if ($training['type'] == 'quiz' && $this->trainingRepository->quizDone(get_current_year(), loggedUser()->user, $item))
         {
-            return redirect()->route('quiz.result', ['year' => $year, 'id' => $item]);
+            return redirect()->route('quiz.result', ['year' => get_current_year(), 'id' => $item]);
         }
 
         return view($view)
-            ->with('loggedUser', $this->getLoggedUser())
+            ->with('loggedUser', loggedUser()->user)
             ->with('itemId', $item)
             ->with('lesson', $training);
     }

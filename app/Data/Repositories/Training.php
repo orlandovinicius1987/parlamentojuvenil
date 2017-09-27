@@ -65,17 +65,6 @@ class Training extends Repository
         return $answers;
     }
 
-    public function login($registration, $birthdate)
-    {
-        $person = Subscription::where(\DB::raw("trim(both ' ' from registration)"), trim($registration))
-                    ->where(\DB::raw("trim(both ' ' from birthdate)"), trim($birthdate))
-                    ->first();
-
-        Session::put('logged-user', $person);
-
-        return $person;
-    }
-
     public function addTrainingData($user, $training)
     {
         $collection = new Collection();
@@ -92,7 +81,7 @@ class Training extends Repository
 
                 foreach ($relation as $elementKey => $element) {
                     $element['id'] = "{$item['id']}.{$element['id']}";
-                    $element['watch-url'] = route('training.watch', ['year' => 2016, 'item' => $element['id']]);
+                    $element['watch-url'] = route('training.watch', ['video' => $element['id']]);
                     $element['watched'] = Watched::where('subscription_id', $user->id)->where('item_id', $element['id'])->first();
                     $element['visible'] = $visible || $element['watched'];
 
@@ -117,17 +106,15 @@ class Training extends Repository
         return $collection;
     }
 
-    public function markAsWatched($year, $item, $answer = null)
+    public function markAsWatched($item, $answer = null)
     {
-        $user = Session::get('logged-user');
-
-        $watched = Watched::where('subscription_id', $user->id)
+        $watched = Watched::where('subscription_id', $userId = loggedUser()->user->id)
                     ->where('item_id', $item)->first();
 
         if (! $watched)
         {
             $watched = Watched::create([
-                'subscription_id' => $user->id,
+                'subscription_id' => $userId,
                 'item_id' => $item,
             ]);
         }

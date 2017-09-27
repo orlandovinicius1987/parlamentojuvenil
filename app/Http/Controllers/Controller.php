@@ -14,6 +14,8 @@ abstract class Controller extends BaseController
 
 	protected $redirectPath = '/dashboard';
 
+    protected $dataRepository;
+
     public function __construct(Data $dataRepository)
     {
         $this->dataRepository = $dataRepository;
@@ -34,11 +36,6 @@ abstract class Controller extends BaseController
                     $isHome,
                     $year
                 );
-    }
-
-    protected function getLoggedUser()
-    {
-        return Session::get('logged-user');
     }
 
     public function getYear($year = null)
