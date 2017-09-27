@@ -2231,3 +2231,106 @@ img.bandeira-pj {
 .flag-subscription  a.btn.btn-primary.btn-large.btn-block {
 	margin-bottom: 15px;
 }
+
+
+
+
+
+
+
+
+
+
+.capacitacao-content {
+	margin-top: 30px;
+	margin-bottom: 60px;
+}
+
+.capacitacao-heading {
+	margin-top: 40px;
+}
+
+
+.capacitacao-panel-border {
+	padding: 10px;
+}
+
+
+.capacitacao-date {
+	font-family: 'oswaldregular';
+	position: absolute;
+	width: 90px;
+	height: 75px;
+	text-align: center;
+	font-weight: 900;
+	font-size: 26px;
+	color: #292C95;
+}
+
+.capacitacao-date p {
+	margin: 4px 0 0 0px;
+	font-size: 50px;
+}
+
+
+.capacitacao-panel-body {
+	/* height: 100%; */
+	min-height: 125px;
+	padding: 15px 10px;
+	color: #292C95;
+}
+
+.capacitacao-panel-body span {
+	float: left;
+	width: 87px;
+	font-size: 400%;
+	font-family: 'oswaldregular';
+	line-height: 73%;
+}
+
+
+.video-box {
+	margin-top: 30px;
+	padding: 15px;
+	border: 10px solid #0094DB;
+	color: #292C95;
+}
+.video-box a{
+	color: #292C95;
+}
+
+
+.video-box .shape {
+	float: right;
+}
+
+.video-box .shape-text {
+	width: 100px;
+	text-align: center;
+	padding: 10px;
+}
+
+a.btn-apostilas {
+	color: rgba(255, 255, 255, 1);
+	padding: 10px 15px;
+	margin-top: 10px;
+}
+
+a.btn-apostilas:hover {
+	color: rgba(255, 255, 255, 0.7);
+}
+=======
+.bandeira-mobile {
+	border-bottom: 15px solid #FFCA00;
+}
+
+.flag-tournment .btn {
+	background: #BC1C91;
+	color: #FFCA05;
+	border: solid 2px #fff;
+}
+.flag-tournment .btn:hover {
+	background: #BC1C91 !important;
+	border: solid 2px #fff !important;
+}
+
