@@ -43,38 +43,69 @@
                 </div>
             </div>
 
-
-
             <div class="row">
-                <div class="col-sm-2">
-                    <div class="grow grid-item lima-green"">
+                <div class="col-xs-10 col-xs-offset-1">
+                    <div class="row text-center capacitacao-intro">
+                        <div class="capacitacao-greatings">Olá <span  class="capacitacao-username">Nome do Aluno{{ $loggedUser->name }} ,</span>
+                            {{--<a href="/2017/training/logout" class="btn btn-primary">Sair</a>--}}
+                        </div>
+
+
+                        <p> É uma honra para o Parlamento Juvenil da ALERJ, recebê-lo por aqui. </p>
+                        <p> É importante que faça todo o processo de capacitação com muita atenção, para que conheça as ferramentas necessárias para elaborar o seu projeto de lei, que pode ir para a mão do Governador.</p>
+
+                        Boa aula!
+                    </div>
                 </div>
             </div>
+            <div class="row aulas">
+                <div class="col-md-6">
+                    <div class="comofunciona-panel-border cerulean-blue">
+                        <div class="assistido">
+                            <i class="fa fa-check-square-o" aria-hidden="true"></i>
+                        </div>
+                        <div class="colors-panel-body supernova-yellow text-center">
 
-            <div class="col-sm-8">
-                <div class="row text-center">
-                    <div class="capacitacao-greatings">Olá <span  class="capacitacao-username">{{ $loggedUser->name }}</span></div>
-                    <a href="/2017/training/logout" class="btn btn-primary">Sair</a>
+                            <img class="img-responsive" src="/templates/2017/images/capacitacao/capa-aula1.png">
+                            <p class="botoes-capacitacao">
+                                <a href="http://local.parlamentojuvenil.com/training/watch/2017.1.video.1" class="btn violet-red btn-apostilas">Vídeo<span style="font-size:22px; margin-left: 10px;" class="pull-right showopacity glyphicon glyphicon-film"></span></a>
 
-                    <p> É uma honra para o Parlamento Juvenil da ALERJ, recebê-lo por aqui. </p>
-                    <p> É importante que faça todo o processo de capacitação com muita atenção, para que conheça as ferramentas necessárias para elaborar o seu projeto de lei, que pode ir para a mão do Governador.</p>
+                                <a href="http://local.parlamentojuvenil.com/training/watch/2017.1.document.1" class="btn danube-blue btn-apostilas">Apostila<span style="font-size:22px; margin-left: 10px;" class="pull-right showopacity glyphicon glyphicon-list-alt"></span></a>
 
-                    Boa aula!
-
-
-
-
+                                <a href="http://local.parlamentojuvenil.com/training/watch/2017.1.document.1" class="btn ecstasy-orange btn-apostilas">Quiz<span style="font-size:22px; margin-left: 10px;" class="pull-right showopacity glyphicon glyphicon-list-alt"></span></a>
+                            </p>
+                        </div>
+                    </div>
                 </div>
-            </div>
 
-            <div class="col-sm-2">
-                <div class="grow grid-item danube-blue">
+                <div class="col-md-6">
+                    <div class="comofunciona-panel-border violet-red">
+                        <div class="assistido">
+                            <i class="fa fa-square-o" aria-hidden="true"></i>
+                        </div>
+
+                        <div class="colors-panel-body lima-green  text-center">
+
+                            <img class="img-responsive" src="/templates/2017/images/capacitacao/capa-aula2.png">
+                            <p class="botoes-capacitacao">
+                                <a href="http://local.parlamentojuvenil.com/training/watch/2017.1.video.1" class="btn violet-red btn-apostilas">Vídeo<span style="font-size:22px; margin-left: 10px;" class="pull-right showopacity glyphicon glyphicon-film"></span></a>
+
+                                <a href="http://local.parlamentojuvenil.com/training/watch/2017.1.document.1" class="btn danube-blue btn-apostilas">Apostila<span style="font-size:22px; margin-left: 10px;" class="pull-right showopacity glyphicon glyphicon-list-alt"></span></a>
+
+                                <a href="http://local.parlamentojuvenil.com/training/watch/2017.1.document.1" class="btn ecstasy-orange btn-apostilas">Quiz<span style="font-size:22px; margin-left: 10px;" class="pull-right showopacity glyphicon glyphicon-list-alt"></span></a>
+                            </p>
+                        </div>
+                        <div class="black-overlay">
+
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
 
 
+{{--
         <div class="row">
 
             <div class="col-xs-12 capacitacao-videos ">
@@ -105,7 +136,7 @@
                                     @endif
 
                                     @if($course['relations']['documents'][0]['visible'])
-                                        <a href="{{ $course['relations']['documents'][0]['watch-url'] }}" class="btn caixa-amarela btn-apostilas">Apostila<span style="font-size:22px; margin-left: 10px;" class="pull-right showopacity glyphicon glyphicon-list-alt"></span></a>
+                                        <a href="{{ $course['relations']['documents'][0]['watch-url'] }}" class="btn danube-blue btn-apostilas">Apostila<span style="font-size:22px; margin-left: 10px;" class="pull-right showopacity glyphicon glyphicon-list-alt"></span></a>
                                     @endif
 
                                     @if($course['relations']['quiz'][0]['visible'])
@@ -118,6 +149,7 @@
                 @endforeach
             </div>
         </div>
+--}}
 
         </div>
     </section>

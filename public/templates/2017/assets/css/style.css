@@ -1792,6 +1792,13 @@ img.btn-login-social {
 }
 
 
+.colors-panel-body {
+	/* height: 100%; */
+	min-height: 125px;
+	padding: 15px 10px;
+	color: #292C95;
+}
+
 .comofunciona-panel-body {
 	/* height: 100%; */
 	min-height: 125px;
@@ -1803,7 +1810,6 @@ img.btn-login-social {
 	float: left;
 	width: 87px;
 	font-size: 400%;
-	font-family: 'oswaldregular';
 	line-height: 73%;
 }
 
@@ -2319,7 +2325,10 @@ a.btn-apostilas {
 a.btn-apostilas:hover {
 	color: rgba(255, 255, 255, 0.7);
 }
-=======
+
+
+
+
 .bandeira-mobile {
 	border-bottom: 15px solid #FFCA00;
 }
@@ -2334,3 +2343,82 @@ a.btn-apostilas:hover {
 	border: solid 2px #fff !important;
 }
 
+
+
+
+
+
+#video {
+	margin: 10px;
+	border: 4px black solid;
+}
+
+
+.embed-container {
+	position: relative;
+	padding-bottom: 56.25%;
+	height: 0;
+	overflow: hidden;
+	max-width: 100%;
+}
+.embed-container iframe, .embed-container object, .embed-container embed {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+.btn-voltar {
+	margin-top: 30px;
+}
+
+
+
+
+.capacitacao-content .aulas {
+	margin-top: 60px;
+}
+
+
+.container.capacitacao-video {
+	text-align: center;
+}
+
+
+
+.capacitacao-intro {
+	font-weight: 600;
+}
+
+.capacitacao-content{
+	color: #292C95;
+
+}
+
+.capacitacao-username {
+	font-weight: 900;
+	font-size: 115%;
+}
+.capacitacao-greatings {
+	margin: 30px 0 30px 0;
+}
+
+
+.assistido {
+	color: #fff;
+	padding: 10px 20px;
+	text-align: right;
+	min-height: 40px;
+	font-size: 35px;
+	margin: 0;
+	padding: 0;
+}
+.black-overlay {
+	position: absolute;
+	left: 0;
+	top: 0;
+	background: rgba(0, 0, 0, .5);
+	width: 95%;
+	height: 100%;
+	margin: 0 0 0 15px;
+}
