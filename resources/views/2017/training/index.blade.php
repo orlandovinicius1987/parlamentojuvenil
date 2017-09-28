@@ -63,9 +63,7 @@
                     <div class="grow grid-item ecstasy-orange">
                     </div>
                 </div>
-
             </div>
-
 
             <div class="row"  transition="expand">
                 <div class="form-group col-xs-12">
