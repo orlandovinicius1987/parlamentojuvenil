@@ -68,11 +68,11 @@
 
                             <img class="img-responsive" src="/templates/2017/images/capacitacao/capa-aula1.png">
                             <p class="botoes-capacitacao">
-                                <a href="http://local.parlamentojuvenil.com/training/watch/2017.1.video.1" class="btn violet-red btn-apostilas">Vídeo<span style="font-size:22px; margin-left: 10px;" class="pull-right showopacity glyphicon glyphicon-film"></span></a>
+                                <a href="/training/watch/2017.1.video.1" class="btn violet-red btn-apostilas">Vídeo<span style="font-size:22px; margin-left: 10px;" class="pull-right showopacity glyphicon glyphicon-film"></span></a>
 
-                                <a href="http://local.parlamentojuvenil.com/training/watch/2017.1.document.1" class="btn danube-blue btn-apostilas">Apostila<span style="font-size:22px; margin-left: 10px;" class="pull-right showopacity glyphicon glyphicon-list-alt"></span></a>
+                                <a href="/training/watch/2017.1.document.1" class="btn danube-blue btn-apostilas">Apostila<span style="font-size:22px; margin-left: 10px;" class="pull-right showopacity glyphicon glyphicon-list-alt"></span></a>
 
-                                <a href="http://local.parlamentojuvenil.com/training/watch/2017.1.document.1" class="btn ecstasy-orange btn-apostilas">Quiz<span style="font-size:22px; margin-left: 10px;" class="pull-right showopacity glyphicon glyphicon-list-alt"></span></a>
+                                <a href="/training/quiz/2" class="btn ecstasy-orange btn-apostilas">Quiz<span style="font-size:22px; margin-left: 10px;" class="pull-right showopacity glyphicon glyphicon-list-alt"></span></a>
                             </p>
                         </div>
                     </div>
@@ -88,11 +88,11 @@
 
                             <img class="img-responsive" src="/templates/2017/images/capacitacao/capa-aula2.png">
                             <p class="botoes-capacitacao">
-                                <a href="http://local.parlamentojuvenil.com/training/watch/2017.1.video.1" class="btn violet-red btn-apostilas">Vídeo<span style="font-size:22px; margin-left: 10px;" class="pull-right showopacity glyphicon glyphicon-film"></span></a>
+                                <a href="/training/watch/2017.1.video.1" class="btn violet-red btn-apostilas">Vídeo<span style="font-size:22px; margin-left: 10px;" class="pull-right showopacity glyphicon glyphicon-film"></span></a>
 
-                                <a href="http://local.parlamentojuvenil.com/training/watch/2017.1.document.1" class="btn danube-blue btn-apostilas">Apostila<span style="font-size:22px; margin-left: 10px;" class="pull-right showopacity glyphicon glyphicon-list-alt"></span></a>
+                                <a href="/training/watch/2017.1.document.1" class="btn danube-blue btn-apostilas">Apostila<span style="font-size:22px; margin-left: 10px;" class="pull-right showopacity glyphicon glyphicon-list-alt"></span></a>
 
-                                <a href="http://local.parlamentojuvenil.com/training/watch/2017.1.document.1" class="btn ecstasy-orange btn-apostilas">Quiz<span style="font-size:22px; margin-left: 10px;" class="pull-right showopacity glyphicon glyphicon-list-alt"></span></a>
+                                <a href="/training/quiz/2" class="btn ecstasy-orange btn-apostilas">Quiz<span style="font-size:22px; margin-left: 10px;" class="pull-right showopacity glyphicon glyphicon-list-alt"></span></a>
                             </p>
                         </div>
                         <div class="black-overlay">

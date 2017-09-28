@@ -41,7 +41,7 @@ class Training
                                 'lead' => 'Consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. Aliquam in felis sit amet augue.',
                                 'thumb-url' => '/pj2017/images/capacitacao/apostila01.jpg',
                                 'video-url' => 'https://www.youtube.com/watch?v=Hq5QYQsA-Dc',
-                                'document-url' => '/files/apps/parlamentojuvenil/site/2017/capacitation/capacitacao-pj-2017-aula01.pdf',
+                                'document-url' => '/files/apps/parlamentojuvenil/site/2017/downloads/capacitacao-pj-2017-aula01.pdf',
                             ],
                         ],
 
@@ -145,7 +145,7 @@ class Training
                                 'lead' => 'Consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. Aliquam in felis sit amet augue.',
                                 'thumb-url' => '/pj2017/images/capacitacao/apostila02.jpg',
                                 'video-url' => 'https://www.youtube.com/embed/c-H6p0UFHPo',
-                                'document-url' => '/files/apps/parlamentojuvenil/site/2017/capacitation/capacitacao-pj-2017-aula01.pdf',
+                                'document-url' => '/files/apps/parlamentojuvenil/site/2017/downloads/capacitacao-pj-2017-aula02.pdf',
                             ],
                         ],
 
@@ -449,5 +449,3 @@ class Training
         return Collection::make($values);
     }
 }
-
-

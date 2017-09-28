@@ -7,49 +7,49 @@ use Illuminate\Database\Eloquent\Collection;
 
 class Quiz extends Training
 {
-    public function index()
+    public function index($id)
 	{
-        if ($this->user) {
-            return $this->renderQuiz($year, $this->user, $id, $this->trainingRepository);
+        if (loggedUser()->user) {
+            return $this->renderQuiz(loggedUser()->user, $id, $this->trainingRepository);
         }
 
 		return redirect()->route('training.index');
 	}
 
-    private function makeResult($year, $id)
+    private function makeResult($id)
     {
-        return new Collection($this->trainingRepository->getResult($year, $id, $this->getLoggedUser()));
+        return new Collection($this->trainingRepository->getResult($id, $this->getLoggedUser()));
     }
 
-    private function renderQuiz($year, $user, $id, $repository)
+    private function renderQuiz($user, $id, $repository)
     {
-        if ($this->trainingRepository->quizDone($year, $user, $id))
+        if ($this->trainingRepository->quizDone($user, $id))
         {
             return $this->result();
         }
 
-        return view($this->year.'.quiz.index')->with('loggedUser', $user);
+        return view(get_current_year().'.quiz.index')->with('loggedUser', $user);
     }
 
-    public function result($year, $id)
+    public function result($id)
     {
-        $result = $this->makeResult($year, $id);
+        $result = $this->makeResult($id);
 
-        return view($this->year.'.training.quiz-result')
+        return view(get_current_year().'.training.quiz-result')
             ->with('correct', $correct = $result->where('correct', true)->count())
             ->with('total', $total = $result->count())
             ->with('percent', ($correct/$total)*100);
     }
 
-    public function questions($year, $itemId)
+    public function questions($itemId)
     {
-        $data = $this->trainingRepository->findById($itemId, $this->user, $this->year);
+        $data = $this->trainingRepository->findById($itemId, loggedUser()->user, get_current_year());
 
         return (new Collection($data))->toJson();
     }
 
-    public function answer($year, $itemId, $number, $answer)
+    public function answer($itemId, $number, $answer)
     {
-        $this->trainingRepository->markAsWatched($year, "$itemId.$number", $answer);
+        $this->trainingRepository->markAsWatched("$itemId.$number", $answer);
     }
 }

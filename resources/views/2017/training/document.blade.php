@@ -23,7 +23,7 @@
                     <a class="btn btn-success" href="{{ $lesson['document-url'] }}">
                         <i class="fa fa-download fa-lg"></i> Baixar documento </a>
 
-                    <a class="btn btn-danger" href="{{ route('training.index', ['year' => 2017]) }}">
+                    <a class="btn btn-danger" href="{{ route('training.content') }}">
                         <i class="fa fa-undo fa-lg"></i> Voltar
                     </a>
                 </div>

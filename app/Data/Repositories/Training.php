@@ -2,10 +2,9 @@
 
 namespace App\Data\Repositories;
 
+use Session;
 use App\Data\Entities\Watched;
 use Illuminate\Database\Eloquent\Collection;
-use Session;
-use App\Data\Entities\Subscription;
 use App\Data\Entities\Training as TrainingModel;
 
 class Training extends Repository
@@ -55,7 +54,7 @@ class Training extends Repository
 
     public function getResult($year, $id, $user)
     {
-        $answers = Watched::where('item_id', 'like', $id.'.%')->where('subscription_id', $user->id)->get()->toArray();
+        $answers = Watched::where('item_id', 'like', $id.'.%')->where('year', $year)->where('subscription_id', $user->id)->get()->toArray();
 
         foreach ($answers as $key => $item)
         {
@@ -65,8 +64,10 @@ class Training extends Repository
         return $answers;
     }
 
-    public function addTrainingData($user, $training)
+    public function addTrainingData($user, $training, $year = null)
     {
+        $year = get_current_year($year);
+
         $collection = new Collection();
 
         $visible = true;
@@ -82,8 +83,9 @@ class Training extends Repository
                 foreach ($relation as $elementKey => $element) {
                     $element['id'] = "{$item['id']}.{$element['id']}";
                     $element['watch-url'] = route('training.watch', ['video' => $element['id']]);
-                    $element['watched'] = Watched::where('subscription_id', $user->id)->where('item_id', $element['id'])->first();
+                    $element['watched'] = Watched::where('subscription_id', $user->id)->where('year', $year)->where('item_id', $element['id'])->first();
                     $element['visible'] = $visible || $element['watched'];
+                    $element['year'] = $year;
 
                     $done = $done && $element['watched'];
 
@@ -106,20 +108,26 @@ class Training extends Repository
         return $collection;
     }
 
-    public function markAsWatched($item, $answer = null)
+    public function markAsWatched($item, $answer = null, $year = null)
     {
+        $year = get_current_year($year);
+
         $watched = Watched::where('subscription_id', $userId = loggedUser()->user->id)
-                    ->where('item_id', $item)->first();
+                    ->where('year', $year)
+                    ->where('item_id', $item)
+                    ->first();
 
         if (! $watched)
         {
             $watched = Watched::create([
                 'subscription_id' => $userId,
                 'item_id' => $item,
+                'year' => $year,
             ]);
         }
 
         $watched->answer = $answer;
+
         $watched->save();
     }
 

@@ -48,24 +48,17 @@
                 </div>
             </div>
 
-
-
-
-
-
             <div class="container capacitacao-video">
                 <div class="row">
                     <div class="col-xs12">
                         <div class='embed-container'><iframe src='{{ $lesson['video-url'] }}' frameborder='0' allowfullscreen></iframe></div>
                     </div>
 
-                    <a class="btn btn-danger btn-voltar" href="{{ route('training.index', ['year' => 2017]) }}">
+                    <a class="btn btn-danger btn-voltar" href="{{ route('training.content') }}">
                         <i class="fa fa-undo fa-lg"></i> Voltar </a>
                 </div>
             </div>
-
             {{--<a href="{{ route('training.index', ['year' => 2017]) }}" class="btn btn-primary">Voltar</a>--}}
-
         </div>
     </section>
 @stop

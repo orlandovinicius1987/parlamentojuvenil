@@ -195,13 +195,17 @@ Route::group(['prefix' => '/training', 'middleware' => ['training', 'auth', 'stu
     Route::get('/watch/{video}', ['as' => 'training.watch', 'uses' => 'Training@watch']);
     Route::get('/download/{document}', ['as' => 'training.download', 'uses' => 'Training@download']);
     Route::get('/logout', ['as' => 'training.download', 'uses' => 'Training@logout']);
+
+    Route::group(['prefix' => '/quiz', 'middleware' => ['training', 'auth', 'student-login']], function ()
+    {
+        Route::get('/', ['as' => 'quiz.index', 'uses' => 'Quiz@index']);
+        Route::get('/{id}/questions', ['as' => 'quiz.questions', 'uses' => 'Quiz@questions']);
+        Route::get('/{id}/answer/{number}/{answer}', ['as' => 'quiz.answer', 'uses' => 'Quiz@answer']);
+        Route::get('/result', ['as' => 'quiz.result', 'uses' => 'Quiz@result']);
+        Route::get('/result/{id}', ['as' => 'quiz.result', 'uses' => 'Quiz@result']);
+    });
 });
 
-Route::get('{year}/quiz', ['as' => 'quiz.index', 'uses' => 'Quiz@index'])->where('year', '[0-9][0-9][0-9][0-9]');
-Route::get('{year}/quiz/result', ['as' => 'quiz.result', 'uses' => 'Quiz@result'])->where('year', '[0-9][0-9][0-9][0-9]');
-Route::get('{year}/quiz/{id}/questions', ['as' => 'quiz.questions', 'uses' => 'Quiz@questions'])->where('year', '[0-9][0-9][0-9][0-9]');
-Route::get('{year}/quiz/{id}/answer/{number}/{answer}', ['as' => 'quiz.answer', 'uses' => 'Quiz@answer'])->where('year', '[0-9][0-9][0-9][0-9]');
-Route::get('{year}/quiz/result/{id}', ['as' => 'quiz.result', 'uses' => 'Quiz@result'])->where('year', '[0-9][0-9][0-9][0-9]');
 
 Route::get('{year}', ['as' => 'edition', 'uses' => 'Pages@edition'])->where('year', '[0-9][0-9][0-9][0-9]');;
 
