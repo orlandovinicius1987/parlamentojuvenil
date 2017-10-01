@@ -13,20 +13,6 @@
                     </div>
                 </div>
                 <div class="col-sm-4">
-                    {{--<div class="row">
-                        <div class="hidden-sm col-sm-hidden col-md-7 col-lg-7">
-                            <div class="grow grid-item--height5 supernova-yellow">
-                            </div>
-                        </div>
-                        <div class="hidden-sm col-md-1 col-lg-1">
-                            <div class="grow grid-item--height5 white">
-                            </div>
-                        </div>
-                        <div class="hidden-sm col-md-3 col-lg-4">
-                            <div class="grow grid-item--height5 lima-green">
-                            </div>
-                        </div>
-                    </div>--}}
                     <div class="row text-center">
                         <div class="titulo-comofunciona">
                             <h2>Capacitação</h2>
