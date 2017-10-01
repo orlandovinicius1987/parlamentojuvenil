@@ -23,7 +23,7 @@ class Training
      */
     public function handle($request, Closure $next)
     {
-        if (! flag_contest_subscription_enabled()) {
+        if (! training_enabled()) {
             return redirect()->home();
         }
 
