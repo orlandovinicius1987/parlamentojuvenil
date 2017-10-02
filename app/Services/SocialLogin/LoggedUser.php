@@ -2,13 +2,14 @@
 
 namespace App\Services\SocialLogin;
 
+use App\Data\Repositories\Subscriptions;
 use PhpSpec\Exception\Fracture\MethodNotFoundException;
 
 class LoggedUser
 {
     const SESSION_VAR_NAME = 'loggedUser';
 
-    private function convertInnerJsonsToArray($array)
+    protected function convertInnerJsonsToArray($array)
     {
         if (isset($array['social_user']['data'])) {
             $array['social_user']['data'] = json_decode($array['social_user']['data'], true);
@@ -21,7 +22,7 @@ class LoggedUser
      * @param $key
      * @return null
      */
-    private function get($key)
+    protected function get($key)
     {
         $key = snake_case($key);
 
@@ -34,12 +35,12 @@ class LoggedUser
         return $value;
     }
 
-    private function loadSessionVar()
+    protected function loadSessionVar()
     {
         return session(self::SESSION_VAR_NAME);
     }
 
-    private function set($key, $data)
+    protected function set($key, $data)
     {
         $key = snake_case($key);
 
@@ -86,7 +87,7 @@ class LoggedUser
     /**
      * @return bool
      */
-    private function studentIsLogged()
+    protected function studentIsLogged()
     {
         return
             ! is_null($this->student) &&
@@ -97,12 +98,12 @@ class LoggedUser
     /**
      * @return bool
      */
-    private function voterIsLogged()
+    protected function voterIsLogged()
     {
         return ($this->isVoting && $this->studentIsLogged());
     }
 
-    private function updateSession($loggedUser)
+    protected function updateSession($loggedUser)
     {
         session()->put(self::SESSION_VAR_NAME, $loggedUser);
     }
@@ -130,8 +131,20 @@ class LoggedUser
     /**
      * @return bool
      */
-    private function userIsLogged()
+    protected function userIsLogged()
     {
         return ($this->get('user') || $this->get('socialUser'));
+    }
+
+    /**
+     * @return bool
+     */
+    public function isCongressman()
+    {
+        if (!is_null($subscription = app(Subscriptions::class)->findByLoggedUser())) {
+            return $subscription->elected_2nd;
+        }
+
+        return false;
     }
 }

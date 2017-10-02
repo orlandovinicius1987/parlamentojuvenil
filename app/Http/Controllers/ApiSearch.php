@@ -11,7 +11,7 @@ use App\Http\Controllers\Controller as BaseController;
 
 class ApiSearch extends BaseController
 {
-    private function makeWildcardSearchable($name)
+    protected function makeWildcardSearchable($name)
     {
         $result = '';
 

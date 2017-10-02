@@ -32,7 +32,7 @@ class SocialNetworkUser
      * @param $socialNetwork
      * @param $socialNetworkUser
      */
-    private function makeEmail($socialNetwork, $socialNetworkUser)
+    protected function makeEmail($socialNetwork, $socialNetworkUser)
     {
         $this->email = $socialNetworkUser->getEmail()
                         ?: sprintf('%s@%s.'.config('app.domain'), $socialNetworkUser->getId(), $socialNetwork->slug);
@@ -43,7 +43,7 @@ class SocialNetworkUser
     /**
      * @param $socialNetwork
      */
-    private function populateSocialNetwork($socialNetworkUser, $socialNetwork)
+    protected function populateSocialNetwork($socialNetworkUser, $socialNetwork)
     {
         $this->user = $socialNetworkUser;
 

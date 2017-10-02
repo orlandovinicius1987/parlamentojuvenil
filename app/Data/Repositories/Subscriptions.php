@@ -104,7 +104,7 @@ class Subscriptions extends Repository
         return Subscription::with('student')->where('id', $vote)->first();
     }
 
-    private function getAllVotes()
+    protected function getAllVotes()
     {
         return DB::select(DB::raw(<<<SQL
             select
@@ -203,7 +203,7 @@ SQL
         return $elected;
     }
 
-    private function invalidateVote($vote_id)
+    protected function invalidateVote($vote_id)
     {
         if ($vote = Vote::find($vote_id)) {
             $vote->is_valid = false;
@@ -212,7 +212,7 @@ SQL
         }
     }
 
-    private function removeInvalidVotes()
+    protected function removeInvalidVotes()
     {
         $previous = null;
 
@@ -225,7 +225,7 @@ SQL
         }
     }
 
-    private function updateCounters(&$elected, &$counters, $field, $counter, $fieldFirst, $fieldLast, $fieldCount)
+    protected function updateCounters(&$elected, &$counters, $field, $counter, $fieldFirst, $fieldLast, $fieldCount)
     {
         if ($counters[$fieldCount] > 1) {
             for ($x = $counters[$fieldFirst]; $x < $counters[$fieldFirst]+$counters[$fieldCount]; $x++) {
@@ -244,7 +244,7 @@ SQL
         }
     }
 
-    private function getMarker($vote, $votePer)
+    protected function getMarker($vote, $votePer)
     {
         return
             $vote[$votePer] .
@@ -269,7 +269,7 @@ SQL
                 ->get();
     }
 
-    private function makeCandidatesQuery($year, $round, $query = null)
+    protected function makeCandidatesQuery($year, $round, $query = null)
     {
         if (is_null($query)) {
             $query = $this->candidates($year, $round);
@@ -470,6 +470,14 @@ SQL
         Student::where('id', loggedUser()->student->id)->delete();
 
         logout();
+    }
+
+    public function findByLoggedUser()
+    {
+        return Subscription::where('student_id', loggedUser()->student->id)
+                    ->where('year', get_current_year())
+                    ->where('ignored', false)
+                    ->first();
     }
 
     public function fillRegional()

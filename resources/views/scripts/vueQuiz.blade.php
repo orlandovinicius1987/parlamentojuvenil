@@ -20,8 +20,8 @@
 
             data: {
                 id: '{{ $itemId }}',
-                baseUrl: '{{ route('quiz.index', ['year' => 2016]) }}',
-                resultUrl: '{{ route('quiz.result', ['year' => 2016, 'id' => $itemId ]) }}',
+                baseUrl: '{{ route('quiz.index') }}',
+                resultUrl: '{{ route('quiz.result', ['id' => $itemId ]) }}',
                 currentQuestion: 0,
                 quiz: null,
                 askForConfirmation: false,
@@ -45,12 +45,49 @@
                 },
 
                 answerQuestion: function (answer) {
-                    this.currentAnswer = answer;
-                    this.askForConfirmation = true;
+                    this.quiz.questions[this.currentQuestion].user_answer = answer;
                 },
 
                 cancelAnswer: function () {
-                    this.askForConfirmation = false
+                    this.currentAnswer = null;
+                },
+
+                previousQuestion: function () {
+                    this.currentQuestion--;
+
+                    if (this.currentQuestion < 0) {
+                        this.currentQuestion = 0;
+                    }
+                },
+
+                nextQuestion: function () {
+                    this.currentQuestion++;
+
+                    if (!this.quiz.questions[this.currentQuestion]) {
+                        this.previousQuestion();
+                    }
+                },
+
+                isLastQuestion: function () {
+                    if (!this.quiz) {
+                        return false;
+                    }
+
+                    return (this.currentQuestion+1) == this.quiz.questions.length;
+                },
+
+                sendAnswers: function () {
+                    vue = this;
+
+                    var data = {
+                        _token: '{{ csrf_token() }}',
+                        quiz: this.quiz,
+                    };
+
+                    this.$http.post(this.baseUrl+'/answers/', data)
+                    .then(function() {
+                        window.location = vue.resultUrl;
+                    });
                 },
 
                 sendAnsweredQuestion: function (answer) {
@@ -60,13 +97,22 @@
 
                     if (this.currentQuestion+1 >= Object.keys(this.quiz.questions).length)
                     {
-                        console.log('GO!');
                         window.location = this.resultUrl;
                     }
                     else
                     {
                         this.currentQuestion++;
                     }
+                },
+
+                allAnswered: function () {
+                    var all = true;
+
+                    for (var item in this.quiz.questions) {
+                        all = all && this.quiz.questions[item].user_answer;
+                    }
+
+                    return all;
                 },
             },
             

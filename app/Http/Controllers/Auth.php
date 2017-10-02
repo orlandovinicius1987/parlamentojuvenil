@@ -17,4 +17,10 @@ class Auth extends BaseController
 
         return redirect()->route('home');
     }
+
+    public function mustBeCongressman()
+    {
+        return view('2017.messages.show')
+            ->with('message', 'Você precisa ser um parlamentar juvenil para acessar esta página.');
+    }
 }

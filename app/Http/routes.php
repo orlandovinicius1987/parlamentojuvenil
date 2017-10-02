@@ -187,7 +187,7 @@ Route::group(['prefix' => 'api/v1'], function ()
 
 Route::get('article/{id}', ['as' => 'article.show', 'uses' => 'News@showArticle']);
 
-Route::group(['prefix' => '/training', 'middleware' => ['training', 'auth', 'student-login']], function ()
+Route::group(['prefix' => '/training', 'middleware' => ['training', 'auth', 'student-login', 'must-be-congressman']], function ()
 {
     Route::get('/', ['as' => 'training.index', 'uses' => 'Training@index']);
     Route::post('/', ['as' => 'training.login', 'uses' => 'Training@login']);
@@ -201,6 +201,7 @@ Route::group(['prefix' => '/training', 'middleware' => ['training', 'auth', 'stu
         Route::get('/', ['as' => 'quiz.index', 'uses' => 'Quiz@index']);
         Route::get('/{id}/questions', ['as' => 'quiz.questions', 'uses' => 'Quiz@questions']);
         Route::get('/{id}/answer/{number}/{answer}', ['as' => 'quiz.answer', 'uses' => 'Quiz@answer']);
+        Route::post('/answers/', ['as' => 'quiz.answers', 'uses' => 'Quiz@answers']);
         Route::get('/result', ['as' => 'quiz.result', 'uses' => 'Quiz@result']);
         Route::get('/result/{id}', ['as' => 'quiz.result', 'uses' => 'Quiz@result']);
     });
@@ -216,3 +217,5 @@ Route::get('{year}/members', ['as' => 'page.members', 'uses' => 'Pages@members']
 Route::get('{year}/clipping', ['as' => 'page.clipping', 'uses' => 'Pages@clipping']);
 
 Route::get('/fillregional', ['as' => 'fillregional', 'uses' => 'Subscriptions@fillRegional']);
+
+Route::get('/must-be-congressman', ['as' => 'must.be.congressman', 'uses' => 'Auth@mustBeCongressman']);

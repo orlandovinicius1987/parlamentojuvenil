@@ -10,7 +10,7 @@ class Service
     /**
      * @var \Illuminate\Contracts\Filesystem\Filesystem
      */
-    private $filesystem;
+    protected $filesystem;
 
     public function __construct()
     {
@@ -22,7 +22,7 @@ class Service
         return env('BASE_DIR');
     }
 
-    private function initialize()
+    protected function initialize()
     {
         $this->filesystem = Storage::disk('public');
 
@@ -85,7 +85,7 @@ class Service
         return $congressmen;
     }
 
-    private function parseNameAndCity($file)
+    protected function parseNameAndCity($file)
     {
         $file = pathinfo($file);
 

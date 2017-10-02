@@ -2422,3 +2422,12 @@ a.btn-apostilas:hover {
 	height: 100%;
 	margin: 0 0 0 15px;
 }
+
+.btn.disabled, .btn[disabled], fieldset[disabled] .btn {
+    color: lightgray !important;
+    background-color: darkgray !important;
+}
+
+.answer-row {
+    padding: 15px;
+}

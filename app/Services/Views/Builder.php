@@ -23,14 +23,14 @@ class Builder
     /**
      * @var \App\Services\Filesystem\Service
      */
-    private $filesystem;
+    protected $filesystem;
 
     public $spreadsheet = 'https://docs.google.com/a/antoniocarlosribeiro.com/spreadsheets/d/1wrR7y4qk2ofj4kPgkhyPVBjwSohh8k1J6drsZ3bGzic/edit?usp=sharing';
 
     /**
      * @var Data
      */
-    private $dataRepository;
+    protected $dataRepository;
 
     public function __construct(Filesystem $filesystem)
     {
@@ -98,7 +98,7 @@ class Builder
                      ->with('force', $force);
     }
 
-    private function execute($function, $name)
+    protected function execute($function, $name)
     {
         // we could create some caching here
 
@@ -113,7 +113,7 @@ class Builder
         return $result;
     }
 
-    private function getClipping($year)
+    protected function getClipping($year)
     {
         return $this->dataRepository->getClipping($year);
     }
@@ -326,7 +326,7 @@ class Builder
         $this->dataRepository = $dataRepository;
     }
 
-    private function stripTags($body)
+    protected function stripTags($body)
     {
         $body = strip_tags($body);
 

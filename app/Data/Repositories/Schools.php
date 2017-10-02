@@ -9,7 +9,7 @@ use Ivory\HttpAdapter\CurlHttpAdapter;
 
 class Schools extends Repository
 {
-    private $geocoder;
+    protected $geocoder;
 
     public function __construct()
     {
@@ -17,7 +17,7 @@ class Schools extends Repository
         $this->geocoder = new GoogleMaps($curl, 'pt-BR', 'BR', true, config('services.gooleMaps.key'));
     }
 
-    private function compare($a, $b)
+    protected function compare($a, $b)
     {
         $a = mb_strtolower($this->translit($a));
         $b = mb_strtolower($this->translit($b));
@@ -31,7 +31,7 @@ class Schools extends Repository
         return $a == $b;
     }
 
-    private function geolocate($school)
+    protected function geolocate($school)
     {
         $school = $this->geolocateByAddress($school);
 
@@ -51,7 +51,7 @@ class Schools extends Repository
         return $this->findGeolocation($school, $school->address);
     }
 
-    private function geolocateByCity($school)
+    protected function geolocateByCity($school)
     {
         return $this->findGeolocation($school, $school->city);
     }
@@ -109,7 +109,7 @@ class Schools extends Repository
         ob_end_clean();
     }
 
-    private function geolocationToArray($addresses)
+    protected function geolocationToArray($addresses)
     {
         $result = [];
 
@@ -148,7 +148,7 @@ class Schools extends Repository
         return $result;
     }
 
-    private function getAdminLevels($address)
+    protected function getAdminLevels($address)
     {
         $result = [];
 
@@ -164,7 +164,7 @@ class Schools extends Repository
         return $result;
     }
 
-    private function isSameAddress($address, $school)
+    protected function isSameAddress($address, $school)
     {
         if ($this->compare($address->getLocality(), $school->city))
         {
@@ -182,13 +182,13 @@ class Schools extends Repository
         return false;
     }
 
-    private function obFlush()
+    protected function obFlush()
     {
         ob_flush();
         flush();
     }
 
-    private function translit($string)
+    protected function translit($string)
     {
         $string = str_replace('\n', '', $string);
 

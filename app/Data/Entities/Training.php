@@ -18,7 +18,7 @@ class Training
                 [
                     'name' => 'Aula 1',
 
-                    'id' => '2017.1',
+                    'id' => '1',
 
                     'relations' => [
                         'videos' => [
@@ -122,7 +122,7 @@ class Training
                 [
                     'name' => 'Aula 2',
 
-                    'id' => '2017.2',
+                    'id' => '2',
 
                     'relations' => [
                         'videos' => [
@@ -156,7 +156,7 @@ class Training
                                 'questions' =>
                                     [
                                         [
-                                            'question' => 'Qual não pode ser considerado uma proposição legislativas:',
+                                            'question' => 'Qual item não pode ser considerado uma proposição legislativa:',
                                             'answers' => [
                                                 'a' => 'Proposta de emenda à constituição;',
                                                 'b' => 'Projeto de Lei;',

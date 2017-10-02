@@ -72,14 +72,14 @@ class Color
         return collect(self::all()[$year ?: get_current_year()]);
     }
 
-    private static function ensureScope($scope)
+    protected static function ensureScope($scope)
     {
         if (! isset(static::$availableColors[$scope])) {
             static::$availableColors[$scope] = [];
         }
     }
 
-    private static function fillAvailableColors($scope = 'default', array $except = [])
+    protected static function fillAvailableColors($scope = 'default', array $except = [])
     {
         static::ensureScope($scope);
 

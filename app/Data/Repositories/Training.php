@@ -38,7 +38,7 @@ class Training extends Repository
         return null;
     }
 
-    private function getAnswerFor($year, $id, $user, $answer)
+    protected function getAnswerFor($year, $id, $user, $answer)
     {
         $training = $this->findById($id, $user, $year);
 
@@ -54,11 +54,15 @@ class Training extends Repository
 
     public function getResult($year, $id, $user)
     {
-        $answers = Watched::where('item_id', 'like', $id.'.%')->where('year', $year)->where('subscription_id', $user->id)->get()->toArray();
+        $answers = Watched::where('item_id', 'like', $id.'.%')
+                      ->where('year', $year)
+                      ->where('subscription_id', $user->id)
+                      ->get()
+                      ->toArray();
 
         foreach ($answers as $key => $item)
         {
-            $answers[$key]['correct'] = $answers[$key]['answer'] == $this->getAnswerFor($year, $id, $user, $answers[$key]['item_id']);
+            $answers[$key]['correct'] = $answers[$key]['answer'] == $this->getAnswerFor(get_current_year(), $id, $user, $answers[$key]['item_id']);
         }
 
         return $answers;
@@ -133,9 +137,13 @@ class Training extends Repository
 
     public function quizDone($year, $user, $id)
     {
+        $exploded = explode('.', $id);
+
         if ($result = $this->getResult($year, $id, $user))
         {
-            $done = true;
+            $questions = TrainingModel::byYear($year)[$exploded[0]-1]['relations']['quiz'][0]['questions'];
+
+            $done = count($result) == count($questions);
 
             foreach ($result as $item) {
                 $done = $done && $item['answer'];
@@ -143,5 +151,12 @@ class Training extends Repository
         }
 
         return $result ? $done : false;
+    }
+
+    public function registerAnswers($quiz)
+    {
+        foreach ($quiz['questions'] as $key => $question) {
+            $this->markAsWatched("{$quiz['id']}.$key", $question['user_answer']);
+        }
     }
 }

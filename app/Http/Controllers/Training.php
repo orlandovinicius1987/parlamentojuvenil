@@ -26,7 +26,7 @@ class Training extends BaseController
 
     public function index()
 	{
-		return view($this->getYear().'.training.index');
+		return redirect()->route('training.content');
 	}
 
     public function content()

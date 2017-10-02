@@ -9,7 +9,7 @@ use App\Exceptions\Authentication as AuthenticationException;
 
 class Users extends Repository
 {
-    private function findUserByEmail($email)
+    protected function findUserByEmail($email)
     {
         return User::where('email', $email)->first();
     }

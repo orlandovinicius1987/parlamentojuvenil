@@ -15,9 +15,9 @@ use Laravel\Socialite\Two\User as SocialiteUser;
 
 class SocialUserService
 {
-    private $socialUserRepository;
+    protected $socialUserRepository;
 
-    private $usersRepository;
+    protected $usersRepository;
 
     public function __construct(SocialUserRepository $socialUserRepository, UsersRepository $usersRepository)
     {
@@ -25,7 +25,7 @@ class SocialUserService
         $this->usersRepository = $usersRepository;
     }
 
-    private function createSocialUserForEmail()
+    protected function createSocialUserForEmail()
     {
         $user = new SocialiteUser();
 
@@ -41,7 +41,7 @@ class SocialUserService
         return $this->findOrCreateSocialUser($socialNetworkUser, $socialNetwork);
     }
 
-    private function findOrCreateDataForSocialNetworkUser($socialNetwork)
+    protected function findOrCreateDataForSocialNetworkUser($socialNetwork)
     {
         $socialNetworkUser = $this->makeSocialNetworkUser($socialNetwork);
 
@@ -50,7 +50,7 @@ class SocialUserService
         return [$socialUser, $user, $student, $socialNetworkUser];
     }
 
-    private function findOrCreateSocialUserAndStudent($socialNetworkUser)
+    protected function findOrCreateSocialUserAndStudent($socialNetworkUser)
     {
         $socialUser = $this->findOrCreateSocialUser($socialNetworkUser);
 
@@ -71,7 +71,7 @@ class SocialUserService
      * @param $email
      * @return static
      */
-    private function findOrCreateUserByEmail($email)
+    protected function findOrCreateUserByEmail($email)
     {
         if (! is_null($user = User::where('email', $email)->first())) {
             return $user;
@@ -83,7 +83,7 @@ class SocialUserService
         ]);
     }
 
-    private function findSocialNetworkBySlug($slug)
+    protected function findSocialNetworkBySlug($slug)
     {
         if (is_null($socialNetwork = SocialNetwork::where('slug', snake_case($slug))->first())) {
             throw new Exception('Social network not found: '.$socialNetwork);
@@ -92,12 +92,12 @@ class SocialUserService
         return $socialNetwork;
     }
 
-    private function findStudentBySocialUser($socialUser)
+    protected function findStudentBySocialUser($socialUser)
     {
         return $socialUser->student;
     }
 
-    private function findOrCreateUserBySocialUser($socialUser, $socialNetworkUser)
+    protected function findOrCreateUserBySocialUser($socialUser, $socialNetworkUser)
     {
         if ($user = $socialUser->user) {
             return $user;
@@ -110,7 +110,7 @@ class SocialUserService
         return $this->socialUserRepository->createUser($socialNetworkUser);
     }
 
-    private function getFreshSocialUser($socialUser)
+    protected function getFreshSocialUser($socialUser)
     {
         return SocialUser::where('id', $socialUser->id)->first();
     }
@@ -119,7 +119,7 @@ class SocialUserService
      * @param $socialNetwork
      * @return mixed
      */
-    private function getSocialUserForDriver($socialNetwork)
+    protected function getSocialUserForDriver($socialNetwork)
     {
         if (($slug = $socialNetwork->slug) == 'email') {
             return $this->createSocialUserForEmail();
@@ -202,7 +202,7 @@ class SocialUserService
         return new SocialNetworkUser($this->getSocialUserForDriver($socialNetwork), $socialNetwork);
     }
 
-    private function setUserAvatar($user, $avatar)
+    protected function setUserAvatar($user, $avatar)
     {
         if (is_null($user->avatar)) {
             $user->avatar = $avatar;
@@ -211,7 +211,7 @@ class SocialUserService
         }
     }
 
-    private function updateLoggedSocialUser($socialUser)
+    protected function updateLoggedSocialUser($socialUser)
     {
         loggedUser()->socialUser = $socialUser;
 
@@ -240,7 +240,7 @@ class SocialUserService
         $this->loginSocialUser();
     }
 
-    private function isSocialNetworkIsLoggedIn($socialNetwork)
+    protected function isSocialNetworkIsLoggedIn($socialNetwork)
     {
         if (loggedUser()->logged()) {
             return false;
@@ -259,7 +259,7 @@ class SocialUserService
      * @param $socialUser
      * @param $socialNetworkUser
      */
-    private function storeUserInSession($socialNetwork, $socialUser, $socialNetworkUser, $email)
+    protected function storeUserInSession($socialNetwork, $socialUser, $socialNetworkUser, $email)
     {
         loggedUser()->setSocialNetwork($socialNetwork)
                     ->setSocialUser($socialUser)

@@ -113,7 +113,7 @@ class Subscriptions extends BaseController
 		return $this->exportSubscriptionsToExcel();
 	}
 
-	private function exportSubscriptionsToExcel()
+	protected function exportSubscriptionsToExcel()
 	{
 		$subscriptions = $this->allSubscriptions();
 
@@ -123,7 +123,7 @@ class Subscriptions extends BaseController
         return $this->exportToCsv($date, $subscriptions);
     }
 
-    private function allSubscriptions()
+    protected function allSubscriptions()
     {
         $subscriptions = array_map(function($subscription) {
             return array(
@@ -156,7 +156,7 @@ class Subscriptions extends BaseController
         return $subscriptions;
     }
 
-    private function exportToCsv($date, $subscriptions)
+    protected function exportToCsv($date, $subscriptions)
     {
         $fileName = 'InscricoesParlamentoJuvenil-' . $date . '.csv';
 
@@ -181,7 +181,7 @@ class Subscriptions extends BaseController
      * @param $subscriptions
      * @return mixed
      */
-    private function exportToExcel($date, $subscriptions)
+    protected function exportToExcel($date, $subscriptions)
     {
         return
 
@@ -193,7 +193,7 @@ class Subscriptions extends BaseController
             ;
     }
 
-    private function getOnlyValidInput($fillable)
+    protected function getOnlyValidInput($fillable)
     {
         $input = collect(Input::only($fillable))->reject(function($value) {
             return $value === null;
@@ -234,7 +234,7 @@ class Subscriptions extends BaseController
      * @param $var
      * @return mixed
      */
-    private function normalizeBoolean($input, $var)
+    protected function normalizeBoolean($input, $var)
     {
         if (isset($input[$var])) {
             $input[$var] = $input[$var] == 1 || $input[$var] == true
@@ -245,7 +245,7 @@ class Subscriptions extends BaseController
         return $input;
     }
 
-    private function normalizeInput($input)
+    protected function normalizeInput($input)
     {
         if ($city = City::findCityByname($input['city'])) {
             $input['city'] = $city->name;
@@ -300,7 +300,7 @@ class Subscriptions extends BaseController
         return redirect()->route('admin.city', ['city' => $subscription->city]);
     }
 
-    private function updateLoggedStudent($student)
+    protected function updateLoggedStudent($student)
     {
         loggedUser()->student = $student;
     }

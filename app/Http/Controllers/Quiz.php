@@ -7,7 +7,25 @@ use Illuminate\Database\Eloquent\Collection;
 
 class Quiz extends Training
 {
-    public function index($id)
+    protected function addUserAnswers($data)
+    {
+        $data['questions'] = collect($data['questions'])->map(function($question, $index) use ($data) {
+            $question['user_answer'] = Watched::where('year', get_current_year())
+                                              ->where('item_id', $data['id'].'.'.$index)
+                                              ->where('subscription_id', loggedUser()->user->id)
+                                              ->first();;
+
+            if (!is_null($question['user_answer'])) {
+                $question['user_answer'] = $question['user_answer']->answer;
+            }
+
+            return $question;
+        });
+
+        return collect($data);
+    }
+
+    public function index($id = null)
 	{
         if (loggedUser()->user) {
             return $this->renderQuiz(loggedUser()->user, $id, $this->trainingRepository);
@@ -16,12 +34,12 @@ class Quiz extends Training
 		return redirect()->route('training.index');
 	}
 
-    private function makeResult($id)
+    protected function makeResult($id)
     {
-        return new Collection($this->trainingRepository->getResult($id, $this->getLoggedUser()));
+        return new Collection($this->trainingRepository->getResult(get_current_year(), $id, loggedUser()->user));
     }
 
-    private function renderQuiz($user, $id, $repository)
+    protected function renderQuiz($user, $id, $repository)
     {
         if ($this->trainingRepository->quizDone($user, $id))
         {
@@ -45,11 +63,18 @@ class Quiz extends Training
     {
         $data = $this->trainingRepository->findById($itemId, loggedUser()->user, get_current_year());
 
-        return (new Collection($data))->toJson();
+        return $this->addUserAnswers($data)->toJson();
     }
 
     public function answer($itemId, $number, $answer)
     {
         $this->trainingRepository->markAsWatched("$itemId.$number", $answer);
+    }
+
+    public function answers()
+    {
+        $this->trainingRepository->registerAnswers(request()->get('quiz'));
+
+        return json_encode(['success' => true]);
     }
 }

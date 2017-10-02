@@ -10,7 +10,7 @@ use App\Data\Entities\FlagContest as FlagContestModel;
 
 class FlagContest extends Repository
 {
-    private function findByConfirmationAndEmail($confirmation_key, $email)
+    protected function findByConfirmationAndEmail($confirmation_key, $email)
     {
         return FlagContestModel::where([
             'confirmation_key' => $confirmation_key,
@@ -18,7 +18,7 @@ class FlagContest extends Repository
         ])->first();
     }
 
-    private function findByStudentId($student_id)
+    protected function findByStudentId($student_id)
     {
         return FlagContestModel::where([
             'student_id' => $student_id,
@@ -26,7 +26,7 @@ class FlagContest extends Repository
         ])->first();
     }
 
-    private function findOrCreate($data)
+    protected function findOrCreate($data)
     {
         $model = FlagContestModel::where(array_only($data, ['student_id', 'year']))->first();
 
@@ -45,14 +45,14 @@ class FlagContest extends Repository
         return $model;
     }
 
-    private function sendConfirmationEmail($subscription)
+    protected function sendConfirmationEmail($subscription)
     {
         Mail::send('emails.flag-contest-email-confirmation', ['subscription' => $subscription], function ($message) use ($subscription) {
             $message->to($subscription->email, $subscription->student->name)->subject('Confirme seu endereço de e-mail');
         });
     }
 
-    private function sendSubscriptionConfirmedEmail($subscription)
+    protected function sendSubscriptionConfirmedEmail($subscription)
     {
         Mail::send('emails.flag-contest-email-subscription-confirmation', ['subscription' => $subscription], function ($message) use ($subscription) {
             $message->to($subscription->email, $subscription->student->name)->subject('Seu número de inscrição no Concurso da Bandeira');

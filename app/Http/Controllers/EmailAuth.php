@@ -15,12 +15,12 @@ class EmailAuth extends BaseController
     /**
      * @var Users
      */
-    private $usersRepository;
+    protected $usersRepository;
 
     /**
      * @var SocialUserService
      */
-    private $socialUserService;
+    protected $socialUserService;
 
     public function __construct(UsersRepository $usersRepository, DataRepository $dataRepository, SocialUserService $socialUserService)
     {
@@ -36,7 +36,7 @@ class EmailAuth extends BaseController
         return $this->buildView('auth.email.index', $year);
     }
 
-    private function loginUser($user)
+    protected function loginUser($user)
     {
         loggedUser()->user = $user;
 

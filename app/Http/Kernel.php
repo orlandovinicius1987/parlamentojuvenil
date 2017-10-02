@@ -40,5 +40,6 @@ class Kernel extends HttpKernel
         'flag-contest-cannot-re-subscribe' => \App\Http\Middleware\FlagContestCannotResubscribe::class,
         'auth' => \App\Http\Middleware\Authenticate::class,
         'training' => \App\Http\Middleware\Training::class,
+        'must-be-congressman' => \App\Http\Middleware\MustBeCongressman::class,
     ];
 }
