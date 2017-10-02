@@ -10,7 +10,7 @@ class MustBeCongressman
     public function handle($request, Closure $next)
     {
         if (!loggedUser()->isCongressman()) {
-            return redirect()->route('home');
+            return redirect()->route('must.be.congressman');
         }
 
         return $next($request);
