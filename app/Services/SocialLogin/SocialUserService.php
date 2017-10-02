@@ -10,6 +10,7 @@ use App\Data\Entities\SocialUser;
 use App\Data\Entities\SocialNetwork;
 use Illuminate\Support\Facades\Hash;
 use App\Repositories\UsersRepository;
+use App\Data\Repositories\Subscriptions;
 use App\Repositories\SocialUserRepository;
 use Laravel\Socialite\Two\User as SocialiteUser;
 
@@ -18,11 +19,18 @@ class SocialUserService
     protected $socialUserRepository;
 
     protected $usersRepository;
+    /**
+     * @var Subscriptions
+     */
+    private $subscriptionsRepository;
 
-    public function __construct(SocialUserRepository $socialUserRepository, UsersRepository $usersRepository)
+    public function __construct(SocialUserRepository $socialUserRepository, UsersRepository $usersRepository, Subscriptions $subscriptionsRepository)
     {
         $this->socialUserRepository = $socialUserRepository;
+
         $this->usersRepository = $usersRepository;
+
+        $this->subscriptionsRepository = $subscriptionsRepository;
     }
 
     protected function createSocialUserForEmail()
@@ -161,6 +169,8 @@ class SocialUserService
         }
 
         Auth::login(loggedUser()->user);
+
+        $this->updateLoggedSubscription();
     }
 
     public function findOrCreateUserByStudent($studentId, $email, $socialNetworkUser)
@@ -267,5 +277,10 @@ class SocialUserService
                     ->setStudent($socialUser ? $socialUser->student : null)
                     ->setSocialNetworkUser($socialNetworkUser)
                     ->setEmail($email);
+    }
+
+    private function updateLoggedSubscription()
+    {
+        loggedUser()->subscription = $this->subscriptionsRepository->findByLoggedUser();
     }
 }

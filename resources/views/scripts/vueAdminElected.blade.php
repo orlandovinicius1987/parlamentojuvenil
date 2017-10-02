@@ -16,21 +16,22 @@
                 voter_percentage_2nd: '',
                 orderBy: 'city',
                 orderType: 'asc',
+                result: null,
             },
 
             methods: {
                 __fetchSubscriptions: function() {
                     this.$http.get('/api/v1/elected').then(
                         function(response) {
-                            this.year = response.data.year;
-                            this.elected = response.data.elected;
-                            this.total_cities_1nd = response.data.total_cities_1nd;
-                            this.total_cities_2nd = response.data.total_cities_2nd;
-                            this.total_valid_votes_1nd = response.data.total_valid_votes_1nd;
-                            this.total_valid_votes_2nd = response.data.total_valid_votes_2nd;
-                            this.total_voters = response.data.total_voters;
-                            this.voter_percentage_1nd = response.data.voter_percentage_1nd;
-                            this.voter_percentage_2nd = response.data.voter_percentage_2nd;
+                            this.year = response.body.year;
+                            this.elected = response.body.elected;
+                            this.total_cities_1nd = response.body.total_cities_1nd;
+                            this.total_cities_2nd = response.body.total_cities_2nd;
+                            this.total_valid_votes_1nd = response.body.total_valid_votes_1nd;
+                            this.total_valid_votes_2nd = response.body.total_valid_votes_2nd;
+                            this.total_voters = response.body.total_voters;
+                            this.voter_percentage_1nd = response.body.voter_percentage_1nd;
+                            this.voter_percentage_2nd = response.body.voter_percentage_2nd;
                         },
 
                         this.__requestError

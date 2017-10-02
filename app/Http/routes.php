@@ -124,26 +124,26 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'only-administrators
         return redirect()->route('admin.subscriptions');
     }]);
 
-	Route::get('subscriptions', ['as' => 'admin.subscriptions', 'uses' => 'Admin@index']);
+	Route::get('/subscriptions', ['as' => 'admin.subscriptions', 'uses' => 'Admin@index']);
 
-	Route::get('schools', ['as' => 'admin.schools', 'uses' => 'Admin@schools']);
+	Route::get('/schools', ['as' => 'admin.schools', 'uses' => 'Admin@schools']);
 
-    Route::get('elected', ['as' => 'admin.elected', 'uses' => 'Admin@elected']);
+    Route::get('/elected', ['as' => 'admin.elected', 'uses' => 'Admin@elected']);
 
-    Route::get('seeduc', ['as' => 'admin.seeduc', 'uses' => 'Admin@seeduc']);
+    Route::get('/seeduc', ['as' => 'admin.seeduc', 'uses' => 'Admin@seeduc']);
 
-    Route::get('users', ['as' => 'admin.users', 'uses' => 'Admin@users']);
+    Route::get('/users', ['as' => 'admin.users', 'uses' => 'Admin@users']);
 
     Route::get('/votes/{subscription_id}', ['as' => 'admin.votes.student', 'uses' => 'Admin@votesPerStudent']);
 
     Route::get('/vote/statistics', ['as' => 'admin.vote.statistics', 'uses' => 'Admin@voteStatistics']);
 
-    Route::get('training/{subscription}', ['as' => 'admin.training', 'uses' => 'Admin@training']);
+    Route::get('/training/{subscription}', ['as' => 'admin.training', 'uses' => 'Admin@training']);
 
-    Route::get('contest', ['as' => 'admin.contest', 'uses' => 'Admin@contest']);
+    Route::get('/contest', ['as' => 'admin.contest', 'uses' => 'Admin@contest']);
 
     /// Must be last
-    Route::get('{city}', ['as' => 'admin.city', 'uses' => 'Admin@city']);
+    Route::get('/{city}', ['as' => 'admin.city', 'uses' => 'Admin@city']);
 });
 
 Route::get('subscriptions/schools', ['as' => 'subscriptions.schools', 'uses' => 'Subscriptions@bySchool']);

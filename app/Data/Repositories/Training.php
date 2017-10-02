@@ -9,9 +9,9 @@ use App\Data\Entities\Training as TrainingModel;
 
 class Training extends Repository
 {
-    public function findById($item, $user, $year)
+    public function findById($item, $subscription, $year)
     {
-        $training = $this->addTrainingData($user, TrainingModel::byYear($year));
+        $training = $this->addTrainingData($subscription, TrainingModel::byYear($year));
 
         foreach ($training as $course)
         {
@@ -38,9 +38,9 @@ class Training extends Repository
         return null;
     }
 
-    protected function getAnswerFor($year, $id, $user, $answer)
+    protected function getAnswerFor($year, $id, $subscription, $answer)
     {
-        $training = $this->findById($id, $user, $year);
+        $training = $this->findById($id, $subscription, $year);
 
         foreach ($training['questions'] as $key => $question) {
             if ("$id.$key" == $answer)
@@ -52,23 +52,23 @@ class Training extends Repository
         return null;
     }
 
-    public function getResult($year, $id, $user)
+    public function getResult($year, $id, $subscription)
     {
         $answers = Watched::where('item_id', 'like', $id.'.%')
                       ->where('year', $year)
-                      ->where('subscription_id', $user->id)
+                      ->where('subscription_id', $subscription->id)
                       ->get()
                       ->toArray();
 
         foreach ($answers as $key => $item)
         {
-            $answers[$key]['correct'] = $answers[$key]['answer'] == $this->getAnswerFor(get_current_year(), $id, $user, $answers[$key]['item_id']);
+            $answers[$key]['correct'] = $answers[$key]['answer'] == $this->getAnswerFor(get_current_year(), $id, $subscription, $answers[$key]['item_id']);
         }
 
         return $answers;
     }
 
-    public function addTrainingData($user, $training, $year = null)
+    public function addTrainingData($subscription, $training, $year = null)
     {
         $year = get_current_year($year);
 
@@ -87,7 +87,7 @@ class Training extends Repository
                 foreach ($relation as $elementKey => $element) {
                     $element['id'] = "{$item['id']}.{$element['id']}";
                     $element['watch-url'] = route('training.watch', ['video' => $element['id']]);
-                    $element['watched'] = Watched::where('subscription_id', $user->id)->where('year', $year)->where('item_id', $element['id'])->first();
+                    $element['watched'] = Watched::where('subscription_id', $subscription->id)->where('year', $year)->where('item_id', $element['id'])->first();
                     $element['visible'] = $visible || $element['watched'];
                     $element['year'] = $year;
 
@@ -116,15 +116,15 @@ class Training extends Repository
     {
         $year = get_current_year($year);
 
-        $watched = Watched::where('subscription_id', $userId = loggedUser()->user->id)
+        $watched = Watched::where('subscription_id', $subscription_id = loggedUser()->subscription->id)
                     ->where('year', $year)
                     ->where('item_id', $item)
                     ->first();
 
-        if (! $watched)
+        if (!$watched)
         {
             $watched = Watched::create([
-                'subscription_id' => $userId,
+                'subscription_id' => $subscription_id,
                 'item_id' => $item,
                 'year' => $year,
             ]);
@@ -135,11 +135,11 @@ class Training extends Repository
         $watched->save();
     }
 
-    public function quizDone($year, $user, $id)
+    public function quizDone($year, $subscription, $id)
     {
         $exploded = explode('.', $id);
 
-        if ($result = $this->getResult($year, $id, $user))
+        if ($result = $this->getResult($year, $id, $subscription))
         {
             $questions = TrainingModel::byYear($year)[$exploded[0]-1]['relations']['quiz'][0]['questions'];
 

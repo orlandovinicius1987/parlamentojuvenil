@@ -12,7 +12,7 @@ class Quiz extends Training
         $data['questions'] = collect($data['questions'])->map(function($question, $index) use ($data) {
             $question['user_answer'] = Watched::where('year', get_current_year())
                                               ->where('item_id', $data['id'].'.'.$index)
-                                              ->where('subscription_id', loggedUser()->user->id)
+                                              ->where('subscription_id', loggedUser()->subscription->id)
                                               ->first();;
 
             if (!is_null($question['user_answer'])) {
@@ -27,8 +27,8 @@ class Quiz extends Training
 
     public function index($id = null)
 	{
-        if (loggedUser()->user) {
-            return $this->renderQuiz(loggedUser()->user, $id, $this->trainingRepository);
+        if (loggedUser()->subscription) {
+            return $this->renderQuiz(loggedUser()->subscription, $id, $this->trainingRepository);
         }
 
 		return redirect()->route('training.index');
@@ -36,17 +36,17 @@ class Quiz extends Training
 
     protected function makeResult($id)
     {
-        return new Collection($this->trainingRepository->getResult(get_current_year(), $id, loggedUser()->user));
+        return new Collection($this->trainingRepository->getResult(get_current_year(), $id, loggedUser()->subscription));
     }
 
-    protected function renderQuiz($user, $id, $repository)
+    protected function renderQuiz($subscription, $id, $repository)
     {
-        if ($this->trainingRepository->quizDone($user, $id))
+        if ($this->trainingRepository->quizDone($subscription, $id))
         {
             return $this->result();
         }
 
-        return view(get_current_year().'.quiz.index')->with('loggedUser', $user);
+        return view(get_current_year().'.quiz.index')->with('loggedUser', $subscription);
     }
 
     public function result($id)
@@ -56,12 +56,12 @@ class Quiz extends Training
         return view(get_current_year().'.training.quiz-result')
             ->with('correct', $correct = $result->where('correct', true)->count())
             ->with('total', $total = $result->count())
-            ->with('percent', ($correct/$total)*100);
+            ->with('percent', $total > 0 ? ($correct/$total)*100 : 0);
     }
 
     public function questions($itemId)
     {
-        $data = $this->trainingRepository->findById($itemId, loggedUser()->user, get_current_year());
+        $data = $this->trainingRepository->findById($itemId, loggedUser()->subscription, get_current_year());
 
         return $this->addUserAnswers($data)->toJson();
     }

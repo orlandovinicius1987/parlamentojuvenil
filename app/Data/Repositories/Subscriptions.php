@@ -412,13 +412,16 @@ SQL
         $voter_percentage_2nd = round(($total_valid_votes_2nd / $total_voters) * 100, 5) . '%';
 
         $data = Subscription::with('quizResult')
+                ->with('watched')
                 ->select(
+                    'subscriptions.id',
                     'subscriptions.id as subscription_id',
                     'students.name',
                     'students.city',
                     'students.birthdate',
                     'students.registration',
                     'subscriptions.elected_1nd',
+                    'subscriptions.year',
                     DB::raw("(select count(*) from votes where votes.subscription_id = subscriptions.id and votes.round = 1 and votes.year = $year) as votes_1nd"),
                     'subscriptions.elected_2nd',
                     DB::raw("(select count(*) from votes where votes.subscription_id = subscriptions.id and votes.round = 2 and votes.year = $year) as votes_2nd")
@@ -427,6 +430,7 @@ SQL
                 ->where(function ($query) {
                     $query->where('elected_1nd', true);
                 })
+                ->where('year', $year)
                 ->orderBy('votes_2nd', 'desc')
                 ->get()
         ;
