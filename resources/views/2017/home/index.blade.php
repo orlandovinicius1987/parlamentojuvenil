@@ -77,6 +77,16 @@
             </div>
         @endif
 
+        @if (training_enabled())
+            <div class="jumbotron text-center">
+                <h2>Capacitação on-line</h2>
+                <p>Se você foi eleito parlamentar juvenil em 2017.</p>
+                <a href="{{ route('training.content') }}" class="btn btn-block btn-primary btn-large center-block">
+                    CLIQUE AQUI PARA ACESSAR A PÁGINA DE CAPACITAÇÃO
+                </a>
+            </div>
+        @endif
+
         @if (config('app.election.show-elected-2nd') === true)
             <a href="/vote/elected/round/2" >
                 <div class="jumbotron see-elects-1round text-center jacksons-purple">
