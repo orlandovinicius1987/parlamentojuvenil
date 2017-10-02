@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RecoverPassword;
 use App\Http\Requests\UserRegister;
 use Auth as IlluminateAuth;
 use App\Services\SocialLogin\SocialUserService;
@@ -87,8 +88,14 @@ class EmailAuth extends BaseController
         return $this->buildView('auth.email.password', $year);
     }
 
-    public function resetPassword($year = null, RecoverPasswordValidation $recoverPasswordValidation)
+    public function resetPassword(RecoverPassword $recoverPasswordValidation)
     {
+        if ($this->usersRepository->recoverPassword($recoverPasswordValidation->all())) {
+            return view('2017.messages.show')
+                ->with('message', 'Uma mensagem com a nova senha foi enviado para o sua caixa postal.');
+        }
 
+        return view('2017.messages.show')
+            ->with('message', 'Email não encontrado. Por favor entre em contato com a administração do Parlamento Juvenil.');
     }
 }

@@ -2,9 +2,10 @@
 
 namespace App\Data\Repositories;
 
-use Hash;
 use App\Data\Entities\User;
 use App\Data\Entities\SocialUser;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use App\Exceptions\Authentication as AuthenticationException;
 
 class Users extends Repository
@@ -33,5 +34,22 @@ class Users extends Repository
         return $socialUser
             ? $socialUser->student
             : null;
+    }
+
+    public function recoverPassword($input)
+    {
+        if (!$user = User::where('email', $input['email'])->first()) {
+            return false;
+        }
+
+        $user->password = Hash::make($password = str_random(10));
+
+        $user->save();
+
+        Mail::send('emails.password_reset', ['user' => $user, 'password' => $password], function ($message) use ($user) {
+            $message->to($user->email)->subject('Sua nova senha no Parlamento Juvenil');
+        });
+
+        return true;
     }
 }
