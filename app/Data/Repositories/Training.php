@@ -38,8 +38,10 @@ class Training extends Repository
         return null;
     }
 
-    protected function getAnswerFor($year, $id, $subscription, $answer)
+    protected function getAnswerFor($id, $subscription, $answer, $year = null)
     {
+        $year = get_current_year($year);
+
         $training = $this->findById($id, $subscription, $year);
 
         foreach ($training['questions'] as $key => $question) {
@@ -62,7 +64,7 @@ class Training extends Repository
 
         foreach ($answers as $key => $item)
         {
-            $answers[$key]['correct'] = $answers[$key]['answer'] == $this->getAnswerFor(get_current_year(), $id, $subscription, $answers[$key]['item_id']);
+            $answers[$key]['correct'] = $answers[$key]['answer'] == $this->getAnswerFor($id, $subscription, $answers[$key]['item_id'], get_current_year());
         }
 
         return $answers;

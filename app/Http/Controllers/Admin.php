@@ -134,6 +134,10 @@ class Admin extends BaseController
             }
 
             $item->setAttribute('title', $title);
+
+            $correct_answer = isset($course['correct']) ? $course['correct'] : null;
+
+            $item->setAttribute('correct_answer', $correct_answer);
         }
 
         $watched = new Collection($subscription->watched->toArray());
