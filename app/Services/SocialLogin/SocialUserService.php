@@ -66,7 +66,7 @@ class SocialUserService
             $socialUser->user()->associate($user->id);
         }
 
-        if ($student = $this->findStudentBySocialUser($socialUser)) {
+        if ($student = $this->findStudentBySocialUser($socialUser, $socialNetworkUser)) {
             $socialUser->student()->associate($student->id);
         }
 
@@ -100,9 +100,17 @@ class SocialUserService
         return $socialNetwork;
     }
 
-    protected function findStudentBySocialUser($socialUser)
+    protected function findStudentBySocialUser($socialUser, $socialNetworkUser)
     {
-        return $socialUser->student;
+        if (is_null($student = $socialUser->student)) {
+            $socialUsers = SocialUser::where('user_id', $socialUser->user_id)->where('social_network_id', '!=', $socialNetworkUser->social_network->id)->get();
+
+            if ($socialUsers->count() == 1) {
+                $student = $socialUsers[0]->student;
+            }
+        }
+
+        return $student;
     }
 
     protected function findOrCreateUserBySocialUser($socialUser, $socialNetworkUser)
