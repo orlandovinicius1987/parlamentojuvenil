@@ -325,7 +325,7 @@ SQL
             $markerCount = 0;
             $lastSubscriptionForMarker = null;
 
-            Subscription::where('year', $this->getCurrentYear())->update([$electedField => false]);
+            Subscription::where('year', $this->getCurrentYear())->where('auto_elected', true)->update([$electedField => false]);
 
             foreach ($votes as $vote) {
                 if ($currentMarker !== $this->getMarker($vote, $votePer)) {
@@ -352,16 +352,18 @@ SQL
     }
 
     /**
-     * @param $vote
+     * @param $subscriptionId
      * @param $electedField
      */
     function markAsElected($subscriptionId, $electedField)
     {
         $subscription = $this->findBySubscriptionId($subscriptionId);
 
-        $subscription->{$electedField} = true;
+        if ($subscription->auto_elected) {
+            $subscription->{$electedField} = true;
 
-        $subscription->save();
+            $subscription->save();
+        }
     }
 
     public function getCandidates($query = null, $year = null)

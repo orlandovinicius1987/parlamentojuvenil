@@ -417,6 +417,22 @@
                 </select>
                 <span class="help-block text-danger"></span>
             </div>
+
+            <div class="form-group col-lg-4 floating-label-form-group controls">
+                <label for="auto_elected" class="control-label">Calcula eleição automaticamente</label>
+                <select v-model="auto_elected" class="form-control input-lg" placeholder="Eleito" name="auto_elected" id="auto_elected" required data-validation-required-message="Por favor preencha">
+                    <option value="">CALCULA AUTOMATICAMENTE</option>
+
+                    <option value="1">
+                        SIM
+                    </option>
+
+                    <option value="0">
+                        NÃO
+                    </option>
+                </select>
+                <span class="help-block text-danger"></span>
+            </div>
         </div>
     @endif
 
