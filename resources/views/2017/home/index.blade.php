@@ -77,6 +77,16 @@
             </div>
         @endif
 
+        @if (legislative_process_enabled())
+            <div class="jumbotron text-center">
+                <h2>Processo Legislativo</h2>
+                <p>Se você foi eleito parlamentar juvenil em 2017.</p>
+                <a href="http://www2.alerj.rj.gov.br/parlamentojuvenil/projetolei/logar.aspx" class="btn btn-block btn-primary btn-large center-block">
+                    CLIQUE AQUI PARA INSERIR O SEU PROJETO DE LEI
+                </a>
+            </div>
+        @endif
+
         @if (training_enabled())
             <div class="jumbotron text-center">
                 <h2>Capacitação on-line</h2>
