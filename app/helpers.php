@@ -178,3 +178,7 @@ function training_enabled() {
         $now->lte($end)
     ;
 }
+
+function legislative_process_enabled() {
+    return true;
+}
