@@ -73,9 +73,15 @@ Route::group(['prefix' => '/flag-contest/subscribe', 'middleware' => ['flag-cont
     Route::get('/confirm/email/{confirmation_key}/{email}', ['as' => 'flag-contest.confirm.email', 'uses' => 'FlagContest@confirmEmail']);
 });
 
-Route::group(['prefix' => '/flag-contest/vote', 'middleware' => ['flag-contest-voting', 'auth', 'student-login', 'flag-contest-login']], function ()
+Route::group(['prefix' => '/flag-contest/vote', 'middleware' => ['flag-contest-voting', 'auth', 'student-login', 'flag-contest-can-vote-only-once']], function ()
 {
     Route::get('/', ['as' => 'flag-contest.vote.index', 'uses' => 'FlagContest@vote']);
+
+    Route::get('/select/{flag_id}', ['as' => 'flag-contest.vote.select', 'uses' => 'FlagContest@select']);
+
+    Route::get('/confirm', ['as' => 'flag-contest.vote.confirm', 'uses' => 'FlagContest@confirm']);
+
+    Route::get('/cast', ['as' => 'flag-contest.vote.cast', 'uses' => 'FlagContest@cast']);
 });
 
 Route::group(['prefix' => '/vote'], function ()
@@ -206,7 +212,6 @@ Route::group(['prefix' => '/training', 'middleware' => ['training', 'auth', 'stu
         Route::get('/result/{id}', ['as' => 'quiz.result', 'uses' => 'Quiz@result']);
     });
 });
-
 
 Route::get('{year}', ['as' => 'edition', 'uses' => 'Pages@edition'])->where('year', '[0-9][0-9][0-9][0-9]');;
 

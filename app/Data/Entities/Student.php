@@ -134,4 +134,14 @@ class Student extends Model
         return $date >= config('app.student.birthdate.start') &&
                 $date <= config('app.student.birthdate.end');
     }
+
+    public function flagVotes()
+    {
+        return $this->hasMany(FlagVote::class);
+    }
+
+    public function votedInCurrentFlagContest()
+    {
+        return ! is_null($this->flagVotes()->where('year', get_current_year())->first());
+    }
 }

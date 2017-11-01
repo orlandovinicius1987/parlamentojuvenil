@@ -53,4 +53,40 @@ class FlagContest extends BaseController
             );
         }
     }
+
+    public function vote()
+    {
+        return $this
+            ->buildView('flag-contest.vote.index', null, null, true)
+            ->with('flags', $this->flagContestRepository->flags()->shuffle())
+        ;
+    }
+
+    public function select($flag_id)
+    {
+        loggedUser()->selectedVotingFlagId = $flag_id;
+
+        return redirect()->route('flag-contest.vote.confirm');
+    }
+
+    public function confirm()
+    {
+        $flag = $this->flagContestRepository->findById(loggedUser()->selectedVotingFlagId);
+
+        return $this
+            ->buildView('flag-contest.vote.confirm', null, null, true)
+            ->with('flag', $flag)
+        ;
+    }
+
+    public function cast()
+    {
+        $voted = $this->flagContestRepository->cast(loggedUser()->student, loggedUser()->selectedVotingFlagId);
+
+        if (!$voted) {
+            return view('2017.messages.show')->with('message', 'ERRO: Seu voto já havia sido registado antes.');
+        }
+
+        return view('2017.messages.show')->with('message', 'Parabéns! O seu voto foi registrado.');
+    }
 }

@@ -2,14 +2,21 @@
 
 namespace App\Data\Repositories;
 
-use Carbon\Carbon;
+use App\Data\Entities\FlagVote;
 use DB;
 use Mail;
+use Carbon\Carbon;
 use Rhumsaa\Uuid\Uuid;
+use App\Data\Entities\Flag;
 use App\Data\Entities\FlagContest as FlagContestModel;
 
 class FlagContest extends Repository
 {
+    private function alreadyVoted($student)
+    {
+        return ! is_null($this->findStudentVote($student));
+    }
+
     protected function findByConfirmationAndEmail($confirmation_key, $email)
     {
         return FlagContestModel::where([
@@ -43,6 +50,15 @@ class FlagContest extends Repository
         }
 
         return $model;
+    }
+
+    /**
+     * @param $student
+     * @return mixed
+     */
+    private function findStudentVote($student)
+    {
+        return FlagVote::where('student_id', $student->id)->where('year', get_current_year())->first();
     }
 
     protected function sendConfirmationEmail($subscription)
@@ -103,5 +119,30 @@ class FlagContest extends Repository
     public function all()
     {
         return FlagContestModel::with('student')->get();
+    }
+
+    public function flags()
+    {
+        return Flag::where('year', $this->getCurrentYear())->get();
+    }
+
+    public function findById($id)
+    {
+        return Flag::find($id);
+    }
+
+    public function cast($student, $flag_id)
+    {
+        if ($this->alreadyVoted($student)) {
+            return false;
+        }
+
+        FlagVote::create([
+            'student_id' => $student->id,
+            'flag_id' => $flag_id,
+            'year' => get_current_year(),
+        ]);
+
+        return true;
     }
 }
