@@ -25,7 +25,7 @@ class Handler extends ExceptionHandler
     /**
      * @var Builder
      */
-    private $viewBuilder;
+    protected $viewBuilder;
 
     public function __construct(Builder $viewBuilder, LoggerInterface $log)
     {
@@ -34,7 +34,7 @@ class Handler extends ExceptionHandler
         parent::__construct($log);
     }
 
-    private function handleException($e)
+    protected function handleException($e)
     {
         if ($e instanceof Authentication) {
             return redirect()

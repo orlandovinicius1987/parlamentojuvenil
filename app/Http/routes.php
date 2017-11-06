@@ -73,9 +73,15 @@ Route::group(['prefix' => '/flag-contest/subscribe', 'middleware' => ['flag-cont
     Route::get('/confirm/email/{confirmation_key}/{email}', ['as' => 'flag-contest.confirm.email', 'uses' => 'FlagContest@confirmEmail']);
 });
 
-Route::group(['prefix' => '/flag-contest/vote', 'middleware' => ['flag-contest-voting', 'auth', 'student-login', 'flag-contest-login']], function ()
+Route::group(['prefix' => '/flag-contest/vote', 'middleware' => ['flag-contest-voting', 'auth', 'student-login', 'flag-contest-can-vote-only-once']], function ()
 {
     Route::get('/', ['as' => 'flag-contest.vote.index', 'uses' => 'FlagContest@vote']);
+
+    Route::get('/select/{flag_id}', ['as' => 'flag-contest.vote.select', 'uses' => 'FlagContest@select']);
+
+    Route::get('/confirm', ['as' => 'flag-contest.vote.confirm', 'uses' => 'FlagContest@confirm']);
+
+    Route::get('/cast', ['as' => 'flag-contest.vote.cast', 'uses' => 'FlagContest@cast']);
 });
 
 Route::group(['prefix' => '/vote'], function ()
@@ -124,26 +130,26 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'only-administrators
         return redirect()->route('admin.subscriptions');
     }]);
 
-	Route::get('subscriptions', ['as' => 'admin.subscriptions', 'uses' => 'Admin@index']);
+	Route::get('/subscriptions', ['as' => 'admin.subscriptions', 'uses' => 'Admin@index']);
 
-	Route::get('schools', ['as' => 'admin.schools', 'uses' => 'Admin@schools']);
+	Route::get('/schools', ['as' => 'admin.schools', 'uses' => 'Admin@schools']);
 
-    Route::get('elected', ['as' => 'admin.elected', 'uses' => 'Admin@elected']);
+    Route::get('/elected', ['as' => 'admin.elected', 'uses' => 'Admin@elected']);
 
-    Route::get('seeduc', ['as' => 'admin.seeduc', 'uses' => 'Admin@seeduc']);
+    Route::get('/seeduc', ['as' => 'admin.seeduc', 'uses' => 'Admin@seeduc']);
 
-    Route::get('users', ['as' => 'admin.users', 'uses' => 'Admin@users']);
+    Route::get('/users', ['as' => 'admin.users', 'uses' => 'Admin@users']);
 
     Route::get('/votes/{subscription_id}', ['as' => 'admin.votes.student', 'uses' => 'Admin@votesPerStudent']);
 
     Route::get('/vote/statistics', ['as' => 'admin.vote.statistics', 'uses' => 'Admin@voteStatistics']);
 
-    Route::get('training/{subscription}', ['as' => 'admin.training', 'uses' => 'Admin@training']);
+    Route::get('/training/{subscription}', ['as' => 'admin.training', 'uses' => 'Admin@training']);
 
-    Route::get('contest', ['as' => 'admin.contest', 'uses' => 'Admin@contest']);
+    Route::get('/contest', ['as' => 'admin.contest', 'uses' => 'Admin@contest']);
 
     /// Must be last
-    Route::get('{city}', ['as' => 'admin.city', 'uses' => 'Admin@city']);
+    Route::get('/{city}', ['as' => 'admin.city', 'uses' => 'Admin@city']);
 });
 
 Route::get('subscriptions/schools', ['as' => 'subscriptions.schools', 'uses' => 'Subscriptions@bySchool']);
@@ -187,7 +193,7 @@ Route::group(['prefix' => 'api/v1'], function ()
 
 Route::get('article/{id}', ['as' => 'article.show', 'uses' => 'News@showArticle']);
 
-Route::group(['prefix' => '/training', 'middleware' => ['training', 'auth', 'student-login']], function ()
+Route::group(['prefix' => '/training', 'middleware' => ['training', 'auth', 'student-login', 'must-be-congressman']], function ()
 {
     Route::get('/', ['as' => 'training.index', 'uses' => 'Training@index']);
     Route::post('/', ['as' => 'training.login', 'uses' => 'Training@login']);
@@ -195,13 +201,17 @@ Route::group(['prefix' => '/training', 'middleware' => ['training', 'auth', 'stu
     Route::get('/watch/{video}', ['as' => 'training.watch', 'uses' => 'Training@watch']);
     Route::get('/download/{document}', ['as' => 'training.download', 'uses' => 'Training@download']);
     Route::get('/logout', ['as' => 'training.download', 'uses' => 'Training@logout']);
-});
 
-Route::get('{year}/quiz', ['as' => 'quiz.index', 'uses' => 'Quiz@index'])->where('year', '[0-9][0-9][0-9][0-9]');
-Route::get('{year}/quiz/result', ['as' => 'quiz.result', 'uses' => 'Quiz@result'])->where('year', '[0-9][0-9][0-9][0-9]');
-Route::get('{year}/quiz/{id}/questions', ['as' => 'quiz.questions', 'uses' => 'Quiz@questions'])->where('year', '[0-9][0-9][0-9][0-9]');
-Route::get('{year}/quiz/{id}/answer/{number}/{answer}', ['as' => 'quiz.answer', 'uses' => 'Quiz@answer'])->where('year', '[0-9][0-9][0-9][0-9]');
-Route::get('{year}/quiz/result/{id}', ['as' => 'quiz.result', 'uses' => 'Quiz@result'])->where('year', '[0-9][0-9][0-9][0-9]');
+    Route::group(['prefix' => '/quiz', 'middleware' => ['training', 'auth', 'student-login']], function ()
+    {
+        Route::get('/', ['as' => 'quiz.index', 'uses' => 'Quiz@index']);
+        Route::get('/{id}/questions', ['as' => 'quiz.questions', 'uses' => 'Quiz@questions']);
+        Route::get('/{id}/answer/{number}/{answer}', ['as' => 'quiz.answer', 'uses' => 'Quiz@answer']);
+        Route::post('/answers/', ['as' => 'quiz.answers', 'uses' => 'Quiz@answers']);
+        Route::get('/result', ['as' => 'quiz.result', 'uses' => 'Quiz@result']);
+        Route::get('/result/{id}', ['as' => 'quiz.result', 'uses' => 'Quiz@result']);
+    });
+});
 
 Route::get('{year}', ['as' => 'edition', 'uses' => 'Pages@edition'])->where('year', '[0-9][0-9][0-9][0-9]');;
 
@@ -212,3 +222,5 @@ Route::get('{year}/members', ['as' => 'page.members', 'uses' => 'Pages@members']
 Route::get('{year}/clipping', ['as' => 'page.clipping', 'uses' => 'Pages@clipping']);
 
 Route::get('/fillregional', ['as' => 'fillregional', 'uses' => 'Subscriptions@fillRegional']);
+
+Route::get('/must-be-congressman', ['as' => 'must.be.congressman', 'uses' => 'Auth@mustBeCongressman']);

@@ -13,7 +13,7 @@ class Service extends Sync
     const GALLERY = 'Fotos';
     const NEWS = 'Notícias';
 
-    private $serviceUrl;
+    protected $serviceUrl;
 
     public function sync($serviceUrl, $type, $edition = null, $console = null)
     {
@@ -27,7 +27,7 @@ class Service extends Sync
         $this->log('Data synced.', $console);
     }
 
-    private function storeData($articles, $type, $edition = null)
+    protected function storeData($articles, $type, $edition = null)
     {
         if ($this->isCached($articles))
         {
@@ -51,7 +51,7 @@ class Service extends Sync
         return $articles;
     }
 
-    private function readData($console = null)
+    protected function readData($console = null)
     {
         $articles = json_decode($this->retrieveServiceData(), true);
 
@@ -77,7 +77,7 @@ class Service extends Sync
         return [];
     }
 
-    private function convertToCarbon($date)
+    protected function convertToCarbon($date)
     {
         $format = strlen($date) > 10 ? 'd/m/Y H:i:s' : 'd/m/Y';
 
@@ -89,7 +89,7 @@ class Service extends Sync
         return Carbon::createFromFormat($format, $date);
     }
 
-    private function generateArticle($article)
+    protected function generateArticle($article)
     {
         return [
             'code' => $article['idConteudo'],
@@ -106,7 +106,7 @@ class Service extends Sync
         ];
     }
 
-    private function createArticles($articles)
+    protected function createArticles($articles)
     {
         foreach ($articles as $article)
         {
@@ -126,7 +126,7 @@ class Service extends Sync
         return $collection;
     }
 
-    private function isCached($articles)
+    protected function isCached($articles)
     {
         $articles = serialize($articles);
 
@@ -152,12 +152,12 @@ class Service extends Sync
         return storage_path('app/cache').'news.json';
     }
 
-    private function retrieveServiceData()
+    protected function retrieveServiceData()
     {
         return file_get_contents($this->serviceUrl);
     }
 
-    private function deleteArticles($articles)
+    protected function deleteArticles($articles)
     {
         foreach ($articles as $article)
         {

@@ -7,49 +7,74 @@ use Illuminate\Database\Eloquent\Collection;
 
 class Quiz extends Training
 {
-    public function index()
+    protected function addUserAnswers($data)
+    {
+        $data['questions'] = collect($data['questions'])->map(function($question, $index) use ($data) {
+            $question['user_answer'] = Watched::where('year', get_current_year())
+                                              ->where('item_id', $data['id'].'.'.$index)
+                                              ->where('subscription_id', loggedUser()->subscription->id)
+                                              ->first();;
+
+            if (!is_null($question['user_answer'])) {
+                $question['user_answer'] = $question['user_answer']->answer;
+            }
+
+            return $question;
+        });
+
+        return collect($data);
+    }
+
+    public function index($id = null)
 	{
-        if ($this->user) {
-            return $this->renderQuiz($year, $this->user, $id, $this->trainingRepository);
+        if (loggedUser()->subscription) {
+            return $this->renderQuiz(loggedUser()->subscription, $id, $this->trainingRepository);
         }
 
 		return redirect()->route('training.index');
 	}
 
-    private function makeResult($year, $id)
+    protected function makeResult($id)
     {
-        return new Collection($this->trainingRepository->getResult($year, $id, $this->getLoggedUser()));
+        return new Collection($this->trainingRepository->getResult(get_current_year(), $id, loggedUser()->subscription));
     }
 
-    private function renderQuiz($year, $user, $id, $repository)
+    protected function renderQuiz($subscription, $id, $repository)
     {
-        if ($this->trainingRepository->quizDone($year, $user, $id))
+        if ($this->trainingRepository->quizDone($subscription, $id))
         {
             return $this->result();
         }
 
-        return view($this->year.'.quiz.index')->with('loggedUser', $user);
+        return view(get_current_year().'.quiz.index')->with('loggedUser', $subscription);
     }
 
-    public function result($year, $id)
+    public function result($id)
     {
-        $result = $this->makeResult($year, $id);
+        $result = $this->makeResult($id);
 
-        return view($this->year.'.training.quiz-result')
+        return view(get_current_year().'.training.quiz-result')
             ->with('correct', $correct = $result->where('correct', true)->count())
             ->with('total', $total = $result->count())
-            ->with('percent', ($correct/$total)*100);
+            ->with('percent', $total > 0 ? ($correct/$total)*100 : 0);
     }
 
-    public function questions($year, $itemId)
+    public function questions($itemId)
     {
-        $data = $this->trainingRepository->findById($itemId, $this->user, $this->year);
+        $data = $this->trainingRepository->findById($itemId, loggedUser()->subscription, get_current_year());
 
-        return (new Collection($data))->toJson();
+        return $this->addUserAnswers($data)->toJson();
     }
 
-    public function answer($year, $itemId, $number, $answer)
+    public function answer($itemId, $number, $answer)
     {
-        $this->trainingRepository->markAsWatched($year, "$itemId.$number", $answer);
+        $this->trainingRepository->markAsWatched("$itemId.$number", $answer);
+    }
+
+    public function answers()
+    {
+        $this->trainingRepository->registerAnswers(request()->get('quiz'));
+
+        return json_encode(['success' => true]);
     }
 }

@@ -17,7 +17,7 @@
                 <div class="row">
                     <div class="col-md-8 pull-right">
                         <h2>Concurso Para Seleção da Bandeira do Parlamento Juvenil {{ get_current_year() }}</h2>
-                        <h3>Inscrições até 04/09 de 2017</h3>
+                        {{--<h3>Inscrições até 04/09 de 2017</h3>--}}
                     </div>
 
                     <div class="col-md-4">
@@ -31,15 +31,9 @@
                             </a>
                         @endif
 
-                        <a href="/files/apps/parlamentojuvenil/site/2017/downloads/edital-concurso-bandeira-parlamento-juvenil-2017-01.pdf">
-                            <img class="baixar-edital" src="/templates/2017/assets/img/baixar-edital.png">
-                        </a>
-                    </div>
-
-                    <div class="col-md-12 flag-subscription hidden-lg">
-                        @if (flag_contest_subscription_enabled())
-                            <a href="#" class="btn btn-primary btn-large btn-block">
-                                Inscreva-se Agora
+                        @if (flag_contest_election_enabled())
+                            <a href="/flag-contest/vote" class="btn btn-primary btn-large bg-torch-red">
+                                VOTE AQUI
                             </a>
                         @endif
 
@@ -74,6 +68,26 @@
                         </div>
                     @endforeach
                 </div>
+            </div>
+        @endif
+
+        @if (legislative_process_enabled())
+            <div class="jumbotron text-center">
+                <h2>Processo Legislativo</h2>
+                <p>Se você foi eleito parlamentar juvenil em 2017.</p>
+                <a href="http://www2.alerj.rj.gov.br/parlamentojuvenil/projetolei/logar.aspx" class="btn btn-block btn-primary btn-large center-block">
+                    CLIQUE AQUI PARA INSERIR O SEU PROJETO DE LEI
+                </a>
+            </div>
+        @endif
+
+        @if (training_enabled())
+            <div class="jumbotron text-center">
+                <h2>Capacitação on-line</h2>
+                <p>Se você foi eleito parlamentar juvenil em 2017.</p>
+                <a href="{{ route('training.content') }}" class="btn btn-block btn-primary btn-large center-block">
+                    CLIQUE AQUI PARA ACESSAR A PÁGINA DE CAPACITAÇÃO
+                </a>
             </div>
         @endif
 

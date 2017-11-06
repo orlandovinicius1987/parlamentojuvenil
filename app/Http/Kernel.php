@@ -37,8 +37,10 @@ class Kernel extends HttpKernel
         'cors' => \App\Http\Middleware\Cors::class,
         'flag-contest-voting' => \App\Http\Middleware\FlagContestVoting::class,
         'flag-contest-subscribing' => \App\Http\Middleware\FlagContestSubscribing::class,
-        'flag-contest-cannot-re-subscribe' => \App\Http\Middleware\FlagContestCannotResubscribe::class,
+        'flag-contest-can-vote-only-once' => \App\Http\Middleware\FlagContestCanVoteOnlyOnce::class,
+        'flag-contest-login' => \App\Http\Middleware\FlagContestLogin::class,
         'auth' => \App\Http\Middleware\Authenticate::class,
         'training' => \App\Http\Middleware\Training::class,
+        'must-be-congressman' => \App\Http\Middleware\MustBeCongressman::class,
     ];
 }

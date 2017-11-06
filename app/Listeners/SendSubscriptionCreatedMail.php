@@ -12,7 +12,7 @@ class SendSubscriptionCreatedMail
     /**
      * @var Data
      */
-    private $dataRepository;
+    protected $dataRepository;
 
     /**
      * Create the event listener.

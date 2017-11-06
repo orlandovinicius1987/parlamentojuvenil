@@ -11,6 +11,7 @@ class Watched extends Model
     protected $fillable = [
         'subscription_id',
         'item_id',
+        'year',
     ];
 
 	public function subscriptions()

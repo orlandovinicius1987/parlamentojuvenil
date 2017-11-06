@@ -19,11 +19,11 @@ use Illuminate\Support\Collection as IlluminateCollection;
 class Data extends Repository
 {
 
-    private $usersRepository;
+    protected $usersRepository;
     /**
      * @var SyncNewsService
      */
-    private $syncNewsService;
+    protected $syncNewsService;
 
     public $timeline;
     
@@ -34,7 +34,7 @@ class Data extends Repository
     /**
      * @var Filesystem
      */
-    private $filesystem;
+    protected $filesystem;
 
     public function __construct(SyncNewsService $syncNewsService, Builder $viewBuilder, Filesystem $filesystem)
     {
@@ -50,7 +50,7 @@ class Data extends Repository
      * @param $student
      * @return mixed
      */
-    private function findSubscription($student)
+    protected function findSubscription($student)
     {
         return Subscription::findByStudent($student);
     }
@@ -76,7 +76,7 @@ class Data extends Repository
      * @param $year
      * @return string
      */
-    private function getYearString($year)
+    protected function getYearString($year)
     {
         if ($year == 2013)
         {
@@ -98,7 +98,7 @@ class Data extends Repository
         return $year;
     }
 
-    private function makeSubscriptionData($input, $fillable, $prefilled)
+    protected function makeSubscriptionData($input, $fillable, $prefilled)
     {
         $data = collect($input->only($fillable))->except($prefilled)->toArray();
 
@@ -184,7 +184,7 @@ class Data extends Repository
         return $this->usersRepository->findByBirthdateAndRegistration($input->input('birthdate'), $input->input('registration'));
     }
 
-    private function makeTimelineData($timeline)
+    protected function makeTimelineData($timeline)
     {
         Carbon::setLocale('pt_BR');
 

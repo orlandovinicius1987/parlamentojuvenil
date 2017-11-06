@@ -15,11 +15,13 @@ class FlagContestVoting
      */
     public function handle($request, Closure $next)
     {
-        if (! config('app.flag.contest.election.enabled')) {
+        if (! flag_contest_election_enabled()) {
             return redirect()->home();
         }
 
         loggedUser()->isVotingOnFlagContest = true;
+
+        loggedUser()->intendedRoute = 'flag-contest.vote.index';
 
         return $next($request);
     }

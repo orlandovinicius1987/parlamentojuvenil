@@ -141,40 +141,34 @@ function logout() {
 }
 
 function election_enabled() {
-    $now = Carbon::now();
-
-    $start = Carbon::parse(config('app.election.start') . ' 00:00:00');
-
-    $end = Carbon::parse(config('app.election.end') . ' 23:59:59');
-
-    return config('app.election.enabled') === true &&
-            $now->gte($start) &&
-            $now->lte($end)
-    ;
+    return now_in_date_range(config('app.election.start'), config('app.election.end'));
 }
 
 function flag_contest_subscription_enabled() {
-    $now = Carbon::now();
+    return now_in_date_range(config('app.flag.contest.subscriptions.start'), config('app.flag.contest.subscriptions.end'));
+}
 
-    $start = Carbon::parse(config('app.flag.contest.subscriptions.start') . ' 00:00:00');
-
-    $end = Carbon::parse(config('app.flag.contest.subscriptions.end') . ' 23:59:59');
-
-    return
-        $now->gte($start) &&
-        $now->lte($end)
-    ;
+function flag_contest_election_enabled() {
+    return now_in_date_range(config('app.flag.contest.election.start'), config('app.flag.contest.election.end'));
 }
 
 function training_enabled() {
+    return now_in_date_range(config('app.training.start'), config('app.training.end'));
+}
+
+function now_in_date_range($start, $end) {
     $now = Carbon::now();
 
-    $start = Carbon::parse(config('app.training.start') . ' 00:00:00');
+    $start = Carbon::parse($start . ' 00:00:00');
 
-    $end = Carbon::parse(config('app.training.end') . ' 23:59:59');
+    $end = Carbon::parse($end . ' 23:59:59');
 
     return
         $now->gte($start) &&
         $now->lte($end)
-    ;
+        ;
+}
+
+function legislative_process_enabled() {
+    return true;
 }

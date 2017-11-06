@@ -13,11 +13,12 @@ class Api extends BaseController
     /**
      * @var Data
      */
-    private $dataRepository;
+    protected $dataRepository;
+
     /**
      * @var Subscriptions
      */
-    private $subscriptionsRepository;
+    protected $subscriptionsRepository;
 
     public function __construct(Data $dataRepository, Subscriptions $subscriptionsRepository)
     {
@@ -95,7 +96,7 @@ SQL
         }
     }
 
-    private function validateEmail()
+    protected function validateEmail()
     {
         $validator = Validator::make(request()->all(), [
             'email' => 'required|email',

@@ -14,12 +14,12 @@ use Illuminate\Database\Eloquent\Collection;
 
 class Admin extends BaseController
 {
-    private $trainingRepository;
+    protected $trainingRepository;
 
     /**
      * @var Subscriptions
      */
-    private $subscriptionsRepository;
+    protected $subscriptionsRepository;
 
     public function __construct(TrainingRepository $trainingRepository, Subscriptions $subscriptionsRepository)
     {
@@ -28,7 +28,7 @@ class Admin extends BaseController
         $this->subscriptionsRepository = $subscriptionsRepository;
     }
 
-    private function extractId($id, $elements = 1)
+    protected function extractId($id, $elements = 1)
     {
         $id = explode('.', $id);
 
@@ -58,7 +58,7 @@ class Admin extends BaseController
         return view('admin.vote.index');
     }
 
-    private function makeTitle($course)
+    protected function makeTitle($course)
     {
         $title = '';
 
@@ -110,7 +110,7 @@ class Admin extends BaseController
 
     public function training($id)
     {
-        $year = 2016;
+        $year = get_current_year();
 
         $subscription = Subscription::with('watched')->find($id);
 
@@ -134,6 +134,10 @@ class Admin extends BaseController
             }
 
             $item->setAttribute('title', $title);
+
+            $correct_answer = isset($course['correct']) ? $course['correct'] : null;
+
+            $item->setAttribute('correct_answer', $correct_answer);
         }
 
         $watched = new Collection($subscription->watched->toArray());

@@ -13,6 +13,8 @@
                                 Para inscrever a sua bandeira você precisa se identificar.
                             @elseif (loggedUser()->is_flag_contest_voting)
                                 Para votar em uma bandeira você precisa se identificar.
+                            @elseif (loggedUser()->is_training)
+                                Para acessar o site da capacitação on-line, você precisa ser um(a) parlamentar juvenil. Por favor identifique-se:
                             @else
                                 Identifique-se
                             @endif

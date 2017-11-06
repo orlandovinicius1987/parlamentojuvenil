@@ -104,7 +104,7 @@ class Subscriptions extends Repository
         return Subscription::with('student')->where('id', $vote)->first();
     }
 
-    private function getAllVotes()
+    protected function getAllVotes()
     {
         return DB::select(DB::raw(<<<SQL
             select
@@ -203,7 +203,7 @@ SQL
         return $elected;
     }
 
-    private function invalidateVote($vote_id)
+    protected function invalidateVote($vote_id)
     {
         if ($vote = Vote::find($vote_id)) {
             $vote->is_valid = false;
@@ -212,7 +212,7 @@ SQL
         }
     }
 
-    private function removeInvalidVotes()
+    protected function removeInvalidVotes()
     {
         $previous = null;
 
@@ -225,7 +225,7 @@ SQL
         }
     }
 
-    private function updateCounters(&$elected, &$counters, $field, $counter, $fieldFirst, $fieldLast, $fieldCount)
+    protected function updateCounters(&$elected, &$counters, $field, $counter, $fieldFirst, $fieldLast, $fieldCount)
     {
         if ($counters[$fieldCount] > 1) {
             for ($x = $counters[$fieldFirst]; $x < $counters[$fieldFirst]+$counters[$fieldCount]; $x++) {
@@ -244,7 +244,7 @@ SQL
         }
     }
 
-    private function getMarker($vote, $votePer)
+    protected function getMarker($vote, $votePer)
     {
         return
             $vote[$votePer] .
@@ -269,7 +269,7 @@ SQL
                 ->get();
     }
 
-    private function makeCandidatesQuery($year, $round, $query = null)
+    protected function makeCandidatesQuery($year, $round, $query = null)
     {
         if (is_null($query)) {
             $query = $this->candidates($year, $round);
@@ -325,7 +325,7 @@ SQL
             $markerCount = 0;
             $lastSubscriptionForMarker = null;
 
-            Subscription::where('year', $this->getCurrentYear())->update([$electedField => false]);
+            Subscription::where('year', $this->getCurrentYear())->where('auto_elected', true)->update([$electedField => false]);
 
             foreach ($votes as $vote) {
                 if ($currentMarker !== $this->getMarker($vote, $votePer)) {
@@ -352,16 +352,18 @@ SQL
     }
 
     /**
-     * @param $vote
+     * @param $subscriptionId
      * @param $electedField
      */
     function markAsElected($subscriptionId, $electedField)
     {
         $subscription = $this->findBySubscriptionId($subscriptionId);
 
-        $subscription->{$electedField} = true;
+        if ($subscription->auto_elected) {
+            $subscription->{$electedField} = true;
 
-        $subscription->save();
+            $subscription->save();
+        }
     }
 
     public function getCandidates($query = null, $year = null)
@@ -412,13 +414,16 @@ SQL
         $voter_percentage_2nd = round(($total_valid_votes_2nd / $total_voters) * 100, 5) . '%';
 
         $data = Subscription::with('quizResult')
+                ->with('watched')
                 ->select(
+                    'subscriptions.id',
                     'subscriptions.id as subscription_id',
                     'students.name',
                     'students.city',
                     'students.birthdate',
                     'students.registration',
                     'subscriptions.elected_1nd',
+                    'subscriptions.year',
                     DB::raw("(select count(*) from votes where votes.subscription_id = subscriptions.id and votes.round = 1 and votes.year = $year) as votes_1nd"),
                     'subscriptions.elected_2nd',
                     DB::raw("(select count(*) from votes where votes.subscription_id = subscriptions.id and votes.round = 2 and votes.year = $year) as votes_2nd")
@@ -427,6 +432,7 @@ SQL
                 ->where(function ($query) {
                     $query->where('elected_1nd', true);
                 })
+                ->where('year', $year)
                 ->orderBy('votes_2nd', 'desc')
                 ->get()
         ;
@@ -470,6 +476,14 @@ SQL
         Student::where('id', loggedUser()->student->id)->delete();
 
         logout();
+    }
+
+    public function findByLoggedUser()
+    {
+        return Subscription::where('student_id', loggedUser()->student->id)
+                    ->where('year', get_current_year())
+                    ->where('ignored', false)
+                    ->first();
     }
 
     public function fillRegional()

@@ -22,6 +22,8 @@
                                 <tr>
                                     <th>Documento / Vídeo / Quiz</th>
                                     <th>Resposta</th>
+                                    <th>Gabarito</th>
+                                    <th>Resultado</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -34,6 +36,16 @@
 
                                                 <td>
                                                     {{ $course['answer'] }}
+                                                </td>
+
+                                                <td>
+                                                    {{ $course['correct_answer'] }}
+                                                </td>
+
+                                                <td>
+                                                    @if (!empty($course['correct_answer']) && $course['correct_answer'] == $course['answer'])
+                                                        correta
+                                                    @endif
                                                 </td>
                                             </tr>
                                         @endif

@@ -44,7 +44,7 @@ class PopulateCities extends Command
         }
     }
 
-    private function toDate($date)
+    protected function toDate($date)
     {
         return Carbon::createFromFormat('d/m/y', $date);
     }

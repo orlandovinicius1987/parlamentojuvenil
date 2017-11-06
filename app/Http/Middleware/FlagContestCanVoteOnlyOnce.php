@@ -2,10 +2,10 @@
 
 namespace App\Http\Middleware;
 
-use App\Exceptions\AlreadySubscribed;
 use Closure;
+use App\Data\Repositories\StudentAlreadyVoted;
 
-class FlagContestCannotResubscribe
+class FlagContestCanVoteOnlyOnce
 {
     /**
      * Handle an incoming request.
@@ -13,13 +13,13 @@ class FlagContestCannotResubscribe
      * @param  \Illuminate\Http\Request $request
      * @param  \Closure $next
      * @return mixed
-     * @throws AlreadySubscribed
+     * @throws StudentAlreadyVoted
      */
     public function handle($request, Closure $next)
     {
-//        if (loggedUser()->student->isSubscribed()) {
-//            throw new AlreadySubscribed();
-//        }
+        if (loggedUser()->student->votedInCurrentFlagContest()) {
+            throw new StudentAlreadyVoted();
+        }
 
         return $next($request);
     }

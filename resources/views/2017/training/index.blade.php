@@ -65,7 +65,6 @@
                 </div>
             </div>
 
-
             <div class="row"  transition="expand">
                 <div class="form-group col-xs-12">
                     <a href="/training/content" id="submit" type="submit" class="btn btn-lg btn-primary btn-block btn-submit-subscription">

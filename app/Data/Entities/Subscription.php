@@ -13,6 +13,7 @@ class Subscription extends Model
         'student_id',
         'elected_1nd',
         'elected_2nd',
+        'auto_elected',
 	];
 
     public static function findByStudent($student, $year = null)

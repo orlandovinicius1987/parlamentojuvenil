@@ -46,10 +46,9 @@
             <div class="row">
                 <div class="col-xs-10 col-xs-offset-1">
                     <div class="row text-center capacitacao-intro">
-                        <div class="capacitacao-greatings">Olá <span  class="capacitacao-username">Nome do Aluno{{ $loggedUser->name }} ,</span>
+                        <div class="capacitacao-greatings">Olá <span  class="capacitacao-username">{{ loggedUser()->user->name }},</span>
                             {{--<a href="/2017/training/logout" class="btn btn-primary">Sair</a>--}}
                         </div>
-
 
                         <p> É uma honra para o Parlamento Juvenil da ALERJ, recebê-lo por aqui. </p>
                         <p> É importante que faça todo o processo de capacitação com muita atenção, para que conheça as ferramentas necessárias para elaborar o seu projeto de lei, que pode ir para a mão do Governador.</p>
@@ -59,152 +58,54 @@
                 </div>
             </div>
             <div class="row aulas">
-                <div class="col-md-6">
-                    <div class="comofunciona-panel-border cerulean-blue">
-                        <div class="assistido">
-                            <i class="fa fa-check-square-o" aria-hidden="true"></i>
-                        </div>
-                        <div class="colors-panel-body supernova-yellow text-center">
-
-                            <img class="img-responsive" src="/templates/2017/images/capacitacao/capa-aula1.png">
-                            <p class="botoes-capacitacao">
-                                <a href="http://local.parlamentojuvenil.com/training/watch/2017.1.video.1" class="btn violet-red btn-apostilas">Vídeo<span style="font-size:22px; margin-left: 10px;" class="pull-right showopacity glyphicon glyphicon-film"></span></a>
-
-                                <a href="http://local.parlamentojuvenil.com/training/watch/2017.1.document.1" class="btn danube-blue btn-apostilas">Apostila<span style="font-size:22px; margin-left: 10px;" class="pull-right showopacity glyphicon glyphicon-list-alt"></span></a>
-
-                                <a href="http://local.parlamentojuvenil.com/training/watch/2017.1.document.1" class="btn ecstasy-orange btn-apostilas">Quiz<span style="font-size:22px; margin-left: 10px;" class="pull-right showopacity glyphicon glyphicon-list-alt"></span></a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <div class="comofunciona-panel-border violet-red">
-                        <div class="assistido">
-                            <i class="fa fa-square-o" aria-hidden="true"></i>
-                        </div>
-
-                        <div class="colors-panel-body lima-green  text-center">
-
-                            <img class="img-responsive" src="/templates/2017/images/capacitacao/capa-aula2.png">
-                            <p class="botoes-capacitacao">
-                                <a href="http://local.parlamentojuvenil.com/training/watch/2017.1.video.1" class="btn violet-red btn-apostilas">Vídeo<span style="font-size:22px; margin-left: 10px;" class="pull-right showopacity glyphicon glyphicon-film"></span></a>
-
-                                <a href="http://local.parlamentojuvenil.com/training/watch/2017.1.document.1" class="btn danube-blue btn-apostilas">Apostila<span style="font-size:22px; margin-left: 10px;" class="pull-right showopacity glyphicon glyphicon-list-alt"></span></a>
-
-                                <a href="http://local.parlamentojuvenil.com/training/watch/2017.1.document.1" class="btn ecstasy-orange btn-apostilas">Quiz<span style="font-size:22px; margin-left: 10px;" class="pull-right showopacity glyphicon glyphicon-list-alt"></span></a>
-                            </p>
-                        </div>
-                        <div class="black-overlay">
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-
-{{--
-        <div class="row">
-
-            <div class="col-xs-12 capacitacao-videos ">
-                <div class="capacitacao-videos-titulo">
-                    <h2>AULAS</h2>
-                </div>
 
                 @foreach($training as $courseKey => $course)
-                    <div class="video-box supernova-yellow  {{ $course['visible'] ? '' : 'inactive' }}"> <!-- class inactive -->
-                        <div class="media">
-                            <a class="pull-left" href="#">
-                                <img class="media-object" src="/templates/2017/images/capacitacao/aula00{{$courseKey+1}}.jpg">
-                            </a>
-                            <div class="media-body {{ $course['done'] ? 'assistido' : '' }}">
-                                <div class="shape ">
-                                    <div class="shape-text jacksons-purple">
-                                        Assistido
-                                    </div>
-                                </div>
+                    <div class="col-md-6">
+                        {{--{{ json_encode($course) }}--}}
+                        <div class="comofunciona-panel-border {{ ($course['id'] % 2) == 0 ? 'cerulean-blue' : 'violet-red' }}">
+                            <div class="assistido">
+                                <i class="fa {{ $course['done'] ? 'fa-check-square-o' : 'fa-square-o' }}" aria-hidden="true"></i>
+                            </div>
+                            <div class="colors-panel-body supernova-yellow text-center">
+                                <img class="img-responsive" src="/templates/2017/images/capacitacao/capa-aula1.png">
+                                <p class="botoes-capacitacao">
+                                    <a
+                                        href="{{ $course['relations']['videos'][0]['watch-url'] }}"
+                                        class="btn violet-red btn-apostilas"
+                                        {{ !$course['relations']['videos'][0]['visible'] ? 'disabled="disabled"' : '' }}
+                                    >
+                                        Vídeo
+                                        <span style="font-size:22px; margin-left: 10px;" class="pull-right showopacity glyphicon glyphicon-film"></span>
+                                    </a>
 
-                                <a href="{{ $course['relations']['videos'][0]['watch-url'] }}">
-                                    <h4 class="media-heading">{{ $course['name'] }}</h4>
-                                    <p>PJ, nesta aula você vai aprender mais sobre os processos e técnicas legislativas para montar um bom projeto de lei! </p>
-                                </a>
-                                <p>
-                                    @if($course['relations']['videos'][0]['visible'])
-                                        <a href="{{ $course['relations']['videos'][0]['watch-url']  }}" class="btn violet-red btn-apostilas">Vídeo<span style="font-size:22px; margin-left: 10px;" class="pull-right showopacity glyphicon glyphicon-film"></span></a>
-                                    @endif
+                                    <a
+                                        href="{{ $course['relations']['documents'][0]['watch-url'] }}"
+                                        class="btn danube-blue btn-apostilas"
+                                        {{ !$course['relations']['documents'][0]['visible'] ? 'disabled="disabled"' : '' }}
+                                    >
+                                        Apostila
+                                        <span style="font-size:22px; margin-left: 10px;" class="pull-right showopacity glyphicon glyphicon-list-alt"></span>
+                                    </a>
 
-                                    @if($course['relations']['documents'][0]['visible'])
-                                        <a href="{{ $course['relations']['documents'][0]['watch-url'] }}" class="btn danube-blue btn-apostilas">Apostila<span style="font-size:22px; margin-left: 10px;" class="pull-right showopacity glyphicon glyphicon-list-alt"></span></a>
-                                    @endif
-
-                                    @if($course['relations']['quiz'][0]['visible'])
-                                        <a href="{{ $course['relations']['quiz'][0]['watch-url'] }}" class="btn caixa-amarela btn-apostilas">Quiz<span style="font-size:22px; margin-left: 10px;" class="pull-right showopacity glyphicon glyphicon-question-sign"></span></a>
-                                    @endif
+                                    <a
+                                        href="{{ $course['relations']['quiz'][0]['watch-url'] }}"
+                                        class="btn ecstasy-orange btn-apostilas"
+                                        {{ !$course['relations']['quiz'][0]['visible'] ? 'disabled="disabled"' : '' }}
+                                    >
+                                        Quiz
+                                        <span style="font-size:22px; margin-left: 10px;" class="pull-right showopacity glyphicon glyphicon-list-alt"></span>
+                                    </a>
                                 </p>
                             </div>
+
+                            @if (!$course['visible'])
+                                <div class="black-overlay">
+                                </div>
+                            @endif
                         </div>
                     </div>
                 @endforeach
             </div>
         </div>
---}}
-
-        </div>
     </section>
-
-
-
-
-
-    {{--    <section class="fundo-azul1">
-            <div class="container">
-                <div class="row">
-                    <a name="apostilas">
-                    </a>
-                    <div class="col-xs-12 capacitacao-videos ">
-                        <div class="capacitacao-videos-titulo">
-                            <h2>AULAS</h2>
-                        </div>
-
-                        @foreach($training as $courseKey => $course)
-                            <div class="video-box {{ $course['visible'] ? '' : 'inactive' }}"> <!-- class inactive -->
-                                <div class="media">
-                                    <a class="pull-left" href="#">
-                                        <img class="media-object" src="/templates/2017/images/capacitacao/aula00{{$courseKey+1}}.jpg">
-                                    </a>
-                                    <div class="media-body {{ $course['done'] ? 'assistido' : '' }}">
-                                        <div class="shape">
-                                            <div class="shape-text">
-                                                Assistido
-                                            </div>
-                                        </div>
-
-                                        <a href="{{ $course['relations']['videos'][0]['watch-url'] }}">
-                                            <h4 class="media-heading">{{ $course['name'] }}</h4>
-                                            <p>PJ, nesta aula você vai aprender mais sobre os processos e técnicas legislativas para montar um bom projeto de lei! </p>
-                                        </a>
-                                        <p>
-                                            @if($course['relations']['videos'][0]['visible'])
-                                                <a href="{{ $course['relations']['videos'][0]['watch-url']  }}" class="btn caixa-amarela btn-apostilas">Vídeo<span style="font-size:22px; margin-left: 10px;" class="pull-right showopacity glyphicon glyphicon-film"></span></a>
-                                            @endif
-
-                                            @if($course['relations']['documents'][0]['visible'])
-                                                <a href="{{ $course['relations']['documents'][0]['watch-url'] }}" class="btn caixa-amarela btn-apostilas">Apostila<span style="font-size:22px; margin-left: 10px;" class="pull-right showopacity glyphicon glyphicon-list-alt"></span></a>
-                                            @endif
-
-                                            @if($course['relations']['quiz'][0]['visible'])
-                                                <a href="{{ $course['relations']['quiz'][0]['watch-url'] }}" class="btn caixa-amarela btn-apostilas">Quiz<span style="font-size:22px; margin-left: 10px;" class="pull-right showopacity glyphicon glyphicon-question-sign"></span></a>
-                                            @endif
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
-            </div>
-        </section>
-        --}}
 @stop

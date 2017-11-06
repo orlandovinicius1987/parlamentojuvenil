@@ -51,6 +51,10 @@
         <script src="//cdn.jsdelivr.net/vue.resource/1.3.1/vue-resource.min.js"></script>
 
         <script src="/js/receita.js"></script>
+
+        <script>
+            window.laravel = {year: '{{ get_current_year() }}'};
+        </script>
     </head>
 
     <body class="header-fixed-top">
@@ -227,7 +231,7 @@
             });
         </script>
 
-        @yield('page-javascripts')]
+        @yield('page-javascripts')
 
         @include('partials.analytics')
     </body>

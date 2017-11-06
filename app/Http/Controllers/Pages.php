@@ -15,7 +15,7 @@ use App\Http\Controllers\Controller as BaseController;
 
 class Pages extends BaseController
 {
-	private $spreadsheet = 'https://docs.google.com/a/antoniocarlosribeiro.com/spreadsheets/d/1wrR7y4qk2ofj4kPgkhyPVBjwSohh8k1J6drsZ3bGzic/edit?usp=sharing';
+	protected $spreadsheet = 'https://docs.google.com/a/antoniocarlosribeiro.com/spreadsheets/d/1wrR7y4qk2ofj4kPgkhyPVBjwSohh8k1J6drsZ3bGzic/edit?usp=sharing';
 
 	/**
 	 * @var \App\Services\Filesystem\Service
@@ -56,7 +56,7 @@ class Pages extends BaseController
         return $this->buildView('pages.'.$page);
     }
 
-	private function getCongressmenLinks()
+	protected function getCongressmenLinks()
 	{
 		$from7 = $this->filesystem->congressmenLinks(env('PHOTOS_DIR').DIRECTORY_SEPARATOR.'7a edicao (2013)');
 
@@ -72,12 +72,12 @@ class Pages extends BaseController
 		];
 	}
 
-	private function getCities()
+	protected function getCities()
 	{
 		return State::where('code', 'RJ')->first()->cities()->orderBy('name')->get();
 	}
 
-	private function getNewspapersLinks()
+	protected function getNewspapersLinks()
 	{
 		$files = $this->filesystem->allLinks(env('NEWSPAPERS_DIR'));
 		$links = $files['links'];
@@ -101,17 +101,17 @@ class Pages extends BaseController
 		return $result;
 	}
 
-	private function getArticles($operand, $year)
+	protected function getArticles($operand, $year)
 	{
 		return $this->getArticlesForType($operand, $year, 'Notícias');
 	}
 
-	private function getGalleryLinks($edition)
+	protected function getGalleryLinks($edition)
 	{
 		return $this->getArticlesForType(null, null, 'Fotos', $edition);
 	}
 
-	private function getTestimonials()
+	protected function getTestimonials()
 	{
 		$file = file(public_path('files/apps/parlamentojuvenil/parlamentares/testemunhos-parlamentares-juvenis.txt'));
 
@@ -149,7 +149,7 @@ class Pages extends BaseController
 	 * @param $year
 	 * @return mixed
 	 */
-	private function getArticlesForType($operand, $year, $type, $edition = null)
+	protected function getArticlesForType($operand, $year, $type, $edition = null)
 	{
 		$articles = Article::orderBy('published_at', 'descending')->where('type', $type);
 
@@ -175,7 +175,7 @@ class Pages extends BaseController
 		return $articles;
 	}
 
-	private function makeLinkAttributes($file, $name, $parts)
+	protected function makeLinkAttributes($file, $name, $parts)
 	{
 		$url = null;
 		$pdf = null;

@@ -18,17 +18,17 @@ class Training
                 [
                     'name' => 'Aula 1',
 
-                    'id' => '2017.1',
+                    'id' => '1',
 
                     'relations' => [
                         'videos' => [
                             [
                                 'id' => 'video.1',
-                                'title' => 'Aula 1- Parlamento Juvenil',
+                                'title' => 'Aula 1 - Parlamento Juvenil',
                                 'type' => 'video',
                                 'lead' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. Aliquam in felis sit amet augue.',
                                 'thumb-url' => '/files/pj2017/images/video-aula1.jpg',
-                                'video-url' => 'https://www.youtube.com/embed/RgrZeM9CK7Q',
+                                'video-url' => 'https://www.youtube.com/embed/Hq5QYQsA-Dc',
                                 'document-url' => '/files/pj2017/images/video-aula1.jpg',
                             ],
                         ],
@@ -40,8 +40,8 @@ class Training
                                 'type' => 'document',
                                 'lead' => 'Consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. Aliquam in felis sit amet augue.',
                                 'thumb-url' => '/pj2017/images/capacitacao/apostila01.jpg',
-                                'video-url' => 'https://www.youtube.com/watch?v=RgrZeM9CK7Q',
-                                'document-url' => '/files/apps/parlamentojuvenil/site/2017/capacitation/ApresentacaoParlamentoJuvenil2017-ParteI.pdf',
+                                'video-url' => 'https://www.youtube.com/embed/watch?v=Hq5QYQsA-Dc',
+                                'document-url' => '/files/apps/parlamentojuvenil/site/2017/downloads/capacitacao-pj-2017-aula01.pdf',
                             ],
                         ],
 
@@ -52,12 +52,12 @@ class Training
                                 'questions' =>
                                     [
                                         [
-                                            'question' => 'Quais são os três Poderes da República Federativa do Brasil?',
+                                            'question' => 'O Poder Público é constituído por',
                                             'answers' => [
-                                                'a' => 'Administrativo, Executivo e Parlamentar.',
-                                                'b' => 'Legislativo, Executivo e Administrativo.',
-                                                'c' => 'Judiciário, Executivo e Parlamentar.',
-                                                'd' => 'Executivo, Judiciário e Legislativo. ',
+                                                'a' => 'Poder Legislativo, Poder Executivo e Poder Judiciário.',
+                                                'b' => 'Poder Executivo, Poder Administrativo e Poder de Polícia.',
+                                                'c' => 'Poder de Polícia, Poder Legislativo e Poder Executivo.',
+                                                'd' => 'Poder Executivo, Poder Legislativo e Poder Administrativo.',
                                             ],
                                             'correct' => 'a',
                                         ],
@@ -65,54 +65,53 @@ class Training
                                         [
                                             'id' => 'quiz.1.002',
                                             'type' => 'quiz',
-                                            'question' => 'O Deputado Estadual possui competência para legislar sobre:',
+                                            'question' => 'A Federação Brasileira é dividida em:',
                                             'answers' => [
-                                                'a' => 'Salário de servidores.',
-                                                'b' => 'Polícia Militar.',
-                                                'c' => 'Criação de cargos.',
-                                                'd' => 'Educação e cultura.',
+                                                'a' => 'União, Distritos e Estados.',
+                                                'b' => 'Estados, Municípios e Cidades.',
+                                                'c' => 'União, Estados e Municípios.',
+                                                'd' => 'Federação, Estados e Município.',
                                             ],
-                                            'correct' => 'a',
+                                            'correct' => 'c',
                                         ],
 
                                         [
                                             'id' => 'quiz.1.003',
                                             'type' => 'quiz',
-                                            'question' => 'Qual destas não se enquadra no conceito de proposição legislativa:',
+                                            'question' => 'O Projeto de Lei serve para:',
                                             'answers' => [
-                                                'a' => 'Projeto de Lei.',
-                                                'b' => 'Projeto de Resolução.',
-                                                'c' => 'Projeto de Indicação Legislativa.',
-                                                'd' => 'Atas.',
+                                                'a' => 'regular as matérias de competência do Poder Legislativo, com a sanção do Governador do Estado.',
+                                                'b' => 'regular matérias fiscais da Câmara Municipal.',
+                                                'c' => 'Estabelecer novas regras de tramitação legislativa.',
+                                                'd' => 'Estabelecer procedimentos das comissões.',
                                             ],
                                             'correct' => 'a',
                                         ],
 
-
                                         [
                                             'id' => 'quiz.1.004',
                                             'type' => 'quiz',
-                                            'question' => 'Não serão admitidas proposições:',
+                                            'question' => 'O que é maioria absoluta:',
                                             'answers' => [
-                                                'a' => 'Que contenham expressões ofensivas.',
-                                                'b' => 'Que seja redigidas de forma concisa. ',
-                                                'c' => 'Que sejam redigidas de forma coesa.',
-                                                'd' => 'Que sejam redigidas em termos explícitos e claros. ',
+                                                'a' => 'Primeiro número inteiro após a metade dos presentes.',
+                                                'b' => 'Primeiro número inteiro após a metade do universo trabalhado.',
+                                                'c' => 'Maioria qualificada de 2/3.',
+                                                'd' => 'Maioria qualificada de 2/5.',
                                             ],
-                                            'correct' => 'a',
+                                            'correct' => 'b',
                                         ],
 
                                         [
                                             'id' => 'quiz.1.005',
                                             'type' => 'quiz',
-                                            'question' => 'Qual a sequência básica correta do processo legislativo:',
+                                            'question' => 'Após um projeto de lei ser aprovado pela plenário ele será encaminhado ao:',
                                             'answers' => [
-                                                'a' => 'Criação da proposição - protocolo - sanção - tramitação pelas comissões - aprovação',
-                                                'b' => 'Publicação - discussão - criação da proposição - votação - sanção',
-                                                'c' => 'Criação da proposição - protocolo - tramitação pelas comissões - inclusão na ordem do dia - Votação',
-                                                'd' => 'Discussão - publicação - criação da proposição - iniciativa',
+                                                'a' => 'Arquivo;',
+                                                'b' => 'Governador para sanção/veto.',
+                                                'c' => 'Comissões.',
+                                                'd' => 'Publicação.',
                                             ],
-                                            'correct' => 'a',
+                                            'correct' => 'b',
                                         ],
                                     ],
                             ],
@@ -123,7 +122,7 @@ class Training
                 [
                     'name' => 'Aula 2',
 
-                    'id' => '2017.2',
+                    'id' => '2',
 
                     'relations' => [
                         'videos' => [
@@ -133,7 +132,7 @@ class Training
                                 'type' => 'video',
                                 'lead' => '',
                                 'thumb-url' => '/files/pj2017/images/video-aula2.jpg',
-                                'video-url' => 'https://www.youtube.com/embed/_sgtPTi-1z4',
+                                'video-url' => 'https://www.youtube.com/embed/F1oSdfhaXl4',
                                 'document-url' => '/files/pj2017/images/video-aula2.jpg',
                             ],
                         ],
@@ -146,7 +145,7 @@ class Training
                                 'lead' => 'Consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. Aliquam in felis sit amet augue.',
                                 'thumb-url' => '/pj2017/images/capacitacao/apostila02.jpg',
                                 'video-url' => 'https://www.youtube.com/embed/c-H6p0UFHPo',
-                                'document-url' => '/files/apps/parlamentojuvenil/site/2017/capacitation/ApresentacaoParlamentoJuvenil2017-ParteII.pdf',
+                                'document-url' => '/files/apps/parlamentojuvenil/site/2017/downloads/capacitacao-pj-2017-aula02.pdf',
                             ],
                         ],
 
@@ -157,25 +156,25 @@ class Training
                                 'questions' =>
                                     [
                                         [
-                                            'question' => 'O que é proposição legislativa?',
+                                            'question' => 'Qual item não pode ser considerado uma proposição legislativa:',
                                             'answers' => [
-                                                'a' => 'Proposição é toda matéria sujeita à deliberação da Assembleia ou de suas comissões, conforme o caso.',
-                                                'b' => 'Proposição é todo texto arquivado pelo Poder Legislativo. ',
-                                                'c' => 'Proposição é todo ato do Executivo que objetiva a criação de direitos. ',
-                                                'd' => 'Proposição é todo andamento processual aprovado na Assembleia Legislativa.',
+                                                'a' => 'Proposta de emenda à constituição;',
+                                                'b' => 'Projeto de Lei;',
+                                                'c' => 'Projeto de Resolução;',
+                                                'd' => 'Projeto de Portaria.',
                                             ],
-                                            'correct' => 'a',
+                                            'correct' => 'd',
                                         ],
 
                                         [
                                             'id' => 'quiz.2.002',
                                             'type' => 'quiz',
-                                            'question' => 'Qual a divisão obrigatória das proposições legislativas?',
+                                            'question' => 'Após o protocolo e a publicação da proposição, ela será encaminhada para:',
                                             'answers' => [
-                                                'a' => 'Artigos, periódicos e seções.',
-                                                'b' => 'Linhas, parágrafos e artigos.',
-                                                'c' => 'Artigos, parágrafos e incisos.',
-                                                'd' => 'Incisos, artigos e numeros. ',
+                                                'a' => 'Comissões.',
+                                                'b' => 'Governador.',
+                                                'c' => 'Secretários de Estado.',
+                                                'd' => 'Presidente da ALERJ.',
                                             ],
                                             'correct' => 'a',
                                         ],
@@ -183,12 +182,12 @@ class Training
                                         [
                                             'id' => 'quiz.2.003',
                                             'type' => 'quiz',
-                                            'question' => 'Como são divididas as leis?',
+                                            'question' => 'Uma proposição deve ser redigida com:',
                                             'answers' => [
-                                                'a' => 'Parte preliminar - Corpo da Lei - Parte Final',
-                                                'b' => 'Parte inicial - Meio - Fim',
-                                                'c' => 'Início - Capítulo - Encerramento',
-                                                'd' => 'Endereçamento - Preâmbulo - Encerramento',
+                                                'a' => 'clareza, em termos explícitos e concisos.',
+                                                'b' => 'linguagem local, gírias e expressões dúbias.',
+                                                'c' => 'fotos e imagens das pessoas.',
+                                                'd' => 'caneta preta ou azul.',
                                             ],
                                             'correct' => 'a',
                                         ],
@@ -196,12 +195,12 @@ class Training
                                         [
                                             'id' => 'quiz.2.004',
                                             'type' => 'quiz',
-                                            'question' => 'O que é Ementa?',
+                                            'question' => 'Um projeto de lei é composto de:',
                                             'answers' => [
-                                                'a' => 'É o mesmo que artigo de lei.',
-                                                'b' => 'É a parte de encerramento da lei.',
-                                                'c' => 'É o resumo da ideia do Projeto de Lei.',
-                                                'd' => 'É o número da lei. ',
+                                                'a' => 'Parte preliminar, corpo da lei e parte final.',
+                                                'b' => 'Início meio e fim.',
+                                                'c' => 'Capítulos e versículos.',
+                                                'd' => 'Entrada e saída.',
                                             ],
                                             'correct' => 'a',
                                         ],
@@ -209,14 +208,14 @@ class Training
                                         [
                                             'id' => 'quiz.2.005',
                                             'type' => 'quiz',
-                                            'question' => 'O que deve conter na Parte Final de um Projeto de Lei?',
+                                            'question' => 'Todo Projeto de Lei deverá conter, exceto:',
                                             'answers' => [
-                                                'a' => 'Cláusula de Vigência e Revogação.',
-                                                'b' => 'Cláusula de abertura e inovação.',
-                                                'c' => 'Vigência e protocolo.',
-                                                'd' => 'Cláusula de encerramento. ',
+                                                'a' => 'Justificativa.',
+                                                'b' => 'Parte preliminar.',
+                                                'c' => 'Corpo da lei.',
+                                                'd' => 'Testemunhas.',
                                             ],
-                                            'correct' => 'a',
+                                            'correct' => 'd',
                                         ],
                                     ],
                             ],

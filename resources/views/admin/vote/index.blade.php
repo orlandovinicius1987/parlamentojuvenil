@@ -125,28 +125,28 @@
                                         </th>
 
                                         <th v-on:click="__changeOrder('elected_1nd')">
-                                            Eleito 1o turno
+                                            Eleito 1o T
                                             <div v-show="orderBy == 'elected_1nd'" class="btn btn-danger btn-xs">
                                                 <i class="fa" v-bind:class="_arrowClass"></i>
                                             </div>
                                         </th>
 
                                         <th v-on:click="__changeOrder('votes_1nd')">
-                                            Votos 1o turno
+                                            Votos 1o T
                                             <div v-show="orderBy == 'votes_1nd'" class="btn btn-danger btn-xs">
                                                 <i class="fa" v-bind:class="_arrowClass"></i>
                                             </div>
                                         </th>
 
                                         <th v-on:click="__changeOrder('elected_2nd')">
-                                            Eleito 2o turno
+                                            Eleito 2o T
                                             <div v-show="orderBy == 'elected_2nd'" class="btn btn-danger btn-xs">
                                                 <i class="fa" v-bind:class="_arrowClass"></i>
                                             </div>
                                         </th>
 
                                         <th v-on:click="__changeOrder('votes_2nd')">
-                                            Votos 2o turno
+                                            Votos 2o T
                                             <div v-show="orderBy == 'votes_2nd'" class="btn btn-danger btn-xs">
                                                 <i class="fa" v-bind:class="_arrowClass"></i>
                                             </div>
@@ -197,12 +197,8 @@
                                             </td>
 
                                             <td>
-                                                NÃO
-                                                {{--@if ($person.quizResult)--}}
-                                                    {{--<a href="{{ route('admin.training', [$person.id]) }}">SIM</a>--}}
-                                                {{--@else--}}
-                                                    {{--NÃO--}}
-                                                {{--@endif--}}
+                                                <a v-if="person.quiz_result.length > 0" :href="'/admin/training/'+person.subscription_id" class="btn btn-info btn-xs btn-block">Ver</a>
+                                                <div v-if="person.quiz_result.length == 0">NÃO INICIADA</div>
                                             </td>
 
                                             <td>

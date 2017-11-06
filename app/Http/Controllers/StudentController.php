@@ -10,19 +10,19 @@ use App\Services\SocialLogin\SocialUserService;
 
 class StudentController extends Controller
 {
-    private $socialUserService;
+    protected $socialUserService;
 
     public function __construct(SocialUserService $socialUserService)
     {
         $this->socialUserService = $socialUserService;
     }
 
-    private function findSeeducStudentByRegistrationAndBirth($data)
+    protected function findSeeducStudentByRegistrationAndBirth($data)
     {
         return Seeduc::where('matricula', $data['registration'])->where('nascimento', $data['birthdate'])->first();
     }
 
-    private function findStudentByRegistrationAndBirth($data)
+    protected function findStudentByRegistrationAndBirth($data)
     {
         return Student::where('registration', $data['registration'])->where('birthdate', $data['birthdate'])->first();
     }
@@ -30,7 +30,7 @@ class StudentController extends Controller
     /**
      * @return array
      */
-    private function getUserData()
+    protected function getUserData()
     {
         return [
             "registration" => Input::get('registration'),
@@ -38,7 +38,7 @@ class StudentController extends Controller
         ];
     }
 
-    private function getUserEmail($user)
+    protected function getUserEmail($user)
     {
         return strpos($user->email, config('app.domain')) == false
                 ? $user->email

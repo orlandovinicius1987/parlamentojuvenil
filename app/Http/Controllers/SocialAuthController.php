@@ -7,7 +7,7 @@ use App\Services\SocialLogin\SocialUserService;
 
 class SocialAuthController extends Controller
 {
-    private $socialUserService;
+    protected $socialUserService;
 
     public function __construct(SocialUserService $socialUserService)
     {

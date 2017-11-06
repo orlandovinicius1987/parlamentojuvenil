@@ -917,6 +917,12 @@ form.subscribre-form {
 	height: 63px;
 }
 
+.btn.btn-password-reset {
+    background: #3498db !important;
+    color: #fff !important;
+    height: 63px;
+}
+
 
 /* Blog Post Single Page */
 
@@ -2422,6 +2428,24 @@ a.btn-apostilas:hover {
 	height: 100%;
 	margin: 0 0 0 15px;
 }
-.capacitacao-greatings-docs {
-	margin-top: 30px;
+
+
+.btn.disabled, .btn[disabled], fieldset[disabled] .btn {
+    color: lightgray !important;
+    background-color: darkgray !important;
 }
+
+.answer-row {
+    padding: 15px;
+}
+
+img-center {
+    margin: auto;
+}
+
+
+.bg-torch-red {
+    background: #FF141E !important;
+    color: white !important;
+}
+

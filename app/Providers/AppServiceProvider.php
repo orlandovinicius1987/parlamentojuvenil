@@ -20,7 +20,7 @@ class AppServiceProvider extends ServiceProvider
         $this->createValidators();
     }
 
-    private function instantiateLoggedUser()
+    protected function instantiateLoggedUser()
     {
         $loggedUser = session('loggedUser') ?: new LoggedUser();
 
@@ -41,7 +41,7 @@ class AppServiceProvider extends ServiceProvider
         $this->instantiateLoggedUser();
     }
 
-    private function createValidators()
+    protected function createValidators()
     {
         $end = Carbon::createFromFormat('d/m/Y', '20/11/2016');
 
