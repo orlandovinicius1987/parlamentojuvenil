@@ -2429,6 +2429,7 @@ a.btn-apostilas:hover {
 	margin: 0 0 0 15px;
 }
 
+
 .btn.disabled, .btn[disabled], fieldset[disabled] .btn {
     color: lightgray !important;
     background-color: darkgray !important;
@@ -2447,3 +2448,4 @@ img-center {
     background: #FF141E !important;
     color: white !important;
 }
+
