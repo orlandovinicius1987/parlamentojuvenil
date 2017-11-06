@@ -16,6 +16,8 @@ class Vote extends BaseController
 
     public function __construct(Data $dataRepository, Subscriptions $subscriptionsRepository)
     {
+        parent::__construct($dataRepository);
+
         $this->dataRepository = $dataRepository;
 
         $this->subscriptionsRepository = $subscriptionsRepository;
@@ -61,13 +63,6 @@ class Vote extends BaseController
     public function deleteMyVotes()
     {
         $this->subscriptionsRepository->deleteMyVotes();
-    }
-
-    public function removeSocialAccount()
-    {
-        $this->subscriptionsRepository->removeSocialAccount();
-
-        return redirect()->route('home');
     }
 
     public function elected($round)

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Data\Repositories\Data;
 use \DB;
 use Event;
 use Input;
@@ -17,8 +18,10 @@ class Training extends BaseController
 
     protected $user;
 
-    public function __construct(TrainingRepository $trainingRepository)
+    public function __construct(Data $dataRepository, TrainingRepository $trainingRepository)
     {
+        parent::__construct($dataRepository);
+
         $this->trainingRepository = $trainingRepository;
 
         $this->user = $user = loggedUser()->subscription;

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Data\Entities\Seeduc;
 use App\Data\Entities\Student;
+use App\Data\Repositories\Data;
 use App\Http\Requests\LoginSeeducUser;
 use Illuminate\Support\Facades\Input;
 use App\Services\SocialLogin\SocialUserService;
@@ -12,8 +13,10 @@ class StudentController extends Controller
 {
     protected $socialUserService;
 
-    public function __construct(SocialUserService $socialUserService)
+    public function __construct(Data $dataRepository, SocialUserService $socialUserService)
     {
+        parent::__construct($dataRepository);
+
         $this->socialUserService = $socialUserService;
     }
 

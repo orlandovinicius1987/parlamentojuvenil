@@ -2,6 +2,8 @@
 
 namespace App\Data\Repositories;
 
+use App\Data\Entities\FlagContest;
+use App\Data\Entities\FlagVote;
 use DB;
 use App\Data\Entities\User;
 use App\Data\Entities\Vote;
@@ -473,13 +475,23 @@ SQL
 
         User::where('id', loggedUser()->user->id)->delete();
 
-        Student::where('id', loggedUser()->student->id)->delete();
+        if (loggedUser()->student) {
+            SocialUser::where('student_id', loggedUser()->student->id)->delete();
+            Subscription::where('student_id', loggedUser()->student->id)->delete();
+            FlagVote::where('student_id', loggedUser()->student->id)->delete();
+            FlagContest::where('student_id', loggedUser()->student->id)->delete();
+            Student::where('id', loggedUser()->student->id)->delete();
+        }
 
         logout();
     }
 
     public function findByLoggedUser()
     {
+        if (is_null(loggedUser()->student)) {
+            return null;
+        }
+
         return Subscription::where('student_id', loggedUser()->student->id)
                     ->where('year', get_current_year())
                     ->where('ignored', false)

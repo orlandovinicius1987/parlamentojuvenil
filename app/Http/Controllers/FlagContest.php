@@ -17,6 +17,8 @@ class FlagContest extends BaseController
 
     public function __construct(Data $dataRepository, FlagContestRepository $flagContestRepository)
     {
+        parent::__construct($dataRepository);
+
         $this->dataRepository = $dataRepository;
 
         $this->flagContestRepository = $flagContestRepository;
@@ -82,6 +84,8 @@ class FlagContest extends BaseController
     public function cast()
     {
         $voted = $this->flagContestRepository->cast(loggedUser()->student, loggedUser()->selectedVotingFlagId);
+
+        logout();
 
         if (!$voted) {
             return view('2017.messages.show')->with('message', 'ERRO: Seu voto já havia sido registado antes.');

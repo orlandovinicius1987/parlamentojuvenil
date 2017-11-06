@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Data\Repositories\Data;
 use \DB;
 use App\Data\Entities\Vote;
 use App\Data\Entities\Student;
@@ -21,8 +22,10 @@ class Admin extends BaseController
      */
     protected $subscriptionsRepository;
 
-    public function __construct(TrainingRepository $trainingRepository, Subscriptions $subscriptionsRepository)
+    public function __construct(Data $dataRepository, TrainingRepository $trainingRepository, Subscriptions $subscriptionsRepository)
     {
+        parent::__construct($dataRepository);
+
         $this->trainingRepository = $trainingRepository;
 
         $this->subscriptionsRepository = $subscriptionsRepository;

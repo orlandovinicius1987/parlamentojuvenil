@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Data\Repositories\Data;
 use DB;
 use App\Services\SocialLogin\SocialUserService;
 
@@ -9,8 +10,10 @@ class SocialAuthController extends Controller
 {
     protected $socialUserService;
 
-    public function __construct(SocialUserService $socialUserService)
+    public function __construct(Data $dataRepository, SocialUserService $socialUserService)
     {
+        parent::__construct($dataRepository);
+
         $this->socialUserService = $socialUserService;
     }
 

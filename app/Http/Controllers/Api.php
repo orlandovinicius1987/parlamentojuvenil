@@ -22,7 +22,10 @@ class Api extends BaseController
 
     public function __construct(Data $dataRepository, Subscriptions $subscriptionsRepository)
     {
+        parent::__construct($dataRepository);
+
         $this->dataRepository = $dataRepository;
+
         $this->subscriptionsRepository = $subscriptionsRepository;
     }
     
