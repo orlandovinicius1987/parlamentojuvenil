@@ -84,4 +84,17 @@ class ApiSearch extends BaseController
     {
         return $flagContest->all();
     }
+
+    public function contestVotes(FlagContest $flagContest)
+    {
+        return $flagContest->allFlagsWithVotes()->map(function ($flag) {
+            $flag['thumbnail_url'] = $flag->thumbnail_url;
+
+            $flag['image_url'] = $flag->image_url;
+
+            $flag['vote_count'] = $flag->votes()->count();
+
+            return $flag;
+        });
+    }
 }

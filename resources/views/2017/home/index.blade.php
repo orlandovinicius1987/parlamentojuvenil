@@ -25,11 +25,11 @@
                     </div>
 
                     <div class="col-md-12 flag-subscription supernova-yellow visible-lg-block ">
-                        @if (flag_contest_subscription_enabled())
-                            <a href="/flag-contest/subscribe" class="btn btn-primary btn-large">
-                                Inscreva-se Agora
-                            </a>
-                        @endif
+                        {{--@if (flag_contest_subscription_enabled())--}}
+                            {{--<a href="/flag-contest/subscribe" class="btn btn-primary btn-large">--}}
+                                {{--Inscreva-se Agora--}}
+                            {{--</a>--}}
+                        {{--@endif--}}
 
                         @if (flag_contest_election_enabled())
                             <a href="/flag-contest/vote" class="btn btn-primary btn-large bg-torch-red">

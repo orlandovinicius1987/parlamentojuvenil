@@ -32,4 +32,9 @@ class Flag extends Model
 
         return asset("files/apps/parlamentojuvenil/site/{$year}/flags/thumbnails/{$this->filename}");
     }
+
+    public function votes()
+    {
+        return $this->hasMany(FlagVote::class);
+    }
 }

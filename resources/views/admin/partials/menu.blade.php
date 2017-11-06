@@ -74,7 +74,11 @@
                 </li>
 
                 <li active="{{ request()->is('admin/contest') ? 'active' : '' }}">
-                    <a href="{{ route('admin.contest') }}"><i class="fa fa-user fa-fw"></i> Concurso</a>
+                    <a href="{{ route('admin.contest') }}"><i class="fa fa-user fa-fw"></i> Concurso (inscritos)</a>
+                </li>
+
+                <li active="{{ request()->is('admin/contest/votes') ? 'active' : '' }}">
+                    <a href="{{ route('admin.contest-votes') }}"><i class="fa fa-user fa-fw"></i> Concurso (votação)</a>
                 </li>
             </ul>
         </div>

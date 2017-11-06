@@ -2,16 +2,21 @@
 
 namespace App\Data\Repositories;
 
-use App\Data\Entities\FlagVote;
 use DB;
 use Mail;
 use Carbon\Carbon;
 use Rhumsaa\Uuid\Uuid;
 use App\Data\Entities\Flag;
+use App\Data\Entities\FlagVote;
 use App\Data\Entities\FlagContest as FlagContestModel;
 
 class FlagContest extends Repository
 {
+    public function allFlagsWithVotes()
+    {
+        return Flag::with('votes')->get();
+    }
+
     private function alreadyVoted($student)
     {
         return ! is_null($this->findStudentVote($student));

@@ -44,6 +44,7 @@
 @include('scripts.vueAdmin')
 @include('scripts.vueAdminElected')
 @include('scripts.vueAdminContest')
+@include('scripts.vueAdminContestVotes')
 {{--@include('scripts.vueSubscribe')--}}
 @include('scripts.vueCongressmen')
 @include('scripts.vueSeeduc')
