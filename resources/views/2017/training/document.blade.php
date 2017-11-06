@@ -33,6 +33,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="col-sm-2">
                     <div class="grow grid-item ecstasy-orange">
                     </div>
@@ -42,6 +43,7 @@
                     </div>
                 </div>
             </div>
+
 
             <div class="row">
                 <div class="col-sm-2">

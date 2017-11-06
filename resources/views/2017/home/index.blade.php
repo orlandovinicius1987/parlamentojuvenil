@@ -24,6 +24,27 @@
                         <img class="bandeira-pj " src="/templates/2017/assets/img/bandeira-pj.png">
                     </div>
 
+                    <div class="col-md-12 flag-subscription hidden-lg ">
+                        @if (flag_contest_subscription_enabled())
+                            <p></p><a href="/flag-contest/subscribe" class="btn btn-primary btn-large">
+                                Inscreva-se Agora
+                            </a>
+                            </p>
+                        @endif
+
+                        @if (flag_contest_election_enabled())
+                            <p><a href="/flag-contest/vote" class="btn btn-primary btn-large bg-torch-red">
+                                VOTE AQUI
+                            </a>
+                            </p>
+                        @endif
+
+                        <p><a href="/files/apps/parlamentojuvenil/site/2017/downloads/edital-concurso-bandeira-parlamento-juvenil-2017-01.pdf">
+                            <img class="baixar-edital" src="/templates/2017/assets/img/baixar-edital.png">
+                        </a>
+                        </p>
+                    </div>
+
                     <div class="col-md-12 flag-subscription supernova-yellow visible-lg-block ">
                         @if (flag_contest_subscription_enabled())
                             <a href="/flag-contest/subscribe" class="btn btn-primary btn-large">
