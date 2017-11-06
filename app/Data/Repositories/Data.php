@@ -36,7 +36,12 @@ class Data extends Repository
      */
     protected $filesystem;
 
-    public function __construct(SyncNewsService $syncNewsService, Builder $viewBuilder, Filesystem $filesystem)
+    /**
+     * @var FlagContest
+     */
+    public $flagContest;
+
+    public function __construct(SyncNewsService $syncNewsService, Builder $viewBuilder, Filesystem $filesystem, FlagContest $flagContest)
     {
         $this->syncNewsService = $syncNewsService;
 
@@ -44,6 +49,8 @@ class Data extends Repository
         $this->viewBuilder->setDataRepository($this);
 
         $this->filesystem = $filesystem;
+
+        $this->flagContest = $flagContest;
     }
 
     /**

@@ -81,6 +81,7 @@ class Builder
                      ->with('carrousel', $testimonials)
                      ->with('cities', $cities)
                      ->with('citiesInCurrentRound', $citiesInCurrentRound)
+                     ->with('flags', $this->dataRepository->flagContest->allFlagsWithVotes()->shuffle())
                      ->with('student', loggedUser()->student)
                      ->with('isSubscribeForm', loggedUser()->must_be_student)
                      ->with('newspapers', $newspapersLinks)

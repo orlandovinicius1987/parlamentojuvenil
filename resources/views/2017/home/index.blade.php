@@ -63,10 +63,25 @@
                         </a>
                     </div>
                 </div>
-{{--                <br><br><br>
-                <a href="/files/apps/parlamentojuvenil/site/2017/downloads/edital-concurso-bandeira-parlamento-juvenil-2017-01.pdf" class="btn btn-block btn-primary btn-large center-block" download="download">
-                    Clique para baixar o edital
-                </a>--}}
+
+                <br><br><br><br>
+
+                <div class="text-center">
+                    <h1>CANDIDATAS</h1>
+
+                    <br><br>
+                    <div class="row">
+                        @foreach($flags as $flag)
+                            <div class="col-md-4">
+                                <div class="row">
+                                    <div class="col-xs-12 box-border-15">
+                                        <img src="{{ $flag->thumbnail_url }}" class="img-responsive" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
             </div>
         @endif
 
