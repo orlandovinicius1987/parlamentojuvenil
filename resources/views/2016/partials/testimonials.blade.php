@@ -26,12 +26,12 @@
                    {{-- <div class="item">
                         <img src="images/twitter/depoimento2.png" alt="">
                         <p>In hac habitasse platea dictumst. Nam pulvinar, odio sed rhoncus suscipit </p>
-                        <a href="#">http://t.co/yY7s1IfrAb 2 days ago</a>
+                        <a href="#">//t.co/yY7s1IfrAb 2 days ago</a>
                     </div>
                     <div class="item">
                         <img src="images/twitter/depoimento3.png" alt="">
                         <p>In hac habitasse platea dictumst. Nam pulvinar, odio sed rhoncus suscipit </p>
-                        <a href="#">http://t.co/yY7s1IfrAb 2 days ago</a>
+                        <a href="#">//t.co/yY7s1IfrAb 2 days ago</a>
                     </div>
 --}}
 

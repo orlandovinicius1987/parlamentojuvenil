@@ -66,7 +66,7 @@
                     {
                         this.zipValid = true;
 
-                        this.$http.get('http://viacep.com.br/ws/'+zip+'/json/').then(
+                        this.$http.get('//viacep.com.br/ws/'+zip+'/json/').then(
                             function(response)
                             {
                                 if (response.body.localidade)

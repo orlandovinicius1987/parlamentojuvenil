@@ -17,7 +17,7 @@
                             <blockquote>
                                 <div class="row row-eq-height">
                                     <div class="col-sm-12 col-lg-5 text-center borda-imagem ">
-                                        <img class="img-box" src="http://www.parlamento-juvenil.rj.gov.br/files/apps/parlamentojuvenil/parlamentares/fotos/8a%20edicao%20(2014)/recortadas/Joao%20Pedro%20Aguiar%20Moreira%20-%20Cordeiro.jpg">
+                                        <img class="img-box" src="//www.parlamento-juvenil.rj.gov.br/files/apps/parlamentojuvenil/parlamentares/fotos/8a%20edicao%20(2014)/recortadas/Joao%20Pedro%20Aguiar%20Moreira%20-%20Cordeiro.jpg">
                                     </div>
                                     <div class="col-sm-12 col-lg-7  borda-preta fundo-branco">
                                         <div class="titulo-projeto">Projeto de Lei Nº 51212/2016 </div>
@@ -40,7 +40,7 @@
                             <blockquote>
                                 <div class="row  row-eq-height">
                                     <div class="col-sm-12 col-lg-5 text-center borda-imagem">
-                                        <img class="img-box" src="http://www.parlamento-juvenil.rj.gov.br/files/apps/parlamentojuvenil/parlamentares/fotos/8a%20edicao%20(2014)/recortadas/Joao%20Pedro%20Aguiar%20Moreira%20-%20Cordeiro.jpg">
+                                        <img class="img-box" src="//www.parlamento-juvenil.rj.gov.br/files/apps/parlamentojuvenil/parlamentares/fotos/8a%20edicao%20(2014)/recortadas/Joao%20Pedro%20Aguiar%20Moreira%20-%20Cordeiro.jpg">
                                     </div>
                                     <div class="col-sm-12 col-lg-7  borda-preta fundo-branco">
                                         <div class="titulo-projeto">Projeto de Lei Nº 51212/2016 </div>
@@ -64,7 +64,7 @@
                             <blockquote>
                                 <div class="row row-eq-height">
                                     <div class="col-sm-12 col-lg-5 text-center borda-imagem">
-                                        <img class="img-box" src="http://www.parlamento-juvenil.rj.gov.br/files/apps/parlamentojuvenil/parlamentares/fotos/8a%20edicao%20(2014)/recortadas/Patrick%20Santos%20Silva%20-%20Cantagalo.jpg">
+                                        <img class="img-box" src="//www.parlamento-juvenil.rj.gov.br/files/apps/parlamentojuvenil/parlamentares/fotos/8a%20edicao%20(2014)/recortadas/Patrick%20Santos%20Silva%20-%20Cantagalo.jpg">
                                     </div>
                                     <div class="col-sm-12 col-lg-7 borda-preta fundo-branco">
                                         <div class="titulo-projeto">Projeto de Lei Nº 51212/2016 </div>

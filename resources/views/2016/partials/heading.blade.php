@@ -24,7 +24,7 @@
                     <div class="carousel-caption">
                         <h2>Foi eleito Parlamentar Juvenil em 2016?</h2>
                         <br>
-                        <a href="http://www2.alerj.rj.gov.br/parlamentojuvenil/projetolei/logar.aspx" class="btn btn-lg btn-primary">Clique aqui e cadastre seu Projeto de Lei</a>
+                        <a href="//www2.alerj.rj.gov.br/parlamentojuvenil/projetolei/logar.aspx" class="btn btn-lg btn-primary">Clique aqui e cadastre seu Projeto de Lei</a>
                     </div>
                 @endif
             </div>

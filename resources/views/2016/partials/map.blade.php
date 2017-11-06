@@ -26,7 +26,7 @@
         }
 
         loadScript(
-            'http://maps.googleapis.com/maps/api/js?v=3&callback=initialize&key={{ config('services.googleMaps.key') }}',
+            '//maps.googleapis.com/maps/api/js?v=3&callback=initialize&key={{ config('services.googleMaps.key') }}',
             function() {}
         );
 

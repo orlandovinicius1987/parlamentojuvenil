@@ -123,7 +123,7 @@
         <script type="text/javascript" src="/templates/2016/js/jquery.nav.js"></script>
 
         <!-- Pusher -->
-        <script src="http://js.pusher.com/3.1/pusher.min.js"></script>
+        <script src="//js.pusher.com/3.1/pusher.min.js"></script>
 
         @if (isset($isHome) && $isHome)
             <script type="text/javascript" src="/templates/2016/js/main.js"></script>

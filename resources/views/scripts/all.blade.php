@@ -1,7 +1,7 @@
 <!-- scripts.blade.php -->
 
-<script src="http://cdn.jsdelivr.net/masonry/2.1.08/jquery.masonry.min.js"></script>
-<script src="http://cdn.jsdelivr.net/jquery.lazyload/1.8.4/jquery.lazyload.js"></script>
+<script src="//cdn.jsdelivr.net/masonry/2.1.08/jquery.masonry.min.js"></script>
+<script src="//cdn.jsdelivr.net/jquery.lazyload/1.8.4/jquery.lazyload.js"></script>
 
 <script>
     jQuery(document).ready(function() {

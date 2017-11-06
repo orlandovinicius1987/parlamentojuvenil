@@ -26,8 +26,8 @@
         <script type='text/javascript' src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.0/locales/bootstrap-datepicker.pt-BR.min.js"></script>
 
         <!-- Custom Fonts -->
-        <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
         <!-- Owl Carousel -->
         <link rel="stylesheet" href="packages/owl.carousel/assets/owl.carousel.min.css">
@@ -106,7 +106,7 @@
         <script src="vendor/jquery.maskedinput/dist/jquery.maskedinput.min.js"></script>
 
         <!-- CPF -->
-        <script src="http://www.receita.fazenda.gov.br/aplicacoes/atcta/cpf/funcoes.js"></script>
+        <script src="//www.receita.fazenda.gov.br/aplicacoes/atcta/cpf/funcoes.js"></script>
 
         <!-- Blueimp Lightbox -->
         <script src="//blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
@@ -124,7 +124,7 @@
         <script src="https://unpkg.com/masonry-layout@4.0/dist/masonry.pkgd.min.js"></script>
         {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.2/masonry.pkgd.min.js"></script>--}}
         <script src="https://unpkg.com/imagesloaded@4.1/imagesloaded.pkgd.min.js"></script>
-        {{--<script src="http://imagesloaded.desandro.com/imagesloaded.pkgd.min.js"></script>--}}
+        {{--<script src="//imagesloaded.desandro.com/imagesloaded.pkgd.min.js"></script>--}}
 
         @yield('javascript')
 

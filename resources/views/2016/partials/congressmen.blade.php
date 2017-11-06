@@ -48,73 +48,73 @@
         <div id="products" class="row list-group">
             <div class="item  col-xs-4 col-lg-3 ">
                 <div class="thumbnail quadro-amarelo borda-preta">
-                    <img class="group list-group-image" src="http://www.parlamento-juvenil.rj.gov.br/files/apps/parlamentojuvenil/parlamentares/fotos/8a%20edicao%20(2014)/Joyce%20Dias%20de%20Lima%20-%20Guapimirim.jpg" alt="" />
+                    <img class="group list-group-image" src="//www.parlamento-juvenil.rj.gov.br/files/apps/parlamentojuvenil/parlamentares/fotos/8a%20edicao%20(2014)/Joyce%20Dias%20de%20Lima%20-%20Guapimirim.jpg" alt="" />
                     <div class="label">Julie Souto da Silva<br><span class="city-name">Japeri</span></div>
                 </div>
             </div>
             <div class="item  col-xs-4 col-lg-3 ">
                 <div class="thumbnail quadro-amarelo borda-preta">
-                    <img class="group list-group-image" src="http://www.parlamento-juvenil.rj.gov.br/files/apps/parlamentojuvenil/parlamentares/fotos/8a%20edicao%20(2014)/Joyce%20Dias%20de%20Lima%20-%20Guapimirim.jpg" alt="" />
+                    <img class="group list-group-image" src="//www.parlamento-juvenil.rj.gov.br/files/apps/parlamentojuvenil/parlamentares/fotos/8a%20edicao%20(2014)/Joyce%20Dias%20de%20Lima%20-%20Guapimirim.jpg" alt="" />
                     <div class="label">Julie Souto da Silva<br><span class="city-name">Japeri</span></div>
                 </div>
             </div>
             <div class="item  col-xs-4 col-lg-3 ">
                 <div class="thumbnail quadro-amarelo borda-preta">
-                    <img class="group list-group-image" src="http://www.parlamento-juvenil.rj.gov.br/files/apps/parlamentojuvenil/parlamentares/fotos/8a%20edicao%20(2014)/Joyce%20Dias%20de%20Lima%20-%20Guapimirim.jpg" alt="" />
+                    <img class="group list-group-image" src="//www.parlamento-juvenil.rj.gov.br/files/apps/parlamentojuvenil/parlamentares/fotos/8a%20edicao%20(2014)/Joyce%20Dias%20de%20Lima%20-%20Guapimirim.jpg" alt="" />
                     <div class="label">Julie Souto da Silva<br><span class="city-name">Japeri</span></div>
                 </div>
             </div>
             <div class="item  col-xs-4 col-lg-3 ">
                 <div class="thumbnail quadro-amarelo borda-preta">
-                    <img class="group list-group-image" src="http://www.parlamento-juvenil.rj.gov.br/files/apps/parlamentojuvenil/parlamentares/fotos/8a%20edicao%20(2014)/Joyce%20Dias%20de%20Lima%20-%20Guapimirim.jpg" alt="" />
+                    <img class="group list-group-image" src="//www.parlamento-juvenil.rj.gov.br/files/apps/parlamentojuvenil/parlamentares/fotos/8a%20edicao%20(2014)/Joyce%20Dias%20de%20Lima%20-%20Guapimirim.jpg" alt="" />
                     <div class="label">Julie Souto da Silva<br><span class="city-name">Japeri</span></div>
                 </div>
             </div>
             <div class="item  col-xs-4 col-lg-3 ">
                 <div class="thumbnail quadro-amarelo borda-preta">
-                    <img class="group list-group-image" src="http://www.parlamento-juvenil.rj.gov.br/files/apps/parlamentojuvenil/parlamentares/fotos/8a%20edicao%20(2014)/Joyce%20Dias%20de%20Lima%20-%20Guapimirim.jpg" alt="" />
+                    <img class="group list-group-image" src="//www.parlamento-juvenil.rj.gov.br/files/apps/parlamentojuvenil/parlamentares/fotos/8a%20edicao%20(2014)/Joyce%20Dias%20de%20Lima%20-%20Guapimirim.jpg" alt="" />
                     <div class="label">Julie Souto da Silva<br><span class="city-name">Japeri</span></div>
                 </div>
             </div>
             <div class="item  col-xs-4 col-lg-3  ">
                 <div class="thumbnail quadro-amarelo borda-preta">
-                    <img class="group list-group-image" src="http://www.parlamento-juvenil.rj.gov.br/files/apps/parlamentojuvenil/parlamentares/fotos/8a%20edicao%20(2014)/Joyce%20Dias%20de%20Lima%20-%20Guapimirim.jpg" alt="" />
+                    <img class="group list-group-image" src="//www.parlamento-juvenil.rj.gov.br/files/apps/parlamentojuvenil/parlamentares/fotos/8a%20edicao%20(2014)/Joyce%20Dias%20de%20Lima%20-%20Guapimirim.jpg" alt="" />
                     <div class="label">Julie Souto da Silva<br><span class="city-name">Japeri</span></div>
                 </div>
             </div>
             <div class="item  col-xs-4 col-lg-3 ">
                 <div class="thumbnail quadro-amarelo borda-preta">
-                    <img class="group list-group-image" src="http://www.parlamento-juvenil.rj.gov.br/files/apps/parlamentojuvenil/parlamentares/fotos/8a%20edicao%20(2014)/Joyce%20Dias%20de%20Lima%20-%20Guapimirim.jpg" alt="" />
+                    <img class="group list-group-image" src="//www.parlamento-juvenil.rj.gov.br/files/apps/parlamentojuvenil/parlamentares/fotos/8a%20edicao%20(2014)/Joyce%20Dias%20de%20Lima%20-%20Guapimirim.jpg" alt="" />
                     <div class="label">Julie Souto da Silva<br><span class="city-name">Japeri</span></div>
                 </div>
             </div>
             <div class="item  col-xs-4 col-lg-3  ">
                 <div class="thumbnail quadro-amarelo borda-preta">
-                    <img class="group list-group-image" src="http://www.parlamento-juvenil.rj.gov.br/files/apps/parlamentojuvenil/parlamentares/fotos/8a%20edicao%20(2014)/Joyce%20Dias%20de%20Lima%20-%20Guapimirim.jpg" alt="" />
+                    <img class="group list-group-image" src="//www.parlamento-juvenil.rj.gov.br/files/apps/parlamentojuvenil/parlamentares/fotos/8a%20edicao%20(2014)/Joyce%20Dias%20de%20Lima%20-%20Guapimirim.jpg" alt="" />
                     <div class="label">Julie Souto da Silva<br><span class="city-name">Japeri</span></div>
                 </div>
             </div>
             <div class="item  col-xs-4 col-lg-3 ">
                 <div class="thumbnail quadro-amarelo borda-preta">
-                    <img class="group list-group-image" src="http://www.parlamento-juvenil.rj.gov.br/files/apps/parlamentojuvenil/parlamentares/fotos/8a%20edicao%20(2014)/Joyce%20Dias%20de%20Lima%20-%20Guapimirim.jpg" alt="" />
+                    <img class="group list-group-image" src="//www.parlamento-juvenil.rj.gov.br/files/apps/parlamentojuvenil/parlamentares/fotos/8a%20edicao%20(2014)/Joyce%20Dias%20de%20Lima%20-%20Guapimirim.jpg" alt="" />
                     <div class="label">Julie Souto da Silva<br><span class="city-name">Japeri</span></div>
                 </div>
             </div>
             <div class="item  col-xs-4 col-lg-3  ">
                 <div class="thumbnail quadro-amarelo borda-preta">
-                    <img class="group list-group-image" src="http://www.parlamento-juvenil.rj.gov.br/files/apps/parlamentojuvenil/parlamentares/fotos/8a%20edicao%20(2014)/Joyce%20Dias%20de%20Lima%20-%20Guapimirim.jpg" alt="" />
+                    <img class="group list-group-image" src="//www.parlamento-juvenil.rj.gov.br/files/apps/parlamentojuvenil/parlamentares/fotos/8a%20edicao%20(2014)/Joyce%20Dias%20de%20Lima%20-%20Guapimirim.jpg" alt="" />
                     <div class="label">Julie Souto da Silva<br><span class="city-name">Japeri</span></div>
                 </div>
             </div>
             <div class="item  col-xs-4 col-lg-3 ">
                 <div class="thumbnail quadro-amarelo borda-preta">
-                    <img class="group list-group-image" src="http://www.parlamento-juvenil.rj.gov.br/files/apps/parlamentojuvenil/parlamentares/fotos/8a%20edicao%20(2014)/Joyce%20Dias%20de%20Lima%20-%20Guapimirim.jpg" alt="" />
+                    <img class="group list-group-image" src="//www.parlamento-juvenil.rj.gov.br/files/apps/parlamentojuvenil/parlamentares/fotos/8a%20edicao%20(2014)/Joyce%20Dias%20de%20Lima%20-%20Guapimirim.jpg" alt="" />
                     <div class="label">Julie Souto da Silva<br><span class="city-name">Japeri</span></div>
                 </div>
             </div>
             <div class="item  col-xs-4 col-lg-3  ">
                 <div class="thumbnail quadro-amarelo borda-preta">
-                    <img class="group list-group-image" src="http://www.parlamento-juvenil.rj.gov.br/files/apps/parlamentojuvenil/parlamentares/fotos/8a%20edicao%20(2014)/Joyce%20Dias%20de%20Lima%20-%20Guapimirim.jpg" alt="" />
+                    <img class="group list-group-image" src="//www.parlamento-juvenil.rj.gov.br/files/apps/parlamentojuvenil/parlamentares/fotos/8a%20edicao%20(2014)/Joyce%20Dias%20de%20Lima%20-%20Guapimirim.jpg" alt="" />
                     <div class="label">Julie Souto da Silva<br><span class="city-name">Japeri</span></div>
                 </div>
             </div>

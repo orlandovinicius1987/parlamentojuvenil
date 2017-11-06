@@ -93,7 +93,7 @@
                 <div class="col-lg-8 quadro-branco texto-preto borda-preta article-content">
                     <div class="thumbnail">
                         <a href="#">
-                            <img src="http://www2.alerj.rj.gov.br/parlamentojuvenil/media/image//pj_projeto_final_lm_27_11_15.jpg" alt="">
+                            <img src="//www2.alerj.rj.gov.br/parlamentojuvenil/media/image//pj_projeto_final_lm_27_11_15.jpg" alt="">
 
                             {{--<img src="{!! make_image_url($article['image']) !!}" alt="">--}}
                         </a>
@@ -151,7 +151,7 @@
 
                             <div class="thumbnail">
                                 <a href="#">
-                                    <img src="http://www2.alerj.rj.gov.br/parlamentojuvenil/media/image//pj_projeto_final_lm_27_11_15.jpg" alt="">
+                                    <img src="//www2.alerj.rj.gov.br/parlamentojuvenil/media/image//pj_projeto_final_lm_27_11_15.jpg" alt="">
                                 </a>
                             </div>
 
@@ -181,7 +181,7 @@
 
                                 </div>
                                 <div class="pull-right">
-                                    <a href="http://local.parlamentojuvenil.com/article/28577">
+                                    <a href="//local.parlamentojuvenil.com/article/28577">
                                         <i class="fa fa-plus" aria-hidden="true"></i>
                                     </a>
                                 </div>
@@ -193,7 +193,7 @@
 
                             <div class="thumbnail">
                                 <a href="#">
-                                    <img src="http://www2.alerj.rj.gov.br/parlamentojuvenil/media/image//pj_projeto_final_lm_27_11_15.jpg" alt="">
+                                    <img src="//www2.alerj.rj.gov.br/parlamentojuvenil/media/image//pj_projeto_final_lm_27_11_15.jpg" alt="">
                                 </a>
                             </div>
 
@@ -223,7 +223,7 @@
 
                                 </div>
                                 <div class="pull-right">
-                                    <a href="http://local.parlamentojuvenil.com/article/28577">
+                                    <a href="//local.parlamentojuvenil.com/article/28577">
                                         <i class="fa fa-plus" aria-hidden="true"></i>
                                     </a>
                                 </div>
