@@ -17,7 +17,7 @@
                 <div class="row">
                     <div class="col-md-8 pull-right">
                         <h2>Concurso Para Seleção da Bandeira do Parlamento Juvenil {{ get_current_year() }}</h2>
-                        <h3>Inscrições até 04/09 de 2017</h3>
+                        {{--<h3>Inscrições até 04/09 de 2017</h3>--}}
                     </div>
 
                     <div class="col-md-4">
