@@ -2,6 +2,7 @@
 
 namespace App\Exceptions;
 
+use App\Data\Repositories\Data;
 use App\Data\Repositories\StudentAlreadyVoted;
 use Exception;
 use Psr\Log\LoggerInterface;
@@ -27,9 +28,11 @@ class Handler extends ExceptionHandler
      */
     protected $viewBuilder;
 
-    public function __construct(Builder $viewBuilder, LoggerInterface $log)
+    public function __construct(Builder $viewBuilder, LoggerInterface $log, Data $dataRepository)
     {
         $this->viewBuilder = $viewBuilder;
+
+        $this->viewBuilder->setDataRepository($dataRepository);
 
         parent::__construct($log);
     }
