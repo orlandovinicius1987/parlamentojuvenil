@@ -31,15 +31,9 @@
                             </a>
                         @endif
 
-                        <a href="/files/apps/parlamentojuvenil/site/2017/downloads/edital-concurso-bandeira-parlamento-juvenil-2017-01.pdf">
-                            <img class="baixar-edital" src="/templates/2017/assets/img/baixar-edital.png">
-                        </a>
-                    </div>
-
-                    <div class="col-md-12 flag-subscription hidden-lg">
-                        @if (flag_contest_subscription_enabled())
-                            <a href="#" class="btn btn-primary btn-large btn-block">
-                                Inscreva-se Agora
+                        @if (flag_contest_election_enabled())
+                            <a href="/flag-contest/vote" class="btn btn-primary btn-large bg-torch-red">
+                                VOTE AQUI
                             </a>
                         @endif
 

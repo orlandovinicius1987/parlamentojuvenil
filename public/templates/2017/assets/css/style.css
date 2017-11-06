@@ -2442,3 +2442,8 @@ img-center {
     margin: auto;
 }
 
+
+.bg-torch-red {
+    background: #FF141E !important;
+    color: white !important;
+}
