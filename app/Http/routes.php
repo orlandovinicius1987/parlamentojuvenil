@@ -91,7 +91,7 @@ Route::group(['prefix' => '/vote'], function ()
 
 Route::group(['prefix' => '/', 'middleware' => ['auth']], function ()
 {
-    Route::get('/forget/me', ['as' => 'forget.me', 'uses' => 'Vote@removeSocialAccount']);
+    Route::get('/forget/me', ['as' => 'forget.me', 'uses' => 'User@forgetMe']);
 });
 
 Route::get('news/sync', function (NewsSync $news)
