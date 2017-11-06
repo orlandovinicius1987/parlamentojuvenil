@@ -21,7 +21,7 @@ class FlagContestVoting
 
         loggedUser()->isVotingOnFlagContest = true;
 
-        loggedUser()->intendedRoute = 'flag_contest.vote.index';
+        loggedUser()->intendedRoute = 'flag-contest.vote.index';
 
         return $next($request);
     }
