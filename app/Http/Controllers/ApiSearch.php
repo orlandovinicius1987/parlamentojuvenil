@@ -92,7 +92,9 @@ class ApiSearch extends BaseController
 
             $flag['image_url'] = $flag->image_url;
 
-            $flag['vote_count'] = $flag->votes()->where('is_valid', true)->count();
+            $flag['valid_vote_count'] = $flag->votes()->where('is_valid', true)->count();
+
+            $flag['invalid_vote_count'] = $flag->votes()->where('is_valid', false)->count();
 
             return $flag;
         });

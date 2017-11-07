@@ -21,17 +21,21 @@
                         <table class="table table-striped table-bordered table-hover">
                             <thead>
                                 <tr>
+                                    <th>id #</th>
                                     <th>Bandeira</th>
                                     <th>Regional</th>
-                                    <th>Votos</th>
+                                    <th>Votos válidos</th>
+                                    <th>Votos não válidos</th>
                                 </tr>
                             </thead>
 
                             <tbody>
                                 <tr v-for="flag in sorted_flags">
+                                    <td class="text-center" style="font-size: 2em;">@{{ flag.id }}</td>
                                     <td class="text-center"><img :src="flag.thumbnail_url" alt="" width="200px"></td>
                                     <td class="text-center" style="font-size: 2em;">@{{ flag.name }}</td>
-                                    <td class="text-center" style="font-size: 2em;">@{{ flag.vote_count }}</td>
+                                    <td class="text-center" style="font-size: 2em;">@{{ flag.valid_vote_count }}</td>
+                                    <td class="text-center" style="font-size: 2em;">@{{ flag.invalid_vote_count }}</td>
                                 </tr>
                             </tbody>
                         </table>
