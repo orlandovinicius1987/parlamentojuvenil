@@ -33,13 +33,14 @@
             computed: {
                 total_vote_count: function() {
                     return this.flags.reduce(function(prev, flag){
-                        return prev + flag.vote_count;
+                        console.log(flag.name, flag.valid_vote_count);
+                        return prev + flag.valid_vote_count;
                     }, 0);
                 },
 
                 sorted_flags: function() {
-                    return _.sortBy(this.flags, function(o) {
-                        return -o.valid_vote_count;
+                    return _.sortBy(this.flags, function(flag) {
+                        return -flag.valid_vote_count;
                     })
                 }
             }
