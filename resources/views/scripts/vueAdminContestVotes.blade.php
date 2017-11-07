@@ -39,7 +39,7 @@
 
                 sorted_flags: function() {
                     return _.sortBy(this.flags, function(o) {
-                        return -o.vote_count;
+                        return -o.valid_vote_count;
                     })
                 }
             }
