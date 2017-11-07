@@ -33,7 +33,6 @@
             computed: {
                 total_vote_count: function() {
                     return this.flags.reduce(function(prev, flag){
-                        console.log(flag.name, flag.valid_vote_count);
                         return prev + flag.valid_vote_count;
                     }, 0);
                 },
