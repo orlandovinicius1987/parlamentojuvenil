@@ -14,7 +14,7 @@ class FlagContest extends Repository
 {
     public function allFlagsWithVotes()
     {
-        return Flag::with('votes')->get();
+        return Flag::with('valid_votes')->get();
     }
 
     private function alreadyVoted($student)

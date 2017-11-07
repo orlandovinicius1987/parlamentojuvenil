@@ -37,4 +37,9 @@ class Flag extends Model
     {
         return $this->hasMany(FlagVote::class);
     }
+
+    public function valid_votes()
+    {
+        return $this->hasMany(FlagVote::class)->where('is_valid', true);
+    }
 }
