@@ -74,8 +74,8 @@ class FlagContest extends Repository
         $previous = 'xx';
 
         FlagVote::orderBy('registration')->orderBy('id')->get()->each(function($vote) use (&$previous) {
-            if ($vote->valid && $previous == $vote->registration) {
-                $vote->valid = false;
+            if ($vote->is_valid && $previous == $vote->registration) {
+                $vote->is_valid = false;
                 $vote->save();
             }
 
