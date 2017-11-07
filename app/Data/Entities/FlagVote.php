@@ -12,10 +12,17 @@ class FlagVote extends Model
         'flag_id',
         'student_id',
         'year',
+        'registration',
+        'is_valid',
     ];
 
     public function flag()
     {
         return $this->belongsTo(Flag::class);
+    }
+
+    public function student()
+    {
+        return $this->belongsTo(Student::class);
     }
 }

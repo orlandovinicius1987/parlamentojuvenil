@@ -63,7 +63,24 @@ class FlagContest extends Repository
      */
     private function findStudentVote($student)
     {
-        return FlagVote::where('student_id', $student->id)->where('year', get_current_year())->first();
+        return FlagVote::where('year', get_current_year())->orWhere(function($query) use ($student) {
+            $query->where('student_id', $student->id);
+            $query->where('registration', $student->registration);
+        })->first();
+    }
+
+    public function markValidVotes()
+    {
+        $previous = 'xx';
+
+        FlagVote::orderBy('registration')->orderBy('id')->get()->each(function($vote) use (&$previous) {
+            if ($vote->valid && $previous == $vote->registration) {
+                $vote->valid = false;
+                $vote->save();
+            }
+
+            $previous = $vote->registration;
+        });
     }
 
     protected function sendConfirmationEmail($subscription)
@@ -146,7 +163,10 @@ class FlagContest extends Repository
             'student_id' => $student->id,
             'flag_id' => $flag_id,
             'year' => get_current_year(),
+            'registration' => $student->registration,
         ]);
+
+        $this->markValidVotes();
 
         return true;
     }

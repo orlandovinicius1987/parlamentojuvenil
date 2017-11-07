@@ -170,6 +170,8 @@ class Admin extends BaseController
 
     function contestVotes()
     {
+        $this->dataRepository->flagContest->markValidVotes();
+
         return view('admin.contest-votes');
     }
 }
