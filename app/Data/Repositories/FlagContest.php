@@ -63,9 +63,9 @@ class FlagContest extends Repository
      */
     private function findStudentVote($student)
     {
-        return FlagVote::where('year', get_current_year())->orWhere(function($query) use ($student) {
+        return FlagVote::where('year', get_current_year())->where(function($query) use ($student) {
             $query->where('student_id', $student->id);
-            $query->where('registration', $student->registration);
+            $query->orWhere('registration', $student->registration);
         })->first();
     }
 
