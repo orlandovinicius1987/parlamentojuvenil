@@ -142,6 +142,8 @@ class Student extends Model
 
     public function votedInCurrentFlagContest()
     {
+//        dd($this->flagVotes()->where('year', get_current_year())->first());
+
         return ! is_null($this->flagVotes()->where('year', get_current_year())->first());
     }
 }

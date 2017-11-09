@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Data\Repositories\StudentAlreadyVotedOnFlag;
 use Auth;
 use App\Data\Repositories\Data;
 use App\Data\Repositories\Subscriptions;
@@ -85,12 +86,32 @@ class FlagContest extends BaseController
     {
         $voted = $this->flagContestRepository->cast(loggedUser()->student, loggedUser()->selectedVotingFlagId);
 
+        $registration = loggedUser()->student->registration;
+
         logout();
 
         if (!$voted) {
-            return view('2017.messages.show')->with('message', 'ERRO: Seu voto já havia sido registado antes.');
+            throw new StudentAlreadyVotedOnFlag($registration);
         }
 
         return view('2017.messages.show')->with('message', 'Parabéns! O seu voto foi registrado.');
+    }
+
+    public function showVote($registration)
+    {
+        $vote = $this->flagContestRepository->getVoteByRegistration($registration);
+
+        if (is_null($vote)) {
+            return view('2017.messages.show')->with('message', "ERRO: Por favor entre em contato com o Parlamento Juvenil e repasse a mensagem de erro 701031-99 e sua matrícula.");
+        }
+
+        return $this
+            ->buildView('flag-contest.vote.show', null, null, true)
+            ->with('thumbnail_url', $vote->flag->thumbnail_url)
+            ->with('image_url', $vote->flag->image_url)
+            ->with('student_name', $vote->student->name)
+            ->with('student_registration', $vote->student->registration)
+            ->with('date_time', $vote->created_at)
+            ;
     }
 }

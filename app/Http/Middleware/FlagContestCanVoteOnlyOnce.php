@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Data\Repositories\StudentAlreadyVotedOnFlag;
 use Closure;
 use App\Data\Repositories\StudentAlreadyVoted;
 
@@ -13,12 +14,12 @@ class FlagContestCanVoteOnlyOnce
      * @param  \Illuminate\Http\Request $request
      * @param  \Closure $next
      * @return mixed
-     * @throws StudentAlreadyVoted
+     * @throws StudentAlreadyVotedOnFlag
      */
     public function handle($request, Closure $next)
     {
         if (loggedUser()->student->votedInCurrentFlagContest()) {
-            throw new StudentAlreadyVoted();
+            throw new StudentAlreadyVotedOnFlag(loggedUser()->student->registration);
         }
 
         return $next($request);

@@ -170,4 +170,12 @@ class FlagContest extends Repository
 
         return true;
     }
+
+    public function getVoteByRegistration($registration)
+    {
+        return FlagVote::where('year', get_current_year())
+            ->where('registration', $registration)
+            ->where('is_valid', true)
+            ->first();
+    }
 }

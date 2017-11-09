@@ -4,6 +4,7 @@ namespace App\Exceptions;
 
 use App\Data\Repositories\Data;
 use App\Data\Repositories\StudentAlreadyVoted;
+use App\Data\Repositories\StudentAlreadyVotedOnFlag;
 use Exception;
 use Psr\Log\LoggerInterface;
 use App\Services\Views\Builder;
@@ -65,6 +66,11 @@ class Handler extends ExceptionHandler
                       view(make_view_name_year_based('vote.error'))
                   )
             );
+        }
+
+        if ($e instanceof StudentAlreadyVotedOnFlag)
+        {
+            return redirect()->route('flag-contest.vote.show-vote', ['registration' => $e->getRegistration()]);
         }
 
         if ($e instanceof NotFoundHttpException)

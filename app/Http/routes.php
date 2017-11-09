@@ -84,6 +84,11 @@ Route::group(['prefix' => '/flag-contest/vote', 'middleware' => ['flag-contest-v
     Route::get('/cast', ['as' => 'flag-contest.vote.cast', 'uses' => 'FlagContest@cast']);
 });
 
+Route::group(['prefix' => '/flag-contest/vote'], function ()
+{
+    Route::get('/show/{registration}', ['as' => 'flag-contest.vote.show-vote', 'uses' => 'FlagContest@showVote']);
+});
+
 Route::group(['prefix' => '/vote'], function ()
 {
     Route::get('/elected/round/{round}', ['as' => 'vote.elected', 'uses' => 'Vote@elected']);
