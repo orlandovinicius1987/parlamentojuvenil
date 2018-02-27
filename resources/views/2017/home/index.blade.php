@@ -2,18 +2,18 @@
 
 @section('contents')
     <section class="notifications">
-        <div class="jumbotron text-center" style="background-color: #F58220;">
-            <h1 style="font-weight: 800;">ADIADO</h1>
-            <br><br><br>
-            <h4>Comunicamos o adiamento da edição 2017 do Parlamento Juvenil prevista para ocorrer do dia 26 de novembro a 02 de dezembro.</h4>
+        {{--<div class="jumbotron text-center" style="background-color: #F58220;">--}}
+            {{--<h1 style="font-weight: 800;">ADIADO</h1>--}}
+            {{--<br><br><br>--}}
+            {{--<h4>Comunicamos o adiamento da edição 2017 do Parlamento Juvenil prevista para ocorrer do dia 26 de novembro a 02 de dezembro.</h4>--}}
 
-            <br><br><br><br>
-            <a href="/files/apps/parlamentojuvenil/site/2017/downloads/nota-adiamento-2017.pdf" class="well">
-                <br>
-                <i class="fa fa-download" aria-hidden="true" style="font-size: 3em;"></i>
-                <p>Clique para baixar a nota de adiamento</p>
-            </a>
-        </div>
+            {{--<br><br><br><br>--}}
+            {{--<a href="/files/apps/parlamentojuvenil/site/2017/downloads/nota-adiamento-2017.pdf" class="well">--}}
+                {{--<br>--}}
+                {{--<i class="fa fa-download" aria-hidden="true" style="font-size: 3em;"></i>--}}
+                {{--<p>Clique para baixar a nota de adiamento</p>--}}
+            {{--</a>--}}
+        {{--</div>--}}
 
         @if (config('app.subscriptions.enabled') === true)
             <div class="jumbotron text-center">
