@@ -82,6 +82,7 @@ class Builder
                      ->with('cities', $cities)
                      ->with('citiesInCurrentRound', $citiesInCurrentRound)
                      ->with('flags', $this->dataRepository->flagContest->allFlagsWithVotes()->shuffle())
+                     ->with('finalistFlags', $this->dataRepository->flagContest->allFlagsWithVotes()->where('finalist', true)->shuffle())
                      ->with('student', loggedUser()->student)
                      ->with('isSubscribeForm', loggedUser()->must_be_student)
                      ->with('newspapers', $newspapersLinks)

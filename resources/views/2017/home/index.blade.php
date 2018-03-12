@@ -79,18 +79,32 @@
 
                 <br><br><br><br>
 
+                {{--<div class="text-center">--}}
+                    {{--<h1>CANDIDATAS</h1>--}}
+
+                    {{--<br><br>--}}
+                    {{--<div class="row">--}}
+                        {{--@foreach($flags as $flag)--}}
+                            {{--<div class="col-md-4">--}}
+                                {{--<div class="row">--}}
+                                    {{--<div class="col-xs-12 box-border-15">--}}
+                                        {{--<img src="{{ $flag->thumbnail_url }}" class="img-responsive" alt="">--}}
+                                    {{--</div>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                        {{--@endforeach--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+
                 <div class="text-center">
-                    <h1>CANDIDATAS</h1>
+                    <h1>FINALISTAS</h1>
 
                     <br><br>
                     <div class="row">
-                        @foreach($flags as $flag)
-                            <div class="col-md-4">
-                                <div class="row">
-                                    <div class="col-xs-12 box-border-15">
-                                        <img src="{{ $flag->thumbnail_url }}" class="img-responsive" alt="">
-                                    </div>
-                                </div>
+                        @foreach($finalistFlags as $flag)
+                            <div class="col-md-12">
+                                <img src="{{ $flag->thumbnail_url }}" class="img-responsive" alt="" style="display: block; margin: 0 auto;">
+                                <br><br>
                             </div>
                         @endforeach
                     </div>
