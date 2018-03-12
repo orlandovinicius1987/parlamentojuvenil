@@ -32,6 +32,12 @@
                     <p>Ata da Eleição - 1º Turno</p>
                 </a>
             </div>
+            <div class="col-sm-6">
+                <a href="/files/apps/parlamentojuvenil/site/2017/downloads/calendario-de-atividades.doc" class="well rouge">
+                    <i class="fa fa-download" aria-hidden="true"></i>
+                    <p>Calendário de Atividades</p>
+                </a>
+            </div>
         </div>
     </div>
 </section>
