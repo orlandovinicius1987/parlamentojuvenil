@@ -2454,13 +2454,16 @@ img-center {
 }
 
 
-
 .winner-1 p {
 	color: #fff !important;
+	border-bottom: 1px solid #fff;
+	padding-bottom: 50px;
 }
 
 .winner-2 p {
 	color: #fff !important;
+	border-bottom: 1px solid #fff;
+	padding-bottom: 50px;
 }
 
 
@@ -2469,6 +2472,15 @@ img-center {
 }
 
 
+.flag-tournment .winner-2 h2 {
+	color: #fff !important;
+	font-size: 30px;
+}
+.flag-tournment .winner-3 h3 {
+	color: #fff !important;
+	font-size: 30px;
+	font-weight: 600;
+}
 
 
 
