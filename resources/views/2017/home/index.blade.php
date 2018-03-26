@@ -106,7 +106,7 @@
 
                                 <div class="col-md-12">
                                     <img src="{{ $flag->thumbnail_url }}" class="img-responsive" alt="" style="display: block; margin: 0 auto;">
-                                    <p></p>
+                                    <p>{{ $flag->winner_description }}</p>
                                     <br><br>
                                 </div>
                             </div>
