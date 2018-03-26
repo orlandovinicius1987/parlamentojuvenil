@@ -2452,3 +2452,46 @@ img-center {
 .box-border-15 {
     margin-bottom: 30px;
 }
+
+
+
+.winner-1 p {
+	color: #fff !important;
+}
+
+.winner-2 p {
+	color: #fff !important;
+}
+
+
+.winner-3 p {
+	color: #fff !important;
+}
+
+
+
+
+
+@media screen and (min-width: 901px) {
+
+	.winner-2 {
+		padding: 0 300px 0 300px;
+		text-align: center;
+	}
+
+	.winner-3 {
+		padding: 0 300px 0 300px;
+		text-align: center;
+	}
+	.flag-tournment .winner-2 h2 {
+		text-align: center !important;
+		margin-left: 0px !important;
+	}
+
+	.flag-tournment .winner-3 h3 {
+		text-align: center !important;
+		margin-left: 0px !important;
+	}
+
+
+}
