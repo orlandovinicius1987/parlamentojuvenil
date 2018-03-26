@@ -83,6 +83,7 @@ class Builder
                      ->with('citiesInCurrentRound', $citiesInCurrentRound)
                      ->with('flags', $this->dataRepository->flagContest->allFlagsWithVotes()->shuffle())
                      ->with('finalistFlags', $this->dataRepository->flagContest->allFlagsWithVotes()->where('finalist', true)->shuffle())
+                    ->with('winnerFlags', $this->getWinnerFlags())
                      ->with('student', loggedUser()->student)
                      ->with('isSubscribeForm', loggedUser()->must_be_student)
                      ->with('newspapers', $newspapersLinks)
@@ -211,6 +212,23 @@ class Builder
         }
 
         return $result;
+    }
+
+    private function getWinnerFlags()
+    {
+        $flags = $this
+                ->dataRepository
+                ->flagContest
+                ->allFlagsWithVotes()
+                ->reject(function($flag) {
+                    return ! $flag->winner_position;
+                });
+
+        return [
+           1 => $flags->where('winner_position', 1)->first(),
+           2 => $flags->where('winner_position', 2)->first(),
+           3 => $flags->where('winner_position', 3)->first(),
+        ];
     }
 
     public function makeLinkAttributes($file, $name, $parts)

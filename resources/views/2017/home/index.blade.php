@@ -97,14 +97,18 @@
                 {{--</div>--}}
 
                 <div class="text-center">
-                    <h1>FINALISTAS</h1>
-
-                    <br><br>
                     <div class="row">
-                        @foreach($finalistFlags as $flag)
-                            <div class="col-md-12">
-                                <img src="{{ $flag->thumbnail_url }}" class="img-responsive" alt="" style="display: block; margin: 0 auto;">
+                        @foreach($winnerFlags as $flag)
+                            <div class="winner-{{$flag->winner_position}}">
+                                <h{{$flag->winner_position}}>{{ $flag->winner_position }}° LUGAR</h{{$flag->winner_position}}>
+
                                 <br><br>
+
+                                <div class="col-md-12">
+                                    <img src="{{ $flag->thumbnail_url }}" class="img-responsive" alt="" style="display: block; margin: 0 auto;">
+                                    <p></p>
+                                    <br><br>
+                                </div>
                             </div>
                         @endforeach
                     </div>
