@@ -1,0 +1,343 @@
+.masonry-pj {
+    padding-top: 30px;
+    /*padding-bottom: 50px;*/
+    /*background: #eeeeee;*/
+}
+
+/* ---- grid ---- */
+
+.grid {
+    /*background: #EEE;*/
+    /* center */
+
+}
+
+/* clearfix */
+.grid:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+/* ---- grid-item ---- */
+
+.grid-item {
+    width: 176px;
+    height: 176px;
+    float: left;
+    background: #D26;
+    border: 0px solid #333;
+    border-color: hsla(0, 0%, 0%, 0.5);
+    border-radius: 0px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 1px transparent;
+    /*overflow: hidden;*/
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: color, background-color;
+    transition-property: color, background-color;
+}
+
+.grid-item--height2 { height: 176px; width:372px; }
+.grid-item--height3 { height: 372px; width:372px; }
+
+
+
+.grid-item--height5 { height: 85px;  }
+.grid-item--height6 { height: 65px;  }
+
+
+
+
+
+.cerulean-blue{
+    background: #0094DB;
+    color: #fff;
+}
+.cerulean-blue:hover{
+    background: #007DB8;
+    color: #fff;
+}
+
+.danube-blue{
+    background: #5A8BC9;
+    color: #fff;
+}
+.danube-blue:hover{
+    background: #3C72B9;
+    color: #fff;
+}
+
+.endeavour-blue{
+    background: #0060AE;
+    color: #fff;
+}
+.endeavour-blue:hover{
+    background: #004F8F;
+    color: #fff;
+}
+.jacksons-purple{
+    background: #292C95 !important;
+    color: #fff;
+}
+.jacksons-purple:hover{
+    background: #1F2170 !important;
+    color: #fff;
+}
+.lima-green{
+    background: #91CE18;
+    color: #fff;
+}
+.lima-green:hover{
+    background: #74A413;
+    color: #fff;
+}
+
+.haze-green{
+    background: #00A648;
+    color: #fff;
+}
+.haze-green:hover{
+    background: #007A35;
+    color: #fff;
+}
+
+
+.supernova-yellow{
+    background: #FFCA00;
+    color: #292C95;
+}
+.supernova-yellow:hover{
+    background: #E0B400;
+    color: #292C95;
+}
+
+
+
+.ecstasy-orange{
+    background: #F58220;
+}
+.ecstasy-orange:hover{
+    background: #EA730B;
+}
+
+.torch-red{
+    background: #FF141E;
+}
+.torch-red:hover{
+    background: #F5000C;
+}
+
+.rouge{
+    background: #A54686;
+    color: #fff;
+}
+.rouge:hover{
+    background: #8F3D74;
+}
+
+
+.violet-red{
+    background: #BC1C91;
+    color: #fff;
+}
+.violet-red:hover{
+    background: #A0187C;
+}
+
+.white{
+    background: #ffffff;
+}
+.white:hover{
+    background: #F5F5F5;
+}
+
+
+.turbo-yellow {
+    background: #FFF000 !important;
+    color: #292C95;
+}
+
+.turbo-yellow:hover {
+    background: #E0D100 !important;
+    color: #292C95;
+}
+
+
+/*
+
+.laranja01 {
+    background: #f58320 !important;
+}
+*/
+
+
+
+
+
+
+
+
+.txt-turbo-yellow {
+    color: #FFF000 !important;
+}
+
+.txt-amarelo02 {
+    color: #ffca08 !important;
+}
+.txt-laranja01 {
+    color: #f58320 !important;
+}
+
+.txt-lima-green {
+    color: #17a84b !important;
+}
+
+.txt-azul01 {
+    color: #292C95 !important;
+}
+
+
+
+.grow img {
+    -webkit-filter: brightness(85%);
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.grow img:hover {
+    -webkit-filter: brightness(100%);
+}
+
+
+
+button.btn.btn-default.btfundo {
+    background: #cfa504;
+    color: #fff;
+    border-radius: 0;
+}
+/*
+
+
+
+.masonry-overflow {
+    position: absolute;
+}
+
+
+.masonry-pj {
+    text-align: center;
+    background: #f2f2f2;
+    color: white;
+}
+
+.masonry-overflow {
+    position: absolute;
+}
+
+
+.masonry10{
+    bottom: -20px;
+    max-width: 100%;
+}
+
+.masonry07{
+    bottom: -20px;
+    max-width: 100%;
+    right: -6px;
+}
+
+.masonry08 {
+    right: 0;
+    bottom: -20px;
+}
+
+
+.inscrevase.form-group {
+    position: absolute;
+    bottom: -16px !important;
+    left: 0;
+    width: 100%;
+    border: 3px solid #cfa504;
+}
+
+.masonry-big {
+    bottom: -21px;
+    right: -15px;
+    z-index: 99;
+}
+
+.masonry11 {
+    bottom: -20px;
+    z-index: 999;
+}
+
+.masonry-big {
+    bottom: -21px;
+    right: -15px;
+    z-index: 99;
+}
+
+
+
+.masonry-pj img {
+    display: block;
+    margin: 0 auto 20px;
+}
+
+
+*/
+
+
+img.masonry-padding.img-responsive {
+    max-width: 100%;
+    padding: 10px 20px;
+}
+
+
+
+
+.masonry-overflow {
+    position: absolute;
+}
+
+
+.masonry10{
+    bottom: 0px;
+    max-width: 100%;
+}
+
+.masonry07{
+    bottom: 0px;
+    max-width: 100%;
+    right: -6px;
+}
+
+.masonry08 {
+    right: 0;
+    bottom: 0px;
+}
+
+
+
+
+.masonry-big {
+    bottom: -1px;
+    right: -15px;
+    z-index: 99;
+}
+
+.masonry11 {
+    bottom: 0px;
+    z-index: 99;
+}
+
+
+
+img.masonry-padding.paddingtop40.masonry-informacoes {
+    padding-top: 40px;
+}
+
