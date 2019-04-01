@@ -2,8 +2,8 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Parlamento Juvenil 2017</title>
-        <meta name="description" content="Parlamento Juvenil 2017">
+        <title>Parlamento Juvenil {{ config('app.year') }}</title>
+        <meta name="description" content="Parlamento Juvenil {{ config('app.year') }}">
         <meta name="author" content="Alerj | SDGI | Projetos Esperciais">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <!-- Mobile Specific Meta -->
@@ -13,35 +13,35 @@
         <![endif]-->
 
         <!-- Bootstrap  -->
-        <link href="/templates/2017/assets/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/templates/{{ config('app.year') }}/assets/css/bootstrap.min.css" rel="stylesheet">
         <!-- icon fonts font Awesome -->
-        <link href="/templates/2017/assets/css/font-awesome.min.css" rel="stylesheet">
+        <link href="/templates/{{ config('app.year') }}/assets/css/font-awesome.min.css" rel="stylesheet">
         <!-- icon fonts font Awesome -->
         <link href="//fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
         <!-- Import Magnific Pop Up Styles -->
-        <link rel="stylesheet" href="/templates/2017/assets/css/magnific-popup.css">
+        <link rel="stylesheet" href="/templates/{{ config('app.year') }}/assets/css/magnific-popup.css">
         <!-- Import Custom Styles -->
-        <!--	<link href="/templates/2017/assets/css/style.css" rel="stylesheet">-->
+        <!--	<link href="/templates/{{ config('app.year') }}/assets/css/style.css" rel="stylesheet">-->
         <!-- Import Animate Styles -->
-        <link href="/templates/2017/assets/css/animate.min.css" rel="stylesheet">
+        <link href="/templates/{{ config('app.year') }}/assets/css/animate.min.css" rel="stylesheet">
         <!-- Import owl.carousel Styles -->
-        <link href="/templates/2017/assets/css/owl.carousel.css" rel="stylesheet">
+        <link href="/templates/{{ config('app.year') }}/assets/css/owl.carousel.css" rel="stylesheet">
 
         <!-- Style CSS -->
-        <link href="/templates/2017/assets/css/style.css" rel="stylesheet">
+        <link href="/templates/{{ config('app.year') }}/assets/css/style.css" rel="stylesheet">
 
         <!-- FONTS CSS -->
-        <link rel="stylesheet" type="text/css" href="/templates/2017/assets/css/stylesheet.css">
+        <link rel="stylesheet" type="text/css" href="/templates/{{ config('app.year') }}/assets/css/stylesheet.css">
 
         <!-- TIMELINE CSS -->
-        <link href="/templates/2017/assets/css/timeline.css" rel="stylesheet">
+        <link href="/templates/{{ config('app.year') }}/assets/css/timeline.css" rel="stylesheet">
 
         <!-- Masonry CSS -->
-        <link href="/templates/2017/assets/css/masonry.css" rel="stylesheet">
+        <link href="/templates/{{ config('app.year') }}/assets/css/masonry.css" rel="stylesheet">
 
 
         <!-- Import Custom Responsive Styles -->
-        <link href="/templates/2017/assets/css/responsive.css" rel="stylesheet">
+        <link href="/templates/{{ config('app.year') }}/assets/css/responsive.css" rel="stylesheet">
 
         <!--[if IE]>
         <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -58,7 +58,7 @@
     </head>
 
     <body class="header-fixed-top">
-        @include('2017.layouts.partials.variables')
+        @include( config('app.year').'.layouts.partials.variables')
 
         <div id="page-top" class="page-top"></div>
         <section id="site-banner" class="site-banner text-center">
@@ -94,10 +94,10 @@
                                 <i class="fa fa-bars"></i>
                             </button>
                             <div class="menu-logo">
-                                <a href="{{ route('home') }}"><img src="/templates/2017/images/logo.png" alt="menu Logo"></a>
+                                <a href="{{ route('home') }}"><img src="/templates/{{ config('app.year') }}/images/logo.png" alt="menu Logo"></a>
                             </div>
                         </div>
-                        @include('2017.layouts.partials.menu')
+                        @include(config('app.year').'.layouts.partials.menu')
                     </div>
                 </div>
             </div>
@@ -133,10 +133,10 @@
                         </div>
 
                         <div class="col-xs-offset-2 col-xs-4 col-sm-offset-0 col-sm-3 col-md-offset-2 col-md-2">
-                            <img src="/templates/2017/images/logo-alerj.png" class="logo-alerj img-responsive">
+                            <img src="/templates/{{ config('app.year') }}/images/logo-alerj.png" class="logo-alerj img-responsive">
                         </div>
                         <div class="col-xs-4 col-sm-3 col-md-2">
-                            <img src="/templates/2017/images/logo-governo.png" class="logo-governo img-responsive">
+                            <img src="/templates/{{ config('app.year') }}/images/logo-governo.png" class="logo-governo img-responsive">
                         </div>
                     </div>
                 </div>
@@ -152,21 +152,21 @@
 
         <!-- /#scroll-to-top -->
         <!-- Include modernizr-2.8.3.min.js -->
-        <script src="/templates/2017/assets/js/modernizr-2.8.3.min.js"></script>
+        <script src="/templates/{{ config('app.year') }}/assets/js/modernizr-2.8.3.min.js"></script>
         <!-- Include jquery.min.js plugin -->
-        <script src="/templates/2017/assets/js/jquery-2.1.0.min.js"></script>
+        <script src="/templates/{{ config('app.year') }}/assets/js/jquery-2.1.0.min.js"></script>
         <!-- Include magnific-popup.min.js -->
-        <script src="/templates/2017/assets/js/jquery.magnific-popup.min.js"></script>
+        <script src="/templates/{{ config('app.year') }}/assets/js/jquery.magnific-popup.min.js"></script>
         <!-- Google Maps Script -->
         <script src="//maps.google.com/maps/api/js?sensor=true"></script>
         <!-- Gmap3.js For Static Maps -->
-        <script src="/templates/2017/assets/js/gmap3.js"></script>
+        <script src="/templates/{{ config('app.year') }}/assets/js/gmap3.js"></script>
         <!-- Javascript Plugins  -->
-        <script src="/templates/2017/assets/js/plugins.js"></script>
+        <script src="/templates/{{ config('app.year') }}/assets/js/plugins.js"></script>
         <!-- Custom Functions  -->
-        <script src="/templates/2017/assets/js/functions.js"></script>
-        <script src="/templates/2017/assets/js/wow.min.js"></script>
-        <script type="text/javascript" src="/templates/2017/assets/js/jquery.ajaxchimp.min.js"></script>
+        <script src="/templates/{{ config('app.year') }}/assets/js/functions.js"></script>
+        <script src="/templates/{{ config('app.year') }}/assets/js/wow.min.js"></script>
+        <script type="text/javascript" src="/templates/{{ config('app.year') }}/assets/js/jquery.ajaxchimp.min.js"></script>
 
         <script>
             $(document).ready(function () {
