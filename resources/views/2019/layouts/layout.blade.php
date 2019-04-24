@@ -68,7 +68,7 @@
     </head>
 
 
-    <body id="page-top">
+    <body class="noScroll" id="page-top">
 
     @include( config('app.year').'.layouts.partials.variables')
 
