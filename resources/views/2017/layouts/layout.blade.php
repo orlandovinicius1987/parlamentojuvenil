@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <title>Parlamento Juvenil 2017</title>
         <meta name="description" content="Parlamento Juvenil 2017">
-        <meta name="author" content="Alerj | SDGI | Projetos Esperciais">
+        <meta name="author" content="Alerj | SDGI | Projetos Especiais">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <!-- Mobile Specific Meta -->
         <meta name="viewport" content="width=device-width, initial-scale=1">

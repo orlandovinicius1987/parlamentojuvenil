@@ -1,4 +1,4 @@
-@extends('2017.layouts.layout')
+@extends( config('app.year').'.layouts.layout')
 
 @section('contents')
     <section id="vue-quiz" class="fundo-quiz capacitacao-content">

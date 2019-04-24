@@ -1,4 +1,4 @@
-@extends('2017.layouts.layout')
+@extends( config('app.year').'.layouts.layout')
 
 @section('contents')
     <div id="vue-flag-contest-subscribe" class="form-subscribe">

@@ -394,6 +394,16 @@ mostrando a disposição dos jovens para mudar a realidade em que vivem',
                     'url' => '',
                 ],
             ],
+            2020 => [
+                [
+                    'id' => '',
+                    'title' => '',
+                    'lead' => '',
+                    'vehicle' => '',
+                    'file' => '',
+                    'url' => '',
+                ],
+            ],
         ];
     }
 

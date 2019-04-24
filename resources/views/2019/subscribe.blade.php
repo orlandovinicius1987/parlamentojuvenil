@@ -1,7 +1,7 @@
-@extends('2017.layouts.layout')
+@extends( config('app.year').'.layouts.layout')
 
 @section('contents')
     @if(config('app.subscriptions.enabled'))
-        @include('2017.subscriptions.page')
+        @include( config('app.year').'.subscriptions.page')
     @endif
 @stop

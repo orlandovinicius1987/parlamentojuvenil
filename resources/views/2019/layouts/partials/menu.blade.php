@@ -1,6 +1,28 @@
+
+
+<ul class="navbar-nav ml-auto">
+    <li class="nav-item mx-0 mx-lg-1">
+        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#sobre">Sobre</a>
+    </li>
+    <li class="nav-item mx-0 mx-lg-1">
+        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#como-funciona">Como funciona</a>
+    </li>
+    <li class="nav-item mx-0 mx-lg-1">
+        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#quem-pode">Quem pode participar</a>
+    </li>
+    {{--<li class="nav-item mx-0 mx-lg-1">
+        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#downloads">Downloads</a>
+    </li>--}}
+</ul>
+
+{{--
+
+
 <nav id="menu" class="menu collapse navbar-collapse">
     <ul id="headernavigation" class="menu-list nav navbar-nav">
-        <li{{-- class="active"--}}><a href="#sobreopj">Sobre</a></li>
+        <li--}}
+{{-- class="active"--}}{{--
+><a href="#sobreopj">Sobre</a></li>
         <li><a href="#como-funciona">Como Funciona</a></li>
 
         @if (app()->environment() != 'production')
@@ -12,9 +34,13 @@
             <li><a href="#contact">Contato</a></li>
         @endif
 
-        {{--<li class="hidden-sm social-buttons"><a target="_blank" href="//www.facebook.com/parlamentojuvenilrio/"><i class="fa fa-facebook"></i></a></li>--}}
-        {{--<li class="hidden-sm social-buttons ultimo"><a target="_blank" href="//www.youtube.com/user/parlamentojuvenilrj"><i class="fa fa-youtube"></i></a></li>--}}
-        {{--<li class="menu-busca"><a class="" href="#contact"><i class="fa fa-search"></i></a></li>--}}
-        {{--<li class="hidden-sm menu-user"><a class="" href="#contact"><i class="fa fa-user"></i></a></li>--}}
     </ul>
 </nav>
+
+--}}
+
+
+
+
+
+

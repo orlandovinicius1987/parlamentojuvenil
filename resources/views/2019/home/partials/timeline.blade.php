@@ -1,113 +1,171 @@
-<section id="timeline-container">
-    <div class="row">
-        <div class="col-md-1">
-            <div class="grow grid-item--height6 ">
-
-            </div>
-            <div class="grow grid-item--height6 vermelho1">
-
-            </div>
-        </div>
-        <div class="col-md-2">
-            <div class="grow grid-item verde2">
-
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="row text-center">
-                <div class="">
-                    <h2>Cronograma</h2>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-2">
-            <div class="grow grid-item laranja1">
-
-            </div>
-        </div>
-        <div class="col-md-1">
-            <div class="grow grid-item--height6 azul3">
-
-            </div>
-        </div>
-    </div>
 
 
-    <div class="container-full">
+<!-- CRONOGRAMA Section -->
+<section class="bg-pattern cronograma mb-0" id="cronograma">
+    <div class="container-fluid">
+        <h2 class="text-center ">Cronograma</h2>
         <div class="row">
-            <div class="col-xs-12">
-                <h2>Cronograma</h2>
-            </div>
-        </div>
-    </div>
+            <div class="col-lg-12 ">
 
-    <div class="container">
-        <div class="row">
-            <div class="watch">
-            </div>
-            <div class="col-xs-12">
-                <ul id="timeline" class="timeline">
-                    <li class="timeline-inverted">
-                        <div class="timeline-bullet info"><i class=""></i></div>
-                        <div class="timeline-panel-border amarelo02">
-                            <div class="timeline-date roxo01 date-left">
-                                <p>06</p>
-                                <p class="timeline-month">jul</p>
-                            </div>
-                            <div class="timeline-panel-body roxo01">
-                                <h4 class="timeline-panel-title">Eleições (1º turno)</h4>
-                                <p>lorem ipsum</p>
-                                <ul id="countdown">
-                                    <li>
-                                        <span class="time-font">48</span>
-                                        <p>dias </p>
-                                    </li>
-                                    <li>
-                                        <span class="time-font">11</span>
-                                        <p class="">horas </p>
-                                    </li>
-                                    <li>
-                                        <span class="time-font">8</span>
-                                        <p class="">minutos</p>
-                                    </li>
-                                    <li>
-                                        <span class="time-font">17</span>
-                                        <p class="">segundos</p>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </li>
+
+
+                <!-- The Timeline -->
+
+                <ul class="timeline">
+
+                    <!-- Item 3 -->
                     <li>
-                        <div class="timeline-bullet info"><i class=""></i></div>
-                        <div class="timeline-panel-border roxo01">
-                            <div class="timeline-date amarelo01 date-right txt-azul01">
-                                <p>30</p>
-                                <p class="timeline-month">jun</p>
+                        <div class="direction-r">
+                            <div class="flag-wrapper">
+                                <span class="flag">Abertura das Inscrições </span>
+                                <span class="time-wrapper"><span class="time">06 de Maio</span></span>
+                                <!--<div class="desc">06 de Maio</div>-->
                             </div>
-                            <div class="timeline-panel-body amarelo01 txt-azul01">
-                                <h4 class="timeline-panel-title">Encerramento das inscrições</h4>
-                                <p> ipsum lorem quad esta</p>
+
+                        </div>
+                    </li>
+
+
+                    <!-- Item Direita -->
+                    <li>
+                        <div class="direction-l">
+                            <div class="flag-wrapper">
+                                <span class="flag">Início das Mobilizações Regionais com Oficinas</span>
+                                <span class="time-wrapper"><span class="time">06 de Maio</span></span>
                             </div>
                         </div>
                     </li>
-                    <li class="timeline-inverted">
-                        <div class="timeline-bullet info"><i class=""></i></div>
-                        <div class="timeline-panel-border laranja01">
-                            <div class="timeline-date verde01 date-left">
-                                <p>06</p>
-                                <p class="timeline-month">jul</p>
-                            </div>
-                            <div class="timeline-panel-body verde01">
-                                <h4 class="timeline-panel-title">Eleições (1º turno)</h4>
-                                <p> ipsum lorem quad esta</p>
+
+                    <!-- Item Esquerda -->
+                    <li>
+                        <div class="direction-r">
+                            <div class="flag-wrapper">
+                                <span class="flag">Encerramento das Mobilizações Regionais </span>
+                                <span class="time-wrapper"><span class="time">24 de Maio</span></span>
                             </div>
                         </div>
                     </li>
-                    <li class="timeline-inverted">
-                        <div class="timeline-end"><i class=""></i></div>
+
+
+                    <!-- Item Direita -->
+                    <li>
+                        <div class="direction-l">
+                            <div class="flag-wrapper">
+                                <span class="flag">Dia D do Parlamento Juvenil</span>
+                                <span class="time-wrapper"><span class="time">27 de Maio</span></span>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- Item Esquerda -->
+                    <li>
+                        <div class="direction-r">
+                            <div class="flag-wrapper">
+                                <span class="flag">Encerramento das Inscrições </span>
+                                <span class="time-wrapper"><span class="time">07 de Junho</span></span>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- Item Direita -->
+                    <li>
+                        <div class="direction-l">
+                            <div class="flag-wrapper">
+                                <span class="flag">Primeiro Turno das Eleições </span>
+                                <span class="time-wrapper"><span class="time">13 de Junho</span></span>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- Item Esquerda -->
+                    <li>
+                        <div class="direction-r">
+                            <div class="flag-wrapper">
+                                <span class="flag"> Início dos Debates Municipais </span>
+                                <span class="time-wrapper"><span class="time">17 de Junho</span></span>
+                            </div>
+                        </div>
+                    </li>
+
+
+                    <!-- Item Direita -->
+                    <li>
+                        <div class="direction-l">
+                            <div class="flag-wrapper">
+                                <span class="flag"> Encerramento dos Debates Municipais  </span>
+                                <span class="time-wrapper"><span class="time">03 de Julho</span></span>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- Item Esquerda -->
+                    <li>
+                        <div class="direction-r">
+                            <div class="flag-wrapper">
+                                <span class="flag"> Início doo Segundo Turno das Eleições  </span>
+                                <span class="time-wrapper"><span class="time">04 de Julho</span></span>
+                            </div>
+                        </div>
+                    </li>
+
+
+                    <!-- Item Direita -->
+                    <li>
+                        <div class="direction-l">
+                            <div class="flag-wrapper">
+                                <span class="flag"> Encerramento doo Segundo Turno das Eleições  </span>
+                                <span class="time-wrapper"><span class="time">07 de Julho</span></span>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- Item Esquerda -->
+                    <li>
+                        <div class="direction-r">
+                            <div class="flag-wrapper">
+                                <span class="flag"> Início das Eleições Suplementares </span>
+                                <span class="time-wrapper"><span class="time">30 de Julho</span></span>
+                            </div>
+                        </div>
+                    </li>
+
+
+
+
+
+                    <!-- Item Direita -->
+                    <li>
+                        <div class="direction-l">
+                            <div class="flag-wrapper">
+                                <span class="flag"> Encerramento das Eleições Suplementares </span>
+                                <span class="time-wrapper"><span class="time">02 de Agosto</span></span>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- Item Esquerda -->
+                    <li>
+                        <div class="direction-r">
+                            <div class="flag-wrapper">
+                                <span class="flag"> Início dos Cursos à Distância </span>
+                                <span class="time-wrapper"><span class="time">16 de Setembro</span></span>
+                            </div>
+                        </div>
+                    </li>
+
+
+
+                    <!-- Item Direita -->
+                    <li>
+                        <div class="direction-l">
+                            <div class="flag-wrapper">
+                                <span class="flag"> Encerramento dos Cursos à Distância </span>
+                                <span class="time-wrapper"><span class="time">29 de Setembro</span></span>
+                            </div>
+                        </div>
                     </li>
                 </ul>
+
             </div>
         </div>
     </div>

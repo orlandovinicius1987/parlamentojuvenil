@@ -327,7 +327,7 @@ h1,h2,h3,h4,h5,h6 {
 	top: 19px;
 }
 .header-fixed-top header.sticky {
-	background-color: #7F80BF;
+	background-color: #1fbea6;
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -1503,7 +1503,7 @@ footer a {
 		display: none;
 	}
 	.main-menu {
-		background-color: #7f82be;
+		background-color: #1fbea6;
 		/*border: 0px solid #292C95;*/
 	}
 
