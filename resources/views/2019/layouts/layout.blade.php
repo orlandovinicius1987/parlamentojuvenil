@@ -75,10 +75,33 @@
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg bg-secondary fixed-top " id="mainNav">
-        <div class="container">
-            <!--<a class="navbar-brand js-scroll-trigger" href="#page-top">Start Bootstrap</a>-->
 
-            <div class="col-md-5">
+
+ {{--       <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">Start Bootstrap</a>
+            <button class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item mx-0 mx-lg-1">
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio">Portfolio</a>
+                    </li>
+                    <li class="nav-item mx-0 mx-lg-1">
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">About</a>
+                    </li>
+                    <li class="nav-item mx-0 mx-lg-1">
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+--}}
+
+
+        <div class="container">
+            <div class="col-10 col-md-5">
                 <a class="navbar-brand js-scroll-trigger" href="#page-top">
                     <img class="logo-parlamento img-fluid" src="/templates/{{ config('app.year') }}/assets/img/logo-parlamento.png">
                 </a>
@@ -86,7 +109,6 @@
 
 
             <button class="navbar-toggler navbar-toggler-right bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                Menu
                 <i class="fas fa-bars"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -96,7 +118,13 @@
 
             </div>
         </div>
+
+
+
     </nav>
+
+
+
 
     <div class="container">
         @include('partials.errors')
@@ -129,7 +157,7 @@
         <div class="container">
             <div class="row">
 
-                <div class="col-md-3 mb-5 mb-lg-0">
+                <div class="col-md-5 col-lg-3 mb-5 mb-lg-0">
                     {{--<h4 class="text-uppercase mb-4">Around the Web</h4>--}}
                     <ul class="list-inline mb-0">
                         <li class="list-inline-item">
@@ -157,20 +185,20 @@
                     </ul>
                 </div>
 
-                <div class="col-md-5 mb-5 mb-lg-0">
+                <div class="col-md-7 col-lg-5 mb-5 mb-lg-0">
                     {{--<h4 class="text-uppercase mb-4">Location</h4>--}}
                     <p class="lead mb-0">
                         21 2588-8407 &nbsp; | &nbsp;  <a href="mailto:pjalerj@gmail.com">pjalerj@gmail.com</a></p>
                 </div>
 
-                <div class="col-md-2">
+                <div class="col-6 offset-md-3 col-md-3 col-lg-2">
                     {{--<h4 class="text-uppercase mb-4">About Freelancer</h4>--}}
                     <p class="lead mb-0">
                         <img src="/templates/2017/images/logo-governo.png" class="logo-governo img-fluid">
                     </p>
                 </div>
 
-                <div class="col-md-2">
+                <div class="col-6  col-md-3 col-lg-2">
                     {{--<h4 class="text-uppercase mb-4">About Freelancer</h4>--}}
                     <p class="lead mb-0">
                         <img src="/templates/2017/images/logo-alerj.png" class="logo-governo img-fluid">

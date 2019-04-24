@@ -1,7 +1,42 @@
 <!-- Header -->
 
+
+
+
+
 <header class="masthead bg-pattern text-center swiper">
-    <!-- Swiper -->
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-12 col-lg-8">
+                <img src="/templates/{{ config('app.year') }}/assets/img/site2016-mockup.png" class="img-fluid"><br>
+            </div>
+
+            <div class="col-md-12 col-lg-4 text-left">
+                <h3 class="">Mas que história é essa?</h3>
+
+                <p class="lead"> O Parlamento Juvenil da ALERJ é dos primeiros projetos do Brasil que simula com os jovens o funcionamento do Legislativo.</p>
+                <p class="lead"> Criado em 1998 e reformulado pelos próprios Parlamentares Juvenis em 2015, chega em 2019 à sua 12&ordf; edição.</p>
+
+                <a class="btn btn-primary" href="#" role="button"><i class="fas fa-plus-circle"></i> Saiba Mais</a>
+            </div>
+
+
+        </div>
+    </div>
+</header>
+
+
+
+
+
+
+<!-- Swiper -->
+
+<!--
+<header class="masthead bg-pattern text-center swiper">
+
     <div class="swiper-container pt-5">
         <div class="swiper-wrapper">
             <div class="swiper-slide">
@@ -9,13 +44,8 @@
                     <div class="col-md-4 text-left">
                         <h3 class="">Mas que história é essa?</h3>
 
-                        <p class="lead"> O Parlamento Juvenil da ALERJ é dos primeiros projetos do Brasil que simula com os jovens o funcionamento do Lesgislativo.</p>
+                        <p class="lead"> O Parlamento Juvenil da ALERJ é dos primeiros projetos do Brasil que simula com os jovens o funcionamento do Legislativo.</p>
                         <p class="lead"> Criado em 1998 e reformulado pelos próprios Parlamentares Juvenis em 2015, chega em 2019 à sua 12&ordf; edição.</p>
-
-{{--
-                        <p class="lead"> O Parlamento Juvenil é um projeto da Assembleia Legislativa do Estado do Rio de Janeiro (Alerj) para incentivar a participação de jovens na política.</p>
-                        <p class="lead"> Os estudantes passam uma semana vivendo o dia a dia de um Deputado Estadual, discutindo e aprimorando projetos de lei que eles mesmos criaram. Os seis projetos aprovados ainda podem virar lei no Estado.</p>
---}}
 
                         <a class="btn btn-primary" href="#" role="button"><i class="fas fa-plus-circle"></i> Saiba Mais</a>
                     </div>
@@ -24,7 +54,6 @@
                         <img src="/templates/{{ config('app.year') }}/assets/img/site2016-mockup.png" class="img-fluid"><br>
                         imagem do site da edição de 2016
                     </div>
-
                 </div>
             </div>
 
@@ -81,8 +110,8 @@
             --}}
 
         </div>
-        <!-- Add Pagination -->
+
         <div class="swiper-pagination"></div>
     </div>
 
-</header>
+</header> ---->
