@@ -19,7 +19,7 @@
                 <p class="lead"> O Parlamento Juvenil da ALERJ é dos primeiros projetos do Brasil que simula com os jovens o funcionamento do Legislativo.</p>
                 <p class="lead"> Criado em 1998 e reformulado pelos próprios Parlamentares Juvenis em 2015, chega em 2019 à sua 12&ordf; edição.</p>
 
-                <a class="btn btn-primary" href="#" role="button"><i class="fas fa-plus-circle"></i> Saiba Mais</a>
+                {{--<a class="btn btn-primary" href="#" role="button"><i class="fas fa-plus-circle"></i> Saiba Mais</a>--}}
             </div>
 
 
