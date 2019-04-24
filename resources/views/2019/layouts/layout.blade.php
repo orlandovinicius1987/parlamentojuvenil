@@ -157,7 +157,7 @@
         <div class="container">
             <div class="row">
 
-                <div class="col-md-3 mb-5 mb-lg-0">
+                <div class="col-md-5 col-lg-3 mb-5 mb-lg-0">
                     {{--<h4 class="text-uppercase mb-4">Around the Web</h4>--}}
                     <ul class="list-inline mb-0">
                         <li class="list-inline-item">
@@ -185,20 +185,20 @@
                     </ul>
                 </div>
 
-                <div class="col-md-5 mb-5 mb-lg-0">
+                <div class="col-md-7 col-lg-5 mb-5 mb-lg-0">
                     {{--<h4 class="text-uppercase mb-4">Location</h4>--}}
                     <p class="lead mb-0">
                         21 2588-8407 &nbsp; | &nbsp;  <a href="mailto:pjalerj@gmail.com">pjalerj@gmail.com</a></p>
                 </div>
 
-                <div class="col-md-2">
+                <div class="col-6 offset-md-3 col-md-3 col-lg-2">
                     {{--<h4 class="text-uppercase mb-4">About Freelancer</h4>--}}
                     <p class="lead mb-0">
                         <img src="/templates/2017/images/logo-governo.png" class="logo-governo img-fluid">
                     </p>
                 </div>
 
-                <div class="col-md-2">
+                <div class="col-6  col-md-3 col-lg-2">
                     {{--<h4 class="text-uppercase mb-4">About Freelancer</h4>--}}
                     <p class="lead mb-0">
                         <img src="/templates/2017/images/logo-alerj.png" class="logo-governo img-fluid">

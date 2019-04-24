@@ -12,7 +12,7 @@
             <div class="col-md-12 col-lg-8">
                 <img src="/templates/{{ config('app.year') }}/assets/img/site2016-mockup.png" class="img-fluid"><br>
             </div>
-            
+
             <div class="col-md-12 col-lg-4 text-left">
                 <h3 class="">Mas que história é essa?</h3>
 
