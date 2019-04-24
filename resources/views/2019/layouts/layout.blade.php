@@ -37,7 +37,7 @@
         <link href="/templates/{{ config('app.year') }}/assets/fonts/helvetica-neue/style.css" rel="stylesheet" type="text/css">
 
         <!-- Instashow - INSTAGRAM -->
-        <script src="/templates/{{ config('app.year') }}/instashow/elfsight-instagram-feed.js"></script>
+        {{--<script src="/templates/{{ config('app.year') }}/instashow/elfsight-instagram-feed.js"></script>--}}
 
         <!-- ********** FIM - DO SITE 2019 ********** -->
 
