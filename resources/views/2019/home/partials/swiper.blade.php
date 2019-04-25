@@ -9,11 +9,11 @@
 
         <div class="row">
 
-            <div class="col-md-12 col-lg-8">
+            <div class="col-md-12 col-lg-8 quehistoriaimg">
                 <img src="/templates/{{ config('app.year') }}/assets/img/site2016-mockup.png" class="img-fluid"><br>
             </div>
 
-            <div class="col-md-12 col-lg-4 text-left">
+            <div class="col-md-12 col-lg-4 text-left quehistoria">
                 <h3 class="">Mas que história é essa?</h3>
 
                 <p class="lead"> O Parlamento Juvenil da ALERJ é dos primeiros projetos do Brasil que simula com os jovens o funcionamento do Legislativo.</p>
