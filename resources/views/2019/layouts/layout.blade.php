@@ -191,7 +191,7 @@
                         21 2588-8407 &nbsp; | &nbsp;  <a href="mailto:pjalerj@gmail.com">pjalerj@gmail.com</a></p>
                 </div>
 
-                <div class="col-6 offset-md-3 col-md-3 col-lg-2">
+                <div class="col-6 offset-md-3 col-md-3 offset-lg-0 col-lg-2">
                     {{--<h4 class="text-uppercase mb-4">About Freelancer</h4>--}}
                     <p class="lead mb-0">
                         <img src="/templates/2017/images/logo-governo.png" class="logo-governo img-fluid">
