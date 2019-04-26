@@ -383,7 +383,7 @@
         </div>
     </div>
 
-    @if (loggedUser()->user->is_administrator)
+    @if (loggedUser()->user && loggedUser()->user->is_administrator)
         {{-- Elected --}}
         <div class="row control-group"  transition="expand">
             <div class="form-group col-lg-4 floating-label-form-group controls">

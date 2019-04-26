@@ -2,6 +2,7 @@
 
 namespace App\Services\Views;
 
+use App\Data\Entities\Student;
 use \DB;
 use Cache;
 use Carbon\Carbon;
@@ -83,8 +84,8 @@ class Builder
                      ->with('citiesInCurrentRound', $citiesInCurrentRound)
                      ->with('flags', $this->dataRepository->flagContest->allFlagsWithVotes()->shuffle())
                      ->with('finalistFlags', $this->dataRepository->flagContest->allFlagsWithVotes()->where('finalist', true)->shuffle())
-                    ->with('winnerFlags', $this->getWinnerFlags())
-                     ->with('student', loggedUser()->student)
+                     ->with('winnerFlags', $this->getWinnerFlags())
+                     ->with('student', loggedUser()->student ?: new Student())
                      ->with('isSubscribeForm', loggedUser()->must_be_student)
                      ->with('newspapers', $newspapersLinks)
                      ->with('gallery', $galleryLinks9)
