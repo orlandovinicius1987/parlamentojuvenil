@@ -27,7 +27,7 @@ abstract class Controller extends BaseController
      */
     public function buildView($view, $year = null, $force = false, $isHome = false)
     {
-        return $this
+        return ( $this
                 ->dataRepository
                 ->viewBuilder
                 ->buildViewData(
@@ -35,7 +35,7 @@ abstract class Controller extends BaseController
                     $force,
                     $isHome,
                     $year
-                );
+                ));
     }
 
     public function getYear($year = null)
