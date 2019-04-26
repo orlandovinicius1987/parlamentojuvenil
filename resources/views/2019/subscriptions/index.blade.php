@@ -1,10 +1,28 @@
 @extends( config('app.year').'.layouts.layout')
 
 @section('contents')
-    <div id="subscribe" class="form-subscribe" >
-        <h1>Inscreva-se no Parlamento Juvenil {{ config('app.year') }}</h1>
-        @include('partials.subscribe-form')
-    </div>
+
+
+    <section class="bg-pattern" id="form-subscribe">
+
+        <div class="container">
+
+                <div id="subscribe" class="form-subscribe" >
+                    <div class="row">
+                    <h1>Inscreva-se no Parlamento Juvenil {{ config('app.year') }}</h1>
+                    </div>
+                    
+                    @include('partials.subscribe-form')
+                </div>
+
+
+        </div>
+
+    </section>
+
+
+
+
 @stop
 
 @section('page-javascripts')
