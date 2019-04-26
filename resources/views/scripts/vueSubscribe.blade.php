@@ -34,9 +34,9 @@
                 gender2: "{!! old('gender2') ?: $student->gender2 !!}",
                 id_number: "{!! old('id_number') ?: $student->id_number !!}",
                 schools: emptySchool,
-                elected_1nd: "{!! old('elected_1nd') ?: $subscription->elected_1nd !!}",
-                elected_2nd: "{!! old('elected_2nd') ?: $subscription->elected_2nd !!}",
-                auto_elected: "{!! old('auto_elected') ?: $subscription->auto_elected !!}",
+                elected_1nd: "{!! old('elected_1nd') ?: isset($subscription) ? $subscription->elected_1nd : '' !!}",
+                elected_2nd: "{!! old('elected_2nd') ?: isset($subscription) ? $subscription->elected_2nd : '' !!}",
+                auto_elected: "{!! old('auto_elected') ?: isset($subscription) ? $subscription->auto_elected : '' !!}",
                 elected_fields: [
                     {name: 'elected_1nd', round: 1},
                     {name: 'elected_2nd', round: 2},
