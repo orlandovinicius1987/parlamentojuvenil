@@ -9,7 +9,10 @@
 
                 <div id="subscribe" class="form-subscribe" >
                     <div class="row">
-                    <h1 class="text-center">Inscreva-se no Parlamento Juvenil {{ config('app.year') }}</h1>
+                        <div class="col-12 text-center">
+                            <h1 class="">Inscreva-se no Parlamento Juvenil {{ config('app.year') }}</h1>
+                        </div>
+
                     </div>
 
                     @include('partials.subscribe-form')

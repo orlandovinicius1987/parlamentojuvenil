@@ -439,7 +439,7 @@
     <div id="success"></div>
 
     <div class="row"  transition="expand">
-        <div class="form-group col-12">
+        <div class="form-group col-12 text-right">
             @if (! $isSubscribeForm)
                 <button id="submit" type="submit" class="btn btn-danger">
                     Gravar
