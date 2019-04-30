@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Auth as IlluminateAuth;
 use App\Http\Requests\RecoverPassword;
 use App\Http\Requests\UserRegister;
-use Auth as IlluminateAuth;
 use App\Services\SocialLogin\SocialUserService;
 use App\Services\SocialLogin\EmailAuthProvider;
 use App\Data\Repositories\Data as DataRepository;
@@ -77,7 +77,7 @@ class EmailAuth extends BaseController
 
             $this->socialUserService->socialNetworkLogin($socialNetworkProvider);
 
-            return view('2017.partials.subscribe-form-register-and-birthdate');
+            return view(config('app.year').'.partials.subscribe-form-register-and-birthdate');
         }
 
         return redirect()->intended();
@@ -91,11 +91,11 @@ class EmailAuth extends BaseController
     public function resetPassword(RecoverPassword $recoverPasswordValidation)
     {
         if ($this->usersRepository->recoverPassword($recoverPasswordValidation->all())) {
-            return view('2017.messages.show')
+            return view(config('app.year').'.messages.show')
                 ->with('message', 'Uma mensagem com a nova senha foi enviado para o sua caixa postal.');
         }
 
-        return view('2017.messages.show')
+        return view(config('app.year').'.messages.show')
             ->with('message', 'Email não encontrado. Por favor entre em contato com a administração do Parlamento Juvenil.');
     }
 }

@@ -85,11 +85,11 @@ class StudentController extends Controller
 
     public function identify()
     {
-        return view('2017.partials.subscribe-form-register-and-birthdate');
+        return view(config('app.year').'.partials.subscribe-form-register-and-birthdate');
     }
 
     public function wrongAge()
     {
-        return view('2017.students.wrong-age');
+        return view(config('app.year').'.students.wrong-age');
     }
 }
