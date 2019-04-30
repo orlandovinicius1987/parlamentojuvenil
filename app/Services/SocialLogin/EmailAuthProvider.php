@@ -5,7 +5,7 @@ namespace App\Services\SocialLogin;
 use Illuminate\Support\Arr;
 use GuzzleHttp\ClientInterface;
 
-class EmailAuthProvider extends AbstractProvider implements ProviderInterface
+class EmailAuthProvider
 {
     /**
      * The user fields being requested.

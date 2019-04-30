@@ -73,7 +73,7 @@ class EmailAuth extends BaseController
     public function student()
     {
         if (is_null($this->usersRepository->findStudentByUser(loggedUser()->user))) {
-            $socialNetworkProvider = new EmailAuthProvider();
+            $socialNetworkProvider = app(EmailAuthProvider::class);
 
             $this->socialUserService->socialNetworkLogin($socialNetworkProvider);
 

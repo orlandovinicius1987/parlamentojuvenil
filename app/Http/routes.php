@@ -175,7 +175,10 @@ Route::get('subscriptions/edit/{id}', ['as' => 'subscriptions.edit', 'uses' => '
 
 Route::post('subscriptions/edit/{id}', ['as' => 'subscriptions.edit', 'uses' => 'Subscriptions@update']);
 
-Route::get('inscricao', ['as' => 'subscriptions.index', 'uses' => 'Subscriptions@index']);
+Route::group(['prefix' => '/inscricao', 'middleware' => ['student-login']], function ()
+{
+    Route::get('/', ['as' => 'subscriptions.index', 'uses' => 'Subscriptions@index']);
+});
 
 Route::group(['prefix' => 'api/v1'], function ()
 {

@@ -29,7 +29,7 @@ class Users extends Repository
 
     public function findStudentByUser($user)
     {
-        $socialUser = SocialUser::where('user_id', $user->id)->first();
+        $socialUser = $user ? SocialUser::where('user_id', $user->id)->first() : null;
 
         return $socialUser
             ? $socialUser->student
