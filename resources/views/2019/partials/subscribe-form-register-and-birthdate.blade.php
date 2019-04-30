@@ -29,6 +29,7 @@
                             required data-validation-required-message="Por favor digite seu nome."
                     >
             </div>
+
             <div class="col-md-4 text-left">
                 <label for="birthdate" class="control-label">Data de nascimento</label>
                 <input
@@ -46,7 +47,7 @@
         </div>
 
         <div class="row">
-            <div class="col-md-offset-5 col-md-2 text-center">
+            <div class="offset-md-5 col-md-2 text-center">
                 <button id="submit" type="submit" class="btn btn-lg btn-primary btn-block btn-submit-subscription">
                     Enviar
                 </button>
