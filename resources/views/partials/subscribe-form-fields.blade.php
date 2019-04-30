@@ -3,7 +3,7 @@
 
     {{-- Matricula e Nascimento --}}
     <div class="row control-group"  transition="expand">
-        <div class="form-group col-xs-6 floating-label-form-group controls">
+        <div class="form-group col-12 floating-label-form-group controls">
             <label for="registration" class="control-label">Matrícula</label>
             <input
                     v-model="registration"
@@ -20,7 +20,7 @@
             <span class="help-block text-danger"></span>
         </div>
 
-        <div class="form-group col-xs-6 floating-label-form-group controls">
+        <div class="form-group col-12 floating-label-form-group controls">
             <label for="birthdate" class="control-label">Data de nascimento</label>
             <input
                     v-model="birthdate"
@@ -40,7 +40,7 @@
 
     {{--Nome--}}
     <div class="row control-group">
-        <div class="form-group col-xs-12 floating-label-form-group controls">
+        <div class="form-group col-12 floating-label-form-group controls">
             <label for="name" class="control-label">Nome Completo</label>
             <input
                     v-model="name"
@@ -59,7 +59,7 @@
 
     {{-- Nome Social --}}
     <div class="row control-group">
-        <div class="form-group col-xs-12 floating-label-form-group controls">
+        <div class="form-group col-12 floating-label-form-group controls">
             <label for="social_name" class="control-label">Apelido</label>
             <input
                     v-model="social_name"
@@ -78,7 +78,7 @@
 
     {{-- Email --}}
     <div class="row control-group"  transition="expand">
-        <div class="form-group col-xs-12 floating-label-form-group controls">
+        <div class="form-group col-12 floating-label-form-group controls">
             <label for="email" class="control-label">E-mail</label>
             <input
                     v-model="email"
@@ -98,7 +98,7 @@
     <div id="vue-schools-VUE-DISABLED">
         {{-- Cidade --}}
         <div class="row control-group" transition="expand">
-            <div class="form-group col-xs-12 floating-label-form-group controls">
+            <div class="form-group col-12 floating-label-form-group controls">
                 <label for="city" class="control-label">Município</label>
                 <select v-model="city" class="form-control input-lg" placeholder="Município" name="city" id="city" required data-validation-required-message="Por favor preencha o município.">
                     {{--<select id="city-edit" v-model="city" class="form-control input-lg" placeholder="Município" name="city" id="city" required data-validation-required-message="Por favor preencha o município.">--}}
@@ -121,7 +121,7 @@
 
         {{-- Unidade Escolar e série --}}
         <div class="row control-group"  transition="expand">
-            <div class="form-group col-xs-6 floating-label-form-group controls">
+            <div class="form-group col-6 floating-label-form-group controls">
                 <label for="school" class="control-label">Escola</label>
                 <select id="school-edit" v-model="school" value="" options="schools" class="form-control input-lg" placeholder="Escola" name="school" id="school">
                     <option value="">SELECIONE SUA ESCOLA</option>
@@ -136,7 +136,7 @@
                 <span class="help-block text-danger"></span>
             </div>
 
-            <div class="form-group col-xs-6 floating-label-form-group controls">
+            <div class="form-group col-6 floating-label-form-group controls">
                 <label for="registration" class="control-label">Série</label>
 
                 <select v-model="grade" class="form-control input-lg" placeholder="Sexo" name="grade" id="grade" required data-validation-required-message="Por favor preencha a série.">
@@ -209,7 +209,7 @@
 
     {{-- Identidade / CPF --}}
     <div class="row control-group"  transition="expand">
-        <div class="form-group col-xs-4 floating-label-form-group controls">
+        <div class="form-group col-4 floating-label-form-group controls">
             <label for="cpf" class="control-label">CPF</label>
             <input
                     v-model="cpf"
@@ -226,7 +226,7 @@
             <span class="help-block text-danger" v-if="!cpfValid && cpfWasChecked">CPF INVÁLIDO</span>
         </div>
 
-        <div class="form-group col-xs-4 floating-label-form-group controls">
+        <div class="form-group col-4 floating-label-form-group controls">
             <label for="id_number" class="control-label">Identidade</label>
             <input
                     v-model="id_number"
@@ -242,7 +242,7 @@
             <span class="help-block text-danger"></span>
         </div>
 
-        <div class="form-group col-xs-4 floating-label-form-group controls">
+        <div class="form-group col-4 floating-label-form-group controls">
             <label for="id_issuer" class="control-label">Órgão emissor</label>
             <input
                     v-model="id_issuer"
@@ -439,7 +439,7 @@
     <div id="success"></div>
 
     <div class="row"  transition="expand">
-        <div class="form-group col-xs-12">
+        <div class="form-group col-12">
             @if (! $isSubscribeForm)
                 <button id="submit" type="submit" class="btn btn-danger">
                     Gravar

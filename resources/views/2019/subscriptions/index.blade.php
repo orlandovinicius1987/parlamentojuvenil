@@ -3,15 +3,15 @@
 @section('contents')
 
 
-    <section class="bg-pattern" id="form-subscribe">
+    <section class="bg-pattern subscribe-section masthead" id="form-subscribe">
 
         <div class="container">
 
                 <div id="subscribe" class="form-subscribe" >
                     <div class="row">
-                    <h1>Inscreva-se no Parlamento Juvenil {{ config('app.year') }}</h1>
+                    <h1 class="text-center">Inscreva-se no Parlamento Juvenil {{ config('app.year') }}</h1>
                     </div>
-                    
+
                     @include('partials.subscribe-form')
                 </div>
 
