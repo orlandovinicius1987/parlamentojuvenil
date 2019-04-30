@@ -121,7 +121,7 @@
 
         {{-- Unidade Escolar e série --}}
         <div class="row control-group"  transition="expand">
-            <div class="form-group col-6 floating-label-form-group controls">
+            <div class="form-group col-12 col-md-6 floating-label-form-group controls">
                 <label for="school" class="control-label">Escola</label>
                 <select id="school-edit" v-model="school" value="" options="schools" class="form-control input-lg" placeholder="Escola" name="school" id="school">
                     <option value="">SELECIONE SUA ESCOLA</option>
@@ -136,7 +136,7 @@
                 <span class="help-block text-danger"></span>
             </div>
 
-            <div class="form-group col-6 floating-label-form-group controls">
+            <div class="form-group col-12 col-md-6 floating-label-form-group controls">
                 <label for="registration" class="control-label">Série</label>
 
                 <select v-model="grade" class="form-control input-lg" placeholder="Sexo" name="grade" id="grade" required data-validation-required-message="Por favor preencha a série.">
@@ -209,7 +209,7 @@
 
     {{-- Identidade / CPF --}}
     <div class="row control-group"  transition="expand">
-        <div class="form-group col-4 floating-label-form-group controls">
+        <div class="form-group col-12 col-md-4 floating-label-form-group controls">
             <label for="cpf" class="control-label">CPF</label>
             <input
                     v-model="cpf"
@@ -226,7 +226,7 @@
             <span class="help-block text-danger" v-if="!cpfValid && cpfWasChecked">CPF INVÁLIDO</span>
         </div>
 
-        <div class="form-group col-4 floating-label-form-group controls">
+        <div class="form-group col-12 col-md-4 floating-label-form-group controls">
             <label for="id_number" class="control-label">Identidade</label>
             <input
                     v-model="id_number"
@@ -242,7 +242,7 @@
             <span class="help-block text-danger"></span>
         </div>
 
-        <div class="form-group col-4 floating-label-form-group controls">
+        <div class="form-group col-12 col-md-4 floating-label-form-group controls">
             <label for="id_issuer" class="control-label">Órgão emissor</label>
             <input
                     v-model="id_issuer"
