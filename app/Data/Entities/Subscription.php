@@ -3,6 +3,7 @@
 namespace App\Data\Entities;
 
 use App\Base\Model;
+use App\Data\Scopes\YearScope;
 
 class Subscription extends Model
 {
@@ -15,6 +16,18 @@ class Subscription extends Model
         'elected_2nd',
         'auto_elected',
 	];
+
+    /**
+     * The "booting" method of the model.
+     *
+     * @return void
+     */
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::addGlobalScope(new YearScope());
+    }
 
     public static function findByStudent($student, $year = null)
     {

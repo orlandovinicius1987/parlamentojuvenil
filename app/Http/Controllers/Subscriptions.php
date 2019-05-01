@@ -21,6 +21,10 @@ use App\Http\Controllers\Controller as BaseController;
 class Subscriptions extends BaseController
 {
     const MATRICULA_E_DATA_DE_NASCIMENTO = 'Não foi encontrado nenhum aluno com esta matrícula e data de nascimento';
+    /**
+     * @var \App\Data\Repositories\Subscriptions
+     */
+    private $subscriptionsRepository;
 
     public function __construct(Data $dataRepository, SubscriptionsRepository $subscriptionsRepository)
     {
@@ -33,6 +37,8 @@ class Subscriptions extends BaseController
 
     public function byState()
 	{
+	    $year = config('app.year');
+
         $subscriptions = City::select(
                             'students.school as school_name',
                             'cities.id as city_id',
@@ -40,27 +46,27 @@ class Subscriptions extends BaseController
                             'cities.state_id',
                             'subscriptions.created_at as subscriptions_created_at',
                             'subscriptions.ignored as subscription_ignored',
-                            DB::raw('(select count(*)  from subscriptions su1  join students st1 on st1.id = su1.student_id join cities ci1 on ci1.name = st1.city  where ci1.name = cities.name and subscriptions.ignored = false) as subscriptions_count')
+                            DB::raw("(select count(*) from subscriptions su1 join students st1 on st1.id = su1.student_id join cities ci1 on ci1.name = st1.city where ci1.name = cities.name and subscriptions.ignored = false and subscriptions.year = '{{ $year }}') as subscriptions_count")
                         )
                         ->leftJoin('students', 'cities.name', '=', 'students.city')
                         ->leftJoin('states', 'states.id', '=', 'cities.state_id')
                         ->leftJoin('subscriptions', 'subscriptions.student_id', '=', 'students.id')
                         ->where('states.code', 'RJ')
+                        ->where('subscriptions.year', $year)
                         ->orderBy('cities.name')
                         ->get();
 
         $cities = City::select(
                             'cities.id as city_id',
                             'cities.name as city_name',
-                            DB::raw('(select count(*)  from subscriptions su1 join students st2 on st2.id = su1.student_id join cities ci2 on ci2.name = st2.city  where ci2.name = cities.name and su1.ignored = false) as subscriptions_count'),
-                            DB::raw('(select count(distinct(st2.school)) from subscriptions su2 join students st2 on st2.id = su2.student_id join cities ci2 on ci2.name = st2.city where ci2.name = cities.name and su2.ignored = false) as schools_count'),
+                            DB::raw("(select count(*)  from subscriptions su1 join students st2 on st2.id = su1.student_id join cities ci2 on ci2.name = st2.city  where ci2.name = cities.name and su1.ignored = false and su1.year = '{{ $year }}') as subscriptions_count"),
+                            DB::raw("(select count(distinct(st2.school)) from subscriptions su2 join students st2 on st2.id = su2.student_id join cities ci2 on ci2.name = st2.city where ci2.name = cities.name and su2.ignored = false and su2.year = '{{ $year }}') as schools_count"),
                             DB::raw('max(su1.created_at) as last_subscription')
                         )
                         ->leftJoin('students as st1', 'cities.name', '=', 'st1.city')
                         ->leftJoin('subscriptions as su1', 'su1.student_id', '=', 'st1.id')
-                        ->where('cities.name', '<>', 'FACEBOOK')
-                        ->where('cities.name', '<>', 'ACR')
-                        ->where('cities.name', '<>', 'BRENOT')
+                        ->whereNotIn('cities.name', ['FACEBOOK' ,'ACR', 'BRENOT'])
+                        ->where('su1.year', $year)
                         ->groupBy(['cities.id', 'cities.name'])
                         ->orderBy('cities.name')
                         ->get();
@@ -88,7 +94,7 @@ class Subscriptions extends BaseController
             'validSubscriptionsCount' => $subscriptions->where('subscription_ignored', false)->count(),
 
             'subscriptions' => $subscriptions,
-            'cities' => $cities,
+            // 'cities' => $cities,
         ];
 	}
 
