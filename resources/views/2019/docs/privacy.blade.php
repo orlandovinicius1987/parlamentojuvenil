@@ -1,4 +1,4 @@
-@extends( config('app.year').'.layouts.simple-page')
+@extends( get_current_year().'.layouts.simple-page')
 
 @section('page-title')
     POLÍTICA DE PRIVACIDADE

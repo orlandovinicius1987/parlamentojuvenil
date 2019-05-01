@@ -4,8 +4,8 @@
 
         <!-- ************* MANTIDOS DO SITE ANTIGO ************* -->
         <meta charset="UTF-8">
-        <title>Parlamento Juvenil {{ config('app.year') }}</title>
-        <meta name="description" content="Parlamento Juvenil {{ config('app.year') }}">
+        <title>Parlamento Juvenil {{ get_current_year() }}</title>
+        <meta name="description" content="Parlamento Juvenil {{ get_current_year() }}">
         <meta name="author" content="Alerj | SDGI | Projetos Esperciais">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <!-- Mobile Specific Meta -->
@@ -29,17 +29,17 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
         <!-- SWIPER -->
-        <link rel="stylesheet" href="/templates/{{ config('app.year') }}/assets/css/swiper.min.css">
+        <link rel="stylesheet" href="/templates/{{ get_current_year() }}/assets/css/swiper.min.css">
 
         <!-- Custom styles for this template -->
-        <link href="/templates/{{ config('app.year') }}/assets/css/freelancer.min.css" rel="stylesheet">
+        <link href="/templates/{{ get_current_year() }}/assets/css/freelancer.min.css" rel="stylesheet">
         <!-- FONTES  -->
-        <link href="/templates/{{ config('app.year') }}/assets/fonts/helvetica-neue/style.css" rel="stylesheet" type="text/css">
+        <link href="/templates/{{ get_current_year() }}/assets/fonts/helvetica-neue/style.css" rel="stylesheet" type="text/css">
 
-        <link href="/templates/{{ config('app.year') }}/assets/css/custom.css" rel="stylesheet" type="text/css">
+        <link href="/templates/{{ get_current_year() }}/assets/css/custom.css" rel="stylesheet" type="text/css">
 
         <!-- Instashow - INSTAGRAM -->
-        {{--<script src="/templates/{{ config('app.year') }}/instashow/elfsight-instagram-feed.js"></script>--}}
+        {{--<script src="/templates/{{ get_current_year() }}/instashow/elfsight-instagram-feed.js"></script>--}}
 
         <!-- ********** FIM - DO SITE 2019 ********** -->
 
@@ -72,7 +72,7 @@
 
     <body class="noScroll" id="page-top">
 
-    @include( config('app.year').'.layouts.partials.variables')
+    @include( get_current_year().'.layouts.partials.variables')
 
 
     <!-- Navigation -->
@@ -105,7 +105,7 @@
         <div class="container">
             <div class="col-10 col-md-5">
                 <a class="navbar-brand js-scroll-trigger" href="/#page-top">
-                    <img class="logo-parlamento img-fluid" src="/templates/{{ config('app.year') }}/assets/img/logo-parlamento.png">
+                    <img class="logo-parlamento img-fluid" src="/templates/{{ get_current_year() }}/assets/img/logo-parlamento.png">
                 </a>
             </div>
 
@@ -115,7 +115,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
 
-                @include(config('app.year').'.layouts.partials.menu')
+                @include(get_current_year().'.layouts.partials.menu')
 
 
             </div>
@@ -240,11 +240,11 @@
 
 
     <!-- Bootstrap core JavaScript -->
-    <script src="/templates/{{ config('app.year') }}/assets/js/jquery/jquery.min.js"></script>
-    <script src="/templates/{{ config('app.year') }}/assets/js/bootstrap/bootstrap.bundle.js"></script>
+    <script src="/templates/{{ get_current_year() }}/assets/js/jquery/jquery.min.js"></script>
+    <script src="/templates/{{ get_current_year() }}/assets/js/bootstrap/bootstrap.bundle.js"></script>
 
     <!-- Plugin JavaScript -->
-    <script src="/templates/{{ config('app.year') }}/assets/js/jquery-easing/jquery.easing.min.js"></script>
+    <script src="/templates/{{ get_current_year() }}/assets/js/jquery-easing/jquery.easing.min.js"></script>
 
 
 
@@ -253,7 +253,7 @@
 
 
     <!-- Custom scripts for this template -->
-    <script src="/templates/{{ config('app.year') }}/assets/js/freelancer.js"></script>
+    <script src="/templates/{{ get_current_year() }}/assets/js/freelancer.js"></script>
 
 
 
@@ -261,7 +261,7 @@
 
 
     <!-- Swiper JS -->
-    <script src="/templates/{{ config('app.year') }}/assets/js/swiper.min.js"></script>
+    <script src="/templates/{{ get_current_year() }}/assets/js/swiper.min.js"></script>
 
     <!-- Initialize Swiper -->
     <script>

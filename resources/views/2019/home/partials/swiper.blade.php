@@ -10,7 +10,7 @@
         <div class="row">
 
             <div class="col-md-12 col-lg-8 quehistoriaimg">
-                <img src="/templates/{{ config('app.year') }}/assets/img/site2016-mockup.png" class="img-fluid"><br>
+                <img src="/templates/{{ get_current_year() }}/assets/img/site2016-mockup.png" class="img-fluid"><br>
             </div>
 
             <div class="col-md-12 col-lg-4 text-left quehistoria">
@@ -51,7 +51,7 @@
                     </div>
 
                     <div class="col-md-8">
-                        <img src="/templates/{{ config('app.year') }}/assets/img/site2016-mockup.png" class="img-fluid"><br>
+                        <img src="/templates/{{ get_current_year() }}/assets/img/site2016-mockup.png" class="img-fluid"><br>
                         imagem do site da edição de 2016
                     </div>
                 </div>
@@ -62,7 +62,7 @@
             <div class="swiper-slide">
                 <div class="row">
                     <div class="col-md-7">
-                        <img src="/templates/{{ config('app.year') }}/assets/img/subscribe.png" class="img-fluid">
+                        <img src="/templates/{{ get_current_year() }}/assets/img/subscribe.png" class="img-fluid">
                     </div>
                     <div class="col-md-5 text-right">
                         <h3 class="">Inscreva-se Aqui!</h3>
@@ -85,7 +85,7 @@
             <div class="swiper-slide">
                 <div class="row">
                     <div class="col-md-8">
-                        <img src="/templates/{{ config('app.year') }}/assets/img/calendario001.png" class="img-fluid">
+                        <img src="/templates/{{ get_current_year() }}/assets/img/calendario001.png" class="img-fluid">
                     </div>
                     <div class="col-md-4 text-right">
                         <h3 class="">Calendário 2019 </h3>

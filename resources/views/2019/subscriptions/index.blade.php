@@ -1,4 +1,4 @@
-@extends(config('app.year').'.layouts.layout')
+@extends(get_current_year().'.layouts.layout')
 
 @section('contents')
     <section class="bg-pattern subscribe-section mastheadx" id="form-subscribe">
@@ -8,7 +8,7 @@
                     <div class="col-12 text-center">
                         <h1>
                             <span class="text-success">Inscreva-se no</span>
-                            <span><br>Parlamento Juvenil {{ config('app.year') }}</h1></span>
+                            <span><br>Parlamento Juvenil {{ get_current_year() }}</h1></span>
                         <br>
                     </div>
                 </div>

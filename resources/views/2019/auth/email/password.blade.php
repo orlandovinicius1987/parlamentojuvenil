@@ -1,4 +1,4 @@
-@extends( config('app.year').'.layouts.layout')
+@extends( get_current_year().'.layouts.layout')
 
 @section('contents')
     <!-- Subscribe Section -->

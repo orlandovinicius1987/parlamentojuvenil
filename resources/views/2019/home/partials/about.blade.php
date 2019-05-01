@@ -73,7 +73,7 @@
             <div class="col-md-4 bg-green800 ml-2 p-3  text-center">
                 --}}{{--<h3 class="text-center ">Quem pode participar</h3>--}}{{--
 
-                <img class="img-fluid" src="/templates/{{ config('app.year') }}/images/logo-alerj-cores.png">
+                <img class="img-fluid" src="/templates/{{ get_current_year() }}/images/logo-alerj-cores.png">
                 <p class="lead">
                     O Parlamento Juvenil da Alerj acontece em parceria com a Secretaria de Estado de Educação e é multiplicado por toda a rede, pela Assembleia e pelos ex-parlamentares juvenis.
                 </p>

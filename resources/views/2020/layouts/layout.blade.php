@@ -3,8 +3,8 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Parlamento Juvenil {{ config('app.year') }}</title>
-        <meta name="description" content="Parlamento Juvenil {{ config('app.year') }}">
+        <title>Parlamento Juvenil {{ get_current_year() }}</title>
+        <meta name="description" content="Parlamento Juvenil {{ get_current_year() }}">
         <meta name="author" content="Alerj | SDGI | Projetos Esperciais">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
@@ -18,35 +18,35 @@
 {{--
 
         <!-- Bootstrap  -->
-        <link href="/templates/{{ config('app.year') }}/assets/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/templates/{{ get_current_year() }}/assets/css/bootstrap.min.css" rel="stylesheet">
         <!-- icon fonts font Awesome -->
-        <link href="/templates/{{ config('app.year') }}/assets/css/font-awesome.min.css" rel="stylesheet">
+        <link href="/templates/{{ get_current_year() }}/assets/css/font-awesome.min.css" rel="stylesheet">
         <!-- icon fonts font Awesome -->
         <link href="//fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
         <!-- Import Magnific Pop Up Styles -->
-        <link rel="stylesheet" href="/templates/{{ config('app.year') }}/assets/css/magnific-popup.css">
+        <link rel="stylesheet" href="/templates/{{ get_current_year() }}/assets/css/magnific-popup.css">
         <!-- Import Custom Styles -->
-        <!--	<link href="/templates/{{ config('app.year') }}/assets/css/style.css" rel="stylesheet">-->
+        <!--	<link href="/templates/{{ get_current_year() }}/assets/css/style.css" rel="stylesheet">-->
         <!-- Import Animate Styles -->
-        <link href="/templates/{{ config('app.year') }}/assets/css/animate.min.css" rel="stylesheet">
+        <link href="/templates/{{ get_current_year() }}/assets/css/animate.min.css" rel="stylesheet">
         <!-- Import owl.carousel Styles -->
-        <link href="/templates/{{ config('app.year') }}/assets/css/owl.carousel.css" rel="stylesheet">
+        <link href="/templates/{{ get_current_year() }}/assets/css/owl.carousel.css" rel="stylesheet">
 
         <!-- Style CSS -->
-        <link href="/templates/{{ config('app.year') }}/assets/css/style.css" rel="stylesheet">
+        <link href="/templates/{{ get_current_year() }}/assets/css/style.css" rel="stylesheet">
 
         <!-- FONTS CSS -->
-        <link rel="stylesheet" type="text/css" href="/templates/{{ config('app.year') }}/assets/css/stylesheet.css">
+        <link rel="stylesheet" type="text/css" href="/templates/{{ get_current_year() }}/assets/css/stylesheet.css">
 
         <!-- TIMELINE CSS -->
-        <link href="/templates/{{ config('app.year') }}/assets/css/timeline.css" rel="stylesheet">
+        <link href="/templates/{{ get_current_year() }}/assets/css/timeline.css" rel="stylesheet">
 
         <!-- Masonry CSS -->
-        <link href="/templates/{{ config('app.year') }}/assets/css/masonry.css" rel="stylesheet">
+        <link href="/templates/{{ get_current_year() }}/assets/css/masonry.css" rel="stylesheet">
 
 
         <!-- Import Custom Responsive Styles -->
-        <link href="/templates/{{ config('app.year') }}/assets/css/responsive.css" rel="stylesheet">
+        <link href="/templates/{{ get_current_year() }}/assets/css/responsive.css" rel="stylesheet">
 
         <!--[if IE]>
         <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -73,7 +73,7 @@
 
 
     <body class="header-fixed-top">
-        @include( config('app.year').'.layouts.partials.variables')
+        @include( get_current_year().'.layouts.partials.variables')
 
 
         teste
@@ -85,7 +85,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-4">
-                        <a class="navbar-brand page-scroll" href="/"><img class="logo-parlamento img-responsive" src="/templates/{{ config('app.year') }}/images/logo-parlamento.png"></a>
+                        <a class="navbar-brand page-scroll" href="/"><img class="logo-parlamento img-responsive" src="/templates/{{ get_current_year() }}/images/logo-parlamento.png"></a>
                     </div>
                     <div class="col-sm-8 pull-right">
                         <div class="row">
@@ -116,10 +116,10 @@
                                 <i class="fa fa-bars"></i>
                             </button>
                             <div class="menu-logo">
-                                <a href="{{ route('home') }}"><img src="/templates/{{ config('app.year') }}/images/logo.png" alt="menu Logo"></a>
+                                <a href="{{ route('home') }}"><img src="/templates/{{ get_current_year() }}/images/logo.png" alt="menu Logo"></a>
                             </div>
                         </div>
-                        @include(config('app.year').'.layouts.partials.menu')
+                        @include(get_current_year().'.layouts.partials.menu')
                     </div>
                 </div>
             </div>
@@ -161,10 +161,10 @@
                         </div>
 
                         <div class="col-xs-offset-2 col-xs-4 col-sm-offset-0 col-sm-3 col-md-offset-2 col-md-2">
-                            <img src="/templates/{{ config('app.year') }}/images/logo-alerj.png" class="logo-alerj img-responsive">
+                            <img src="/templates/{{ get_current_year() }}/images/logo-alerj.png" class="logo-alerj img-responsive">
                         </div>
                         <div class="col-xs-4 col-sm-3 col-md-2">
-                            <img src="/templates/{{ config('app.year') }}/images/logo-governo.png" class="logo-governo img-responsive">
+                            <img src="/templates/{{ get_current_year() }}/images/logo-governo.png" class="logo-governo img-responsive">
                         </div>
                     </div>
                 </div>
@@ -185,20 +185,20 @@
 {{--
         <!-- /#scroll-to-top -->
         <!-- Include modernizr-2.8.3.min.js -->
-        <script src="/templates/{{ config('app.year') }}/assets/js/modernizr-2.8.3.min.js"></script>
+        <script src="/templates/{{ get_current_year() }}/assets/js/modernizr-2.8.3.min.js"></script>
         <!-- Include jquery.min.js plugin -->
-        <script src="/templates/{{ config('app.year') }}/assets/js/jquery-2.1.0.min.js"></script>
+        <script src="/templates/{{ get_current_year() }}/assets/js/jquery-2.1.0.min.js"></script>
         <!-- Include magnific-popup.min.js -->
-        <script src="/templates/{{ config('app.year') }}/assets/js/jquery.magnific-popup.min.js"></script>
+        <script src="/templates/{{ get_current_year() }}/assets/js/jquery.magnific-popup.min.js"></script>
         <!-- Google Maps Script -->
         <script src="//maps.google.com/maps/api/js?sensor=true"></script>
         <!-- Gmap3.js For Static Maps -->
-        <script src="/templates/{{ config('app.year') }}/assets/js/gmap3.js"></script>
+        <script src="/templates/{{ get_current_year() }}/assets/js/gmap3.js"></script>
         <!-- Javascript Plugins  -->
-        <script src="/templates/{{ config('app.year') }}/assets/js/plugins.js"></script>
+        <script src="/templates/{{ get_current_year() }}/assets/js/plugins.js"></script>
         <!-- Custom Functions  -->
-        <script src="/templates/{{ config('app.year') }}/assets/js/functions.js"></script>
-        <script src="/templates/{{ config('app.year') }}/assets/js/wow.min.js"></script>
+        <script src="/templates/{{ get_current_year() }}/assets/js/functions.js"></script>
+        <script src="/templates/{{ get_current_year() }}/assets/js/wow.min.js"></script>
         <script type="text/javascript" src="/templates/q/assets/js/jquery.ajaxchimp.min.js"></script>
 
         --}}

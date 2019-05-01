@@ -5,7 +5,7 @@
         <h2 class="text-center">Como Funciona</h2>
         <div class="row">
             <div class="col-lg-6 m-0 p-0 ">
-                <img class="img-fluid" src="/templates/{{ config('app.year') }}/assets/img/mockup_foto2016.png">
+                <img class="img-fluid" src="/templates/{{ get_current_year() }}/assets/img/mockup_foto2016.png">
             </div>
             <div class="col-lg-6 pr-5 mt-4 ">
                 {{--<h3 class="text-center ">Quem pode participar</h3>--}}

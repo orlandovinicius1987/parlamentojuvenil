@@ -1,4 +1,4 @@
-@extends(config('app.year').'.layouts.layout')
+@extends(get_current_year().'.layouts.layout')
 
 @section('contents')
     <section class="notifications">
@@ -183,7 +183,7 @@
         @endif
     </section>
 
-    @include(config('app.year').'.home.partials.downloads')
+    @include(get_current_year().'.home.partials.downloads')
 
     <section class="masonry-pj">
         <div class="container">
@@ -264,12 +264,12 @@
         </div>
     </section>
 
-    @include( config('app.year').'.home.partials.about')
-    @include( config('app.year').'.home.partials.howitworks')
+    @include( get_current_year().'.home.partials.about')
+    @include( get_current_year().'.home.partials.howitworks')
 
     @if (app()->environment() != 'production')
-        @include(config('app.year').'.home.partials.timeline')
+        @include(get_current_year().'.home.partials.timeline')
 
-        {{--@include(config('app.year').'.home.partials.subscriptions-map')--}}
+        {{--@include(get_current_year().'.home.partials.subscriptions-map')--}}
     @endif
 @stop

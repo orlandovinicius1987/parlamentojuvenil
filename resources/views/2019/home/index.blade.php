@@ -1,24 +1,24 @@
-@extends(config('app.year').'.layouts.layout')
+@extends(get_current_year().'.layouts.layout')
 
 @section('contents')
 
 
-    @include( config('app.year').'.home.partials.swiper')
-    @include( config('app.year').'.home.partials.about')
-    @include( config('app.year').'.home.partials.howitworks')
+    @include( get_current_year().'.home.partials.swiper')
+    @include( get_current_year().'.home.partials.about')
+    @include( get_current_year().'.home.partials.howitworks')
 
-    @include( config('app.year').'.home.partials.whocan')
+    @include( get_current_year().'.home.partials.whocan')
 
 
-    {{--@include( config('app.year').'.home.partials.downloads')--}}
+    {{--@include( get_current_year().'.home.partials.downloads')--}}
 
-{{--    @include( config('app.year').'.home.partials.instagram')--}}
+{{--    @include( get_current_year().'.home.partials.instagram')--}}
 
 
 
 {{--
     @if (app()->environment() != 'production')
-        @include( config('app.year').'.home.partials.timeline')
+        @include( get_current_year().'.home.partials.timeline')
     @endif
     --}}
 

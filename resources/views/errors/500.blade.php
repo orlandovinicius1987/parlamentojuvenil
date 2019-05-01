@@ -1,4 +1,4 @@
-@extends(config('app.year').'.layouts.layout')
+@extends(get_current_year().'.layouts.layout')
 
 @section('contents')
 
@@ -6,7 +6,7 @@
         <div class="container">
             <div class="error404-box">
                 <div class="error404-logo">
-                    <img src="/templates/{{ config('app.year') }}/assets/img/404error.jpg" alt="404 Error">
+                    <img src="/templates/{{ get_current_year() }}/assets/img/404error.jpg" alt="404 Error">
                 </div>
                 <div class="error404-box-body">
                     <p class="error404-box-msg">Ocorreu um erro nesta página</p>
