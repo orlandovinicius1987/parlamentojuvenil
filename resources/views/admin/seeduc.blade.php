@@ -12,7 +12,42 @@
             <div class="col-lg-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Digite os dados abaixo
+                        <div class="row">
+                            <div class="col-sm-8">
+                                Digite os dados abaixo
+                            </div>
+
+                            <div class="col-sm-4 text-right">
+                                <form enctype="multipart/form-data" novalidate>
+                                    <div class="dropbox">
+                                        <input
+                                            type="file"
+                                            name="file"
+                                            :disabled="isUploading"
+                                            @change="filesChange($event.target.name, $event.target.files); fileCount = $event.target.files.length"
+                                            accept=".csv"
+                                            class="input-file"
+                                        >
+
+                                        <p v-if="!isUploading && !error && !wasUploaded">
+                                            Importar arquivo de alunos
+                                        </p>
+
+                                        <p v-if="wasUploaded">
+                                            Importado com sucesso!
+                                        </p>
+
+                                        <p v-if="error">
+                                            @{{ error }}
+                                        </p>
+
+                                        <p v-if="isUploading">
+                                            <i class="fa fa-cog fa-spin"></i> Importando...
+                                        </p>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="panel-body">

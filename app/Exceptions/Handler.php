@@ -75,10 +75,10 @@ class Handler extends ExceptionHandler
 
         if ($e instanceof NotFoundHttpException)
         {
-            return Response::make(view('errors.404'));
+            return Response::make(view('errors.404'), 404);
         }
 
-        return Response::make(view('errors.500'));
+        return Response::make(view('errors.500'), 500);
     }
 
     /**

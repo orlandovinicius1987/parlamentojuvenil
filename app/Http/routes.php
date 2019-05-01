@@ -201,6 +201,8 @@ Route::group(['prefix' => 'api/v1'], function ()
     Route::get('vote/statistics/{year?}', ['as' => 'api.vote.statistics', 'uses' => 'Api@getVoteStatistics']);
 
     Route::post('validate/{type}', ['as' => 'api.validate', 'uses' => 'Api@validateType']);
+
+    Route::post('seeduc/upload', ['as' => 'api.seeduc.upload', 'uses' => 'Api@seeducUpload']);
 });
 
 Route::get('article/{id}', ['as' => 'article.show', 'uses' => 'News@showArticle']);

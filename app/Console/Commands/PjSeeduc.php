@@ -2,13 +2,10 @@
 
 namespace App\Console\Commands;
 
-use DB;
-use Carbon\Carbon;
-use League\Csv\Reader;
 use League\Csv\Statement;
 use Illuminate\Console\Command;
-use App\Data\Entities\Seeduc as Model;
 use Illuminate\Foundation\Bus\DispatchesJobs;
+use App\Services\SeeducImporter\Service as SeeducImporter;
 
 class PjSeeduc extends Command
 {
@@ -19,7 +16,7 @@ class PjSeeduc extends Command
      *
      * @var string
      */
-    protected $signature = 'pj:seeduc';
+    protected $signature = 'pj:seeduc {file?}';
 
     /**
      * The console command description.
@@ -33,44 +30,8 @@ class PjSeeduc extends Command
      *
      * @return mixed
      */
-    public function handle()
+    public function handle($file = null)
     {
-        ini_set("auto_detect_line_endings", "1");
-
-        DB::transaction(function() {
-            $reader = Reader::createFromPath(database_path(env('SEEDUC_CSV_FILE')));
-
-            DB::statement('delete from seeduc');
-
-            $counter = 0;
-
-            foreach ($reader as $index => $row) {
-                if ($index == 0) {
-                    continue;
-                }
-
-                $row = explode(';', $line = $row[0]);
-
-                $model = Model::create([
-                    'escola' => $row[0],
-                    'municipio' => $row[1],
-                    'regional' => $row[2],
-                    'nome' => $row[3],
-                    'matricula' => $row[4],
-                    'nascimento' => $this->toDate($row[5]),
-                ]);
-
-                $counter++;
-
-                if ($counter % 1000 == 0) {
-                    $this->info($counter.' - '.$model->id.' -> '.$line);
-                }
-            }
-        });
-    }
-
-    protected function toDate($date)
-    {
-        return Carbon::createFromFormat('d/m/y', $date);
+        (new SeeducImporter($this))->import($file);
     }
 }

@@ -7,6 +7,7 @@ use Validator;
 use App\Data\Repositories\Data;
 use App\Data\Repositories\Subscriptions;
 use App\Http\Controllers\Controller as BaseController;
+use App\Services\SeeducImporter\Service as SeeducImporterService;
 
 class Api extends BaseController
 {
@@ -110,5 +111,18 @@ SQL
         }
 
         return [ 'success' => true ];
+    }
+
+    public function seeducUpload()
+    {
+        $importer = app(SeeducImporterService::class);
+
+        if (!$importer->isValid($pathName = request()->file->getPathname())) {
+            return response('Formato inválido', 405);
+        }
+
+        $importer->import($pathName);
+
+        return response('Importado com sucesso');
     }
 }
