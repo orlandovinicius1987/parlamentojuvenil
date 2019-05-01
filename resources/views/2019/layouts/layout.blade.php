@@ -288,7 +288,7 @@
     </script>
 
 
-
+        @yield('page-javascripts')
 
     </body>
 </html>

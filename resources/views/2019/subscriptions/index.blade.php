@@ -1,7 +1,6 @@
 @extends(config('app.year').'.layouts.layout')
 
 @section('contents')
-
     <section class="bg-pattern subscribe-section masthead" id="form-subscribe">
         <div class="container">
             <div id="subscribe" class="form-subscribe" >
