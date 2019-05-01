@@ -3,7 +3,7 @@
 namespace App\Data\Entities;
 
 use App\Base\Model;
-use App\Data\Scopes\YearScope;
+use App\Data\Scopes\Year as YearScope;
 
 class Subscription extends Model
 {

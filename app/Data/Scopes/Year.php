@@ -15,7 +15,7 @@ class Year implements ScopeInterface
      * @param  \Illuminate\Database\Eloquent\Model  $model
      * @return void
      */
-    public function apply(Builder $builder)
+    public function apply(Builder $builder, Model $model)
     {
         $builder->where('year', config('app.year'));
     }
