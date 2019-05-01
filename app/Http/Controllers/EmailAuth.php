@@ -78,7 +78,7 @@ class EmailAuth extends BaseController
             // $this->socialUserService->socialNetworkLogin($socialNetworkProvider);
             $this->socialUserService->socialNetworkLogin('email');
 
-            return view(config('app.year').'.partials.subscribe-form-register-and-birthdate');
+            return view(get_current_year().'.partials.subscribe-form-register-and-birthdate');
         }
 
         return redirect()->intended();
@@ -92,11 +92,11 @@ class EmailAuth extends BaseController
     public function resetPassword(RecoverPassword $recoverPasswordValidation)
     {
         if ($this->usersRepository->recoverPassword($recoverPasswordValidation->all())) {
-            return view(config('app.year').'.messages.show')
+            return view(get_current_year().'.messages.show')
                 ->with('message', 'Uma mensagem com a nova senha foi enviado para o sua caixa postal.');
         }
 
-        return view(config('app.year').'.messages.show')
+        return view(get_current_year().'.messages.show')
             ->with('message', 'Email não encontrado. Por favor entre em contato com a administração do Parlamento Juvenil.');
     }
 }

@@ -13,8 +13,6 @@ class Home extends BaseController
 
     public function index($year = null, $force = false)
 	{
-        $year = $year ?: config('app.year');
-
-        return $this->buildView('home.index', $year, null, true);
+        return $this->buildView('home.index', get_current_year($year), null, true);
 	}
 }

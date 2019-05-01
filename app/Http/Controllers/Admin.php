@@ -2,16 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Data\Repositories\Data;
 use \DB;
-use App\Data\Entities\Vote;
-use App\Data\Entities\Student;
-use App\Data\Repositories\Subscriptions;
 use App\Data\Entities\School;
+use App\Data\Entities\Student;
+use App\Data\Repositories\Data;
 use App\Data\Entities\Subscription;
+use App\Data\Repositories\Subscriptions;
+use Illuminate\Database\Eloquent\Collection;
 use App\Http\Controllers\Controller as BaseController;
 use App\Data\Repositories\Training as TrainingRepository;
-use Illuminate\Database\Eloquent\Collection;
 
 class Admin extends BaseController
 {
@@ -51,7 +50,11 @@ class Admin extends BaseController
 	{
 		return view('admin.city')
 				->with('city', $city)
-				->with('subscriptions', Student::join('subscriptions', 'subscriptions.student_id', '=', 'students.id')->where('students.city', $city)->get())
+				->with('subscriptions',
+                    Student::join('subscriptions', 'subscriptions.student_id', '=', 'students.id')
+                        ->where('subscriptions.year', get_current_year())
+                        ->where('students.city', $city)->get()
+                )
 				->with('schools', School::where('city', 'like', DB::raw("UPPER('".$city."')"))->get())
 		;
 	}
@@ -85,11 +88,13 @@ class Admin extends BaseController
 
     function schools()
 	{
+	    $year = get_current_year();
+
 		$schools = Subscription::join('students', 'students.id', '=', 'subscriptions.student_id')
                     ->select([
                         'students.school',
                         'students.city',
-                        DB::raw('(select count(*) from subscriptions as su2 join students as st2 on st2.id = su2.student_id where st2.school = students.school) as schoolcount')
+                        DB::raw("(select count(*) from subscriptions as su2 join students as st2 on st2.id = su2.student_id where st2.school = students.school and su2.year = '{$year}') as schoolcount")
                     ])
                     ->orderBy('schoolcount', 'desc')
                     ->orderBy('students.city')

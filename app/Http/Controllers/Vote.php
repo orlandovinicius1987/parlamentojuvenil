@@ -41,7 +41,7 @@ class Vote extends BaseController
     {
         $candidate = $this->subscriptionsRepository->getCandidateBySubscription($subscription_id);
 
-        return $this->buildView('vote.confirm', config('app.year'), null, true)
+        return $this->buildView('vote.confirm', get_current_year(), null, true)
                 ->with('candidate', $candidate)
         ;
     }

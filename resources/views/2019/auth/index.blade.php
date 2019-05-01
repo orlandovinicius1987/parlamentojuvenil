@@ -6,6 +6,7 @@
             <div class="row">
                 <div class="col-md-offset-4 col-md-4">
                     <div>
+
                         <h3 class="identify-title">
                             @if (loggedUser()->is_voting)
                                 Para votar você precisa se identificar.</h3>

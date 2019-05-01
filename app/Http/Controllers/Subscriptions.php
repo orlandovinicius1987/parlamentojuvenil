@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Data\Repositories\Subscriptions as SubscriptionsRepository;
 use \DB;
 use Event;
 use Input;
@@ -17,6 +16,7 @@ use App\Data\Entities\Subscription;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Events\SubscriptionWasUpdated;
 use App\Http\Controllers\Controller as BaseController;
+use App\Data\Repositories\Subscriptions as SubscriptionsRepository;
 
 class Subscriptions extends BaseController
 {
@@ -37,7 +37,7 @@ class Subscriptions extends BaseController
 
     public function byState()
 	{
-	    $year = config('app.year');
+	    $year = get_current_year();
 
         $subscriptions = City::select(
                             'students.school as school_name',
@@ -59,14 +59,13 @@ class Subscriptions extends BaseController
         $cities = City::select(
                             'cities.id as city_id',
                             'cities.name as city_name',
-                            DB::raw("(select count(*)  from subscriptions su1 join students st2 on st2.id = su1.student_id join cities ci2 on ci2.name = st2.city  where ci2.name = cities.name and su1.ignored = false and su1.year = '{{ $year }}') as subscriptions_count"),
-                            DB::raw("(select count(distinct(st2.school)) from subscriptions su2 join students st2 on st2.id = su2.student_id join cities ci2 on ci2.name = st2.city where ci2.name = cities.name and su2.ignored = false and su2.year = '{{ $year }}') as schools_count"),
+                            DB::raw("(select count(*)  from subscriptions su1 join students st2 on st2.id = su1.student_id join cities ci2 on ci2.name = st2.city  where ci2.name = cities.name and su1.ignored = false and su1.year = '{$year}') as subscriptions_count"),
+                            DB::raw("(select count(distinct(st2.school)) from subscriptions su2 join students st2 on st2.id = su2.student_id join cities ci2 on ci2.name = st2.city where ci2.name = cities.name and su2.ignored = false and su2.year = '{$year}') as schools_count"),
                             DB::raw('max(su1.created_at) as last_subscription')
                         )
                         ->leftJoin('students as st1', 'cities.name', '=', 'st1.city')
                         ->leftJoin('subscriptions as su1', 'su1.student_id', '=', 'st1.id')
                         ->whereNotIn('cities.name', ['FACEBOOK' ,'ACR', 'BRENOT'])
-                        ->where('su1.year', $year)
                         ->groupBy(['cities.id', 'cities.name'])
                         ->orderBy('cities.name')
                         ->get();
@@ -94,7 +93,7 @@ class Subscriptions extends BaseController
             'validSubscriptionsCount' => $subscriptions->where('subscription_ignored', false)->count(),
 
             'subscriptions' => $subscriptions,
-            // 'cities' => $cities,
+            'cities' => $cities,
         ];
 	}
 
@@ -234,7 +233,7 @@ class Subscriptions extends BaseController
             return redirect()->route('home');
         }
 
-        return $this->buildView('subscriptions.index', config('app.year'));
+        return $this->buildView('subscriptions.index', get_current_year());
     }
 
     /**

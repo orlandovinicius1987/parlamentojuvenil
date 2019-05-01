@@ -20,7 +20,7 @@ class Auth extends BaseController
 
     public function mustBeCongressman()
     {
-        return view(config('app.year').'.messages.show')
+        return view(get_current_year().'.messages.show')
             ->with('message', 'Você precisa ser um parlamentar juvenil para acessar esta página.');
     }
 }

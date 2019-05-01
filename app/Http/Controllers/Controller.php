@@ -40,7 +40,7 @@ abstract class Controller extends BaseController
 
     public function getYear($year = null)
     {
-        return $year = $year ?: config('app.year');
+        return get_current_year($year);
     }
 
     protected function makeViewName($name, $year = null)

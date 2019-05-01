@@ -72,11 +72,12 @@ class Data extends Repository
     }
 
     /**
+     * @param null $year
      * @return mixed
      */
     public function getCurrentYear($year = NULL)
     {
-        return $year ?: config('app.year');
+        return get_current_year($year);
     }
 
     /**

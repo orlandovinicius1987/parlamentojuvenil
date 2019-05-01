@@ -116,12 +116,12 @@ function string_to_date($date)
 
 function get_current_year($year = null)
 {
-    return $year ?: config('app.year');
+    return $year ?: config('app.year', date("Y"));
 }
 
 function make_view_name_year_based($name, $year = null)
 {
-    return ($year ?: config('app.year')) . '.' . $name;
+    return get_current_year($year) . '.' . $name;
 }
 
 function fix_cities() {

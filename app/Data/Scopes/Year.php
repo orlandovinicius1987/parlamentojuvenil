@@ -17,7 +17,7 @@ class Year implements ScopeInterface
      */
     public function apply(Builder $builder, Model $model)
     {
-        $builder->where('year', config('app.year'));
+        $builder->where('year', get_current_year());
     }
 
     public function remove(Builder $builder, Model $model)

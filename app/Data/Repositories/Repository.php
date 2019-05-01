@@ -9,7 +9,7 @@ class Repository
      */
     public function getCurrentYear($year = null)
     {
-        return $year ?: config('app.year');
+        return get_current_year($year);
     }
 
     public function getCurrentRound($round = null)

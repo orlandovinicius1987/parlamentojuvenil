@@ -28,7 +28,7 @@ class FlagContest extends BaseController
     public function subscribe()
     {
         if (! is_null(loggedUser()->student) && $this->flagContestRepository->isStudentSubscribed(loggedUser()->student->id)) {
-            return view(config('app.year').'.messages.show')->with('message', "Você já está inscrito. Por favor entre em contato com o Parlamento Juvenil, caso tenha alguma dúvida.");
+            return view(get_current_year().'.messages.show')->with('message', "Você já está inscrito. Por favor entre em contato com o Parlamento Juvenil, caso tenha alguma dúvida.");
         }
 
         return $this->buildView('flag-contest.subscribe');
@@ -39,10 +39,10 @@ class FlagContest extends BaseController
         $model = $this->flagContestRepository->subscribe(request()->all());
 
         if (is_null($model->confirmed_at)) {
-            return view(config('app.year').'.messages.show')->with('message', "Uma mensagem de confirmação da inscrição foi enviada para o endereço de e-mail '{$model->email}', por favor abra sua caixa postal clique no link de confirmação.");
+            return view(get_current_year().'.messages.show')->with('message', "Uma mensagem de confirmação da inscrição foi enviada para o endereço de e-mail '{$model->email}', por favor abra sua caixa postal clique no link de confirmação.");
         }
 
-        return view(config('app.year').'.messages.show')->with('message', 'A sua inscrição já foi confirmada. Por favor entre em contato com o Parlamento Juvenil, caso tenha alguma dúvida.');
+        return view(get_current_year().'.messages.show')->with('message', 'A sua inscrição já foi confirmada. Por favor entre em contato com o Parlamento Juvenil, caso tenha alguma dúvida.');
     }
 
     public function confirmEmail($confirmation_key, $email)
@@ -50,7 +50,7 @@ class FlagContest extends BaseController
         $model = $this->flagContestRepository->confirm($confirmation_key, $email);
 
         if (! is_null($model->confirmed_at)) {
-            return view(config('app.year').'.messages.show')->with(
+            return view(get_current_year().'.messages.show')->with(
                 'message',
                 "Sua inscrição foi confirmada! Seu número de inscrição é <strong>{$model->id}</strong>."
             );
@@ -94,7 +94,7 @@ class FlagContest extends BaseController
             throw new StudentAlreadyVotedOnFlag($registration);
         }
 
-        return view(config('app.year').'.messages.show')->with('message', 'Parabéns! O seu voto foi registrado.');
+        return view(get_current_year().'.messages.show')->with('message', 'Parabéns! O seu voto foi registrado.');
     }
 
     public function showVote($registration)
@@ -102,7 +102,7 @@ class FlagContest extends BaseController
         $vote = $this->flagContestRepository->getVoteByRegistration($registration);
 
         if (is_null($vote)) {
-            return view(config('app.year').'.messages.show')->with('message', "ERRO: Por favor entre em contato com o Parlamento Juvenil e repasse a mensagem de erro 701031-99 e sua matrícula.");
+            return view(get_current_year().'.messages.show')->with('message', "ERRO: Por favor entre em contato com o Parlamento Juvenil e repasse a mensagem de erro 701031-99 e sua matrícula.");
         }
 
         return $this
