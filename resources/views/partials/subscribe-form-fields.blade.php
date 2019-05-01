@@ -388,7 +388,7 @@
         <div class="row control-group"  transition="expand">
             <div class="form-group col-lg-4 floating-label-form-group controls">
                 <label for="elected_1nd" class="control-label">Eleito no 1o Turno</label>
-                <select v-model="elected_1nd" class="form-control input-lg" placeholder="Eleito" name="elected_1nd" id="elected_1nd" required data-validation-required-message="Por favor preencha o eleito.">
+                <select v-model="elected_1nd" class="form-control input-lg" placeholder="Eleito" name="elected_1nd" id="elected_1nd" data-validation-required-message="Por favor preencha o eleito.">
                     <option value="">ELEITO 1o TURNO</option>
 
                     <option value="1">
@@ -404,7 +404,7 @@
 
             <div class="form-group col-lg-4 floating-label-form-group controls">
                 <label for="elected_2nd" class="control-label">Eleito no 2o Turno</label>
-                <select v-model="elected_2nd" class="form-control input-lg" placeholder="Eleito" name="elected_2nd" id="elected_2nd" required data-validation-required-message="Por favor preencha o eleito.">
+                <select v-model="elected_2nd" class="form-control input-lg" placeholder="Eleito" name="elected_2nd" id="elected_2nd" data-validation-required-message="Por favor preencha o eleito.">
                     <option value="">ELEITO 2o TURNO</option>
 
                     <option value="1">
@@ -420,7 +420,7 @@
 
             <div class="form-group col-lg-4 floating-label-form-group controls">
                 <label for="auto_elected" class="control-label">Calcula eleição automaticamente</label>
-                <select v-model="auto_elected" class="form-control input-lg" placeholder="Eleito" name="auto_elected" id="auto_elected" required data-validation-required-message="Por favor preencha">
+                <select v-model="auto_elected" class="form-control input-lg" placeholder="Eleito" name="auto_elected" id="auto_elected" data-validation-required-message="Por favor preencha">
                     <option value="">CALCULA AUTOMATICAMENTE</option>
 
                     <option value="1">
@@ -438,9 +438,9 @@
 
     <div id="success"></div>
 
-    <div class="row"  transition="expand">
+    <div class="row" transition="expand">
         <div class="form-group col-12 text-right">
-            @if (! $isSubscribeForm)
+            @if (loggedUser()->user->is_administrator)
                 <button id="submit" type="submit" class="btn btn-danger">
                     Gravar
                 </button>

@@ -1,7 +1,6 @@
 @extends( config('app.year').'.layouts.layout')
 
 @section('contents')
-
     <div class="alert alert-success text-center" role="alert">
         <i class="fa fa-check" aria-hidden="true"></i>
         <h1 class="title-alert">Sua inscrição no Parlamento Juvenil {{ config('app.year') }} foi realizada!</h1>

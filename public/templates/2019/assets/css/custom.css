@@ -13,3 +13,8 @@
 ::-ms-input-placeholder { /* Microsoft Edge */
     opacity: 0.0 !important; /* Firefox */
 }
+
+h1 {
+    text-align: center !important;
+}
+

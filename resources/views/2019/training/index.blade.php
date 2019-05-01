@@ -55,7 +55,7 @@
                             <h4>Bem-vindo, parlamentar juvenil!</h4>
 
                             É muito importante que você cumpra todo o processo para que consiga redigir o seu projeto de lei. <br>
-                            Qualquer dúvida, entre em contato com a gente pelo e-mail: <a href="mailto:pjalerj@gmail.com">pjalerj@gmail.com</a>  <br> ou pelos telefones: (21) 2588-1202 // (21) 2588-1536.</p>
+                            Qualquer dúvida, entre em contato com a gente pelo e-mail: <a href="mailto:pjalerj@gmail.com">pjalerj@gmail.com</a>  <br> ou por: @include('partials.phone').</p>
                         </div>
                     </div>
                 </div>
@@ -68,7 +68,7 @@
             <div class="row"  transition="expand">
                 <div class="form-group col-xs-12">
                     <a href="/training/content" id="submit" type="submit" class="btn btn-lg btn-primary btn-block btn-submit-subscription">
-                        Inicar capacitação
+                        Iniciar capacitação
                     </a>
                 </div>
             </div>

@@ -49,8 +49,6 @@
                 {
                     var cpf = this.cpf.split('.').join("").split('-').join("").split('_').join("");
 
-                    console.log(cpf)
-
                     this.cpfValid = TestaCPF(cpf);
 
                     this.cpfWasChecked = true;

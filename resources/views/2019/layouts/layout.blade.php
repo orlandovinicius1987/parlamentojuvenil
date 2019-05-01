@@ -139,9 +139,9 @@
 
 
 
-
-    @yield('contents')
-
+        <div class="masthead">
+            @yield('contents')
+        </div>
 
 
 
@@ -190,7 +190,9 @@
                 <div class="col-md-7 col-lg-5 mb-5 mb-lg-0">
                     {{--<h4 class="text-uppercase mb-4">Location</h4>--}}
                     <p class="lead mb-0">
-                        21 2588-8407 &nbsp; | &nbsp;  <a href="mailto:pjalerj@gmail.com">pjalerj@gmail.com</a></p>
+                        @include('partials.phone')
+
+                        &nbsp; | &nbsp;  <a href="mailto:pjalerj@gmail.com">pjalerj@gmail.com</a></p>
                 </div>
 
                 <div class="col-6 offset-md-3 col-md-3 offset-lg-0 col-lg-2">
