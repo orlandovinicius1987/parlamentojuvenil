@@ -75,7 +75,8 @@ class EmailAuth extends BaseController
         if (is_null($this->usersRepository->findStudentByUser(loggedUser()->user))) {
             $socialNetworkProvider = app(EmailAuthProvider::class);
 
-            $this->socialUserService->socialNetworkLogin($socialNetworkProvider);
+            // $this->socialUserService->socialNetworkLogin($socialNetworkProvider);
+            $this->socialUserService->socialNetworkLogin('email');
 
             return view(config('app.year').'.partials.subscribe-form-register-and-birthdate');
         }
