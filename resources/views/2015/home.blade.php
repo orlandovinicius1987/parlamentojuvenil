@@ -288,7 +288,7 @@
             <div class="col-md-6 col-md-offset-3 wow fadeIn">
                 <h2 class="heading">Entre em contato</h2>
                 <h2><i class="fa fa-phone fa-fw"></i>(21) 2588-1202 / 2588-1536</h2>
-                <h2><a href="mailto:pjalerj@gmail.com">pjalerj@gmail.com</a></h2>
+                <h2><a href="mailto:@include('partials.email')">@include('partials.email')</a></h2>
                 <ul class="list-inline">
                     <li>
                         <a href="https://www.facebook.com/parlamentojuvenilrio"><img src="files/apps/parlamentojuvenil/site/facebook-icon.svg" height="35px" alt=""></a>

@@ -15,7 +15,7 @@
 
                         <p>Insira aqui sua Matrícula e sua data de nascimento para ter acesso à area restrita das Capacitações On-Line.</P>
                         É muito importante que você cumpra todo o processo para que consiga redigir o seu projeto de lei. <br>
-                        Qualquer dúvida, entre em contato com a gente pelo e-mail: <a href="mailto:pjalerj@gmail.com">pjalerj@gmail.com</a>  <br> ou pelos telefones: (21) 2588-1202 // (21) 2588-1536.</p>
+                        Qualquer dúvida, entre em contato com a gente pelo e-mail: <a href="mailto:@include('partials.email')">@include('partials.email')</a>  <br> ou pelos telefones: (21) 2588-1202 // (21) 2588-1536.</p>
 
                     </div>
                     <br>

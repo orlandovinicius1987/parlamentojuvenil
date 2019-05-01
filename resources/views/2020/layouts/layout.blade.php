@@ -157,7 +157,7 @@
                             <a target="_blank" href="//www.youtube.com/user/parlamentojuvenilrj"><i class="fa fa-youtube"></i></a>
                         </div>
                         <div class="contatos col-sm-3 col-md-4 ">
-                            21 2588 1536 - 21 2588 1202 &nbsp;| &nbsp;<a href="mailto:pjalerj@gmail.com">pjalerj@gmail.com</a>
+                            21 2588 1536 - 21 2588 1202 &nbsp;| &nbsp;<a href="mailto:@include('partials.email')">@include('partials.email')</a>
                         </div>
 
                         <div class="col-xs-offset-2 col-xs-4 col-sm-offset-0 col-sm-3 col-md-offset-2 col-md-2">

@@ -192,7 +192,7 @@
                     <p class="lead mb-0">
                         @include('partials.phone')
 
-                        &nbsp; | &nbsp;  <a href="mailto:pjalerj@gmail.com">pjalerj@gmail.com</a></p>
+                        &nbsp; | &nbsp;  <a href="mailto:@include('partials.email')">@include('partials.email')</a></p>
                 </div>
 
                 <div class="col-6 offset-md-3 col-md-3 offset-lg-0 col-lg-2">

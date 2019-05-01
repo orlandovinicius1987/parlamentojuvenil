@@ -55,7 +55,7 @@
                             <h4>Bem-vindo, parlamentar juvenil!</h4>
 
                             É muito importante que você cumpra todo o processo para que consiga redigir o seu projeto de lei. <br>
-                            Qualquer dúvida, entre em contato com a gente pelo e-mail: <a href="mailto:pjalerj@gmail.com">pjalerj@gmail.com</a>  <br> ou por: @include('partials.phone').</p>
+                            Qualquer dúvida, entre em contato com a gente pelo e-mail: <a href="mailto:@include('partials.email')">@include('partials.email')</a>  <br> ou por: @include('partials.phone').</p>
                         </div>
                     </div>
                 </div>
