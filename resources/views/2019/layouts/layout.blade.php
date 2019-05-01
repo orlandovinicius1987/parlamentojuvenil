@@ -36,6 +36,8 @@
         <!-- FONTES  -->
         <link href="/templates/{{ config('app.year') }}/assets/fonts/helvetica-neue/style.css" rel="stylesheet" type="text/css">
 
+        <link href="/templates/{{ config('app.year') }}/assets/css/custom.css" rel="stylesheet" type="text/css">
+
         <!-- Instashow - INSTAGRAM -->
         {{--<script src="/templates/{{ config('app.year') }}/instashow/elfsight-instagram-feed.js"></script>--}}
 

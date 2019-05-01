@@ -45,7 +45,7 @@
                 </div>
                 <!-- mouse -->
                    <span class="scroll-btn hidden-xs wow fadeInDownBig">
-                       <a href="#about"><span class="mouse"><span></span></span></a>
+                       <a href="/#about"><span class="mouse"><span></span></span></a>
                    </span>
                 <!-- mouse -->
             </div>
