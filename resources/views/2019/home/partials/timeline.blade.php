@@ -1,7 +1,7 @@
 
 
 <!-- CRONOGRAMA Section -->
-<section class="bg-pattern cronograma mb-0" id="cronograma">
+<section class="cronograma mb-0" id="cronograma">
     <div class="container-fluid">
         <h2 class="text-center ">Cronograma</h2>
         <div class="row">

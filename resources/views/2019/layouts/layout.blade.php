@@ -139,7 +139,7 @@
 
 
 
-        <div class="masthead">
+        <div class="masthead bg-pattern">
             @yield('contents')
         </div>
 

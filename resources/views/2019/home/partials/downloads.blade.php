@@ -1,5 +1,5 @@
 <!-- DOWNLOADS Section -->
-<section class="bg-pattern downloads mb-0" id="downloads">
+<section class="downloads mb-0" id="downloads">
     <div class="container-fluid">
         <h2 class="text-center ">Downloads</h2>
         <h4 class="text-center ">Você pode precisar desses documentos</h4>

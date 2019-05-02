@@ -3,7 +3,7 @@
 
 
 <!-- SOBRE Section -->
-<section class="bg-pattern quempode mb-0 " id="quem-pode">
+<section class="quempode mb-0 " id="quem-pode">
 
     <div class="container">
         <div class="row text-center">

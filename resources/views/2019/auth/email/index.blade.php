@@ -5,7 +5,7 @@
     <section id="subscribe-section" class="subscribe-section text-center">
         <div class="container">
             <div class="row">
-                <div class="col-md-6 col-md-offset-3">
+                <div class="offset-md-3 col-md-6">
                     <h3 class="identify-title">Identifique-se</h3>
 
                     <form id="email-register-login-form" method="POST" action="{{ route('auth.login.email') }}" id="loginform" class="form-signin">

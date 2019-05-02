@@ -1,6 +1,6 @@
 
 <!-- COMO FUNCIONA Section -->
-<section class="bg-pattern comofunciona mb-0" id="como-funciona">
+<section class="comofunciona mb-0" id="como-funciona">
     <div class="container-fluid">
         <h2 class="text-center">Como Funciona</h2>
         <div class="row">

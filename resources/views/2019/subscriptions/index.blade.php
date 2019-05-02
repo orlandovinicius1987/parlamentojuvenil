@@ -1,7 +1,7 @@
 @extends(get_current_year().'.layouts.layout')
 
 @section('contents')
-    <section class="bg-pattern subscribe-section mastheadx" id="form-subscribe">
+    <section class="subscribe-section mastheadx" id="form-subscribe">
         <div class="container">
             <div id="subscribe" class="form-subscribe" >
                 <div class="row">

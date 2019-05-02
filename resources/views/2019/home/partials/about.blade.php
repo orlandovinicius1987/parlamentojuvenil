@@ -3,7 +3,7 @@
 
 
 <!-- SOBRE Section -->
-<section class="bg-pattern sobre mb-0 " id="sobre">
+<section class="sobre mb-0 " id="sobre">
 
     <div class="container">
         <div class="row text-center">
