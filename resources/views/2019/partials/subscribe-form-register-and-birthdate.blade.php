@@ -8,7 +8,7 @@
 
     <section id="subscribe" class="fundo-inscricao">
         <div class="row">
-            <div class="offset-1 col-10 col-md-12 text-center mb-5">
+            <div class="offset-1 col-10 offset-md-0 col-md-12 text-center mb-5">
                 <h1 class="subscribe-title">Insira os dados para a sua identificação:</h1>
             </div>
         </div>
