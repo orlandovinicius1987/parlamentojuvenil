@@ -115,7 +115,7 @@ SQL
 
     public function seeducUpload()
     {
-        info('SeeducImport - START', $pathName = request()->file->getPathname());
+        info(['SeeducImport - START', $pathName = request()->file->getPathname()]);
 
         $importer = app(SeeducImporterService::class);
 
