@@ -4,7 +4,7 @@
 
 
 
-<header class="masthead bg-pattern text-center swiper">
+<header class="text-center swiper">
     <div class="container">
 
         <div class="row">

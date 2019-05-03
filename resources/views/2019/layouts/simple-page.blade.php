@@ -2,7 +2,7 @@
 
 @section('contents')
     <div class="row">
-        <div class="col-md-offset-4 col-md-4">
+        <div class="offset-md-4 col-md-4">
             <div class="title identify-yourself">
                 <h1 class="identify-title">
                     @yield('page-title')

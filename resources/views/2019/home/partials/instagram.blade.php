@@ -3,7 +3,7 @@
 
 
 <!-- INSTAGRAM Section -->
-<section class="bg-pattern instagram mb-0" id="instagram">
+<section class="instagram mb-0" id="instagram">
     <div class="container-fluid">
 
         <h3>Instagram</h3>

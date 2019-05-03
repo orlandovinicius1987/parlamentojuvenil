@@ -139,7 +139,7 @@
 
 
 
-        <div class="masthead">
+        <div class="masthead bg-pattern">
             @yield('contents')
         </div>
 
@@ -157,7 +157,7 @@
     <!-- Footer -->
     <footer class="footer copyright text-center">
         <div class="container">
-            <div class="row">
+            <div class="row d-flex align-items-center bd-highlight ">
 
                 <div class="col-md-5 col-lg-3 mb-5 mb-lg-0">
                     {{--<h4 class="text-uppercase mb-4">Around the Web</h4>--}}

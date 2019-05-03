@@ -3,11 +3,11 @@
 @section('contents')
     <section id="identify" class="identify-yourself">
         <div class="container">
-            <div class="row">
-                <div class="col-md-offset-4 col-md-4">
+            <div class="row text-center">
+                <div class="offset-2 col-8 offset-md-3 col-md-6 offset-lg-4 col-lg-4">
                     <div>
 
-                        <h3 class="identify-title">
+                        <h3 class="identify-title mb-4">
                             @if (loggedUser()->is_voting)
                                 Para votar você precisa se identificar.</h3>
                             @elseif (loggedUser()->is_flag_contest_subscribing)
@@ -22,32 +22,33 @@
                         </h3>
                     </div>
 
-                    <div class="social-login">
-                        <a href="{{ route('auth.social.redirect', ['facebook']) }}" class="facebook-login">
-                            <img src="/templates/2017/assets/img/sociallogin-facebook.png" class="btn-login-social">
+                    <div class="social-login mt-3">
+                        <a href="{{ route('auth.social.redirect', ['facebook']) }}" class="btn btn-block btn-social btn-facebook">
+                            <span class="fab fa-fw fa-facebook-f"></span>
                             Entrar com Facebook
                         </a>
-                        <a href="{{ route('auth.social.redirect', ['twitter']) }}"  class="twitter-login" >
-                            <img src="/templates/2017/assets/img/sociallogin-twitter.png" class="btn-login-social">
+
+                        <a href="{{ route('auth.social.redirect', ['twitter']) }}"  class="btn btn-block btn-social btn-twitter">
+                            <span class="fab fa-fw fa-twitter"></span>
                             Entrar com Twitter
                         </a>
-                        <a href="{{ route('auth.social.redirect', ['instagram']) }}"  class="instagram-login">
-                            <img src="/templates/2017/assets/img/sociallogin-instagram.png" class="btn-login-social">
+                        <a href="{{ route('auth.social.redirect', ['instagram']) }}"  class="btn btn-block btn-social btn-instagram">
+                            <span class="fab fa-fw fa-instagram"></span>
                             Entrar com Instagram
                         </a>
-                        <a href="{{ route('auth.social.redirect', ['linkedin']) }}"  class="linkedin-login">
-                            <img src="/templates/2017/assets/img/sociallogin-linkedin.png" class="btn-login-social">
+                        <a href="{{ route('auth.social.redirect', ['linkedin']) }}"  class="btn btn-block btn-social btn-linkedin">
+                            <span class="fab fa-fw fa-linkedin"></span>
                             Entrar com Linkedin
                         </a>
-                        <a href="{{ route('auth.social.redirect', ['youtube']) }}" class="youtube-login" >
-                            <img src="/templates/2017/assets/img/sociallogin-youtube.png" class="btn-login-social">
+                        <a href="{{ route('auth.social.redirect', ['youtube']) }}" class="btn btn-block btn-social btn-youtube">
+                            <span class="fab fa-fw fa-youtube-square"></span>
                             Entrar com Youtube
                         </a>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-offset-2 col-md-8">
+            <div class="row text-center mt-5">
+                <div class="offset-md-3 col-md-6">
                     <div class="nao-possui-redes">
                         <a href="naotenhorede.html"><p><a href="{{ route('auth.login.email') }}">Caso você não esteja em nenhuma dessas redes sociais, clique aqui.</a></p></a>
                     </div>
