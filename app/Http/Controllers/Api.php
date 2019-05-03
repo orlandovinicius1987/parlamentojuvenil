@@ -115,13 +115,17 @@ SQL
 
     public function seeducUpload()
     {
+        info('SeeducImport - START', $pathName = request()->file->getPathname());
+
         $importer = app(SeeducImporterService::class);
 
-        if (!$importer->isValid($pathName = request()->file->getPathname())) {
+        if (!$importer->isValid($pathName)) {
             return response('Formato inválido', 405);
         }
 
         $importer->import($pathName);
+
+        info('SeeducImport - END');
 
         return response('Importado com sucesso');
     }
