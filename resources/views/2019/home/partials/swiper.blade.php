@@ -7,8 +7,7 @@
 <header class="text-center swiper">
     <div class="container">
 
-        <div class="row">
-
+        {{--<div class="row">
             <div class="col-md-12 col-lg-8 quehistoriaimg">
                 <img src="/templates/{{ get_current_year() }}/assets/img/site2016-mockup.png" class="img-fluid"><br>
             </div>
@@ -18,13 +17,37 @@
 
                 <p class="lead"> O Parlamento Juvenil da ALERJ é dos primeiros projetos do Brasil que simula com os jovens o funcionamento do Legislativo.</p>
                 <p class="lead"> Criado em 1998 e reformulado pelos próprios Parlamentares Juvenis em 2015, chega em 2019 à sua 12&ordf; edição.</p>
+            </div>
+        </div>--}}
 
-                {{--<a class="btn btn-primary" href="#" role="button"><i class="fas fa-plus-circle"></i> Saiba Mais</a>--}}
+
+
+        <div class="row">
+
+
+            <div class="col-md-6 col-lg-7 text-left subscribe-banner-txt">
+                <h3 class="">Inscrições Abertas</h3>
+
+                <p class="lead">Até 7 de junho</p>
+                <p class="lead">Estudantes do 1&deg; e do 2&deg; anos do Ensino Médio da Rede Estadual com idade entre 14 e 17 anos.</p>
+
+                <p class="lead">Importante!<br> Tenha o número de sua matrícula em mãos.</p>
+
+                <a class="btn btn-primary btn-lg" href="/inscricao" role="button">  <i class="fas fa-plus-circle"></i> Inscreva-se Aqui! </a>
+            </div>
+
+            <div class="col-md-6 col-lg-4 subscribe-banner-img ">
+                <img src="/templates/{{ get_current_year() }}/assets/img/subscribe.png" class="img-fluid">
             </div>
 
 
         </div>
+
+
     </div>
+
+
+
 </header>
 
 

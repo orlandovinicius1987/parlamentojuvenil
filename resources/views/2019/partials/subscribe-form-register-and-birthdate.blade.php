@@ -8,12 +8,13 @@
 
     <section id="subscribe" class="fundo-inscricao">
         <div class="row">
-            <div class="col-md-12 text-center">
+            <div class="offset-1 col-10 offset-md-0 col-md-12 text-center mb-5">
                 <h1 class="subscribe-title">Insira os dados para a sua identificação:</h1>
             </div>
         </div>
+
         <div class="row form-subscribe-registration">
-            <div class="col-md-offset-2 col-md-4 text-left">
+            <div class="offset-1 col-10 offset-md-3 col-md-6 offset-lg-4 col-lg-4 text-left">
                 <form id="login" method="POST" action="{{ route('auth.student.login') }}">
                     {!! csrf_field() !!}
 
@@ -30,7 +31,7 @@
                     >
             </div>
 
-            <div class="col-md-4 text-left">
+            <div class="offset-1 col-10 offset-md-3 col-md-6 offset-lg-4 col-lg-4 text-left">
                 <label for="birthdate" class="control-label">Data de nascimento</label>
                 <input
                         v-model="birthdate"
@@ -47,7 +48,7 @@
         </div>
 
         <div class="row">
-            <div class="offset-md-5 col-md-2 text-center">
+            <div class="offset-1 col-10 offset-md-5 col-md-2 text-center mt-5">
                 <button id="submit" type="submit" class="btn btn-lg btn-primary btn-block btn-submit-subscription">
                     Enviar
                 </button>
