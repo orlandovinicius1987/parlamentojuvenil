@@ -4,13 +4,13 @@
 
     <section id="error" class="fundo-azul">
         <div class="container">
-            <div class="error404-box">
-                <div class="error404-logo">
-                    <img src="/templates/{{ get_current_year() }}/assets/img/404error.jpg" alt="404 Error">
-                </div>
-                <div class="error404-box-body">
-                    <p class="error404-box-msg">Página não encontrada</p>
-                    erro 404
+            <div class="row">
+                <div class="col-12">
+                    <div class="alert alert-danger text-center" role="alert">
+                        <i class="fas fa-exclamation-triangle mt-4 mb-4"></i>
+                        <h1 class="subscribe-title">Erro 404</h1>
+                        <h2 class="subscribe-title">Página não encontrada</h2>
+                    </div>
                 </div>
             </div>
         </div>
