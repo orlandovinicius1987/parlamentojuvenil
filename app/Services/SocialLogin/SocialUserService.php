@@ -3,7 +3,7 @@
 namespace App\Services\SocialLogin;
 
 use Auth;
-use Socialite;
+use Laravel\Socialite\Facades\Socialite;
 use App\Data\Entities\User;
 use League\Flysystem\Exception;
 use App\Data\Entities\SocialUser;
