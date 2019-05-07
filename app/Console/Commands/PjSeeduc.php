@@ -30,8 +30,8 @@ class PjSeeduc extends Command
      *
      * @return mixed
      */
-    public function handle($file = null)
+    public function handle()
     {
-        (new SeeducImporter($this))->import($file);
+        (new SeeducImporter($this))->import($this->argument('file'));
     }
 }
