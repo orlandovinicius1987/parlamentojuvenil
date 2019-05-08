@@ -4,7 +4,7 @@
     <section id="identify" class="identify-yourself">
         <div class="container">
             <div class="row text-center">
-                <div class="offset-2 col-8 offset-md-3 col-md-6 offset-lg-4 col-lg-4">
+                <div class="offset-1 col-10 offset-md-3 col-md-6 offset-lg-4 col-lg-4">
                     <div>
 
                         <h3 class="identify-title mb-4">
