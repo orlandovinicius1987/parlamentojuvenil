@@ -58,14 +58,24 @@ class Service
 
                 $row = explode(';', $line = $row[0]);
 
-                $model = Model::create([
-                    'escola' => $row[0],
-                    'municipio' => $row[1],
-                    'regional' => $row[2],
-                    'nome' => $row[3],
-                    'matricula' => $row[4],
-                    'nascimento' => $this->toDate($row[5]),
-                ]);
+                if (count($row) !== 6) {
+                    continue;
+                }
+
+                try {
+                    $model = Model::create([
+                        'escola' => $row[0],
+                        'municipio' => $row[1],
+                        'regional' => $row[2],
+                        'nome' => $row[3],
+                        'matricula' => $row[4],
+                        'nascimento' => $this->toDate($row[5]),
+                    ]);
+                } catch (\Exception $exception) {
+                    dump($exception->getMessage());
+                    dump($line);
+                    continue;
+                }
 
                 $counter++;
 
