@@ -25,7 +25,7 @@
         <div class="row">
 
 
-            <div class="col-md-6 col-lg-7 text-left subscribe-banner-txt">
+            <div class="col-md-6 col-lg-8 text-left subscribe-banner-txt">
                 <h3 class="">Inscrições Abertas</h3>
 
                 <p class="lead">Até 7 de junho</p>
