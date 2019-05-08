@@ -14,7 +14,7 @@ class PjMakeAdmin extends Command
      *
      * @var string
      */
-    protected $signature = 'pj:admin {user_id}';
+    protected $signature = 'pj:admin:make {user_id}';
     
     /**
      * The console command description.
