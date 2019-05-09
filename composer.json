@@ -21,7 +21,8 @@
         "doctrine/dbal": "^2.5",
         "league/csv": "^8.2",
         "backup-manager/laravel": "^1.1",
-        "league/flysystem-aws-s3-v3": "^1.0"
+        "league/flysystem-aws-s3-v3": "^1.0",
+        "bugsnag/bugsnag-laravel": "^2.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
