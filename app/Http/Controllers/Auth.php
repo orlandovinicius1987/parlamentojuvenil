@@ -15,6 +15,8 @@ class Auth extends BaseController
     {
         logout();
 
+        info('debug 1');
+
         return redirect()->route('home');
     }
 

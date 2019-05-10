@@ -230,6 +230,7 @@ class Subscriptions extends BaseController
     public function index($force = null)
     {
         if (! subscriptionsEnabled() && $force !== 'force-admin') {
+            info('debug 2');
             return redirect()->route('home');
         }
 

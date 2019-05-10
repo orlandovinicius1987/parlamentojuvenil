@@ -27,6 +27,7 @@ class User extends BaseController
     {
         $this->subscriptionsRepository->removeSocialAccount();
 
+        info('debug 3');
         return redirect()->route('home');
     }
 }
