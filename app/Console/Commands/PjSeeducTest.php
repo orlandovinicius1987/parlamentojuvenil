@@ -35,7 +35,7 @@ class PjSeeducTest extends Command
                 'regional' => 'METROPOLITANA VII',
                 'nome' => 'FACEBOOK DO NASCIMENTO PELICIONI',
                 'matricula' => '001FACEBOOK',
-                'nascimento' => '2014-04-12',
+                'nascimento' => '2004-04-12',
             ],
 
             [
@@ -44,7 +44,7 @@ class PjSeeducTest extends Command
                 'regional' => 'METROPOLITANA VII',
                 'nome' => 'ANTONIO CARLOS DO NASCIMENTO PELICIONI',
                 'matricula' => '002ANTONIOCARLOS',
-                'nascimento' => '2014-10-31',
+                'nascimento' => '2004-10-31',
             ],
 
             [
@@ -53,7 +53,7 @@ class PjSeeducTest extends Command
                 'regional' => 'METROPOLITANA VII',
                 'nome' => 'BRENOT NASCIMENTO PELICIONI',
                 'matricula' => '003BRENOT',
-                'nascimento' => '2014-01-01',
+                'nascimento' => '2004-01-01',
             ],
 
             [
@@ -62,7 +62,7 @@ class PjSeeducTest extends Command
                 'regional' => 'CENTRO SUL',
                 'nome' => 'BRUNO CAMPOS BARBOSA',
                 'matricula' => '004BRUNO',
-                'nascimento' => '2014-02-02',
+                'nascimento' => '2004-02-02',
             ],
 
             [
@@ -71,7 +71,7 @@ class PjSeeducTest extends Command
                 'regional' => 'METROPOLITANA I',
                 'nome' => 'FILIPE RODRIGUES CARDOSO',
                 'matricula' => '005FILIPE',
-                'nascimento' => '2014-03-03',
+                'nascimento' => '2004-03-03',
             ],
 
             [
@@ -80,7 +80,7 @@ class PjSeeducTest extends Command
                 'regional' => 'METROPOLITANA I',
                 'nome' => 'BRUNO MASQUIO - TESTE',
                 'matricula' => '007BRUNO',
-                'nascimento' => '2014-03-03',
+                'nascimento' => '2004-03-03',
             ],
 
             [
@@ -89,7 +89,7 @@ class PjSeeducTest extends Command
                 'regional' => 'METROPOLITANA I',
                 'nome' => 'ORLANDO - TESTE',
                 'matricula' => '008ORLANDO',
-                'nascimento' => '2014-03-03',
+                'nascimento' => '2004-03-03',
             ],
         ]);
     }
@@ -102,10 +102,14 @@ class PjSeeducTest extends Command
     public function handle()
     {
         $this->getData()->each(function ($record) {
-            if (!Seeduc::where('matricula', $record['matricula'])->first()) {
-                Seeduc::create($record);
-                $this->info(sprintf('created: %s - %s', $record['nome'], $record['matricula']));
+            $seeduc = Seeduc::where('matricula', $record['matricula'])->first();
+
+            if ($seeduc) {
+                $seeduc->delete();
             }
+
+            Seeduc::create($record);
+            $this->info(sprintf('created: %s - %s', $record['nome'], $record['matricula']));
         });
     }
 }
