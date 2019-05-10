@@ -1,5 +1,7 @@
 <?php
 
+use LaravelLegends\PtBrValidator\ValidatorProvider;
+
 return [
 
     'debug' => env('APP_DEBUG', false),
@@ -132,10 +134,8 @@ return [
          * My Providers
          */
         App\Providers\ComposerServiceProvider::class,
-
         Maatwebsite\Excel\ExcelServiceProvider::class,
-
-        ValidadorCpf\CpfServiceProvider::class,
+        LaravelLegends\PtBrValidator\ValidatorProvider::class,
 
         /*
           Other service providers...
