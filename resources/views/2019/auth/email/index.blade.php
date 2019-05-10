@@ -50,35 +50,9 @@
             </div>
             <div class="row text-center">
                 <div class="offset-1 col-10 offset-md-3 col-md-6 offset-lg-4 col-lg-4">
+                    <h2 class="post-area-title m-5">ou</h2>
 
-
-
-                        <h2 class="post-area-title m-5">ou</h2>
-
-
-                    <div class="social-login mt-3">
-                        <a href="{{ route('auth.social.redirect', ['facebook']) }}" class="btn btn-block btn-social btn-facebook">
-                            <span class="fab fa-fw fa-facebook-f"></span>
-                            Entrar com Facebook
-                        </a>
-
-                        <a href="{{ route('auth.social.redirect', ['twitter']) }}"  class="btn btn-block btn-social btn-twitter">
-                            <span class="fab fa-fw fa-twitter"></span>
-                            Entrar com Twitter
-                        </a>
-                        <a href="{{ route('auth.social.redirect', ['instagram']) }}"  class="btn btn-block btn-social btn-instagram">
-                            <span class="fab fa-fw fa-instagram"></span>
-                            Entrar com Instagram
-                        </a>
-                        <a href="{{ route('auth.social.redirect', ['linkedin']) }}"  class="btn btn-block btn-social btn-linkedin">
-                            <span class="fab fa-fw fa-linkedin"></span>
-                            Entrar com Linkedin
-                        </a>
-                        <a href="{{ route('auth.social.redirect', ['youtube']) }}" class="btn btn-block btn-social btn-youtube">
-                            <span class="fab fa-fw fa-youtube-square"></span>
-                            Entrar com Youtube
-                        </a>
-                    </div>
+                    @include('2019.partials.social-login')
                 </div>
             </div>
         </div>
