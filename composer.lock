@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4755094553f2da8cad22d8be6338a236",
+    "content-hash": "ee62e7686f27bc40b84c69395e731e88",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -1079,46 +1079,6 @@
             "time": "2018-12-04T20:46:45+00:00"
         },
         {
-            "name": "jailtonsc/validador-cpf-laravel",
-            "version": "v2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/jailtonsc/validador-cpf-laravel.git",
-                "reference": "0ad80ee78703356bf2f98dfae06d1304cf386079"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/jailtonsc/validador-cpf-laravel/zipball/0ad80ee78703356bf2f98dfae06d1304cf386079",
-                "reference": "0ad80ee78703356bf2f98dfae06d1304cf386079",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.5.9"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "ValidadorCpf\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Jailton S. C.",
-                    "email": "jailton.dos.santos.cruz@gmail.com"
-                }
-            ],
-            "description": "Validador de cpf com suporte para laravel 5.*",
-            "keywords": [
-                "cpf",
-                "laravel"
-            ],
-            "time": "2015-07-12T15:46:10+00:00"
-        },
-        {
             "name": "jakub-onderka/php-console-color",
             "version": "v0.2",
             "source": {
@@ -1509,6 +1469,46 @@
                 "oauth"
             ],
             "time": "2019-02-14T10:19:54+00:00"
+        },
+        {
+            "name": "laravellegends/pt-br-validator",
+            "version": "5.1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/LaravelLegends/pt-br-validator.git",
+                "reference": "652039d964d6ba18f445e47e637cf8e2de00fbeb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/LaravelLegends/pt-br-validator/zipball/652039d964d6ba18f445e47e637cf8e2de00fbeb",
+                "reference": "652039d964d6ba18f445e47e637cf8e2de00fbeb",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "5.0.* || 5.1.* || 5.2.* || 5.3.* || 5.4.* || 5.5.*"
+            },
+            "require-dev": {
+                "orchestra/testbench": "3.1.*",
+                "phpunit/phpunit": "4.8.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "LaravelLegends\\PtBrValidator\\": "src/pt-br-validator"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Wallace de Souza Vizerra",
+                    "email": "wallacemaxters@gmail.com"
+                }
+            ],
+            "description": "Uma biblioteca contendo validações de formatos Brasileiros, para o Laravel 5",
+            "time": "2018-05-07T18:05:16+00:00"
         },
         {
             "name": "league/csv",
@@ -4790,6 +4790,7 @@
                 "mock",
                 "xunit"
             ],
+            "abandoned": true,
             "time": "2015-10-02T06:51:40+00:00"
         },
         {
