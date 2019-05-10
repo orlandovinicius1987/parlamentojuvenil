@@ -10,7 +10,6 @@ class OnlyAdministrators
     public function handle($request, Closure $next)
     {
         if (! Auth::user()->isAdministrator()) {
-            info('debug 4');
             return redirect()->route('home');
         }
 

@@ -230,8 +230,7 @@ class Subscriptions extends BaseController
     public function index($force = null)
     {
         if (! subscriptionsEnabled() && $force !== 'force-admin') {
-            info('debug 2');
-            return redirect()->route('home');
+            return redirect()->route('home')->withErrors('Inscrições encerradas!');;
         }
 
         return $this->buildView('subscriptions.index', get_current_year());

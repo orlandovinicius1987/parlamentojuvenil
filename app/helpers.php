@@ -74,6 +74,7 @@ function loggedUser() {
 function subscriptionsEnabled() {
     return (Auth::user() && Auth::user()->isAdministrator())
             || app()->environment() != 'production'
+            || app()->environment() != 'staging'
             || config('app.subscriptions.enabled');
 }
 
