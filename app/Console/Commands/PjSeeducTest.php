@@ -3,6 +3,10 @@
 namespace App\Console\Commands;
 
 use App\Data\Entities\Seeduc;
+use App\Data\Entities\SocialUser;
+use App\Data\Entities\Student;
+use App\Data\Entities\Subscription;
+use App\Http\Controllers\Subscriptions;
 use League\Csv\Statement;
 use Illuminate\Console\Command;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -105,11 +109,38 @@ class PjSeeducTest extends Command
             $seeduc = Seeduc::where('matricula', $record['matricula'])->first();
 
             if ($seeduc) {
+                $student = Student::where(
+                    'registration',
+                    $seeduc->matricula
+                )->first();
+
+                if ($student) {
+                    Subscription::where('student_id', $student->id)->delete();
+
+                    $socialUser = SocialUser::where(
+                        'student_id',
+                        $student->id
+                    )->first();
+
+                    if ($socialUser) {
+                        $socialUser->delete();
+                    }
+
+                    $student->delete();
+                }
+
                 $seeduc->delete();
             }
 
             Seeduc::create($record);
-            $this->info(sprintf('created: %s - %s', $record['nome'], $record['matricula']));
+
+            $this->info(
+                sprintf(
+                    'created: %s - %s',
+                    $record['nome'],
+                    $record['matricula']
+                )
+            );
         });
     }
 }
