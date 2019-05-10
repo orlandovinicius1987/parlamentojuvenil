@@ -128,18 +128,18 @@
 
 
 
-    <div class="container">
-        @include('partials.errors')
-    </div>
-
-
-
 
 
 
 
 
         <div class="masthead bg-pattern">
+
+            <div class="container">
+                @include('partials.errors')
+            </div>
+
+
             @yield('contents')
         </div>
 
