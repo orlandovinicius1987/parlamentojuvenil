@@ -23,6 +23,8 @@ return [
 
     'subscriptions' => [
         'enabled' => env('SUBSCRIPTIONS_ENABLED'),
+        'start' => env('SUBSCRIPTIONS_START'),
+        'end' => env('SUBSCRIPTIONS_END'),
     ],
 
     'student' => [

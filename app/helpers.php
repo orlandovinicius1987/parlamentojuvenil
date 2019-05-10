@@ -73,8 +73,17 @@ function loggedUser() {
 
 function subscriptionsEnabled() {
     return (Auth::user() && Auth::user()->isAdministrator())
+            || subscriptions_within_period()
             || app()->environment() != 'production'
             || config('app.subscriptions.enabled');
+}
+
+function subscriptions_within_period()
+{
+    $date = Carbon::now()->format('Y-m-d');
+
+    return $date >= config('app.subscriptions.start') &&
+        $date <= config('app.subscriptions.end');
 }
 
 function makeAvatar($email) {
