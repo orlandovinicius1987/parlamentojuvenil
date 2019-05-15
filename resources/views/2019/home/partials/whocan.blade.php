@@ -30,7 +30,7 @@
                             <a class="user" href="#"><img alt="" src="/templates/2019/images/parlamentar-juvenil-002.jpg" /></a>
                             <div class="message">
                                 <p>
-                                    O aluno que completar 18 anos após a semana do Parlamento Juvenil (20 a 26 de novembro) poderá concorrer.
+                                    O aluno que completar 18 anos após a semana do Parlamento Juvenil (24 a 30 de novembro) poderá concorrer.
                                 </p>
                             </div>
                         </li>
