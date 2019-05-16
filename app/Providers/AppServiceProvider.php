@@ -45,7 +45,7 @@ class AppServiceProvider extends ServiceProvider
 
     protected function createValidators()
     {
-        $end = Carbon::createFromFormat('d/m/Y', '20/11/2016');
+        $end = Carbon::createFromFormat('d/m/Y', '26/11/2019');
 
         Validator::extend('lessthan18', function ($attribute, $value, $parameters, $validator) use ($end) {
             $birth = Carbon::createFromFormat('d/m/Y', $value);
