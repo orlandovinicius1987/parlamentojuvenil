@@ -26,7 +26,6 @@ Route::group(['prefix' => '/auth'], function ()
     Route::get('/login/email/student', ['as' => 'auth.login.email.student', 'uses' => 'EmailAuth@student']);
     Route::get('/login/email/password', ['as' => 'auth.login.email.password', 'uses' => 'EmailAuth@password']);
     Route::post('/login/email/password', ['as' => 'auth.login.email.password', 'uses' => 'EmailAuth@resetPassword']);
-
     Route::get('/student/identify', ['as' => 'student.identify', 'uses' => 'StudentController@identify']);
 
     /*
@@ -163,7 +162,9 @@ Route::get('subscriptions/schools', ['as' => 'subscriptions.schools', 'uses' => 
 
 Route::get('subscriptions/students', ['as' => 'subscriptions.students', 'uses' => 'Subscriptions@byStudent']);
 
-Route::post('subscriptions', ['as' => 'subscriptions.store', 'uses' => 'Subscriptions@store']);
+Route::group(['middleware' => 'check-student-age'], function (){
+    Route::post('subscriptions', ['as' => 'subscriptions.store', 'uses' => 'Subscriptions@store']);
+});
 
 Route::post('subscriptions/start', ['as' => 'subscriptions.start', 'uses' => 'Subscriptions@start']);
 
@@ -175,7 +176,7 @@ Route::get('subscriptions/edit/{id}', ['as' => 'subscriptions.edit', 'uses' => '
 
 Route::post('subscriptions/edit/{id}', ['as' => 'subscriptions.edit', 'uses' => 'Subscriptions@update']);
 
-Route::group(['prefix' => '/inscricao', 'middleware' => ['subscribing', 'auth', 'student-login']], function ()
+Route::group(['prefix' => '/inscricao', 'middleware' => ['subscribing', 'auth', 'student-login', 'check-student-age']], function ()
 {
     Route::get('/', ['as' => 'subscriptions.index', 'uses' => 'Subscriptions@index']);
 });
