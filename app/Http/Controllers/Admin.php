@@ -53,7 +53,7 @@ class Admin extends BaseController
 				->with('subscriptions',
                     Student::join('subscriptions', 'subscriptions.student_id', '=', 'students.id')
                         ->where('subscriptions.year', get_current_year())
-                        ->where('students.city', $city)->get()
+                        ->where('students.city', 'ilike', $city)->get()
                 )
 				->with('schools', School::where('city', 'like', DB::raw("UPPER('".$city."')"))->get())
 		;
