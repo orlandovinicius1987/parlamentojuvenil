@@ -48,7 +48,7 @@ class Subscriptions extends Repository
     {
         return $this
                 ->makeCandidatesQuery($year, $round, $query)
-                ->where('students.school', loggedUser()->student->school)
+                ->where('students.school', 'ilike', loggedUser()->student->school)
                 ->get()
         ;
     }
@@ -57,7 +57,7 @@ class Subscriptions extends Repository
     {
         $query = $this
                 ->makeCandidatesQuery($year, $round, $query)
-                ->where('students.city', loggedUser()->student->city)
+                ->where('students.city', 'ilike', loggedUser()->student->city)
         ;
 
         if (loggedUser()->student->city == 'RIO DE JANEIRO') {
