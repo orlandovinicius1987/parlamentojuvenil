@@ -46,10 +46,10 @@ class Subscriptions extends BaseController
                             'cities.state_id',
                             'subscriptions.created_at as subscriptions_created_at',
                             'subscriptions.ignored as subscription_ignored',
-                            DB::raw("(select count(*) from subscriptions su1 join students st1 on st1.id = su1.student_id join cities ci1 on ci1.name = st1.city where ci1.name = cities.name and subscriptions.ignored = false and subscriptions.year = '{{ $year }}') as subscriptions_count")
+                            DB::raw("(select count(*) from subscriptions su1 join students st1 on st1.id = su1.student_id join cities ci1 on ci1.name = st1.city where ci1.name ilike cities.name and subscriptions.ignored = false and subscriptions.year = '{$year}') as subscriptions_count")
                         )
                         ->leftJoin('students', 'cities.name', '=', 'students.city')
-                        ->leftJoin('states', 'states.id', '=', 'cities.state_id')
+                        ->leftJoin('states', 'states.id', 'ilike', 'cities.state_id')
                         ->leftJoin('subscriptions', 'subscriptions.student_id', '=', 'students.id')
                         ->where('states.code', 'RJ')
                         ->where('subscriptions.year', $year)
