@@ -25,6 +25,7 @@
         <div class="row">
 
 
+            @if (config('app.subscriptions.enabled') === true)
             <div class="col-md-6 col-lg-8 text-left subscribe-banner-txt">
                 <h3 class="">Inscrições Abertas</h3>
 
@@ -36,10 +37,12 @@
                 <a class="btn btn-primary btn-lg" href="/inscricao" role="button">  <i class="fas fa-plus-circle"></i> Inscreva-se Aqui! </a>
             </div>
 
+
             <div class="col-md-6 col-lg-4 subscribe-banner-img ">
                 <img src="/templates/{{ get_current_year() }}/assets/img/subscribe.png" class="img-fluid">
             </div>
 
+            @endif
 
         </div>
 
