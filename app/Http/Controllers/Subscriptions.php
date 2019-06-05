@@ -63,7 +63,7 @@ class Subscriptions extends BaseController
                             DB::raw("(select count(distinct(st2.school)) from subscriptions su2 join students st2 on st2.id = su2.student_id join cities ci2 on ci2.name = st2.city where ci2.name = cities.name and su2.ignored = false and su2.year = '{$year}') as schools_count"),
                             DB::raw('max(su1.created_at) as last_subscription')
                         )
-                        ->leftJoin('students as st1', 'cities.name', '=', 'st1.city')
+                        ->leftJoin('students as st1', 'cities.name', 'ilike', 'st1.city')
                         ->leftJoin('subscriptions as su1', 'su1.student_id', '=', 'st1.id')
                         ->whereNotIn('cities.name', ['FACEBOOK' ,'ACR', 'BRENOT'])
                         ->groupBy(['cities.id', 'cities.name'])
