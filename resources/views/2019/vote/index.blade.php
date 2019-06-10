@@ -16,17 +16,13 @@
                     não haverá segundo turno na sua cidade.
                 @endif
             </h1>
+        </div>
 
+        @if ($candidates->count() == 1)
             <br><br>
             <h1 class="text-center">O seguinte candidato(a) foi eleito(a)</h1>
             <br><br>
 
-            {{ dd($candidates) }}
-            
-            <h2 class="vote-cidade">{{ loggedUser()->student->city }}</h2>
-        </div>
-
-        @if ($candidates->count() == 1)
             <div class="row vote">
                 <div class="col-xs-12 col-sm-offset-4 col-sm-4">
                     @include(get_current_year().'.vote.partials.candidate', ['candidate' => $candidates[0], 'is_elected' => true])
