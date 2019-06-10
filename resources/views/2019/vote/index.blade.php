@@ -21,6 +21,8 @@
             <h1 class="text-center">O seguinte candidato(a) foi eleito(a)</h1>
             <br><br>
 
+            {{ dd($candidates) }}
+            
             <h2 class="vote-cidade">{{ loggedUser()->student->city }}</h2>
         </div>
 
