@@ -2,7 +2,45 @@
 
 @section('contents')
     <div class="votacao">
-        <div class="text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+
+                    <h1>
+                        Confirmação de Voto
+                    </h1>
+                    <h2>
+                        Você realmente deseja votar nesse candidato(a)?
+                    </h2>
+
+                    <div class="row vote card-deck mt-5">
+                        <div class="offset-4 col-4">
+
+                            <div class="card">
+                                <img src="{{ $candidate->user_avatar }}" class="card-img-top foto-candidato-social">
+                                <div class="card-body text-center">
+
+                                    @if (! isset($is_elected))
+                                        <p>Candidato(a)</p>
+                                    @else
+                                        <p>Eleito(a)</p>
+                                    @endif
+
+                                    <h5 class="card-title nome-candidato">{{ $candidate->student_name }}</h5>
+                                    <p class="card-text cargo">Deputado(a) Estadual Juvenil</p>
+                                    <p class="card-text escola"><small class="text-muted">{{ $candidate->student_school }}</small></p>
+
+                                    <a href="{{ route('vote.in', ['subscription_id' => $candidate->subscription_id]) }}" class="btn btn-primary btn-large center-block">CONFIRMAR</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        {{--<div class="text-center">
             <h1> Confirmação de Voto
             </h1>
             <h2>Você realmente deseja votar nesse candidato(a)?</h2>
@@ -26,6 +64,12 @@
                 </div>
                 <a href="{{ route('vote.in', ['subscription_id' => $candidate->subscription_id]) }}" class="btn btn-primary btn-large center-block">CONFIRMAR</a>
             </div>
-        </div>
+        </div>--}}
+
+
+
     </div>
+
+
+
 @stop
