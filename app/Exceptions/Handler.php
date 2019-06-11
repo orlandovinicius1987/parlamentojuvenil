@@ -2,12 +2,10 @@
 
 namespace App\Exceptions;
 
-use App\Data\Repositories\Data;
-use App\Data\Repositories\StudentAlreadyVoted;
-use App\Data\Repositories\StudentAlreadyVotedOnFlag;
 use Exception;
 use Psr\Log\LoggerInterface;
 use App\Services\Views\Builder;
+use App\Data\Repositories\Data;
 use Illuminate\Support\Facades\Response;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
@@ -47,6 +45,17 @@ class Handler extends ExceptionHandler
                     ->withErrors($e->getMessage());
         }
 
+        if ($e instanceof StudentAlreadyVoted)
+        {
+            $view = $this
+                ->viewBuilder
+                ->buildViewData(
+                    view(make_view_name_year_based('messages.already-voted'))
+                );
+
+            return Response::make($view);
+        }
+
         if ($e instanceof AlreadySubscribed)
         {
             $view = $this
@@ -56,16 +65,6 @@ class Handler extends ExceptionHandler
                         );
 
             return Response::make($view);
-        }
-
-        if ($e instanceof StudentAlreadyVoted)
-        {
-            return Response::make(
-                $this->viewBuilder
-                  ->buildViewData(
-                      view(make_view_name_year_based('vote.error'))
-                  )
-            );
         }
 
         if ($e instanceof StudentAlreadyVotedOnFlag)

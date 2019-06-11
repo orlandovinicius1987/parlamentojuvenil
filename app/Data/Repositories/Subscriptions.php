@@ -2,14 +2,15 @@
 
 namespace App\Data\Repositories;
 
-use App\Data\Entities\FlagContest;
-use App\Data\Entities\FlagVote;
 use DB;
 use App\Data\Entities\User;
 use App\Data\Entities\Vote;
 use App\Data\Entities\Student;
+use App\Data\Entities\FlagVote;
 use App\Data\Entities\SocialUser;
+use App\Data\Entities\FlagContest;
 use App\Data\Entities\Subscription;
+use App\Exceptions\StudentAlreadyVoted;
 
 class Subscriptions extends Repository
 {
