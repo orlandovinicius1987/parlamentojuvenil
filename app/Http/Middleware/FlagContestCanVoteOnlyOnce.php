@@ -2,9 +2,8 @@
 
 namespace App\Http\Middleware;
 
-use App\Data\Repositories\StudentAlreadyVotedOnFlag;
 use Closure;
-use App\Data\Repositories\StudentAlreadyVoted;
+use App\Exceptions\StudentAlreadyVotedOnFlag;
 
 class FlagContestCanVoteOnlyOnce
 {
