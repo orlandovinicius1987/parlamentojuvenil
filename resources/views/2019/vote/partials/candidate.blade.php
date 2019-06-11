@@ -3,9 +3,18 @@
 
     <div class="card">
 
+        @if (isset($is_elected))
+            <div class="badge-elected">
+                <img class="elected-badge" src="/templates/2017/assets/img/elected.svg">
+            </div>
+        @endif
+
+
         <img src="{{ $candidate->user_avatar ?: $candidate->no_avatar }}" class="card-img-top foto-candidato-social">
 
         <div class="card-body text-center">
+
+
 
             @if (! isset($is_elected))
                 <p>Candidato(a)</p>
@@ -20,13 +29,6 @@
                 @if (! isset($is_elected))
                     <a href="{{ route('vote.confirm', ['subscription_id' => $candidate->subscription_id]) }}" class="btn btn-primary btn-large center-block">VOTAR</a>
                 @endif
-
-                @if (isset($is_elected))
-                    <div class="badge-elected">
-                        <img class="elected-badge" src="/templates/2017/assets/img/elected.svg">
-                    </div>
-                @endif
-
         </div>
     </div>
 
