@@ -2,16 +2,9 @@
 
 @section('contents')
     <div class="votacao">
-
-
-
-
         <div class="container">
-
             <div class="row">
-
                 <div class="col-12">
-
 
                     <div class="text-center">
                         <h1>
@@ -35,20 +28,20 @@
                         <br><br>
 
                         <div class="row vote">
-                            <div class="col-6">
+                            <div class="offset-3 col-6">
                                 @include(get_current_year().'.vote.partials.candidate', ['candidate' => $candidates[0], 'is_elected' => true])
                             </div>
                         </div>
                     @endif
 
                     @if ($candidates->count() > 1)
-                        <div class="row vote card-deck">
-                            <div class="col-1">
+                        <div class="row vote card-deck mt-5">
+                            <div class="col-2">
 
                             </div>
 
                             @foreach($candidates as $candidate)
-                                <div class="col-5">
+                                <div class="col-4">
                                     @include(get_current_year().'.vote.partials.candidate', ['candidate' => $candidate])
                                 </div>
                             @endforeach
@@ -56,21 +49,9 @@
 
                     @endif
 
-
-
                 </div>
-
-
             </div>
-
-
         </div>
-
-
-
-
-
-
 
     </div>
 @stop
