@@ -13,8 +13,8 @@
                         Você realmente deseja votar nesse candidato(a)?
                     </h2>
 
-                    <div class="row vote card-deck mt-5">
-                        <div class="offset-4 col-4">
+                    <div class="row vote card-deck mt-4">
+                        <div class="offset-1 col-10 offset-md-2 col-md-8 offset-lg-4 col-lg-4">
 
                             <div class="card">
                                 <img src="{{ $candidate->user_avatar }}" class="card-img-top foto-candidato-social">

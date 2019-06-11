@@ -1,36 +1,35 @@
-<div class="well {{ random_color('vote', ['haze-green']) }}">
 
 
-    <div class="card">
+<div class="card mt-4">
 
-        @if (isset($is_elected))
-            <div class="badge-elected">
-                <img class="elected-badge" src="/templates/2017/assets/img/elected.svg">
-            </div>
+    @if (isset($is_elected))
+        <div class="badge-elected">
+            <img class="elected-badge" src="/templates/2017/assets/img/elected.svg">
+        </div>
+    @endif
+
+
+    <img src="{{ $candidate->user_avatar ?: $candidate->no_avatar }}" class="card-img-top foto-candidato-social">
+
+    <div class="card-body text-center">
+
+
+
+        @if (! isset($is_elected))
+            <p>Candidato(a)</p>
+        @else
+            <p>Eleito(a)</p>
         @endif
 
+        <h5 class="card-title nome-candidato">{{ $candidate->student_name }}</h5>
+        <p class="card-text cargo">Deputado(a) Estadual Juvenil</p>
+        <p class="card-text escola"><small class="text-muted">{{ $candidate->student_school }}</small></p>
 
-        <img src="{{ $candidate->user_avatar ?: $candidate->no_avatar }}" class="card-img-top foto-candidato-social">
-
-        <div class="card-body text-center">
-
-
-
-            @if (! isset($is_elected))
-                <p>Candidato(a)</p>
-            @else
-                <p>Eleito(a)</p>
-            @endif
-
-            <h5 class="card-title nome-candidato">{{ $candidate->student_name }}</h5>
-            <p class="card-text cargo">Deputado(a) Estadual Juvenil</p>
-            <p class="card-text escola"><small class="text-muted">{{ $candidate->student_school }}</small></p>
-
-                @if (! isset($is_elected))
-                    <a href="{{ route('vote.confirm', ['subscription_id' => $candidate->subscription_id]) }}" class="btn btn-primary btn-large center-block">VOTAR</a>
-                @endif
-        </div>
+        @if (! isset($is_elected))
+            <a href="{{ route('vote.confirm', ['subscription_id' => $candidate->subscription_id]) }}" class="btn btn-primary btn-large center-block">VOTAR</a>
+        @endif
     </div>
+</div>
 
 {{--
     <div class="col-xs-12 col-sm-offset-3 col-sm-6 text-center">
@@ -64,4 +63,3 @@
             </div>
         </div>
     @endif--}}
-</div>
