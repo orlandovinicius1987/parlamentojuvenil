@@ -11,7 +11,7 @@
                 <div class="alert alert-success text-center" role="alert">
                     <i class="fa fa-check" aria-hidden="true"></i>
                     <h1 class="title-alert">Seu voto foi validado!</h1>
-                    <h3>Parabéns por participar do Parlamento Juvenil 2019</h3>
+                    <h3>Parabéns por participar do Parlamento Juvenil {{get_current_year()}}</h3>
 
                     <h2 class="mt-5">Alguém mais vai votar neste dispositivo? <br> Clique no botão abaixo</h2>
 
