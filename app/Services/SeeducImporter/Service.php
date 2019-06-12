@@ -39,15 +39,17 @@ class Service
         return $row[0];
     }
 
-    public function import($file = null)
+    public function import($file = null, $dontTruncate = true)
     {
         ini_set("auto_detect_line_endings", "1");
         ini_set('max_execution_time', 3000);
 
-        DB::transaction(function() use ($file) {
+        DB::transaction(function() use ($file, $dontTruncate) {
             $reader = $this->read($file);
 
-            DB::statement('delete from seeduc');
+            if (!$dontTruncate) {
+                DB::statement('delete from seeduc');
+            }
 
             $counter = 0;
 

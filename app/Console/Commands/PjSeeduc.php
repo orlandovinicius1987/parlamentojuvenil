@@ -16,7 +16,7 @@ class PjSeeduc extends Command
      *
      * @var string
      */
-    protected $signature = 'pj:seeduc {file?}';
+    protected $signature = 'pj:seeduc {file?} {--dont-truncate}';
 
     /**
      * The console command description.
@@ -32,6 +32,6 @@ class PjSeeduc extends Command
      */
     public function handle()
     {
-        (new SeeducImporter($this))->import($this->argument('file'));
+        (new SeeducImporter($this))->import($this->argument('file'), $this->option('dont-truncate'));
     }
 }
