@@ -111,6 +111,11 @@ class Service
 
     protected function toDate($date)
     {
-        return Carbon::createFromFormat('d/m/y', $date);
+        try {
+            return Carbon::createFromFormat('d/m/y', $date);
+        } catch (\Exception $exception)
+        {
+            return Carbon::createFromFormat('d/m/Y', $date);
+        }
     }
 }
