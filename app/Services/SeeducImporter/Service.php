@@ -58,11 +58,11 @@ class Service
                     continue;
                 }
 
-                $row = explode(';', $line = $row[0]);
-
                 if (count($row) !== 6) {
                     continue;
                 }
+
+                $line = implode(';', $row);
 
                 try {
                     $model = Model::create([
@@ -81,7 +81,7 @@ class Service
 
                 $counter++;
 
-                if ($counter % 1000 == 0) {
+                if ($counter < 5 or $counter % 1000 == 0) {
                     $this->info($counter.' - '.$model->id.' -> '.$line);
                 }
             }
@@ -108,7 +108,11 @@ class Service
 
     private function read($fileName = null)
     {
-        return Reader::createFromPath($fileName ?: database_path(env('SEEDUC_CSV_FILE')));
+        $reader = Reader::createFromPath($fileName ?: database_path(env('SEEDUC_CSV_FILE')));
+
+        $reader->setDelimiter(';');
+
+        return $reader;
     }
 
     protected function toDate($date)
