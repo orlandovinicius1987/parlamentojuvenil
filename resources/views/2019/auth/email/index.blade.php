@@ -52,7 +52,7 @@
                 <div class="offset-1 col-10 offset-md-3 col-md-6 offset-lg-4 col-lg-4">
                     <h2 class="post-area-title m-5">ou</h2>
 
-                    @include('2019.partials.social-login')
+                    @include( get_current_year().'.partials.social-login')
                 </div>
             </div>
         </div>
