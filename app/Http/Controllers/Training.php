@@ -36,6 +36,7 @@ class Training extends BaseController
     {
         $training = $this->trainingRepository->addTrainingData(loggedUser()->subscription, TrainingModel::byYear($this->getYear()));
 
+
         return view($this->getYear().'.training.content')
             ->with('loggedUser', loggedUser()->subscription)
             ->with('training', $training);

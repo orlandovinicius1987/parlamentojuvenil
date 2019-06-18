@@ -14,6 +14,219 @@ class Training
     public static function all()
     {
         return Collection::make([
+
+
+            2019 => [
+                [
+                    'name' => 'Aula 1',
+
+                    'id' => '1',
+
+                    'relations' => [
+                        'videos' => [
+                            [
+                                'id' => 'video.1',
+                                'title' => 'Aula 1 - Parlamento Juvenil',
+                                'type' => 'video',
+                                'lead' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. Aliquam in felis sit amet augue.',
+                                'thumb-url' => '/files/pj2017/images/video-aula1.jpg',
+                                'video-url' => 'https://www.youtube.com/embed/Hq5QYQsA-Dc',
+                                'document-url' => '/files/pj2017/images/video-aula1.jpg',
+                            ],
+                        ],
+
+                        'documents' => [
+                            [
+                                'id' => 'document.1',
+                                'title' => '01 - Introdução aos Poderes Constituídos e ao Processo Legislativo',
+                                'type' => 'document',
+                                'lead' => 'Consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. Aliquam in felis sit amet augue.',
+                                'thumb-url' => '/pj2017/images/capacitacao/apostila01.jpg',
+                                'video-url' => 'https://www.youtube.com/embed/watch?v=Hq5QYQsA-Dc',
+                                'document-url' => '/files/apps/parlamentojuvenil/site/2017/downloads/capacitacao-pj-2017-aula01.pdf',
+                            ],
+                        ],
+
+                        'quiz' => [
+                            [
+                                'id' => 'quiz.1.001',
+                                'type' => 'quiz',
+                                'questions' =>
+                                    [
+                                        [
+                                            'question' => 'O Poder Público é constituído por',
+                                            'answers' => [
+                                                'a' => 'Poder Legislativo, Poder Executivo e Poder Judiciário.',
+                                                'b' => 'Poder Executivo, Poder Administrativo e Poder de Polícia.',
+                                                'c' => 'Poder de Polícia, Poder Legislativo e Poder Executivo.',
+                                                'd' => 'Poder Executivo, Poder Legislativo e Poder Administrativo.',
+                                            ],
+                                            'correct' => 'a',
+                                        ],
+
+                                        [
+                                            'id' => 'quiz.1.002',
+                                            'type' => 'quiz',
+                                            'question' => 'A Federação Brasileira é dividida em:',
+                                            'answers' => [
+                                                'a' => 'União, Distritos e Estados.',
+                                                'b' => 'Estados, Municípios e Cidades.',
+                                                'c' => 'União, Estados e Municípios.',
+                                                'd' => 'Federação, Estados e Município.',
+                                            ],
+                                            'correct' => 'c',
+                                        ],
+
+                                        [
+                                            'id' => 'quiz.1.003',
+                                            'type' => 'quiz',
+                                            'question' => 'O Projeto de Lei serve para:',
+                                            'answers' => [
+                                                'a' => 'regular as matérias de competência do Poder Legislativo, com a sanção do Governador do Estado.',
+                                                'b' => 'regular matérias fiscais da Câmara Municipal.',
+                                                'c' => 'Estabelecer novas regras de tramitação legislativa.',
+                                                'd' => 'Estabelecer procedimentos das comissões.',
+                                            ],
+                                            'correct' => 'a',
+                                        ],
+
+                                        [
+                                            'id' => 'quiz.1.004',
+                                            'type' => 'quiz',
+                                            'question' => 'O que é maioria absoluta:',
+                                            'answers' => [
+                                                'a' => 'Primeiro número inteiro após a metade dos presentes.',
+                                                'b' => 'Primeiro número inteiro após a metade do universo trabalhado.',
+                                                'c' => 'Maioria qualificada de 2/3.',
+                                                'd' => 'Maioria qualificada de 2/5.',
+                                            ],
+                                            'correct' => 'b',
+                                        ],
+
+                                        [
+                                            'id' => 'quiz.1.005',
+                                            'type' => 'quiz',
+                                            'question' => 'Após um projeto de lei ser aprovado pela plenário ele será encaminhado ao:',
+                                            'answers' => [
+                                                'a' => 'Arquivo;',
+                                                'b' => 'Governador para sanção/veto.',
+                                                'c' => 'Comissões.',
+                                                'd' => 'Publicação.',
+                                            ],
+                                            'correct' => 'b',
+                                        ],
+                                    ],
+                            ],
+                        ],
+                    ],
+                ],
+
+                [
+                    'name' => 'Aula 2',
+
+                    'id' => '2',
+
+                    'relations' => [
+                        'videos' => [
+                            [
+                                'id' => 'video.1',
+                                'title' => 'Aula 2 - Parlamento Juvenil',
+                                'type' => 'video',
+                                'lead' => '',
+                                'thumb-url' => '/files/pj2017/images/video-aula2.jpg',
+                                'video-url' => 'https://www.youtube.com/embed/F1oSdfhaXl4',
+                                'document-url' => '/files/pj2017/images/video-aula2.jpg',
+                            ],
+                        ],
+
+                        'documents' => [
+                            [
+                                'id' => 'document.1',
+                                'title' => '02 - Introdução à Técnica Legislativa',
+                                'type' => 'document',
+                                'lead' => 'Consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. Aliquam in felis sit amet augue.',
+                                'thumb-url' => '/pj2017/images/capacitacao/apostila02.jpg',
+                                'video-url' => 'https://www.youtube.com/embed/c-H6p0UFHPo',
+                                'document-url' => '/files/apps/parlamentojuvenil/site/2017/downloads/capacitacao-pj-2017-aula02.pdf',
+                            ],
+                        ],
+
+                        'quiz' => [
+                            [
+                                'id' => 'quiz.2.001',
+                                'type' => 'quiz',
+                                'questions' =>
+                                    [
+                                        [
+                                            'question' => 'Qual item não pode ser considerado uma proposição legislativa:',
+                                            'answers' => [
+                                                'a' => 'Proposta de emenda à constituição;',
+                                                'b' => 'Projeto de Lei;',
+                                                'c' => 'Projeto de Resolução;',
+                                                'd' => 'Projeto de Portaria.',
+                                            ],
+                                            'correct' => 'd',
+                                        ],
+
+                                        [
+                                            'id' => 'quiz.2.002',
+                                            'type' => 'quiz',
+                                            'question' => 'Após o protocolo e a publicação da proposição, ela será encaminhada para:',
+                                            'answers' => [
+                                                'a' => 'Comissões.',
+                                                'b' => 'Governador.',
+                                                'c' => 'Secretários de Estado.',
+                                                'd' => 'Presidente da ALERJ.',
+                                            ],
+                                            'correct' => 'a',
+                                        ],
+
+                                        [
+                                            'id' => 'quiz.2.003',
+                                            'type' => 'quiz',
+                                            'question' => 'Uma proposição deve ser redigida com:',
+                                            'answers' => [
+                                                'a' => 'clareza, em termos explícitos e concisos.',
+                                                'b' => 'linguagem local, gírias e expressões dúbias.',
+                                                'c' => 'fotos e imagens das pessoas.',
+                                                'd' => 'caneta preta ou azul.',
+                                            ],
+                                            'correct' => 'a',
+                                        ],
+
+                                        [
+                                            'id' => 'quiz.2.004',
+                                            'type' => 'quiz',
+                                            'question' => 'Um projeto de lei é composto de:',
+                                            'answers' => [
+                                                'a' => 'Parte preliminar, corpo da lei e parte final.',
+                                                'b' => 'Início meio e fim.',
+                                                'c' => 'Capítulos e versículos.',
+                                                'd' => 'Entrada e saída.',
+                                            ],
+                                            'correct' => 'a',
+                                        ],
+
+                                        [
+                                            'id' => 'quiz.2.005',
+                                            'type' => 'quiz',
+                                            'question' => 'Todo Projeto de Lei deverá conter, exceto:',
+                                            'answers' => [
+                                                'a' => 'Justificativa.',
+                                                'b' => 'Parte preliminar.',
+                                                'c' => 'Corpo da lei.',
+                                                'd' => 'Testemunhas.',
+                                            ],
+                                            'correct' => 'd',
+                                        ],
+                                    ],
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+
+
             2017 => [
                 [
                     'name' => 'Aula 1',

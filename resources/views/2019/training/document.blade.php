@@ -3,6 +3,52 @@
 @section('contents')
     <section id="header-capacitacao" class="capacitacao-content">
         <div class="container">
+            <div class="row text-center">
+                <div class="col-12">
+
+                        <div class="titulo-comofunciona">
+                            <h2>Capacitação</h2>
+                        </div>
+
+                </div>
+            </div>
+
+
+            <div class="row text-center">
+                <div class="col-12">
+
+                        <div class="capacitacao-heading">
+                            <h4>Olá <span  class="capacitacao-username">{{ $loggedUser->name }}</span></h4>
+
+                            Por favor clique no botão abaixo para baixar a apostila <br><strong>{{ $lesson['title'] }}</strong>:
+
+                        </div>
+
+                </div>
+            </div>
+
+            <div class="row text-center">
+                <div class="col-12">
+                    <a class="btn btn-success btn-lg mt-4" href="{{ $lesson['document-url'] }}" target="_blank">
+                        <i class="fa fa-download fa-lg"></i> Baixar documento
+                    </a>
+
+                    <br>
+
+                    <a class="btn btn-danger mt-4" href="{{ route('training.content') }}">
+                        <i class="fa fa-undo fa-lg"></i> Voltar
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+
+{{--
+    <section id="header-capacitacao" class="capacitacao-content">
+        <div class="container">
             <div class="row">
                 <div class="col-sm-2">
                     <div class="grow grid-item danube-blue">
@@ -79,5 +125,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section>--}}
+
+
 @stop
