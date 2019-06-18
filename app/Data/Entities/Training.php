@@ -29,9 +29,9 @@ class Training
                                 'title' => 'Aula 1 - Parlamento Juvenil',
                                 'type' => 'video',
                                 'lead' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. Aliquam in felis sit amet augue.',
-                                'thumb-url' => '/files/pj2017/images/video-aula1.jpg',
+                                'thumb-url' => '/templates/2017/images/capacitacao/capa-aula1.png',
                                 'video-url' => 'https://www.youtube.com/embed/Hq5QYQsA-Dc',
-                                'document-url' => '/files/pj2017/images/video-aula1.jpg',
+                                'document-url' => '/templates/2017/images/capacitacao/capa-aula1.png',
                             ],
                         ],
 
@@ -133,9 +133,9 @@ class Training
                                 'title' => 'Aula 2 - Parlamento Juvenil',
                                 'type' => 'video',
                                 'lead' => '',
-                                'thumb-url' => '/files/pj2017/images/video-aula2.jpg',
+                                'thumb-url' => '/templates/2017/images/capacitacao/capa-aula2.png',
                                 'video-url' => 'https://www.youtube.com/embed/F1oSdfhaXl4',
-                                'document-url' => '/files/pj2017/images/video-aula2.jpg',
+                                'document-url' => '/templates/2017/images/capacitacao/capa-aula2.png',
                             ],
                         ],
 

@@ -36,55 +36,53 @@
 
 
             <div class="row aulas">
-
-
                 @foreach($training as $courseKey => $course)
-                    <div class="col-6">
-
-                        <div class="comofunciona-panel-border {{ ($course['id'] % 2) == 0 ? 'cerulean-blue' : 'violet-red' }}">
-                            <div class="assistido">
-                                <i class="fa {{ $course['done'] ? 'fa-check-square-o' : 'fa-square-o' }}" aria-hidden="true"></i>
-                            </div>
-                            <div class="colors-panel-body text-center">
-                                <img class="img-fluid" src="/templates/2017/images/capacitacao/capa-aula1.png">
-                                <p class="botoes-capacitacao">
-                                    <a
-                                            href="{{ $course['relations']['videos'][0]['watch-url'] }}"
-                                            class="btn violet-red btn-apostilas"
-                                            {{ !$course['relations']['videos'][0]['visible'] ? 'disabled="disabled"' : '' }}
-                                    >
-                                        Vídeo
-                                        <span style="font-size:22px; margin-left: 10px;" class="pull-right showopacity glyphicon glyphicon-film"></span>
-                                    </a>
-
-                                    <a
-                                            href="{{ $course['relations']['documents'][0]['watch-url'] }}"
-                                            class="btn danube-blue btn-apostilas"
-                                            {{ !$course['relations']['documents'][0]['visible'] ? 'disabled="disabled"' : '' }}
-                                    >
-                                        Apostila
-                                        <span style="font-size:22px; margin-left: 10px;" class="pull-right showopacity glyphicon glyphicon-list-alt"></span>
-                                    </a>
-
-                                    <a
-                                            href="{{ $course['relations']['quiz'][0]['watch-url'] }}"
-                                            class="btn ecstasy-orange btn-apostilas"
-                                            {{ !$course['relations']['quiz'][0]['visible'] ? 'disabled="disabled"' : '' }}
-                                    >
-                                        Quiz
-                                        <span style="font-size:22px; margin-left: 10px;" class="pull-right showopacity glyphicon glyphicon-list-alt"></span>
-                                    </a>
-                                </p>
-                            </div>
-
-                            @if (!$course['visible'])
-                                <div class="black-overlay">
+                    @foreach($course['relations']['videos'] as $videoId => $video)
+                        <div class="col-6">
+                            <div class="comofunciona-panel-border {{ ($videoId % 2) == 0 ? 'cerulean-blue' : 'violet-red' }}">
+                                <div class="assistido">
+                                    <i class="fa {{ $course['done'] ? 'fa-check-square-o' : 'fa-square-o' }}" aria-hidden="true"></i>
                                 </div>
-                            @endif
-                        </div>
-                    </div>
-                @endforeach
+                                <div class="colors-panel-body text-center">
+                                    <img class="img-fluid" src="{{ $video['thumb-url'] }}">
+                                    <p class="botoes-capacitacao">
+                                        <a
+                                                href="{{ $course['relations']['videos'][0]['watch-url'] }}"
+                                                class="btn violet-red btn-apostilas"
+                                                {{ !$course['relations']['videos'][0]['visible'] ? 'disabled="disabled"' : '' }}
+                                        >
+                                            Vídeo
+                                            <span style="font-size:22px; margin-left: 10px;" class="pull-right showopacity glyphicon glyphicon-film"></span>
+                                        </a>
 
+                                        <a
+                                                href="{{ $course['relations']['documents'][0]['watch-url'] }}"
+                                                class="btn danube-blue btn-apostilas"
+                                                {{ !$course['relations']['documents'][0]['visible'] ? 'disabled="disabled"' : '' }}
+                                        >
+                                            Apostila
+                                            <span style="font-size:22px; margin-left: 10px;" class="pull-right showopacity glyphicon glyphicon-list-alt"></span>
+                                        </a>
+
+                                        <a
+                                                href="{{ $course['relations']['quiz'][0]['watch-url'] }}"
+                                                class="btn ecstasy-orange btn-apostilas"
+                                                {{ !$course['relations']['quiz'][0]['visible'] ? 'disabled="disabled"' : '' }}
+                                        >
+                                            Quiz
+                                            <span style="font-size:22px; margin-left: 10px;" class="pull-right showopacity glyphicon glyphicon-list-alt"></span>
+                                        </a>
+                                    </p>
+                                </div>
+
+                                @if (!$course['visible'])
+                                    <div class="black-overlay">
+                                    </div>
+                                @endif
+                            </div>
+                        </div>
+                    @endforeach
+                @endforeach
             </div>
         </div>
     </section>
