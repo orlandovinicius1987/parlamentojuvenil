@@ -53,14 +53,18 @@ Route::group(['prefix' => '/subscribe/{force?}', 'middleware' => ['subscribing',
     Route::get('/', ['as' => 'subscribe.index', 'uses' => 'Subscriptions@index']);
 });
 
-Route::group(['prefix' => '/vote', 'middleware' => ['voting', 'auth', 'student-login']], function ()
+Route::group(['prefix' => '/vote'], function ()
 {
-    Route::get('/', ['as' => 'vote.index', 'uses' => 'Vote@index']);
-    Route::get('/in/{subscription_id}', ['as' => 'vote.in', 'uses' => 'Vote@voteIn']);
-    Route::get('/confirm/{subscription_id}', ['as' => 'vote.confirm', 'uses' => 'Vote@confirm']);
-    Route::get('/error', ['as' => 'vote.error', 'uses' => 'Vote@error']);
+    Route::group(['middleware' => ['voting', 'auth', 'student-login']], function ()
+    {
+        Route::get('/', ['as' => 'vote.index', 'uses' => 'Vote@index']);
+        Route::get('/in/{subscription_id}', ['as' => 'vote.in', 'uses' => 'Vote@voteIn']);
+        Route::get('/confirm/{subscription_id}', ['as' => 'vote.confirm', 'uses' => 'Vote@confirm']);
+        Route::get('/error', ['as' => 'vote.error', 'uses' => 'Vote@error']);
+        Route::get('/delete/my/votes', ['as' => 'vote.delete', 'uses' => 'Vote@deleteMyVotes']);
+    });
+
     Route::get('/voted', ['as' => 'vote.voted', 'uses' => 'Vote@voted']);
-    Route::get('/delete/my/votes', ['as' => 'vote.delete', 'uses' => 'Vote@deleteMyVotes']);
 });
 
 Route::group(['prefix' => '/flag-contest/subscribe', 'middleware' => ['flag-contest-subscribing', 'auth', 'student-login', 'flag-contest-cannot-re-subscribe']], function ()
