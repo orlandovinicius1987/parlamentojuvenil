@@ -25,6 +25,8 @@
                                     <th>Idade</th>
                                     <th>Escola</th>
                                     <th>Regional</th>
+                                    <th>1o Turno</th>
+                                    <th>2o Turno</th>
                                     <th>Facebook</th>
                                     <th>Ferramentas</th>
                                 </tr>
@@ -50,6 +52,18 @@
 
                                         <td>
                                             {{ $person->regional }}
+                                        </td>
+
+                                        <td class="text-center">
+                                            @if ($person->elected_1nd)
+                                                <i class="fa fa-check"></i>
+                                            @endif
+                                        </td>
+
+                                        <td class="text-center">
+                                            @if ($person->elected_2nd)
+                                                <i class="fa fa-check"></i>
+                                            @endif
                                         </td>
 
                                         <td>
