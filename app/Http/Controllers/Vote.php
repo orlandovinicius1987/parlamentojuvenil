@@ -57,6 +57,11 @@ class Vote extends BaseController
 
         logout();
 
+        return redirect()->route('vote.voted');
+    }
+
+    public function voted()
+    {
         return $this->buildView('vote.voted');
     }
 
