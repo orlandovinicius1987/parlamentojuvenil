@@ -37,13 +37,11 @@
 
                 {{--<p class="lead">Até 7 de junho</p>--}}<br>
                 <p class="lead">Já está aberta a votação para o Segundo Turno do Parlamento Juvenil</p>
+
                 <br> &nbsp;<br> &nbsp;<br>
 
-
-                <a class="btn btn-primary btn-lg"  href="{{ route('vote.index') }} role="button">  <i class="fas fa-plus-circle"></i> Vote Aqui </a>
+                <a class="btn btn-primary btn-lg"  href="{{ route('vote.index') }}" role="button">  <i class="fas fa-plus-circle"></i> Vote Aqui </a>
             </div>
-
-
         </div>
     </div>
 </header>

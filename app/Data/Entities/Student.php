@@ -129,10 +129,14 @@ class Student extends Model
 
     public function hasRightAge()
     {
-        $date = Carbon::parse($this->attributes['birthdate'])->format('Y-m-d');
+        return true;
 
-        return $date >= config('app.student.birthdate.start') &&
-                $date <= config('app.student.birthdate.end');
+// &&& BACALHAU
+// PARA VER SE TODOS CONSEGUEM VOTAR!!!
+//        $date = Carbon::parse($this->attributes['birthdate'])->format('Y-m-d');
+//
+//        return $date >= config('app.student.birthdate.start') &&
+//                $date <= config('app.student.birthdate.end');
     }
 
     public function flagVotes()

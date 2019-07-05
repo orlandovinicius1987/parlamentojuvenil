@@ -16,6 +16,11 @@
                     <h2 class="mt-5">Alguém mais vai votar neste dispositivo? <br> Clique no botão abaixo</h2>
 
                     <a href="/vote" class="btn btn-lg btn-danger mt-5">Votar</a>
+
+                    @if (auth()->user())
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="{{ route('auth.logout') }}" class="btn btn-lg btn-success mt-5">Sair</a>
+                    @endif
                 </div>
 
             </div>
