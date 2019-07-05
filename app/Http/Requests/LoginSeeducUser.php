@@ -23,7 +23,7 @@ class LoginSeeducUser extends Request
     {
         return [
             'registration' => 'required',
-            'birthdate'    => 'required|birthdate|lessthan18|morethan13'
+            'birthdate'    => 'required|birthdate', // &&&&&& |lessthan18|morethan13 BACALHAU!!!
         ];
     }
 }
