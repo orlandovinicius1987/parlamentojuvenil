@@ -44,7 +44,33 @@
                     <a class="btn btn-primary btn-lg"  href="{{ route('vote.index') }}" role="button">  <i class="fas fa-plus-circle"></i> Vote Aqui </a>
                 </div>
             @endif
+
+
+
+                <div class="d-none d-md-block col-md-5 col-lg-4 subscribe-banner-img ">
+                    <img src="/templates/{{ get_current_year() }}/assets/img/results.png" class="img-fluid">
+                </div>
+
+                <div class="col-md-7 col-lg-8 text-left subscribe-banner-txt">
+                    <br>
+                    <h3 class="">Resultados da Votação do Segundo Turno</h3>
+
+                    <br>
+                    <p class="lead">Conheça os Deputados Estaduais Juvenis de {{ get_current_year() }}</p>
+
+                    <br> &nbsp;<br> &nbsp;
+
+                    <a class="btn btn-primary btn-lg"  href="{{ route('vote.elected', ['round' => 2]) }}" role="button">  <i class="fas fa-plus-circle"></i> Conheça os Deputados Eleitos </a>
+                </div>
+
+
+
         </div>
+
+
+
+
+
     </div>
 </header>
 
