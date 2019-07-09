@@ -103,7 +103,7 @@
 
 
         <div class="container">
-            <div class="col-10 col-md-4">
+            <div class="col-10 col-md-6 col-lg-4">
                 <a class="navbar-brand js-scroll-trigger" href="/#page-top">
                     <img class="logo-parlamento img-fluid" src="/templates/{{ get_current_year() }}/assets/img/logo-parlamento.png">
                 </a>
