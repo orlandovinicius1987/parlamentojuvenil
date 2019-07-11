@@ -23,6 +23,7 @@ class Kernel extends ConsoleKernel
         \App\Console\Commands\PjMakeAdmin::class,
         \App\Console\Commands\PjListAdmin::class,
         \App\Console\Commands\PjFixCities::class,
+        \App\Console\Commands\PjRemoveDuplicateVotes::class,
     ];
 
     /**
@@ -33,6 +34,9 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
+        $schedule->command('sync:all')
+                 ->everyMinute();
+
         $schedule->command('sync:all')
                  ->everyMinute();
     }
