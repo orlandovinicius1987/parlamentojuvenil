@@ -34,10 +34,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('sync:all')
-                 ->everyMinute();
-
-        $schedule->command('sync:all')
-                 ->everyMinute();
+        $schedule->command('pj:remove-duplicate-votes')
+                 ->hourly();
     }
 }
