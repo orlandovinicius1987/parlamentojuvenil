@@ -107,9 +107,44 @@ class Subscriptions extends Repository
         return Subscription::with('student')->where('id', $vote)->first();
     }
 
+    /**
+     * @return \Illuminate\Support\Collection
+     */
+    private function getAllDuplicateVotes($year)
+    {
+        $sql = 'select
+                  ou.id,
+                  stou.name,
+                  stou.registration,
+                  stou.email,
+                  ou.year,
+                  (select count(*)
+                   from votes inr
+                          join students stin on stin.id = inr.student_id
+                   where ou.is_valid
+                     and inr.year = ou.year
+                     and inr.round = ou.round
+                     and stou.registration = stin.registration) counter
+                from votes ou
+                join students stou on stou.id = ou.student_id
+                where ou.is_valid
+                  and ou.year = '.$year.'
+                  and (select count(*)
+                       from votes inr
+                       join students stin on stin.id = inr.student_id
+                       where inr.is_valid
+                         and inr.year = ou.year
+                         and inr.round = ou.round
+                         and stou.registration = stin.registration) > 1
+                order by stou.registration;
+        ';
+
+        return collect(DB::select($sql))->groupBy('registration');
+    }
+
     protected function getAllVotes()
     {
-        return DB::select(DB::raw(<<<SQL
+        return DB::select(DB::raw('
             select
               votes.id vote_id,
               students.id student_id,
@@ -121,11 +156,10 @@ class Subscriptions extends Repository
               students.email,
               votes.is_valid
             from students
-            join votes on votes.student_id = students.id
-            and votes.YEAR = 2017
+            join votes on votes.student_id = students.id and votes.year = '.get_current_year().'
+            where votes.is_valid
             order by students.registration, students.birthdate, votes.created_at
-            ;
-SQL
+            '
         ));
     }
 
@@ -401,8 +435,8 @@ SQL
                     ->select(
                       DB::raw("(select count(city) from students join subscriptions on subscriptions.student_id = students.id where subscriptions.elected_1nd = true and year = '$year') as cities_1nd"),
                       DB::raw("(select count(city) from students join subscriptions on subscriptions.student_id = students.id where subscriptions.elected_2nd = true and year = '$year') as cities_2nd"),
-                      DB::raw("(select count(*) from votes where votes.round = 1 and votes.year = '$year') as votes_1nd"),
-                      DB::raw("(select count(*) from votes where votes.round = 2 and votes.year = '$year') as votes_2nd"),
+                      DB::raw("(select count(*) from votes where votes.round = 1 and votes.is_valid and votes.year = '$year') as votes_1nd"),
+                      DB::raw("(select count(*) from votes where votes.round = 2 and votes.is_valid and votes.year = '$year') as votes_2nd"),
                       DB::raw("(select count(*) from seeduc) as total_voters")
                     )
                     ->first()
@@ -427,9 +461,9 @@ SQL
                     'students.registration',
                     'subscriptions.elected_1nd',
                     'subscriptions.year',
-                    DB::raw("(select count(*) from votes where votes.subscription_id = subscriptions.id and votes.round = 1 and votes.year = $year) as votes_1nd"),
+                    DB::raw("(select count(*) from votes where votes.subscription_id = subscriptions.id and votes.round = 1 and votes.is_valid and votes.year = $year) as votes_1nd"),
                     'subscriptions.elected_2nd',
-                    DB::raw("(select count(*) from votes where votes.subscription_id = subscriptions.id and votes.round = 2 and votes.year = $year) as votes_2nd")
+                    DB::raw("(select count(*) from votes where votes.subscription_id = subscriptions.id and votes.round = 2 and votes.is_valid and votes.year = $year) as votes_2nd")
                 )
                 ->join('students', 'students.id', '=' , 'subscriptions.student_id')
                 ->where(function ($query) {
@@ -520,6 +554,27 @@ STRING
                 $found->regional = $student->seeduc_regional;
                 $found->save();
             }
+        }
+    }
+
+    public function removeDuplicateVotes($year, $command)
+    {
+        foreach ($this->getAllDuplicateVotes($year) as $key => $group) {
+            $group->shift();
+
+            $group->each(function($vote) use ($command) {
+                $command->info(
+                    sprintf('%s - %s - %s - %s - %s',
+                        $vote->id,
+                        $vote->name,
+                        $vote->registration,
+                        $vote->email,
+                        $vote->year
+                    )
+                );
+
+                $this->invalidateVote($vote->id);
+            });
         }
     }
 }
