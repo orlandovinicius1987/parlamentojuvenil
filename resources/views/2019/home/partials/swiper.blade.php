@@ -29,6 +29,10 @@
 
 
             @if (election_enabled())
+
+
+                <!-------Banner da votação Ativa------->
+{{--
                 <div class="d-none d-md-block col-md-5 col-lg-4 subscribe-banner-img ">
                     <img src="/templates/{{ get_current_year() }}/assets/img/vote.png" class="img-fluid">
                 </div>
@@ -36,13 +40,35 @@
                 <div class="col-md-7 col-lg-8 text-left subscribe-banner-txt">
                     <h3 class="">Votação do Segundo Turno</h3>
 
-                    {{--<p class="lead">Até 7 de junho</p>--}}<br>
+                    --}}{{--<p class="lead">Até 7 de junho</p>--}}{{--<br>
                     <p class="lead">Já está aberta a votação para o Segundo Turno do Parlamento Juvenil</p>
 
                     <br> &nbsp;<br> &nbsp;<br>
 
                     <a class="btn btn-primary btn-lg"  href="{{ route('vote.index') }}" role="button">  <i class="fas fa-plus-circle"></i> Vote Aqui </a>
                 </div>
+                --}}
+
+
+                    <!-------Banner da votação Suplementar------->
+
+                    <div class="d-none d-md-block col-md-5 col-lg-4 subscribe-banner-img ">
+                        <img src="/templates/{{ get_current_year() }}/assets/img/vote.png" class="img-fluid">
+                    </div>
+
+                    <div class="col-md-7 col-lg-8 text-left subscribe-banner-txt">
+                        <h3 class="">Votação do Suplementar</h3>
+
+                        {{--<p class="lead">Até 7 de junho</p>--}}<br>
+                        <p class="lead">Esta aberta a votação suplementar para o Segundo Turno dos municípios de Itaperuna e Valença</p>
+
+                        <br> &nbsp;<br> &nbsp;<br>
+
+                        <a class="btn btn-primary btn-lg"  href="{{ route('vote.index') }}" role="button">  <i class="fas fa-plus-circle"></i> Vote Aqui </a>
+                    </div>
+
+
+
             @endif
 
 
