@@ -30,7 +30,6 @@
 
             @if (election_enabled())
 
-
                 <!-------Banner da votação Ativa------->
 {{--
                 <div class="d-none d-md-block col-md-5 col-lg-4 subscribe-banner-img ">
@@ -67,11 +66,10 @@
                         <a class="btn btn-primary btn-lg"  href="{{ route('vote.index') }}" role="button">  <i class="fas fa-plus-circle"></i> Vote Aqui </a>
                     </div>
 
-
-
             @endif
 
 
+{{--
 
                 <div class="d-none d-md-block col-md-5 col-lg-4 subscribe-banner-img ">
                     <img src="/templates/{{ get_current_year() }}/assets/img/results.png" class="img-fluid">
@@ -88,6 +86,28 @@
 
                     <a class="btn btn-primary btn-lg"  href="{{ route('vote.elected', ['round' => 2]) }}" role="button">  <i class="fas fa-plus-circle"></i> Conheça os Deputados Eleitos </a>
                 </div>
+
+--}}
+
+
+
+                <div class="col-md-7 col-lg-8 text-left subscribe-banner-txt">
+                    <br>
+                    <h3 class="">Resultados Finais</h3>
+
+                    <br>
+                    <p class="lead">Baixe Aqui o Resultado Final da Eleição do Parlamento Juvenil {{ get_current_year() }}</p>
+
+                    <br> &nbsp;<br> &nbsp;
+
+                    <a class="btn btn-primary btn-lg" href="/templates/2019/assets/media/resultado-final-pj-2019.pdf" target="_blank" role="button">  <i class="fas fa-download"></i></i> Baixar Resultados </a>
+                </div>
+
+                <div class="d-none d-md-block col-md-5 col-lg-4 subscribe-banner-img ">
+                    <img src="/templates/{{ get_current_year() }}/assets/img/results.png" class="img-fluid">
+                </div>
+
+
 
 
 
