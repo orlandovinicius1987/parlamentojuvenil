@@ -14,7 +14,7 @@
 
 
 
-
+        @if (training_enabled())
             <div class="col-md-7 col-lg-8 text-left subscribe-banner-txt">
                 <br>
                 <h3 class="">Prezados(as) Parlamentares Juvenis da Edição de {{ get_current_year() }},</h3>
@@ -41,6 +41,7 @@
             <div class="d-none d-md-block col-md-5 col-lg-4 subscribe-banner-img ">
                 <img src="/templates/{{ get_current_year() }}/assets/img/seminar.png" class="img-fluid">
             </div>
+        @endIf
 
 
 
