@@ -16,10 +16,6 @@
         <!-- ********** FIM - MANTIDOS DO SITE ANTIGO ********** -->
 
 
-
-
-
-
         <!-- ************* DO SITE 2019 ************* -->
         <!-- Bootstrap core CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -42,12 +38,6 @@
         {{--<script src="/templates/{{ get_current_year() }}/instashow/elfsight-instagram-feed.js"></script>--}}
 
         <!-- ********** FIM - DO SITE 2019 ********** -->
-
-
-
-
-
-
 
 
 
@@ -121,13 +111,7 @@
             </div>
         </div>
 
-
-
     </nav>
-
-
-
-
 
 
 
@@ -139,17 +123,8 @@
                 @include('partials.errors')
             </div>
 
-
             @yield('contents')
         </div>
-
-
-
-
-
-
-
-
 
 
 
@@ -250,8 +225,6 @@
 
 
 
-
-
     <!-- Custom scripts for this template -->
     <script src="/templates/{{ get_current_year() }}/assets/js/freelancer.js"></script>
 
@@ -290,7 +263,9 @@
     </script>
 
 
-        @yield('page-javascripts')
+    @yield('page-javascripts')
+
+    @include('partials.analytics')
 
 
     </body>
