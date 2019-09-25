@@ -9,9 +9,13 @@
         <div class="row">
 
 
-
-
-
+        @if(billing_enabled())
+           <div class="col-md-7 col-lg-8 text-left subscribe-banner-txt">
+                <h2>Foi eleito Parlamentar Juvenil em 2019?</h2>
+                <br>
+                <a href="http://www2.alerj.rj.gov.br/parlamentojuvenil/projetolei/logar.aspx" class="btn btn-lg btn-primary">Clique aqui e cadastre seu Projeto de Lei</a>
+            </div>
+        @endIf
 
 
         @if (training_enabled())

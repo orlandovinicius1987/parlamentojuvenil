@@ -165,6 +165,10 @@ function training_enabled() {
     return now_in_date_range(config('app.training.start'), config('app.training.end'));
 }
 
+function billing_enabled() {
+    return now_in_date_range(config('app.billing.start'), config('app.billing.end'));
+}
+
 function now_in_date_range($start, $end) {
     $now = Carbon::now();
 
