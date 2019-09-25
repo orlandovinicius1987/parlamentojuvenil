@@ -41,6 +41,11 @@ return [
         'end' => env('TRAINING_END'),
     ],
 
+    'billing' => [
+        'start' => env('BILLING_START'),
+        'end' => env('BILLING_END'),
+    ],
+
     'flag' => [
         'contest' => [
             'show_rules' => env('FLAG_CONTEST_SHOW_RULES', false),
