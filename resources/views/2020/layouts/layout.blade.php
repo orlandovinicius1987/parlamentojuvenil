@@ -15,8 +15,6 @@
         <![endif]-->
         <!-- ********** FIM - MANTIDOS DO SITE ANTIGO ********** -->
 
-
-
         <!-- ************* DO SITE 2019 ************* -->
 
         <!-- Custom fonts for this template -->
@@ -34,37 +32,16 @@
 
         <link href="/templates/{{ get_current_year() }}/assets/css/custom.css" rel="stylesheet" type="text/css">
 
-        <!-- Instashow - INSTAGRAM -->
-    <script src="/templates/{{ get_current_year() }}/assets/instashow/elfsight-instagram-feed.js"></script>
-
     <!-- ********** FIM - DO SITE 2019 ********** -->
 
         <!-- ************* ATUALIZAÇÃO 2020 ************* -->
-
 
         <link href="/templates/2020/assets/fonts/ballon/stylesheet.css" rel="stylesheet" type="text/css">
         <link href="/templates/2020/assets/fonts/antique-olive-compact/stylesheet.css" rel="stylesheet" type="text/css">
 
         <link href="/css/app.css" rel="stylesheet" type="text/css">
 
-
         <!-- ************* FINAL ATUALIZAÇÃO 2020 ************* -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         <!-- ************* MANTIDOS DO SITE ANTIGO ************* -->
         <!--[if IE]>
@@ -81,23 +58,14 @@
         </script>
         <!-- ********** FIM - MANTIDOS DO SITE ANTIGO ********** -->
 
-
-
-
-
-
-
     </head>
-
 
     <body class="noScroll" id="page-top">
 
     @include( get_current_year().'.layouts.partials.variables')
 
-
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg bg-secondary header-bg fixed-top " id="mainNav">
-
 
         <div class="container-fluid">
             <div class="col-10 col-md-6 col-lg-2 offset-lg-1">
@@ -106,14 +74,12 @@
                 </a>
             </div>
 
-
             <button class="navbar-toggler navbar-toggler-right bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fas fa-bars"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
 
                 @include(get_current_year().'.layouts.partials.menu')
-
 
             </div>
 
@@ -125,10 +91,6 @@
 
     </nav>
 
-
-
-
-
         <div class="masthead">
 
             <div class="container">
@@ -137,9 +99,6 @@
 
             @yield('contents')
         </div>
-
-
-
 
     <!-- Footer -->
     <footer class="footer copyright text-center">
@@ -196,15 +155,9 @@
                     </p>
                 </div>
 
-
-
-
             </div>
         </div>
     </footer>
-
-
-
 
 {{--
     <div class="copyright py-4 text-center text-white">
@@ -214,17 +167,12 @@
     </div>
     --}}
 
-
     <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
     <div class="scroll-to-top d-lg-none position-fixed ">
         <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top">
             <i class="fa fa-chevron-up"></i>
         </a>
     </div>
-
-
-
-
 
     <!-- Bootstrap core JavaScript -->
     <script src="/templates/{{ get_current_year() }}/assets/js/jquery/jquery.min.js"></script>
@@ -233,17 +181,8 @@
     <!-- Plugin JavaScript -->
     <script src="/templates/{{ get_current_year() }}/assets/js/jquery-easing/jquery.easing.min.js"></script>
 
-
-
-
-
     <!-- Custom scripts for this template -->
     <script src="/templates/{{ get_current_year() }}/assets/js/freelancer.js"></script>
-
-
-
-
-
 
     <!-- Swiper JS -->
     <script src="/templates/{{ get_current_year() }}/assets/js/swiper.min.js"></script>
@@ -265,27 +204,9 @@
         });
     </script>
 
-
-
-    <script>
-        document.addEventListener('appReady.EappsInstagramFeed', function() {
-            $('.my-instashow').eappsInstagramFeed({
-                api: '/templates/2019/instashow/api/index.php',
-                source: '@muradosmann',
-                width: 'auto',
-                layout: 'grid',
-                columns: 5,
-                rows: 3,
-                lang: 'en'
-            });
-        });
-    </script>
-
-
     @yield('page-javascripts')
 
     @include('partials.analytics')
-
 
     </body>
 </html>
