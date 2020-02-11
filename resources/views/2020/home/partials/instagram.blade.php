@@ -9,7 +9,7 @@
         <h3>Instagram</h3>
 
         <div data-is
-             data-is-api="/templates/{{ get_current_year() }}/instashow/api/index.php"
+             data-is-api="/templates/2020/assets/instashow/api/index.php"
              data-is-source="@parlamentojuvenilrj"
              data-is-width="auto"
              data-is-layout="grid"
