@@ -13,14 +13,14 @@
 
     {{--@include( get_current_year().'.home.partials.downloads')--}}
 
-{{--    @include( get_current_year().'.home.partials.instagram')--}}
+    @include( get_current_year().'.home.partials.instagram')
 
 
 
-{{--
-    @if (app()->environment() != 'production')
-        @include( get_current_year().'.home.partials.timeline')
-    @endif
-    --}}
+    {{--
+        @if (app()->environment() != 'production')
+            @include( get_current_year().'.home.partials.timeline')
+        @endif
+        --}}
 
 @stop

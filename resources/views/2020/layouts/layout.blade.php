@@ -16,9 +16,9 @@
         <!-- ********** FIM - MANTIDOS DO SITE ANTIGO ********** -->
 
 
+
         <!-- ************* DO SITE 2019 ************* -->
-        <!-- Bootstrap core CSS -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
         <!-- Custom fonts for this template -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
@@ -35,9 +35,34 @@
         <link href="/templates/{{ get_current_year() }}/assets/css/custom.css" rel="stylesheet" type="text/css">
 
         <!-- Instashow - INSTAGRAM -->
-        {{--<script src="/templates/{{ get_current_year() }}/instashow/elfsight-instagram-feed.js"></script>--}}
+    <script src="/templates/{{ get_current_year() }}/assets/instashow/elfsight-instagram-feed.js"></script>
 
-        <!-- ********** FIM - DO SITE 2019 ********** -->
+    <!-- ********** FIM - DO SITE 2019 ********** -->
+
+        <!-- ************* ATUALIZAÇÃO 2020 ************* -->
+
+
+        <link href="/templates/2020/assets/fonts/ballon/stylesheet.css" rel="stylesheet" type="text/css">
+        <link href="/templates/2020/assets/fonts/antique-olive-compact/stylesheet.css" rel="stylesheet" type="text/css">
+
+        <link href="/css/app.css" rel="stylesheet" type="text/css">
+
+
+        <!-- ************* FINAL ATUALIZAÇÃO 2020 ************* -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -57,6 +82,11 @@
         <!-- ********** FIM - MANTIDOS DO SITE ANTIGO ********** -->
 
 
+
+
+
+
+
     </head>
 
 
@@ -66,34 +96,11 @@
 
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg bg-secondary fixed-top " id="mainNav">
+    <nav class="navbar navbar-expand-lg bg-secondary header-bg fixed-top " id="mainNav">
 
 
- {{--       <div class="container">
-            <a class="navbar-brand js-scroll-trigger" href="#page-top">Start Bootstrap</a>
-            <button class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                Menu
-                <i class="fas fa-bars"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item mx-0 mx-lg-1">
-                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio">Portfolio</a>
-                    </li>
-                    <li class="nav-item mx-0 mx-lg-1">
-                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">About</a>
-                    </li>
-                    <li class="nav-item mx-0 mx-lg-1">
-                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Contact</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
---}}
-
-
-        <div class="container">
-            <div class="col-10 col-md-6 col-lg-4">
+        <div class="container-fluid">
+            <div class="col-10 col-md-6 col-lg-2 offset-lg-1">
                 <a class="navbar-brand js-scroll-trigger" href="/#page-top">
                     <img class="logo-parlamento img-fluid" src="/templates/{{ get_current_year() }}/assets/img/logo-parlamento.png">
                 </a>
@@ -109,6 +116,11 @@
 
 
             </div>
+
+            <div class="col-1 pull-right logo-alerj-topo">
+                <img class="logo-alerj img-fluid" src="/templates/{{ get_current_year() }}/assets/img/logo-alerj-topo.png">
+                <div class="edicao2020 text-center"> EDIÇÃO 2020 </div>
+            </div>
         </div>
 
     </nav>
@@ -117,7 +129,7 @@
 
 
 
-        <div class="masthead bg-pattern">
+        <div class="masthead">
 
             <div class="container">
                 @include('partials.errors')
@@ -239,9 +251,16 @@
     <!-- Initialize Swiper -->
     <script>
         var swiper = new Swiper('.swiper-container', {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
             pagination: {
                 el: '.swiper-pagination',
-                dynamicBullets: true,
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
             },
         });
     </script>
