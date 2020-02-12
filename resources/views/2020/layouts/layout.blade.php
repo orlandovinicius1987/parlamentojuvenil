@@ -39,6 +39,9 @@
         <link href="/templates/2020/assets/fonts/ballon/stylesheet.css" rel="stylesheet" type="text/css">
         <link href="/templates/2020/assets/fonts/antique-olive-compact/stylesheet.css" rel="stylesheet" type="text/css">
 
+        <link href="https://fonts.googleapis.com/css?family=Bangers&display=swap" rel="stylesheet">
+
+
         <link href="/css/app.css" rel="stylesheet" type="text/css">
 
         <!-- ************* FINAL ATUALIZAÇÃO 2020 ************* -->

@@ -1,0 +1,39 @@
+
+.header-bg {
+  background: #ffc400 url("/templates/2020/assets/img/header-background.png") center no-repeat   !important;
+}
+
+
+#mainNav {
+  border-bottom: 4px solid #000000;
+  border-top: 8px solid #000000;
+
+  .navbar-nav {
+    li.nav-item {
+      a.nav-link {
+        color: #000000;
+        font-family: 'balloonbold';
+        font-size: 1.5rem;
+      }
+    }
+  }
+}
+
+.logo-alerj-topo {
+  background: #ffffff;
+  border: 6px solid #000000;
+  border-top:0px ;
+  padding: 0;
+  margin-top: -24px;
+
+  .logo-alerj {
+    padding: 5px 10px ;
+  }
+
+  .edicao2020 {
+    background: #000000;
+    color: #ffffff;
+    padding-top: 5px;
+    font-family: 'balloonbold';
+  }
+}

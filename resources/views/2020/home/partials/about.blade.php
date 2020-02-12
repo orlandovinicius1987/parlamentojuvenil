@@ -99,3 +99,43 @@
 
 
 </section>
+
+
+
+<section>
+    <blockquote class="speech bubble">Did someone say <em>chimichangas?</em></blockquote>
+</section>
+<section>
+    <blockquote class="whisper bubble">That’s the sound of my brain</blockquote>
+</section>
+<section>
+    <blockquote class="electric bubble">Autobots,<span>Attack!</span></blockquote>
+</section>
+
+
+
+
+
+<article class="comic">
+    <div class="panel">
+        <p class="text top-left">Cada município do Rio de Janeiro podeser representado por um parlamentar juvenil.</p>
+        <p class="text bottom-right">...something amazing happened</p>
+
+        teste teste teste
+    </div>
+    <div class="panel">
+        <p class="text top-left">Try resizing...</p>
+        <p class="text bottom-right">...it's responsive</p>
+    </div>
+    <div class="panel">
+        <p class="speech">A speech bubble</p>
+    </div>
+    <div class="panel"> Teste </div>
+    <div class="panel"></div>
+    <div class="panel"></div>
+    <div class="panel"></div>
+    <div class="panel"></div>
+    <div class="panel">
+        <p class="text bottom-right">THE END</p>
+    </div>
+</article>

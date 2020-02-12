@@ -9662,4 +9662,415 @@ a.text-dark:hover, a.text-dark:focus {
   }
 }
 
+body {
+  background: #ffc400 !important;
+}
+
+h2 {
+  font-family: 'Bangers', cursive;
+}
+
+.masthead h2 {
+  font-family: 'Bangers', cursive;
+  font-size: 4.75em;
+}
+
+.bg-secondary {
+  background: #ffc400 !important;
+}
+
+.banner-001 {
+  background: url("/templates/2020/assets/img/fundo_banner_001.jpg");
+}
+
+.container-fluid.instagram-images, .instagram-images.container-sm, .instagram-images.container-md, .instagram-images.container-lg, .instagram-images.container-xl {
+  padding: 0px;
+}
+
+.container-fluid.instagram-images .col-md-3, .instagram-images.container-sm .col-md-3, .instagram-images.container-md .col-md-3, .instagram-images.container-lg .col-md-3, .instagram-images.container-xl .col-md-3 {
+  padding: 0px;
+}
+
+.header-bg {
+  background: #ffc400 url("/templates/2020/assets/img/header-background.png") center no-repeat !important;
+}
+
+#mainNav {
+  border-bottom: 4px solid #000000;
+  border-top: 8px solid #000000;
+}
+
+#mainNav .navbar-nav li.nav-item a.nav-link {
+  color: #000000;
+  font-family: 'balloonbold';
+  font-size: 1.5rem;
+}
+
+.logo-alerj-topo {
+  background: #ffffff;
+  border: 6px solid #000000;
+  border-top: 0px;
+  padding: 0;
+  margin-top: -24px;
+}
+
+.logo-alerj-topo .logo-alerj {
+  padding: 5px 10px;
+}
+
+.logo-alerj-topo .edicao2020 {
+  background: #000000;
+  color: #ffffff;
+  padding-top: 5px;
+  font-family: 'balloonbold';
+}
+
+.splash-001 {
+  background: url("/templates/2020/images/fundo-splash-001.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: 'balloonbold';
+  font-size: 30px;
+}
+
+.splash-001 h3 {
+  font-family: 'antique_olivecompact';
+  color: #ffc400;
+  text-transform: uppercase;
+  text-shadow: 3px 0 0 #000, -3px 0 0 #000, 0 3px 0 #000, 0 -3px 0 #000, 1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
+  font-size: 50px;
+}
+
+.splash-002 {
+  background: url("/templates/2020/images/fundo-splash-002.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: 'balloonbold';
+  font-size: 30px;
+}
+
+.splash-002 h3 {
+  font-size: 30px;
+  text-transform: uppercase;
+  font-family: 'balloonbold';
+}
+
+.splash-003 {
+  background: url("/templates/2020/images/fundo-splash-003.png");
+  background-size: 100% auto;
+}
+
+@font-face {
+  font-family: 'SequentialistBB';
+  src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/306FA6_1_0.woff2") format("woff2"), url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/306FA6_0_0.woff") format("woff");
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'SequentialistBB';
+  src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/306FA6_0_0.woff2") format("woff2"), url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/306FA6_0_0.woff") format("woff");
+  font-style: italic;
+  font-weight: 400;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+section {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  border-bottom: #000000 solid 8px;
+}
+
+section {
+  padding: 3rem;
+}
+
+section:nth-of-type(1) {
+  background: #d52b21;
+}
+
+section:nth-of-type(2) {
+  background: #red;
+}
+
+section:nth-of-type(3) {
+  background: #0388fe;
+}
+
+blockquote.bubble {
+  background-position: center;
+  background-repeat: no-repeat !important;
+  background-size: 100% 100%;
+  margin: 0 auto;
+  text-align: center;
+  height: 0;
+  box-sizing: content-box;
+  line-height: 1;
+}
+
+blockquote.speech {
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/speech-bubble.svg);
+  width: 25%;
+  padding-top: 6%;
+  padding-bottom: 20%;
+}
+
+blockquote.whisper {
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/whisper.svg);
+  width: 25%;
+  font-size: 2vw;
+  color: #ccc;
+  font-style: italic;
+  padding: 6% 5% 15%;
+}
+
+blockquote.electric {
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/electric.svg);
+  width: 25%;
+  font-size: 2.4vw;
+  font-style: italic;
+  padding: 4% 6% 12% 0%;
+}
+
+blockquote.electric span {
+  display: block;
+  font-size: 3vw;
+  font-weight: bold;
+}
+
+.comofunciona blockquote.electric {
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/electric.svg);
+  width: 90%;
+  font-size: 1.1vw;
+  font-style: italic;
+  padding: 10% 6% 30% 0%;
+}
+
+.comofunciona blockquote.electric .inner {
+  margin-left: 96px;
+  margin-right: 229px;
+}
+
+.comofunciona blockquote.electric-reverse {
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/electric.svg);
+  width: 90%;
+  font-size: 1.1vw;
+  font-style: italic;
+  padding: 10% 6% 30% 0%;
+  transform: rotateY(180deg);
+}
+
+.comofunciona blockquote.electric-reverse .inner {
+  margin-left: 96px;
+  margin-right: 229px;
+  transform: rotateY(180deg);
+}
+
+.comofunciona blockquote.electric span {
+  display: block;
+  font-size: 1.6vw;
+  font-weight: bold;
+}
+
+.comofunciona blockquote.electric-reverse span {
+  display: block;
+  font-size: 1.6vw;
+  font-weight: bold;
+}
+
+.swiper-container {
+  width: 100%;
+  height: 100%;
+}
+
+@media (min-width: 1200px) {
+  .swiper .swiper-container {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .masthead {
+    padding-top: calc(6rem + 16px);
+    padding-bottom: 6rem;
+  }
+  .swiper-slide {
+    height: 700px;
+  }
+  .swipper-inner {
+    padding: 30px;
+    min-height: 500px;
+  }
+  .splash-001 {
+    height: 590px;
+  }
+  .splash-001 .splash-content {
+    padding: 150px 120px;
+  }
+  .splash-001 .splash-content .lead {
+    font-size: 1.75rem;
+    font-weight: 300;
+  }
+  .splash-002 {
+    height: 420px;
+  }
+  .splash-002 .splash-content {
+    padding: 80px 130px;
+  }
+  .splash-002 p {
+    line-height: 1.8rem;
+  }
+}
+
+.comic {
+  display: flex;
+  flex-wrap: wrap;
+  font-family: 'Comic Sans', cursive;
+  padding: 1vmin;
+  /* background colours */
+}
+
+.comic .panel {
+  background-color: #fff;
+  border: solid 2px #000;
+  box-shadow: 0 6px 6px -6px #000;
+  display: inline-block;
+  flex: 1 1;
+  height: 200px;
+  margin: 1vmin;
+  overflow: hidden;
+  position: relative;
+}
+
+.comic .text {
+  background-color: #fff;
+  border: solid 2px #000;
+  margin: 0;
+  padding: 3px 10px;
+}
+
+.comic .top-left {
+  left: -6px;
+  position: absolute;
+  top: -2px;
+  transform: skew(-15deg);
+}
+
+.comic .bottom-right {
+  bottom: -2px;
+  position: absolute;
+  right: -6px;
+  transform: skew(-15deg);
+}
+
+.comic .speech {
+  background-color: #fff;
+  border: solid 2px #000;
+  border-radius: 12px;
+  display: inline-block;
+  margin: .5em;
+  padding: .5em 1em;
+  position: relative;
+}
+
+.comic .speech:before {
+  border: solid 12px transparent;
+  border-left: solid 12px #000;
+  border-top: solid 12px #000;
+  bottom: -24px;
+  content: "";
+  height: 0;
+  left: 24px;
+  position: absolute;
+  transform: skew(-15deg);
+  width: 0;
+}
+
+.comic .speech:after {
+  border: solid 10px transparent;
+  border-left: solid 10px #fff;
+  border-top: solid 10px #fff;
+  bottom: -19px;
+  content: "";
+  height: 0;
+  left: 27px;
+  position: absolute;
+  transform: skew(-15deg);
+  width: 0;
+}
+
+.comic .panel:nth-child(1) {
+  flex-basis: 400px;
+}
+
+.comic .panel:nth-child(2) {
+  flex-basis: 200px;
+}
+
+.comic .panel:nth-child(3) {
+  flex-basis: 200px;
+}
+
+.comic .panel:nth-child(4) {
+  flex-basis: 200px;
+}
+
+.comic .panel:nth-child(5) {
+  flex-basis: 200px;
+}
+
+.comic .panel:nth-child(6) {
+  flex-basis: 200px;
+}
+
+.comic .panel:nth-child(7) {
+  flex-basis: 400px;
+}
+
+.comic .panel:nth-child(8) {
+  flex-basis: 200px;
+}
+
+.comic .panel:nth-child(9) {
+  flex-basis: 200px;
+}
+
+.comic .panel:nth-child(4n+1) {
+  background-image: radial-gradient(circle, yellow, orange);
+}
+
+.comic .panel:nth-child(4n+2) {
+  background-image: radial-gradient(circle, lightblue, deepskyblue);
+}
+
+.comic .panel:nth-child(4n+3) {
+  background-image: radial-gradient(circle, palegreen, yellowgreen);
+}
+
+.comic .panel:nth-child(4n+4) {
+  background-image: radial-gradient(circle, lightcoral, tomato);
+}
+
+.footer {
+  background-color: #000000;
+  color: #fff;
+}
+
 /*# sourceMappingURL=app.css.map */

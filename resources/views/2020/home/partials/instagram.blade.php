@@ -1,6 +1,16 @@
 <!-- INSTAGRAM Section -->
-@foreach($instagramPictures as $image)
-    <div class="col-md-4">
-        <img src=" {{ $image }}" alt="" />
+
+
+<div class="container-fluid instagram-images">
+    <div class="row">
+
+        @foreach($instagramPictures as $image)
+            <div class="col-md-3">
+                <img src=" {{ $image }}" alt="" class="img-fluid" />
+            </div>
+        @endforeach
+
     </div>
-@endforeach
+</div>
+
+

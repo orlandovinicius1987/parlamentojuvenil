@@ -12,14 +12,21 @@
 
             <div class="col-lg-10 offset-lg-1">
 
+                <div class="splash-003">
+                    <p>
+                        Alunos do 1º e 2º ano do ensino médio da Rede Pública Estadual do Rio de Janeiro, com idade entre 14 e 17 anos.
+                    </p>
+                </div>
+
                 <h2 class="text-center">Quem Pode Participar</h2>
 
 
                 <div class="chat">
                     <ul>
+
                         <li class="other">
                             <a class="user" href="#"><img alt="" src="/templates/2019/images/parlamentar-juvenil-001.jpg" /></a>
-                            <div class="message ">
+                            <div class="splash-003">
                                 <p>
                                     Alunos do 1º e 2º ano do ensino médio da Rede Pública Estadual do Rio de Janeiro, com idade entre 14 e 17 anos.
                                 </p>
