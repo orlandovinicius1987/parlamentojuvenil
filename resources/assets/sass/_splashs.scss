@@ -69,9 +69,10 @@ section {
 }
 section:nth-of-type(1) {
   background: #d52b21;
+  border-top: #000000 solid 8px;
 }
 section:nth-of-type(2) {
-  background: #red;
+  background: red;
 }
 section:nth-of-type(3) {
   background: #0388fe;
@@ -92,7 +93,7 @@ blockquote.bubble {
 
 blockquote.speech {
   background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/speech-bubble.svg);
-  width: 25%;
+  width: 45%;
   padding-top: 6%;
   padding-bottom: 20%;
 }
@@ -119,6 +120,43 @@ blockquote.electric span {
   font-size: 3vw;
   font-weight: bold;
 }
+
+
+
+
+.quempode {
+  blockquote.speech {
+    background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/speech-bubble.svg);
+    width: 80%;
+    padding-top: 6%;
+    padding-bottom: 20%;
+
+    .inner{
+      padding: 0 15% 0 15%;
+      font-size: 1.7rem;
+      background-size: cover;
+      font-family: 'balloonbold';
+
+    }
+  }
+
+  blockquote.speech-reverse {
+    background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/speech-bubble.svg);
+    width: 80%;
+    padding-top: 6%;
+    padding-bottom: 20%;
+    transform: rotateY(180deg);
+
+    .inner{
+      padding: 0 15% 0 15%;
+      font-size: 1.7rem;
+      background-size: cover;
+      font-family: 'balloonbold';
+      transform: rotateY(180deg);
+    }
+  }
+}
+
 
 
 .comofunciona {

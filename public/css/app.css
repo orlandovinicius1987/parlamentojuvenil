@@ -9672,7 +9672,12 @@ h2 {
 
 .masthead h2 {
   font-family: 'Bangers', cursive;
-  font-size: 4.75em;
+  font-size: 5.75em;
+  /*font-family: 'Luckiest Guy';*/
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-shadow: 0px -4px 0 #212121, 0px -4px 0 #212121, 0px 4px 0 #212121, 0px 4px 0 #212121, -4px 0px 0 #212121, 4px 0px 0 #212121, -4px 0px 0 #212121, 4px 0px 0 #212121, -4px -4px 0 #212121, 4px -4px 0 #212121, -4px 4px 0 #212121, 4px 4px 0 #212121, -4px 18px 0 #212121, 0px 18px 0 #212121, 4px 18px 0 #212121, 0 19px 1px rgba(0, 0, 0, 0.1), 0 0 4px rgba(0, 0, 0, 0.1), 0 4px 3px rgba(0, 0, 0, 0.3), 0 12px 4px rgba(0, 0, 0, 0.2), 0 14px 14px rgba(0, 0, 0, 0.25), 0 16px 16px rgba(0, 0, 0, 0.2), 0 24px 244px rgba(0, 0, 0, 0.15);
 }
 
 .bg-secondary {
@@ -9683,12 +9688,195 @@ h2 {
   background: url("/templates/2020/assets/img/fundo_banner_001.jpg");
 }
 
+.quempode {
+  background: #0388fe;
+}
+
 .container-fluid.instagram-images, .instagram-images.container-sm, .instagram-images.container-md, .instagram-images.container-lg, .instagram-images.container-xl {
   padding: 0px;
 }
 
 .container-fluid.instagram-images .col-md-3, .instagram-images.container-sm .col-md-3, .instagram-images.container-md .col-md-3, .instagram-images.container-lg .col-md-3, .instagram-images.container-xl .col-md-3 {
   padding: 0px;
+}
+
+.cronograma .timeline:before {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  content: ' ';
+  display: block;
+  width: 6px;
+  height: 100%;
+  margin-left: -3px;
+  background: #d2d2d2;
+  background: linear-gradient(to bottom, rgba(210, 210, 210, 0) 0, #000000 8%, #000000 92%, rgba(210, 210, 210, 0) 100%) !important;
+  z-index: 5;
+}
+
+.cronograma .flag {
+  position: relative;
+  display: inline;
+  background: #000000 !important;
+  padding: 6px 10px;
+  border-radius: 5px;
+  font-weight: 600;
+  text-align: left;
+  color: #ffffff !important;
+  font-family: 'balloonbold' !important;
+}
+
+.cronograma .flag:before {
+  border: #000000;
+}
+
+.cronograma .time {
+  background: none;
+  color: #000000;
+  font-family: 'balloonbold' !important;
+}
+
+.cronograma .timeline {
+  position: relative;
+  width: 660px;
+  margin: 0 auto;
+  margin-top: 20px;
+  padding: 1em 0;
+  list-style-type: none;
+}
+
+@media (min-width: 1200px) {
+  .cronograma .timeline {
+    width: 960px;
+  }
+}
+
+.cronograma .timeline:before {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  content: ' ';
+  display: block;
+  width: 6px;
+  height: 100%;
+  margin-left: -3px;
+  background: #d2d2d2;
+  background: linear-gradient(to bottom, rgba(210, 210, 210, 0) 0, #d2d2d2 8%, #d2d2d2 92%, rgba(210, 210, 210, 0) 100%);
+  z-index: 5;
+}
+
+.cronograma .timeline li {
+  padding: 1em 0;
+}
+
+.cronograma .timeline li:after {
+  content: "";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+.cronograma .direction-l {
+  position: relative;
+  width: 296px;
+  float: left;
+  text-align: right;
+}
+
+@media (min-width: 1200px) {
+  .cronograma .direction-l {
+    width: 446px;
+  }
+}
+
+.cronograma .direction-r {
+  position: relative;
+  width: 296px;
+  float: right;
+}
+
+@media (min-width: 1200px) {
+  .cronograma .direction-r {
+    width: 446px;
+  }
+}
+
+.cronograma .flag-wrapper {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+}
+
+.cronograma .flag-wrapper2 {
+  display: block;
+  padding: 10px;
+  position: relative;
+  color: #fff;
+  font-size: 15px;
+  background-color: #ff00ff !important;
+  border-radius: 3px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.cronograma .flag-wrapper2:before {
+  content: '';
+  position: absolute;
+  border-top: 16px solid rgba(0, 0, 0, 0.15);
+  border-left: 16px solid transparent;
+  border-right: 16px solid transparent;
+}
+
+.cronograma .direction-l .flag {
+  box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.15), 0 0 1px rgba(0, 0, 0, 0.15);
+}
+
+.cronograma .direction-r .flag {
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15), 0 0 1px rgba(0, 0, 0, 0.15);
+}
+
+.cronograma .direction-l .flag:before,
+.cronograma .direction-r .flag:before {
+  position: absolute;
+  top: 50%;
+  right: -40px;
+  content: ' ';
+  display: block;
+  width: 12px;
+  height: 12px;
+  margin-top: -10px;
+  background: #fff;
+  border-radius: 10px;
+  border: 4px solid #000000 !important;
+  z-index: 10;
+}
+
+.cronograma .direction-l .flag:after {
+  content: "";
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  height: 0;
+  width: 0;
+  margin-top: -8px;
+  border: solid transparent;
+  border-left-color: #000000 !important;
+  border-width: 8px;
+  pointer-events: none;
+}
+
+.cronograma .direction-r .flag:after {
+  content: "";
+  position: absolute;
+  right: 100%;
+  top: 50%;
+  height: 0;
+  width: 0;
+  margin-top: -8px;
+  border: solid transparent;
+  border-right-color: #000000 !important;
+  border-width: 8px;
+  pointer-events: none;
 }
 
 .header-bg {
@@ -9794,10 +9982,11 @@ section {
 
 section:nth-of-type(1) {
   background: #d52b21;
+  border-top: #000000 solid 8px;
 }
 
 section:nth-of-type(2) {
-  background: #red;
+  background: red;
 }
 
 section:nth-of-type(3) {
@@ -9817,7 +10006,7 @@ blockquote.bubble {
 
 blockquote.speech {
   background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/speech-bubble.svg);
-  width: 25%;
+  width: 45%;
   padding-top: 6%;
   padding-bottom: 20%;
 }
@@ -9843,6 +10032,36 @@ blockquote.electric span {
   display: block;
   font-size: 3vw;
   font-weight: bold;
+}
+
+.quempode blockquote.speech {
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/speech-bubble.svg);
+  width: 80%;
+  padding-top: 6%;
+  padding-bottom: 20%;
+}
+
+.quempode blockquote.speech .inner {
+  padding: 0 15% 0 15%;
+  font-size: 1.7rem;
+  background-size: cover;
+  font-family: 'balloonbold';
+}
+
+.quempode blockquote.speech-reverse {
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/speech-bubble.svg);
+  width: 80%;
+  padding-top: 6%;
+  padding-bottom: 20%;
+  transform: rotateY(180deg);
+}
+
+.quempode blockquote.speech-reverse .inner {
+  padding: 0 15% 0 15%;
+  font-size: 1.7rem;
+  background-size: cover;
+  font-family: 'balloonbold';
+  transform: rotateY(180deg);
 }
 
 .comofunciona blockquote.electric {

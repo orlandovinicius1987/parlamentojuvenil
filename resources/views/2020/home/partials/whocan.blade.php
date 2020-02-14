@@ -3,54 +3,45 @@
 
 
 <!-- SOBRE Section -->
-<section class="quempode mb-0 " id="quem-pode">
+<section class="quempode mb-0 pt-5 " id="quem-pode">
 
     <div class="container">
         <div class="row text-center">
 
 
 
-            <div class="col-lg-10 offset-lg-1">
-
-                <div class="splash-003">
-                    <p>
-                        Alunos do 1º e 2º ano do ensino médio da Rede Pública Estadual do Rio de Janeiro, com idade entre 14 e 17 anos.
-                    </p>
-                </div>
-
-                <h2 class="text-center">Quem Pode Participar</h2>
+            <div class="col-12">
 
 
-                <div class="chat">
-                    <ul>
+                <h2 class="text-center mt-5 mb-5">Quem Pode Participar</h2>
 
-                        <li class="other">
-                            <a class="user" href="#"><img alt="" src="/templates/2019/images/parlamentar-juvenil-001.jpg" /></a>
-                            <div class="splash-003">
-                                <p>
-                                    Alunos do 1º e 2º ano do ensino médio da Rede Pública Estadual do Rio de Janeiro, com idade entre 14 e 17 anos.
-                                </p>
-                            </div>
-                        </li>
 
-                        <li class="you">
-                            <a class="user" href="#"><img alt="" src="/templates/2019/images/parlamentar-juvenil-002.jpg" /></a>
-                            <div class="message">
-                                <p>
-                                    O aluno que completar 18 anos após a semana do Parlamento Juvenil (24 a 30 de novembro) poderá concorrer.
-                                </p>
-                            </div>
-                        </li>
-                        <li class="other">
-                            <a class="user" href="#"><img alt="" src="/templates/2019/images/parlamentar-juvenil-001.jpg" /></a>
-                            <div class="message">
-                                <p>
-                                    Os eleitores do PJ são alunos do 8º ano em diante.
-                                </p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+                <blockquote class="speech bubble mt-5">
+                    <div class="inner">
+                        <p>
+                            Alunos do 1º e 2º ano do ensino médio da Rede Pública Estadual do Rio de Janeiro,<em> com idade entre 14 e 17 anos.</em>
+                        </p>
+                    </div>
+                </blockquote>
+
+                <blockquote class="speech-reverse bubble">
+                    <div class="inner">
+                        <p>
+                            O aluno que completar 18 anos após a semana do Parlamento Juvenil (24 a 30 de novembro) poderá concorrer.
+                        </p>
+                    </div>
+                </blockquote>
+
+                <blockquote class="speech bubble">
+                    <div class="inner">
+                        <p>
+                            Os eleitores do PJ são alunos do 8º ano em diante.
+                        </p>
+                    </div>
+                </blockquote>
+
+
+
             </div>
 
 
