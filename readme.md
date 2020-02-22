@@ -13,3 +13,11 @@ GROUP BY hora
 ORDER BY hora desc
 ;
 ```
+
+### Comandos para popular o banco de dados vazio para testes
+```
+php artisan migrate
+php artisan db:seed
+php artisan pj:seeduc:test-data
+php artisan pj:populate-cities
+```
