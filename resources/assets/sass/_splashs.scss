@@ -57,26 +57,41 @@
   box-sizing: border-box;
 }
 
-section {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  border-bottom: #000000 solid 8px;
+
+
+.home-layout {
+  section {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    border-bottom: #000000 solid 8px;
+    padding: 3rem;
+
+    &:nth-of-type(1){
+      background: #d52b21;
+      border-top: #000000 solid 8px;
+    }
+    &:nth-of-type(2) {
+      background: #0388fe;
+    }
+    &:nth-of-type(3) {
+      background: #90c320;
+    }
+    &:nth-of-type(4){
+      background: #e71873;
+    }
+    &:nth-of-type(5) {
+      background: #f39801;
+    }
+    &:nth-of-type(6) {
+      background: #f19808;
+    }
+
+
+  }
 }
-section {
-  padding: 3rem;
-}
-section:nth-of-type(1) {
-  background: #d52b21;
-  border-top: #000000 solid 8px;
-}
-section:nth-of-type(2) {
-  background: red;
-}
-section:nth-of-type(3) {
-  background: #0388fe;
-}
+
 
 
 blockquote.bubble {
@@ -188,7 +203,49 @@ blockquote.electric span {
     }
   }
 
+  blockquote.electric span {
+    display: block;
+    font-size: 1.6vw;
+    font-weight: bold;
+  }
 
+  blockquote.electric-reverse span {
+    display: block;
+    font-size: 1.6vw;
+    font-weight: bold;
+  }
+
+}
+
+
+.downloads {
+  blockquote.electric {
+    background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/electric.svg);
+    width: 90%;
+    font-size: 1.1vw;
+    font-style: italic;
+    padding: 10% 6% 30% 0%;
+
+    .inner {
+      margin-left: 96px;
+      margin-right: 229px;
+    }
+  }
+
+  blockquote.electric-reverse {
+    background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/electric.svg);
+    width: 90%;
+    font-size: 1.1vw;
+    font-style: italic;
+    padding: 10% 6% 30% 0%;
+    transform: rotateY(180deg);
+
+    .inner {
+      margin-left: 96px;
+      margin-right: 229px;
+      transform: rotateY(180deg);
+    }
+  }
 
   blockquote.electric span {
     display: block;

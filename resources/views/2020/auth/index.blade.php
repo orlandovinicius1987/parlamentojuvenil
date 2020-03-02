@@ -36,8 +36,6 @@
 
 
 
-
-
             <div class="row text-center mt-5">
                 <div class="offset-md-3 col-md-6">
                     <div class="nao-possui-redes">

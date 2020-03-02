@@ -288,3 +288,30 @@ h2 {
   border-width: 8px;
   pointer-events: none
 }
+
+
+
+
+.container-fluid {
+  padding-right: 0px;
+  padding-left: 0px;
+}
+
+
+.card-columns {
+  .card {
+    border: 6px solid #000000;
+    border-radius: 0;
+    margin-bottom:0;
+  }
+}
+
+
+@media (min-width: 576px) {
+  .card-columns {
+    column-count: 4;
+    column-gap: 0;
+    orphans: 1;
+    widows: 1;
+  }
+}

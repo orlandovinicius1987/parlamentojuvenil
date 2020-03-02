@@ -2,79 +2,75 @@
 
 <!-- Swiper -->
 
-<div class="masthead swiper-container">
-    <div class="swiper-wrapper">
 
+    <div class="masthead swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide banner-001">
+                <div class="row swipper-inner">
+                    <div class="offset-md-1 col-md-5 text-left splash-001">
 
-        <div class="swiper-slide banner-001">
-            <div class="row swipper-inner">
-                <div class="offset-md-1 col-md-5 text-left splash-001">
+                        <div class="splash-content text-center">
 
-                    <div class="splash-content text-center">
+                            <h3 class="">Inscrições</h3>
 
-                    <h3 class="">Inscrições</h3>
+                            <p class="lead"> De 6 de Maio a 7 de Junho </p>
+                            <p class="lead"> Para alunos do 1 e 2 ano do ensino médio da rede pública estadual, com idade entre 14 e 17 anos.</p>
 
-                    <p class="lead"> De 6 de Maio a 7 de Junho </p>
-                    <p class="lead"> Para alunos do 1 e 2 ano do ensino médio da rede pública estadual, com idade entre 14 e 17 anos.</p>
-
+                        </div>
                     </div>
-                </div>
 
-                <div class="offset-md-1 col-md-4">
-                    <img src="/templates/{{ get_current_year() }}/images/o-futuro-e-agora.png" class="img-fluid">
+                    <div class="offset-md-1 col-md-4">
+                        <img src="/templates/{{ get_current_year() }}/images/o-futuro-e-agora.png" class="img-fluid">
 
-                    <div class="splash-002">
-                        <div class="splash-content">
-                            <h3>Eleições</h3>
-                            <p>1 Turno<br>
-                                13 de Junho</p>
-                            <p>2 Turno<br>
-                                4 a 7 de Julho</p>
+                        <div class="splash-002">
+                            <div class="splash-content">
+                                <h3>Eleições</h3>
+                                <p>1 Turno<br>
+                                    13 de Junho</p>
+                                <p>2 Turno<br>
+                                    4 a 7 de Julho</p>
+
+                            </div>
 
                         </div>
 
                     </div>
-
-                </div>
-            </div>
-        </div>
-
-
-
-
-        <div class="swiper-slide">
-            <div class="row">
-                <div class="col-md-5">
-                    <img src="/templates/{{ get_current_year() }}/images/o-futuro-e-agora.png" class="img-fluid">
-                </div>
-                <div class="col-md-6 text-right">
-                    <h3 class="">Inscreva-se Aqui!</h3>
-                    <p class="lead">Até 7 de junho</p>
-                    <p class="lead">Estudantes do 1&deg; e do 2&deg; anos do Ensino Médio da Rede Estadual com idade entre 14 e 17 anos.</p>
-
-                    <p class="lead">Importante!<br> Tenha o número de sua matrícula em mãos.</p>
-
-
-                    <a class="btn btn-primary" href="#" role="button"><i class="fas fa-plus-circle"></i> Saiba Mais</a>
                 </div>
             </div>
 
+            <div class="swiper-slide">
+                <div class="row">
+                    <div class="col-md-5">
+                        <img src="/templates/{{ get_current_year() }}/images/o-futuro-e-agora.png" class="img-fluid">
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <h3 class="">Inscreva-se Aqui!</h3>
+                        <p class="lead">Até 7 de junho</p>
+                        <p class="lead">Estudantes do 1&deg; e do 2&deg; anos do Ensino Médio da Rede Estadual com idade entre 14 e 17 anos.</p>
+
+                        <p class="lead">Importante!<br> Tenha o número de sua matrícula em mãos.</p>
+
+
+                        <a class="btn btn-primary" href="#" role="button"><i class="fas fa-plus-circle"></i> Saiba Mais</a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="swiper-slide">Slide 3</div>
+            <div class="swiper-slide">Slide 4</div>
+            <div class="swiper-slide">Slide 5</div>
+            <div class="swiper-slide">Slide 6</div>
+            <div class="swiper-slide">Slide 7</div>
+            <div class="swiper-slide">Slide 8</div>
+            <div class="swiper-slide">Slide 9</div>
+            <div class="swiper-slide">Slide 10</div>
         </div>
-        <div class="swiper-slide">Slide 3</div>
-        <div class="swiper-slide">Slide 4</div>
-        <div class="swiper-slide">Slide 5</div>
-        <div class="swiper-slide">Slide 6</div>
-        <div class="swiper-slide">Slide 7</div>
-        <div class="swiper-slide">Slide 8</div>
-        <div class="swiper-slide">Slide 9</div>
-        <div class="swiper-slide">Slide 10</div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+        <!-- Add Arrows -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
     </div>
-    <!-- Add Pagination -->
-    <div class="swiper-pagination"></div>
-    <!-- Add Arrows -->
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
-</div>
 
 
 {{--

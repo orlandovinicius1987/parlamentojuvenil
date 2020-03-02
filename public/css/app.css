@@ -9879,6 +9879,26 @@ h2 {
   pointer-events: none;
 }
 
+.container-fluid, .container-sm, .container-md, .container-lg, .container-xl {
+  padding-right: 0px;
+  padding-left: 0px;
+}
+
+.card-columns .card {
+  border: 6px solid #000000;
+  border-radius: 0;
+  margin-bottom: 0;
+}
+
+@media (min-width: 576px) {
+  .card-columns {
+    column-count: 4;
+    column-gap: 0;
+    orphans: 1;
+    widows: 1;
+  }
+}
+
 .header-bg {
   background: #ffc400 url("/templates/2020/assets/img/header-background.png") center no-repeat !important;
 }
@@ -9968,29 +9988,38 @@ h2 {
   box-sizing: border-box;
 }
 
-section {
+.home-layout section {
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-content: center;
   border-bottom: #000000 solid 8px;
-}
-
-section {
   padding: 3rem;
 }
 
-section:nth-of-type(1) {
+.home-layout section:nth-of-type(1) {
   background: #d52b21;
   border-top: #000000 solid 8px;
 }
 
-section:nth-of-type(2) {
-  background: red;
+.home-layout section:nth-of-type(2) {
+  background: #0388fe;
 }
 
-section:nth-of-type(3) {
-  background: #0388fe;
+.home-layout section:nth-of-type(3) {
+  background: #90c320;
+}
+
+.home-layout section:nth-of-type(4) {
+  background: #e71873;
+}
+
+.home-layout section:nth-of-type(5) {
+  background: #f39801;
+}
+
+.home-layout section:nth-of-type(6) {
+  background: #f19808;
 }
 
 blockquote.bubble {
@@ -10104,6 +10133,46 @@ blockquote.electric span {
   font-weight: bold;
 }
 
+.downloads blockquote.electric {
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/electric.svg);
+  width: 90%;
+  font-size: 1.1vw;
+  font-style: italic;
+  padding: 10% 6% 30% 0%;
+}
+
+.downloads blockquote.electric .inner {
+  margin-left: 96px;
+  margin-right: 229px;
+}
+
+.downloads blockquote.electric-reverse {
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/electric.svg);
+  width: 90%;
+  font-size: 1.1vw;
+  font-style: italic;
+  padding: 10% 6% 30% 0%;
+  transform: rotateY(180deg);
+}
+
+.downloads blockquote.electric-reverse .inner {
+  margin-left: 96px;
+  margin-right: 229px;
+  transform: rotateY(180deg);
+}
+
+.downloads blockquote.electric span {
+  display: block;
+  font-size: 1.6vw;
+  font-weight: bold;
+}
+
+.downloads blockquote.electric-reverse span {
+  display: block;
+  font-size: 1.6vw;
+  font-weight: bold;
+}
+
 .swiper-container {
   width: 100%;
   height: 100%;
@@ -10126,8 +10195,12 @@ blockquote.electric span {
 }
 
 @media (min-width: 1024px) {
-  .masthead {
+  .home-layout .masthead {
     padding-top: calc(6rem + 16px);
+    padding-bottom: 6rem;
+  }
+  .masthead {
+    padding-top: calc(13rem + 16px);
     padding-bottom: 6rem;
   }
   .swiper-slide {

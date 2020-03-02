@@ -19,6 +19,6 @@ class Home extends BaseController
             get_current_year($year),
             null,
             true
-        )->with('instagramPictures', app(Instagram::class)->getImagesUrl(8));
+        )->with('instagramPictures', app(Instagram::class)->getImagesUrl(12));
     }
 }

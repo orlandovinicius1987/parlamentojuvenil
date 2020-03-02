@@ -100,6 +100,7 @@
 
 </section>
 
+{{--
 
 
 <section>
@@ -138,4 +139,4 @@
     <div class="panel">
         <p class="text bottom-right">THE END</p>
     </div>
-</article>
+</article>--}}
