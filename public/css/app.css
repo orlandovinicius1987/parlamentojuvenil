@@ -4,6 +4,7 @@
  * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
+@import url("https://fonts.googleapis.com/css?family=Kalam:300,400,700&display=swap");
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
@@ -9664,6 +9665,16 @@ a.text-dark:hover, a.text-dark:focus {
 
 body {
   background: #ffc400 !important;
+  font-family: 'Kalam', cursive;
+  font-size: 1rem;
+}
+
+a {
+  color: #000000;
+}
+
+a:hover {
+  text-decoration: none;
 }
 
 h2 {
@@ -9897,6 +9908,15 @@ h2 {
     orphans: 1;
     widows: 1;
   }
+}
+
+h3 {
+  font-family: 'Bangers', cursive;
+  font-size: 4em;
+  /* font-family: 'Luckiest Guy'; */
+  color: #fff;
+  text-shadow: 0 0.1em 10px black, 0.05em -0.03em 0 black, 0.05em 0.005em 0 black, 0em 0.08em 0 black, 0.05em 0.08em 0 black, 0px -0.03em 0 black, -0.03em -0.03em 0 black, -0.03em 0.08em 0 black, -0.03em 0 0 black;
+  /*padding-bottom: 100px;*/
 }
 
 .header-bg {
@@ -10196,7 +10216,7 @@ blockquote.electric span {
 
 @media (min-width: 1024px) {
   .home-layout .masthead {
-    padding-top: calc(6rem + 16px);
+    padding-top: 0;
     padding-bottom: 6rem;
   }
   .masthead {
