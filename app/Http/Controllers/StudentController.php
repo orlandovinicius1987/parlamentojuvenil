@@ -13,8 +13,10 @@ class StudentController extends Controller
 {
     protected $socialUserService;
 
-    public function __construct(Data $dataRepository, SocialUserService $socialUserService)
-    {
+    public function __construct(
+        Data $dataRepository,
+        SocialUserService $socialUserService
+    ) {
         parent::__construct($dataRepository);
 
         $this->socialUserService = $socialUserService;
@@ -22,12 +24,16 @@ class StudentController extends Controller
 
     protected function findSeeducStudentByRegistrationAndBirth($data)
     {
-        return Seeduc::where('matricula', $data['registration'])->where('nascimento', $data['birthdate'])->first();
+        return Seeduc::where('matricula', $data['registration'])
+            ->where('nascimento', $data['birthdate'])
+            ->first();
     }
 
     protected function findStudentByRegistrationAndBirth($data)
     {
-        return Student::where('registration', $data['registration'])->where('birthdate', $data['birthdate'])->first();
+        return Student::where('registration', $data['registration'])
+            ->where('birthdate', $data['birthdate'])
+            ->first();
     }
 
     /**
@@ -36,25 +42,31 @@ class StudentController extends Controller
     protected function getUserData()
     {
         return [
-            "registration" => Input::get('registration'),
-            "birthdate" => string_to_date(Input::get('birthdate')),
+            'registration' => Input::get('registration'),
+            'birthdate' => string_to_date(Input::get('birthdate'))
         ];
     }
 
     protected function getUserEmail($user)
     {
         return strpos($user->email, config('app.domain')) == false
-                ? $user->email
-                : ''
-        ;
+            ? $user->email
+            : '';
     }
 
     public function login(LoginSeeducUser $request)
     {
         $userData = $this->getUserData();
 
-        if (! $student = $this->findStudentBySeeduc($userData, loggedUser()->user)) {
-            return redirect()->back()->withErrors(Subscriptions::MATRICULA_E_DATA_DE_NASCIMENTO);
+        if (
+            !($student = $this->findStudentBySeeduc(
+                $userData,
+                loggedUser()->user
+            ))
+        ) {
+            return redirect()
+                ->back()
+                ->withErrors(Subscriptions::MATRICULA_E_DATA_DE_NASCIMENTO);
         }
 
         $this->socialUserService->loginSocialUser($student);
@@ -64,8 +76,16 @@ class StudentController extends Controller
 
     public function findStudentBySeeduc($data, $user = null)
     {
-        if (is_null($student = $this->findStudentByRegistrationAndBirth($data))) {
-            if (is_null($seeduc = $this->findSeeducStudentByRegistrationAndBirth($data))) {
+        if (
+            is_null($student = $this->findStudentByRegistrationAndBirth($data))
+        ) {
+            if (
+                is_null(
+                    $seeduc = $this->findSeeducStudentByRegistrationAndBirth(
+                        $data
+                    )
+                )
+            ) {
                 return null;
             }
 
@@ -76,7 +96,7 @@ class StudentController extends Controller
                 'school' => $seeduc->escola,
                 'city' => $seeduc->municipio,
                 'regional' => $seeduc->regional,
-                'email' => $user ? $this->getUserEmail($user) : null,
+                'email' => $user ? $this->getUserEmail($user) : null
             ]);
         }
 
@@ -85,11 +105,14 @@ class StudentController extends Controller
 
     public function identify()
     {
-        return view(get_current_year().'.partials.subscribe-form-register-and-birthdate');
+        return view(
+            get_current_year() .
+                '.partials.subscribe-form-register-and-birthdate'
+        );
     }
 
     public function wrongAge()
     {
-        return view(config('app.year').'.students.wrong-age');
+        return view(config('app.year') . '.students.wrong-age');
     }
 }

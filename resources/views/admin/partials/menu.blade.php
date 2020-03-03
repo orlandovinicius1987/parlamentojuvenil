@@ -72,14 +72,14 @@
                 <li active="{{ request()->is('admin/users') ? 'active' : '' }}">
                     <a href="{{ route('admin.users') }}"><i class="fa fa-user fa-fw"></i> Usuários</a>
                 </li>
+{{--                --}}
+{{--                <li active="{{ request()->is('admin/contest') ? 'active' : '' }}">--}}
+{{--                    <a href="{{ route('admin.contest') }}"><i class="fa fa-user fa-fw"></i> Concurso (inscritos)</a>--}}
+{{--                </li>--}}
 
-                <li active="{{ request()->is('admin/contest') ? 'active' : '' }}">
-                    <a href="{{ route('admin.contest') }}"><i class="fa fa-user fa-fw"></i> Concurso (inscritos)</a>
-                </li>
-
-                <li active="{{ request()->is('admin/contest/votes') ? 'active' : '' }}">
-                    <a href="{{ route('admin.contest-votes') }}"><i class="fa fa-user fa-fw"></i> Concurso (votação)</a>
-                </li>
+{{--                <li active="{{ request()->is('admin/contest/votes') ? 'active' : '' }}">--}}
+{{--                    <a href="{{ route('admin.contest-votes') }}"><i class="fa fa-user fa-fw"></i> Concurso (votação)</a>--}}
+{{--                </li>--}}
             </ul>
         </div>
         <!-- /.sidebar-collapse -->

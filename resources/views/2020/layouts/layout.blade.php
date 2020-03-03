@@ -88,7 +88,6 @@
                 <div class="edicao2020 text-center"> EDIÇÃO 2020 </div>
             </div>
         </div>
-
     </nav>
 
         <div class="masthead">
