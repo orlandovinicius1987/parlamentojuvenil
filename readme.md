@@ -15,9 +15,32 @@ ORDER BY hora desc
 ```
 
 ### Comandos para popular o banco de dados vazio para testes
+
 ```
 php artisan migrate
 php artisan db:seed
 php artisan pj:seeduc:test-data
 php artisan pj:populate-cities
 ```
+
+### Importar a base de dados do Seeduc
+O arquivo deve estar em .csv UTF-8 e delimitado por ';' com as colunas:
+
+#### Colunas do arquivo (devem estar na ordem)
+```
+ESCOLA
+MUNICIPIO
+REGIONAL
+NOME
+MATRICULA
+NASCIMENTO (formato Y-m-d H:i:s.u)
+```
+
+#### Comandos
+```
+php artisan pj:seeduc <path_to_csv_file>
+php artisan pj:seeduc:test-data
+```
+
+#### Exemplo de arquivo
+`parlamentojuvenil/storage/exemploSeeduc.csv`
