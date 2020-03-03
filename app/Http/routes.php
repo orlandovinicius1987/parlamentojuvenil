@@ -24,31 +24,31 @@ Route::group(['prefix' => '/auth'], function () {
 
     Route::get('/login/email', [
         'as' => 'auth.login.email',
-        'uses' => 'EmailAuth@index',
+        'uses' => 'EmailAuth@index'
     ]);
     Route::post('/login/email', [
         'as' => 'auth.login.email.post',
-        'uses' => 'EmailAuth@post',
+        'uses' => 'EmailAuth@post'
     ]);
     Route::post('/login/email/register', [
         'as' => 'auth.login.email.register',
-        'uses' => 'EmailAuth@register',
+        'uses' => 'EmailAuth@register'
     ]);
     Route::get('/login/email/student', [
         'as' => 'auth.login.email.student',
-        'uses' => 'EmailAuth@student',
+        'uses' => 'EmailAuth@student'
     ]);
     Route::get('/login/email/password', [
         'as' => 'auth.login.email.password',
-        'uses' => 'EmailAuth@password',
+        'uses' => 'EmailAuth@password'
     ]);
     Route::post('/login/email/password', [
         'as' => 'auth.login.email.password',
-        'uses' => 'EmailAuth@resetPassword',
+        'uses' => 'EmailAuth@resetPassword'
     ]);
     Route::get('/student/identify', [
         'as' => 'student.identify',
-        'uses' => 'StudentController@identify',
+        'uses' => 'StudentController@identify'
     ]);
 
     /*
@@ -57,12 +57,12 @@ Route::group(['prefix' => '/auth'], function () {
     Route::group(['prefix' => 'social'], function () {
         Route::get('/login/{socialNetwork}', [
             'as' => 'auth.social.redirect',
-            'uses' => 'SocialAuthController@login',
+            'uses' => 'SocialAuthController@login'
         ]);
 
         Route::get('/login/{socialNetwork}/callback', [
             'as' => 'auth.social.callback',
-            'uses' => 'SocialAuthController@socialNetworkCallback',
+            'uses' => 'SocialAuthController@socialNetworkCallback'
         ]);
     });
 
@@ -72,11 +72,11 @@ Route::group(['prefix' => '/auth'], function () {
     Route::group(['prefix' => 'student'], function () {
         Route::post('/login', [
             'as' => 'auth.student.login',
-            'uses' => 'StudentController@login',
+            'uses' => 'StudentController@login'
         ]);
         Route::get('/wrongAge', [
             'as' => 'auth.student.wrong-age',
-            'uses' => 'StudentController@wrongAge',
+            'uses' => 'StudentController@wrongAge'
         ]);
     });
 });
@@ -89,13 +89,13 @@ Route::group(
             'auth',
             'student-login',
             'check-student-age',
-            'cannot-re-subscribe',
-        ],
+            'cannot-re-subscribe'
+        ]
     ],
     function () {
         Route::get('/', [
             'as' => 'subscribe.index',
-            'uses' => 'Subscriptions@index',
+            'uses' => 'Subscriptions@index'
         ]);
     }
 );
@@ -107,19 +107,19 @@ Route::group(['prefix' => '/vote'], function () {
             Route::get('/', ['as' => 'vote.index', 'uses' => 'Vote@index']);
             Route::get('/in/{subscription_id}', [
                 'as' => 'vote.in',
-                'uses' => 'Vote@voteIn',
+                'uses' => 'Vote@voteIn'
             ]);
             Route::get('/confirm/{subscription_id}', [
                 'as' => 'vote.confirm',
-                'uses' => 'Vote@confirm',
+                'uses' => 'Vote@confirm'
             ]);
             Route::get('/error', [
                 'as' => 'vote.error',
-                'uses' => 'Vote@error',
+                'uses' => 'Vote@error'
             ]);
             Route::get('/delete/my/votes', [
                 'as' => 'vote.delete',
-                'uses' => 'Vote@deleteMyVotes',
+                'uses' => 'Vote@deleteMyVotes'
             ]);
         }
     );
@@ -134,23 +134,23 @@ Route::group(
             'flag-contest-subscribing',
             'auth',
             'student-login',
-            'flag-contest-cannot-re-subscribe',
-        ],
+            'flag-contest-cannot-re-subscribe'
+        ]
     ],
     function () {
         Route::get('/', [
             'as' => 'flag-contest.subscribe.index',
-            'uses' => 'FlagContest@subscribe',
+            'uses' => 'FlagContest@subscribe'
         ]);
 
         Route::post('/', [
             'as' => 'flag-contest.subscribe.post',
-            'uses' => 'FlagContest@post',
+            'uses' => 'FlagContest@post'
         ]);
 
         Route::get('/confirm/email/{confirmation_key}/{email}', [
             'as' => 'flag-contest.confirm.email',
-            'uses' => 'FlagContest@confirmEmail',
+            'uses' => 'FlagContest@confirmEmail'
         ]);
     }
 );
@@ -162,28 +162,28 @@ Route::group(
             'flag-contest-voting',
             'auth',
             'student-login',
-            'flag-contest-can-vote-only-once',
-        ],
+            'flag-contest-can-vote-only-once'
+        ]
     ],
     function () {
         Route::get('/', [
             'as' => 'flag-contest.vote.index',
-            'uses' => 'FlagContest@vote',
+            'uses' => 'FlagContest@vote'
         ]);
 
         Route::get('/select/{flag_id}', [
             'as' => 'flag-contest.vote.select',
-            'uses' => 'FlagContest@select',
+            'uses' => 'FlagContest@select'
         ]);
 
         Route::get('/confirm', [
             'as' => 'flag-contest.vote.confirm',
-            'uses' => 'FlagContest@confirm',
+            'uses' => 'FlagContest@confirm'
         ]);
 
         Route::get('/cast', [
             'as' => 'flag-contest.vote.cast',
-            'uses' => 'FlagContest@cast',
+            'uses' => 'FlagContest@cast'
         ]);
     }
 );
@@ -191,14 +191,14 @@ Route::group(
 Route::group(['prefix' => '/flag-contest/vote'], function () {
     Route::get('/show/{registration}', [
         'as' => 'flag-contest.vote.show-vote',
-        'uses' => 'FlagContest@showVote',
+        'uses' => 'FlagContest@showVote'
     ]);
 });
 
 Route::group(['prefix' => '/vote'], function () {
     Route::get('/elected/round/{round}', [
         'as' => 'vote.elected',
-        'uses' => 'Vote@elected',
+        'uses' => 'Vote@elected'
     ]);
 });
 
@@ -227,7 +227,7 @@ Route::get('schools/{city}', [
     'middleware' => 'cors',
     function ($city) {
         return School::allByName($city);
-    },
+    }
 ]);
 
 Route::get('download/{file}', [
@@ -242,7 +242,7 @@ Route::get('download/{file}', [
             DIRECTORY_SEPARATOR;
 
         return response()->download(public_path($path) . $file);
-    },
+    }
 ]);
 
 Route::group(
@@ -252,54 +252,54 @@ Route::group(
             'as' => 'admin.home',
             'uses' => function () {
                 return redirect()->route('admin.subscriptions');
-            },
+            }
         ]);
 
         Route::get('/subscriptions', [
             'as' => 'admin.subscriptions',
-            'uses' => 'Admin@index',
+            'uses' => 'Admin@index'
         ]);
 
         Route::get('/schools', [
             'as' => 'admin.schools',
-            'uses' => 'Admin@schools',
+            'uses' => 'Admin@schools'
         ]);
 
         Route::get('/elected', [
             'as' => 'admin.elected',
-            'uses' => 'Admin@elected',
+            'uses' => 'Admin@elected'
         ]);
 
         Route::get('/seeduc', [
             'as' => 'admin.seeduc',
-            'uses' => 'Admin@seeduc',
+            'uses' => 'Admin@seeduc'
         ]);
 
         Route::get('/users', ['as' => 'admin.users', 'uses' => 'Admin@users']);
 
         Route::get('/votes/{subscription_id}', [
             'as' => 'admin.votes.student',
-            'uses' => 'Admin@votesPerStudent',
+            'uses' => 'Admin@votesPerStudent'
         ]);
 
         Route::get('/vote/statistics', [
             'as' => 'admin.vote.statistics',
-            'uses' => 'Admin@voteStatistics',
+            'uses' => 'Admin@voteStatistics'
         ]);
 
         Route::get('/training/{subscription}', [
             'as' => 'admin.training',
-            'uses' => 'Admin@training',
+            'uses' => 'Admin@training'
         ]);
 
         Route::get('/contest', [
             'as' => 'admin.contest',
-            'uses' => 'Admin@contest',
+            'uses' => 'Admin@contest'
         ]);
 
         Route::get('/contest/votes', [
             'as' => 'admin.contest-votes',
-            'uses' => 'Admin@contestVotes',
+            'uses' => 'Admin@contestVotes'
         ]);
 
         /// Must be last
@@ -309,44 +309,44 @@ Route::group(
 
 Route::get('subscriptions/schools', [
     'as' => 'subscriptions.schools',
-    'uses' => 'Subscriptions@bySchool',
+    'uses' => 'Subscriptions@bySchool'
 ]);
 
 Route::get('subscriptions/students', [
     'as' => 'subscriptions.students',
-    'uses' => 'Subscriptions@byStudent',
+    'uses' => 'Subscriptions@byStudent'
 ]);
 
 Route::group(['middleware' => 'check-student-age'], function () {
     Route::post('subscriptions', [
         'as' => 'subscriptions.store',
-        'uses' => 'Subscriptions@store',
+        'uses' => 'Subscriptions@store'
     ]);
 });
 
 Route::post('subscriptions/start', [
     'as' => 'subscriptions.start',
-    'uses' => 'Subscriptions@start',
+    'uses' => 'Subscriptions@start'
 ]);
 
 Route::get('subscriptions/download', [
     'as' => 'subscriptions.download',
-    'uses' => 'Subscriptions@download',
+    'uses' => 'Subscriptions@download'
 ]);
 
 Route::get('subscriptions/ignore/{id}', [
     'as' => 'subscriptions.ignore',
-    'uses' => 'Subscriptions@ignore',
+    'uses' => 'Subscriptions@ignore'
 ]);
 
 Route::get('subscriptions/edit/{id}', [
     'as' => 'subscriptions.edit',
-    'uses' => 'Subscriptions@edit',
+    'uses' => 'Subscriptions@edit'
 ]);
 
 Route::post('subscriptions/edit/{id}', [
     'as' => 'subscriptions.edit',
-    'uses' => 'Subscriptions@update',
+    'uses' => 'Subscriptions@update'
 ]);
 
 Route::group(
@@ -356,13 +356,13 @@ Route::group(
             'subscribing',
             'auth',
             'student-login',
-            'check-student-age',
-        ],
+            'check-student-age'
+        ]
     ],
     function () {
         Route::get('/', [
             'as' => 'subscriptions.index',
-            'uses' => 'Subscriptions@index',
+            'uses' => 'Subscriptions@index'
         ]);
     }
 );
@@ -370,63 +370,63 @@ Route::group(
 Route::group(['prefix' => 'api/v1'], function () {
     Route::get('timeline/{year}', [
         'as' => 'api.timeline',
-        'uses' => 'Api@getTimeline',
+        'uses' => 'Api@getTimeline'
     ]);
 
     Route::get('congressmen/{year}', [
         'as' => 'api.congressmen',
-        'uses' => 'Api@getCongressmen',
+        'uses' => 'Api@getCongressmen'
     ]);
 
     Route::get('subscriptions', [
         'as' => 'subscriptions',
-        'uses' => 'Subscriptions@byState',
+        'uses' => 'Subscriptions@byState'
     ]);
 
     Route::get('search/seeduc', [
         'as' => 'api.search.seeduc',
-        'uses' => 'ApiSearch@seeduc',
+        'uses' => 'ApiSearch@seeduc'
     ]);
 
     Route::get('search/contest', [
         'as' => 'api.search.contest',
-        'uses' => 'ApiSearch@contest',
+        'uses' => 'ApiSearch@contest'
     ]);
 
     Route::get('search/contest/votes', [
         'as' => 'api.search.contest.votes',
-        'uses' => 'ApiSearch@contestVotes',
+        'uses' => 'ApiSearch@contestVotes'
     ]);
 
     Route::get('search/users', [
         'as' => 'api.search.users',
-        'uses' => 'ApiSearch@users',
+        'uses' => 'ApiSearch@users'
     ]);
 
     Route::get('elected/{year?}', [
         'as' => 'api.elected',
-        'uses' => 'Api@getElected',
+        'uses' => 'Api@getElected'
     ]);
 
     Route::get('vote/statistics/{year?}', [
         'as' => 'api.vote.statistics',
-        'uses' => 'Api@getVoteStatistics',
+        'uses' => 'Api@getVoteStatistics'
     ]);
 
     Route::post('validate/{type}', [
         'as' => 'api.validate',
-        'uses' => 'Api@validateType',
+        'uses' => 'Api@validateType'
     ]);
 
     Route::post('seeduc/upload', [
         'as' => 'api.seeduc.upload',
-        'uses' => 'Api@seeducUpload',
+        'uses' => 'Api@seeducUpload'
     ]);
 });
 
 Route::get('article/{id}', [
     'as' => 'article.show',
-    'uses' => 'News@showArticle',
+    'uses' => 'News@showArticle'
 ]);
 
 Route::group(
@@ -441,57 +441,57 @@ Route::group(
                 'student-login',
                 'must-be-congressman',
              */
-        ],
+        ]
     ],
     function () {
         Route::get('/', ['as' => 'training.index', 'uses' => 'Training@index']);
         Route::post('/', [
             'as' => 'training.login',
-            'uses' => 'Training@login',
+            'uses' => 'Training@login'
         ]);
         Route::get('/content', [
             'as' => 'training.content',
-            'uses' => 'Training@content',
+            'uses' => 'Training@content'
         ]);
         Route::get('/watch/{video}', [
             'as' => 'training.watch',
-            'uses' => 'Training@watch',
+            'uses' => 'Training@watch'
         ]);
         Route::get('/download/{document}', [
             'as' => 'training.download',
-            'uses' => 'Training@download',
+            'uses' => 'Training@download'
         ]);
         Route::get('/logout', [
             'as' => 'training.download',
-            'uses' => 'Training@logout',
+            'uses' => 'Training@logout'
         ]);
 
         Route::group(
             [
                 'prefix' => '/quiz',
-                'middleware' => ['training', 'auth', 'student-login'],
+                'middleware' => ['training', 'auth', 'student-login']
             ],
             function () {
                 Route::get('/', ['as' => 'quiz.index', 'uses' => 'Quiz@index']);
                 Route::get('/{id}/questions', [
                     'as' => 'quiz.questions',
-                    'uses' => 'Quiz@questions',
+                    'uses' => 'Quiz@questions'
                 ]);
                 Route::get('/{id}/answer/{number}/{answer}', [
                     'as' => 'quiz.answer',
-                    'uses' => 'Quiz@answer',
+                    'uses' => 'Quiz@answer'
                 ]);
                 Route::post('/answers/', [
                     'as' => 'quiz.answers',
-                    'uses' => 'Quiz@answers',
+                    'uses' => 'Quiz@answers'
                 ]);
                 Route::get('/result', [
                     'as' => 'quiz.result',
-                    'uses' => 'Quiz@result',
+                    'uses' => 'Quiz@result'
                 ]);
                 Route::get('/result/{id}', [
                     'as' => 'quiz.result',
-                    'uses' => 'Quiz@result',
+                    'uses' => 'Quiz@result'
                 ]);
             }
         );
@@ -505,25 +505,25 @@ Route::get('{year}', ['as' => 'edition', 'uses' => 'Pages@edition'])->where(
 
 Route::get('{year}/gallery', [
     'as' => 'page.gallery',
-    'uses' => 'Pages@gallery',
+    'uses' => 'Pages@gallery'
 ]);
 Route::get('{year}/news', ['as' => 'page.news', 'uses' => 'Pages@news']);
 
 Route::get('{year}/members', [
     'as' => 'page.members',
-    'uses' => 'Pages@members',
+    'uses' => 'Pages@members'
 ]);
 Route::get('{year}/clipping', [
     'as' => 'page.clipping',
-    'uses' => 'Pages@clipping',
+    'uses' => 'Pages@clipping'
 ]);
 
 Route::get('/fillregional', [
     'as' => 'fillregional',
-    'uses' => 'Subscriptions@fillRegional',
+    'uses' => 'Subscriptions@fillRegional'
 ]);
 
 Route::get('/must-be-congressman', [
     'as' => 'must.be.congressman',
-    'uses' => 'Auth@mustBeCongressman',
+    'uses' => 'Auth@mustBeCongressman'
 ]);

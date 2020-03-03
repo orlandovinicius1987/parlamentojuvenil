@@ -1,10 +1,6 @@
 @extends( get_current_year().'.layouts.layout')
 
 @section('contents')
-    {{--@include('2016.partials.header-fixed')--}}
-
-
-
 
     <section id="subscribe" class="fundo-inscricao">
         <div class="row">
