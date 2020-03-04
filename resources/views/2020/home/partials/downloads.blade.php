@@ -10,11 +10,15 @@
                     <ul>
                         <li class="you">
                             <a class="user" href="#"><img alt="" src="https://s3.amazonaws.com/uifaces/faces/twitter/igorgarybaldi/128.jpg" /></a>
-                            <div class="message">
-                                <p>
-                                    Regulamento
-                                </p>
-                            </div>
+
+
+                            <blockquote class="electric-reverse bubble">
+                                <div class="inner">
+                                    <p>Regulamento</p>
+                                </div>
+                            </blockquote>
+
+
                         </li>
                         <li class="you">
                             <a class="user" href="#"><img alt="" src="https://s3.amazonaws.com/uifaces/faces/twitter/toffeenutdesign/128.jpg" /></a>
