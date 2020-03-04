@@ -13,12 +13,12 @@ class Service
     protected $command;
 
     protected $fields = [
-        'escola' ,
-        'municipio' ,
-        'regional' ,
-        'nome' ,
-        'matricula' ,
-        'nascimento' ,
+        'escola',
+        'municipio',
+        'regional',
+        'nome',
+        'matricula',
+        'nascimento'
     ];
 
     public function __construct($command = null)
@@ -41,10 +41,10 @@ class Service
 
     public function import($file = null, $dontTruncate = true)
     {
-        ini_set("auto_detect_line_endings", "1");
-        ini_set('max_execution_time', 3000);
+        ini_set('auto_detect_line_endings', '1');
+        ini_set('max_execution_time', 0);
 
-        DB::transaction(function() use ($file, $dontTruncate) {
+        DB::transaction(function () use ($file, $dontTruncate) {
             $reader = $this->read($file);
 
             if (!$dontTruncate) {
@@ -62,18 +62,28 @@ class Service
                     continue;
                 }
 
-                $line = implode(';', $row);
+                $line = '';
+                collect($row)->each(function ($item) use (&$line) {
+                    $line .= $item . ';';
+                });
 
                 try {
-                    $model = Model::create([
-                        'escola' => $row[0],
-                        'municipio' => $row[1],
-                        'regional' => $row[2],
-                        'nome' => $row[3],
-                        'matricula' => $row[4],
-                        'nascimento' => $this->toDate($row[5]),
-                    ]);
+                    $model = Model::updateOrCreate(
+                        ['matricula' => $row[4]],
+                        [
+                            'escola' => $row[0],
+                            'municipio' => $row[1],
+                            'regional' => $row[2],
+                            'nome' => $row[3],
+                            'matricula' => $row[4],
+                            'nascimento' => $this->toDate(
+                                $row[5],
+                                'Y-m-d H:i:s.u'
+                            )
+                        ]
+                    );
                 } catch (\Exception $exception) {
+                    dump(class_basename($exception));
                     dump($exception->getMessage());
                     dump($line);
                     continue;
@@ -82,7 +92,7 @@ class Service
                 $counter++;
 
                 if ($counter < 5 or $counter % 1000 == 0) {
-                    $this->info($counter.' - '.$model->id.' -> '.$line);
+                    $this->info($counter . ' - ' . $model->id . ' -> ' . $line);
                 }
             }
         });
@@ -108,20 +118,21 @@ class Service
 
     private function read($fileName = null)
     {
-        $reader = Reader::createFromPath($fileName ?: database_path(env('SEEDUC_CSV_FILE')));
+        $reader = Reader::createFromPath(
+            $fileName ?: database_path(env('SEEDUC_CSV_FILE'))
+        );
 
         $reader->setDelimiter(';');
 
         return $reader;
     }
 
-    protected function toDate($date)
+    protected function toDate($date, $format = 'd/m/y')
     {
         try {
-            return Carbon::createFromFormat('d/m/y', $date);
-        } catch (\Exception $exception)
-        {
-            return Carbon::createFromFormat('d/m/Y', $date);
+            return Carbon::createFromFormat($format, $date)->toDateString();
+        } catch (\Exception $exception) {
+            return Carbon::createFromFormat($format, $date)->toDateString();
         }
     }
 }
