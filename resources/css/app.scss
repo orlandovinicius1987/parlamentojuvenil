@@ -1,0 +1,50 @@
+@import "swiper.css";
+@import "freelancer.min.css";
+
+//FONTS
+@import '../fonts/fonts.css';
+@import "fonts/helvetica-neue/style.css";
+@import "custom.css";
+@import "fonts/ballon/stylesheet.css";
+@import "fonts/antique-olive-compact/stylesheet.css";
+
+$fa-font-path:        "../webfonts";
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+@import "~@fortawesome/fontawesome-free/scss/brands";
+@import "~@fortawesome/fontawesome-free/scss/regular";
+
+
+@import "./node_modules/bootstrap/scss/bootstrap";
+
+
+// Custom
+@import "_custom";
+
+
+// Header
+@import "_header";
+
+
+// Splashs
+@import "_splashs";
+
+
+// Swipper
+@import "_swipper";
+
+
+
+// Comic
+@import "_comic";
+
+
+
+// Instagram
+@import "_instagram";
+
+
+
+// Footer
+@import "_footer";
+
