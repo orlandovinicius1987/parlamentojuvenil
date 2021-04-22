@@ -1,7 +1,10 @@
 ## Parlamento Juvenil da ALERJ
 
-### Comandos para popular o banco de dados vazio para testes
+### Passos para popular o banco de dados vazio para testes
 
+- Extrair os arquivos de https://alerj.sharepoint.com/:u:/s/arquivos/Ef6DjmXO0qVGtFkavSg5jUIBT_a28BiKVMB-P5C2_z4hqg?e=igg7ct na pasta `database/seeders`
+
+- Executar os comandos
 ```
 php artisan migrate
 php artisan db:seed
