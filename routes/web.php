@@ -225,7 +225,7 @@ Route::get('download/{file}', [
     },
 ])->name('download');
 
-Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'only-administrators']], function () {
+Route::group(['prefix' => 'pj-admin', 'middleware' => ['auth', 'only-administrators']], function () {
     Route::get('/', function () {
         return redirect()->route('admin.subscriptions');
     })->name('admin.home');
