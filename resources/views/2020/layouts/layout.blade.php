@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="en">
     <head>
-
         <!-- ************* MANTIDOS DO SITE ANTIGO ************* -->
         <meta charset="UTF-8">
         <title>Parlamento Juvenil {{ get_current_year() }}</title>
@@ -17,14 +16,12 @@
         <link rel="shortcut icon" href="/2020/img/favicon.ico">
         <link rel="stylesheet" href="{{ mix('css/app.css')}}">
 
-
         <script src="{{mix('js/app.js')}}" defer></script>
 
         <script>
             window.laravel = {year: '{{ get_current_year() }}'};
         </script>
         <!-- ********** FIM - MANTIDOS DO SITE ANTIGO ********** -->
-
     </head>
 
     <body class="noScroll" id="page-top">
@@ -58,11 +55,9 @@
     </nav>
 
         <div class="masthead">
-
             <div class="container">
                 @include('partials.errors')
             </div>
-
             @yield('contents')
         </div>
 
@@ -83,13 +78,11 @@
                                 <i class="fab fa-fw fa-instagram"></i>
                             </a>
                         </li>
-
                         <li class="list-inline-item">
                             <a class="btn btn-outline-light btn-social text-center rounded-circle" href="https://www.youtube.com/user/parlamentojuvenilrj">
                                 <i class="fab fa-fw fa-youtube"></i>
                             </a>
                         </li>
-
                     </ul>
                 </div>
 
@@ -97,7 +90,6 @@
                     {{--<h4 class="text-uppercase mb-4">Location</h4>--}}
                     <p class="lead mb-0">
                         @include('partials.phone')
-
                         <br>  <a href="mailto:@include('partials.email')">@include('partials.email')</a></p>
                 </div>
 

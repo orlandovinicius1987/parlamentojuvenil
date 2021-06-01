@@ -18,32 +18,26 @@ $fa-font-path:        "../webfonts";
 @import "./node_modules/bootstrap/scss/bootstrap";
 
 
+// import Swiper styles
+@import './node_modules/swiper/swiper-bundle';
+
 // Custom
 @import "_custom";
-
 
 // Header
 @import "_header";
 
-
 // Splashs
 @import "_splashs";
 
-
-// Swipper
+// Swipper Custom
 @import "_swipper";
-
-
 
 // Comic
 @import "_comic";
 
-
-
 // Instagram
 @import "_instagram";
-
-
 
 // Footer
 @import "_footer";

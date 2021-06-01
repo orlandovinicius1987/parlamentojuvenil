@@ -7,3 +7,6 @@ window.Vue = require('vue')
 
 require('./support/vue')
 require('./admin/all/vueSubscribe')
+
+
+require('./support/swiper')
