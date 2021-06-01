@@ -187,9 +187,7 @@ Route::group(['prefix' => '/', 'middleware' => ['auth']], function () {
     Route::get('/forget/me', [User::class, 'forgetMe'])->name('forget.me');
 });
 
-Route::get('news/sync', function (NewsSync $news) {
-    return $news->sync();
-});
+Route::module('news', ['except' => ['destroy']]);
 
 Route::get('cities', function () {
     return State::where('code', 'RJ')
@@ -225,44 +223,49 @@ Route::get('download/{file}', [
     },
 ])->name('download');
 
-Route::group(['prefix' => 'pj-admin', 'middleware' => ['auth', 'only-administrators']], function () {
-    Route::get('/', function () {
-        return redirect()->route('admin.subscriptions');
-    })->name('admin.home');
+Route::group(
+    ['prefix' => 'pj-admin', 'middleware' => ['auth', 'only-administrators']],
+    function () {
+        Route::get('/', function () {
+            return redirect()->route('admin.subscriptions');
+        })->name('admin.home');
 
-    Route::get('/subscriptions', [Admin::class, 'index'])->name('admin.subscriptions');
+        Route::get('/subscriptions', [Admin::class, 'index'])->name('admin.subscriptions');
 
-    Route::get('/schools', [Admin::class, 'schools'])->name('admin.schools');
+        Route::get('/schools', [Admin::class, 'schools'])->name('admin.schools');
 
-    Route::get('/elected', [Admin::class, 'elected'])->name('admin.elected');
+        Route::get('/elected', [Admin::class, 'elected'])->name('admin.elected');
 
-    Route::get('/seeduc', [Admin::class, 'seeduc'])->name('admin.seeduc');
+        Route::get('/seeduc', [Admin::class, 'seeduc'])->name('admin.seeduc');
 
-    Route::get('/users', [Admin::class, 'users'])->name('admin.users');
+        Route::get('/users', [Admin::class, 'users'])->name('admin.users');
 
-    Route::get('/votes/{subscription_id}', [Admin::class, 'votesPerStudent'])->name(
-        'admin.votes.student'
-    );
+        Route::get('/votes/{subscription_id}', [Admin::class, 'votesPerStudent'])->name(
+            'admin.votes.student'
+        );
 
-    Route::get('/vote/statistics', [Admin::class, 'voteStatistics'])->name('admin.vote.statistics');
+        Route::get('/vote/statistics', [Admin::class, 'voteStatistics'])->name(
+            'admin.vote.statistics'
+        );
 
-    Route::get('/training/{subscription}', [Admin::class, 'training'])->name('admin.training');
+        Route::get('/training/{subscription}', [Admin::class, 'training'])->name('admin.training');
 
-    Route::get('/contest', [Admin::class, 'contest'])->name('admin.contest');
+        Route::get('/contest', [Admin::class, 'contest'])->name('admin.contest');
 
-    Route::get('/contest/votes', [Admin::class, 'contestVotes'])->name('admin.contest-votes');
+        Route::get('/contest/votes', [Admin::class, 'contestVotes'])->name('admin.contest-votes');
 
-    /// Must be last
-    Route::get('/{city}', [Admin::class, 'city'])->name('admin.city');
+        /// Must be last
+        Route::get('/{city}', [Admin::class, 'city'])->name('admin.city');
 
-    Route::group(['prefix' => '/students'], function () {
-        Route::get('/{id}', [AdminStudents::class, 'show'])->name('students.show');
-    });
+        Route::group(['prefix' => '/students'], function () {
+            Route::get('/{id}', [AdminStudents::class, 'show'])->name('students.show');
+        });
 
-    Route::group(['prefix' => '/subscriptions'], function () {
-        Route::get('/{id}', [AdminSubscriptions::class, 'show'])->name('subscriptions.show');
-    });
-});
+        Route::group(['prefix' => '/subscriptions'], function () {
+            Route::get('/{id}', [AdminSubscriptions::class, 'show'])->name('subscriptions.show');
+        });
+    }
+);
 
 Route::get('subscriptions/schools', [Subscriptions::class, 'bySchool'])->name(
     'subscriptions.schools'
