@@ -6,13 +6,17 @@
     <li class="nav-item mx-0 mx-lg-1">
         <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/#sobre">Sobre</a>
     </li>
+
+    <li class="nav-item mx-0 mx-lg-1">
+        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{route('news.index')}}">Notícias</a>
+    </li>
+
     <li class="nav-item mx-0 mx-lg-1">
         <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/#como-funciona">Como funciona</a>
     </li>
     <li class="nav-item mx-0 mx-lg-1">
         <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/#quem-pode">Quem pode participar</a>
     </li>
-
 
     @if (subscriptions_enabled())
         <li class="nav-item mx-0 mx-lg-1">
