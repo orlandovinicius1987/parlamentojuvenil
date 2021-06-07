@@ -187,8 +187,6 @@ Route::group(['prefix' => '/', 'middleware' => ['auth']], function () {
     Route::get('/forget/me', [User::class, 'forgetMe'])->name('forget.me');
 });
 
-Route::module('news', ['except' => ['destroy']]);
-
 Route::get('cities', function () {
     return State::where('code', 'RJ')
         ->first()
@@ -333,7 +331,10 @@ Route::group(['prefix' => 'api/v1'], function () {
     Route::post('seeduc/upload', [Api::class, 'seeducUpload'])->name('api.seeduc.upload');
 });
 
-Route::get('article/{id}', [News::class, 'showArticle'])->name('article.show');
+Route::group(['prefix' => 'news'], function () {
+    Route::get('/', [News::class, 'index'])->name('news.index');
+    Route::get('/show/{id}', [News::class, 'show'])->name('news.show');
+});
 
 Route::group(
     [

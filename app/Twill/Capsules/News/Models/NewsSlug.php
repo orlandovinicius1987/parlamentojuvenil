@@ -6,5 +6,10 @@ use A17\Twill\Models\Model;
 
 class NewsSlug extends Model
 {
-    protected $table = "news_slugs";
+    protected $table = 'news_slugs';
+
+    //    public function news()
+    //    {
+    //        return $this->belongsTo(News::class);
+    //    }
 }

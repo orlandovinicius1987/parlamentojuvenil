@@ -14,20 +14,9 @@ class News extends Model implements Sortable
 {
     use HasSlug, HasMedias, HasFiles, HasRevisions, HasPosition;
 
-    protected $fillable = [
+    protected $fillable = ['published', 'title', 'subtitle', 'authors', 'lead', 'body', 'position'];
 
-        'published',
-        'title',
-        'subtitle',
-        'authors',
-        'lead',
-        'body',
-        'position',
-    ];
-
-    public $slugAttributes = [
-        'title',
-    ];
+    public $slugAttributes = ['title'];
 
     public $mediasParams = [
         'cover' => [
@@ -59,4 +48,9 @@ class News extends Model implements Sortable
             ],
         ],
     ];
+
+    public function getShowUrlAttribute()
+    {
+        return route('news.show', ['id' => $this->id]);
+    }
 }

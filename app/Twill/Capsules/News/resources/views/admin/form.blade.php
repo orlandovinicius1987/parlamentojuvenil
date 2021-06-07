@@ -1,7 +1,6 @@
 @extends('twill::layouts.form')
 
 @section('contentFields')
-
     @formField('input', [
     'name' => 'title',
     'label' => 'Title',
@@ -38,8 +37,6 @@
     [ 'indent' => '-1'], [ 'indent' => '+1' ] ],
     'editSource' => true,
     ])
-
-
 
 
     @formField('medias', [

@@ -1,7 +1,6 @@
 <?php
 
 return [
-
     /*
     |--------------------------------------------------------------------------
     | Application Locales
@@ -10,9 +9,7 @@ return [
     | Contains an array with the applications available locales.
     |
      */
-    'locales' => [
-        'en',
-    ],
+    'locales' => ['en'],
 
     /*
     |--------------------------------------------------------------------------
@@ -61,7 +58,7 @@ return [
     | locale. Note that 'use_fallback' must be enabled.
     |
      */
-    'use_property_fallback' => true,
+    'use_property_fallback' => false,
 
     /*
     |--------------------------------------------------------------------------

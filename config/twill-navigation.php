@@ -3,6 +3,6 @@
 return [
     'news' => [
         'title' => 'News',
-        'module' => true
-    ]
+        'module' => true,
+    ],
 ];
