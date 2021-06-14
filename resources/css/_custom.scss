@@ -1,33 +1,11 @@
-body {
-  background: #ffc400 !important;
-  font-family: 'Kalam', cursive;
-  font-size: 1rem;
-}
-
-a {
-  color: #000000;
-
-  &:hover {
-    text-decoration: none;
-  }
-}
-
-h2 {
-  font-family: 'Bangers', cursive;
-}
 
 .masthead{
   h2 {
-
     font-family: 'Bangers', cursive;
     font-size: 3em;
-
     @media (max-width: 767.98px) {
       font-size: 8vw;
-
     }
-
-
     /*font-family: 'Luckiest Guy';*/
     color: #fff;
     -webkit-font-smoothing: antialiased;
@@ -42,32 +20,9 @@ h2 {
 }
 
 
-
-
-
-
-.banner-001 {
-  background: url("/2020/img/fundo_banner_001.jpg") !important;
-  background-position: center !important; /* Center the image */
-  background-repeat: no-repeat !important; /* Do not repeat the image */
-  background-size: cover !important; /* Resize the background image to cover the entire container */
-}
-
-
-
-
-
 .quempode {
   background: #0388fe;
 }
-
-
-
-
-
-
-
-
 
 .container-fluid.instagram-images {
   padding: 0px;
@@ -76,9 +31,6 @@ h2 {
     padding: 0px;
   }
 }
-
-
-
 
 
 
@@ -383,18 +335,5 @@ h4 {
 
 
 }
-@media (min-width: 1024px) {
 
-  .home-layout {
-    .masthead {
-      padding-top: 0;
-      padding-bottom: 0;
-    }
-  }
-
-  .masthead {
-    padding-top: calc(11vw + 7px);
-    padding-bottom: 0;
-  }
-}
 

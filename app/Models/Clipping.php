@@ -450,6 +450,16 @@ mostrando a disposição dos jovens para mudar a realidade em que vivem',
                     'url' => '',
                 ],
             ],
+            2021 => [
+                [
+                    'id' => '',
+                    'title' => '',
+                    'lead' => '',
+                    'vehicle' => '',
+                    'file' => '',
+                    'url' => '',
+                ],
+            ],
         ];
     }
 
