@@ -21,29 +21,34 @@ class Instagram
     public function getImagesUrl($count = 0)
     {
         try {
-            return Cache::remember('instagramImagesUrl', 1200, function () use (
-                $count
-            ) {
+            return Cache::remember('instagramImagesUrl', 1200, function () use ($count) {
                 $cachePool = new FilesystemAdapter('instagram-feed', 0);
 
                 $api = new InstagramApi($cachePool);
 
-                $api->login(
-                    config('app.instagram.username'),
-                    config('app.instagram.secret')
-                );
+                $api->login(config('app.instagram.username'), config('app.instagram.secret'));
 
                 $profile = $api->getProfile(config('app.instagram.username'));
 
-                return collect($profile->getMedias())
-                    ->map(function ($item) {
-                        return $item->getDisplaySrc();
-                    })
-                    ->slice(0, $count);
+                return collect($profile->getMedias())->map(function ($item) {
+                    return $this->getBlobFromUrl($item->getDisplaySrc());
+                });
             });
         } catch (Exception $e) {
             info($e->getMessage());
             return collect([]);
         }
+    }
+
+    public function getBlobFromUrl($url)
+    {
+        $r = get_headers($url, 1);
+        if (isset($r['Content-Type'])) {
+            $imageData = base64_encode(file_get_contents($url));
+            $src = 'data: ' . $r['Content-Type'] . ';base64,' . $imageData;
+        } else {
+            $src = $url;
+        }
+        return $src;
     }
 }
