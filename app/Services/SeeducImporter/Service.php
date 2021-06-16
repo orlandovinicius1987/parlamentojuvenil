@@ -14,14 +14,7 @@ class Service
 {
     protected $command;
 
-    protected $fields = [
-        'escola',
-        'municipio',
-        'regional',
-        'nome',
-        'matricula',
-        'nascimento',
-    ];
+    protected $fields = ['escola', 'municipio', 'regional', 'nome', 'matricula', 'nascimento'];
 
     public function __construct($command = null)
     {
@@ -47,7 +40,7 @@ class Service
         ini_set('max_execution_time', 0);
 
         DB::transaction(function () use ($file, $dontTruncate) {
-            $reader = $this->read($file);
+            $reader = $this->read($file, ';');
 
             if (!$dontTruncate) {
                 DB::statement('delete from seeduc');
@@ -66,22 +59,19 @@ class Service
 
                 $line = '';
                 collect($row)->each(function ($item) use (&$line) {
-                    $line .= utf8_encode($item) . ';';
+                    $line .= $item . ';';
                 });
 
                 try {
                     $model = Model::updateOrCreate(
-                        ['matricula' => utf8_encode($row[4])],
+                        ['matricula' => $row[4]],
                         [
-                            'escola' => utf8_encode($row[0]),
-                            'municipio' => utf8_encode($row[1]),
-                            'regional' => utf8_encode($row[2]),
-                            'nome' => utf8_encode($row[3]),
-                            'matricula' => utf8_encode($row[4]),
-                            'nascimento' => $this->toDate(
-                                utf8_encode($row[5]),
-                                'Y-m-d H:i:s.u'
-                            ),
+                            'escola' => $row[0],
+                            'municipio' => $row[1],
+                            'regional' => $row[2],
+                            'nome' => $row[3],
+                            'matricula' => $row[4],
+                            'nascimento' => $this->toDate($row[5], 'Y-m-d H:i:s.u'),
                         ]
                     );
                 } catch (\Exception $exception) {
@@ -125,56 +115,45 @@ class Service
 
                 $line = '';
                 collect($row)->each(function ($item) use (&$line) {
-                    $line .= utf8_encode($item) . ';';
+                    $line .= $item . ';';
                 });
 
                 try {
-                    if (
-                        SchoolModel::where(
-                            'censo',
-                            utf8_encode($row[1])
-                        )->count() > 0
-                    ) {
+                    if (SchoolModel::where('censo', $row[1])->count() > 0) {
                         $model = SchoolModel::updateOrCreate(
-                            ['censo' => utf8_encode($row[1])],
+                            ['censo' => $row[1]],
                             [
-                                'address' => utf8_encode($row[2]),
-                                'number' => utf8_encode($row[3]),
-                                'complement' => utf8_encode($row[4]),
-                                'neighborhood' => utf8_encode($row[5]),
-                                'city' => utf8_encode($row[6]),
-                                'regional' => utf8_encode($row[8]),
-                                'zipcode' => utf8_encode($row[9]),
-                                'email' => utf8_encode($row[10]),
-                                'designation' => utf8_encode($row[11]),
-                                'city_id' => CityModel::where(
-                                    'name',
-                                    utf8_encode($row[6])
-                                )->first()->id,
+                                'address' => $row[2],
+                                'number' => $row[3],
+                                'complement' => $row[4],
+                                'neighborhood' => $row[5],
+                                'city' => $row[6],
+                                'regional' => $row[8],
+                                'zipcode' => $row[9],
+                                'email' => $row[10],
+                                'designation' => $row[11],
+                                'city_id' => CityModel::where('name', $row[6])->first()->id,
                                 'ua' => '',
                                 'phone' => '',
                             ]
                         );
                     } else {
                         $model = SchoolModel::updateOrCreate(
-                            ['censo' => utf8_encode($row[1])],
+                            ['censo' => $row[1]],
                             [
                                 'id' => SchoolModel::max('id') + 1,
-                                'name' => utf8_encode($row[0]),
-                                'censo' => utf8_encode($row[1]),
-                                'address' => utf8_encode($row[2]),
-                                'number' => utf8_encode($row[3]),
-                                'complement' => utf8_encode($row[4]),
-                                'neighborhood' => utf8_encode($row[5]),
-                                'city' => utf8_encode($row[6]),
-                                'regional' => utf8_encode($row[8]),
-                                'zipcode' => utf8_encode($row[9]),
-                                'email' => utf8_encode($row[10]),
-                                'designation' => utf8_encode($row[11]),
-                                'city_id' => CityModel::where(
-                                    'name',
-                                    utf8_encode($row[6])
-                                )->first()->id,
+                                'name' => $row[0],
+                                'censo' => $row[1],
+                                'address' => $row[2],
+                                'number' => $row[3],
+                                'complement' => $row[4],
+                                'neighborhood' => $row[5],
+                                'city' => $row[6],
+                                'regional' => $row[8],
+                                'zipcode' => $row[9],
+                                'email' => $row[10],
+                                'designation' => $row[11],
+                                'city_id' => CityModel::where('name', $row[6])->first()->id,
                                 'ua' => '',
                                 'phone' => '',
                             ]
@@ -216,9 +195,7 @@ class Service
 
     private function read($fileName = null, $delimiter = "\t")
     {
-        $reader = Reader::createFromPath(
-            $fileName ?: database_path(env('SEEDUC_CSV_FILE'))
-        );
+        $reader = Reader::createFromPath($fileName ?: database_path(env('SEEDUC_CSV_FILE')));
 
         $reader->setDelimiter($delimiter);
 
