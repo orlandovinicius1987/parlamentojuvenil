@@ -37,6 +37,10 @@ use App\Http\Controllers\Admin\Subscriptions as AdminSubscriptions;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
+Route::get('/como-funciona',[HomeController::class,'howItWorks'])->name('home.how-it-works');
+Route::get('/sobre',[HomeController::class,'about'])->name('home.about');
+Route::get('/mentoria',[HomeController::class,'coach'])->name('home.coach');
+
 
 //
 /*
