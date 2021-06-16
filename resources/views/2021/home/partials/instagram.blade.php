@@ -1,6 +1,6 @@
 <!-- INSTAGRAM Section -->
 <section class="instagram" id="instagram">
-    <div class="container pt-5">
+    <div class="container-fluid pt-5">
         <div class="row">
             <div class="col-12">
                 <h2 class="text-center mt-5 mb-5">Instagram</h2>
@@ -8,6 +8,9 @@
                     Siga o nosso perfil <br>
                     <a href="https://www.instagram.com/parlamentojuvenilrj/" target="_blank"> @parlamentojuvenilrj </a>
                 </h4>
+
+
+
                 <div class="card-columns">
                     @foreach($instagramPictures as $image)
                         <div class="card">
@@ -15,6 +18,9 @@
                         </div>
                     @endforeach
                 </div>
+
+
+
             </div>
         </div>
     </div>

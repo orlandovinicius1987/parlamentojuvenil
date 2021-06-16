@@ -36,6 +36,8 @@ use App\Http\Controllers\Admin\Subscriptions as AdminSubscriptions;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+
+
 //
 /*
  * Main route
@@ -112,6 +114,9 @@ Route::group(
     }
 );
 
+/*
+ * Votação
+ */
 Route::group(['prefix' => '/vote'], function () {
     Route::group(['middleware' => ['voting', 'auth', 'student-login']], function () {
         Route::get('/', [Vote::class, 'index'])->name('vote.index');
@@ -128,6 +133,9 @@ Route::group(['prefix' => '/vote'], function () {
     Route::get('/voted', [Vote::class, 'deleteMyVotes'])->name('vote.voted');
 });
 
+/*
+ * Inscrição
+ */
 Route::group(
     [
         'prefix' => '/flag-contest/subscribe',
